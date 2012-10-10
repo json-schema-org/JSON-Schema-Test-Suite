@@ -10,6 +10,11 @@
             },
             {
                 "description": "non-unique array of integers is invalid",
+                "data": [1, 1.0],
+                "valid": false
+            },
+            {
+                "description": "non-unique array of integers is invalid",
                 "data": [1, 1],
                 "valid": false
             },

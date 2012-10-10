@@ -18,6 +18,11 @@
                 "data": "foo",
                 "valid": false
             }
+            {
+                "description": "maxLength is for strings, not arrays" ,
+                "data": [1,2,3],
+                "valid": false
+            }
         ]
     }
 ]

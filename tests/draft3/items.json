@@ -11,8 +11,18 @@
                 "valid": true
             },
             {
+                "description": "valid items with extras",
+                "data": [ 1, 2, 3 ],
+                "valid": false
+            },
+            {
                 "description": "wrong type of items",
                 "data": [1, "x"],
+                "valid": false
+            }
+            {
+                "description": "wrong type for items",
+                "data": "foo",
                 "valid": false
             }
         ]
