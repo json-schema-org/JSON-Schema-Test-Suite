@@ -17,7 +17,10 @@
                 "description": "too long is invalid",
                 "data": [1, 2, 3],
                 "valid": false
-            }
+            },
+	    {	"description": "maxItem can't be applied to a has h" ,
+	    	"data": {"ga":"ba"}
+ 	    }
         ]
     }
 ]

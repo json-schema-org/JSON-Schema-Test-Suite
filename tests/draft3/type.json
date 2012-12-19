@@ -9,6 +9,11 @@
                 "valid": true
             },
             {
+                "description": "an integer with a . in it is an integer",
+                "data": 1.0,
+                "valid": false
+            },
+            {
                 "description": "a float is not an integer",
                 "data": 1.1,
                 "valid": false

@@ -1,3 +1,5 @@
+// I'd line to figure out a way to test
+// that implementations are doing correct rounding.
 [
     {
         "description": "maximum validation",
