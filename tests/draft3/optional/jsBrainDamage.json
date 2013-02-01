@@ -1,0 +1,14 @@
+[
+    {
+        "description": "brain damaged languages don't recognize floats as such",
+        "schema": {
+            "type": "integer"
+        },
+        "tests": [
+            {
+                "description": "a float is not an integer even without fractional part",
+                "data": 1.0,
+                "valid": false
+            }
+        }
+]
