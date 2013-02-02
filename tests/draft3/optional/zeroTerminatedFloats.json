@@ -1,6 +1,6 @@
 [
     {
-        "description": "brain damaged languages don't recognize floats as such",
+        "description": "some languages do not distinguish between different types of numeric value",
         "schema": {
             "type": "integer"
         },
