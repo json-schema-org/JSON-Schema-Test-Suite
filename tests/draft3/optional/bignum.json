@@ -9,5 +9,19 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "float comparison with high precision",
+        "schema": {
+            "maximum": 972783798187987123879878123.18878137,
+            "exclusiveMaximum": true
+        },
+        "tests": [
+            {
+                "description": "comparison works for high numbers",
+                "data": 972783798187987123879878123.188781371,
+                "valid": false
+            }
+        ]
     }
 ]
