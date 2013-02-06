@@ -1,0 +1,32 @@
+[
+    {
+        "description": "valid definition",
+        "schema": {
+            "definitions": {
+                "foo": {"type": "integer"}
+            }
+        },
+        "tests": [
+            {
+                "description": "valid definition schema",
+                "data": 1,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "invalid definition",
+        "schema": {
+            "definitions": {
+                "foo": {"type": 1}
+            }
+        },
+        "tests": [
+            {
+                "description": "invalid definition schema",
+                "data": 1,
+                "valid": false
+            }
+        ]
+    }
+]
