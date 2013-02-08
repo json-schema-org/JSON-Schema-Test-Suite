@@ -1,7 +1,7 @@
 [
     {
         "description": "maxProperties validation",
-        "schema": {"maxItems": 2},
+        "schema": {"maxProperties": 2},
         "tests": [
             {
                 "description": "shorter is valid",
