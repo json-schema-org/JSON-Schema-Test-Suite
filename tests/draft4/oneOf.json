@@ -38,7 +38,7 @@
         "description": "oneOf with base schema",
         "schema": {
             "type": "string",
-            "anyOf" : [
+            "oneOf" : [
                 {
                     "minLength": 2
                 },
