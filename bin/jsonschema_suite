@@ -129,6 +129,16 @@ class SanityTests(unittest.TestCase):
                 self.fail(str(error))
 
 
+schemas_to_serve = {
+    "integer.json": {"type": "integer"},
+    "subSchemas.json": {
+        "integer": {"type": "integer"},
+        "refToInteger": {"$ref": "#/integer"}
+    },
+    "folder/folderInteger.json": {"type": "integer"}
+}
+
+
 def main(arguments):
     if arguments.command == "check":
         suite = unittest.TestLoader().loadTestsFromTestCase(SanityTests)
@@ -141,6 +151,24 @@ def main(arguments):
             random.shuffle(selected_cases)
 
         json.dump(selected_cases, arguments.out, indent=4)
+    elif arguments.command == "routes":
+        json.dump(schemas_to_serve, sys.stdout)
+    elif arguments.command == "serve":
+        try:
+            from flask import Flask, jsonify
+        except ImportError:
+            logging.error("Flask is required to serve the test schemas.")
+            sys.exit(1)
+
+        app = Flask(__name__)
+
+        @app.route("/<path:path>")
+        def serve_path(path):
+            if path in schemas_to_serve:
+                return jsonify(schemas_to_serve[path])
+            return "Document does not exist.", 404
+
+        app.run(port=1234)
 
 
 parser = argparse.ArgumentParser(
@@ -167,6 +195,12 @@ flatten.add_argument(
     "out", help="the output file to write to", type=argparse.FileType("w"),
 )
 
+routes = subparsers.add_parser("routes", help="Output the routes and schemas "
+                                              "served for remote ref tests.")
+
+serve = subparsers.add_parser("serve",
+                              help="Start a webserver to serve schemas used "
+                                   "by remote ref tests.")
 
 if __name__ == "__main__":
     main(parser.parse_args())
