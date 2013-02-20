@@ -152,7 +152,7 @@ def main(arguments):
 
         json.dump(selected_cases, arguments.out, indent=4)
     elif arguments.command == "routes":
-        json.dump(schemas_to_serve, sys.stdout)
+        json.dump(schemas_to_serve, sys.stdout, indent=4, sort_keys=True)
     elif arguments.command == "serve":
         try:
             from flask import Flask, jsonify
