@@ -3,20 +3,18 @@ import argparse
 import errno
 import fnmatch
 import json
-import logging
 import os
 import random
 import shutil
 import sys
 import unittest
+import warnings
 
 try:
     import jsonschema
 except ImportError:
     jsonschema = None
 
-
-logging.basicConfig(level=logging.INFO)
 
 ROOT_DIR = os.path.join(os.path.dirname(__file__), os.pardir)
 SUITE_ROOT_DIR = os.path.join(ROOT_DIR, "tests")
@@ -87,9 +85,9 @@ def collect(root_dir):
 class SanityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        logging.info("Looking for tests in %s", SUITE_ROOT_DIR)
+        print "Looking for tests in %s" % SUITE_ROOT_DIR
         cls.test_files = list(collect(SUITE_ROOT_DIR))
-        logging.info("Found %s test files", len(cls.test_files))
+        print "Found %s test files" % len(cls.test_files)
         assert cls.test_files, "Didn't find the test files!"
 
     def test_all_files_are_valid_json(self):
@@ -131,7 +129,7 @@ class SanityTests(unittest.TestCase):
                         self.fail("%s contains an invalid schema (%s)" %
                                   (case, error))
             else:
-                logging.warning("No schema validator for %s" % schema)
+                warnings.warn("No schema validator for %s" % schema)
 
     @unittest.skipIf(jsonschema is None, "Validation library not present!")
     def test_suites_are_valid(self):
@@ -168,7 +166,7 @@ def main(arguments):
             os.makedirs(arguments.out_dir)
         except OSError as e:
             if e.errno == errno.EEXIST:
-                logging.info("%r already exists. Aborting.", arguments.out_dir)
+                print "%r already exists. Aborting." % arguments.out_dir
                 sys.exit(1)
             raise
 
@@ -187,7 +185,7 @@ def main(arguments):
         try:
             from flask import Flask, jsonify
         except ImportError:
-            logging.error("Flask is required to serve the test schemas.")
+            print "Flask is required to serve the test schemas. Aborting."
             sys.exit(1)
 
         app = Flask(__name__)
