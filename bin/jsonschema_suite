@@ -162,11 +162,14 @@ def main(arguments):
     elif arguments.command == "remotes":
         json.dump(REMOTES, sys.stdout, indent=4, sort_keys=True)
     elif arguments.command == "dump_remotes":
+        if arguments.update:
+            shutil.rmtree(arguments.out_dir, ignore_errors=True)
+
         try:
             os.makedirs(arguments.out_dir)
         except OSError as e:
             if e.errno == errno.EEXIST:
-                print "%r already exists. Aborting." % arguments.out_dir
+                print "%s already exists. Aborting." % arguments.out_dir
                 sys.exit(1)
             raise
 
@@ -230,6 +233,11 @@ remotes = subparsers.add_parser(
 
 dump_remotes = subparsers.add_parser(
     "dump_remotes", help="Dump the remote ref schemas into a file tree",
+)
+dump_remotes.add_argument(
+    "--update",
+    action="store_true",
+    help="Update the remotes in an existing directory.",
 )
 dump_remotes.add_argument(
     "--out-dir",
