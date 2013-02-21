@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import random
+import shutil
 import sys
 import unittest
 
@@ -16,7 +17,9 @@ except ImportError:
 
 logging.basicConfig(level=logging.INFO)
 
-SUITE_ROOT_DIR = os.path.join(os.path.dirname(__file__), os.pardir, "tests")
+ROOT_DIR = os.path.join(os.path.dirname(__file__), os.pardir)
+SUITE_ROOT_DIR = os.path.join(ROOT_DIR, "tests")
+REMOTES_DIR = os.path.join(ROOT_DIR, "remotes")
 TESTSUITE_SCHEMA = {
     "$schema": "http://json-schema.org/draft-03/schema#",
     "type": "array",
@@ -128,6 +131,12 @@ class SanityTests(unittest.TestCase):
             except jsonschema.ValidationError as error:
                 self.fail(str(error))
 
+    def test_remote_schemas_are_updated(self):
+        for url in schemas_to_serve:
+            filepath = os.path.join(REMOTES_DIR, url)
+            self.assertTrue(os.path.exists(filepath))
+            self.assertEqual(json.load(open(filepath)), schemas_to_serve[url])
+
 
 schemas_to_serve = {
     "integer.json": {"type": "integer"},
@@ -151,8 +160,18 @@ def main(arguments):
             random.shuffle(selected_cases)
 
         json.dump(selected_cases, arguments.out, indent=4)
-    elif arguments.command == "routes":
+    elif arguments.command == "remotes":
         json.dump(schemas_to_serve, sys.stdout, indent=4, sort_keys=True)
+    elif arguments.command == "update_remotes":
+        shutil.rmtree(REMOTES_DIR, ignore_errors=True)
+        os.makedirs(REMOTES_DIR)
+        for url in schemas_to_serve:
+            filepath = os.path.join(REMOTES_DIR, url)
+            if not os.path.exists(os.path.dirname(filepath)):
+                os.makedirs(os.path.dirname(filepath))
+            with open(filepath, "wb") as out_file:
+                out_file.write(json.dumps(schemas_to_serve[url],
+                                          indent=4, sort_keys=True))
     elif arguments.command == "serve":
         try:
             from flask import Flask, jsonify
@@ -195,8 +214,12 @@ flatten.add_argument(
     "out", help="the output file to write to", type=argparse.FileType("w"),
 )
 
-routes = subparsers.add_parser("routes", help="Output the routes and schemas "
-                                              "served for remote ref tests.")
+routes = subparsers.add_parser("remotes", help="Output the routes and schemas "
+                                               "served for remote ref tests.")
+
+write_remotes = subparsers.add_parser(
+    "update_remotes", help="Update the 'remotes' directory with current "
+                          "schemas for remote ref tests.")
 
 serve = subparsers.add_parser("serve",
                               help="Start a webserver to serve schemas used "
