@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 import argparse
+import errno
 import fnmatch
 import json
 import logging
@@ -19,7 +20,17 @@ logging.basicConfig(level=logging.INFO)
 
 ROOT_DIR = os.path.join(os.path.dirname(__file__), os.pardir)
 SUITE_ROOT_DIR = os.path.join(ROOT_DIR, "tests")
+
+REMOTES = {
+    "integer.json": {"type": "integer"},
+    "subSchemas.json": {
+        "integer": {"type": "integer"},
+        "refToInteger": {"$ref": "#/integer"},
+    },
+    "folder/folderInteger.json": {"type": "integer"}
+}
 REMOTES_DIR = os.path.join(ROOT_DIR, "remotes")
+
 TESTSUITE_SCHEMA = {
     "$schema": "http://json-schema.org/draft-03/schema#",
     "type": "array",
@@ -132,20 +143,10 @@ class SanityTests(unittest.TestCase):
                 self.fail(str(error))
 
     def test_remote_schemas_are_updated(self):
-        for url in schemas_to_serve:
+        for url, schema in REMOTES.iteritems():
             filepath = os.path.join(REMOTES_DIR, url)
-            self.assertTrue(os.path.exists(filepath))
-            self.assertEqual(json.load(open(filepath)), schemas_to_serve[url])
-
-
-schemas_to_serve = {
-    "integer.json": {"type": "integer"},
-    "subSchemas.json": {
-        "integer": {"type": "integer"},
-        "refToInteger": {"$ref": "#/integer"}
-    },
-    "folder/folderInteger.json": {"type": "integer"}
-}
+            with open(filepath) as schema_file:
+                self.assertEqual(json.load(schema_file), schema)
 
 
 def main(arguments):
@@ -161,17 +162,27 @@ def main(arguments):
 
         json.dump(selected_cases, arguments.out, indent=4)
     elif arguments.command == "remotes":
-        json.dump(schemas_to_serve, sys.stdout, indent=4, sort_keys=True)
-    elif arguments.command == "update_remotes":
-        shutil.rmtree(REMOTES_DIR, ignore_errors=True)
-        os.makedirs(REMOTES_DIR)
-        for url in schemas_to_serve:
-            filepath = os.path.join(REMOTES_DIR, url)
-            if not os.path.exists(os.path.dirname(filepath)):
+        json.dump(REMOTES, sys.stdout, indent=4, sort_keys=True)
+    elif arguments.command == "dump_remotes":
+        try:
+            os.makedirs(arguments.out_dir)
+        except OSError as e:
+            if e.errno == errno.EEXIST:
+                logging.info("%r already exists. Aborting.", arguments.out_dir)
+                sys.exit(1)
+            raise
+
+        for url, schema in REMOTES.iteritems():
+            filepath = os.path.join(arguments.out_dir, url)
+
+            try:
                 os.makedirs(os.path.dirname(filepath))
+            except OSError as e:
+                if e.errno != errno.EEXIST:
+                    raise
+
             with open(filepath, "wb") as out_file:
-                out_file.write(json.dumps(schemas_to_serve[url],
-                                          indent=4, sort_keys=True))
+                json.dump(schema, out_file, indent=4, sort_keys=True)
     elif arguments.command == "serve":
         try:
             from flask import Flask, jsonify
@@ -199,31 +210,40 @@ check = subparsers.add_parser("check", help="Sanity check the test suite.")
 
 flatten = subparsers.add_parser(
     "flatten",
-    help="Output a flattened file containing the test cases and any "
-            "additionally specified optional test cases."
+    help="Output a flattened file containing a selected version's test cases."
 )
 flatten.add_argument(
     "--randomize",
     action="store_true",
-    help="randomize the order of the outputted cases",
+    help="Randomize the order of the outputted cases.",
 )
 flatten.add_argument(
-    "version", help="the directory containing the version to output",
+    "version", help="The directory containing the version to output",
 )
 flatten.add_argument(
-    "out", help="the output file to write to", type=argparse.FileType("w"),
+    "out", help="The output file to write to", type=argparse.FileType("w"),
 )
 
-routes = subparsers.add_parser("remotes", help="Output the routes and schemas "
-                                               "served for remote ref tests.")
+remotes = subparsers.add_parser(
+    "remotes",
+    help="Output the expected URLs and their associated schemas for remote "
+         "ref tests as a JSON object."
+)
 
-write_remotes = subparsers.add_parser(
-    "update_remotes", help="Update the 'remotes' directory with current "
-                          "schemas for remote ref tests.")
+dump_remotes = subparsers.add_parser(
+    "dump_remotes", help="Dump the remote ref schemas into a file tree",
+)
+dump_remotes.add_argument(
+    "--out-dir",
+    default=REMOTES_DIR,
+    type=os.path.abspath,
+    help="The output directory to create as the root of the file tree",
+)
 
-serve = subparsers.add_parser("serve",
-                              help="Start a webserver to serve schemas used "
-                                   "by remote ref tests.")
+serve = subparsers.add_parser(
+    "serve",
+    help="Start a webserver to serve schemas used by remote ref tests."
+)
 
 if __name__ == "__main__":
     main(parser.parse_args())
