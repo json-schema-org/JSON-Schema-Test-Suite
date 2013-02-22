@@ -220,8 +220,8 @@ def main(arguments):
 
         @app.route("/<path:path>")
         def serve_path(path):
-            if path in schemas_to_serve:
-                return jsonify(schemas_to_serve[path])
+            if path in REMOTES:
+                return jsonify(REMOTES[path])
             return "Document does not exist.", 404
 
         app.run(port=1234)
