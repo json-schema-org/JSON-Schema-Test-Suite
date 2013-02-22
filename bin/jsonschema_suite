@@ -34,7 +34,8 @@ except ImportError:
     jsonschema = None
 
 
-ROOT_DIR = os.path.join(os.path.dirname(__file__), os.pardir)
+ROOT_DIR = os.path.join(
+    os.path.dirname(__file__), os.pardir).rstrip("__pycache__")
 SUITE_ROOT_DIR = os.path.join(ROOT_DIR, "tests")
 
 REMOTES = {
@@ -159,7 +160,7 @@ class SanityTests(unittest.TestCase):
                 self.fail(str(error))
 
     def test_remote_schemas_are_updated(self):
-        for url, schema in REMOTES.iteritems():
+        for url, schema in REMOTES.items():
             filepath = os.path.join(REMOTES_DIR, url)
             with open(filepath) as schema_file:
                 self.assertEqual(json.load(schema_file), schema)
@@ -191,7 +192,7 @@ def main(arguments):
                 sys.exit(1)
             raise
 
-        for url, schema in REMOTES.iteritems():
+        for url, schema in REMOTES.items():
             filepath = os.path.join(arguments.out_dir, url)
 
             try:
