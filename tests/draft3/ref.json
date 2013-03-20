@@ -52,31 +52,183 @@
         ]
     },
     {
-        "description": "escaped pointer ref",
+        "description": "relative uri ref",
         "schema": {
-            "tilda~field": {"type": "integer"},
-            "slash/field": {"type": "integer"},
-            "percent%field": {"type": "integer"},
-            "properties": {
-                "tilda": {"$ref": "#/tilda~0field"},
-                "slash": {"$ref": "#/slash~1field"},
-                "percent": {"$ref": "#/percent%25field"}
+            "id": "/a/schema.json",
+            "type": "array",
+            "items": {
+                "id": "schema/subfile.json",
+                "type": "object",
+                "properties": {
+                    "foo": {"type": "integer"},
+                    "barempty": {"$ref": ""},
+                    "barname": {"$ref": "subfile.json"},
+                    "bazrel": {"$ref": "../schema.json"},
+                    "bazpath": {"$ref": "/a/schema.json"}
+                }
             }
         },
         "tests": [
             {
-                "description": "slash",
-                "data": {"slash": "aoeu"},
+                "description": "No-ref match",
+                "data": [{"foo": 1}],
+                "valid": true
+            },
+            {
+                "description": "No-ref mismatch",
+                "data": [{"foo": true}],
                 "valid": false
             },
             {
-                "description": "tilda",
+                "description": "empty match",
+                "data": [{"barempty": {}}],
+                "valid": true
+            },
+            {
+                "description": "empty mismatch",
+                "data": [{"barempty": true}],
+                "valid": false
+            },
+            {
+                "description": "file match",
+                "data": [{"barname": {}}],
+                "valid": true
+            },
+            {
+                "description": "file mismatch",
+                "data": [{"barname": true}],
+                "valid": false
+            },
+            {
+                "description": "deep file match",
+                "data": [{"barname": {"barname": {"barname": {"bazrel": [{"foo": 1}]}}}}],
+                "valid": true
+            },
+            {
+                "description": "deep file mismatch",
+                "data": [{"barname": {"barname": {"barname": {"bazrel": {}}}}}],
+                "valid": false
+            },
+            {
+                "description": "relative path match",
+                "data": [{"bazrel": [{"foo": 1}]}],
+                "valid": true
+            },
+            {
+                "description": "relative path mismatch",
+                "data": [{"bazrel": {}}],
+                "valid": false
+            },
+            {
+                "description": "full path match",
+                "data": [{"bazpath": [{"foo": 1}]}],
+                "valid": true
+            },
+            {
+                "description": "full path mismatch",
+                "data": [{"bazpath": {}}],
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "uri encoded pointer ref",
+        "schema": {
+            "tilda~field": {"type": "integer"},
+            "slash/field": {"type": "integer"},
+            "percent%field": {"type": "integer"},
+            "space field": {"type": "integer"},
+            "hash#field": {"type": "integer"},
+            "properties": {
+                "space": {"$ref": "#/space%20field"},
+                "hash": {"$ref": "#/hash%23field"},
+                "percent": {"$ref": "#/percent%25field"},
+                "tilda": {"$ref": "#/%74%69%6c%64%61%7E%66%69%65%6C%64"},
+                "slash": {"$ref": "#/slash%2ffield"}
+            }
+        },
+        "tests": [
+            {
+                "description": "space valid",
+                "data": {"space": 104},
+                "valid": true
+            },
+            {
+                "description": "space invalid",
+                "data": {"space": "aoeu"},
+                "valid": false
+            },
+            {
+                "description": "hash valid",
+                "data": {"hash": 104},
+                "valid": true
+            },
+            {
+                "description": "hash invalid",
+                "data": {"hash": "aoeu"},
+                "valid": false
+            },
+            {
+                "description": "percent valid",
+                "data": {"percent": 104},
+                "valid": true
+            },
+            {
+                "description": "percent invalid",
+                "data": {"percent": "aoeu"},
+                "valid": false
+            },
+            {
+                "description": "uri-encoded tilda valid",
+                "data": {"tilda": 2},
+                "valid": true
+            },
+            {
+                "description": "uri-encoded tilda invalid",
                 "data": {"tilda": "aoeu"},
                 "valid": false
             },
             {
-                "description": "percent",
-                "data": {"percent": "aoeu"},
+                "description": "uri-encoded slash valid",
+                "data": {"slash": 1},
+                "valid": true
+            },
+            {
+                "description": "uri-encoded slash invalid",
+                "data": {"slash": "aoeu"},
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "json pointer ref",
+        "schema": {
+            "tilda~field": {"type": "integer"},
+            "slash/field": {"type": "integer"},
+            "properties": {
+                "tilda": {"$ref": "#/tilda~0field"},
+                "slash": {"$ref": "#/slash~1field"}
+            }
+        },
+        "tests": [
+            {
+                "description": "tilda-encoded slash valid",
+                "data": {"slash": 1},
+                "valid": true
+            },
+            {
+                "description": "tilda-encoded slash invalid",
+                "data": {"slash": "aoeu"},
+                "valid": false
+            },
+            {
+                "description": "tilda-encoded tilda valid",
+                "data": {"tilda": 2},
+                "valid": true
+            },
+            {
+                "description": "tilda-encoded tilda invalid",
+                "data": {"tilda": "aoeu"},
                 "valid": false
             }
         ]
