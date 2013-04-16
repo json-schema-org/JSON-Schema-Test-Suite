@@ -9,8 +9,23 @@
                 "valid": true
             },
             {
+                "description": "missing enum is valid",
+
+                "valid": true
+            },
+            {
                 "description": "something else is invalid",
                 "data": 4,
+                "valid": false
+            },
+            {
+                "description": "null is invalid",
+                "data": null,
+                "valid": false
+            },
+            {
+                "description": "true is invalid",
+                "data": true,
                 "valid": false
             }
         ]
@@ -32,6 +47,27 @@
             {
                 "description": "objects are deep compared",
                 "data": {"foo": false},
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "required enum validation",
+        "schema": {"enum": ["a", "b", "c"], "required":true},
+        "tests": [
+            {
+                "description": "one of the enum is valid",
+                "data": "b",
+                "valid": true
+            },
+            {
+                "description": "missing enum is invalid",
+
+                "valid": false
+            },
+            {
+                "description": "something else is invalid",
+                "data": "zzz",
                 "valid": false
             }
         ]
