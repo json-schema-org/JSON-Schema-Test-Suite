@@ -1,0 +1,13 @@
+{
+    "name": "json-schema/JSON-Schema-Test-Suite",
+    "description": "A library of JSON Schema validation test suites.",
+    "keywords": ["json", "schema"],
+    "homepage": "https://github.com/json-schema/JSON-Schema-Test-Suite",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Julian Berman"
+        }
+    ],
+    "bin": ["bin/jsonschema_suite"]
+}
