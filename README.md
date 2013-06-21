@@ -68,6 +68,7 @@ This suite is being used by:
   * [JaySchema (javascript)](https://github.com/natesilva/jayschema)
   * [jesse (Erlang)](https://github.com/klarna/jesse)
   * [json-schema (PHP)](https://github.com/justinrainbow/json-schema)
+  * [gojsonschema (Go)](https://github.com/sigu-399/gojsonschema) 
 
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
