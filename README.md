@@ -70,6 +70,7 @@ This suite is being used by:
   * [jesse (Erlang)](https://github.com/klarna/jesse)
   * [json-schema (PHP)](https://github.com/justinrainbow/json-schema)
   * [gojsonschema (Go)](https://github.com/sigu-399/gojsonschema) 
+  * [json_schema (Dart)](https://github.com/patefacio/json_schema) 
 
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
