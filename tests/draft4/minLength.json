@@ -22,6 +22,11 @@
                 "description": "ignores non-strings",
                 "data": 1,
                 "valid": true
+            },
+            {
+                "description": "one supplementary Unicode code point (here, U+1F4A9) is not long enough",
+                "data": "\uD83D\uDCA9",
+                "valid": false
             }
         ]
     }
