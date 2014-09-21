@@ -1,0 +1,28 @@
+[
+    {
+        "description": "media property",
+        "schema": {
+            "$ref": "http://json-schema.org/draft-04/hyper-schema#"
+        },
+        "tests": [
+            {
+                "description": "valid media specifier",
+                "data": {
+                    "type": "string",
+                    "media": {
+                        "binaryEncoding": "base64",
+                        "type": "image/png"
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "not an object",
+                "data": {
+                    "links": "ohai!"
+                },
+                "valid": false
+            }
+        ]
+    }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "description": "fragmentResolution",
+        "schema": {
+            "$ref": "http://json-schema.org/draft-04/hyper-schema#"
+        },
+        "tests": [
+            {
+                "description": "any string will do",
+                "data": {
+                    "fragmentResolution": "random"
+                },
+                "valid": true
+            },
+            {
+                "description": "boolean not OK",
+                "data": {
+                    "fragmentResolution": false
+                },
+                "valid": false
+            },
+            {
+                "description": "number not OK",
+                "data": {
+                    "fragmentResolution": 42
+                },
+                "valid": false
+            },
+            {
+                "description": "array not OK",
+                "data": {
+                    "fragmentResolution": ["ohai!"]
+                },
+                "valid": false
+            },
+            {
+                "description": "object not OK",
+                "data": {
+                    "fragmentResolution": {
+                        "something": "funny"
+                    }
+                },
+                "valid": false
+            }
+        ]
+    }
+]

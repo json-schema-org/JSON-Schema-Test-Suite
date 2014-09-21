@@ -1,0 +1,60 @@
+[
+    {
+        "description": "a single link",
+        "schema": {
+            "$ref": "http://json-schema.org/draft-04/hyper-schema#"
+        },
+        "tests": [
+            {
+                "description": "valid link",
+                "data": {
+                    "links": [
+                        {
+                            "href": "http://example.com/",
+                            "rel": "self"
+                        }
+                    ]
+                },
+                "valid": true
+            },
+            {
+                "description": "not an array",
+                "data": {
+                    "links": "ohai!"
+                },
+                "valid": false
+            },
+            {
+                "description": "LDO not an object",
+                "data": {
+                    "links": [
+                        "ohai!"
+                    ]
+                },
+                "valid": false
+            },
+            {
+                "description": "missing href",
+                "data": {
+                    "links": [
+                        {
+                            "rel": "self"
+                        }
+                    ]
+                },
+                "valid": false
+            },
+            {
+                "description": "missing rel",
+                "data": {
+                    "links": [
+                        {
+                            "href": "http://example.com/"
+                        }
+                    ]
+                },
+                "valid": false
+            }
+        ]
+    }
+]

@@ -1,0 +1,54 @@
+[
+    {
+        "description": "readOnly",
+        "schema": {
+            "$ref": "http://json-schema.org/draft-04/hyper-schema#"
+        },
+        "tests": [
+            {
+                "description": "boolean false is OK",
+                "data": {
+                    "readOnly": false
+                },
+                "valid": true
+            },
+            {
+                "description": "boolean true is OK",
+                "data": {
+                    "readOnly": true
+                },
+                "valid": true
+            },
+            {
+                "description": "string is not OK",
+                "data": {
+                    "readOnly": "ohai"
+                },
+                "valid": false
+            },
+            {
+                "description": "number not OK",
+                "data": {
+                    "readOnly": 42
+                },
+                "valid": false
+            },
+            {
+                "description": "array not OK",
+                "data": {
+                    "readOnly": ["ohai!"]
+                },
+                "valid": false
+            },
+            {
+                "description": "object not OK",
+                "data": {
+                    "readOnly": {
+                        "something": "funny"
+                    }
+                },
+                "valid": false
+            }
+        ]
+    }
+]
