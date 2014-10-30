@@ -70,5 +70,30 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Change of scope during ref resolution",
+        "schema": {
+            "definitions": {
+                "id": "http://localhost:1234/subSchemas.json",
+                "a": {"$ref": "#/integer"}
+            },
+            "integer": {
+                "type": "string"
+            },
+            "$ref": "#/definitions/a"
+        },
+        "tests": [
+            {
+                "description": "Integer valid",
+                "data": 5,
+                "valid": true
+            },
+            {
+                "description": "String invalid",
+                "data": "a",
+                "valid": false
+            }
+        ]
     }
 ]
