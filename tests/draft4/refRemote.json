@@ -75,13 +75,15 @@
         "description": "Change of scope during ref resolution",
         "schema": {
             "definitions": {
-                "id": "http://localhost:1234/subSchemas.json",
-                "a": {"$ref": "#/integer"}
+                "schema1": {
+                    "id": "http://localhost:1234/subSchemas.json",
+                    "a": {"$ref": "#/integer"}
+                }
             },
             "integer": {
                 "type": "string"
             },
-            "$ref": "#/definitions/a"
+            "$ref": "#/definitions/schema1/a"
         },
         "tests": [
             {
