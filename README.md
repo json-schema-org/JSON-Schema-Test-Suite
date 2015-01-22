@@ -61,6 +61,7 @@ Who Uses the Test Suite
 This suite is being used by:
 
   * [request-validator (JavaScript)](https://github.com/bugventure/request-validator)
+  * [is-my-json-valid (javascript)](https://github.com/mafintosh/is-my-json-valid)
   * [jsck (a fast JSON validator in CoffeeScript)](https://github.com/pandastrike/jsck)
   * [json-schema-validator (Java)](https://github.com/fge/json-schema-validator)
   * [jsonschema (python)](https://github.com/Julian/jsonschema)
