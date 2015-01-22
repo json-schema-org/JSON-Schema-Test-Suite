@@ -94,6 +94,7 @@ This suite is being used by:
 * [Jsonary](https://github.com/jsonary-js/jsonary)
 * [jsonschema](https://github.com/tdegrunt/jsonschema)
 * [request-validator](https://github.com/bugventure/request-validator)
+* [skeemas](https://github.com/Prestaul/skeemas)
 * [tv4](https://github.com/geraintluff/tv4)
 * [z-schema](https://github.com/zaggino/z-schema)
 
