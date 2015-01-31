@@ -98,6 +98,10 @@ This suite is being used by:
 * [tv4](https://github.com/geraintluff/tv4)
 * [z-schema](https://github.com/zaggino/z-schema)
 
+### .NET ###
+
+* [Newtonsoft.Json.Schema](https://github.com/JamesNK/Newtonsoft.Json.Schema)
+
 ### PHP ###
 
 * [json-schema](https://github.com/justinrainbow/json-schema)
