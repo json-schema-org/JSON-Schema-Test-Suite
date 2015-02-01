@@ -79,6 +79,7 @@ This suite is being used by:
 ### Haskell ###
 
 * [aeson-schema](https://github.com/timjb/aeson-schema)
+* [hjsonschema](https://github.com/seagreen/hjsonschema)
 
 ### Java ###
 
