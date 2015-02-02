@@ -116,6 +116,10 @@ This suite is being used by:
 
 * [json-schema](https://github.com/hoxworth/json-schema)
 
+### Rust ###
+
+* [valico](https://github.com/rustless/valico)
+
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
 
