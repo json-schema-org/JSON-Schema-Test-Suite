@@ -72,6 +72,10 @@ This suite is being used by:
 
 * [jesse](https://github.com/klarna/jesse)
 
+### Fish ###
+
+* [jon](https://github.com/bucaran/jon)
+
 ### Go ###
 
 * [gojsonschema](https://github.com/sigu-399/gojsonschema) 
