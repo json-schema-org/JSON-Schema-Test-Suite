@@ -77,7 +77,10 @@
             "definitions": {
                 "schema1": {
                     "id": "http://localhost:1234/subSchemas.json",
-                    "a": {"$ref": "#/integer"}
+                    "a": {"$ref": "#/integer"},
+                    "integer": {
+                        "type": "integer"
+                    }
                 }
             },
             "integer": {
