@@ -120,6 +120,10 @@ This suite is being used by:
 
 * [valico](https://github.com/rustless/valico)
 
+### Swift ###
+
+* [JSONSchema](https://github.com/kylef/JSONSchema.swift)
+
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
 
