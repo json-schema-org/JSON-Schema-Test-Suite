@@ -1,0 +1,5 @@
+{
+    "name": "itsoneiota/json-schema-test-suite",
+    "description": "Fork of json-schema/JSON-Schema-Test-Suite to add composer.json.",
+    "require": {}
+}
