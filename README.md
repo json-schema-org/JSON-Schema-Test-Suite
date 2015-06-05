@@ -75,6 +75,7 @@ This suite is being used by:
 ### Go ###
 
 * [gojsonschema](https://github.com/sigu-399/gojsonschema) 
+* [validate-json](https://github.com/cesanta/validate-json)
 
 ### Haskell ###
 
