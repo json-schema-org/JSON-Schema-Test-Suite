@@ -100,6 +100,7 @@ This suite is being used by:
 * [tv4](https://github.com/geraintluff/tv4)
 * [z-schema](https://github.com/zaggino/z-schema)
 * [jsen](https://github.com/bugventure/jsen)
+* [ajv](https://github.com/epoberezkin/ajv)
 
 ### .NET ###
 
