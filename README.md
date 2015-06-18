@@ -1,5 +1,45 @@
 JSON Schema Test Suite [![Build Status](https://travis-ci.org/json-schema-org/JSON-Schema-Test-Suite.svg?branch=master)](https://travis-ci.org/json-schema-org/JSON-Schema-Test-Suite)
-======================
+=======
+This is a fork of JSON Schema Test Suite for Node.js developers
+===============================================================
+
+The JSON Schema Test Suite is meant to be a language agnostic test suite for testing JSON Schema validation libraries. This
+fork makes the test suite available as an npm package for use with Node.js.
+
+    npm install @atomiq/json-schema-test-suite
+
+
+### Usage:
+
+    var draft4 = require('@atomiq/json-schema-test-suite').draft4;
+    var validator = require('JSON-SCHEMA-VALIDATOR'); // such as tv4 or z-schema
+
+    // enumerate ALL tests
+    draft4.all.forEach(function(test) {
+      ...
+    });
+
+    // enumerate REQUIRED tests
+    draft4.required.forEach(function(test) {
+      ...
+    });
+
+    // enumerate OPTIONAL tests
+    draft4.optional.forEach(function(test) {
+      ...
+    });
+
+
+### Package Tests
+
+If you clone the package, you can validate the test suite using a factory for either z-schema or tv4 (default).
+
+    FACTORY=<tv4|z-schema> npm test
+
+For the remote ref tests, a server will be automatically started that listens to port 1234 and serves files from the `remotes` directory.
+
+
+JSON Schema Test Suite [![Build Status](https://travis-ci.org/json-schema/JSON-Schema-Test-Suite.png?branch=develop)](https://travis-ci.org/json-schema/JSON-Schema-Test-Suite)
 
 This repository contains a set of JSON objects that implementors of JSON Schema
 validation libraries can use to test their validators.
