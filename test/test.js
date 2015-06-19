@@ -1,67 +1,89 @@
 var assert = require('assert'),
     glob = require('glob'),
     util = require('util'),
-    suite = require('..');
+    testsuite = require('..');
 
 describe('verify test suite loads all json test files', function () {
-
   var testMessage = 'The number of %s test groups should match the number of %s json files';
   var errorMessage = 'the actual number of test groups was expected match the number of %s json files';
 
-  var drafts = [ 'draft3', 'draft4' ];
+  var drafts = ['draft3', 'draft4'];
 
   var allPattern = './tests/%s/**/*.json';
   var requiredPattern = { glob: './tests/%s/**/*.json', ignore: './tests/%s/optional/*.json' };
   var optionalPattern = './tests/%s/optional/*.json';
   var minPattern = './tests/%s/**/min*.json';
 
-  var patternTests = [
+  var testPlans = [
     { name: 'all', globPattern: allPattern },
-    { name: 'required', globPattern: requiredPattern, filter: suite.requiredOnlyFilter },
-    { name: 'optional', globPattern: optionalPattern, filter: suite.optionalOnlyFilter },
-    { name: '"min"-prefixed', globPattern: minPattern, filter: function(file) {
-      return /^min/.test(file);
-    }}
+    { name: 'required', globPattern: requiredPattern, filter: testsuite.requiredOnlyFilter },
+    { name: 'optional', globPattern: optionalPattern, filter: testsuite.optionalOnlyFilter },
+    { name: '"min"-prefixed', globPattern: minPattern, filter: function (file) { return /^min/.test(file); } }
   ];
 
-  function compareCount(draft, globPattern, filter, name) {
-    it (util.format(testMessage, draft, name), function() {
-      var tests = suite.loadSync(filter, draft);
-      var files;
-
-      if (typeof globPattern == 'string') {
-        files = glob.sync(util.format(globPattern, draft));
-      } else {
-        files = glob.sync(util.format(globPattern.glob, draft), {
-          ignore: util.format(globPattern.ignore, draft)
-        });
-      }
-
-      console.log('actual (suite): %d, expected (files): %d', tests.length, files.length);
-      assert.equal(tests.length, files.length, util.format(errorMessage, name));
-    });
+  function loadFiles(draft, globPattern) {
+    if (typeof globPattern == 'string') {
+      return glob.sync(util.format(globPattern, draft));
+    } else {
+      return glob.sync(util.format(globPattern.glob, draft), {
+        ignore: util.format(globPattern.ignore, draft)
+      });
+    }
   }
 
-  drafts.forEach(function(draft) {
-    patternTests.forEach(function(pt) {
-      compareCount(draft, pt.globPattern, pt.filter, pt.name);
+  function compareCount(draft, globPattern, filter, name) {
+    var tests = testsuite.loadSync(filter, draft);
+    var files = loadFiles(draft, globPattern);
+
+    assert.equal(tests.length, files.length, util.format(errorMessage, name));
+  }
+
+  // for the combination of draft directories and test plans, create a test case
+  // and verify the number of tests returned by the test suite is equal to the actual
+  // number of files that match the glob pattern.
+  drafts.forEach(function (draft) {
+    testPlans.forEach(function (pt) {
+      it(util.format(testMessage, draft, pt.name), function () {
+        compareCount(draft, pt.globPattern, pt.filter, pt.name);
+      });
     })
   });
-});
 
-describe('[non remote ref tests]', function() {
-  var tv4 = require('tv4');
+  drafts.forEach(function (draft) {
+    it(util.format('should load required %s tests', draft), function () {
+      var tests = testsuite.loadRequiredSync(draft);
+      var files = loadFiles(draft, requiredPattern);
 
-  var tests = suite.loadSync().filter(function(test) {
-    return test.group != 'refRemote';
+      assert.equal(tests.length, files.length, util.format(errorMessage, 'required'));
+    })
+
+    it(util.format('should load optional %s tests', draft), function () {
+      var tests = testsuite.loadOptionalSync(draft);
+      var files = loadFiles(draft, optionalPattern);
+
+      assert.equal(tests.length, files.length, util.format(errorMessage, 'optional'));
+    })
   });
 
-  tests.forEach(function(test) {
-    describe(test.group, function() {
-      test.schemas.forEach(function(schema) {
-        describe(schema.description, function() {
-          schema.tests.forEach(function(testCase) {
-            it (testCase.description, function() {
+});
+
+describe('[non remote ref tests]', function () {
+  var tv4 = require('tv4');
+
+  //var tests = testsuite.loadSync().filter(function(test) {
+  //  return test.group != 'refRemote';
+  //});
+
+  var tests = testsuite.loadSync(function (file) {
+    return file != 'refRemote.json';
+  });
+
+  tests.forEach(function (test) {
+    describe(test.group, function () {
+      test.schemas.forEach(function (schema) {
+        describe(schema.description, function () {
+          schema.tests.forEach(function (testCase) {
+            it(testCase.description, function () {
               var valid = tv4.validate(testCase.data, schema.schema);
               assert.equal(valid, testCase.valid);
             });
