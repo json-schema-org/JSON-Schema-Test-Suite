@@ -2,17 +2,29 @@ var fs = require('fs'),
     path = require('path');
 
 module.exports = {
-  loadSync: loadTestSuiteSync,
-
   testSync: testSync,
 
-  requiredOnlyFilter: function(file, parent, optional) {
-    return !optional;
+  loadSync: loadTestSuiteSync,
+
+  loadRequiredSync: function (draft) {
+    return loadTestSuiteSync(requiredOnlyFilter, draft);
   },
 
-  optionalOnlyFilter: function(file, parent, optional) {
-    return optional;
-  }
+  loadOptionalSync: function (draft) {
+    return loadTestSuiteSync(optionalOnlyFilter, draft);
+  },
+
+  requiredOnlyFilter: requiredOnlyFilter,
+
+  optionalOnlyFilter: optionalOnlyFilter
+}
+
+function requiredOnlyFilter(file, parent, optional) {
+  return !optional;
+}
+
+function optionalOnlyFilter(file, parent, optional) {
+  return optional;
 }
 
 function testSync(validator, filter, draft) {
