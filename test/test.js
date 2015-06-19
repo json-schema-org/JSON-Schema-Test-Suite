@@ -26,7 +26,7 @@ describe('verify test suite loads all json test files', function () {
 
   function compareCount(draft, globPattern, filter, name) {
     it (util.format(testMessage, draft, name), function() {
-      var tests = suite.loadSync(draft, filter);
+      var tests = suite.loadSync(filter, draft);
       var files;
 
       if (typeof globPattern == 'string') {
@@ -52,7 +52,7 @@ describe('verify test suite loads all json test files', function () {
 describe('[non remote ref tests]', function() {
   var tv4 = require('tv4');
 
-  var tests = suite.loadSync('draft4').filter(function(test) {
+  var tests = suite.loadSync().filter(function(test) {
     return test.group != 'refRemote';
   });
 
