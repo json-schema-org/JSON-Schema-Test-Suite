@@ -27,13 +27,13 @@ function optionalOnlyFilter(file, parent, optional) {
   return optional;
 }
 
-function testSync(validator, filter, draft) {
-  var tests = loadTestSuiteSync(filter, draft);
-}
-
 /**
  * Returns tests specified by draft and filtered by filter argument
- * @param filter a function that returns true if the file (or directory) should be included; see exported requiredOnlyFilter
+ * @param filter a function that returns true if the file (or directory)
+ *        should be included; the function is passed 3 arguments
+ *        (file, parent, optional); optional is true if the file is
+ *        the optional directory or any file under it.
+ *        see exported requiredOnlyFilter
  * @param draft 'draft3' | 'draft4' (default)
  * @returns []
  */
@@ -79,5 +79,43 @@ function loadTestsSync(tests, filter, draftPath, parent, markOptional) {
   });
 
   return tests;
+}
+
+/**
+ * Applies the validator function against all the tests that match the draft version and pass the filter
+ * @param validatorFactory a function that takes 2 arguments (schema, options); if the schema argument is
+ *        a string, it will parsed as JSON. The function should returns an object with a validate method
+ *        that takes 1 argument (json). The validate method should return an object; if there were
+ *        validation errors, the object should have a valid property that is true or false depending on
+ *        whether there are validation errors, and an errors property with an array for the validation
+ *        errors, if any. The schema and the JSON test data will be obtained from the test suite.
+ * @param options an optional options argument that will be provided to validatorFactory
+ * @param filter a function that returns true if the file (or directory)
+ *        should be included; the function is passed 3 arguments
+ *        (file, parent, optional); optional is true if the file is
+ *        the optional directory or any file under it.
+ *        see exported requiredOnlyFilter
+ * @param draft 'draft3' | 'draft4' (default)
+ */
+function testSync(validatorFactory, options, filter, draft) {
+  if (typeof options == 'function') {
+    draft = filter;
+    filter = options;
+    options = {};
+  }
+
+  var tests = loadTestSuiteSync(filter, draft);
+
+  tests.forEach(function (test) {
+    test.schemas.forEach(function (schema) {
+      var validator = validatorFactory(schema.schema, options);
+      schema.tests.forEach(function (testCase) {
+        testCase.result = validator.validate(testCase.data);
+      });
+    });
+  });
+
+  return tests;
+
 }
 

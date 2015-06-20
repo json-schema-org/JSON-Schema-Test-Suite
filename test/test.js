@@ -3,11 +3,11 @@ var assert = require('assert'),
     util = require('util'),
     testsuite = require('..');
 
+var drafts = [ /*'draft3',*/ 'draft4' ];
+
 describe('verify test suite loads all json test files', function () {
   var testMessage = 'The number of %s test groups should match the number of %s json files';
   var errorMessage = 'the actual number of test groups was expected match the number of %s json files';
-
-  var drafts = ['draft3', 'draft4'];
 
   var allPattern = './tests/%s/**/*.json';
   var requiredPattern = { glob: './tests/%s/**/*.json', ignore: './tests/%s/optional/*.json' };
@@ -49,6 +49,7 @@ describe('verify test suite loads all json test files', function () {
     })
   });
 
+  // test helper functions loadRequiredSync and loadOptionalSync
   drafts.forEach(function (draft) {
     it(util.format('should load required %s tests', draft), function () {
       var tests = testsuite.loadRequiredSync(draft);
@@ -67,30 +68,92 @@ describe('verify test suite loads all json test files', function () {
 
 });
 
-describe('[non remote ref tests]', function () {
-  var tv4 = require('tv4');
+describe('tv4 validator tests', function () {
+  tv4 = require('tv4');
 
-  //var tests = testsuite.loadSync().filter(function(test) {
-  //  return test.group != 'refRemote';
-  //});
+  var tv4Factory = function (schema, options) {
+    if (typeof schema == 'string') {
+      schema = JSON.parse(text);
+    }
 
-  var tests = testsuite.loadSync(function (file) {
-    return file != 'refRemote.json';
-  });
+    return {
+      validate: function (json) {
+        try {
+          var valid = tv4.validate(json, schema);
+          return valid ? { valid: true } : { valid: false, errors: [valid] };
+        } catch (err) {
+          return { valid: false, errors: [err.message] };
+        }
+      }
+    }
+  }
 
-  tests.forEach(function (test) {
-    describe(test.group, function () {
-      test.schemas.forEach(function (schema) {
-        describe(schema.description, function () {
-          schema.tests.forEach(function (testCase) {
-            it(testCase.description, function () {
-              var valid = tv4.validate(testCase.data, schema.schema);
-              assert.equal(valid, testCase.valid);
+  // create a test suite for each draft
+  drafts.forEach(function (draft) {
+    describe(draft, function () {
+
+      var tests = testsuite.testSync(tv4Factory, {}, void 0, draft);
+      tests.forEach(function (test) {
+        describe(test.group, function () {
+          test.schemas.forEach(function (schema) {
+            describe(schema.description, function () {
+              schema.tests.forEach(function (testCase) {
+                it(testCase.description, function () {
+                  var result = testCase.result;
+                  assert.equal(result.valid, testCase.valid);
+                });
+              });
             });
           });
-        });
+        })
       });
-    })
+    });
+  });
+
+});
+
+describe('z-schema validator tests', function () {
+  var ZSchema = require('z-schema');
+
+  var zschemaFactory = function (schema, options) {
+    var zschema = new ZSchema(options);
+
+    if (typeof schema == 'string') {
+      schema = JSON.parse(text);
+    }
+
+    return {
+      validate: function (json) {
+        try {
+          var valid = zschema.validate(json, schema);
+          return valid ? { valid: true } : { valid: false, errors: zschema.getLastErrors() };
+        } catch (err) {
+          return { valid: false, errors: [err.message] };
+        }
+      }
+    }
+  }
+
+  // create a test suite for each draft
+  drafts.forEach(function (draft) {
+    describe(draft, function () {
+
+      var tests = testsuite.testSync(zschemaFactory, {}, void 0, draft);
+      tests.forEach(function (test) {
+        describe(test.group, function () {
+          test.schemas.forEach(function (schema) {
+            describe(schema.description, function () {
+              schema.tests.forEach(function (testCase) {
+                it(testCase.description, function () {
+                  var result = testCase.result;
+                  assert.equal(result.valid, testCase.valid);
+                });
+              });
+            });
+          });
+        })
+      });
+    });
   });
 
 });
