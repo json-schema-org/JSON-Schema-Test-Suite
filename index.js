@@ -27,13 +27,13 @@ function optionalOnlyFilter(file, parent, optional) {
   return optional;
 }
 
-function testSync(validator, filter, draft) {
-  var tests = loadTestSuiteSync(filter, draft);
-}
-
 /**
  * Returns tests specified by draft and filtered by filter argument
- * @param filter a function that returns true if the file (or directory) should be included; see exported requiredOnlyFilter
+ * @param filter a function that returns true if the file (or directory)
+ *        should be included; the function is passed 3 arguments
+ *        (file, parent, optional); optional is true if the file is
+ *        the optional directory or any file under it.
+ *        see exported requiredOnlyFilter
  * @param draft 'draft3' | 'draft4' (default)
  * @returns []
  */
