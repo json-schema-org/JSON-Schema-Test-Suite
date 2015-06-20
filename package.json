@@ -27,6 +27,7 @@
   "homepage": "https://github.com/atomiqio/json-schema-test-suite#readme",
   "devDependencies": {
     "glob": "^5.0.10",
+    "lodash": "^3.9.3",
     "mocha": "^2.2.5",
     "tv4": "^1.1.9",
     "z-schema": "^3.12.0"

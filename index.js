@@ -1,4 +1,5 @@
-var fs = require('fs'),
+var _ = require('lodash'),
+    fs = require('fs'),
     path = require('path');
 
 module.exports = {
@@ -6,18 +7,30 @@ module.exports = {
 
   loadSync: loadTestSuiteSync,
 
+  draft3: function(filter) {
+    return loadTestSuiteSync({ filter: filter, draft: 'draft3' });
+  },
+
+  draft4: function(filter) {
+    return loadTestSuiteSync({ filter: filter, draft: 'draft4' });
+  },
+
+  loadAllSync: function(draft) {
+    return loadTestSuiteSync({ draft: draft });
+  },
+
   loadRequiredSync: function (draft) {
-    return loadTestSuiteSync(requiredOnlyFilter, draft);
+    return loadTestSuiteSync({ filter: requiredOnlyFilter, draft: draft });
   },
 
   loadOptionalSync: function (draft) {
-    return loadTestSuiteSync(optionalOnlyFilter, draft);
+    return loadTestSuiteSync({ filter: optionalOnlyFilter, draft: draft });
   },
 
   requiredOnlyFilter: requiredOnlyFilter,
 
   optionalOnlyFilter: optionalOnlyFilter
-}
+};
 
 function requiredOnlyFilter(file, parent, optional) {
   return !optional;
@@ -37,33 +50,47 @@ function optionalOnlyFilter(file, parent, optional) {
  * @param draft 'draft3' | 'draft4' (default)
  * @returns []
  */
-function loadTestSuiteSync(filter, draft) {
-  return loadTestsSync([], filter, path.join(__dirname, 'tests', draft || 'draft4'));
+function loadTestSuiteSync(options) {
+  var config = options ? _.clone(options) : {};
+  config.path = path.join(__dirname, 'tests', config.draft || 'draft4');
+
+  return loadTestsSync(config);
 }
 
 /**
  * Returns test suite array
- * @param tests array to add tests to, will be returned
- * @param filter 'required' | 'optional' | 'all' (default)
- * @param draftPath path to draft directory
- * @param markOptional set to true when recursing into optional directory
+ * @param config an object with the following properties
+ *        path: full path to the current test directory
+ *        filter: (optional) a function that returns true if the file (or directory)
+ *                should be included; the function is passed 3 arguments
+ *                (file, parent, optional); optional is true if the file is
+ *                the optional directory or any file under it.
+ *        parent: the parent directory (undefined for the root of the tests directory)
+ *        optional: set to true when recursing into optional directory
  * @returns []
  */
-function loadTestsSync(tests, filter, draftPath, parent, markOptional) {
-  markOptional = !!markOptional;
+function loadTestsSync(config) {
+  var filter = config.filter;
+  var testPath = config.path;
+  var parent = config.parent;
+  var optional = !!config.optional;
 
-  var testFiles = fs.readdirSync(draftPath);
+  if (!testPath) throw new Error('missing path to test directory');
+
+  var tests = [];
+  var testFiles = fs.readdirSync(testPath);
 
   testFiles.filter(function (file) {
-    // markOptional might not be set at this point, so still need to check if the file is named 'optional'
-    return filter ? filter(file, parent, markOptional || file == 'optional') : true;
+    // optional might not be set at this point, so need to check if the file is named 'optional'
+    // (meaning it's the actual optional directory)
+    return filter ? filter(file, parent, optional || file == 'optional') : true;
   }).forEach(function (file) {
-    var filePath = path.join(draftPath, file);
+    var filePath = path.join(testPath, file);
     var stats = fs.lstatSync(filePath);
 
     if (stats.isDirectory()) {
-      // once markOptional is set after entering an 'optional' directory, no need to reevaluate
-      loadTestsSync(tests, filter, path.join(draftPath, file), parent, markOptional || file == 'optional');
+      // once optional is set after entering an 'optional' directory, no need to reevaluate
+      tests = tests.concat(loadTestsSync({ filter: filter, path: path.join(testPath, file), parent: parent, optional: optional || file == 'optional' }));
     } else if (stats.isFile()) {
       var end = file.indexOf('.json');
       if (end > 0) {
@@ -71,7 +98,7 @@ function loadTestsSync(tests, filter, draftPath, parent, markOptional) {
           group: file.substring(0, end),
           file: file,
           path: filePath,
-          optional: markOptional,
+          optional: optional,
           schemas: require(filePath)
         });
       }
