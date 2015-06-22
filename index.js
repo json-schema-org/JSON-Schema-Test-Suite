@@ -32,10 +32,16 @@ module.exports = {
   optionalOnlyFilter: optionalOnlyFilter
 };
 
+/**
+ * convenience filter for required tests
+ */
 function requiredOnlyFilter(file, parent, optional) {
   return !optional;
 }
 
+/**
+ * convenience filter for optional tests
+ */
 function optionalOnlyFilter(file, parent, optional) {
   return optional;
 }
@@ -47,7 +53,8 @@ function optionalOnlyFilter(file, parent, optional) {
  *        (file, parent, optional); optional is true if the file is
  *        the optional directory or any file under it.
  *        see exported requiredOnlyFilter
- * @param draft 'draft3' | 'draft4' (default)
+ * @param options an object with the following properties
+ *        draft: 'draft3' | 'draft4' (default)
  * @returns []
  */
 function loadTestSuiteSync(options) {
@@ -95,7 +102,7 @@ function loadTestsSync(config) {
       var end = file.indexOf('.json');
       if (end > 0) {
         tests.push({
-          group: file.substring(0, end),
+          name: file.substring(0, end),
           file: file,
           path: filePath,
           optional: optional,

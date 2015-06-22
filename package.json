@@ -1,6 +1,6 @@
 {
   "name": "@atomiq/json-schema-test-suite",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Exposes JSON Schema Test Suite as a Node.js package, so don't need to add as a git submodule.",
   "main": "index.js",
   "directories": {

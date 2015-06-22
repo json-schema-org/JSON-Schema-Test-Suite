@@ -109,7 +109,7 @@ describe('validator tests', function() {
 
         var tests = testsuite.testSync(tv4Factory, {}, void 0, draft);
         tests.forEach(function (test) {
-          describe(test.group, function () {
+          describe(test.name, function () {
             test.schemas.forEach(function (schema) {
               describe(schema.description, function () {
                 schema.tests.forEach(function (testCase) {
@@ -164,7 +164,7 @@ var zschemaFactory = function (schema, options) {
 
         var tests = testsuite.testSync(zschemaFactory, {}, void 0, draft);
         tests.forEach(function (test) {
-          describe(test.group, function () {
+          describe(test.name, function () {
             test.schemas.forEach(function (schema) {
               describe(schema.description, function () {
                 schema.tests.forEach(function (testCase) {
