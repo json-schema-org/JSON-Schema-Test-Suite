@@ -43,7 +43,7 @@ Each object has the following structure (using `tests/draft4/additionalItems.jso
 
 ```
 {
-  group:    'additionalItems',
+  name:    'additionalItems',
   file:     'additionalItems.json',
   optional: false,  // true if a file under the optional directory
   path:     '/full/path/to/JSON-Schema-Test-Suite/tests/draft4/additionalItems.json',
