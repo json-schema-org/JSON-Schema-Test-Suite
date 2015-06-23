@@ -12,7 +12,7 @@ This is a fork of JSON Schema Test Suite for Node.js validator development.
 
 The JSON Schema Test Suite is meant to be a language agnostic test suite for testing JSON Schema validation libraries. This fork makes the test suite available as an [npm package](https://www.npmjs.com/package/@atomiq/json-schema-test-suite) for use with Node.js.
 
-    npm install @atomiq/json-schema-test-suite
+    npm install json-schema-test-suite
 
 When pulling the source from GitHub, make sure to checkout the `node` branch for taking advantage of the node features in this fork. The master and develop branches track the [upstream repo](https://github.com/json-schema/JSON-Schema-Test-Suite/). It is current with the latest commit to `7511038dcb4f4b430fa2a929184da70b670bdd35` (June 17, 2015) on the upstream `develop` branch.
 
@@ -20,7 +20,7 @@ When pulling the source from GitHub, make sure to checkout the `node` branch for
 
 There are a number of ways of loading the tests:
 
-    var testSuite = require('@atomiq/json-schema-test-suite');
+    var testSuite = require('json-schema-test-suite');
 
     // this will load all (required and optional) draft4 tests
     var tests = testSuite.loadSync();
