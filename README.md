@@ -1,9 +1,11 @@
 Node.js fork of JSON Schema Test Suite
 ======================================
 
+[![NPM](https://nodei.co/npm/json-schema-test-suite.png?compact=true)](https://nodei.co/npm/json-schema-test-suite/)
+
 This is a fork of JSON Schema Test Suite for Node.js validator development.
 
-The JSON Schema Test Suite is meant to be a language agnostic test suite for testing JSON Schema validation libraries. This fork makes the test suite available as an [npm package](https://www.npmjs.com/package/@atomiq/json-schema-test-suite) for use with Node.js.
+The JSON Schema Test Suite is meant to be a language agnostic test suite for testing JSON Schema validation libraries. This fork makes the test suite available as an [npm package](https://www.npmjs.com/package/json-schema-test-suite) for use with Node.js.
 
     npm install json-schema-test-suite
 
