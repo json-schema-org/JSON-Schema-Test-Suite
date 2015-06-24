@@ -103,6 +103,11 @@ This suite is being used by:
 * [jsen](https://github.com/bugventure/jsen)
 * [ajv](https://github.com/epoberezkin/ajv)
 
+### Node.js ###
+
+A [fork](https://github.com/atomiqio/json-schema-test-suite) of this repo has been published to [npm](https://www.npmjs.com/package/json-schema-test-suite).
+The package makes the JSON Schema Test Suite available to validator implementors without having to add a git submodule to their repo.
+
 ### .NET ###
 
 * [Newtonsoft.Json.Schema](https://github.com/JamesNK/Newtonsoft.Json.Schema)
