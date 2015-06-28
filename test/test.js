@@ -104,88 +104,66 @@ describe('validator tests', function() {
     drafts.forEach(function (draft) {
       var validatorResult = { name: 'tv4', draft: draft, results: { pass: 0, fail: 0 }};
       validatorResults.push(validatorResult);
-
-      describe(draft, function () {
-
-        var tests = testsuite.testSync(tv4Factory, {}, void 0, draft);
-        tests.forEach(function (test) {
-          describe(test.name, function () {
-            test.schemas.forEach(function (schema) {
-              describe(schema.description, function () {
-                schema.tests.forEach(function (testCase) {
-                  it(testCase.description, function () {
-                    var result = testCase.result;
-                    if (result.valid === testCase.valid) {
-                      validatorResult.results.pass++;
-                    } else {
-                      validatorResult.results.fail++;
-                    }
-
-                    assert.equal(result.valid, testCase.valid);
-                  });
-                });
-              });
-            });
-          })
-        });
-      });
+      runTests(tv4Factory, draft, validatorResult);
     });
-
   });
 
   describe('z-schema validator tests', function () {
-var ZSchema = require('z-schema');
+    var ZSchema = require('z-schema');
 
-var zschemaFactory = function (schema, options) {
-  var zschema = new ZSchema(options);
+    var zschemaFactory = function (schema, options) {
+      var zschema = new ZSchema(options);
 
-  if (typeof schema == 'string') {
-    schema = JSON.parse(text);
-  }
-
-  return {
-    validate: function (json) {
-      try {
-        var valid = zschema.validate(json, schema);
-        return valid ? { valid: true } : { valid: false, errors: zschema.getLastErrors() };
-      } catch (err) {
-        return { valid: false, errors: [err.message] };
+      if (typeof schema == 'string') {
+	schema = JSON.parse(text);
       }
-    }
-  };
-};
+
+      return {
+	validate: function (json) {
+	  try {
+	    var valid = zschema.validate(json, schema);
+	    return valid ? { valid: true } : { valid: false, errors: zschema.getLastErrors() };
+	  } catch (err) {
+	    return { valid: false, errors: [err.message] };
+	  }
+	}
+      };
+    };
 
     // create a test suite for each draft
     drafts.forEach(function (draft) {
       var validatorResult = { name: 'zschema', draft: draft, results: { pass: 0, fail: 0 }};
       validatorResults.push(validatorResult);
-
-      describe(draft, function () {
-
-        var tests = testsuite.testSync(zschemaFactory, {}, void 0, draft);
-        tests.forEach(function (test) {
-          describe(test.name, function () {
-            test.schemas.forEach(function (schema) {
-              describe(schema.description, function () {
-                schema.tests.forEach(function (testCase) {
-                  it(testCase.description, function () {
-                    var result = testCase.result;
-                    if (result.valid === testCase.valid) {
-                      validatorResult.results.pass++;
-                    } else {
-                      validatorResult.results.fail++;
-                    }
-
-                    assert.equal(result.valid, testCase.valid);
-                  });
-                });
-              });
-            });
-          })
-        });
-      });
+      runTests(zschemaFactory, draft, validatorResult);
     });
-
   });
 });
+
+function runTests(factory, draft, validatorResult) {
+  describe(draft, function () {
+
+    var tests = testsuite.testSync(factory, {}, void 0, draft);
+    tests.forEach(function (test) {
+      describe(test.name, function () {
+	test.schemas.forEach(function (schema) {
+	  describe(schema.description, function () {
+	    schema.tests.forEach(function (testCase) {
+	      it(testCase.description, function () {
+		var result = testCase.result;
+		if (result.valid === testCase.valid) {
+		  validatorResult.results.pass++;
+		} else {
+		  validatorResult.results.fail++;
+		}
+
+		assert.equal(result.valid, testCase.valid);
+	      });
+	    });
+	  });
+	});
+      })
+    });
+  });
+}
+
 
