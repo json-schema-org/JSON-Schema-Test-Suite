@@ -165,5 +165,9 @@ The `tests` return value is as described previously in the Usage section, with a
 
 ### Unit Tests
 
-You can run `npm test` from a clone of the repo or browse the unit test source [here](https://github.com/atomiqio/JSON-Schema-Test-Suite/blob/node/test/test.js) for examples using both [tv4](https://github.com/geraintluff/tv4) and [z-schema](https://github.com/zaggino/z-schema).
+You can run mocha unit tests from a clone of the repo or browse the unit test source [here](https://github.com/atomiqio/JSON-Schema-Test-Suite/blob/node/test/test.js) for examples using both [tv4](https://github.com/geraintluff/tv4) and [z-schema](https://github.com/zaggino/z-schema).
+
+    npm install
+    npm test
+
 
