@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 JSON Schema Test Suite [![Build Status](https://travis-ci.org/json-schema-org/JSON-Schema-Test-Suite.svg?branch=master)](https://travis-ci.org/json-schema-org/JSON-Schema-Test-Suite)
 =======
 This is a fork of JSON Schema Test Suite for Node.js developers
@@ -183,6 +184,8 @@ You can run `npm test` from a clone of the repo or browse the unit test source [
 ---
 
 
+=======
+>>>>>>> 68badc3... added NODE-README.md, updated README.md
 JSON Schema Test Suite [![Build Status](https://travis-ci.org/json-schema/JSON-Schema-Test-Suite.png?branch=develop)](https://travis-ci.org/json-schema/JSON-Schema-Test-Suite)
 
 This repository contains a set of JSON objects that implementors of JSON Schema
@@ -311,6 +314,11 @@ The JSON Schema Test Suite is also available as an
 Node-specific support is maintained on the [node branch](https://github.com/json-schema-org/JSON-Schema-Test-Suite/tree/node).
 See [NODE-README.md](https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
 for more information.
+
+### Node.js ###
+
+The JSON Schema Test Suite is also available as an [npm](https://www.npmjs.com/package/json-schema-test-suite).
+See [NODE-README.md](./NODE-README.md) for more information.
 
 ### .NET ###
 
