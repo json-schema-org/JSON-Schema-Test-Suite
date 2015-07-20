@@ -103,6 +103,11 @@ This suite is being used by:
 * [jsen](https://github.com/bugventure/jsen)
 * [ajv](https://github.com/epoberezkin/ajv)
 
+### Node.js ###
+
+The JSON Schema Test Suite is also available as an [npm](https://www.npmjs.com/package/json-schema-test-suite).
+See [NODE-README.md](./NODE-README.md) for more information.
+
 ### .NET ###
 
 * [Newtonsoft.Json.Schema](https://github.com/JamesNK/Newtonsoft.Json.Schema)
