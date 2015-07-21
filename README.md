@@ -1,6 +1,12 @@
 JSON Schema Test Suite [![Build Status](https://travis-ci.org/json-schema/JSON-Schema-Test-Suite.png?branch=develop)](https://travis-ci.org/json-schema/JSON-Schema-Test-Suite)
 ======================
 
+** This is the `node` branch of JSON Schema Test Suite.**
+
+Node-specific support is maintained on GitHub on the [node branch](https://github.com/json-schema/JSON-Schema-Test-Suite/tree/node).
+See [NODE-README.md](https://github.com/json-schema/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
+for more information on using this package.
+
 This repository contains a set of JSON objects that implementors of JSON Schema
 validation libraries can use to test their validators.
 
@@ -107,10 +113,8 @@ This suite is being used by:
 
 The JSON Schema Test Suite is also available as an
 [npm](https://www.npmjs.com/package/json-schema-test-suite) package.
-Node-specific support is maintained on the [node branch]
-(https://github.com/json-schema/JSON-Schema-Test-Suite/tree/node).
-See [NODE-README.md]
-(https://github.com/json-schema/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
+Node-specific support is maintained on the [node branch](https://github.com/json-schema/JSON-Schema-Test-Suite/tree/node).
+See [NODE-README.md](https://github.com/json-schema/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
 for more information.
 
 ### .NET ###
