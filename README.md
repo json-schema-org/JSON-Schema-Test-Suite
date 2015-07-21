@@ -311,8 +311,15 @@ This suite is being used by:
 
 The JSON Schema Test Suite is also available as an
 [npm](https://www.npmjs.com/package/json-schema-test-suite) package.
+<<<<<<< HEAD
 Node-specific support is maintained on the [node branch](https://github.com/json-schema-org/JSON-Schema-Test-Suite/tree/node).
 See [NODE-README.md](https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
+=======
+Node-specific support is maintained on the [node branch]
+(https://github.com/json-schema/JSON-Schema-Test-Suite/tree/node).
+See [NODE-README.md]
+(https://github.com/json-schema/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
+>>>>>>> 47b52a1... updated node.js info in README.md
 for more information.
 
 ### Node.js ###
