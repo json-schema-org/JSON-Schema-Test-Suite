@@ -105,8 +105,13 @@ This suite is being used by:
 
 ### Node.js ###
 
-The JSON Schema Test Suite is also available as an [npm](https://www.npmjs.com/package/json-schema-test-suite).
-See [NODE-README.md](./NODE-README.md) for more information.
+The JSON Schema Test Suite is also available as an
+[npm](https://www.npmjs.com/package/json-schema-test-suite) package.
+Node-specific support is maintained on the [node branch]
+(https://github.com/json-schema/JSON-Schema-Test-Suite/tree/node).
+See [NODE-README.md]
+(https://github.com/json-schema/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
+for more information.
 
 ### .NET ###
 

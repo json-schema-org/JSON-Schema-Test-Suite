@@ -1,7 +1,7 @@
 {
   "name": "json-schema-test-suite",
-  "version": "0.0.8",
-  "description": "Exposes JSON Schema Test Suite as a Node.js package, so don't need to add as a git submodule.",
+  "version": "0.0.9",
+  "description": "Exposes JSON Schema Test Suite as a Node.js package",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -19,7 +19,7 @@
     "test",
     "suite"
   ],
-  "author": "Tony Pujals <tony@subfuzion.com> (http://twitter.com/subfuzion)",
+  "author": "Tony Pujals (http://twitter.com/subfuzion)",
   "license": "https://raw.githubusercontent.com/json-schema/json-schema-test-suite/develop/LICENSE",
   "bugs": {
     "url": "https://github.com/atomiqio/json-schema-test-suite/issues"
