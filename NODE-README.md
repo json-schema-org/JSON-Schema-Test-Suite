@@ -9,6 +9,9 @@ been made available as an [npm package](https://www.npmjs.com/package/json-schem
 
     npm install json-schema-test-suite
 
+Node-specific support for JSON Schema Test Suite is maintained on the repo's [node branch]
+(https://github.com/json-schema/JSON-Schema-Test-Suite/tree/node).
+
 ### Usage:
 
 There are a number of ways to load tests from the suite:
