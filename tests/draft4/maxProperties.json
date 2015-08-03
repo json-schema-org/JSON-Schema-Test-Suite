@@ -1,25 +1,25 @@
 [
     {
-        "description": "maxItems validation",
-        "schema": {"maxItems": 2},
+        "description": "maxProperties validation",
+        "schema": {"maxProperties": 2},
         "tests": [
             {
                 "description": "shorter is valid",
-                "data": [1],
+                "data": {"foo": 1},
                 "valid": true
             },
             {
                 "description": "exact length is valid",
-                "data": [1, 2],
+                "data": {"foo": 1, "bar": 2},
                 "valid": true
             },
             {
                 "description": "too long is invalid",
-                "data": [1, 2, 3],
+                "data": {"foo": 1, "bar": 2, "baz": 3},
                 "valid": false
             },
             {
-                "description": "ignores non-arrays",
+                "description": "ignores non-objects",
                 "data": "foobar",
                 "valid": true
             }

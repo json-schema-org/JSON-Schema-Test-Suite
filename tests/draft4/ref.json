@@ -142,16 +142,16 @@
     },
     {
         "description": "remote ref, containing refs itself",
-        "schema": {"$ref": "http://json-schema.org/draft-03/schema#"},
+        "schema": {"$ref": "http://json-schema.org/draft-04/schema#"},
         "tests": [
             {
                 "description": "remote ref valid",
-                "data": {"items": {"type": "integer"}},
+                "data": {"minLength": 1},
                 "valid": true
             },
             {
                 "description": "remote ref invalid",
-                "data": {"items": {"type": 1}},
+                "data": {"minLength": -1},
                 "valid": false
             }
         ]
