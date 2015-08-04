@@ -173,4 +173,8 @@ You can run mocha unit tests from a clone of the repo or browse the unit test so
     npm install
     npm test
 
+### Generating JSON Schema
 
+[json-schema-builder](https://github.com/atomiqio/json-schema-builder) is a
+fluent JavaScript API for generating syntactically correct JSON Schema that
+provides an alternative to writing JSON Schema documents by hand.
