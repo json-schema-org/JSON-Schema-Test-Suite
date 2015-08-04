@@ -1,6 +1,6 @@
 {
   "name": "json-schema-test-suite",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Exposes JSON Schema Test Suite as a Node.js package",
   "main": "index.js",
   "directories": {
