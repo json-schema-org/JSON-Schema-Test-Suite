@@ -68,6 +68,10 @@ This suite is being used by:
 
 * [json_schema](https://github.com/patefacio/json_schema) 
 
+### Elixir ###
+
+* [ex_json_schema](https://github.com/jonasschmidt/ex_json_schema)
+
 ### Erlang ###
 
 * [jesse](https://github.com/klarna/jesse)
