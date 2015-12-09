@@ -139,21 +139,5 @@
                 "valid": false
             }
         ]
-    },
-    {
-        "description": "remote ref, containing refs itself",
-        "schema": {"$ref": "http://json-schema.org/draft-03/schema#"},
-        "tests": [
-            {
-                "description": "remote ref valid",
-                "data": {"items": {"type": "integer"}},
-                "valid": true
-            },
-            {
-                "description": "remote ref invalid",
-                "data": {"items": {"type": 1}},
-                "valid": false
-            }
-        ]
     }
 ]
