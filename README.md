@@ -122,6 +122,7 @@ for more information.
 ### PHP ###
 
 * [json-schema](https://github.com/justinrainbow/json-schema)
+* [json-guard](https://github.com/thephpleague/json-guard)
 
 ### Python ###
 
