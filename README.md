@@ -140,6 +140,10 @@ for more information.
 
 * [JSONSchema](https://github.com/kylef/JSONSchema.swift)
 
+### Clojure ###
+
+* [json-schema](https://github.com/tatut/json-schema)
+
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
 
