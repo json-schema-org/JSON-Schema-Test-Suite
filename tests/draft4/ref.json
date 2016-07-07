@@ -1,5 +1,16 @@
 [
     {
+        "description": "infinitely recursive ref",
+        "schema": {"$ref": "#"},
+        "tests": [
+            {
+                "description": "validation should complete (and be valid) for any value",
+                "data": {},
+                "valid": true
+            }
+        ]
+    },
+    {
         "description": "root pointer ref",
         "schema": {
             "properties": {
