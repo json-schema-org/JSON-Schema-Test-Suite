@@ -56,5 +56,21 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "not affected by floating point rounding error",
+        "schema": {"multipleOf": 0.01},
+        "tests": [
+            {
+                "description": "0.02 is multiple of 0.01",
+                "data": 0.02,
+                "valid": true
+            },
+            {
+                "description": "6.67 is multiple of 0.01",
+                "data": 6.67,
+                "valid": true
+            }
+        ]
     }
 ]
