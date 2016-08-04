@@ -83,7 +83,7 @@
             },
             {
                 "description": "an IP address without 4 components",
-                "data": "127.0",
+                "data": "127.0.0",
                 "valid": false
             },
             {
