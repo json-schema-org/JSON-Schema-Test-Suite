@@ -107,6 +107,16 @@
                 "description": "an invalid e-mail address",
                 "data": "2962",
                 "valid": false
+            },
+            {
+                "description": "an email address without a domain name",
+                "data": "joe.bloggs",
+                "valid": false
+            },
+            {
+                "description": "an e-mail address without a top level domain",
+                "data": "joe.bloggs@example",
+                "valid": false
             }
         ]
     },
