@@ -1,8 +1,11 @@
 {
     "integer": {
         "type": "integer"
-    }, 
+    },
     "refToInteger": {
         "$ref": "#/integer"
+    },
+    "relativeRefToInteger": {
+        "$ref": "integer.json"
     }
 }
