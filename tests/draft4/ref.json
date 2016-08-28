@@ -155,5 +155,25 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "property named $ref that is not a reference",
+        "schema": {
+            "properties": {
+                "$ref": {"type": "string"}
+            }
+        },
+        "tests": [
+            {
+                "description": "property named $ref valid",
+                "data": {"$ref": "a"},
+                "valid": true
+            },
+            {
+                "description": "property named $ref invalid",
+                "data": {"$ref": 2},
+                "valid": false
+            }
+        ]
     }
 ]
