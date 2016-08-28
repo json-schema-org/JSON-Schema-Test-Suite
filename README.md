@@ -118,6 +118,7 @@ for more information.
 ### .NET ###
 
 * [Newtonsoft.Json.Schema](https://github.com/JamesNK/Newtonsoft.Json.Schema)
+* [Manatee.Json](https://github.com/gregsdennis/Manatee.Json)
 
 ### PHP ###
 
