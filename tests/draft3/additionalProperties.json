@@ -4,7 +4,7 @@
             "additionalProperties being false does not allow other properties",
         "schema": {
             "properties": {"foo": {}, "bar": {}},
-            "patternProperties": { "^v": {} },
+            "patternProperties": { "^v": {}, "^á": {} },
             "additionalProperties": false
         },
         "tests": [
@@ -27,7 +27,13 @@
                 "description": "patternProperties are not additional properties",
                 "data": {"foo":1, "vroom": 2},
                 "valid": true
+            },
+            {
+                "description": "patternProperties are not additional properties (using unicode pattern)",
+                "data": {"foo":1, "ármányos": 2},
+                "valid": true
             }
+
         ]
     },
     {
