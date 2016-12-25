@@ -45,5 +45,23 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "default value obviates require",
+        "schema": {
+            "properties": {
+                "bar": {
+                    "default": "something"
+                }
+            },
+            "required": [ "bar" ]
+        },
+        "tests": [
+            {
+                "description": "valid with missing property",
+                "data": {},
+                "valid": true
+            }
+        ]
     }
 ]
