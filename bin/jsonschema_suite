@@ -52,33 +52,8 @@ REMOTES = {
 }
 REMOTES_DIR = os.path.join(ROOT_DIR, "remotes")
 
-TESTSUITE_SCHEMA = {
-    "$schema": "http://json-schema.org/draft-03/schema#",
-    "type": "array",
-    "items": {
-        "type": "object",
-        "properties": {
-            "description": {"type": "string", "required": True},
-            "schema": {"required": True},
-            "tests": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "description": {"type": "string", "required": True},
-                        "data": {"required": True},
-                        "valid": {"type": "boolean", "required": True}
-                    },
-                    "additionalProperties": False
-                },
-                "minItems": 1
-            }
-        },
-        "additionalProperties": False,
-        "minItems": 1
-    }
-}
-
+with open(os.path.join(ROOT_DIR, "test-schema.json")) as schema:
+    TESTSUITE_SCHEMA = json.load(schema)
 
 def files(paths):
     for path in paths:

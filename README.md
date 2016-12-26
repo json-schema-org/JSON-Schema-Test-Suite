@@ -68,6 +68,10 @@ This suite is being used by:
 
 * [json_schema](https://github.com/patefacio/json_schema) 
 
+### Elixir ###
+
+* [ex_json_schema](https://github.com/jonasschmidt/ex_json_schema)
+
 ### Erlang ###
 
 * [jesse](https://github.com/klarna/jesse)
@@ -114,10 +118,12 @@ for more information.
 ### .NET ###
 
 * [Newtonsoft.Json.Schema](https://github.com/JamesNK/Newtonsoft.Json.Schema)
+* [Manatee.Json](https://github.com/gregsdennis/Manatee.Json)
 
 ### PHP ###
 
 * [json-schema](https://github.com/justinrainbow/json-schema)
+* [json-guard](https://github.com/thephpleague/json-guard)
 
 ### Python ###
 
@@ -134,6 +140,14 @@ for more information.
 ### Swift ###
 
 * [JSONSchema](https://github.com/kylef/JSONSchema.swift)
+
+### Clojure ###
+
+* [json-schema](https://github.com/tatut/json-schema)
+
+### PostgreSQL ###
+
+* [postgres-json-schema](https://github.com/gavinwahl/postgres-json-schema)
 
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
