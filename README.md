@@ -64,6 +64,10 @@ This suite is being used by:
 
 * [jsck](https://github.com/pandastrike/jsck)
 
+### C++ ###
+
+* [Modern C++ JSON schema validator](https://github.com/pboettch/json-schema-validator)
+
 ### Dart ###
 
 * [json_schema](https://github.com/patefacio/json_schema) 
