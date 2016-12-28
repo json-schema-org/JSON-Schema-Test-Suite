@@ -89,6 +89,7 @@ This suite is being used by:
 ### Java ###
 
 * [json-schema-validator](https://github.com/fge/json-schema-validator)
+* [networknt/json-schema-validator](https://github.com/networknt/json-schema-validator)
 
 ### JavaScript ###
 
