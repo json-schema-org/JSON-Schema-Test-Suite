@@ -33,6 +33,24 @@
         ]
     },
     {
+        "description": "dependencies with empty array",
+        "schema": {
+            "dependencies": {"bar": []}
+        },
+        "tests": [
+            {
+                "description": "empty object",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "object with one property",
+                "data": {"bar": 2},
+                "valid": true
+            }
+        ]
+    },
+    {
         "description": "multiple dependencies",
         "schema": {
             "dependencies": {"quux": ["foo", "bar"]}
