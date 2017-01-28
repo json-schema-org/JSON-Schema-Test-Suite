@@ -40,6 +40,11 @@
         },
         "tests": [
             {
+                "description": "fewer items is valid",
+                "data": [ 1, 2 ],
+                "valid": true
+            },
+            {
                 "description": "no additional items present",
                 "data": [ 1, 2, 3 ],
                 "valid": true
