@@ -21,7 +21,7 @@
                 "valid": true
             },
             {
-                "description": "not array is valid",
+                "description": "JavaScript pseudo-array is valid",
                 "data": {
                     "0": "invalid",
                     "length": 1
@@ -65,7 +65,7 @@
                 "valid": true
             },
             {
-                "description": "not array is valid",
+                "description": "JavaScript pseudo-array is valid",
                 "data": {
                     "0": "invalid",
                     "1": "valid",
