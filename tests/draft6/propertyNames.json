@@ -1,0 +1,36 @@
+[
+    {
+        "description": "propertyNames validation",
+        "schema": {
+            "propertyNames": {"maxLength": 3}
+        },
+        "tests": [
+            {
+                "description": "all property names valid",
+                "data": {
+                    "f": {},
+                    "foo": {}
+                },
+                "valid": true
+            },
+            {
+                "description": "some property names invalid",
+                "data": {
+                    "foo": {},
+                    "foobar": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "object without properties is valid",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "non-object is valid",
+                "data": [],
+                "valid": true
+            }
+        ]
+    }
+]
