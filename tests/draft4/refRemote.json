@@ -50,24 +50,6 @@
         ]
     },
     {
-        "description": "relative remote ref",
-        "schema": {
-            "$ref": "http://localhost:1234/subSchemas.json#/relativeRefToInteger"
-        },
-        "tests": [
-            {
-                "description": "relative ref valid",
-                "data": 1,
-                "valid": true
-            },
-            {
-                "description": "relative ref invalid",
-                "data": "a",
-                "valid": false
-            }
-        ]
-    },
-    {
         "description": "change resolution scope",
         "schema": {
             "id": "http://localhost:1234/",
