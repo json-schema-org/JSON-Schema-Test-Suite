@@ -106,5 +106,36 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "patternProperties with boolean schemas",
+        "schema": {
+            "patternProperties": {
+                "f.*": true,
+                "b.*": false
+            }
+        },
+        "tests": [
+            {
+                "description": "object with property matching schema true is valid",
+                "data": {"foo": 1},
+                "valid": true
+            },
+            {
+                "description": "object with property matching schema false is invalid",
+                "data": {"bar": 2},
+                "valid": false
+            },
+            {
+                "description": "object with both properties is invalid",
+                "data": {"foo": 1, "bar": 2},
+                "valid": false
+            },
+            {
+                "description": "empty object is valid",
+                "data": {},
+                "valid": true
+            }
+        ]
     }
 ]
