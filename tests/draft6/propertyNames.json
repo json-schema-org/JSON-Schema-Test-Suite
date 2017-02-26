@@ -32,5 +32,37 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "propertyNames with boolean schema true",
+        "schema": {"propertyNames": true},
+        "tests": [
+            {
+                "description": "object with any properties is valid",
+                "data": {"foo": 1},
+                "valid": true
+            },
+            {
+                "description": "empty object is valid",
+                "data": {},
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "propertyNames with boolean schema false",
+        "schema": {"propertyNames": false},
+        "tests": [
+            {
+                "description": "object with any properties is invalid",
+                "data": {"foo": 1},
+                "valid": false
+            },
+            {
+                "description": "empty object is valid",
+                "data": {},
+                "valid": true
+            }
+        ]
     }
 ]
