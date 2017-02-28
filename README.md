@@ -112,6 +112,7 @@ This suite is being used by:
 * [z-schema](https://github.com/zaggino/z-schema)
 * [jsen](https://github.com/bugventure/jsen)
 * [ajv](https://github.com/epoberezkin/ajv)
+* [djv](https://github.com/korzio/djv)
 
 ### Node.js ###
 
