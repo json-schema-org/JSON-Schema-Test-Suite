@@ -2,11 +2,7 @@
 
 var Ajv = require('ajv');
 var jsonSchemaTest = require('json-schema-test');
-var glob = require('glob');
 var assert = require('assert');
-
-var ajv = new Ajv({addUsedSchema: false});
-ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
 
 var refs = {
   'http://localhost:1234/integer.json': require('./remotes/integer.json'),
@@ -14,15 +10,22 @@ var refs = {
   'http://localhost:1234/folder/folderInteger.json': require('./remotes/folder/folderInteger.json')
 };
 
-for (var uri in refs) ajv.addSchema(refs[uri], uri);
+runTest(4);
+runTest(6);
 
-jsonSchemaTest(ajv, {
-  description: 'Test suite',
-  suites: {
-    'draft-04': './tests/draft4/{**/,}*.json',
-    'draft-06': './tests/draft6/{**/,}*.json'
-  },
-  skip: [ 'optional/zeroTerminatedFloats' ],
-  cwd: __dirname,
-  hideFolder: 'tests/'
-});
+function runTest(draft) {
+  var opts = {addUsedSchema: false};
+  if (draft == 4) opts.meta = false;
+  var ajv = new Ajv(opts);
+  ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
+  if (draft == 4) ajv._opts.defaultMeta = 'http://json-schema.org/draft-04/schema#';
+  for (var uri in refs) ajv.addSchema(refs[uri], uri);
+
+  jsonSchemaTest(ajv, {
+    description: 'Test suite draft-0' + draft,
+    suites: {tests: './tests/draft' + draft + '/{**/,}*.json'},
+    skip: draft == 4 ? ['optional/zeroTerminatedFloats'] : [],
+    cwd: __dirname,
+    hideFolder: 'tests/'
+  });
+}
