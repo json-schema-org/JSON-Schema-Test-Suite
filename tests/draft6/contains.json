@@ -59,5 +59,37 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "contains keyword with boolean schema true",
+        "schema": {"contains": true},
+        "tests": [
+            {
+                "description": "any non-empty array is valid",
+                "data": ["foo"],
+                "valid": true
+            },
+            {
+                "description": "empty array is invalid",
+                "data": [],
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "contains keyword with boolean schema false",
+        "schema": {"contains": false},
+        "tests": [
+            {
+                "description": "any non-empty array is invalid",
+                "data": ["foo"],
+                "valid": false
+            },
+            {
+                "description": "empty array is invalid",
+                "data": [],
+                "valid": false
+            }
+        ]
     }
 ]
