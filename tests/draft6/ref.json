@@ -210,6 +210,38 @@
         ]
     },
     {
+        "description": "$ref to boolean schema true",
+        "schema": {
+            "$ref": "#/definitions/bool",
+            "definitions": {
+                "bool": true
+            }
+        },
+        "tests": [
+            {
+                "description": "any value is valid",
+                "data": "foo",
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "$ref to boolean schema false",
+        "schema": {
+            "$ref": "#/definitions/bool",
+            "definitions": {
+                "bool": false
+            }
+        },
+        "tests": [
+            {
+                "description": "any value is invalid",
+                "data": "foo",
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "Recursive references between schemas",
         "schema": {
             "id": "http://localhost:1234/tree",
