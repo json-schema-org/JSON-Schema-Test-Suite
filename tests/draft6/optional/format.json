@@ -198,5 +198,41 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "validation of JSON-pointers",
+        "schema": {"format": "json-pointer"},
+        "tests": [
+            {
+                "description": "a valid JSON-pointer",
+                "data": "/foo/bar~0/baz~1/%a",
+                "valid": true
+            },
+            {
+                "description": "empty string is valid",
+                "data": "",
+                "valid": true
+            },
+            {
+                "description": "/ is valid",
+                "data": "/",
+                "valid": true
+            },
+            {
+                "description": "not a valid JSON-pointer (~ not escaped)",
+                "data": "/foo/bar~",
+                "valid": false
+            },
+            {
+                "description": "valid JSON-pointer with empty segment",
+                "data": "/foo//bar",
+                "valid": true
+            },
+            {
+                "description": "valid JSON-pointer with the last empty segment",
+                "data": "/foo/bar/",
+                "valid": true
+            }
+        ]
     }
 ]
