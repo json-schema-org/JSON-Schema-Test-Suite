@@ -35,6 +35,11 @@
                 "valid": false
             },
             {
+                "description": "an invalid relative URI Reference",
+                "data": "/abc",
+                "valid": false
+            },
+            {
                 "description": "an invalid URI",
                 "data": "\\\\WINDOWS\\fileshare",
                 "valid": false
@@ -43,6 +48,37 @@
                 "description": "an invalid URI though valid URI reference",
                 "data": "abc",
                 "valid": false
+            }
+        ]
+    },
+    {
+        "description": "validation of URI References",
+        "schema": {"format": "uri-reference"},
+        "tests": [
+            {
+                "description": "a valid URI",
+                "data": "http://foo.bar/?baz=qux#quux",
+                "valid": true
+            },
+            {
+                "description": "a valid protocol-relative URI Reference",
+                "data": "//foo.bar/?baz=qux#quux",
+                "valid": true
+            },
+            {
+                "description": "a valid relative URI Reference",
+                "data": "/abc",
+                "valid": true
+            },
+            {
+                "description": "an invalid URI Reference",
+                "data": "\\\\WINDOWS\\fileshare",
+                "valid": false
+            },
+            {
+                "description": "a valid URI Reference",
+                "data": "abc",
+                "valid": true
             }
         ]
     },
