@@ -7,14 +7,15 @@ var assert = require('assert');
 var refs = {
   'http://localhost:1234/integer.json': require('./remotes/integer.json'),
   'http://localhost:1234/subSchemas.json': require('./remotes/subSchemas.json'),
-  'http://localhost:1234/folder/folderInteger.json': require('./remotes/folder/folderInteger.json')
+  'http://localhost:1234/folder/folderInteger.json': require('./remotes/folder/folderInteger.json'),
+  'http://localhost:1234/name.json': require('./remotes/name.json')
 };
 
 runTest(4);
 runTest(6);
 
 function runTest(draft) {
-  var opts = {addUsedSchema: false};
+  var opts = {};
   if (draft == 4) opts.meta = false;
   var ajv = new Ajv(opts);
   ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
