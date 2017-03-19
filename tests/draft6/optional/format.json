@@ -79,6 +79,16 @@
                 "description": "a valid URI Reference",
                 "data": "abc",
                 "valid": true
+            },
+            {
+                "description": "a valid URI fragment",
+                "data": "#fragment",
+                "valid": true
+            },
+            {
+                "description": "an invalid URI fragment",
+                "data": "#frag\\ment",
+                "valid": false
             }
         ]
     },
@@ -97,6 +107,16 @@
                 "description": "an invalid uri-template",
                 "data": "http://example.com/dictionary/{term:1}/{term",
                 "valid": false
+            },
+            {
+                "description": "a valid uri-template without variables",
+                "data": "http://example.com/dictionary",
+                "valid": true
+            },
+            {
+                "description": "a valid relative uri-template",
+                "data": "dictionary/{term:1}/{term}",
+                "valid": true
             }
         ]
     },
