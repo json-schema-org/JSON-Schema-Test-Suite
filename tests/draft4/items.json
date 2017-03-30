@@ -11,9 +11,9 @@
                 "valid": true
             },
             {
-                "description": "wrong type of items",
+                "description": "wrong type of items is valid",
                 "data": [1, "x"],
-                "valid": false
+                "valid": true
             },
             {
                 "description": "ignores non-arrays",
