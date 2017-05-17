@@ -78,7 +78,7 @@ This suite is being used by:
 
 ### Erlang ###
 
-* [jesse](https://github.com/klarna/jesse)
+* [jesse](https://github.com/for-GET/jesse)
 
 ### Go ###
 
