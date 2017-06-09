@@ -319,6 +319,16 @@
                 "valid": true
             },
             {
+                "description": "valid JSON-pointer (escaped characters with fraction part) #1",
+                "data": "/~1.1",
+                "valid": true
+            },
+            {
+                "description": "valid JSON-pointer (escaped characters with fraction part) #2",
+                "data": "/~0.1",
+                "valid": true
+            },
+            {
                 "description": "not a valid JSON-pointer (URI Fragment Identifier Representation) #1",
                 "data": "#",
                 "valid": false
@@ -334,8 +344,23 @@
                 "valid": false
             },
             {
-                "description": "not a valid JSON-pointer (some escaped, but not all)",
+                "description": "not a valid JSON-pointer (some escaped, but not all) #1",
                 "data": "/~0~",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (some escaped, but not all) #2",
+                "data": "/~0/~",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (wrong escape character) #1",
+                "data": "/~2",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (wrong escape character) #2",
+                "data": "/~-1",
                 "valid": false
             },
             {
@@ -351,6 +376,11 @@
             {
                 "description": "not a valid JSON-pointer (isn't empty nor starts with /) #2",
                 "data": "0",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (isn't empty nor starts with /) #2",
+                "data": "a/a",
                 "valid": false
             }
         ]
