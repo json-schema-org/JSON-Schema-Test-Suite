@@ -304,7 +304,7 @@
                 "valid": true
             },
             {
-                "description": "valid JSON-pointer used to add something to the last position of an array",
+                "description": "valid JSON-pointer used adding to the last array position",
                 "data": "/foo/-",
                 "valid": true
             },
@@ -319,27 +319,27 @@
                 "valid": true
             },
             {
-                "description": "valid JSON-pointer (escaped characters with fraction part) #1",
+                "description": "valid JSON-pointer (escaped with fraction part) #1",
                 "data": "/~1.1",
                 "valid": true
             },
             {
-                "description": "valid JSON-pointer (escaped characters with fraction part) #2",
+                "description": "valid JSON-pointer (escaped with fraction part) #2",
                 "data": "/~0.1",
                 "valid": true
             },
             {
-                "description": "not a valid JSON-pointer (URI Fragment Identifier Representation) #1",
+                "description": "not a valid JSON-pointer (URI Fragment Identifier) #1",
                 "data": "#",
                 "valid": false
             },
             {
-                "description": "not a valid JSON-pointer (URI Fragment Identifier Representation) #2",
+                "description": "not a valid JSON-pointer (URI Fragment Identifier) #2",
                 "data": "#/",
                 "valid": false
             },
             {
-                "description": "not a valid JSON-pointer (URI Fragment Identifier)",
+                "description": "not a valid JSON-pointer (URI Fragment Identifier) #3",
                 "data": "#a",
                 "valid": false
             },
@@ -379,7 +379,7 @@
                 "valid": false
             },
             {
-                "description": "not a valid JSON-pointer (isn't empty nor starts with /) #2",
+                "description": "not a valid JSON-pointer (isn't empty nor starts with /) #3",
                 "data": "a/a",
                 "valid": false
             }
