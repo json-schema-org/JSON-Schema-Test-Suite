@@ -56,5 +56,21 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "by 0.1 (IEEE-754 floating point rounding error)",
+        "schema": {"multipleOf": 0.1},
+        "tests": [
+            {
+                "description": "2.5 is multiple of 0.1",
+                "data": 2.5,
+                "valid": true
+            },
+            {
+                "description": "2.4 is multiple of 0.1",
+                "data": 2.4,
+                "valid": true
+            }
+        ]
     }
 ]
