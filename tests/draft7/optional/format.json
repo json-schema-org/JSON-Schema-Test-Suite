@@ -249,6 +249,22 @@
         ]
     },
     {
+        "description": "validation of an internationalized e-mail addresses",
+        "schema": {"format": "idn-email"},
+        "tests": [
+            {
+                "description": "a valid idn e-mail address (example@example.test in Hangul)",
+                "data": "실례@실례.테스트",
+                "valid": true
+            },
+            {
+                "description": "an invalid idn e-mail address",
+                "data": "2962",
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "validation of IP addresses",
         "schema": {"format": "ipv4"},
         "tests": [
@@ -315,6 +331,11 @@
                 "valid": true
             },
             {
+                "description": "a valid punycoded IDN hostname",
+                "data": "xn--4gbwdl.xn--wgbh1c",
+                "valid": true
+            },
+            {
                 "description": "a host name starting with an illegal character",
                 "data": "-a-host-name-that-starts-with--",
                 "valid": false
@@ -327,6 +348,32 @@
             {
                 "description": "a host name with a component too long",
                 "data": "a-vvvvvvvvvvvvvvvveeeeeeeeeeeeeeeerrrrrrrrrrrrrrrryyyyyyyyyyyyyyyy-long-host-name-component",
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "validation of internationalized host names",
+        "schema": {"format": "idn-hostname"},
+        "tests": [
+            {
+                "description": "a valid host name (example.test in Hangul)",
+                "data": "실례.테스트",
+                "valid": true
+            },
+            {
+                "description": "illegal first character U+302E Hangul single dot tone mark",
+                "data": "〮실례.테스트",
+                "valid": false
+            },
+            {
+                "description": "contains illegal character U+302E Hangul single dot tone mark",
+                "data": "실〮례.테스트",
+                "valid": false
+            },
+            {
+                "description": "a host name with a component too long",
+                "data": "실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실실례례테스트례례례례례례례례례례례례례례례례례테스트례례례례례례례례례례례례례례례례례례례테스트례례례례례례례례례례례례테스트례례실례.테스트",
                 "valid": false
             }
         ]
