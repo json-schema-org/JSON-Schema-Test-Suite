@@ -356,7 +356,7 @@
         "schema": {"format": "idn-email"},
         "tests": [
             {
-                "description": "a valid idn e-mail address (example@example.test in Hangul)",
+                "description": "a valid idn e-mail (example@example.test in Hangul)",
                 "data": "실례@실례.테스트",
                 "valid": true
             },
@@ -465,12 +465,12 @@
                 "valid": true
             },
             {
-                "description": "illegal first character U+302E Hangul single dot tone mark",
+                "description": "illegal first char U+302E Hangul single dot tone mark",
                 "data": "〮실례.테스트",
                 "valid": false
             },
             {
-                "description": "contains illegal character U+302E Hangul single dot tone mark",
+                "description": "contains illegal char U+302E Hangul single dot tone mark",
                 "data": "실〮례.테스트",
                 "valid": false
             },
