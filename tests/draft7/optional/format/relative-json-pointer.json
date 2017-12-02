@@ -10,7 +10,7 @@
             },
             {
                 "description": "a valid downwards RJP",  
-                "data": "foo/bar",
+                "data": "0/foo/bar",
                 "valid": true
             },
             {
