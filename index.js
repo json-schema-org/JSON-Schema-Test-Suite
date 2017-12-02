@@ -13,21 +13,21 @@ const refs = {
 
 const SKIP = {
   4: ['optional/zeroTerminatedFloats'],
-  7: ['optional/content', 'optional/format']
+  7: [
+    'format/idn-email',
+    'format/idn-hostname',
+    'format/iri',
+    'format/iri-reference',
+    'optional/content'
+  ]
 };
 
 [4, 6, 7].forEach((draft) => {
-  let opts = {
-    format: 'full',
-    unknownFormats: ['iri', 'iri-reference', 'idn-hostname', 'idn-email']
-  };
-
   let ajv;
   if (draft == 7) {
-    ajv = new Ajv(opts);
+    ajv = new Ajv({format: 'full'});
   } else {
-    opts.meta = false;
-    ajv = new Ajv(opts);
+    ajv = new Ajv({format: 'full', meta: false});
     ajv.addMetaSchema(require(`ajv/lib/refs/json-schema-draft-0${draft}.json`));
     ajv._opts.defaultMeta = `http://json-schema.org/draft-0${draft}/schema#`;
   }
