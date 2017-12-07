@@ -45,6 +45,17 @@ SUITE_ROOT_DIR = os.path.join(ROOT_DIR, "tests")
 
 REMOTES = {
     "integer.json": {u"type": u"integer"},
+    "integer-draft4.json": {
+        u"$schema": u"http://json-schema.org/draft-04/schema#",
+        u"type": u"integer",
+        u"minimum": 10,
+        u"exclusiveMinimum": true
+    },
+    "integer-draft6.json": {
+        u"$schema": u"http://json-schema.org/draft-06/schema#",
+        u"type": u"integer",
+        u"exclusiveMinimum": 10
+    },
     "name.json": {
         u"type": "string",
         u"definitions": {
