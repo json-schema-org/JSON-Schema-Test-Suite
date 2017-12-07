@@ -49,7 +49,7 @@ REMOTES = {
         u"$schema": u"http://json-schema.org/draft-04/schema#",
         u"type": u"integer",
         u"minimum": 10,
-        u"exclusiveMinimum": true
+        u"exclusiveMinimum": True
     },
     "integer-draft6.json": {
         u"$schema": u"http://json-schema.org/draft-06/schema#",
