@@ -179,12 +179,20 @@
         },
         "tests":[
             {
-                "description": "schema 7 referencing schema 4",
+                "description": "schema 7 referencing schema 4 is valid",
                 "data" : {
                     "foo" : "a value",
                     "bar" : 15
                 },
                 "valid" : true
+            },
+            {
+                "description": "schema 7 referencing schema 4 is invalid",
+                "data" : {
+                    "foo" : "a value",
+                    "bar" : 10
+                },
+                "valid" : false
             }
         ]
     }
