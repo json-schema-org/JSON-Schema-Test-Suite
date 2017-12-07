@@ -167,5 +167,25 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description":"$ref to a different schema version",
+        "schema":{
+            "type" : "object",
+            "properties" : {
+                "foo" : {"type" : "string"},
+                "bar" : {"$ref" : "http://localhost:1234/integer-draft6.json"}
+            }
+        },
+        "tests":[
+            {
+                "description": "schema 4 referencing schema 6",
+                "data" : {
+                    "foo" : "a value",
+                    "bar" : 15
+                },
+                "valid" : true
+            }
+        ]
     }
 ]
