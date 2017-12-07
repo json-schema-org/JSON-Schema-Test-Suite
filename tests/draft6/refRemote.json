@@ -179,7 +179,7 @@
         },
         "tests":[
             {
-                "description": "schema 7 referencing schema 4",
+                "description": "schema 6 referencing schema 4",
                 "data" : {
                     "foo" : "a value",
                     "bar" : 15
