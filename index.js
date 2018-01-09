@@ -18,7 +18,8 @@ const SKIP = {
     'format/idn-hostname',
     'format/iri',
     'format/iri-reference',
-    'optional/content'
+    'optional/content',
+    'optional/interVersionRefs'
   ]
 };
 
