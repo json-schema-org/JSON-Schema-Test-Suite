@@ -167,33 +167,5 @@
                 "valid": false
             }
         ]
-    },
-    {
-        "description":"$ref to a different schema version",
-        "schema":{
-            "type" : "object",
-            "properties" : {
-                "foo" : {"type" : "string"},
-                "bar" : {"$ref" : "http://localhost:1234/integer-draft4.json"}
-            }
-        },
-        "tests":[
-            {
-                "description": "schema 7 referencing schema 4 is valid",
-                "data" : {
-                    "foo" : "a value",
-                    "bar" : 15
-                },
-                "valid" : true
-            },
-            {
-                "description": "schema 7 referencing schema 4 is invalid",
-                "data" : {
-                    "foo" : "a value",
-                    "bar" : 10
-                },
-                "valid" : false
-            }
-        ]
     }
 ]

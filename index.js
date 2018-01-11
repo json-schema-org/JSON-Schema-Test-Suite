@@ -8,7 +8,9 @@ const refs = {
   'http://localhost:1234/integer.json': require('./remotes/integer.json'),
   'http://localhost:1234/subSchemas.json': require('./remotes/subSchemas.json'),
   'http://localhost:1234/folder/folderInteger.json': require('./remotes/folder/folderInteger.json'),
-  'http://localhost:1234/name.json': require('./remotes/name.json')
+  'http://localhost:1234/name.json': require('./remotes/name.json'),
+  'http://localhost:1234/integer-draft4.json': require('./remotes/integer-draft4.json'),
+  'http://localhost:1234/integer-draft6.json': require('./remotes/integer-draft6.json')
 };
 
 const SKIP = {
@@ -27,6 +29,8 @@ const SKIP = {
   let ajv;
   if (draft == 7) {
     ajv = new Ajv({format: 'full'});
+    ajv.addMetaSchema(require(`ajv/lib/refs/json-schema-draft-04.json`));
+    ajv.addMetaSchema(require(`ajv/lib/refs/json-schema-draft-06.json`));
   } else {
     ajv = new Ajv({format: 'full', meta: false});
     ajv.addMetaSchema(require(`ajv/lib/refs/json-schema-draft-0${draft}.json`));
