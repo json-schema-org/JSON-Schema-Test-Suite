@@ -4,7 +4,7 @@
             "additionalProperties being false does not allow other properties",
         "schema": {
             "properties": {"foo": {}, "bar": {}},
-            "patternProperties": { "^v": {}, "^á": {} },
+            "patternProperties": { "^v": {} },
             "additionalProperties": false
         },
         "tests": [
