@@ -41,21 +41,19 @@
         ]
     },
     {
-        "description": "using non-ascii regex additionalProperties being false does not allow other properties ",
+        "description": "non-ASCII pattern with additionalProperties",
         "schema": {
-            "patternProperties": {
-                "^á": {}
-            },
+            "patternProperties": {"^á": {}},
             "additionalProperties": false
         },
         "tests": [
             {
-                "description": "non-ascii patternProperties matching the pattern is valid",
+                "description": "matching the pattern is valid",
                 "data": {"ármányos": 2},
                 "valid": true
             },
             {
-                "description": "additional non-ascii patternProperties not matching the pattern is invalid",
+                "description": "not matching the pattern is invalid",
                 "data": {"élmény": 2},
                 "valid": false
             }
