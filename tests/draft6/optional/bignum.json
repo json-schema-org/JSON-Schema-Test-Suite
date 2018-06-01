@@ -7,24 +7,7 @@
                 "description": "a bignum is an integer",
                 "data": 12345678910111213141516171819202122232425262728293031,
                 "valid": true
-            }
-        ]
-    },
-    {
-        "description": "number",
-        "schema": {"type": "number"},
-        "tests": [
-            {
-                "description": "a bignum is a number",
-                "data": 98249283749234923498293171823948729348710298301928331,
-                "valid": true
-            }
-        ]
-    },
-    {
-        "description": "integer",
-        "schema": {"type": "integer"},
-        "tests": [
+            },
             {
                 "description": "a negative bignum is an integer",
                 "data": -12345678910111213141516171819202122232425262728293031,
@@ -36,6 +19,11 @@
         "description": "number",
         "schema": {"type": "number"},
         "tests": [
+            {
+                "description": "a bignum is a number",
+                "data": 98249283749234923498293171823948729348710298301928331,
+                "valid": true
+            },
             {
                 "description": "a negative bignum is a number",
                 "data": -98249283749234923498293171823948729348710298301928331,
@@ -55,7 +43,7 @@
         ]
     },
     {
-        "description": "integer comparison",
+        "description": "integer comparison with maximum",
         "schema": {"maximum": 18446744073709551615},
         "tests": [
             {
@@ -79,7 +67,7 @@
         ]
     },
     {
-        "description": "integer comparison",
+        "description": "integer comparison with minimum",
         "schema": {"minimum": -18446744073709551615},
         "tests": [
             {
