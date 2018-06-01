@@ -20,7 +20,7 @@
             },
             {
                 "description": "a valid date-time string with minus offset",
-                "data": "1990-12-31T15:59:60.123-08:00",
+                "data": "1990-12-31T15:59:50.123-08:00",
                 "valid": true
             },
             {
