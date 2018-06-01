@@ -105,11 +105,6 @@
                 "valid": true
             },
             {
-                "description": "an invalid mailto URI",
-                "data": "mailto:John.Doe-example.com",
-                "valid": false
-            },
-            {
                 "description": "a valid newsgroup URI",
                 "data": "news:comp.infosystems.www.servers.unix",
                 "valid": true
