@@ -60,6 +60,22 @@ is long since deprecated.
 If you see anything missing from the current supported drafts, or incorrect
 on any draft still accepting bug fixes, please file an issue or submit a PR.
 
+Running the tests
+-----------------
+
+To run the tests you have to build a Docker image with:
+```shell
+make build
+```
+After that youe need to run the initialization.
+```shell
+make init
+```
+At last, make the test.
+```shell
+make test
+```
+
 Who Uses the Test Suite
 -----------------------
 
@@ -75,7 +91,7 @@ This suite is being used by:
 
 ### Dart ###
 
-* [json_schema](https://github.com/patefacio/json_schema) 
+* [json_schema](https://github.com/patefacio/json_schema)
 
 ### Elixir ###
 
@@ -87,7 +103,7 @@ This suite is being used by:
 
 ### Go ###
 
-* [gojsonschema](https://github.com/sigu-399/gojsonschema) 
+* [gojsonschema](https://github.com/sigu-399/gojsonschema)
 * [validate-json](https://github.com/cesanta/validate-json)
 
 ### Haskell ###
