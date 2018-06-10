@@ -10,7 +10,4 @@ init:
 	docker run -v $(CURDIR):/src -it $(TAG) npm install
 
 test:
-	docker run -v $(CURDIR):/src -it $(TAG) npm test
-
-tox:
-	docker run -v $(CURDIR):/src -it $(TAG) tox
+	docker run -v $(CURDIR):/src -it $(TAG) tox && npm test
