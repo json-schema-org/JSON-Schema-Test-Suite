@@ -60,20 +60,26 @@ is long since deprecated.
 If you see anything missing from the current supported drafts, or incorrect
 on any draft still accepting bug fixes, please file an issue or submit a PR.
 
-Running the tests
+Running the tests in a Docker container
 -----------------
+You need to [install Docker](https://docs.docker.com/install/) to run the tests
+in a container.
 
 To run the tests you have to build a Docker image with:
 ```shell
 make build
 ```
-After that youe need to run the initialization.
+After that you need to run the initialization.
 ```shell
 make init
 ```
 At last, make the test.
 ```shell
 make test
+```
+If you run the tests for the first time you can call altogether.
+```
+make build init test
 ```
 
 Who Uses the Test Suite
