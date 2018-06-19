@@ -140,6 +140,7 @@ for more information.
 ### Python ###
 
 * [jsonschema](https://github.com/Julian/jsonschema)
+* [fastjsonschema](https://github.com/seznam/python-fastjsonschema)
 
 ### Ruby ###
 
