@@ -300,7 +300,9 @@
     {
         "description": "Location-independent identifier",
         "schema": {
-            "$ref": "#foo",
+            "allOf": [{
+                "$ref": "#foo"
+            }],
             "definitions": {
                 "A": {
                     "id": "#foo",
@@ -324,7 +326,9 @@
     {
         "description": "Canonical location-independent identifier",
         "schema": {
-            "$ref": "http://localhost:1234/bar#foo",
+            "allOf": [{
+                "$ref": "http://localhost:1234/bar#foo"
+            }],
             "definitions": {
                 "A": {
                     "id": "http://localhost:1234/bar#foo",
@@ -349,7 +353,9 @@
         "description": "Location-independent identifier with base URI change in subschema",
         "schema": {
             "id": "http://localhost:1234/root",
-            "$ref": "http://localhost:1234/nested.json#foo",
+            "allOf": [{
+                "$ref": "http://localhost:1234/nested.json#foo"
+            }],
             "definitions": {
                 "A": {
                     "id": "nested.json",
@@ -360,33 +366,6 @@
                         }
                     }
                 }
-            }
-        },
-        "tests": [
-            {
-                "data": 1,
-                "description": "match",
-                "valid": true
-            },
-            {
-                "data": "a",
-                "description": "mismatch",
-                "valid": false
-            }
-        ]
-    },
-    {
-        "description": "Location-independent identifiers should take precedent over regular fragments",
-        "schema": {
-            "$ref": "#foo",
-            "definitions": {
-                "A": {
-                    "id": "#foo",
-                    "type": "integer"
-                }
-            },
-            "foo": {
-                "type": "string"
             }
         },
         "tests": [
