@@ -95,6 +95,45 @@
         ]
     },
     {
+        "description": "patternProperties without properties",
+        "schema": {
+            "patternProperties": {
+                "f.o": true
+            },
+            "additionalProperties": false
+        },
+        "tests": [
+            {
+                "description": "patternProperty covers all keys",
+                "data": {"fxo": []},
+                "valid": true
+            },
+            {
+                "description": "additionalProperty always invalid",
+                "data": {"quux": "foo"},
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "additionalProperties on its own",
+        "schema": {
+            "additionalProperties": false
+        },
+        "tests": [
+            {
+                "description": "no properties",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "any property always invalid",
+                "data": {"quux": "foo"},
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "properties with boolean schema",
         "schema": {
             "properties": {
