@@ -9,7 +9,12 @@
                 "valid": true
             },
             {
-                "description": "an invalid idn e-mail address",
+                "description": "an invalid idn email that is not valid IDN",
+                "data": "-foo@example.com",
+                "valid": false
+            },
+            {
+                "description": "a completely invalid e-mail address",
                 "data": "2962",
                 "valid": false
             }
