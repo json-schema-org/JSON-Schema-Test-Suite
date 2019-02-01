@@ -1,192 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 JSON Schema Test Suite [![Build Status](https://travis-ci.org/json-schema-org/JSON-Schema-Test-Suite.svg?branch=master)](https://travis-ci.org/json-schema-org/JSON-Schema-Test-Suite)
-=======
-This is a fork of JSON Schema Test Suite for Node.js developers
-===============================================================
-=======
-Node.js fork of JSON Schema Test Suite
-======================================
->>>>>>> 9ec69b0... lodash needs to be a regular dependency, updated package.json, README.md
+======================
 
-[![NPM](https://nodei.co/npm/json-schema-test-suite.png?compact=true)](https://nodei.co/npm/json-schema-test-suite/)
+** This is the `node` branch of JSON Schema Test Suite.**
 
-This is a fork of JSON Schema Test Suite for Node.js validator development.
-
-The JSON Schema Test Suite is meant to be a language agnostic test suite for testing JSON Schema validation libraries. This fork makes the test suite available as an [npm package](https://www.npmjs.com/package/json-schema-test-suite) for use with Node.js.
-
-    npm install json-schema-test-suite
-
-When pulling the source from GitHub, make sure to checkout the `node` branch for taking advantage of the node features in this fork. The master and develop branches track the [upstream repo](https://github.com/json-schema/JSON-Schema-Test-Suite/). It is current with the latest commit to `7511038dcb4f4b430fa2a929184da70b670bdd35` (June 17, 2015) on the upstream `develop` branch.
-
-### Usage:
-
-There are a number of ways of loading the tests:
-
-    var testSuite = require('json-schema-test-suite');
-
-    // this will load all (required and optional) draft4 tests
-    var tests = testSuite.loadSync();
-
-    // optional `filter` is a function that takes 3 arguments (filename, parent, optional)
-    // and returns true if the test should be included. The optional argument is true
-    // for all files under the `<draft>/optional` directory.
-    // optional `draft` should be either `'draft3'` or `'draft4'`
-    var tests = testSuite.loadSync(filter, draft);
-
-    // convenience functions:
-
-    // The following take an optional `filter` as described previously (undefined will load all tests)
-    var draft3 = testSuite.draft3();
-    var draft4 = testSuite.draft4();
-
-    // The following take an optional `draft` argument (defaults to 'draft4')
-    var all = testSuite.loadAllSync();
-    var required = testSuite.loadRequiredSync();
-    var optional = testSuite.loadOptionalSync();
-
-    
-The return value of these functions is an array of objects that correspond to each file under `tests/<draft>` that
-passed the filter (the default is all, so the array will also include all the optional files).
-
-Each object has the following structure (using `tests/draft4/additionalItems.json` as an example):
-
-```
-{
-  name:    'additionalItems',
-  file:     'additionalItems.json',
-  optional: false,  // true if a file under the optional directory
-  path:     '/full/path/to/JSON-Schema-Test-Suite/tests/draft4/additionalItems.json',
-  schemas:  []
-}
-```
-
-The `schemas` property contains the array of objects loaded from the test file.
-Each object consists of a schema and description, along with a number of tests used for validation. Using the first schema object in the array from `tests/draft4/additionalItems.json` as an example:
-
-```
-{
-  description: 'additionalItems as schema',
-  schema: {
-    items: [{}],
-    additionalItems: { type: "integer" }
-  },
-  tests: [
-    {
-      description: "additional items match schema",
-      data: [ null, 2, 3, 4 ],
-      valid: true
-    },
-    {
-      description: "additional items do not match schema",
-      data: [ null, 2, 3, "foo" ],
-      valid: false
-    }
-  ]
-}
-```
-
-### Testing a JSON Validator
-
-You can apply a validator against all the tests. You need to create a validator factory function that takes a JSON schema and an options argument, and returns an object with a validate method. The validate function should take a JSON object to be validated against the schema. It should return an object with a valid property set to true or false, and if not valid, an errors property that is an array of one or more validation errors.
-
-The following are examples of `Tiny Validator (tv4)` and `z-schema` validator factories used by the unit test.
-
-
-#### tv4
-```
-var tv4 = require('tv4');
-
-var tv4Factory = function (schema, options) {
-  return {
-    validate: function (json) {
-      try {
-        var valid = tv4.validate(json, schema);
-        return valid ? { valid: true } : { valid: false, errors: [ tv4.error ] };
-      } catch (err) {
-        return { valid: false, errors: [err.message] };
-      }
-    }
-  };
-};
-```
-
-#### ZSchema
-
-```
-var ZSchema = require('z-schema');
-
-var zschemaFactory = function (schema, options) {
-  var zschema = new ZSchema(options);
-
-  return {
-    validate: function (json) {
-      try {
-        var valid = zschema.validate(json, schema);
-        return valid ? { valid: true } : { valid: false, errors: zschema.getLastErrors() };
-      } catch (err) {
-        return { valid: false, errors: [err.message] };
-      }
-    }
-  };
-};
-```
-
-#### Testing the Validator
-
-Using a validator factory as described above, you can test it as follows.
-
-```
-var testSuite = require('@atomiq/json-schema-test-suite');
-var factory = require('YOUR-FACTORY');
-
-var options = { ... };
-
-var tests = testSuite.testSync(factory, options);
-```
-
-The `tests` return value is as described previously in the Usage section, with an additional property for each test object that corresponds to the test result:
-
-```
-{
-  description: 'additionalItems as schema',
-  schema: {
-    items: [{}],
-    additionalItems: { type: "integer" }
-  },
-  tests: [
-    {
-      description: "additional items match schema",
-      data: [ null, 2, 3, 4 ],
-      valid: true,
-      result: {
-        valid: false,
-        errors: [ ... ]
-      }
-    },
-    {
-      description: "additional items do not match schema",
-      data: [ null, 2, 3, "foo" ],
-      valid: false,
-      result: {
-        true
-      }
-    }
-  ]
-}
-```
-
-### Unit Tests
-
-You can run `npm test` from a clone of the repo or browse the unit test source [here](https://github.com/atomiqio/JSON-Schema-Test-Suite/blob/node/test/test.js) for examples using both [tv4](https://github.com/geraintluff/tv4) and [z-schema](https://github.com/zaggino/z-schema).
-
-
----
-
-
-=======
->>>>>>> 68badc3... added NODE-README.md, updated README.md
-JSON Schema Test Suite [![Build Status](https://travis-ci.org/json-schema/JSON-Schema-Test-Suite.png?branch=develop)](https://travis-ci.org/json-schema/JSON-Schema-Test-Suite)
+Node-specific support is maintained on GitHub on the [node branch](https://github.com/json-schema/JSON-Schema-Test-Suite/tree/node).
+See [NODE-README.md](https://github.com/json-schema/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
+for more information on using this package.
 
 This repository contains a set of JSON objects that implementors of JSON Schema
 validation libraries can use to test their validators.
@@ -311,21 +130,9 @@ This suite is being used by:
 
 The JSON Schema Test Suite is also available as an
 [npm](https://www.npmjs.com/package/json-schema-test-suite) package.
-<<<<<<< HEAD
 Node-specific support is maintained on the [node branch](https://github.com/json-schema-org/JSON-Schema-Test-Suite/tree/node).
 See [NODE-README.md](https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
-=======
-Node-specific support is maintained on the [node branch]
-(https://github.com/json-schema/JSON-Schema-Test-Suite/tree/node).
-See [NODE-README.md]
-(https://github.com/json-schema/JSON-Schema-Test-Suite/blob/node/NODE-README.md)
->>>>>>> 47b52a1... updated node.js info in README.md
 for more information.
-
-### Node.js ###
-
-The JSON Schema Test Suite is also available as an [npm](https://www.npmjs.com/package/json-schema-test-suite).
-See [NODE-README.md](./NODE-README.md) for more information.
 
 ### .NET ###
 
