@@ -9,6 +9,19 @@ It is meant to be language agnostic and should require only a JSON parser.
 The conversion of the JSON objects into tests within your test framework of
 choice is still the job of the validator implementor.
 
+NPM
+---
+
+This JSON Schema Test Suite is available as an npm package and can be installed
+using:
+
+```sh
+npm install --save-dev json-schema-test-suite
+```
+
+See [NODE-README.md](https://github.com/json-schema/JSON-Schema-Test-Suite/blob/master/NODE-README.md)
+for more information on using this package.
+
 Structure of a Test
 -------------------
 
@@ -75,7 +88,7 @@ This suite is being used by:
 
 ### Dart ###
 
-* [json_schema](https://github.com/patefacio/json_schema) 
+* [json_schema](https://github.com/patefacio/json_schema)
 
 ### Elixir ###
 
@@ -87,7 +100,7 @@ This suite is being used by:
 
 ### Go ###
 
-* [gojsonschema](https://github.com/sigu-399/gojsonschema) 
+* [gojsonschema](https://github.com/sigu-399/gojsonschema)
 * [validate-json](https://github.com/cesanta/validate-json)
 
 ### Haskell ###
