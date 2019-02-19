@@ -161,6 +161,11 @@
                 "valid": true
             },
             {
+                "description": "a valid e-mail address with a numeric hostname",
+                "data": "joe.bloggs@123.24-7-examples.com",
+                "valid": true
+            },
+            {
                 "description": "an invalid e-mail address",
                 "data": "2962",
                 "valid": false
@@ -231,6 +236,11 @@
             {
                 "description": "a valid host name",
                 "data": "www.example.com",
+                "valid": true
+            },
+            {
+                "description": "a valid hostname starting with a number",
+                "data": "123.24-7-examples.com",
                 "valid": true
             },
             {
