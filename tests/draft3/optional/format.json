@@ -177,11 +177,6 @@
                 "valid": true
             },
             {
-                "description": "a valid host name starting with a number",
-                "data": "123.24-7-examples.com",
-                "valid": true
-            },
-            {
                 "description": "a host name starting with an illegal character",
                 "data": "-a-host-name-that-starts-with--",
                 "valid": false
