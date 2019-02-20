@@ -176,17 +176,17 @@
                 "valid": true
             },
             {
-                "description": "a valid e-mail address with numbers and hyphens in the domain",
+                "description": "a valid e-mail address with a complex domain",
                 "data": "joe.bloggs@123.24-7-examples.com",
                 "valid": true
             },
             {
-                "description": "a valid email address with an IP address as the destination",
+                "description": "a valid email address with an IP address",
                 "data": "email@123.123.123.123",
                 "valid": true
             },
             {
-                "description": "a valid e-mail address with a bracketed IP address as the destination",
+                "description": "a valid e-mail address with a bracketed IP address",
                 "data": "email@[123.123.123.123]",
                 "valid": true
             },
