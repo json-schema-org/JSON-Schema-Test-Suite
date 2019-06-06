@@ -1,0 +1,827 @@
+[
+  {
+    "description": "additionalProperties being false does not allow other properties",
+    "schema": {
+      "properties": {"foo": {}, "bar": {}},
+      "patternProperties": {"^v": {}},
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "no additional properties is valid",
+        "data": {"foo": 1},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "an additional property is invalid",
+        "data": {"foo": 1, "bar": 2, "quux": "boom"},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties",
+            "instanceLocation": "#",
+            "keyword": "additionalProperties",
+            "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties",
+            "instanceLocation": "#",
+            "keyword": "additionalProperties",
+            "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties",
+                "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores arrays",
+        "data": [1, 2, 3],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobarbaz",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "patternProperties are not additional properties",
+        "data": {"foo": 1, "vroom": 2},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/patternProperties/^v",
+                    "instanceLocation": "#/vroom"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "non-ASCII pattern with additionalProperties",
+    "schema": {"patternProperties": {"^á": {}}, "additionalProperties": false},
+    "tests": [
+      {
+        "description": "matching the pattern is valid",
+        "data": {"ármányos": 2},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/patternProperties/^á",
+                    "instanceLocation": "#/ármányos"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "not matching the pattern is invalid",
+        "data": {"élmény": 2},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties",
+            "instanceLocation": "#",
+            "keyword": "additionalProperties",
+            "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties",
+            "instanceLocation": "#",
+            "keyword": "additionalProperties",
+            "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties",
+                "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "additionalProperties allows a schema which should validate",
+    "schema": {
+      "properties": {"foo": {}, "bar": {}},
+      "additionalProperties": {"type": "boolean"}
+    },
+    "tests": [
+      {
+        "description": "no additional properties is valid",
+        "data": {"foo": 1},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "an additional valid property is valid",
+        "data": {"foo": 1, "bar": 2, "quux": true},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/additionalProperties",
+                    "instanceLocation": "#/quux",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/additionalProperties/type",
+                        "instanceLocation": "#/quux",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "an additional invalid property is invalid",
+        "data": {"foo": 1, "bar": 2, "quux": 12},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties/type",
+            "instanceLocation": "#/quux",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties/type",
+            "instanceLocation": "#/quux",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar"
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties",
+                "error": "Any properties not covered by `properties` and `patternProperties` failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/additionalProperties",
+                    "instanceLocation": "#/quux",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/additionalProperties/type",
+                        "instanceLocation": "#/quux",
+                        "keyword": "type",
+                        "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "additionalProperties can exist by itself",
+    "schema": {"additionalProperties": {"type": "boolean"}},
+    "tests": [
+      {
+        "description": "an additional valid property is valid",
+        "data": {"foo": true},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/additionalProperties",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/additionalProperties/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "an additional invalid property is invalid",
+        "data": {"foo": 1},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties/type",
+            "instanceLocation": "#/foo",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties/type",
+            "instanceLocation": "#/foo",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties",
+                "error": "Any properties not covered by `properties` and `patternProperties` failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/additionalProperties",
+                    "instanceLocation": "#/foo",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/additionalProperties/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type",
+                        "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "additionalProperties are allowed by default",
+    "schema": {"properties": {"foo": {}, "bar": {}}},
+    "tests": [
+      {
+        "description": "additional properties are allowed",
+        "data": {"foo": 1, "bar": 2, "quux": true},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "additionalProperties should not look in applicators",
+    "schema": {
+      "allOf": [{"properties": {"foo": {}}}],
+      "additionalProperties": {"type": "boolean"}
+    },
+    "tests": [
+      {
+        "description": "properties defined in allOf are not allowed",
+        "data": {"foo": 1, "bar": true},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties/type",
+            "instanceLocation": "#/foo",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties/type",
+            "instanceLocation": "#/foo",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/allOf",
+                "instanceLocation": "#",
+                "keyword": "allOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/allOf/0",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/allOf/0/properties",
+                        "instanceLocation": "#",
+                        "keyword": "properties",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/allOf/0/properties/foo",
+                            "instanceLocation": "#/foo"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties",
+                "error": "Any properties not covered by `properties` and `patternProperties` failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/additionalProperties",
+                    "instanceLocation": "#/foo",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/additionalProperties/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type",
+                        "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/additionalProperties",
+                    "instanceLocation": "#/bar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/additionalProperties/type",
+                        "instanceLocation": "#/bar",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

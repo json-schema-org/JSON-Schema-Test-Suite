@@ -1,0 +1,372 @@
+[
+  {
+    "description": "required validation",
+    "schema": {"properties": {"foo": {}, "bar": {}}, "required": ["foo"]},
+    "tests": [
+      {
+        "description": "present required property is valid",
+        "data": {"foo": 1},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/required",
+                "instanceLocation": "#",
+                "keyword": "required"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "non-present required property is invalid",
+        "data": {"bar": 1},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/required",
+            "instanceLocation": "#",
+            "keyword": "required",
+            "error": "The properties [\"foo\"] are required."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/required",
+            "instanceLocation": "#",
+            "keyword": "required",
+            "error": "The properties [\"foo\"] are required."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar"
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/required",
+                "instanceLocation": "#",
+                "keyword": "required",
+                "error": "The properties [\"foo\"] are required."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores arrays",
+        "data": [],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/required",
+                "instanceLocation": "#",
+                "keyword": "required"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores strings",
+        "data": "",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/required",
+                "instanceLocation": "#",
+                "keyword": "required"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/required",
+                "instanceLocation": "#",
+                "keyword": "required"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "required default validation",
+    "schema": {"properties": {"foo": {}}},
+    "tests": [
+      {
+        "description": "not required by default",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "required with empty array",
+    "schema": {"properties": {"foo": {}}, "required": []},
+    "tests": [
+      {
+        "description": "property not required",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/required",
+                "instanceLocation": "#",
+                "keyword": "required"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "required with escaped characters",
+    "schema": {
+      "required": [
+        "foo\nbar",
+        "foo\"bar",
+        "foo\bar",
+        "foo\rbar",
+        "foo\tbar",
+        "foo\fbar"
+      ]
+    },
+    "tests": [
+      {
+        "description": "object with all properties present is valid",
+        "data": {
+          "foo\nbar": 1,
+          "foo\"bar": 1,
+          "foo\bar": 1,
+          "foo\rbar": 1,
+          "foo\tbar": 1,
+          "foo\fbar": 1
+        },
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/required",
+                "instanceLocation": "#",
+                "keyword": "required"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "object with some properties missing is invalid",
+        "data": {"foo\nbar": "1", "foo\"bar": "1"},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/required",
+            "instanceLocation": "#",
+            "keyword": "required",
+            "error": "The properties [\"foo\\\bar\",\"foo\rbar\",\"foo\tbar\",\"foo\fbar\"] are required."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/required",
+            "instanceLocation": "#",
+            "keyword": "required",
+            "error": "The properties [\"foo\\\bar\",\"foo\rbar\",\"foo\tbar\",\"foo\fbar\"] are required."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/required",
+                "instanceLocation": "#",
+                "keyword": "required",
+                "error": "The properties [\"foo\\\bar\",\"foo\rbar\",\"foo\tbar\",\"foo\fbar\"] are required."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

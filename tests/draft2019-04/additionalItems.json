@@ -1,0 +1,533 @@
+[
+  {
+    "description": "additionalItems as schema",
+    "schema": {"items": [{}], "additionalItems": {"type": "integer"}},
+    "tests": [
+      {
+        "description": "additional items match schema",
+        "data": [null, 2, 3, 4],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/additionalItems",
+                    "instanceLocation": "#/0",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/additionalItems/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/additionalItems",
+                    "instanceLocation": "#/1",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/additionalItems/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/additionalItems",
+                    "instanceLocation": "#/2",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/additionalItems/type",
+                        "instanceLocation": "#/2",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "additional items do not match schema",
+        "data": [null, 2, 3, "foo"],
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/additionalItems/type",
+            "instanceLocation": "#/2",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/additionalItems/type",
+            "instanceLocation": "#/2",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0"
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems",
+                "error": "Items not covered by `items` failed validation.",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/additionalItems",
+                    "instanceLocation": "#/0",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/additionalItems/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/additionalItems",
+                    "instanceLocation": "#/1",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/additionalItems/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/additionalItems",
+                    "instanceLocation": "#/2",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/additionalItems/type",
+                        "instanceLocation": "#/2",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "items is schema, no additionalItems",
+    "schema": {"items": {}, "additionalItems": false},
+    "tests": [
+      {
+        "description": "all items match schema",
+        "data": [1, 2, 3, 4, 5],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/0"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/1"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/2"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/3"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/4"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "array of items with no additionalItems",
+    "schema": {"items": [{}, {}, {}], "additionalItems": false},
+    "tests": [
+      {
+        "description": "fewer number of items present",
+        "data": [1, 2],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1",
+                    "instanceLocation": "#/1"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "equal number of items present",
+        "data": [1, 2, 3],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1",
+                    "instanceLocation": "#/1"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/2",
+                    "instanceLocation": "#/2"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "additional items are not permitted",
+        "data": [1, 2, 3, 4],
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/additionalItems",
+            "instanceLocation": "#",
+            "keyword": "additionalItems",
+            "error": "Items not covered by `items` are not allowed."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/additionalItems",
+            "instanceLocation": "#",
+            "keyword": "additionalItems",
+            "error": "Items not covered by `items` are not allowed."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1",
+                    "instanceLocation": "#/1"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/2",
+                    "instanceLocation": "#/2"
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems",
+                "error": "Items not covered by `items` are not allowed."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "additionalItems as false without items",
+    "schema": {"additionalItems": false},
+    "tests": [
+      {
+        "description": "items defaults to empty schema so everything is valid",
+        "data": [1, 2, 3, 4, 5],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores non-arrays",
+        "data": {"foo": "bar"},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "additionalItems are allowed by default",
+    "schema": {"items": [{"type": "integer"}]},
+    "tests": [
+      {
+        "description": "only the first item is validated",
+        "data": [1, "foo", false],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/0/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

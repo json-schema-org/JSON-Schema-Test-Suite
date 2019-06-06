@@ -1,0 +1,421 @@
+[
+  {
+    "description": "const validation",
+    "schema": {"const": 2},
+    "tests": [
+      {
+        "description": "same value is valid",
+        "data": 2,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "another value is invalid",
+        "data": 5,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value 5 does not match the expected 2."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value 5 does not match the expected 2."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const",
+                "error": "The value 5 does not match the expected 2."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "another type is invalid",
+        "data": "a",
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value \"a\" does not match the expected 2."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value \"a\" does not match the expected 2."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const",
+                "error": "The value \"a\" does not match the expected 2."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "const with object",
+    "schema": {"const": {"foo": "bar", "baz": "bax"}},
+    "tests": [
+      {
+        "description": "same object is valid",
+        "data": {"foo": "bar", "baz": "bax"},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "same object with different property order is valid",
+        "data": {"baz": "bax", "foo": "bar"},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "another object is invalid",
+        "data": {"foo": "bar"},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value {\"foo\":\"bar\"} does not match the expected {\"foo\":\"bar\",\"baz\":\"bax\"}."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value {\"foo\":\"bar\"} does not match the expected {\"foo\":\"bar\",\"baz\":\"bax\"}."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const",
+                "error": "The value {\"foo\":\"bar\"} does not match the expected {\"foo\":\"bar\",\"baz\":\"bax\"}."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "another type is invalid",
+        "data": [1, 2],
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value [1,2] does not match the expected {\"foo\":\"bar\",\"baz\":\"bax\"}."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value [1,2] does not match the expected {\"foo\":\"bar\",\"baz\":\"bax\"}."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const",
+                "error": "The value [1,2] does not match the expected {\"foo\":\"bar\",\"baz\":\"bax\"}."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "const with array",
+    "schema": {"const": [{"foo": "bar"}]},
+    "tests": [
+      {
+        "description": "same array is valid",
+        "data": [{"foo": "bar"}],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "another array item is invalid",
+        "data": [2],
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value [2] does not match the expected [{\"foo\":\"bar\"}]."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value [2] does not match the expected [{\"foo\":\"bar\"}]."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const",
+                "error": "The value [2] does not match the expected [{\"foo\":\"bar\"}]."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "array with additional items is invalid",
+        "data": [1, 2, 3],
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value [1,2,3] does not match the expected [{\"foo\":\"bar\"}]."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value [1,2,3] does not match the expected [{\"foo\":\"bar\"}]."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const",
+                "error": "The value [1,2,3] does not match the expected [{\"foo\":\"bar\"}]."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "const with null",
+    "schema": {"const": null},
+    "tests": [
+      {
+        "description": "null is valid",
+        "data": null,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "not null is invalid",
+        "data": 0,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value 0 does not match the expected null."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/const",
+            "instanceLocation": "#",
+            "keyword": "const",
+            "error": "The value 0 does not match the expected null."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/const",
+                "instanceLocation": "#",
+                "keyword": "const",
+                "error": "The value 0 does not match the expected null."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

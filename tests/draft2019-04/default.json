@@ -1,0 +1,191 @@
+[
+  {
+    "description": "invalid type for default",
+    "schema": {"properties": {"foo": {"type": "integer", "default": []}}},
+    "tests": [
+      {
+        "description": "valid when property is specified",
+        "data": {"foo": 13},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo/default",
+                        "instanceLocation": "#/foo",
+                        "keyword": "default"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "still valid when the invalid default is used",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "invalid string value for default",
+    "schema": {
+      "properties": {
+        "bar": {"type": "string", "minLength": 4, "default": "bad"}
+      }
+    },
+    "tests": [
+      {
+        "description": "valid when property is specified",
+        "data": {"bar": "good"},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/properties/bar/default",
+            "instanceLocation": "#/bar",
+            "keyword": "default",
+            "annotation": "bad"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/properties/bar/default",
+            "instanceLocation": "#/bar",
+            "keyword": "default",
+            "annotation": "bad"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/bar/type",
+                        "instanceLocation": "#/bar",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/bar/minLength",
+                        "instanceLocation": "#/bar",
+                        "keyword": "minLength"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/bar/default",
+                        "instanceLocation": "#/bar",
+                        "keyword": "default",
+                        "annotation": "bad"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "still valid when the invalid default is used",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

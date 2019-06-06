@@ -1,0 +1,1389 @@
+[
+  {
+    "description": "object properties validation",
+    "schema": {
+      "properties": {"foo": {"type": "integer"}, "bar": {"type": "string"}}
+    },
+    "tests": [
+      {
+        "description": "both properties present and valid is valid",
+        "data": {"foo": 1, "bar": "baz"},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/bar/type",
+                        "instanceLocation": "#/bar",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "one property invalid is invalid",
+        "data": {"foo": 1, "bar": {}},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/properties/bar/type",
+            "instanceLocation": "#/bar",
+            "keyword": "type",
+            "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/properties/bar/type",
+            "instanceLocation": "#/bar",
+            "keyword": "type",
+            "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation.",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/bar/type",
+                        "instanceLocation": "#/bar",
+                        "keyword": "type",
+                        "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "both properties invalid is invalid",
+        "data": {"foo": [], "bar": {}},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo/type",
+                "instanceLocation": "#/foo",
+                "keyword": "type",
+                "error": "Values of type \"array\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/bar/type",
+                "instanceLocation": "#/bar",
+                "keyword": "type",
+                "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/properties",
+            "instanceLocation": "#",
+            "keyword": "properties",
+            "error": "At least one subschema failed validation.",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo/type",
+                "instanceLocation": "#/foo",
+                "keyword": "type",
+                "error": "Values of type \"array\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/bar/type",
+                "instanceLocation": "#/bar",
+                "keyword": "type",
+                "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/foo/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type",
+                        "error": "Values of type \"array\" are not one of the allowed types \"integer\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/bar/type",
+                        "instanceLocation": "#/bar",
+                        "keyword": "type",
+                        "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "doesn't invalidate other properties",
+        "data": {"quux": []},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores arrays",
+        "data": [],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "properties, patternProperties, additionalProperties interaction",
+    "schema": {
+      "properties": {
+        "foo": {"type": "array", "maxItems": 3},
+        "bar": {"type": "array"}
+      },
+      "patternProperties": {"f.o": {"minItems": 2}},
+      "additionalProperties": {"type": "integer"}
+    },
+    "tests": [
+      {
+        "description": "property validates property",
+        "data": {"foo": [1, 2]},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo/maxItems",
+                        "instanceLocation": "#/foo",
+                        "keyword": "maxItems"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/patternProperties/f.o",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/patternProperties/f.o/minItems",
+                        "instanceLocation": "#/foo",
+                        "keyword": "minItems"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "property invalidates property",
+        "data": {"foo": [1, 2, 3, 4]},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/properties/foo/maxItems",
+            "instanceLocation": "#/foo",
+            "keyword": "maxItems",
+            "error": "The array should contain at most 3 items, but 4 were found."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/properties/foo/maxItems",
+            "instanceLocation": "#/foo",
+            "keyword": "maxItems",
+            "error": "The array should contain at most 3 items, but 4 were found."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo",
+                    "errors": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/foo/maxItems",
+                        "instanceLocation": "#/foo",
+                        "keyword": "maxItems",
+                        "error": "The array should contain at most 3 items, but 4 were found."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/patternProperties/f.o",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/patternProperties/f.o/minItems",
+                        "instanceLocation": "#/foo",
+                        "keyword": "minItems"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "patternProperty invalidates property",
+        "data": {"foo": []},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/patternProperties/f.o/minItems",
+            "instanceLocation": "#/foo",
+            "keyword": "minItems",
+            "error": "The array should contain at least 2 items, but 0 were found."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/patternProperties/f.o/minItems",
+            "instanceLocation": "#/foo",
+            "keyword": "minItems",
+            "error": "The array should contain at least 2 items, but 0 were found."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo/type",
+                        "instanceLocation": "#/foo",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo/maxItems",
+                        "instanceLocation": "#/foo",
+                        "keyword": "maxItems"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties",
+                "error": "At least one subschema failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/patternProperties/f.o",
+                    "instanceLocation": "#/foo",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/patternProperties/f.o/minItems",
+                        "instanceLocation": "#/foo",
+                        "keyword": "minItems",
+                        "error": "The array should contain at least 2 items, but 0 were found."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "patternProperty validates nonproperty",
+        "data": {"fxo": [1, 2]},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/patternProperties/f.o",
+                    "instanceLocation": "#/fxo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/patternProperties/f.o/minItems",
+                        "instanceLocation": "#/fxo",
+                        "keyword": "minItems"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "patternProperty invalidates nonproperty",
+        "data": {"fxo": []},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/patternProperties/f.o/minItems",
+            "instanceLocation": "#/fxo",
+            "keyword": "minItems",
+            "error": "The array should contain at least 2 items, but 0 were found."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/patternProperties/f.o/minItems",
+            "instanceLocation": "#/fxo",
+            "keyword": "minItems",
+            "error": "The array should contain at least 2 items, but 0 were found."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties",
+                "error": "At least one subschema failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/patternProperties/f.o",
+                    "instanceLocation": "#/fxo",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/patternProperties/f.o/minItems",
+                        "instanceLocation": "#/fxo",
+                        "keyword": "minItems",
+                        "error": "The array should contain at least 2 items, but 0 were found."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "additionalProperty ignores property",
+        "data": {"bar": []},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/bar/type",
+                        "instanceLocation": "#/bar",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "additionalProperty validates others",
+        "data": {"quux": 3},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/additionalProperties",
+                    "instanceLocation": "#/quux",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/additionalProperties/type",
+                        "instanceLocation": "#/quux",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "additionalProperty invalidates others",
+        "data": {"quux": "foo"},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties/type",
+            "instanceLocation": "#/quux",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/additionalProperties/type",
+            "instanceLocation": "#/quux",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/patternProperties",
+                "instanceLocation": "#",
+                "keyword": "patternProperties"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/additionalProperties",
+                "instanceLocation": "#",
+                "keyword": "additionalProperties",
+                "error": "Any properties not covered by `properties` and `patternProperties` failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/additionalProperties",
+                    "instanceLocation": "#/quux",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/additionalProperties/type",
+                        "instanceLocation": "#/quux",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "properties with boolean schema",
+    "schema": {"properties": {"foo": true, "bar": false}},
+    "tests": [
+      {
+        "description": "no property present is valid",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "only 'true' property present is valid",
+        "data": {"foo": 1},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "only 'false' property present is invalid",
+        "data": {"bar": 2},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/properties/bar",
+            "instanceLocation": "#/bar",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/properties/bar",
+            "instanceLocation": "#/bar",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar",
+                    "error": "No value is valid against the false schema."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "both properties present is invalid",
+        "data": {"foo": 1, "bar": 2},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/properties/bar",
+            "instanceLocation": "#/bar",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/properties/bar",
+            "instanceLocation": "#/bar",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation.",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo"
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/bar",
+                    "instanceLocation": "#/bar",
+                    "error": "No value is valid against the false schema."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "properties with escaped characters",
+    "schema": {
+      "properties": {
+        "foo\nbar": {"type": "number"},
+        "foo\"bar": {"type": "number"},
+        "foo\bar": {"type": "number"},
+        "foo\rbar": {"type": "number"},
+        "foo\tbar": {"type": "number"},
+        "foo\fbar": {"type": "number"}
+      }
+    },
+    "tests": [
+      {
+        "description": "object with all numbers is valid",
+        "data": {
+          "foo\nbar": 1,
+          "foo\"bar": 1,
+          "foo\bar": 1,
+          "foo\rbar": 1,
+          "foo\tbar": 1,
+          "foo\fbar": 1
+        },
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo\nbar",
+                    "instanceLocation": "#/foo\nbar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo\nbar/type",
+                        "instanceLocation": "#/foo\nbar",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo\"bar",
+                    "instanceLocation": "#/foo\"bar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo\"bar/type",
+                        "instanceLocation": "#/foo\"bar",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo\bar",
+                    "instanceLocation": "#/foo\bar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo\bar/type",
+                        "instanceLocation": "#/foo\bar",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo\rbar",
+                    "instanceLocation": "#/foo\rbar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo\rbar/type",
+                        "instanceLocation": "#/foo\rbar",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo\tbar",
+                    "instanceLocation": "#/foo\tbar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo\tbar/type",
+                        "instanceLocation": "#/foo\tbar",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/properties/foo\fbar",
+                    "instanceLocation": "#/foo\fbar",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/properties/foo\fbar/type",
+                        "instanceLocation": "#/foo\fbar",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "object with strings is invalid",
+        "data": {
+          "foo\nbar": "1",
+          "foo\"bar": "1",
+          "foo\bar": "1",
+          "foo\rbar": "1",
+          "foo\tbar": "1",
+          "foo\fbar": "1"
+        },
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\nbar/type",
+                "instanceLocation": "#/foo\nbar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\"bar/type",
+                "instanceLocation": "#/foo\"bar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\bar/type",
+                "instanceLocation": "#/foo\bar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\rbar/type",
+                "instanceLocation": "#/foo\rbar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\tbar/type",
+                "instanceLocation": "#/foo\tbar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\fbar/type",
+                "instanceLocation": "#/foo\fbar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/properties",
+            "instanceLocation": "#",
+            "keyword": "properties",
+            "error": "At least one subschema failed validation.",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\nbar/type",
+                "instanceLocation": "#/foo\nbar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\"bar/type",
+                "instanceLocation": "#/foo\"bar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\bar/type",
+                "instanceLocation": "#/foo\bar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\rbar/type",
+                "instanceLocation": "#/foo\rbar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\tbar/type",
+                "instanceLocation": "#/foo\tbar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/properties/foo\fbar/type",
+                "instanceLocation": "#/foo\fbar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/foo\nbar",
+                    "instanceLocation": "#/foo\nbar",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/foo\nbar/type",
+                        "instanceLocation": "#/foo\nbar",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/foo\"bar",
+                    "instanceLocation": "#/foo\"bar",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/foo\"bar/type",
+                        "instanceLocation": "#/foo\"bar",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/foo\bar",
+                    "instanceLocation": "#/foo\bar",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/foo\bar/type",
+                        "instanceLocation": "#/foo\bar",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/foo\rbar",
+                    "instanceLocation": "#/foo\rbar",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/foo\rbar/type",
+                        "instanceLocation": "#/foo\rbar",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/foo\tbar",
+                    "instanceLocation": "#/foo\tbar",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/foo\tbar/type",
+                        "instanceLocation": "#/foo\tbar",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/foo\fbar",
+                    "instanceLocation": "#/foo\fbar",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/foo\fbar/type",
+                        "instanceLocation": "#/foo\fbar",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

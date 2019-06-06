@@ -1,0 +1,43 @@
+[
+  {
+    "description": "validation of regular expressions",
+    "schema": {"format": "regex"},
+    "tests": [
+      {
+        "description": "a valid regular expression",
+        "data": "([abc])+\\s+$",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "regex"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "regex"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "regex"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,133 @@
+[
+  {
+    "description": "maximum validation",
+    "schema": {"maximum": 3},
+    "tests": [
+      {
+        "description": "below the maximum is valid",
+        "data": 2.6,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/maximum",
+                "instanceLocation": "#",
+                "keyword": "maximum"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "boundary point is valid",
+        "data": 3,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/maximum",
+                "instanceLocation": "#",
+                "keyword": "maximum"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "above the maximum is invalid",
+        "data": 3.5,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/maximum",
+            "instanceLocation": "#",
+            "keyword": "maximum",
+            "error": "The value 3.5 should be at most 3."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/maximum",
+            "instanceLocation": "#",
+            "keyword": "maximum",
+            "error": "The value 3.5 should be at most 3."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/maximum",
+                "instanceLocation": "#",
+                "keyword": "maximum",
+                "error": "The value 3.5 should be at most 3."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores non-numbers",
+        "data": "x",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/maximum",
+                "instanceLocation": "#",
+                "keyword": "maximum"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

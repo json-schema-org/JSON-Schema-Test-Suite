@@ -1,0 +1,1235 @@
+[
+  {
+    "description": "anyOf",
+    "schema": {"anyOf": [{"type": "integer"}, {"minimum": 2}]},
+    "tests": [
+      {
+        "description": "first anyOf valid",
+        "data": 1,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/type",
+                        "instanceLocation": "#",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/1/minimum",
+                        "instanceLocation": "#",
+                        "keyword": "minimum",
+                        "error": "The value 1 should be at least 2."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "second anyOf valid",
+        "data": 2.5,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/0/type",
+                        "instanceLocation": "#",
+                        "keyword": "type",
+                        "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/minimum",
+                        "instanceLocation": "#",
+                        "keyword": "minimum"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "both anyOf valid",
+        "data": 3,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/type",
+                        "instanceLocation": "#",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/minimum",
+                        "instanceLocation": "#",
+                        "keyword": "minimum"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "neither anyOf valid",
+        "data": 1.5,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/0/type",
+                "instanceLocation": "#",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/1/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum",
+                "error": "The value 1.5 should be at least 2."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/anyOf",
+            "instanceLocation": "#",
+            "keyword": "anyOf",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/0/type",
+                "instanceLocation": "#",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/1/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum",
+                "error": "The value 1.5 should be at least 2."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/0/type",
+                        "instanceLocation": "#",
+                        "keyword": "type",
+                        "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/1/minimum",
+                        "instanceLocation": "#",
+                        "keyword": "minimum",
+                        "error": "The value 1.5 should be at least 2."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "anyOf with base schema",
+    "schema": {"type": "string", "anyOf": [{"maxLength": 2}, {"minLength": 4}]},
+    "tests": [
+      {
+        "description": "mismatch base schema",
+        "data": 3,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/type",
+            "instanceLocation": "#",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/type",
+            "instanceLocation": "#",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/maxLength",
+                        "instanceLocation": "#",
+                        "keyword": "maxLength"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/minLength",
+                        "instanceLocation": "#",
+                        "keyword": "minLength"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "one anyOf valid",
+        "data": "foobar",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/0/maxLength",
+                        "instanceLocation": "#",
+                        "keyword": "maxLength",
+                        "error": "The string should be at most 2 characters long, but was 6."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/minLength",
+                        "instanceLocation": "#",
+                        "keyword": "minLength"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "both anyOf invalid",
+        "data": "foo",
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/0/maxLength",
+                "instanceLocation": "#",
+                "keyword": "maxLength",
+                "error": "The string should be at most 2 characters long, but was 3."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/1/minLength",
+                "instanceLocation": "#",
+                "keyword": "minLength",
+                "error": "The string should be at least 4 characters long, but was 3."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/anyOf",
+            "instanceLocation": "#",
+            "keyword": "anyOf",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/0/maxLength",
+                "instanceLocation": "#",
+                "keyword": "maxLength",
+                "error": "The string should be at most 2 characters long, but was 3."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/1/minLength",
+                "instanceLocation": "#",
+                "keyword": "minLength",
+                "error": "The string should be at least 4 characters long, but was 3."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/0/maxLength",
+                        "instanceLocation": "#",
+                        "keyword": "maxLength",
+                        "error": "The string should be at most 2 characters long, but was 3."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/1/minLength",
+                        "instanceLocation": "#",
+                        "keyword": "minLength",
+                        "error": "The string should be at least 4 characters long, but was 3."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "anyOf with boolean schemas, all true",
+    "schema": {"anyOf": [true, true]},
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "anyOf with boolean schemas, some true",
+    "schema": {"anyOf": [true, false]},
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#"
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "error": "No value is valid against the false schema."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "anyOf with boolean schemas, all false",
+    "schema": {"anyOf": [false, false]},
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/0",
+                "instanceLocation": "#",
+                "error": "No value is valid against the false schema."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/1",
+                "instanceLocation": "#",
+                "error": "No value is valid against the false schema."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/anyOf",
+            "instanceLocation": "#",
+            "keyword": "anyOf",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/0",
+                "instanceLocation": "#",
+                "error": "No value is valid against the false schema."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/1",
+                "instanceLocation": "#",
+                "error": "No value is valid against the false schema."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "error": "No value is valid against the false schema."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "error": "No value is valid against the false schema."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "anyOf complex types",
+    "schema": {
+      "anyOf": [
+        {"properties": {"bar": {"type": "integer"}}, "required": ["bar"]},
+        {"properties": {"foo": {"type": "string"}}, "required": ["foo"]}
+      ]
+    },
+    "tests": [
+      {
+        "description": "first anyOf valid (complex)",
+        "data": {"bar": 2},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/properties",
+                        "instanceLocation": "#",
+                        "keyword": "properties",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/anyOf/0/properties/bar",
+                            "instanceLocation": "#/bar",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/anyOf/0/properties/bar/type",
+                                "instanceLocation": "#/bar",
+                                "keyword": "type"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/required",
+                        "instanceLocation": "#",
+                        "keyword": "required"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/properties",
+                        "instanceLocation": "#",
+                        "keyword": "properties"
+                      },
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/1/required",
+                        "instanceLocation": "#",
+                        "keyword": "required",
+                        "error": "The properties [\"foo\"] are required."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "second anyOf valid (complex)",
+        "data": {"foo": "baz"},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/properties",
+                        "instanceLocation": "#",
+                        "keyword": "properties"
+                      },
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/0/required",
+                        "instanceLocation": "#",
+                        "keyword": "required",
+                        "error": "The properties [\"bar\"] are required."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/properties",
+                        "instanceLocation": "#",
+                        "keyword": "properties",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/anyOf/1/properties/foo",
+                            "instanceLocation": "#/foo",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/anyOf/1/properties/foo/type",
+                                "instanceLocation": "#/foo",
+                                "keyword": "type"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/required",
+                        "instanceLocation": "#",
+                        "keyword": "required"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "both anyOf valid (complex)",
+        "data": {"foo": "baz", "bar": 2},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/properties",
+                        "instanceLocation": "#",
+                        "keyword": "properties",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/anyOf/0/properties/bar",
+                            "instanceLocation": "#/bar",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/anyOf/0/properties/bar/type",
+                                "instanceLocation": "#/bar",
+                                "keyword": "type"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/required",
+                        "instanceLocation": "#",
+                        "keyword": "required"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/properties",
+                        "instanceLocation": "#",
+                        "keyword": "properties",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/anyOf/1/properties/foo",
+                            "instanceLocation": "#/foo",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/anyOf/1/properties/foo/type",
+                                "instanceLocation": "#/foo",
+                                "keyword": "type"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/required",
+                        "instanceLocation": "#",
+                        "keyword": "required"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "neither anyOf valid (complex)",
+        "data": {"foo": 2, "bar": "quux"},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/0/properties/bar/type",
+                "instanceLocation": "#/bar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/1/properties/foo/type",
+                "instanceLocation": "#/foo",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/anyOf",
+            "instanceLocation": "#",
+            "keyword": "anyOf",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/0/properties/bar/type",
+                "instanceLocation": "#/bar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf/1/properties/foo/type",
+                "instanceLocation": "#/foo",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/0/properties",
+                        "instanceLocation": "#",
+                        "keyword": "properties",
+                        "error": "At least one subschema failed validation.",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/anyOf/0/properties/bar",
+                            "instanceLocation": "#/bar",
+                            "errors": [
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/anyOf/0/properties/bar/type",
+                                "instanceLocation": "#/bar",
+                                "keyword": "type",
+                                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/required",
+                        "instanceLocation": "#",
+                        "keyword": "required"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/1/properties",
+                        "instanceLocation": "#",
+                        "keyword": "properties",
+                        "error": "At least one subschema failed validation.",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/anyOf/1/properties/foo",
+                            "instanceLocation": "#/foo",
+                            "errors": [
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/anyOf/1/properties/foo/type",
+                                "instanceLocation": "#/foo",
+                                "keyword": "type",
+                                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/1/required",
+                        "instanceLocation": "#",
+                        "keyword": "required"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "anyOf with one empty schema",
+    "schema": {"anyOf": [{"type": "number"}, {}]},
+    "tests": [
+      {
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/anyOf/0/type",
+                        "instanceLocation": "#",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "number is valid",
+        "data": 123,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/anyOf",
+                "instanceLocation": "#",
+                "keyword": "anyOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/0",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/anyOf/0/type",
+                        "instanceLocation": "#",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/anyOf/1",
+                    "instanceLocation": "#"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

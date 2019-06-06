@@ -1,0 +1,446 @@
+[
+  {
+    "description": "not",
+    "schema": {"not": {"type": "integer"}},
+    "tests": [
+      {
+        "description": "allowed",
+        "data": "foo",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "disallowed",
+        "data": 1,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not",
+                "error": "Value should not validate against the schema."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "not multiple types",
+    "schema": {"not": {"type": ["boolean", "integer"]}},
+    "tests": [
+      {
+        "description": "valid",
+        "data": "foo",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "mismatch",
+        "data": 1,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not",
+                "error": "Value should not validate against the schema."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "other mismatch",
+        "data": true,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not",
+                "error": "Value should not validate against the schema."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "not more complex schema",
+    "schema": {
+      "not": {"type": "object", "properties": {"foo": {"type": "string"}}}
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": 1,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "other match",
+        "data": {"foo": 1},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "mismatch",
+        "data": {"foo": "bar"},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not",
+                "error": "Value should not validate against the schema."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "forbidden property",
+    "schema": {"properties": {"foo": {"not": {}}}},
+    "tests": [
+      {
+        "description": "property present",
+        "data": {"foo": 1, "bar": 2},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/properties/foo/not",
+            "instanceLocation": "#/foo",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/properties/foo/not",
+            "instanceLocation": "#/foo",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/properties/foo",
+                    "instanceLocation": "#/foo",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/properties/foo/not",
+                        "instanceLocation": "#/foo",
+                        "keyword": "not",
+                        "error": "Value should not validate against the schema."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "property absent",
+        "data": {"bar": 1, "baz": 2},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/properties",
+                "instanceLocation": "#",
+                "keyword": "properties"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "not with boolean schema true",
+    "schema": {"not": true},
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/not",
+            "instanceLocation": "#",
+            "keyword": "not",
+            "error": "Value should not validate against the schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not",
+                "error": "Value should not validate against the schema."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "not with boolean schema false",
+    "schema": {"not": false},
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/not",
+                "instanceLocation": "#",
+                "keyword": "not"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

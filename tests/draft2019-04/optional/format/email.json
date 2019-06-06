@@ -1,0 +1,78 @@
+[
+  {
+    "description": "validation of e-mail addresses",
+    "schema": {"format": "email"},
+    "tests": [
+      {
+        "description": "a valid e-mail address",
+        "data": "joe.bloggs@example.com",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "email"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "email"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "email"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "an invalid e-mail address",
+        "data": "2962",
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"2962\" is not in an acceptable \"email\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"2962\" is not in an acceptable \"email\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"2962\" is not in an acceptable \"email\" format."
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

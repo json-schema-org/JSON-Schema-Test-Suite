@@ -1,0 +1,294 @@
+[
+  {
+    "description": "minimum validation",
+    "schema": {"minimum": 1.1},
+    "tests": [
+      {
+        "description": "above the minimum is valid",
+        "data": 2.6,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "boundary point is valid",
+        "data": 1.1,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "below the minimum is invalid",
+        "data": 0.6,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/minimum",
+            "instanceLocation": "#",
+            "keyword": "minimum",
+            "error": "The value 0.6 should be at least 1.1."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/minimum",
+            "instanceLocation": "#",
+            "keyword": "minimum",
+            "error": "The value 0.6 should be at least 1.1."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum",
+                "error": "The value 0.6 should be at least 1.1."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores non-numbers",
+        "data": "x",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "minimum validation with signed integer",
+    "schema": {"minimum": -2},
+    "tests": [
+      {
+        "description": "negative above the minimum is valid",
+        "data": -1,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "positive above the minimum is valid",
+        "data": 0,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "boundary point is valid",
+        "data": -2,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "below the minimum is invalid",
+        "data": -3,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/minimum",
+            "instanceLocation": "#",
+            "keyword": "minimum",
+            "error": "The value -3 should be at least -2."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/minimum",
+            "instanceLocation": "#",
+            "keyword": "minimum",
+            "error": "The value -3 should be at least -2."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum",
+                "error": "The value -3 should be at least -2."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores non-numbers",
+        "data": "x",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]
