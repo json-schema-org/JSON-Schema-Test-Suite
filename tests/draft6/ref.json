@@ -356,7 +356,7 @@
         ]
     },
     {
-        "description": "Canonical location-independent identifier",
+        "description": "Location-independent identifier with absolute URI",
         "schema": {
             "allOf": [{
                 "$ref": "http://localhost:1234/bar#foo"
