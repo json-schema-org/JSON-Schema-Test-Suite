@@ -135,7 +135,7 @@
             "$id": "http://localhost:1234/object",
             "type": "object",
             "properties": {
-                "name": {"$ref": "name.json#/$defs/orNull"}
+                "name": {"$ref": "name-defs.json#/$defs/orNull"}
             }
         },
         "tests": [
