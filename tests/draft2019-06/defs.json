@@ -5,11 +5,7 @@
         "tests": [
             {
                 "description": "valid definition schema",
-                "data": {
-                    "definitions": {
-                        "foo": {"type": "integer"}
-                    }
-                },
+                "data": {"$defs": {"foo": {"type": "integer"}}},
                 "valid": true
             }
         ]
@@ -20,11 +16,7 @@
         "tests": [
             {
                 "description": "invalid definition schema",
-                "data": {
-                    "definitions": {
-                        "foo": {"type": 1}
-                    }
-                },
+                "data": {"$defs": {"foo": {"type": 1}}},
                 "valid": false
             }
         ]
