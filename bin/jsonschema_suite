@@ -38,6 +38,12 @@ REMOTES = {
             u"orNull": {u"anyOf": [{u"type": u"null"}, {u"$ref": u"#"}]},
         },
     },
+    "name-defs.json": {
+        u"type": "string",
+        u"$defs": {
+            u"orNull": {u"anyOf": [{u"type": u"null"}, {u"$ref": u"#"}]},
+        },
+    },
     "subSchemas.json": {
         u"integer": {u"type": u"integer"},
         u"refToInteger": {u"$ref": u"#/integer"},
