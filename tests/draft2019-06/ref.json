@@ -362,7 +362,7 @@
             "allOf": [{
                 "$ref": "#foo"
             }],
-            "definitions": {
+            "$defs": {
                 "A": {
                     "$id": "#foo",
                     "type": "integer"
@@ -388,7 +388,7 @@
             "allOf": [{
                 "$ref": "http://localhost:1234/bar#foo"
             }],
-            "definitions": {
+            "$defs": {
                 "A": {
                     "$id": "http://localhost:1234/bar#foo",
                     "type": "integer"
@@ -415,10 +415,10 @@
             "allOf": [{
                 "$ref": "http://localhost:1234/nested.json#foo"
             }],
-            "definitions": {
+            "$defs": {
                 "A": {
                     "$id": "nested.json",
-                    "definitions": {
+                    "$defs": {
                         "B": {
                             "$id": "#foo",
                             "type": "integer"
