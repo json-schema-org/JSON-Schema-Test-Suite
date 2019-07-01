@@ -6,21 +6,134 @@
       {
         "description": "a matching pattern is valid",
         "data": "aaa",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/pattern",
+                "instanceLocation": "#",
+                "keyword": "pattern"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "a non-matching pattern is invalid",
         "data": "abc",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/pattern",
+            "instanceLocation": "#",
+            "keyword": "pattern",
+            "error": "\"abc\" should match the Regular Expression `\"^a*$\"`."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/pattern",
+            "instanceLocation": "#",
+            "keyword": "pattern",
+            "error": "\"abc\" should match the Regular Expression `\"^a*$\"`."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/pattern",
+                "instanceLocation": "#",
+                "keyword": "pattern",
+                "error": "\"abc\" should match the Regular Expression `\"^a*$\"`."
+              }
+            ]
+          }
+        }
       },
-      {"description": "ignores non-strings", "data": true, "valid": true}
+      {
+        "description": "ignores non-strings",
+        "data": true,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/pattern",
+                "instanceLocation": "#",
+                "keyword": "pattern"
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
     "description": "pattern is not anchored",
     "schema": {"pattern": "a+"},
     "tests": [
-      {"description": "matches a substring", "data": "xxaayy", "valid": true}
+      {
+        "description": "matches a substring",
+        "data": "xxaayy",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/pattern",
+                "instanceLocation": "#",
+                "keyword": "pattern"
+              }
+            ]
+          }
+        }
+      }
     ]
   }
 ]

@@ -6,21 +6,245 @@
       {
         "description": "all property names valid",
         "data": {"f": {}, "foo": {}},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/propertyNames",
+                    "instanceLocation": "#/f",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/propertyNames/maxLength",
+                        "instanceLocation": "#/f",
+                        "keyword": "maxLength"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/propertyNames",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/propertyNames/maxLength",
+                        "instanceLocation": "#/foo",
+                        "keyword": "maxLength"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "some property names invalid",
         "data": {"foo": {}, "foobar": {}},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/propertyNames/maxLength",
+            "instanceLocation": "#/foobar",
+            "keyword": "maxLength",
+            "error": "The string should be at most 3 characters long, but was 6."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/propertyNames/maxLength",
+            "instanceLocation": "#/foobar",
+            "keyword": "maxLength",
+            "error": "The string should be at most 3 characters long, but was 6."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames",
+                "error": "Properties [\"foo\",\"foobar\"] have names that failed validation.",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/propertyNames",
+                    "instanceLocation": "#/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/propertyNames/maxLength",
+                        "instanceLocation": "#/foo",
+                        "keyword": "maxLength"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/propertyNames",
+                    "instanceLocation": "#/foobar",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/propertyNames/maxLength",
+                        "instanceLocation": "#/foobar",
+                        "keyword": "maxLength",
+                        "error": "The string should be at most 3 characters long, but was 6."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "object without properties is valid",
         "data": {},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames"
+              }
+            ]
+          }
+        }
       },
-      {"description": "ignores arrays", "data": [1, 2, 3, 4], "valid": true},
-      {"description": "ignores strings", "data": "foobar", "valid": true},
-      {"description": "ignores other non-objects", "data": 12, "valid": true}
+      {
+        "description": "ignores arrays",
+        "data": [1, 2, 3, 4],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobar",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames"
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -30,9 +254,70 @@
       {
         "description": "object with any properties is valid",
         "data": {"foo": 1},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/propertyNames",
+                    "instanceLocation": "#/foo"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
-      {"description": "empty object is valid", "data": {}, "valid": true}
+      {
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames"
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -42,9 +327,74 @@
       {
         "description": "object with any properties is invalid",
         "data": {"foo": 1},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/propertyNames",
+            "instanceLocation": "#/foo",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/propertyNames",
+            "instanceLocation": "#/foo",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames",
+                "error": "Properties [\"foo\"] have names that failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/propertyNames",
+                    "instanceLocation": "#/foo",
+                    "error": "No value is valid against the false schema."
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
-      {"description": "empty object is valid", "data": {}, "valid": true}
+      {
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/propertyNames",
+                "instanceLocation": "#",
+                "keyword": "propertyNames"
+              }
+            ]
+          }
+        }
+      }
     ]
   }
 ]

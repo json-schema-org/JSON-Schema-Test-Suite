@@ -6,47 +6,282 @@
       {
         "description": "a valid date-time string",
         "data": "1963-06-19T08:30:06.283185Z",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date-time"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date-time"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "date-time"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "a valid date-time string without second fraction",
         "data": "1963-06-19T08:30:06Z",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date-time"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date-time"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "date-time"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "a valid date-time string with plus offset",
         "data": "1937-01-01T12:00:27.87+00:20",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date-time"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date-time"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "date-time"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "a valid date-time string with minus offset",
         "data": "1990-12-31T15:59:50.123-08:00",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date-time"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date-time"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "date-time"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "a invalid day in date-time string",
         "data": "1990-02-31T15:59:60.123-08:00",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"1990-02-31T15:59:60.123-08:00\" is not in an acceptable \"date-time\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"1990-02-31T15:59:60.123-08:00\" is not in an acceptable \"date-time\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"1990-02-31T15:59:60.123-08:00\" is not in an acceptable \"date-time\" format."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "an invalid offset in date-time string",
         "data": "1990-12-31T15:59:60-24:00",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"1990-12-31T15:59:60-24:00\" is not in an acceptable \"date-time\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"1990-12-31T15:59:60-24:00\" is not in an acceptable \"date-time\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"1990-12-31T15:59:60-24:00\" is not in an acceptable \"date-time\" format."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "an invalid date-time string",
         "data": "06/19/1963 08:30:06 PST",
-        "valid": false
-      },
-      {
-        "description": "case-insensitive T and Z",
-        "data": "1963-06-19t08:30:06.283185z",
-        "valid": true
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"06/19/1963 08:30:06 PST\" is not in an acceptable \"date-time\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"06/19/1963 08:30:06 PST\" is not in an acceptable \"date-time\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"06/19/1963 08:30:06 PST\" is not in an acceptable \"date-time\" format."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "only RFC3339 not all of ISO 8601 are valid",
         "data": "2013-350T01:01:01",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"2013-350T01:01:01\" is not in an acceptable \"date-time\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"2013-350T01:01:01\" is not in an acceptable \"date-time\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"2013-350T01:01:01\" is not in an acceptable \"date-time\" format."
+              }
+            ]
+          }
+        }
       }
     ]
   }

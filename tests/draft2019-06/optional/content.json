@@ -6,14 +6,73 @@
       {
         "description": "a valid JSON document",
         "data": "{\"foo\": \"bar\"}",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/contentMediaType",
+            "instanceLocation": "#",
+            "keyword": "contentMediaType",
+            "annotation": "application/json"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/contentMediaType",
+            "instanceLocation": "#",
+            "keyword": "contentMediaType",
+            "annotation": "application/json"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/contentMediaType",
+                "instanceLocation": "#",
+                "keyword": "contentMediaType",
+                "annotation": "application/json"
+              }
+            ]
+          }
+        }
       },
       {
-        "description": "an invalid JSON document",
-        "data": "{:}",
-        "valid": false
-      },
-      {"description": "ignores non-strings", "data": 100, "valid": true}
+        "description": "ignores non-strings",
+        "data": 100,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/contentMediaType",
+            "instanceLocation": "#",
+            "keyword": "contentMediaType",
+            "annotation": "application/json"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/contentMediaType",
+            "instanceLocation": "#",
+            "keyword": "contentMediaType",
+            "annotation": "application/json"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/contentMediaType",
+                "instanceLocation": "#",
+                "keyword": "contentMediaType",
+                "annotation": "application/json"
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -23,14 +82,73 @@
       {
         "description": "a valid base64 string",
         "data": "eyJmb28iOiAiYmFyIn0K",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/contentEncoding",
+            "instanceLocation": "#",
+            "keyword": "contentEncoding",
+            "annotation": "base64"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/contentEncoding",
+            "instanceLocation": "#",
+            "keyword": "contentEncoding",
+            "annotation": "base64"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/contentEncoding",
+                "instanceLocation": "#",
+                "keyword": "contentEncoding",
+                "annotation": "base64"
+              }
+            ]
+          }
+        }
       },
       {
-        "description": "an invalid base64 string (% is not a valid character)",
-        "data": "eyJmb28iOi%iYmFyIn0K",
-        "valid": false
-      },
-      {"description": "ignores non-strings", "data": 100, "valid": true}
+        "description": "ignores non-strings",
+        "data": 100,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/contentEncoding",
+            "instanceLocation": "#",
+            "keyword": "contentEncoding",
+            "annotation": "base64"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/contentEncoding",
+            "instanceLocation": "#",
+            "keyword": "contentEncoding",
+            "annotation": "base64"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/contentEncoding",
+                "instanceLocation": "#",
+                "keyword": "contentEncoding",
+                "annotation": "base64"
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -43,19 +161,141 @@
       {
         "description": "a valid base64-encoded JSON document",
         "data": "eyJmb28iOiAiYmFyIn0K",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "annotations": [
+              {"valid": true, "keywordLocation": "#", "instanceLocation": "#"},
+              {
+                "valid": true,
+                "keywordLocation": "#/contentMediaType",
+                "instanceLocation": "#",
+                "keyword": "contentMediaType",
+                "annotation": "application/json"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/contentEncoding",
+                "instanceLocation": "#",
+                "keyword": "contentEncoding",
+                "annotation": "base64"
+              }
+            ]
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/contentMediaType",
+                "instanceLocation": "#",
+                "keyword": "contentMediaType",
+                "annotation": "application/json"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/contentEncoding",
+                "instanceLocation": "#",
+                "keyword": "contentEncoding",
+                "annotation": "base64"
+              }
+            ]
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/contentMediaType",
+                "instanceLocation": "#",
+                "keyword": "contentMediaType",
+                "annotation": "application/json"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/contentEncoding",
+                "instanceLocation": "#",
+                "keyword": "contentEncoding",
+                "annotation": "base64"
+              }
+            ]
+          }
+        }
       },
       {
-        "description": "a validly-encoded invalid JSON document",
-        "data": "ezp9Cg==",
-        "valid": false
-      },
-      {
-        "description": "an invalid base64 string that is valid JSON",
-        "data": "{}",
-        "valid": false
-      },
-      {"description": "ignores non-strings", "data": 100, "valid": true}
+        "description": "ignores non-strings",
+        "data": 100,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "annotations": [
+              {"valid": true, "keywordLocation": "#", "instanceLocation": "#"},
+              {
+                "valid": true,
+                "keywordLocation": "#/contentMediaType",
+                "instanceLocation": "#",
+                "keyword": "contentMediaType",
+                "annotation": "application/json"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/contentEncoding",
+                "instanceLocation": "#",
+                "keyword": "contentEncoding",
+                "annotation": "base64"
+              }
+            ]
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/contentMediaType",
+                "instanceLocation": "#",
+                "keyword": "contentMediaType",
+                "annotation": "application/json"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/contentEncoding",
+                "instanceLocation": "#",
+                "keyword": "contentEncoding",
+                "annotation": "base64"
+              }
+            ]
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/contentMediaType",
+                "instanceLocation": "#",
+                "keyword": "contentMediaType",
+                "annotation": "application/json"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/contentEncoding",
+                "instanceLocation": "#",
+                "keyword": "contentEncoding",
+                "annotation": "base64"
+              }
+            ]
+          }
+        }
+      }
     ]
   }
 ]

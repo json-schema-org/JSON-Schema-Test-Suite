@@ -6,12 +6,46 @@
       {
         "description": "valid when valid against lone if",
         "data": 0,
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
       },
       {
         "description": "valid when invalid against lone if",
         "data": "hello",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
       }
     ]
   },
@@ -22,12 +56,46 @@
       {
         "description": "valid when valid against lone then",
         "data": 0,
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
       },
       {
         "description": "valid when invalid against lone then",
         "data": "hello",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
       }
     ]
   },
@@ -38,12 +106,46 @@
       {
         "description": "valid when valid against lone else",
         "data": 0,
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
       },
       {
         "description": "valid when invalid against lone else",
         "data": "hello",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
       }
     ]
   },
@@ -51,18 +153,218 @@
     "description": "if and then without else",
     "schema": {"if": {"exclusiveMaximum": 0}, "then": {"minimum": -10}},
     "tests": [
-      {"description": "valid through then", "data": -1, "valid": true},
-      {"description": "invalid through then", "data": -100, "valid": false},
-      {"description": "valid when if test fails", "data": 3, "valid": true}
+      {
+        "description": "valid through then",
+        "data": -1,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/if",
+                "instanceLocation": "#",
+                "keyword": "if"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "invalid through then",
+        "data": -100,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/then/minimum",
+            "instanceLocation": "#",
+            "keyword": "minimum",
+            "error": "The value -100 should be at least -10."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/then/minimum",
+            "instanceLocation": "#",
+            "keyword": "minimum",
+            "error": "The value -100 should be at least -10."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/if",
+                "instanceLocation": "#",
+                "keyword": "then",
+                "error": "Validation of `if` succeeded, but validation of `then` failed",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/then",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/then/minimum",
+                        "instanceLocation": "#",
+                        "keyword": "minimum",
+                        "error": "The value -100 should be at least -10."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "valid when if test fails",
+        "data": 3,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      }
     ]
   },
   {
     "description": "if and else without then",
     "schema": {"if": {"exclusiveMaximum": 0}, "else": {"multipleOf": 2}},
     "tests": [
-      {"description": "valid when if test passes", "data": -1, "valid": true},
-      {"description": "valid through else", "data": 4, "valid": true},
-      {"description": "invalid through else", "data": 3, "valid": false}
+      {
+        "description": "valid when if test passes",
+        "data": -1,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      },
+      {
+        "description": "valid through else",
+        "data": 4,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/if",
+                "instanceLocation": "#",
+                "keyword": "if"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "invalid through else",
+        "data": 3,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/else/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "1 should be a multiple of 2."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/else/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "1 should be a multiple of 2."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/if",
+                "instanceLocation": "#",
+                "keyword": "else",
+                "error": "Validation of `if` failed, but validation of `else` also failed",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/else",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/else/multipleOf",
+                        "instanceLocation": "#",
+                        "keyword": "multipleOf",
+                        "error": "1 should be a multiple of 2."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -73,10 +375,168 @@
       "else": {"multipleOf": 2}
     },
     "tests": [
-      {"description": "valid through then", "data": -1, "valid": true},
-      {"description": "invalid through then", "data": -100, "valid": false},
-      {"description": "valid through else", "data": 4, "valid": true},
-      {"description": "invalid through else", "data": 3, "valid": false}
+      {
+        "description": "valid through then",
+        "data": -1,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/if",
+                "instanceLocation": "#",
+                "keyword": "if"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "invalid through then",
+        "data": -100,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/then/minimum",
+            "instanceLocation": "#",
+            "keyword": "minimum",
+            "error": "The value -100 should be at least -10."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/then/minimum",
+            "instanceLocation": "#",
+            "keyword": "minimum",
+            "error": "The value -100 should be at least -10."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/if",
+                "instanceLocation": "#",
+                "keyword": "then",
+                "error": "Validation of `if` succeeded, but validation of `then` failed",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/then",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/then/minimum",
+                        "instanceLocation": "#",
+                        "keyword": "minimum",
+                        "error": "The value -100 should be at least -10."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "valid through else",
+        "data": 4,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/if",
+                "instanceLocation": "#",
+                "keyword": "if"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "invalid through else",
+        "data": 3,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/else/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "1 should be a multiple of 2."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/else/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "1 should be a multiple of 2."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/if",
+                "instanceLocation": "#",
+                "keyword": "else",
+                "error": "Validation of `if` failed, but validation of `else` also failed",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/else",
+                    "instanceLocation": "#",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/else/multipleOf",
+                        "instanceLocation": "#",
+                        "keyword": "multipleOf",
+                        "error": "1 should be a multiple of 2."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -92,12 +552,96 @@
       {
         "description": "valid, but woud have been invalid through then",
         "data": -100,
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/allOf",
+                "instanceLocation": "#",
+                "keyword": "allOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/allOf/0",
+                    "instanceLocation": "#"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/allOf/1",
+                    "instanceLocation": "#"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/allOf/2",
+                    "instanceLocation": "#"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "valid, but would have been invalid through else",
         "data": 3,
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/allOf",
+                "instanceLocation": "#",
+                "keyword": "allOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/allOf/0",
+                    "instanceLocation": "#"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/allOf/1",
+                    "instanceLocation": "#"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/allOf/2",
+                    "instanceLocation": "#"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       }
     ]
   }

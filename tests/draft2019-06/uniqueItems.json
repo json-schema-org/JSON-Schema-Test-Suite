@@ -6,27 +6,167 @@
       {
         "description": "unique array of integers is valid",
         "data": [1, 2],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "non-unique array of integers is invalid",
         "data": [1, 1],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems",
+                "error": "Array contains multiple instances of at least one value."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "numbers are unique if mathematically unequal",
         "data": [1, 1, 1],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems",
+                "error": "Array contains multiple instances of at least one value."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "unique array of objects is valid",
         "data": [{"foo": "bar"}, {"foo": "baz"}],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "non-unique array of objects is invalid",
         "data": [{"foo": "bar"}, {"foo": "bar"}],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems",
+                "error": "Array contains multiple instances of at least one value."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "unique array of nested objects is valid",
@@ -34,7 +174,32 @@
           {"foo": {"bar": {"baz": true}}},
           {"foo": {"bar": {"baz": false}}}
         ],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "non-unique array of nested objects is invalid",
@@ -42,37 +207,227 @@
           {"foo": {"bar": {"baz": true}}},
           {"foo": {"bar": {"baz": true}}}
         ],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems",
+                "error": "Array contains multiple instances of at least one value."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "unique array of arrays is valid",
         "data": [["foo"], ["bar"]],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "non-unique array of arrays is invalid",
         "data": [["foo"], ["foo"]],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems",
+                "error": "Array contains multiple instances of at least one value."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "1 and true are unique",
         "data": [1, true],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "0 and false are unique",
         "data": [0, false],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "unique heterogeneous types are valid",
         "data": [{}, [1], true, null, 1],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "non-unique heterogeneous types are invalid",
         "data": [{}, [1], true, null, {}, 1],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/uniqueItems",
+            "instanceLocation": "#",
+            "keyword": "uniqueItems",
+            "error": "Array contains multiple instances of at least one value."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/uniqueItems",
+                "instanceLocation": "#",
+                "keyword": "uniqueItems",
+                "error": "Array contains multiple instances of at least one value."
+              }
+            ]
+          }
+        }
       }
     ]
   }

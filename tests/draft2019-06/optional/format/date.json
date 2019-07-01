@@ -6,17 +6,107 @@
       {
         "description": "a valid date string",
         "data": "1963-06-19",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "date"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "date"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "an invalid date-time string",
         "data": "06/19/1963",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"06/19/1963\" is not in an acceptable \"date\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"06/19/1963\" is not in an acceptable \"date\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"06/19/1963\" is not in an acceptable \"date\" format."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "only RFC3339 not all of ISO 8601 are valid",
         "data": "2013-350",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"2013-350\" is not in an acceptable \"date\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"2013-350\" is not in an acceptable \"date\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"2013-350\" is not in an acceptable \"date\" format."
+              }
+            ]
+          }
+        }
       }
     ]
   }

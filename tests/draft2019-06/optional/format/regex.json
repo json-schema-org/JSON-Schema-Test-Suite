@@ -6,12 +6,37 @@
       {
         "description": "a valid regular expression",
         "data": "([abc])+\\s+$",
-        "valid": true
-      },
-      {
-        "description": "a regular expression with unclosed parens is invalid",
-        "data": "^(abc]",
-        "valid": false
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "regex"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "regex"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "regex"
+              }
+            ]
+          }
+        }
       }
     ]
   }

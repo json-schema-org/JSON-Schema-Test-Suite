@@ -3,28 +3,359 @@
     "description": "dependencies",
     "schema": {"dependencies": {"bar": ["foo"]}},
     "tests": [
-      {"description": "neither", "data": {}, "valid": true},
-      {"description": "nondependant", "data": {"foo": 1}, "valid": true},
+      {
+        "description": "neither",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "nondependant",
+        "data": {"foo": 1},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
       {
         "description": "with dependency",
         "data": {"foo": 1, "bar": 2},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
-      {"description": "missing dependency", "data": {"bar": 2}, "valid": false},
-      {"description": "ignores arrays", "data": ["bar"], "valid": true},
-      {"description": "ignores strings", "data": "foobar", "valid": true},
-      {"description": "ignores other non-objects", "data": 12, "valid": true}
+      {
+        "description": "missing dependency",
+        "data": {"bar": 2},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar",
+            "instanceLocation": "#",
+            "keyword": "dependencies/bar",
+            "error": "Properties [\"foo\"] are required when \"bar\" is present."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar",
+            "instanceLocation": "#",
+            "keyword": "dependencies/bar",
+            "error": "Properties [\"foo\"] are required when \"bar\" is present."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 1 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies/bar",
+                    "error": "Properties [\"foo\"] are required when \"bar\" is present."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores arrays",
+        "data": ["bar"],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobar",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
     "description": "dependencies with empty array",
     "schema": {"dependencies": {"bar": []}},
     "tests": [
-      {"description": "empty object", "data": {}, "valid": true},
+      {
+        "description": "empty object",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
       {
         "description": "object with one property",
         "data": {"bar": 2},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       }
     ]
   },
@@ -32,31 +363,251 @@
     "description": "multiple dependencies",
     "schema": {"dependencies": {"quux": ["foo", "bar"]}},
     "tests": [
-      {"description": "neither", "data": {}, "valid": true},
+      {
+        "description": "neither",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/quux",
+                    "instanceLocation": "#",
+                    "keyword": "quux"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
       {
         "description": "nondependants",
         "data": {"foo": 1, "bar": 2},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/quux",
+                    "instanceLocation": "#",
+                    "keyword": "quux"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "with dependencies",
         "data": {"foo": 1, "bar": 2, "quux": 3},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/quux",
+                    "instanceLocation": "#",
+                    "keyword": "quux"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "missing dependency",
         "data": {"foo": 1, "quux": 2},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/quux",
+            "instanceLocation": "#",
+            "keyword": "dependencies/quux",
+            "error": "Properties [\"bar\"] are required when \"quux\" is present."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/quux",
+            "instanceLocation": "#",
+            "keyword": "dependencies/quux",
+            "error": "Properties [\"bar\"] are required when \"quux\" is present."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 1 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/quux",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies/quux",
+                    "error": "Properties [\"bar\"] are required when \"quux\" is present."
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "missing other dependency",
         "data": {"bar": 1, "quux": 2},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/quux",
+            "instanceLocation": "#",
+            "keyword": "dependencies/quux",
+            "error": "Properties [\"foo\"] are required when \"quux\" is present."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/quux",
+            "instanceLocation": "#",
+            "keyword": "dependencies/quux",
+            "error": "Properties [\"foo\"] are required when \"quux\" is present."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 1 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/quux",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies/quux",
+                    "error": "Properties [\"foo\"] are required when \"quux\" is present."
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "missing both dependencies",
         "data": {"quux": 1},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/quux",
+            "instanceLocation": "#",
+            "keyword": "dependencies/quux",
+            "error": "Properties [\"foo\",\"bar\"] are required when \"quux\" is present."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/quux",
+            "instanceLocation": "#",
+            "keyword": "dependencies/quux",
+            "error": "Properties [\"foo\",\"bar\"] are required when \"quux\" is present."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 1 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/quux",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies/quux",
+                    "error": "Properties [\"foo\",\"bar\"] are required when \"quux\" is present."
+                  }
+                ]
+              }
+            ]
+          }
+        }
       }
     ]
   },
@@ -70,22 +621,384 @@
       }
     },
     "tests": [
-      {"description": "valid", "data": {"foo": 1, "bar": 2}, "valid": true},
-      {"description": "no dependency", "data": {"foo": "quux"}, "valid": true},
+      {
+        "description": "valid",
+        "data": {"foo": 1, "bar": 2},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "no dependency",
+        "data": {"foo": "quux"},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
       {
         "description": "wrong type",
         "data": {"foo": "quux", "bar": 2},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar/properties/foo/type",
+            "instanceLocation": "#/foo",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar/properties/foo/type",
+            "instanceLocation": "#/foo",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 1 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies.bar",
+                    "error": "The schema failed validation.",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/dependencies/bar",
+                        "instanceLocation": "#",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/dependencies/bar/properties",
+                            "instanceLocation": "#",
+                            "keyword": "properties",
+                            "error": "At least one subschema failed validation.",
+                            "errors": [
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/dependencies/bar/properties/foo",
+                                "instanceLocation": "#/foo",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/dependencies/bar/properties/foo/type",
+                                    "instanceLocation": "#/foo",
+                                    "keyword": "type",
+                                    "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/dependencies/bar/properties/bar",
+                                "instanceLocation": "#/bar",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/dependencies/bar/properties/bar/type",
+                                    "instanceLocation": "#/bar",
+                                    "keyword": "type"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "wrong type other",
         "data": {"foo": 2, "bar": "quux"},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar/properties/bar/type",
+            "instanceLocation": "#/bar",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar/properties/bar/type",
+            "instanceLocation": "#/bar",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 1 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies.bar",
+                    "error": "The schema failed validation.",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/dependencies/bar",
+                        "instanceLocation": "#",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/dependencies/bar/properties",
+                            "instanceLocation": "#",
+                            "keyword": "properties",
+                            "error": "At least one subschema failed validation.",
+                            "errors": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/dependencies/bar/properties/foo",
+                                "instanceLocation": "#/foo",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/dependencies/bar/properties/foo/type",
+                                    "instanceLocation": "#/foo",
+                                    "keyword": "type"
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/dependencies/bar/properties/bar",
+                                "instanceLocation": "#/bar",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/dependencies/bar/properties/bar/type",
+                                    "instanceLocation": "#/bar",
+                                    "keyword": "type",
+                                    "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "wrong type both",
         "data": {"foo": "quux", "bar": "quux"},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies/bar/properties",
+                "instanceLocation": "#",
+                "keyword": "properties",
+                "error": "At least one subschema failed validation."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies/bar/properties/foo/type",
+                "instanceLocation": "#/foo",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies/bar/properties/bar/type",
+                "instanceLocation": "#/bar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar/properties",
+            "instanceLocation": "#",
+            "keyword": "properties",
+            "error": "At least one subschema failed validation.",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies/bar/properties/foo/type",
+                "instanceLocation": "#/foo",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies/bar/properties/bar/type",
+                "instanceLocation": "#/bar",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 1 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies.bar",
+                    "error": "The schema failed validation.",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/dependencies/bar",
+                        "instanceLocation": "#",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/dependencies/bar/properties",
+                            "instanceLocation": "#",
+                            "keyword": "properties",
+                            "error": "At least one subschema failed validation.",
+                            "errors": [
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/dependencies/bar/properties/foo",
+                                "instanceLocation": "#/foo",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/dependencies/bar/properties/foo/type",
+                                    "instanceLocation": "#/foo",
+                                    "keyword": "type",
+                                    "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/dependencies/bar/properties/bar",
+                                "instanceLocation": "#/bar",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/dependencies/bar/properties/bar/type",
+                                    "instanceLocation": "#/bar",
+                                    "keyword": "type",
+                                    "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       }
     ]
   },
@@ -96,19 +1009,203 @@
       {
         "description": "object with property having schema true is valid",
         "data": {"foo": 1},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo",
+                    "instanceLocation": "#",
+                    "keyword": "foo"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "object with property having schema false is invalid",
         "data": {"bar": 2},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 2 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo",
+                    "instanceLocation": "#",
+                    "keyword": "foo"
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies.bar",
+                    "error": "The schema failed validation.",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/dependencies/bar",
+                        "instanceLocation": "#",
+                        "error": "No value is valid against the false schema."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "object with both properties is invalid",
         "data": {"foo": 1, "bar": 2},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/bar",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 2 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo",
+                    "instanceLocation": "#",
+                    "keyword": "foo"
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies.bar",
+                    "error": "The schema failed validation.",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/dependencies/bar",
+                        "instanceLocation": "#",
+                        "error": "No value is valid against the false schema."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
-      {"description": "empty object is valid", "data": {}, "valid": true}
+      {
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo",
+                    "instanceLocation": "#",
+                    "keyword": "foo"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/bar",
+                    "instanceLocation": "#",
+                    "keyword": "bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -118,10 +1215,117 @@
       {
         "description": "object with property is valid",
         "data": {"foo": 1},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo",
+                    "instanceLocation": "#",
+                    "keyword": "foo"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
-      {"description": "empty object is valid", "data": {}, "valid": true},
-      {"description": "non-object is valid", "data": 1, "valid": true}
+      {
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo",
+                    "instanceLocation": "#",
+                    "keyword": "foo"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "non-object is valid",
+        "data": 1,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo",
+                    "instanceLocation": "#",
+                    "keyword": "foo"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -138,37 +1342,450 @@
       {
         "description": "valid object 1",
         "data": {"foo\nbar": 1, "foo\rbar": 2},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\nbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\nbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\tbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\tbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo'bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo'bar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\"bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\"bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "valid object 2",
         "data": {"foo\tbar": 1, "a": 2, "b": 3, "c": 4},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\nbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\nbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\tbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\tbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo'bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo'bar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\"bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\"bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "valid object 3",
         "data": {"foo'bar": 1, "foo\"bar": 2},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\nbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\nbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\tbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\tbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo'bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo'bar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\"bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\"bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "invalid object 1",
         "data": {"foo\nbar": 1, "foo": 2},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/foo\nbar",
+            "instanceLocation": "#",
+            "keyword": "dependencies/foo\nbar",
+            "error": "Properties [\"foo\rbar\"] are required when \"foo\nbar\" is present."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/foo\nbar",
+            "instanceLocation": "#",
+            "keyword": "dependencies/foo\nbar",
+            "error": "Properties [\"foo\rbar\"] are required when \"foo\nbar\" is present."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 4 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/foo\nbar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies/foo\nbar",
+                    "error": "Properties [\"foo\rbar\"] are required when \"foo\nbar\" is present."
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\tbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\tbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo'bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo'bar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\"bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\"bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "invalid object 2",
         "data": {"foo\tbar": 1, "a": 2},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/foo\tbar/minProperties",
+            "instanceLocation": "#",
+            "keyword": "minProperties",
+            "error": "The array should contain at least 4 properties, but 2 were found."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/foo\tbar/minProperties",
+            "instanceLocation": "#",
+            "keyword": "minProperties",
+            "error": "The array should contain at least 4 properties, but 2 were found."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 4 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\nbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\nbar"
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/foo\tbar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies.foo\tbar",
+                    "error": "The schema failed validation.",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/dependencies/foo\tbar",
+                        "instanceLocation": "#",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/dependencies/foo\tbar/minProperties",
+                            "instanceLocation": "#",
+                            "keyword": "minProperties",
+                            "error": "The array should contain at least 4 properties, but 2 were found."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo'bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo'bar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\"bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\"bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "invalid object 3",
         "data": {"foo'bar": 1},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/foo'bar/required",
+            "instanceLocation": "#",
+            "keyword": "required",
+            "error": "The properties [\"foo\\\"bar\"] are required."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/foo'bar/required",
+            "instanceLocation": "#",
+            "keyword": "required",
+            "error": "The properties [\"foo\\\"bar\"] are required."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 4 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\nbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\nbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\tbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\tbar"
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/foo'bar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies.foo'bar",
+                    "error": "The schema failed validation.",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/dependencies/foo'bar",
+                        "instanceLocation": "#",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/dependencies/foo'bar/required",
+                            "instanceLocation": "#",
+                            "keyword": "required",
+                            "error": "The properties [\"foo\\\"bar\"] are required."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\"bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\"bar"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "invalid object 4",
         "data": {"foo\"bar": 2},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/foo\"bar",
+            "instanceLocation": "#",
+            "keyword": "dependencies/foo\"bar",
+            "error": "Properties [\"foo'bar\"] are required when \"foo\\\"bar\" is present."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/dependencies/foo\"bar",
+            "instanceLocation": "#",
+            "keyword": "dependencies/foo\"bar",
+            "error": "Properties [\"foo'bar\"] are required when \"foo\\\"bar\" is present."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/dependencies",
+                "instanceLocation": "#",
+                "keyword": "dependencies",
+                "error": "1 of 4 dependencies failed validation.",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\nbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\nbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo\tbar",
+                    "instanceLocation": "#",
+                    "keyword": "foo\tbar"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/dependencies/foo'bar",
+                    "instanceLocation": "#",
+                    "keyword": "foo'bar"
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/dependencies/foo\"bar",
+                    "instanceLocation": "#",
+                    "keyword": "dependencies/foo\"bar",
+                    "error": "Properties [\"foo'bar\"] are required when \"foo\\\"bar\" is present."
+                  }
+                ]
+              }
+            ]
+          }
+        }
       }
     ]
   }

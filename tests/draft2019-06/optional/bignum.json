@@ -5,8 +5,63 @@
     "tests": [
       {
         "description": "a bignum is an integer",
-        "data": 1.2345678910111214e+52,
-        "valid": true
+        "data": 1.23456789101112e+52,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "a negative bignum is an integer",
+        "data": -1.23456789101112e+52,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              }
+            ]
+          }
+        }
       }
     ]
   },
@@ -16,30 +71,63 @@
     "tests": [
       {
         "description": "a bignum is a number",
-        "data": 9.824928374923492e+52,
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "integer",
-    "schema": {"type": "integer"},
-    "tests": [
-      {
-        "description": "a negative bignum is an integer",
-        "data": -1.2345678910111214e+52,
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "number",
-    "schema": {"type": "number"},
-    "tests": [
+        "data": 9.82492837492349e+52,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              }
+            ]
+          }
+        }
+      },
       {
         "description": "a negative bignum is a number",
-        "data": -9.824928374923492e+52,
-        "valid": true
+        "data": -9.82492837492349e+52,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              }
+            ]
+          }
+        }
       }
     ]
   },
@@ -49,52 +137,180 @@
     "tests": [
       {
         "description": "a bignum is not a string",
-        "data": 9.824928374923492e+52,
-        "valid": false
+        "data": 9.82492837492349e+52,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/type",
+            "instanceLocation": "#",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/type",
+            "instanceLocation": "#",
+            "keyword": "type",
+            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+              }
+            ]
+          }
+        }
       }
     ]
   },
   {
     "description": "integer comparison",
-    "schema": {"maximum": 18446744073709552000},
+    "schema": {"maximum": 18446744073709600000},
     "tests": [
       {
         "description": "comparison works for high numbers",
-        "data": 18446744073709552000,
-        "valid": true
+        "data": 18446744073709600000,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/maximum",
+                "instanceLocation": "#",
+                "keyword": "maximum"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "comparison works for very negative numbers",
+        "data": -18446744073709600000,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/minimum",
+                "instanceLocation": "#",
+                "keyword": "minimum"
+              }
+            ]
+          }
+        }
       }
     ]
   },
   {
     "description": "float comparison with high precision",
-    "schema": {"exclusiveMaximum": 9.727837981879871e+26},
+    "schema": {"exclusiveMaximum": 9.72783798187987e+26},
     "tests": [
       {
         "description": "comparison works for high numbers",
-        "data": 9.727837981879871e+26,
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "integer comparison",
-    "schema": {"minimum": -18446744073709552000},
-    "tests": [
-      {
-        "description": "comparison works for very negative numbers",
-        "data": -18446744073709552000,
-        "valid": true
+        "data": 9.72783798187987e+26,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/exclusiveMaximum",
+            "instanceLocation": "#",
+            "keyword": "exclusiveMaximum"
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/exclusiveMaximum",
+            "instanceLocation": "#",
+            "keyword": "exclusiveMaximum"
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/exclusiveMaximum",
+                "instanceLocation": "#",
+                "keyword": "exclusiveMaximum"
+              }
+            ]
+          }
+        }
       }
     ]
   },
   {
     "description": "float comparison with high precision on negative numbers",
-    "schema": {"exclusiveMinimum": -9.727837981879871e+26},
+    "schema": {"exclusiveMinimum": -9.72783798187987e+26},
     "tests": [
       {
         "description": "comparison works for very negative numbers",
-        "data": -9.727837981879871e+26,
-        "valid": false
+        "data": -9.72783798187987e+26,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/exclusiveMinimum",
+            "instanceLocation": "#",
+            "keyword": "exclusiveMinimum"
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/exclusiveMinimum",
+            "instanceLocation": "#",
+            "keyword": "exclusiveMinimum"
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/exclusiveMinimum",
+                "instanceLocation": "#",
+                "keyword": "exclusiveMinimum"
+              }
+            ]
+          }
+        }
       }
     ]
   }

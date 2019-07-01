@@ -3,18 +3,202 @@
     "description": "by int",
     "schema": {"multipleOf": 2},
     "tests": [
-      {"description": "int by int", "data": 10, "valid": true},
-      {"description": "int by int fail", "data": 7, "valid": false},
-      {"description": "ignores non-numbers", "data": "foo", "valid": true}
+      {
+        "description": "int by int",
+        "data": 10,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/multipleOf",
+                "instanceLocation": "#",
+                "keyword": "multipleOf"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "int by int fail",
+        "data": 7,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "1 should be a multiple of 2."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "1 should be a multiple of 2."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/multipleOf",
+                "instanceLocation": "#",
+                "keyword": "multipleOf",
+                "error": "1 should be a multiple of 2."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "ignores non-numbers",
+        "data": "foo",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/multipleOf",
+                "instanceLocation": "#",
+                "keyword": "multipleOf"
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
     "description": "by number",
     "schema": {"multipleOf": 1.5},
     "tests": [
-      {"description": "zero is multiple of anything", "data": 0, "valid": true},
-      {"description": "4.5 is multiple of 1.5", "data": 4.5, "valid": true},
-      {"description": "35 is not multiple of 1.5", "data": 35, "valid": false}
+      {
+        "description": "zero is multiple of anything",
+        "data": 0,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/multipleOf",
+                "instanceLocation": "#",
+                "keyword": "multipleOf"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "4.5 is multiple of 1.5",
+        "data": 4.5,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/multipleOf",
+                "instanceLocation": "#",
+                "keyword": "multipleOf"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "35 is not multiple of 1.5",
+        "data": 35,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "0.5 should be a multiple of 1.5."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "0.5 should be a multiple of 1.5."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/multipleOf",
+                "instanceLocation": "#",
+                "keyword": "multipleOf",
+                "error": "0.5 should be a multiple of 1.5."
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -24,12 +208,67 @@
       {
         "description": "0.0075 is multiple of 0.0001",
         "data": 0.0075,
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/multipleOf",
+                "instanceLocation": "#",
+                "keyword": "multipleOf"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "0.00751 is not multiple of 0.0001",
         "data": 0.00751,
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "9.99999999999982E-06 should be a multiple of 0.0001."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/multipleOf",
+            "instanceLocation": "#",
+            "keyword": "multipleOf",
+            "error": "9.99999999999982E-06 should be a multiple of 0.0001."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/multipleOf",
+                "instanceLocation": "#",
+                "keyword": "multipleOf",
+                "error": "9.99999999999982E-06 should be a multiple of 0.0001."
+              }
+            ]
+          }
+        }
       }
     ]
   }

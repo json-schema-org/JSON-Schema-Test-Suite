@@ -6,7 +6,32 @@
       {
         "description": "a float without fractional part is an integer",
         "data": 1,
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              }
+            ]
+          }
+        }
       }
     ]
   }

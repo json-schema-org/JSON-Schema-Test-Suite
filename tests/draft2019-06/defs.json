@@ -6,7 +6,1467 @@
       {
         "description": "valid definition schema",
         "data": {"$defs": {"foo": {"type": "integer"}}},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                "instanceLocation": "#"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                "instanceLocation": "#",
+                "keyword": "title",
+                "annotation": "Core schema meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                "instanceLocation": "#",
+                "keyword": "allOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/title",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                        "instanceLocation": "#",
+                        "keyword": "title",
+                        "annotation": "Core vocabulary meta-schema"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs",
+                        "instanceLocation": "#/$defs",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/default",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/default",
+                            "instanceLocation": "#/$defs",
+                            "keyword": "default"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                            "instanceLocation": "#/$defs/foo",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "title",
+                                "annotation": "Core schema meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "allOf",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Core vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Applicator vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Validation vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Meta-data vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Format vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Content vocabulary meta-schema"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/1/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Applicator vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/2/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Validation vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/3/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Meta-data vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/4/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Format vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/5/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Content vocabulary meta-schema"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#",
+                "instanceLocation": "#",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Core vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs",
+                    "instanceLocation": "#/$defs",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/default",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/default",
+                        "instanceLocation": "#/$defs",
+                        "keyword": "default"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                        "instanceLocation": "#/$defs/foo",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/title",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                            "instanceLocation": "#/$defs/foo",
+                            "keyword": "title",
+                            "annotation": "Core schema meta-schema"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                            "instanceLocation": "#/$defs/foo",
+                            "keyword": "allOf",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "title",
+                                "annotation": "Core vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "title",
+                                "annotation": "Applicator vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "title",
+                                "annotation": "Validation vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "title",
+                                "annotation": "Meta-data vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "title",
+                                "annotation": "Format vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "title",
+                                "annotation": "Content vocabulary meta-schema"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/1/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                "instanceLocation": "#",
+                "keyword": "title",
+                "annotation": "Applicator vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/2/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                "instanceLocation": "#",
+                "keyword": "title",
+                "annotation": "Validation vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/3/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                "instanceLocation": "#",
+                "keyword": "title",
+                "annotation": "Meta-data vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/4/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                "instanceLocation": "#",
+                "keyword": "title",
+                "annotation": "Format vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/5/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                "instanceLocation": "#",
+                "keyword": "title",
+                "annotation": "Content vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                "instanceLocation": "#",
+                "keyword": "title",
+                "annotation": "Core vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs",
+                "instanceLocation": "#/$defs",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/default",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/default",
+                    "instanceLocation": "#/$defs",
+                    "keyword": "default"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                    "instanceLocation": "#/$defs/foo",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/title",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                        "instanceLocation": "#/$defs/foo",
+                        "keyword": "title",
+                        "annotation": "Core schema meta-schema"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                        "instanceLocation": "#/$defs/foo",
+                        "keyword": "allOf",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/title",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                            "instanceLocation": "#/$defs/foo",
+                            "keyword": "title",
+                            "annotation": "Core vocabulary meta-schema"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/title",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                            "instanceLocation": "#/$defs/foo",
+                            "keyword": "title",
+                            "annotation": "Applicator vocabulary meta-schema"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/title",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                            "instanceLocation": "#/$defs/foo",
+                            "keyword": "title",
+                            "annotation": "Validation vocabulary meta-schema"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/title",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                            "instanceLocation": "#/$defs/foo",
+                            "keyword": "title",
+                            "annotation": "Meta-data vocabulary meta-schema"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/title",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                            "instanceLocation": "#/$defs/foo",
+                            "keyword": "title",
+                            "annotation": "Format vocabulary meta-schema"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/title",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                            "instanceLocation": "#/$defs/foo",
+                            "keyword": "title",
+                            "annotation": "Content vocabulary meta-schema"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/default",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/default",
+                "instanceLocation": "#/$defs",
+                "keyword": "default"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                "instanceLocation": "#/$defs/foo",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                    "instanceLocation": "#/$defs/foo",
+                    "keyword": "title",
+                    "annotation": "Core schema meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                    "instanceLocation": "#/$defs/foo",
+                    "keyword": "allOf",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/title",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                        "instanceLocation": "#/$defs/foo",
+                        "keyword": "title",
+                        "annotation": "Core vocabulary meta-schema"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/title",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                        "instanceLocation": "#/$defs/foo",
+                        "keyword": "title",
+                        "annotation": "Applicator vocabulary meta-schema"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/title",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                        "instanceLocation": "#/$defs/foo",
+                        "keyword": "title",
+                        "annotation": "Validation vocabulary meta-schema"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/title",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                        "instanceLocation": "#/$defs/foo",
+                        "keyword": "title",
+                        "annotation": "Meta-data vocabulary meta-schema"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/title",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                        "instanceLocation": "#/$defs/foo",
+                        "keyword": "title",
+                        "annotation": "Format vocabulary meta-schema"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/title",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                        "instanceLocation": "#/$defs/foo",
+                        "keyword": "title",
+                        "annotation": "Content vocabulary meta-schema"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                "instanceLocation": "#/$defs/foo",
+                "keyword": "title",
+                "annotation": "Core schema meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                "instanceLocation": "#/$defs/foo",
+                "keyword": "allOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                    "instanceLocation": "#/$defs/foo",
+                    "keyword": "title",
+                    "annotation": "Core vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                    "instanceLocation": "#/$defs/foo",
+                    "keyword": "title",
+                    "annotation": "Applicator vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                    "instanceLocation": "#/$defs/foo",
+                    "keyword": "title",
+                    "annotation": "Validation vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                    "instanceLocation": "#/$defs/foo",
+                    "keyword": "title",
+                    "annotation": "Meta-data vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                    "instanceLocation": "#/$defs/foo",
+                    "keyword": "title",
+                    "annotation": "Format vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                    "instanceLocation": "#/$defs/foo",
+                    "keyword": "title",
+                    "annotation": "Content vocabulary meta-schema"
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                "instanceLocation": "#/$defs/foo",
+                "keyword": "title",
+                "annotation": "Core vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                "instanceLocation": "#/$defs/foo",
+                "keyword": "title",
+                "annotation": "Applicator vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                "instanceLocation": "#/$defs/foo",
+                "keyword": "title",
+                "annotation": "Validation vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                "instanceLocation": "#/$defs/foo",
+                "keyword": "title",
+                "annotation": "Meta-data vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                "instanceLocation": "#/$defs/foo",
+                "keyword": "title",
+                "annotation": "Format vocabulary meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                "instanceLocation": "#/$defs/foo",
+                "keyword": "title",
+                "annotation": "Content vocabulary meta-schema"
+              }
+            ]
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/$ref",
+            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/title",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                "instanceLocation": "#",
+                "keyword": "title",
+                "annotation": "Core schema meta-schema"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref/allOf",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                "instanceLocation": "#",
+                "keyword": "allOf",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/0/$ref",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#",
+                    "instanceLocation": "#",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/title",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                        "instanceLocation": "#",
+                        "keyword": "title",
+                        "annotation": "Core vocabulary meta-schema"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs",
+                        "instanceLocation": "#/$defs",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/default",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/default",
+                            "instanceLocation": "#/$defs",
+                            "keyword": "default"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                            "instanceLocation": "#/$defs/foo",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "title",
+                                "annotation": "Core schema meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                                "instanceLocation": "#/$defs/foo",
+                                "keyword": "allOf",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Core vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Applicator vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Validation vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Meta-data vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Format vocabulary meta-schema"
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/title",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                                    "instanceLocation": "#/$defs/foo",
+                                    "keyword": "title",
+                                    "annotation": "Content vocabulary meta-schema"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/1/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Applicator vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/2/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Validation vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/3/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Meta-data vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/4/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Format vocabulary meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf/5/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Content vocabulary meta-schema"
+                  }
+                ]
+              }
+            ]
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#/$ref",
+            "instanceLocation": "#",
+            "keyword": "$ref",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/$ref",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                "instanceLocation": "#",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Core schema meta-schema"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/allOf",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                    "instanceLocation": "#",
+                    "keyword": "allOf",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/0/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/0/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/0/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Core vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/type",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/type",
+                                "instanceLocation": "#",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs",
+                                    "instanceLocation": "#/$defs",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/type",
+                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/type",
+                                        "instanceLocation": "#/$defs",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/default",
+                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/default",
+                                        "instanceLocation": "#/$defs",
+                                        "keyword": "default"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties",
+                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/additionalProperties",
+                                        "instanceLocation": "#/$defs",
+                                        "keyword": "additionalProperties",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties",
+                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/additionalProperties",
+                                            "instanceLocation": "#/$defs/foo",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef",
+                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/additionalProperties/$recursiveRef",
+                                                "instanceLocation": "#/$defs/foo",
+                                                "keyword": "$recursiveRef",
+                                                "annotations": [
+                                                  {
+                                                    "valid": true,
+                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef",
+                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                                                    "instanceLocation": "#/$defs/foo",
+                                                    "annotations": [
+                                                      {
+                                                        "valid": true,
+                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/title",
+                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                                                        "instanceLocation": "#/$defs/foo",
+                                                        "keyword": "title",
+                                                        "annotation": "Core schema meta-schema"
+                                                      },
+                                                      {
+                                                        "valid": true,
+                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf",
+                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                                                        "instanceLocation": "#/$defs/foo",
+                                                        "keyword": "allOf",
+                                                        "annotations": [
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/0/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Core vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/type",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/type",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "type"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/1/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Applicator vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/$defs",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/$defs",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "$defs"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/2/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Validation vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/type",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/type",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "type"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties",
+                                                                    "annotations": [
+                                                                      {
+                                                                        "valid": true,
+                                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type",
+                                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type",
+                                                                        "instanceLocation": "#/$defs/foo/type",
+                                                                        "annotations": [
+                                                                          {
+                                                                            "valid": true,
+                                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf",
+                                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf",
+                                                                            "instanceLocation": "#/$defs/foo/type",
+                                                                            "keyword": "anyOf",
+                                                                            "annotations": [
+                                                                              {
+                                                                                "valid": true,
+                                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/0/$ref",
+                                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/0/$ref",
+                                                                                "instanceLocation": "#/$defs/foo/type",
+                                                                                "keyword": "$ref",
+                                                                                "annotations": [
+                                                                                  {
+                                                                                    "valid": true,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/0/$ref",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs/simpleTypes",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "annotations": [
+                                                                                      {
+                                                                                        "valid": true,
+                                                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/0/$ref/enum",
+                                                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs/simpleTypes/enum",
+                                                                                        "instanceLocation": "#/$defs/foo/type",
+                                                                                        "keyword": "enum"
+                                                                                      }
+                                                                                    ]
+                                                                                  }
+                                                                                ]
+                                                                              },
+                                                                              {
+                                                                                "valid": false,
+                                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1",
+                                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1",
+                                                                                "instanceLocation": "#/$defs/foo/type",
+                                                                                "errors": [
+                                                                                  {
+                                                                                    "valid": false,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/type",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/type",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "keyword": "type",
+                                                                                    "error": "Values of type \"string\" are not one of the allowed types \"array\"."
+                                                                                  },
+                                                                                  {
+                                                                                    "valid": true,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/items",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/items",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "keyword": "items"
+                                                                                  },
+                                                                                  {
+                                                                                    "valid": true,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/minItems",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/minItems",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "keyword": "minItems"
+                                                                                  },
+                                                                                  {
+                                                                                    "valid": true,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/uniqueItems",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/uniqueItems",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "keyword": "uniqueItems"
+                                                                                  }
+                                                                                ]
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/$defs",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "$defs"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/3/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Meta-data vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/4/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Format vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/type",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/type",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "type"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/5/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Content vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/type",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/type",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "type"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "valid": true,
+                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/type",
+                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/type",
+                                                        "instanceLocation": "#/$defs/foo",
+                                                        "keyword": "type"
+                                                      },
+                                                      {
+                                                        "valid": true,
+                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/properties",
+                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/properties",
+                                                        "instanceLocation": "#/$defs/foo",
+                                                        "keyword": "properties"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/1/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/1/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/1/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/1/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Applicator vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/1/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/1/$ref/$defs",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/$defs",
+                                "instanceLocation": "#",
+                                "keyword": "$defs"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/2/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/2/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/2/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/2/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Validation vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/2/$ref/type",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/type",
+                                "instanceLocation": "#",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/2/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/2/$ref/$defs",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs",
+                                "instanceLocation": "#",
+                                "keyword": "$defs"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/3/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/3/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/3/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/3/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Meta-data vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/3/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/4/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/4/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/4/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/4/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Format vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/4/$ref/type",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/type",
+                                "instanceLocation": "#",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/4/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/5/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/5/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/5/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/5/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Content vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/5/$ref/type",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/type",
+                                "instanceLocation": "#",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/5/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/type",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/type",
+                    "instanceLocation": "#",
+                    "keyword": "type"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/properties",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/properties",
+                    "instanceLocation": "#",
+                    "keyword": "properties"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       }
     ]
   },
@@ -17,7 +1477,753 @@
       {
         "description": "invalid definition schema",
         "data": {"$defs": {"foo": {"type": 1}}},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf",
+                "instanceLocation": "#/$defs/foo/type",
+                "keyword": "anyOf"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/0/$ref/enum",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs/simpleTypes/enum",
+                "instanceLocation": "#/$defs/foo/type",
+                "keyword": "enum",
+                "error": "1 does not match any of the required values."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/type",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/type",
+                "instanceLocation": "#/$defs/foo/type",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf",
+            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf",
+            "instanceLocation": "#/$defs/foo/type",
+            "keyword": "anyOf",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/0/$ref/enum",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs/simpleTypes/enum",
+                "instanceLocation": "#/$defs/foo/type",
+                "keyword": "enum",
+                "error": "1 does not match any of the required values."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/type",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/type",
+                "instanceLocation": "#/$defs/foo/type",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#/$ref",
+            "instanceLocation": "#",
+            "keyword": "$ref",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/$ref",
+                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                "instanceLocation": "#",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/title",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                    "instanceLocation": "#",
+                    "keyword": "title",
+                    "annotation": "Core schema meta-schema"
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/$ref/allOf",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                    "instanceLocation": "#",
+                    "keyword": "allOf",
+                    "error": "1 of 6 subschemas failed validation.",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/$ref/allOf/0/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/0/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/$ref/allOf/0/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#",
+                            "instanceLocation": "#",
+                            "errors": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Core vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/type",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/type",
+                                "instanceLocation": "#",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/$ref/allOf/0/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties",
+                                "error": "At least one subschema failed validation.",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs",
+                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs",
+                                    "instanceLocation": "#/$defs",
+                                    "errors": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/type",
+                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/type",
+                                        "instanceLocation": "#/$defs",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/default",
+                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/default",
+                                        "instanceLocation": "#/$defs",
+                                        "keyword": "default",
+                                        "annotation": {}
+                                      },
+                                      {
+                                        "valid": false,
+                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties",
+                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/additionalProperties",
+                                        "instanceLocation": "#/$defs",
+                                        "keyword": "additionalProperties",
+                                        "error": "Any properties not covered by `properties` and `patternProperties` failed validation.",
+                                        "errors": [
+                                          {
+                                            "valid": false,
+                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties",
+                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/additionalProperties",
+                                            "instanceLocation": "#/$defs/foo",
+                                            "errors": [
+                                              {
+                                                "valid": false,
+                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef",
+                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties/$defs/additionalProperties/$recursiveRef",
+                                                "instanceLocation": "#/$defs/foo",
+                                                "keyword": "$recursiveRef",
+                                                "errors": [
+                                                  {
+                                                    "valid": false,
+                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef",
+                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#",
+                                                    "instanceLocation": "#/$defs/foo",
+                                                    "errors": [
+                                                      {
+                                                        "valid": true,
+                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/title",
+                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/title",
+                                                        "instanceLocation": "#/$defs/foo",
+                                                        "keyword": "title",
+                                                        "annotation": "Core schema meta-schema"
+                                                      },
+                                                      {
+                                                        "valid": false,
+                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf",
+                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf",
+                                                        "instanceLocation": "#/$defs/foo",
+                                                        "keyword": "allOf",
+                                                        "error": "1 of 6 subschemas failed validation.",
+                                                        "errors": [
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/0/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Core vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/type",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/type",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "type"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/0/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/core#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/1/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Applicator vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/1/$ref/$defs",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/$defs",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "$defs"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": false,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/2/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "errors": [
+                                                              {
+                                                                "valid": false,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "errors": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Validation vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/type",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/type",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "type"
+                                                                  },
+                                                                  {
+                                                                    "valid": false,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties",
+                                                                    "error": "At least one subschema failed validation.",
+                                                                    "errors": [
+                                                                      {
+                                                                        "valid": false,
+                                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type",
+                                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type",
+                                                                        "instanceLocation": "#/$defs/foo/type",
+                                                                        "errors": [
+                                                                          {
+                                                                            "valid": false,
+                                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf",
+                                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf",
+                                                                            "instanceLocation": "#/$defs/foo/type",
+                                                                            "keyword": "anyOf",
+                                                                            "errors": [
+                                                                              {
+                                                                                "valid": false,
+                                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/0/$ref",
+                                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/0/$ref",
+                                                                                "instanceLocation": "#/$defs/foo/type",
+                                                                                "keyword": "$ref",
+                                                                                "errors": [
+                                                                                  {
+                                                                                    "valid": false,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/0/$ref",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs/simpleTypes",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "errors": [
+                                                                                      {
+                                                                                        "valid": false,
+                                                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/0/$ref/enum",
+                                                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs/simpleTypes/enum",
+                                                                                        "instanceLocation": "#/$defs/foo/type",
+                                                                                        "keyword": "enum",
+                                                                                        "error": "1 does not match any of the required values."
+                                                                                      }
+                                                                                    ]
+                                                                                  }
+                                                                                ]
+                                                                              },
+                                                                              {
+                                                                                "valid": false,
+                                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1",
+                                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1",
+                                                                                "instanceLocation": "#/$defs/foo/type",
+                                                                                "errors": [
+                                                                                  {
+                                                                                    "valid": false,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/type",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/type",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "keyword": "type",
+                                                                                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                                                                                  },
+                                                                                  {
+                                                                                    "valid": true,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/items",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/items",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "keyword": "items"
+                                                                                  },
+                                                                                  {
+                                                                                    "valid": true,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/minItems",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/minItems",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "keyword": "minItems"
+                                                                                  },
+                                                                                  {
+                                                                                    "valid": true,
+                                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/properties/type/anyOf/1/uniqueItems",
+                                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties/type/anyOf/1/uniqueItems",
+                                                                                    "instanceLocation": "#/$defs/foo/type",
+                                                                                    "keyword": "uniqueItems"
+                                                                                  }
+                                                                                ]
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/2/$ref/$defs",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "$defs"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/3/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Meta-data vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/3/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/4/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Format vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/type",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/type",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "type"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/4/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "valid": true,
+                                                            "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref",
+                                                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/5/$ref",
+                                                            "instanceLocation": "#/$defs/foo",
+                                                            "keyword": "$ref",
+                                                            "annotations": [
+                                                              {
+                                                                "valid": true,
+                                                                "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref",
+                                                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#",
+                                                                "instanceLocation": "#/$defs/foo",
+                                                                "annotations": [
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/title",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "title",
+                                                                    "annotation": "Content vocabulary meta-schema"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/type",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/type",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "type"
+                                                                  },
+                                                                  {
+                                                                    "valid": true,
+                                                                    "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/allOf/5/$ref/properties",
+                                                                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/properties",
+                                                                    "instanceLocation": "#/$defs/foo",
+                                                                    "keyword": "properties"
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "valid": true,
+                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/type",
+                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/type",
+                                                        "instanceLocation": "#/$defs/foo",
+                                                        "keyword": "type"
+                                                      },
+                                                      {
+                                                        "valid": true,
+                                                        "keywordLocation": "#/$ref/allOf/0/$ref/properties/$defs/additionalProperties/$recursiveRef/properties",
+                                                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/properties",
+                                                        "instanceLocation": "#/$defs/foo",
+                                                        "keyword": "properties"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/1/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/1/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/1/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/1/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Applicator vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/1/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/1/$ref/$defs",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/applicator#/$defs",
+                                "instanceLocation": "#",
+                                "keyword": "$defs"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/2/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/2/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/2/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/2/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Validation vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/2/$ref/type",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/type",
+                                "instanceLocation": "#",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/2/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/2/$ref/$defs",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/validation#/$defs",
+                                "instanceLocation": "#",
+                                "keyword": "$defs"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/3/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/3/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/3/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/3/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Meta-data vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/3/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/meta-data#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/4/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/4/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/4/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/4/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Format vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/4/$ref/type",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/type",
+                                "instanceLocation": "#",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/4/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/format#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/$ref/allOf/5/$ref",
+                        "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/allOf/5/$ref",
+                        "instanceLocation": "#",
+                        "keyword": "$ref",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/$ref/allOf/5/$ref",
+                            "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#",
+                            "instanceLocation": "#",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/5/$ref/title",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/title",
+                                "instanceLocation": "#",
+                                "keyword": "title",
+                                "annotation": "Content vocabulary meta-schema"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/5/$ref/type",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/type",
+                                "instanceLocation": "#",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/$ref/allOf/5/$ref/properties",
+                                "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/meta/content#/properties",
+                                "instanceLocation": "#",
+                                "keyword": "properties"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/type",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/type",
+                    "instanceLocation": "#",
+                    "keyword": "type"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/$ref/properties",
+                    "absoluteKeywordLocation": "http://json-schema.org/draft/2019-06/schema#/properties",
+                    "instanceLocation": "#",
+                    "keyword": "properties"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       }
     ]
   }

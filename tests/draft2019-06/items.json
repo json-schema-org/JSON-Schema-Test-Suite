@@ -3,17 +3,199 @@
     "description": "a schema given for items",
     "schema": {"items": {"type": "integer"}},
     "tests": [
-      {"description": "valid items", "data": [1, 2, 3], "valid": true},
-      {"description": "wrong type of items", "data": [1, "x"], "valid": false},
+      {
+        "description": "valid items",
+        "data": [1, 2, 3],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/0",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/1",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/2",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/2",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "wrong type of items",
+        "data": [1, "x"],
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/items/type",
+            "instanceLocation": "#/1",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/items/type",
+            "instanceLocation": "#/1",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/0",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/1",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
       {
         "description": "ignores non-arrays",
         "data": {"foo": "bar"},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "JavaScript pseudo-array is valid",
         "data": {"0": "invalid", "length": 1},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              }
+            ]
+          }
+        }
       }
     ]
   },
@@ -21,19 +203,323 @@
     "description": "an array of schemas for items",
     "schema": {"items": [{"type": "integer"}, {"type": "string"}]},
     "tests": [
-      {"description": "correct types", "data": [1, "foo"], "valid": true},
-      {"description": "wrong types", "data": ["foo", 1], "valid": false},
-      {"description": "incomplete array of items", "data": [1], "valid": true},
+      {
+        "description": "correct types",
+        "data": [1, "foo"],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/0/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1",
+                    "instanceLocation": "#/1",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/1/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "wrong types",
+        "data": ["foo", 1],
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/0/type",
+                "instanceLocation": "#/0",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/1/type",
+                "instanceLocation": "#/1",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/items",
+            "instanceLocation": "#",
+            "keyword": "items",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items/0/type",
+                "instanceLocation": "#/0",
+                "keyword": "type",
+                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/1/type",
+                "instanceLocation": "#/1",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/items/0/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type",
+                        "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/1",
+                    "instanceLocation": "#/1",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/items/1/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type",
+                        "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "description": "incomplete array of items",
+        "data": [1],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/0/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
       {
         "description": "array with additional items",
         "data": [1, "foo", true],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/0/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1",
+                    "instanceLocation": "#/1",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/1/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
-      {"description": "empty array", "data": [], "valid": true},
+      {
+        "description": "empty array",
+        "data": [],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              }
+            ]
+          }
+        }
+      },
       {
         "description": "JavaScript pseudo-array is valid",
         "data": {"0": "invalid", "1": "valid", "length": 2},
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              }
+            ]
+          }
+        }
       }
     ]
   },
@@ -44,9 +530,80 @@
       {
         "description": "any array is valid",
         "data": [1, "foo", true],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/0"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/1"
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
-      {"description": "empty array is valid", "data": [], "valid": true}
+      {
+        "description": "empty array is valid",
+        "data": [],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -56,9 +613,128 @@
       {
         "description": "any non-empty array is invalid",
         "data": [1, "foo", true],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#/0",
+                "error": "No value is valid against the false schema."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#/1",
+                "error": "No value is valid against the false schema."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#/2",
+                "error": "No value is valid against the false schema."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/items",
+            "instanceLocation": "#",
+            "keyword": "items",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#/0",
+                "error": "No value is valid against the false schema."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#/1",
+                "error": "No value is valid against the false schema."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#/2",
+                "error": "No value is valid against the false schema."
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/0",
+                    "error": "No value is valid against the false schema."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/1",
+                    "error": "No value is valid against the false schema."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/2",
+                    "error": "No value is valid against the false schema."
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
-      {"description": "empty array is valid", "data": [], "valid": true}
+      {
+        "description": "empty array is valid",
+        "data": [],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -68,14 +744,115 @@
       {
         "description": "array with one item is valid",
         "data": [1],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "array with two items is invalid",
         "data": [1, "foo"],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/items/1",
+            "instanceLocation": "#/1",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/items/1",
+            "instanceLocation": "#/1",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0",
+                    "instanceLocation": "#/0"
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/1",
+                    "instanceLocation": "#/1",
+                    "error": "No value is valid against the false schema."
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
-      {"description": "empty array is valid", "data": [], "valid": true}
+      {
+        "description": "empty array is valid",
+        "data": [],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              }
+            ]
+          }
+        }
+      }
     ]
   },
   {
@@ -105,7 +882,319 @@
           [{"foo": null}, {"foo": null}],
           [{"foo": null}, {"foo": null}]
         ],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/$defs",
+                "instanceLocation": "#",
+                "keyword": "$defs"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0/$ref",
+                    "instanceLocation": "#/0",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/0/$ref",
+                        "instanceLocation": "#/0",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/type",
+                            "instanceLocation": "#/0",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/items",
+                            "instanceLocation": "#/0",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                    "instanceLocation": "#/0/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/0/$ref/items/1/$ref",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/0/$ref/items/1/$ref",
+                                    "instanceLocation": "#/0/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/0/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/0/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/additionalItems",
+                            "instanceLocation": "#/0",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1/$ref",
+                    "instanceLocation": "#/1",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/1/$ref",
+                        "instanceLocation": "#/1",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/type",
+                            "instanceLocation": "#/1",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/items",
+                            "instanceLocation": "#/1",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                    "instanceLocation": "#/1/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                "instanceLocation": "#/1/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                    "instanceLocation": "#/1/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/additionalItems",
+                            "instanceLocation": "#/1",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/2/$ref",
+                    "instanceLocation": "#/2",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/2/$ref",
+                        "instanceLocation": "#/2",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/type",
+                            "instanceLocation": "#/2",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/items",
+                            "instanceLocation": "#/2",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                "instanceLocation": "#/2/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                    "instanceLocation": "#/2/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                "instanceLocation": "#/2/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                    "instanceLocation": "#/2/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/additionalItems",
+                            "instanceLocation": "#/2",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "too many items",
@@ -115,7 +1204,324 @@
           [{"foo": null}, {"foo": null}],
           [{"foo": null}, {"foo": null}]
         ],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/additionalItems",
+            "instanceLocation": "#",
+            "keyword": "additionalItems",
+            "error": "Items not covered by `items` are not allowed."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/additionalItems",
+            "instanceLocation": "#",
+            "keyword": "additionalItems",
+            "error": "Items not covered by `items` are not allowed."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/$defs",
+                "instanceLocation": "#",
+                "keyword": "$defs"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0/$ref",
+                    "instanceLocation": "#/0",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/0/$ref",
+                        "instanceLocation": "#/0",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/type",
+                            "instanceLocation": "#/0",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/items",
+                            "instanceLocation": "#/0",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                    "instanceLocation": "#/0/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/0/$ref/items/1/$ref",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/0/$ref/items/1/$ref",
+                                    "instanceLocation": "#/0/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/0/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/0/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/additionalItems",
+                            "instanceLocation": "#/0",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1/$ref",
+                    "instanceLocation": "#/1",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/1/$ref",
+                        "instanceLocation": "#/1",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/type",
+                            "instanceLocation": "#/1",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/items",
+                            "instanceLocation": "#/1",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                    "instanceLocation": "#/1/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                "instanceLocation": "#/1/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                    "instanceLocation": "#/1/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/additionalItems",
+                            "instanceLocation": "#/1",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/2/$ref",
+                    "instanceLocation": "#/2",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/2/$ref",
+                        "instanceLocation": "#/2",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/type",
+                            "instanceLocation": "#/2",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/items",
+                            "instanceLocation": "#/2",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                "instanceLocation": "#/2/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                    "instanceLocation": "#/2/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                "instanceLocation": "#/2/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                    "instanceLocation": "#/2/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/additionalItems",
+                            "instanceLocation": "#/2",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems",
+                "error": "Items not covered by `items` are not allowed."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "too many sub-items",
@@ -124,7 +1530,324 @@
           [{"foo": null}, {"foo": null}],
           [{"foo": null}, {"foo": null}]
         ],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/items/0/$ref/additionalItems",
+            "instanceLocation": "#/0",
+            "keyword": "additionalItems",
+            "error": "Items not covered by `items` are not allowed."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/items/0/$ref/additionalItems",
+            "instanceLocation": "#/0",
+            "keyword": "additionalItems",
+            "error": "Items not covered by `items` are not allowed."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/$defs",
+                "instanceLocation": "#",
+                "keyword": "$defs"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/0/$ref",
+                    "instanceLocation": "#/0",
+                    "keyword": "$ref",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/items/0/$ref",
+                        "instanceLocation": "#/0",
+                        "errors": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/type",
+                            "instanceLocation": "#/0",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/items",
+                            "instanceLocation": "#/0",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                    "instanceLocation": "#/0/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/0/$ref/items/1/$ref",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/0/$ref/items/1/$ref",
+                                    "instanceLocation": "#/0/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/0/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/0/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/0/$ref/additionalItems",
+                            "instanceLocation": "#/0",
+                            "keyword": "additionalItems",
+                            "error": "Items not covered by `items` are not allowed."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1/$ref",
+                    "instanceLocation": "#/1",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/1/$ref",
+                        "instanceLocation": "#/1",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/type",
+                            "instanceLocation": "#/1",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/items",
+                            "instanceLocation": "#/1",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                    "instanceLocation": "#/1/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                "instanceLocation": "#/1/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                    "instanceLocation": "#/1/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/additionalItems",
+                            "instanceLocation": "#/1",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/2/$ref",
+                    "instanceLocation": "#/2",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/2/$ref",
+                        "instanceLocation": "#/2",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/type",
+                            "instanceLocation": "#/2",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/items",
+                            "instanceLocation": "#/2",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                "instanceLocation": "#/2/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                    "instanceLocation": "#/2/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                "instanceLocation": "#/2/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                    "instanceLocation": "#/2/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/additionalItems",
+                            "instanceLocation": "#/2",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "wrong item",
@@ -133,7 +1856,268 @@
           [{"foo": null}, {"foo": null}],
           [{"foo": null}, {"foo": null}]
         ],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/items/0/$ref/type",
+            "instanceLocation": "#/0",
+            "keyword": "type",
+            "error": "Values of type \"object\" are not one of the allowed types \"array\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/items/0/$ref/type",
+            "instanceLocation": "#/0",
+            "keyword": "type",
+            "error": "Values of type \"object\" are not one of the allowed types \"array\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/$defs",
+                "instanceLocation": "#",
+                "keyword": "$defs"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/0/$ref",
+                    "instanceLocation": "#/0",
+                    "keyword": "$ref",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/items/0/$ref",
+                        "instanceLocation": "#/0",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/0/$ref/type",
+                            "instanceLocation": "#/0",
+                            "keyword": "type",
+                            "error": "Values of type \"object\" are not one of the allowed types \"array\"."
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/items",
+                            "instanceLocation": "#/0",
+                            "keyword": "items"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/additionalItems",
+                            "instanceLocation": "#/0",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1/$ref",
+                    "instanceLocation": "#/1",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/1/$ref",
+                        "instanceLocation": "#/1",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/type",
+                            "instanceLocation": "#/1",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/items",
+                            "instanceLocation": "#/1",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                    "instanceLocation": "#/1/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                "instanceLocation": "#/1/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                    "instanceLocation": "#/1/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/additionalItems",
+                            "instanceLocation": "#/1",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/2/$ref",
+                    "instanceLocation": "#/2",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/2/$ref",
+                        "instanceLocation": "#/2",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/type",
+                            "instanceLocation": "#/2",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/items",
+                            "instanceLocation": "#/2",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                "instanceLocation": "#/2/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                    "instanceLocation": "#/2/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                "instanceLocation": "#/2/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                    "instanceLocation": "#/2/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/additionalItems",
+                            "instanceLocation": "#/2",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "wrong sub-item",
@@ -142,12 +2126,498 @@
           [{"foo": null}, {"foo": null}],
           [{"foo": null}, {"foo": null}]
         ],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/items/0/$ref/items/0/$ref/required",
+            "instanceLocation": "#/0/0",
+            "keyword": "required",
+            "error": "The properties [\"foo\"] are required."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/items/0/$ref/items/0/$ref/required",
+            "instanceLocation": "#/0/0",
+            "keyword": "required",
+            "error": "The properties [\"foo\"] are required."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/$defs",
+                "instanceLocation": "#",
+                "keyword": "$defs"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/0/$ref",
+                    "instanceLocation": "#/0",
+                    "keyword": "$ref",
+                    "errors": [
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/items/0/$ref",
+                        "instanceLocation": "#/0",
+                        "errors": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/type",
+                            "instanceLocation": "#/0",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/0/$ref/items",
+                            "instanceLocation": "#/0",
+                            "keyword": "items",
+                            "errors": [
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "$ref",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                    "instanceLocation": "#/0/0",
+                                    "errors": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": false,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "required",
+                                        "error": "The properties [\"foo\"] are required."
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/0/$ref/items/1/$ref",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/0/$ref/items/1/$ref",
+                                    "instanceLocation": "#/0/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/0/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/0/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/additionalItems",
+                            "instanceLocation": "#/0",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1/$ref",
+                    "instanceLocation": "#/1",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/1/$ref",
+                        "instanceLocation": "#/1",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/type",
+                            "instanceLocation": "#/1",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/items",
+                            "instanceLocation": "#/1",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                    "instanceLocation": "#/1/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                "instanceLocation": "#/1/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/1/$ref",
+                                    "instanceLocation": "#/1/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/1/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/additionalItems",
+                            "instanceLocation": "#/1",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/2/$ref",
+                    "instanceLocation": "#/2",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/2/$ref",
+                        "instanceLocation": "#/2",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/type",
+                            "instanceLocation": "#/2",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/items",
+                            "instanceLocation": "#/2",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                "instanceLocation": "#/2/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/0/$ref",
+                                    "instanceLocation": "#/2/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/2/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                "instanceLocation": "#/2/1",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/2/$ref/items/1/$ref",
+                                    "instanceLocation": "#/2/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/type",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/2/$ref/items/1/$ref/required",
+                                        "instanceLocation": "#/2/1",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/2/$ref/additionalItems",
+                            "instanceLocation": "#/2",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "fewer items is valid",
         "data": [[{"foo": null}], [{"foo": null}]],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/$defs",
+                "instanceLocation": "#",
+                "keyword": "$defs"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/0/$ref",
+                    "instanceLocation": "#/0",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/0/$ref",
+                        "instanceLocation": "#/0",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/type",
+                            "instanceLocation": "#/0",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/items",
+                            "instanceLocation": "#/0",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/0/$ref/items/0/$ref",
+                                    "instanceLocation": "#/0/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/0/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/0/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/0/$ref/additionalItems",
+                            "instanceLocation": "#/0",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items/1/$ref",
+                    "instanceLocation": "#/1",
+                    "keyword": "$ref",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/1/$ref",
+                        "instanceLocation": "#/1",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/type",
+                            "instanceLocation": "#/1",
+                            "keyword": "type"
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/items",
+                            "instanceLocation": "#/1",
+                            "keyword": "items",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "$ref",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/1/$ref/items/0/$ref",
+                                    "instanceLocation": "#/1/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/type",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/1/$ref/items/0/$ref/required",
+                                        "instanceLocation": "#/1/0",
+                                        "keyword": "required"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/1/$ref/additionalItems",
+                            "instanceLocation": "#/1",
+                            "keyword": "additionalItems"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/additionalItems",
+                "instanceLocation": "#",
+                "keyword": "additionalItems"
+              }
+            ]
+          }
+        }
       }
     ]
   },
@@ -167,17 +2637,1194 @@
       {
         "description": "valid nested array",
         "data": [[[[1]], [[2], [3]]], [[[4], [5], [6]]]],
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": true,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "annotations": [
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/0",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/items",
+                        "instanceLocation": "#/0",
+                        "keyword": "items",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/0/0",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "items",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/0/0/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/0/0/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/0/0/0",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/0/0/0/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/0/0/0/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/0/1",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "items",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/0/1/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/0/1/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/0/1/0",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/0/1/0/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/0/1/0/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/0/1/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/0/1/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/0/1/1",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/0/1/1/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/0/1/1/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/1",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/items",
+                        "instanceLocation": "#/1",
+                        "keyword": "items",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/1/0",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "items",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/1/0/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/1/0/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/1/0/0",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/1/0/0/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/1/0/0/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/1/0/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/1/0/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/1/0/1",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/1/0/1/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/1/0/1/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/1/0/2",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/1/0/2",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/1/0/2",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/1/0/2/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/1/0/2/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "nested array with invalid type",
         "data": [[[["1"]], [[2], [3]]], [[[4], [5], [6]]]],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/items/items/items/items/type",
+            "instanceLocation": "#/0/0/0/0",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/items/items/items/items/type",
+            "instanceLocation": "#/0/0/0/0",
+            "keyword": "type",
+            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/0",
+                    "errors": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/items/items",
+                        "instanceLocation": "#/0",
+                        "keyword": "items",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/0/0",
+                            "errors": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "items",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/0/0/0",
+                                    "errors": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/0/0/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": false,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/0/0/0",
+                                        "keyword": "items",
+                                        "errors": [
+                                          {
+                                            "valid": false,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/0/0/0/0",
+                                            "errors": [
+                                              {
+                                                "valid": false,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/0/0/0/0",
+                                                "keyword": "type",
+                                                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/0/1",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "items",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/0/1/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/0/1/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/0/1/0",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/0/1/0/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/0/1/0/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/0/1/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/0/1/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/0/1/1",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/0/1/1/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/0/1/1/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": true,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/1",
+                    "annotations": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/items",
+                        "instanceLocation": "#/1",
+                        "keyword": "items",
+                        "annotations": [
+                          {
+                            "valid": true,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/1/0",
+                            "annotations": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "items",
+                                "annotations": [
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/1/0/0",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/1/0/0",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/1/0/0",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/1/0/0/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/1/0/0/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/1/0/1",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/1/0/1",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/1/0/1",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/1/0/1/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/1/0/1/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "valid": true,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/1/0/2",
+                                    "annotations": [
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/1/0/2",
+                                        "keyword": "type"
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/1/0/2",
+                                        "keyword": "items",
+                                        "annotations": [
+                                          {
+                                            "valid": true,
+                                            "keywordLocation": "#/items/items/items/items",
+                                            "instanceLocation": "#/1/0/2/0",
+                                            "annotations": [
+                                              {
+                                                "valid": true,
+                                                "keywordLocation": "#/items/items/items/items/type",
+                                                "instanceLocation": "#/1/0/2/0",
+                                                "keyword": "type"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "description": "not deep enough",
         "data": [[[1], [2], [3]], [[4], [5], [6]]],
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items",
+                "instanceLocation": "#/0",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/0/0/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/0/1/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/0/2/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items",
+                "instanceLocation": "#/1",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/1/0/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/1/1/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/1/2/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items/items/type",
+                "instanceLocation": "#/0/0/0",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items/items/type",
+                "instanceLocation": "#/0/1/0",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items/items/type",
+                "instanceLocation": "#/0/2/0",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items/items/type",
+                "instanceLocation": "#/1/0/0",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items/items/type",
+                "instanceLocation": "#/1/1/0",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items/items/type",
+                "instanceLocation": "#/1/2/0",
+                "keyword": "type",
+                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+              }
+            ]
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/items",
+            "instanceLocation": "#",
+            "keyword": "items",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items",
+                "instanceLocation": "#/0",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/0/0/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/0/1/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/0/2/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  }
+                ]
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items/items",
+                "instanceLocation": "#/1",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/1/0/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/1/1/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items/items/items/type",
+                    "instanceLocation": "#/1/2/0",
+                    "keyword": "type",
+                    "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                  }
+                ]
+              }
+            ]
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": true,
+                "keywordLocation": "#/type",
+                "instanceLocation": "#",
+                "keyword": "type"
+              },
+              {
+                "valid": false,
+                "keywordLocation": "#/items",
+                "instanceLocation": "#",
+                "keyword": "items",
+                "errors": [
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/0",
+                    "errors": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/0",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/items/items",
+                        "instanceLocation": "#/0",
+                        "keyword": "items",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/0/0",
+                            "errors": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/0/0",
+                                "keyword": "items",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/0/0/0",
+                                    "errors": [
+                                      {
+                                        "valid": false,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/0/0/0",
+                                        "keyword": "type",
+                                        "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/0/0/0",
+                                        "keyword": "items"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/0/1",
+                            "errors": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/0/1",
+                                "keyword": "items",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/0/1/0",
+                                    "errors": [
+                                      {
+                                        "valid": false,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/0/1/0",
+                                        "keyword": "type",
+                                        "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/0/1/0",
+                                        "keyword": "items"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/0/2",
+                            "errors": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/0/2",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/0/2",
+                                "keyword": "items",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/0/2/0",
+                                    "errors": [
+                                      {
+                                        "valid": false,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/0/2/0",
+                                        "keyword": "type",
+                                        "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/0/2/0",
+                                        "keyword": "items"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "valid": false,
+                    "keywordLocation": "#/items",
+                    "instanceLocation": "#/1",
+                    "errors": [
+                      {
+                        "valid": true,
+                        "keywordLocation": "#/items/type",
+                        "instanceLocation": "#/1",
+                        "keyword": "type"
+                      },
+                      {
+                        "valid": false,
+                        "keywordLocation": "#/items/items",
+                        "instanceLocation": "#/1",
+                        "keyword": "items",
+                        "errors": [
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/1/0",
+                            "errors": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/1/0",
+                                "keyword": "items",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/1/0/0",
+                                    "errors": [
+                                      {
+                                        "valid": false,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/1/0/0",
+                                        "keyword": "type",
+                                        "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/1/0/0",
+                                        "keyword": "items"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/1/1",
+                            "errors": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/1/1",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/1/1",
+                                "keyword": "items",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/1/1/0",
+                                    "errors": [
+                                      {
+                                        "valid": false,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/1/1/0",
+                                        "keyword": "type",
+                                        "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/1/1/0",
+                                        "keyword": "items"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "valid": false,
+                            "keywordLocation": "#/items/items",
+                            "instanceLocation": "#/1/2",
+                            "errors": [
+                              {
+                                "valid": true,
+                                "keywordLocation": "#/items/items/type",
+                                "instanceLocation": "#/1/2",
+                                "keyword": "type"
+                              },
+                              {
+                                "valid": false,
+                                "keywordLocation": "#/items/items/items",
+                                "instanceLocation": "#/1/2",
+                                "keyword": "items",
+                                "errors": [
+                                  {
+                                    "valid": false,
+                                    "keywordLocation": "#/items/items/items",
+                                    "instanceLocation": "#/1/2/0",
+                                    "errors": [
+                                      {
+                                        "valid": false,
+                                        "keywordLocation": "#/items/items/items/type",
+                                        "instanceLocation": "#/1/2/0",
+                                        "keyword": "type",
+                                        "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                                      },
+                                      {
+                                        "valid": true,
+                                        "keywordLocation": "#/items/items/items/items",
+                                        "instanceLocation": "#/1/2/0",
+                                        "keyword": "items"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       }
     ]
   }

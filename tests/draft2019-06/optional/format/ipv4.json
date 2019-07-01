@@ -6,27 +6,177 @@
       {
         "description": "a valid IP address",
         "data": "192.168.0.1",
-        "valid": true
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "ipv4"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "ipv4"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "ipv4"
+              }
+            ]
+          }
+        }
       },
       {
         "description": "an IP address with too many components",
         "data": "127.0.0.0.1",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"127.0.0.0.1\" is not in an acceptable \"ipv4\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"127.0.0.0.1\" is not in an acceptable \"ipv4\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"127.0.0.0.1\" is not in an acceptable \"ipv4\" format."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "an IP address with out-of-range values",
         "data": "256.256.256.256",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"256.256.256.256\" is not in an acceptable \"ipv4\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"256.256.256.256\" is not in an acceptable \"ipv4\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"256.256.256.256\" is not in an acceptable \"ipv4\" format."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "an IP address without 4 components",
         "data": "127.0",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"127.0\" is not in an acceptable \"ipv4\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"127.0\" is not in an acceptable \"ipv4\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"127.0\" is not in an acceptable \"ipv4\" format."
+              }
+            ]
+          }
+        }
       },
       {
         "description": "an IP address as an integer",
         "data": "0x7f000001",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"0x7f000001\" is not in an acceptable \"ipv4\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"0x7f000001\" is not in an acceptable \"ipv4\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"0x7f000001\" is not in an acceptable \"ipv4\" format."
+              }
+            ]
+          }
+        }
       }
     ]
   }

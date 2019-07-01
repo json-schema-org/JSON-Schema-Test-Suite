@@ -3,26 +3,40 @@
     "description": "validation of Relative JSON Pointers (RJP)",
     "schema": {"format": "relative-json-pointer"},
     "tests": [
-      {"description": "a valid upwards RJP", "data": "1", "valid": true},
-      {
-        "description": "a valid downwards RJP",
-        "data": "0/foo/bar",
-        "valid": true
-      },
-      {
-        "description": "a valid up and then down RJP, with array index",
-        "data": "2/0/baz/1/zip",
-        "valid": true
-      },
-      {
-        "description": "a valid RJP taking the member or index name",
-        "data": "0#",
-        "valid": true
-      },
       {
         "description": "an invalid RJP that is a valid JSON Pointer",
         "data": "/foo/bar",
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"/foo/bar\" is not in an acceptable \"relative-json-pointer\" format."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "error": "\"/foo/bar\" is not in an acceptable \"relative-json-pointer\" format."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "errors": [
+              {
+                "valid": false,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "error": "\"/foo/bar\" is not in an acceptable \"relative-json-pointer\" format."
+              }
+            ]
+          }
+        }
       }
     ]
   }

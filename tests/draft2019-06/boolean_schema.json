@@ -3,38 +3,435 @@
     "description": "boolean schema 'true'",
     "schema": true,
     "tests": [
-      {"description": "number is valid", "data": 1, "valid": true},
-      {"description": "string is valid", "data": "foo", "valid": true},
-      {"description": "boolean true is valid", "data": true, "valid": true},
-      {"description": "boolean false is valid", "data": false, "valid": true},
-      {"description": "null is valid", "data": null, "valid": true},
-      {"description": "object is valid", "data": {"foo": "bar"}, "valid": true},
-      {"description": "empty object is valid", "data": {}, "valid": true},
-      {"description": "array is valid", "data": ["foo"], "valid": true},
-      {"description": "empty array is valid", "data": [], "valid": true}
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      },
+      {
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      },
+      {
+        "description": "boolean true is valid",
+        "data": true,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      },
+      {
+        "description": "boolean false is valid",
+        "data": false,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      },
+      {
+        "description": "null is valid",
+        "data": null,
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      },
+      {
+        "description": "object is valid",
+        "data": {"foo": "bar"},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      },
+      {
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      },
+      {
+        "description": "array is valid",
+        "data": ["foo"],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      },
+      {
+        "description": "empty array is valid",
+        "data": [],
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#"
+          }
+        }
+      }
     ]
   },
   {
     "description": "boolean schema 'false'",
     "schema": false,
     "tests": [
-      {"description": "number is invalid", "data": 1, "valid": false},
-      {"description": "string is invalid", "data": "foo", "valid": false},
-      {"description": "boolean true is invalid", "data": true, "valid": false},
+      {
+        "description": "number is invalid",
+        "data": 1,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          }
+        }
+      },
+      {
+        "description": "string is invalid",
+        "data": "foo",
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          }
+        }
+      },
+      {
+        "description": "boolean true is invalid",
+        "data": true,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          }
+        }
+      },
       {
         "description": "boolean false is invalid",
         "data": false,
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          }
+        }
       },
-      {"description": "null is invalid", "data": null, "valid": false},
+      {
+        "description": "null is invalid",
+        "data": null,
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          }
+        }
+      },
       {
         "description": "object is invalid",
         "data": {"foo": "bar"},
-        "valid": false
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          }
+        }
       },
-      {"description": "empty object is invalid", "data": {}, "valid": false},
-      {"description": "array is invalid", "data": ["foo"], "valid": false},
-      {"description": "empty array is invalid", "data": [], "valid": false}
+      {
+        "description": "empty object is invalid",
+        "data": {},
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          }
+        }
+      },
+      {
+        "description": "array is invalid",
+        "data": ["foo"],
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          }
+        }
+      },
+      {
+        "description": "empty array is invalid",
+        "data": [],
+        "valid": false,
+        "output": {
+          "basic": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "detailed": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          },
+          "verbose": {
+            "valid": false,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "error": "No value is valid against the false schema."
+          }
+        }
+      }
     ]
   }
 ]

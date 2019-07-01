@@ -6,17 +6,37 @@
       {
         "description": "a valid time string",
         "data": "08:30:06.283185Z",
-        "valid": true
-      },
-      {
-        "description": "an invalid time string",
-        "data": "08:30:06 PST",
-        "valid": false
-      },
-      {
-        "description": "only RFC3339 not all of ISO 8601 are valid",
-        "data": "01:01:01,1111",
-        "valid": false
+        "valid": true,
+        "output": {
+          "basic": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "time"
+          },
+          "detailed": {
+            "valid": true,
+            "keywordLocation": "#/format",
+            "instanceLocation": "#",
+            "keyword": "format",
+            "annotation": "time"
+          },
+          "verbose": {
+            "valid": true,
+            "keywordLocation": "#",
+            "instanceLocation": "#",
+            "annotations": [
+              {
+                "valid": true,
+                "keywordLocation": "#/format",
+                "instanceLocation": "#",
+                "keyword": "format",
+                "annotation": "time"
+              }
+            ]
+          }
+        }
       }
     ]
   }
