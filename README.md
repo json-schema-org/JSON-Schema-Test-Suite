@@ -156,6 +156,7 @@ for more information.
 ### Ruby ###
 
 * [json-schema](https://github.com/hoxworth/json-schema)
+* [json_schemer](https://github.com/davishmcclurg/json_schemer)
 
 ### Rust ###
 
