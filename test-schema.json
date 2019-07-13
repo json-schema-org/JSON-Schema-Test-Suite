@@ -15,7 +15,8 @@
                     "properties": {
                         "description": {"type": "string"},
                         "data": {},
-                        "valid": {"type": "boolean"}
+                        "valid": {"type": "boolean"},
+                        "output": {}
                     },
                     "additionalProperties": false
                 },
