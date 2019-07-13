@@ -12,14 +12,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "idn-email"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "idn-email"
           },
           "verbose": {
@@ -31,7 +29,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "idn-email"
               }
             ]

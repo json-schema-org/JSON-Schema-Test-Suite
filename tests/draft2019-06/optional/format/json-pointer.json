@@ -12,14 +12,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -31,7 +29,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -46,16 +43,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/foo/bar~\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/foo/bar~\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -65,9 +58,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"/foo/bar~\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -82,14 +73,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -101,7 +90,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -117,14 +105,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -136,7 +122,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -152,14 +137,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -171,7 +154,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -187,14 +169,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -206,7 +186,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -222,14 +201,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -241,7 +218,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -257,14 +233,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -276,7 +250,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -292,14 +265,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -311,7 +282,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -327,14 +297,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -346,7 +314,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -362,14 +329,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -381,7 +346,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -397,14 +361,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -416,7 +378,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -432,14 +393,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -451,7 +410,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -467,14 +425,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -486,7 +442,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -502,14 +457,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -521,7 +474,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -537,14 +489,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -556,7 +506,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -572,14 +521,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -591,7 +538,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -607,14 +553,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -626,7 +570,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -642,14 +585,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -661,7 +602,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -677,14 +617,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "json-pointer"
           },
           "verbose": {
@@ -696,7 +634,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "json-pointer"
               }
             ]
@@ -711,16 +648,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"#\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"#\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -730,9 +663,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"#\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -746,16 +677,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"#/\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"#/\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -765,9 +692,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"#/\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -781,16 +706,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"#a\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"#a\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -800,9 +721,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"#a\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -816,16 +735,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~0~\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~0~\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -835,9 +750,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"/~0~\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -851,16 +764,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~0/~\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~0/~\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -870,9 +779,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"/~0/~\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -886,16 +793,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~2\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~2\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -905,9 +808,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"/~2\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -921,16 +822,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~-1\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~-1\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -940,9 +837,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"/~-1\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -956,16 +851,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~~\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/~~\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -975,9 +866,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"/~~\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -991,16 +880,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"a\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"a\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1010,9 +895,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"a\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1026,16 +909,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"0\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"0\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1045,9 +924,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"0\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1061,16 +938,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"a/a\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"a/a\" is not in an acceptable \"json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1080,9 +953,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"a/a\" is not in an acceptable \"json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }

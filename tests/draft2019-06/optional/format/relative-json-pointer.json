@@ -11,16 +11,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/foo/bar\" is not in an acceptable \"relative-json-pointer\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"/foo/bar\" is not in an acceptable \"relative-json-pointer\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -30,9 +26,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"/foo/bar\" is not in an acceptable \"relative-json-pointer\" format."
+                "instanceLocation": "#"
               }
             ]
           }

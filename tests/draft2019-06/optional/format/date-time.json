@@ -12,14 +12,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date-time"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date-time"
           },
           "verbose": {
@@ -31,7 +29,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "date-time"
               }
             ]
@@ -47,14 +44,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date-time"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date-time"
           },
           "verbose": {
@@ -66,7 +61,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "date-time"
               }
             ]
@@ -82,14 +76,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date-time"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date-time"
           },
           "verbose": {
@@ -101,7 +93,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "date-time"
               }
             ]
@@ -117,14 +108,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date-time"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date-time"
           },
           "verbose": {
@@ -136,7 +125,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "date-time"
               }
             ]
@@ -151,16 +139,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"1990-02-31T15:59:60.123-08:00\" is not in an acceptable \"date-time\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"1990-02-31T15:59:60.123-08:00\" is not in an acceptable \"date-time\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -170,9 +154,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"1990-02-31T15:59:60.123-08:00\" is not in an acceptable \"date-time\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -186,16 +168,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"1990-12-31T15:59:60-24:00\" is not in an acceptable \"date-time\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"1990-12-31T15:59:60-24:00\" is not in an acceptable \"date-time\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -205,9 +183,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"1990-12-31T15:59:60-24:00\" is not in an acceptable \"date-time\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -221,16 +197,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"06/19/1963 08:30:06 PST\" is not in an acceptable \"date-time\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"06/19/1963 08:30:06 PST\" is not in an acceptable \"date-time\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -240,9 +212,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"06/19/1963 08:30:06 PST\" is not in an acceptable \"date-time\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -256,16 +226,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"2013-350T01:01:01\" is not in an acceptable \"date-time\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"2013-350T01:01:01\" is not in an acceptable \"date-time\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -275,9 +241,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"2013-350T01:01:01\" is not in an acceptable \"date-time\" format."
+                "instanceLocation": "#"
               }
             ]
           }

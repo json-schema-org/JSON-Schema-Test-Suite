@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -41,16 +40,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -60,9 +55,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems",
-                "error": "Array contains multiple instances of at least one value."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -76,16 +69,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -95,9 +84,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems",
-                "error": "Array contains multiple instances of at least one value."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -126,8 +113,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -141,16 +127,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -160,9 +142,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems",
-                "error": "Array contains multiple instances of at least one value."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -194,8 +174,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -212,16 +191,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -231,9 +206,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems",
-                "error": "Array contains multiple instances of at least one value."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -262,8 +235,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -277,16 +249,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -296,9 +264,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems",
-                "error": "Array contains multiple instances of at least one value."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -327,8 +293,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -357,8 +322,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -387,8 +351,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -402,16 +365,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/uniqueItems",
-            "instanceLocation": "#",
-            "keyword": "uniqueItems",
-            "error": "Array contains multiple instances of at least one value."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -421,9 +380,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/uniqueItems",
-                "instanceLocation": "#",
-                "keyword": "uniqueItems",
-                "error": "Array contains multiple instances of at least one value."
+                "instanceLocation": "#"
               }
             ]
           }

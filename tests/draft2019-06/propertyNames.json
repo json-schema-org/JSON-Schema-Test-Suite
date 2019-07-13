@@ -27,7 +27,6 @@
                 "valid": true,
                 "keywordLocation": "#/propertyNames",
                 "instanceLocation": "#",
-                "keyword": "propertyNames",
                 "annotations": [
                   {
                     "valid": true,
@@ -37,8 +36,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/propertyNames/maxLength",
-                        "instanceLocation": "#/f",
-                        "keyword": "maxLength"
+                        "instanceLocation": "#/f"
                       }
                     ]
                   },
@@ -50,8 +48,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/propertyNames/maxLength",
-                        "instanceLocation": "#/foo",
-                        "keyword": "maxLength"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -69,16 +66,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/propertyNames/maxLength",
-            "instanceLocation": "#/foobar",
-            "keyword": "maxLength",
-            "error": "The string should be at most 3 characters long, but was 6."
+            "instanceLocation": "#/foobar"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/propertyNames/maxLength",
-            "instanceLocation": "#/foobar",
-            "keyword": "maxLength",
-            "error": "The string should be at most 3 characters long, but was 6."
+            "instanceLocation": "#/foobar"
           },
           "verbose": {
             "valid": false,
@@ -89,8 +82,6 @@
                 "valid": false,
                 "keywordLocation": "#/propertyNames",
                 "instanceLocation": "#",
-                "keyword": "propertyNames",
-                "error": "Properties [\"foo\",\"foobar\"] have names that failed validation.",
                 "errors": [
                   {
                     "valid": true,
@@ -100,8 +91,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/propertyNames/maxLength",
-                        "instanceLocation": "#/foo",
-                        "keyword": "maxLength"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   },
@@ -113,9 +103,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/propertyNames/maxLength",
-                        "instanceLocation": "#/foobar",
-                        "keyword": "maxLength",
-                        "error": "The string should be at most 3 characters long, but was 6."
+                        "instanceLocation": "#/foobar"
                       }
                     ]
                   }
@@ -148,8 +136,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/propertyNames",
-                "instanceLocation": "#",
-                "keyword": "propertyNames"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -178,8 +165,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/propertyNames",
-                "instanceLocation": "#",
-                "keyword": "propertyNames"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -208,8 +194,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/propertyNames",
-                "instanceLocation": "#",
-                "keyword": "propertyNames"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -238,8 +223,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/propertyNames",
-                "instanceLocation": "#",
-                "keyword": "propertyNames"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -275,7 +259,6 @@
                 "valid": true,
                 "keywordLocation": "#/propertyNames",
                 "instanceLocation": "#",
-                "keyword": "propertyNames",
                 "annotations": [
                   {
                     "valid": true,
@@ -311,8 +294,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/propertyNames",
-                "instanceLocation": "#",
-                "keyword": "propertyNames"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -332,14 +314,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/propertyNames",
-            "instanceLocation": "#/foo",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#/foo"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/propertyNames",
-            "instanceLocation": "#/foo",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#/foo"
           },
           "verbose": {
             "valid": false,
@@ -350,14 +330,11 @@
                 "valid": false,
                 "keywordLocation": "#/propertyNames",
                 "instanceLocation": "#",
-                "keyword": "propertyNames",
-                "error": "Properties [\"foo\"] have names that failed validation.",
                 "errors": [
                   {
                     "valid": false,
                     "keywordLocation": "#/propertyNames",
-                    "instanceLocation": "#/foo",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#/foo"
                   }
                 ]
               }
@@ -388,8 +365,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/propertyNames",
-                "instanceLocation": "#",
-                "keyword": "propertyNames"
+                "instanceLocation": "#"
               }
             ]
           }

@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/exclusiveMinimum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMinimum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -41,14 +40,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/exclusiveMinimum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMinimum"
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/exclusiveMinimum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMinimum"
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -58,8 +55,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/exclusiveMinimum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMinimum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -73,14 +69,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/exclusiveMinimum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMinimum"
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/exclusiveMinimum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMinimum"
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -90,8 +84,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/exclusiveMinimum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMinimum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -120,8 +113,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/exclusiveMinimum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMinimum"
+                "instanceLocation": "#"
               }
             ]
           }

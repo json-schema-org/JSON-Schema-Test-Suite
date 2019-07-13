@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/minLength",
-                "instanceLocation": "#",
-                "keyword": "minLength"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -56,8 +55,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/minLength",
-                "instanceLocation": "#",
-                "keyword": "minLength"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -71,16 +69,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/minLength",
-            "instanceLocation": "#",
-            "keyword": "minLength",
-            "error": "The string should be at least 2 characters long, but was 1."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/minLength",
-            "instanceLocation": "#",
-            "keyword": "minLength",
-            "error": "The string should be at least 2 characters long, but was 1."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -90,9 +84,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/minLength",
-                "instanceLocation": "#",
-                "keyword": "minLength",
-                "error": "The string should be at least 2 characters long, but was 1."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -121,8 +113,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/minLength",
-                "instanceLocation": "#",
-                "keyword": "minLength"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -136,16 +127,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/minLength",
-            "instanceLocation": "#",
-            "keyword": "minLength",
-            "error": "The string should be at least 2 characters long, but was 2."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/minLength",
-            "instanceLocation": "#",
-            "keyword": "minLength",
-            "error": "The string should be at least 2 characters long, but was 2."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -155,9 +142,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/minLength",
-                "instanceLocation": "#",
-                "keyword": "minLength",
-                "error": "The string should be at least 2 characters long, but was 2."
+                "instanceLocation": "#"
               }
             ]
           }

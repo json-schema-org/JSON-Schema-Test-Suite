@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -41,16 +40,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -60,9 +55,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -76,16 +69,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -95,9 +84,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -111,16 +98,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -130,9 +113,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -146,16 +127,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -165,9 +142,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"object\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -181,16 +156,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -200,9 +171,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"array\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -216,16 +185,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -235,9 +200,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"boolean\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -251,16 +214,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -270,9 +229,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"null\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -307,8 +264,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -337,8 +293,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -352,16 +307,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -371,9 +322,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -387,16 +336,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -406,9 +351,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -422,16 +365,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -441,9 +380,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"object\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -457,16 +394,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -476,9 +409,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"array\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -492,16 +423,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -511,9 +438,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"boolean\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -527,16 +452,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -546,9 +467,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"null\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -568,16 +487,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -587,9 +502,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -603,16 +516,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -622,9 +531,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -653,8 +560,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -683,8 +589,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -713,8 +618,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -728,16 +632,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -747,9 +647,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -763,16 +661,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -782,9 +676,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"array\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -798,16 +690,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -817,9 +705,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"boolean\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -833,16 +719,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -852,9 +734,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"null\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -874,16 +754,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -893,9 +769,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"object\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -909,16 +783,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -928,9 +798,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"object\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -944,16 +812,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -963,9 +827,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"object\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -994,8 +856,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1009,16 +870,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1028,9 +885,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"array\" are not one of the allowed types \"object\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1044,16 +899,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1063,9 +914,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"boolean\" are not one of the allowed types \"object\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1079,16 +928,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"object\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1098,9 +943,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"null\" are not one of the allowed types \"object\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1120,16 +963,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1139,9 +978,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1155,16 +992,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1174,9 +1007,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"array\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1190,16 +1021,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1209,9 +1036,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"array\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1225,16 +1050,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1244,9 +1065,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"object\" are not one of the allowed types \"array\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1275,8 +1094,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1290,16 +1108,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1309,9 +1123,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"boolean\" are not one of the allowed types \"array\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1325,16 +1137,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"array\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1344,9 +1152,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"null\" are not one of the allowed types \"array\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1366,16 +1172,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1385,9 +1187,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1401,16 +1201,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1420,9 +1216,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1436,16 +1230,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1455,9 +1245,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1471,16 +1259,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1490,9 +1274,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"boolean\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1506,16 +1288,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1525,9 +1303,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"boolean\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1541,16 +1317,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1560,9 +1332,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"object\" are not one of the allowed types \"boolean\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1576,16 +1346,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1595,9 +1361,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"array\" are not one of the allowed types \"boolean\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1626,8 +1390,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1656,8 +1419,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1671,16 +1433,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1690,9 +1448,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"null\" are not one of the allowed types \"boolean\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1712,16 +1468,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1731,9 +1483,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"null\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1747,16 +1497,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1766,9 +1512,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"null\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1782,16 +1526,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1801,9 +1541,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"null\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1817,16 +1555,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1836,9 +1570,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"null\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1852,16 +1584,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1871,9 +1599,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"null\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1887,16 +1613,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1906,9 +1628,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"object\" are not one of the allowed types \"null\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1922,16 +1642,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1941,9 +1657,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"array\" are not one of the allowed types \"null\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1957,16 +1671,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1976,9 +1686,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"boolean\" are not one of the allowed types \"null\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -1992,16 +1700,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types \"null\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2011,9 +1715,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"boolean\" are not one of the allowed types \"null\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2042,8 +1744,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2078,8 +1779,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2108,8 +1808,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2123,16 +1822,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2142,9 +1837,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types [\"integer\",\"string\"]."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2158,16 +1851,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2177,9 +1866,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"object\" are not one of the allowed types [\"integer\",\"string\"]."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2193,16 +1880,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"array\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2212,9 +1895,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"array\" are not one of the allowed types [\"integer\",\"string\"]."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2228,16 +1909,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"boolean\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2247,9 +1924,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"boolean\" are not one of the allowed types [\"integer\",\"string\"]."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2263,16 +1938,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types [\"integer\",\"string\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2282,9 +1953,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"null\" are not one of the allowed types [\"integer\",\"string\"]."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2319,8 +1988,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2334,16 +2002,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2353,9 +2017,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2390,8 +2052,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2420,8 +2081,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2435,16 +2095,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types [\"array\",\"object\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types [\"array\",\"object\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2454,9 +2110,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types [\"array\",\"object\"]."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2470,16 +2124,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types [\"array\",\"object\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types [\"array\",\"object\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2489,9 +2139,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types [\"array\",\"object\"]."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2505,16 +2153,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types [\"array\",\"object\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"null\" are not one of the allowed types [\"array\",\"object\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2524,9 +2168,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"null\" are not one of the allowed types [\"array\",\"object\"]."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2561,8 +2203,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2591,8 +2232,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2621,8 +2261,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2636,16 +2275,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types [\"array\",\"null\",\"object\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types [\"array\",\"null\",\"object\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2655,9 +2290,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types [\"array\",\"null\",\"object\"]."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -2671,16 +2304,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types [\"array\",\"null\",\"object\"]."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types [\"array\",\"null\",\"object\"]."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -2690,9 +2319,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types [\"array\",\"null\",\"object\"]."
+                "instanceLocation": "#"
               }
             ]
           }

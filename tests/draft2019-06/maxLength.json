@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/maxLength",
-                "instanceLocation": "#",
-                "keyword": "maxLength"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -56,8 +55,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/maxLength",
-                "instanceLocation": "#",
-                "keyword": "maxLength"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -71,16 +69,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/maxLength",
-            "instanceLocation": "#",
-            "keyword": "maxLength",
-            "error": "The string should be at most 2 characters long, but was 3."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/maxLength",
-            "instanceLocation": "#",
-            "keyword": "maxLength",
-            "error": "The string should be at most 2 characters long, but was 3."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -90,9 +84,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/maxLength",
-                "instanceLocation": "#",
-                "keyword": "maxLength",
-                "error": "The string should be at most 2 characters long, but was 3."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -121,8 +113,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/maxLength",
-                "instanceLocation": "#",
-                "keyword": "maxLength"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -151,8 +142,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/maxLength",
-                "instanceLocation": "#",
-                "keyword": "maxLength"
+                "instanceLocation": "#"
               }
             ]
           }

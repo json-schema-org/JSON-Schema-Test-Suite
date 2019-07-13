@@ -12,14 +12,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "iri"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "iri"
           },
           "verbose": {
@@ -31,7 +29,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "iri"
               }
             ]
@@ -47,14 +44,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "iri"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "iri"
           },
           "verbose": {
@@ -66,7 +61,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "iri"
               }
             ]
@@ -82,14 +76,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "iri"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "iri"
           },
           "verbose": {
@@ -101,7 +93,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "iri"
               }
             ]
@@ -117,14 +108,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "iri"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "iri"
           },
           "verbose": {
@@ -136,7 +125,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "iri"
               }
             ]
@@ -151,16 +139,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"http://2001:0db8:85a3:0000:0000:8a2e:0370:7334\" is not in an acceptable \"iri\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"http://2001:0db8:85a3:0000:0000:8a2e:0370:7334\" is not in an acceptable \"iri\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -170,9 +154,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"http://2001:0db8:85a3:0000:0000:8a2e:0370:7334\" is not in an acceptable \"iri\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -186,16 +168,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"\\\\\\\\WINDOWS\\\filëßåré\" is not in an acceptable \"iri\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"\\\\\\\\WINDOWS\\\filëßåré\" is not in an acceptable \"iri\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -205,9 +183,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"\\\\\\\\WINDOWS\\\filëßåré\" is not in an acceptable \"iri\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -221,16 +197,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"âππ\" is not in an acceptable \"iri\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"âππ\" is not in an acceptable \"iri\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -240,9 +212,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"âππ\" is not in an acceptable \"iri\" format."
+                "instanceLocation": "#"
               }
             ]
           }

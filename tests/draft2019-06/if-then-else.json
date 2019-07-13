@@ -176,8 +176,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/if",
-                "instanceLocation": "#",
-                "keyword": "if"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -191,16 +190,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/then/minimum",
-            "instanceLocation": "#",
-            "keyword": "minimum",
-            "error": "The value -100 should be at least -10."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/then/minimum",
-            "instanceLocation": "#",
-            "keyword": "minimum",
-            "error": "The value -100 should be at least -10."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -211,8 +206,6 @@
                 "valid": false,
                 "keywordLocation": "#/if",
                 "instanceLocation": "#",
-                "keyword": "then",
-                "error": "Validation of `if` succeeded, but validation of `then` failed",
                 "errors": [
                   {
                     "valid": false,
@@ -222,9 +215,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/then/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum",
-                        "error": "The value -100 should be at least -10."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -307,8 +298,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/if",
-                "instanceLocation": "#",
-                "keyword": "if"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -322,16 +312,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/else/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "1 should be a multiple of 2."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/else/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "1 should be a multiple of 2."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -342,8 +328,6 @@
                 "valid": false,
                 "keywordLocation": "#/if",
                 "instanceLocation": "#",
-                "keyword": "else",
-                "error": "Validation of `if` failed, but validation of `else` also failed",
                 "errors": [
                   {
                     "valid": false,
@@ -353,9 +337,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/else/multipleOf",
-                        "instanceLocation": "#",
-                        "keyword": "multipleOf",
-                        "error": "1 should be a multiple of 2."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -398,8 +380,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/if",
-                "instanceLocation": "#",
-                "keyword": "if"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -413,16 +394,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/then/minimum",
-            "instanceLocation": "#",
-            "keyword": "minimum",
-            "error": "The value -100 should be at least -10."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/then/minimum",
-            "instanceLocation": "#",
-            "keyword": "minimum",
-            "error": "The value -100 should be at least -10."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -433,8 +410,6 @@
                 "valid": false,
                 "keywordLocation": "#/if",
                 "instanceLocation": "#",
-                "keyword": "then",
-                "error": "Validation of `if` succeeded, but validation of `then` failed",
                 "errors": [
                   {
                     "valid": false,
@@ -444,9 +419,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/then/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum",
-                        "error": "The value -100 should be at least -10."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -479,8 +452,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/if",
-                "instanceLocation": "#",
-                "keyword": "if"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -494,16 +466,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/else/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "1 should be a multiple of 2."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/else/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "1 should be a multiple of 2."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -514,8 +482,6 @@
                 "valid": false,
                 "keywordLocation": "#/if",
                 "instanceLocation": "#",
-                "keyword": "else",
-                "error": "Validation of `if` failed, but validation of `else` also failed",
                 "errors": [
                   {
                     "valid": false,
@@ -525,9 +491,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/else/multipleOf",
-                        "instanceLocation": "#",
-                        "keyword": "multipleOf",
-                        "error": "1 should be a multiple of 2."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -573,7 +537,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -620,7 +583,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,

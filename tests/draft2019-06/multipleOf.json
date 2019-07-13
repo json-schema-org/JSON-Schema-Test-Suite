@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/multipleOf",
-                "instanceLocation": "#",
-                "keyword": "multipleOf"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -41,16 +40,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "1 should be a multiple of 2."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "1 should be a multiple of 2."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -60,9 +55,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/multipleOf",
-                "instanceLocation": "#",
-                "keyword": "multipleOf",
-                "error": "1 should be a multiple of 2."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -91,8 +84,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/multipleOf",
-                "instanceLocation": "#",
-                "keyword": "multipleOf"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -127,8 +119,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/multipleOf",
-                "instanceLocation": "#",
-                "keyword": "multipleOf"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -157,8 +148,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/multipleOf",
-                "instanceLocation": "#",
-                "keyword": "multipleOf"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -172,16 +162,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "0.5 should be a multiple of 1.5."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "0.5 should be a multiple of 1.5."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -191,9 +177,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/multipleOf",
-                "instanceLocation": "#",
-                "keyword": "multipleOf",
-                "error": "0.5 should be a multiple of 1.5."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -228,8 +212,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/multipleOf",
-                "instanceLocation": "#",
-                "keyword": "multipleOf"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -243,16 +226,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "9.99999999999982E-06 should be a multiple of 0.0001."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/multipleOf",
-            "instanceLocation": "#",
-            "keyword": "multipleOf",
-            "error": "9.99999999999982E-06 should be a multiple of 0.0001."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -262,9 +241,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/multipleOf",
-                "instanceLocation": "#",
-                "keyword": "multipleOf",
-                "error": "9.99999999999982E-06 should be a multiple of 0.0001."
+                "instanceLocation": "#"
               }
             ]
           }

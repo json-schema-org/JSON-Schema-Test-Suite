@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -56,8 +55,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -92,8 +90,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -122,8 +119,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -143,16 +139,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -162,9 +154,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -199,8 +189,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/maximum",
-                "instanceLocation": "#",
-                "keyword": "maximum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -229,8 +218,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/minimum",
-                "instanceLocation": "#",
-                "keyword": "minimum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -250,14 +238,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/exclusiveMaximum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMaximum"
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/exclusiveMaximum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMaximum"
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -267,8 +253,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/exclusiveMaximum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMaximum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -288,14 +273,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/exclusiveMinimum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMinimum"
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/exclusiveMinimum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMinimum"
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -305,8 +288,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/exclusiveMinimum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMinimum"
+                "instanceLocation": "#"
               }
             ]
           }

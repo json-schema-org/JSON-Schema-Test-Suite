@@ -12,14 +12,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "ipv4"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "ipv4"
           },
           "verbose": {
@@ -31,7 +29,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "ipv4"
               }
             ]
@@ -46,16 +43,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"127.0.0.0.1\" is not in an acceptable \"ipv4\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"127.0.0.0.1\" is not in an acceptable \"ipv4\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -65,9 +58,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"127.0.0.0.1\" is not in an acceptable \"ipv4\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -81,16 +72,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"256.256.256.256\" is not in an acceptable \"ipv4\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"256.256.256.256\" is not in an acceptable \"ipv4\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -100,9 +87,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"256.256.256.256\" is not in an acceptable \"ipv4\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -116,16 +101,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"127.0\" is not in an acceptable \"ipv4\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"127.0\" is not in an acceptable \"ipv4\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -135,9 +116,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"127.0\" is not in an acceptable \"ipv4\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -151,16 +130,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"0x7f000001\" is not in an acceptable \"ipv4\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"0x7f000001\" is not in an acceptable \"ipv4\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -170,9 +145,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"0x7f000001\" is not in an acceptable \"ipv4\" format."
+                "instanceLocation": "#"
               }
             ]
           }

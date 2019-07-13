@@ -12,14 +12,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "date"
           },
           "verbose": {
@@ -31,7 +29,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "date"
               }
             ]
@@ -46,16 +43,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"06/19/1963\" is not in an acceptable \"date\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"06/19/1963\" is not in an acceptable \"date\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -65,9 +58,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"06/19/1963\" is not in an acceptable \"date\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -81,16 +72,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"2013-350\" is not in an acceptable \"date\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"2013-350\" is not in an acceptable \"date\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -100,9 +87,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"2013-350\" is not in an acceptable \"date\" format."
+                "instanceLocation": "#"
               }
             ]
           }

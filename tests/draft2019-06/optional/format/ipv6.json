@@ -12,14 +12,12 @@
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "ipv6"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/format",
             "instanceLocation": "#",
-            "keyword": "format",
             "annotation": "ipv6"
           },
           "verbose": {
@@ -31,7 +29,6 @@
                 "valid": true,
                 "keywordLocation": "#/format",
                 "instanceLocation": "#",
-                "keyword": "format",
                 "annotation": "ipv6"
               }
             ]
@@ -46,16 +43,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"12345::\" is not in an acceptable \"ipv6\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"12345::\" is not in an acceptable \"ipv6\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -65,9 +58,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"12345::\" is not in an acceptable \"ipv6\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -81,16 +72,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"1:1:1:1:1:1:1:1:1:1:1:1:1:1:1:1\" is not in an acceptable \"ipv6\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"1:1:1:1:1:1:1:1:1:1:1:1:1:1:1:1\" is not in an acceptable \"ipv6\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -100,9 +87,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"1:1:1:1:1:1:1:1:1:1:1:1:1:1:1:1\" is not in an acceptable \"ipv6\" format."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -116,16 +101,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"::laptop\" is not in an acceptable \"ipv6\" format."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/format",
-            "instanceLocation": "#",
-            "keyword": "format",
-            "error": "\"::laptop\" is not in an acceptable \"ipv6\" format."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -135,9 +116,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/format",
-                "instanceLocation": "#",
-                "keyword": "format",
-                "error": "\"::laptop\" is not in an acceptable \"ipv6\" format."
+                "instanceLocation": "#"
               }
             ]
           }

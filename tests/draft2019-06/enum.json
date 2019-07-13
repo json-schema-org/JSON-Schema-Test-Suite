@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/enum",
-                "instanceLocation": "#",
-                "keyword": "enum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -41,16 +40,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/enum",
-            "instanceLocation": "#",
-            "keyword": "enum",
-            "error": "4 does not match any of the required values."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/enum",
-            "instanceLocation": "#",
-            "keyword": "enum",
-            "error": "4 does not match any of the required values."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -60,9 +55,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/enum",
-                "instanceLocation": "#",
-                "keyword": "enum",
-                "error": "4 does not match any of the required values."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -97,8 +90,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/enum",
-                "instanceLocation": "#",
-                "keyword": "enum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -112,16 +104,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/enum",
-            "instanceLocation": "#",
-            "keyword": "enum",
-            "error": "null does not match any of the required values."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/enum",
-            "instanceLocation": "#",
-            "keyword": "enum",
-            "error": "null does not match any of the required values."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -131,9 +119,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/enum",
-                "instanceLocation": "#",
-                "keyword": "enum",
-                "error": "null does not match any of the required values."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -147,16 +133,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/enum",
-            "instanceLocation": "#",
-            "keyword": "enum",
-            "error": "{\"foo\":false} does not match any of the required values."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/enum",
-            "instanceLocation": "#",
-            "keyword": "enum",
-            "error": "{\"foo\":false} does not match any of the required values."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -166,9 +148,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/enum",
-                "instanceLocation": "#",
-                "keyword": "enum",
-                "error": "{\"foo\":false} does not match any of the required values."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -207,14 +187,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -224,8 +202,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/enum",
-                        "instanceLocation": "#/foo",
-                        "keyword": "enum"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   },
@@ -237,8 +214,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/enum",
-                        "instanceLocation": "#/bar",
-                        "keyword": "enum"
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -247,8 +223,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -277,14 +252,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -294,8 +267,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/enum",
-                        "instanceLocation": "#/bar",
-                        "keyword": "enum"
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -304,8 +276,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -319,16 +290,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"bar\"] are required."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"bar\"] are required."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -338,14 +305,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -355,8 +320,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/enum",
-                        "instanceLocation": "#/foo",
-                        "keyword": "enum"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -365,9 +329,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"bar\"] are required."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -381,16 +343,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"bar\"] are required."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"bar\"] are required."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -400,21 +358,17 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"bar\"] are required."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -449,8 +403,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/enum",
-                "instanceLocation": "#",
-                "keyword": "enum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -479,8 +432,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/enum",
-                "instanceLocation": "#",
-                "keyword": "enum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -494,16 +446,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/enum",
-            "instanceLocation": "#",
-            "keyword": "enum",
-            "error": "\"abc\" does not match any of the required values."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/enum",
-            "instanceLocation": "#",
-            "keyword": "enum",
-            "error": "\"abc\" does not match any of the required values."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -513,9 +461,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/enum",
-                "instanceLocation": "#",
-                "keyword": "enum",
-                "error": "\"abc\" does not match any of the required values."
+                "instanceLocation": "#"
               }
             ]
           }

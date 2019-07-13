@@ -11,14 +11,12 @@
           "basic": {
             "valid": true,
             "keywordLocation": "#/properties/foo/default",
-            "instanceLocation": "#/foo",
-            "keyword": "default"
+            "instanceLocation": "#/foo"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/properties/foo/default",
-            "instanceLocation": "#/foo",
-            "keyword": "default"
+            "instanceLocation": "#/foo"
           },
           "verbose": {
             "valid": true,
@@ -29,7 +27,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -39,14 +36,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo"
                       },
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/default",
-                        "instanceLocation": "#/foo",
-                        "keyword": "default"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -79,8 +74,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -105,14 +99,12 @@
             "valid": true,
             "keywordLocation": "#/properties/bar/default",
             "instanceLocation": "#/bar",
-            "keyword": "default",
             "annotation": "bad"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/properties/bar/default",
             "instanceLocation": "#/bar",
-            "keyword": "default",
             "annotation": "bad"
           },
           "verbose": {
@@ -124,7 +116,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -134,20 +125,17 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/bar"
                       },
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/minLength",
-                        "instanceLocation": "#/bar",
-                        "keyword": "minLength"
+                        "instanceLocation": "#/bar"
                       },
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/default",
                         "instanceLocation": "#/bar",
-                        "keyword": "default",
                         "annotation": "bad"
                       }
                     ]
@@ -181,8 +169,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               }
             ]
           }

@@ -27,7 +27,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -37,8 +36,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -50,9 +48,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum",
-                        "error": "The value 1 should be at least 2."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -86,7 +82,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": false,
@@ -96,9 +91,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type",
-                        "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -110,8 +103,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -145,7 +137,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -155,8 +146,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -168,8 +158,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -190,22 +179,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf",
-                "instanceLocation": "#",
-                "keyword": "anyOf"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/0/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/1/minimum",
-                "instanceLocation": "#",
-                "keyword": "minimum",
-                "error": "The value 1.5 should be at least 2."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -213,21 +197,16 @@
             "valid": false,
             "keywordLocation": "#/anyOf",
             "instanceLocation": "#",
-            "keyword": "anyOf",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/0/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/1/minimum",
-                "instanceLocation": "#",
-                "keyword": "minimum",
-                "error": "The value 1.5 should be at least 2."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -240,7 +219,6 @@
                 "valid": false,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "errors": [
                   {
                     "valid": false,
@@ -250,9 +228,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type",
-                        "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -264,9 +240,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum",
-                        "error": "The value 1.5 should be at least 2."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -290,16 +264,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -309,15 +279,12 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -327,8 +294,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/maxLength",
-                        "instanceLocation": "#",
-                        "keyword": "maxLength"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -340,8 +306,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/minLength",
-                        "instanceLocation": "#",
-                        "keyword": "minLength"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -374,14 +339,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": false,
@@ -391,9 +354,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/0/maxLength",
-                        "instanceLocation": "#",
-                        "keyword": "maxLength",
-                        "error": "The string should be at most 2 characters long, but was 6."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -405,8 +366,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/minLength",
-                        "instanceLocation": "#",
-                        "keyword": "minLength"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -427,22 +387,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf",
-                "instanceLocation": "#",
-                "keyword": "anyOf"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/0/maxLength",
-                "instanceLocation": "#",
-                "keyword": "maxLength",
-                "error": "The string should be at most 2 characters long, but was 3."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/1/minLength",
-                "instanceLocation": "#",
-                "keyword": "minLength",
-                "error": "The string should be at least 4 characters long, but was 3."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -450,21 +405,16 @@
             "valid": false,
             "keywordLocation": "#/anyOf",
             "instanceLocation": "#",
-            "keyword": "anyOf",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/0/maxLength",
-                "instanceLocation": "#",
-                "keyword": "maxLength",
-                "error": "The string should be at most 2 characters long, but was 3."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/1/minLength",
-                "instanceLocation": "#",
-                "keyword": "minLength",
-                "error": "The string should be at least 4 characters long, but was 3."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -476,14 +426,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "errors": [
                   {
                     "valid": false,
@@ -493,9 +441,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/0/maxLength",
-                        "instanceLocation": "#",
-                        "keyword": "maxLength",
-                        "error": "The string should be at most 2 characters long, but was 3."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -507,9 +453,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/1/minLength",
-                        "instanceLocation": "#",
-                        "keyword": "minLength",
-                        "error": "The string should be at least 4 characters long, but was 3."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -549,7 +493,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -597,7 +540,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -607,8 +549,7 @@
                   {
                     "valid": false,
                     "keywordLocation": "#/anyOf/1",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   }
                 ]
               }
@@ -633,20 +574,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf",
-                "instanceLocation": "#",
-                "keyword": "anyOf"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/0",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/1",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -654,19 +592,16 @@
             "valid": false,
             "keywordLocation": "#/anyOf",
             "instanceLocation": "#",
-            "keyword": "anyOf",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/0",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/1",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -679,19 +614,16 @@
                 "valid": false,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "errors": [
                   {
                     "valid": false,
                     "keywordLocation": "#/anyOf/0",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   },
                   {
                     "valid": false,
                     "keywordLocation": "#/anyOf/1",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   }
                 ]
               }
@@ -734,7 +666,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -745,7 +676,6 @@
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -755,8 +685,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/anyOf/0/properties/bar/type",
-                                "instanceLocation": "#/bar",
-                                "keyword": "type"
+                                "instanceLocation": "#/bar"
                               }
                             ]
                           }
@@ -765,8 +694,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -778,15 +706,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"foo\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -820,7 +745,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": false,
@@ -830,15 +754,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"bar\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -851,7 +772,6 @@
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -861,8 +781,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/anyOf/1/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -871,8 +790,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -906,7 +824,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -917,7 +834,6 @@
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -927,8 +843,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/anyOf/0/properties/bar/type",
-                                "instanceLocation": "#/bar",
-                                "keyword": "type"
+                                "instanceLocation": "#/bar"
                               }
                             ]
                           }
@@ -937,8 +852,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -951,7 +865,6 @@
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -961,8 +874,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/anyOf/1/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -971,8 +883,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -993,22 +904,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf",
-                "instanceLocation": "#",
-                "keyword": "anyOf"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/0/properties/bar/type",
-                "instanceLocation": "#/bar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#/bar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/1/properties/foo/type",
-                "instanceLocation": "#/foo",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#/foo"
               }
             ]
           },
@@ -1016,21 +922,16 @@
             "valid": false,
             "keywordLocation": "#/anyOf",
             "instanceLocation": "#",
-            "keyword": "anyOf",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/0/properties/bar/type",
-                "instanceLocation": "#/bar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#/bar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/anyOf/1/properties/foo/type",
-                "instanceLocation": "#/foo",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#/foo"
               }
             ]
           },
@@ -1043,7 +944,6 @@
                 "valid": false,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "errors": [
                   {
                     "valid": false,
@@ -1054,8 +954,6 @@
                         "valid": false,
                         "keywordLocation": "#/anyOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
-                        "error": "At least one subschema failed validation.",
                         "errors": [
                           {
                             "valid": false,
@@ -1065,9 +963,7 @@
                               {
                                 "valid": false,
                                 "keywordLocation": "#/anyOf/0/properties/bar/type",
-                                "instanceLocation": "#/bar",
-                                "keyword": "type",
-                                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                                "instanceLocation": "#/bar"
                               }
                             ]
                           }
@@ -1076,8 +972,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1090,8 +985,6 @@
                         "valid": false,
                         "keywordLocation": "#/anyOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
-                        "error": "At least one subschema failed validation.",
                         "errors": [
                           {
                             "valid": false,
@@ -1101,9 +994,7 @@
                               {
                                 "valid": false,
                                 "keywordLocation": "#/anyOf/1/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type",
-                                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -1112,8 +1003,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1153,7 +1043,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": false,
@@ -1163,9 +1052,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/anyOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1204,7 +1091,6 @@
                 "valid": true,
                 "keywordLocation": "#/anyOf",
                 "instanceLocation": "#",
-                "keyword": "anyOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -1214,8 +1100,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/anyOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type"
+                        "instanceLocation": "#"
                       }
                     ]
                   },

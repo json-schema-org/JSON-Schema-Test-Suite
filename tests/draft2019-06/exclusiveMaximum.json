@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/exclusiveMaximum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMaximum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -41,14 +40,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/exclusiveMaximum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMaximum"
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/exclusiveMaximum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMaximum"
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -58,8 +55,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/exclusiveMaximum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMaximum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -73,14 +69,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/exclusiveMaximum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMaximum"
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/exclusiveMaximum",
-            "instanceLocation": "#",
-            "keyword": "exclusiveMaximum"
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -90,8 +84,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/exclusiveMaximum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMaximum"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -120,8 +113,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/exclusiveMaximum",
-                "instanceLocation": "#",
-                "keyword": "exclusiveMaximum"
+                "instanceLocation": "#"
               }
             ]
           }

@@ -29,7 +29,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -39,8 +38,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   },
@@ -52,8 +50,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -71,16 +68,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/properties/bar/type",
-            "instanceLocation": "#/bar",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#/bar"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/properties/bar/type",
-            "instanceLocation": "#/bar",
-            "keyword": "type",
-            "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+            "instanceLocation": "#/bar"
           },
           "verbose": {
             "valid": false,
@@ -91,8 +84,6 @@
                 "valid": false,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
-                "error": "At least one subschema failed validation.",
                 "errors": [
                   {
                     "valid": true,
@@ -102,8 +93,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   },
@@ -115,9 +105,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/bar/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type",
-                        "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -138,23 +126,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties",
-                "error": "At least one subschema failed validation."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo/type",
-                "instanceLocation": "#/foo",
-                "keyword": "type",
-                "error": "Values of type \"array\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#/foo"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/bar/type",
-                "instanceLocation": "#/bar",
-                "keyword": "type",
-                "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#/bar"
               }
             ]
           },
@@ -162,22 +144,16 @@
             "valid": false,
             "keywordLocation": "#/properties",
             "instanceLocation": "#",
-            "keyword": "properties",
-            "error": "At least one subschema failed validation.",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo/type",
-                "instanceLocation": "#/foo",
-                "keyword": "type",
-                "error": "Values of type \"array\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#/foo"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/bar/type",
-                "instanceLocation": "#/bar",
-                "keyword": "type",
-                "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#/bar"
               }
             ]
           },
@@ -190,8 +166,6 @@
                 "valid": false,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
-                "error": "At least one subschema failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -201,9 +175,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/foo/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type",
-                        "error": "Values of type \"array\" are not one of the allowed types \"integer\"."
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   },
@@ -215,9 +187,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/bar/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type",
-                        "error": "Values of type \"object\" are not one of the allowed types \"string\"."
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -250,8 +220,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -280,8 +249,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -310,8 +278,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -354,7 +321,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -364,14 +330,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo"
                       },
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/maxItems",
-                        "instanceLocation": "#/foo",
-                        "keyword": "maxItems"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -381,7 +345,6 @@
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
                 "instanceLocation": "#",
-                "keyword": "patternProperties",
                 "annotations": [
                   {
                     "valid": true,
@@ -391,8 +354,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/patternProperties/f.o/minItems",
-                        "instanceLocation": "#/foo",
-                        "keyword": "minItems"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -401,8 +363,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -416,16 +377,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/properties/foo/maxItems",
-            "instanceLocation": "#/foo",
-            "keyword": "maxItems",
-            "error": "The array should contain at most 3 items, but 4 were found."
+            "instanceLocation": "#/foo"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/properties/foo/maxItems",
-            "instanceLocation": "#/foo",
-            "keyword": "maxItems",
-            "error": "The array should contain at most 3 items, but 4 were found."
+            "instanceLocation": "#/foo"
           },
           "verbose": {
             "valid": false,
@@ -436,8 +393,6 @@
                 "valid": false,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
-                "error": "At least one subschema failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -447,15 +402,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/foo/maxItems",
-                        "instanceLocation": "#/foo",
-                        "keyword": "maxItems",
-                        "error": "The array should contain at most 3 items, but 4 were found."
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -465,7 +417,6 @@
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
                 "instanceLocation": "#",
-                "keyword": "patternProperties",
                 "annotations": [
                   {
                     "valid": true,
@@ -475,8 +426,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/patternProperties/f.o/minItems",
-                        "instanceLocation": "#/foo",
-                        "keyword": "minItems"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -485,8 +435,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -500,16 +449,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/patternProperties/f.o/minItems",
-            "instanceLocation": "#/foo",
-            "keyword": "minItems",
-            "error": "The array should contain at least 2 items, but 0 were found."
+            "instanceLocation": "#/foo"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/patternProperties/f.o/minItems",
-            "instanceLocation": "#/foo",
-            "keyword": "minItems",
-            "error": "The array should contain at least 2 items, but 0 were found."
+            "instanceLocation": "#/foo"
           },
           "verbose": {
             "valid": false,
@@ -520,7 +465,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -530,14 +474,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo"
                       },
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo/maxItems",
-                        "instanceLocation": "#/foo",
-                        "keyword": "maxItems"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -547,8 +489,6 @@
                 "valid": false,
                 "keywordLocation": "#/patternProperties",
                 "instanceLocation": "#",
-                "keyword": "patternProperties",
-                "error": "At least one subschema failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -558,9 +498,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/patternProperties/f.o/minItems",
-                        "instanceLocation": "#/foo",
-                        "keyword": "minItems",
-                        "error": "The array should contain at least 2 items, but 0 were found."
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -569,8 +507,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -599,14 +536,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
                 "instanceLocation": "#",
-                "keyword": "patternProperties",
                 "annotations": [
                   {
                     "valid": true,
@@ -616,8 +551,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/patternProperties/f.o/minItems",
-                        "instanceLocation": "#/fxo",
-                        "keyword": "minItems"
+                        "instanceLocation": "#/fxo"
                       }
                     ]
                   }
@@ -626,8 +560,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -641,16 +574,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/patternProperties/f.o/minItems",
-            "instanceLocation": "#/fxo",
-            "keyword": "minItems",
-            "error": "The array should contain at least 2 items, but 0 were found."
+            "instanceLocation": "#/fxo"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/patternProperties/f.o/minItems",
-            "instanceLocation": "#/fxo",
-            "keyword": "minItems",
-            "error": "The array should contain at least 2 items, but 0 were found."
+            "instanceLocation": "#/fxo"
           },
           "verbose": {
             "valid": false,
@@ -660,15 +589,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/patternProperties",
                 "instanceLocation": "#",
-                "keyword": "patternProperties",
-                "error": "At least one subschema failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -678,9 +604,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/patternProperties/f.o/minItems",
-                        "instanceLocation": "#/fxo",
-                        "keyword": "minItems",
-                        "error": "The array should contain at least 2 items, but 0 were found."
+                        "instanceLocation": "#/fxo"
                       }
                     ]
                   }
@@ -689,8 +613,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -720,7 +643,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -730,8 +652,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -740,14 +661,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
-                "instanceLocation": "#",
-                "keyword": "patternProperties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -776,20 +695,17 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
-                "instanceLocation": "#",
-                "keyword": "patternProperties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
                 "instanceLocation": "#",
-                "keyword": "additionalProperties",
                 "annotations": [
                   {
                     "valid": true,
@@ -799,8 +715,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/additionalProperties/type",
-                        "instanceLocation": "#/quux",
-                        "keyword": "type"
+                        "instanceLocation": "#/quux"
                       }
                     ]
                   }
@@ -818,16 +733,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/additionalProperties/type",
-            "instanceLocation": "#/quux",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#/quux"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/additionalProperties/type",
-            "instanceLocation": "#/quux",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#/quux"
           },
           "verbose": {
             "valid": false,
@@ -837,21 +748,17 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
-                "instanceLocation": "#",
-                "keyword": "patternProperties"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/additionalProperties",
                 "instanceLocation": "#",
-                "keyword": "additionalProperties",
-                "error": "Any properties not covered by `properties` and `patternProperties` failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -861,9 +768,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/additionalProperties/type",
-                        "instanceLocation": "#/quux",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                        "instanceLocation": "#/quux"
                       }
                     ]
                   }
@@ -902,8 +807,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -933,7 +837,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -954,14 +857,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/properties/bar",
-            "instanceLocation": "#/bar",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#/bar"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/properties/bar",
-            "instanceLocation": "#/bar",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#/bar"
           },
           "verbose": {
             "valid": false,
@@ -972,14 +873,11 @@
                 "valid": false,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
-                "error": "At least one subschema failed validation.",
                 "errors": [
                   {
                     "valid": false,
                     "keywordLocation": "#/properties/bar",
-                    "instanceLocation": "#/bar",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#/bar"
                   }
                 ]
               }
@@ -995,14 +893,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/properties/bar",
-            "instanceLocation": "#/bar",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#/bar"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/properties/bar",
-            "instanceLocation": "#/bar",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#/bar"
           },
           "verbose": {
             "valid": false,
@@ -1013,8 +909,6 @@
                 "valid": false,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
-                "error": "At least one subschema failed validation.",
                 "errors": [
                   {
                     "valid": true,
@@ -1024,8 +918,7 @@
                   {
                     "valid": false,
                     "keywordLocation": "#/properties/bar",
-                    "instanceLocation": "#/bar",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#/bar"
                   }
                 ]
               }
@@ -1079,7 +972,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -1089,8 +981,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo\nbar/type",
-                        "instanceLocation": "#/foo\nbar",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo\nbar"
                       }
                     ]
                   },
@@ -1102,8 +993,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo\"bar/type",
-                        "instanceLocation": "#/foo\"bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo\"bar"
                       }
                     ]
                   },
@@ -1115,8 +1005,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo\bar/type",
-                        "instanceLocation": "#/foo\bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo\bar"
                       }
                     ]
                   },
@@ -1128,8 +1017,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo\rbar/type",
-                        "instanceLocation": "#/foo\rbar",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo\rbar"
                       }
                     ]
                   },
@@ -1141,8 +1029,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo\tbar/type",
-                        "instanceLocation": "#/foo\tbar",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo\tbar"
                       }
                     ]
                   },
@@ -1154,8 +1041,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/foo\fbar/type",
-                        "instanceLocation": "#/foo\fbar",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo\fbar"
                       }
                     ]
                   }
@@ -1183,51 +1069,37 @@
               {
                 "valid": false,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties",
-                "error": "At least one subschema failed validation."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\nbar/type",
-                "instanceLocation": "#/foo\nbar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\nbar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\"bar/type",
-                "instanceLocation": "#/foo\"bar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\"bar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\bar/type",
-                "instanceLocation": "#/foo\bar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\bar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\rbar/type",
-                "instanceLocation": "#/foo\rbar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\rbar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\tbar/type",
-                "instanceLocation": "#/foo\tbar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\tbar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\fbar/type",
-                "instanceLocation": "#/foo\fbar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\fbar"
               }
             ]
           },
@@ -1235,50 +1107,36 @@
             "valid": false,
             "keywordLocation": "#/properties",
             "instanceLocation": "#",
-            "keyword": "properties",
-            "error": "At least one subschema failed validation.",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\nbar/type",
-                "instanceLocation": "#/foo\nbar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\nbar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\"bar/type",
-                "instanceLocation": "#/foo\"bar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\"bar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\bar/type",
-                "instanceLocation": "#/foo\bar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\bar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\rbar/type",
-                "instanceLocation": "#/foo\rbar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\rbar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\tbar/type",
-                "instanceLocation": "#/foo\tbar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\tbar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/properties/foo\fbar/type",
-                "instanceLocation": "#/foo\fbar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                "instanceLocation": "#/foo\fbar"
               }
             ]
           },
@@ -1291,8 +1149,6 @@
                 "valid": false,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
-                "error": "At least one subschema failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -1302,9 +1158,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/foo\nbar/type",
-                        "instanceLocation": "#/foo\nbar",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#/foo\nbar"
                       }
                     ]
                   },
@@ -1316,9 +1170,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/foo\"bar/type",
-                        "instanceLocation": "#/foo\"bar",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#/foo\"bar"
                       }
                     ]
                   },
@@ -1330,9 +1182,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/foo\bar/type",
-                        "instanceLocation": "#/foo\bar",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#/foo\bar"
                       }
                     ]
                   },
@@ -1344,9 +1194,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/foo\rbar/type",
-                        "instanceLocation": "#/foo\rbar",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#/foo\rbar"
                       }
                     ]
                   },
@@ -1358,9 +1206,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/foo\tbar/type",
-                        "instanceLocation": "#/foo\tbar",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#/foo\tbar"
                       }
                     ]
                   },
@@ -1372,9 +1218,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/foo\fbar/type",
-                        "instanceLocation": "#/foo\fbar",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#/foo\fbar"
                       }
                     ]
                   }

@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/maxItems",
-                "instanceLocation": "#",
-                "keyword": "maxItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -56,8 +55,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/maxItems",
-                "instanceLocation": "#",
-                "keyword": "maxItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -71,16 +69,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/maxItems",
-            "instanceLocation": "#",
-            "keyword": "maxItems",
-            "error": "The array should contain at most 2 items, but 3 were found."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/maxItems",
-            "instanceLocation": "#",
-            "keyword": "maxItems",
-            "error": "The array should contain at most 2 items, but 3 were found."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -90,9 +84,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/maxItems",
-                "instanceLocation": "#",
-                "keyword": "maxItems",
-                "error": "The array should contain at most 2 items, but 3 were found."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -121,8 +113,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/maxItems",
-                "instanceLocation": "#",
-                "keyword": "maxItems"
+                "instanceLocation": "#"
               }
             ]
           }

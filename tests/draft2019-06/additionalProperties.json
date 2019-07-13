@@ -31,7 +31,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -43,14 +42,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
-                "instanceLocation": "#",
-                "keyword": "patternProperties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -64,16 +61,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/additionalProperties",
-            "instanceLocation": "#",
-            "keyword": "additionalProperties",
-            "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/additionalProperties",
-            "instanceLocation": "#",
-            "keyword": "additionalProperties",
-            "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -84,7 +77,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -101,15 +93,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
-                "instanceLocation": "#",
-                "keyword": "patternProperties"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties",
-                "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -138,20 +127,17 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
-                "instanceLocation": "#",
-                "keyword": "patternProperties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -180,20 +166,17 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
-                "instanceLocation": "#",
-                "keyword": "patternProperties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -222,20 +205,17 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
-                "instanceLocation": "#",
-                "keyword": "patternProperties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -265,7 +245,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -278,7 +257,6 @@
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
                 "instanceLocation": "#",
-                "keyword": "patternProperties",
                 "annotations": [
                   {
                     "valid": true,
@@ -290,8 +268,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -327,7 +304,6 @@
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
                 "instanceLocation": "#",
-                "keyword": "patternProperties",
                 "annotations": [
                   {
                     "valid": true,
@@ -339,8 +315,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -354,16 +329,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/additionalProperties",
-            "instanceLocation": "#",
-            "keyword": "additionalProperties",
-            "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/additionalProperties",
-            "instanceLocation": "#",
-            "keyword": "additionalProperties",
-            "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -373,15 +344,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/patternProperties",
-                "instanceLocation": "#",
-                "keyword": "patternProperties"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties",
-                "error": "Properties not covered by `properties` and `patternProperties` are not allowed."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -420,7 +388,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -432,8 +399,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
-                "instanceLocation": "#",
-                "keyword": "additionalProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -463,7 +429,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -481,7 +446,6 @@
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
                 "instanceLocation": "#",
-                "keyword": "additionalProperties",
                 "annotations": [
                   {
                     "valid": true,
@@ -491,8 +455,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/additionalProperties/type",
-                        "instanceLocation": "#/quux",
-                        "keyword": "type"
+                        "instanceLocation": "#/quux"
                       }
                     ]
                   }
@@ -510,16 +473,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/additionalProperties/type",
-            "instanceLocation": "#/quux",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#/quux"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/additionalProperties/type",
-            "instanceLocation": "#/quux",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#/quux"
           },
           "verbose": {
             "valid": false,
@@ -530,7 +489,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -548,8 +506,6 @@
                 "valid": false,
                 "keywordLocation": "#/additionalProperties",
                 "instanceLocation": "#",
-                "keyword": "additionalProperties",
-                "error": "Any properties not covered by `properties` and `patternProperties` failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -559,9 +515,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/additionalProperties/type",
-                        "instanceLocation": "#/quux",
-                        "keyword": "type",
-                        "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+                        "instanceLocation": "#/quux"
                       }
                     ]
                   }
@@ -601,7 +555,6 @@
                 "valid": true,
                 "keywordLocation": "#/additionalProperties",
                 "instanceLocation": "#",
-                "keyword": "additionalProperties",
                 "annotations": [
                   {
                     "valid": true,
@@ -611,8 +564,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/additionalProperties/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type"
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -630,16 +582,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/additionalProperties/type",
-            "instanceLocation": "#/foo",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#/foo"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/additionalProperties/type",
-            "instanceLocation": "#/foo",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#/foo"
           },
           "verbose": {
             "valid": false,
@@ -650,8 +598,6 @@
                 "valid": false,
                 "keywordLocation": "#/additionalProperties",
                 "instanceLocation": "#",
-                "keyword": "additionalProperties",
-                "error": "Any properties not covered by `properties` and `patternProperties` failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -661,9 +607,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/additionalProperties/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type",
-                        "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -703,7 +647,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -738,16 +681,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/additionalProperties/type",
-            "instanceLocation": "#/foo",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#/foo"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/additionalProperties/type",
-            "instanceLocation": "#/foo",
-            "keyword": "type",
-            "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+            "instanceLocation": "#/foo"
           },
           "verbose": {
             "valid": false,
@@ -758,7 +697,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -769,7 +707,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -786,8 +723,6 @@
                 "valid": false,
                 "keywordLocation": "#/additionalProperties",
                 "instanceLocation": "#",
-                "keyword": "additionalProperties",
-                "error": "Any properties not covered by `properties` and `patternProperties` failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -797,9 +732,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/additionalProperties/type",
-                        "instanceLocation": "#/foo",
-                        "keyword": "type",
-                        "error": "Values of type \"number\" are not one of the allowed types \"boolean\"."
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   },
@@ -811,8 +744,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/additionalProperties/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }

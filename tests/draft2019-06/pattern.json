@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/pattern",
-                "instanceLocation": "#",
-                "keyword": "pattern"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -41,16 +40,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/pattern",
-            "instanceLocation": "#",
-            "keyword": "pattern",
-            "error": "\"abc\" should match the Regular Expression `\"^a*$\"`."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/pattern",
-            "instanceLocation": "#",
-            "keyword": "pattern",
-            "error": "\"abc\" should match the Regular Expression `\"^a*$\"`."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -60,9 +55,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/pattern",
-                "instanceLocation": "#",
-                "keyword": "pattern",
-                "error": "\"abc\" should match the Regular Expression `\"^a*$\"`."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -91,8 +84,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/pattern",
-                "instanceLocation": "#",
-                "keyword": "pattern"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -127,8 +119,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/pattern",
-                "instanceLocation": "#",
-                "keyword": "pattern"
+                "instanceLocation": "#"
               }
             ]
           }

@@ -27,7 +27,6 @@
                 "valid": true,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -37,8 +36,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -50,9 +48,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum",
-                        "error": "The value 1 should be at least 2."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -86,7 +82,6 @@
                 "valid": true,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
                 "annotations": [
                   {
                     "valid": false,
@@ -96,9 +91,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type",
-                        "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -110,8 +103,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -129,16 +121,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -149,8 +137,6 @@
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 2.",
                 "errors": [
                   {
                     "valid": true,
@@ -160,8 +146,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -173,8 +158,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -195,23 +179,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
-                "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 0."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/0/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/1/minimum",
-                "instanceLocation": "#",
-                "keyword": "minimum",
-                "error": "The value 1.5 should be at least 2."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -219,22 +197,16 @@
             "valid": false,
             "keywordLocation": "#/oneOf",
             "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 0.",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/0/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/1/minimum",
-                "instanceLocation": "#",
-                "keyword": "minimum",
-                "error": "The value 1.5 should be at least 2."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -247,8 +219,6 @@
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 0.",
                 "errors": [
                   {
                     "valid": false,
@@ -258,9 +228,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type",
-                        "error": "Values of type \"number\" are not one of the allowed types \"integer\"."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -272,9 +240,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum",
-                        "error": "The value 1.5 should be at least 2."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -302,16 +268,12 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
-                "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 2."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -323,16 +285,12 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
-                "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 2."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -344,16 +302,12 @@
               {
                 "valid": false,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 2.",
                 "errors": [
                   {
                     "valid": true,
@@ -363,8 +317,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/minLength",
-                        "instanceLocation": "#",
-                        "keyword": "minLength"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -376,8 +329,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/maxLength",
-                        "instanceLocation": "#",
-                        "keyword": "maxLength"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -410,14 +362,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -427,8 +377,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/minLength",
-                        "instanceLocation": "#",
-                        "keyword": "minLength"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -440,9 +389,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/1/maxLength",
-                        "instanceLocation": "#",
-                        "keyword": "maxLength",
-                        "error": "The string should be at most 4 characters long, but was 6."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -460,16 +407,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -479,15 +422,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 2.",
                 "errors": [
                   {
                     "valid": true,
@@ -497,8 +437,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/minLength",
-                        "instanceLocation": "#",
-                        "keyword": "minLength"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -510,8 +449,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/maxLength",
-                        "instanceLocation": "#",
-                        "keyword": "maxLength"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -535,16 +473,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 3."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 3."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -555,8 +489,6 @@
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 3.",
                 "errors": [
                   {
                     "valid": true,
@@ -609,7 +541,6 @@
                 "valid": true,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -619,14 +550,12 @@
                   {
                     "valid": false,
                     "keywordLocation": "#/oneOf/1",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   },
                   {
                     "valid": false,
                     "keywordLocation": "#/oneOf/2",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   }
                 ]
               }
@@ -648,14 +577,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/oneOf/2",
-            "instanceLocation": "#",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/oneOf/2",
-            "instanceLocation": "#",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -666,8 +593,6 @@
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 2.",
                 "errors": [
                   {
                     "valid": true,
@@ -682,8 +607,7 @@
                   {
                     "valid": false,
                     "keywordLocation": "#/oneOf/2",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   }
                 ]
               }
@@ -708,27 +632,22 @@
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
-                "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 0."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/0",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/1",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/2",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -736,26 +655,21 @@
             "valid": false,
             "keywordLocation": "#/oneOf",
             "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 0.",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/0",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/1",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/2",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -768,26 +682,21 @@
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 0.",
                 "errors": [
                   {
                     "valid": false,
                     "keywordLocation": "#/oneOf/0",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   },
                   {
                     "valid": false,
                     "keywordLocation": "#/oneOf/1",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   },
                   {
                     "valid": false,
                     "keywordLocation": "#/oneOf/2",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   }
                 ]
               }
@@ -830,7 +739,6 @@
                 "valid": true,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -841,7 +749,6 @@
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -851,8 +758,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/oneOf/0/properties/bar/type",
-                                "instanceLocation": "#/bar",
-                                "keyword": "type"
+                                "instanceLocation": "#/bar"
                               }
                             ]
                           }
@@ -861,8 +767,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -874,15 +779,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"foo\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -916,7 +818,6 @@
                 "valid": true,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
                 "annotations": [
                   {
                     "valid": false,
@@ -926,15 +827,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"bar\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -947,7 +845,6 @@
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -957,8 +854,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/oneOf/1/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -967,8 +863,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -986,16 +881,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1006,8 +897,6 @@
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 2.",
                 "errors": [
                   {
                     "valid": true,
@@ -1018,7 +907,6 @@
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -1028,8 +916,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/oneOf/0/properties/bar/type",
-                                "instanceLocation": "#/bar",
-                                "keyword": "type"
+                                "instanceLocation": "#/bar"
                               }
                             ]
                           }
@@ -1038,8 +925,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1052,7 +938,6 @@
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -1062,8 +947,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/oneOf/1/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -1072,8 +956,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1094,23 +977,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
-                "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 0."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/0/properties/bar/type",
-                "instanceLocation": "#/bar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#/bar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/1/properties/foo/type",
-                "instanceLocation": "#/foo",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#/foo"
               }
             ]
           },
@@ -1118,22 +995,16 @@
             "valid": false,
             "keywordLocation": "#/oneOf",
             "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 0.",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/0/properties/bar/type",
-                "instanceLocation": "#/bar",
-                "keyword": "type",
-                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                "instanceLocation": "#/bar"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/1/properties/foo/type",
-                "instanceLocation": "#/foo",
-                "keyword": "type",
-                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                "instanceLocation": "#/foo"
               }
             ]
           },
@@ -1146,8 +1017,6 @@
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 0.",
                 "errors": [
                   {
                     "valid": false,
@@ -1158,8 +1027,6 @@
                         "valid": false,
                         "keywordLocation": "#/oneOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
-                        "error": "At least one subschema failed validation.",
                         "errors": [
                           {
                             "valid": false,
@@ -1169,9 +1036,7 @@
                               {
                                 "valid": false,
                                 "keywordLocation": "#/oneOf/0/properties/bar/type",
-                                "instanceLocation": "#/bar",
-                                "keyword": "type",
-                                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                                "instanceLocation": "#/bar"
                               }
                             ]
                           }
@@ -1180,8 +1045,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1194,8 +1058,6 @@
                         "valid": false,
                         "keywordLocation": "#/oneOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
-                        "error": "At least one subschema failed validation.",
                         "errors": [
                           {
                             "valid": false,
@@ -1205,9 +1067,7 @@
                               {
                                 "valid": false,
                                 "keywordLocation": "#/oneOf/1/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type",
-                                "error": "Values of type \"number\" are not one of the allowed types \"string\"."
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -1216,8 +1076,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1257,7 +1116,6 @@
                 "valid": true,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
                 "annotations": [
                   {
                     "valid": false,
@@ -1267,9 +1125,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1292,16 +1148,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1312,8 +1164,6 @@
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 2.",
                 "errors": [
                   {
                     "valid": true,
@@ -1323,8 +1173,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1359,23 +1208,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
-                "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 0."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/0/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"foo\"] are required."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/1/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"foo\",\"baz\"] are required."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -1383,22 +1226,16 @@
             "valid": false,
             "keywordLocation": "#/oneOf",
             "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 0.",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/0/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"foo\"] are required."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf/1/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"foo\",\"baz\"] are required."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -1410,15 +1247,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 0.",
                 "errors": [
                   {
                     "valid": false,
@@ -1428,9 +1262,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"foo\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1442,9 +1274,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"foo\",\"baz\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1477,14 +1307,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -1494,8 +1322,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1507,9 +1334,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"baz\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1542,14 +1367,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
                 "annotations": [
                   {
                     "valid": false,
@@ -1559,9 +1382,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/oneOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"bar\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1573,8 +1394,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1592,16 +1412,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/oneOf",
-            "instanceLocation": "#",
-            "keyword": "oneOf",
-            "error": "Expected exactly one subschema to pass validation, but found 2."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1611,15 +1427,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/type",
-                "instanceLocation": "#",
-                "keyword": "type"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/oneOf",
                 "instanceLocation": "#",
-                "keyword": "oneOf",
-                "error": "Expected exactly one subschema to pass validation, but found 2.",
                 "errors": [
                   {
                     "valid": true,
@@ -1629,8 +1442,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1642,8 +1454,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/oneOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }

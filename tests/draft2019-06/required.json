@@ -27,7 +27,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -39,8 +38,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -54,16 +52,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"foo\"] are required."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"foo\"] are required."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -74,7 +68,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -86,9 +79,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"foo\"] are required."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -117,14 +108,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -153,14 +142,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -189,14 +176,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -231,8 +216,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -267,14 +251,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -325,8 +307,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -340,16 +321,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"foo\\\bar\",\"foo\rbar\",\"foo\tbar\",\"foo\fbar\"] are required."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"foo\\\bar\",\"foo\rbar\",\"foo\tbar\",\"foo\fbar\"] are required."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -359,9 +336,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"foo\\\bar\",\"foo\rbar\",\"foo\tbar\",\"foo\fbar\"] are required."
+                "instanceLocation": "#"
               }
             ]
           }

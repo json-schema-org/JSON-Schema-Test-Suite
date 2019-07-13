@@ -27,7 +27,6 @@
                 "valid": true,
                 "keywordLocation": "#/items",
                 "instanceLocation": "#",
-                "keyword": "items",
                 "annotations": [
                   {
                     "valid": true,
@@ -40,7 +39,6 @@
                 "valid": true,
                 "keywordLocation": "#/additionalItems",
                 "instanceLocation": "#",
-                "keyword": "additionalItems",
                 "annotations": [
                   {
                     "valid": true,
@@ -50,8 +48,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/additionalItems/type",
-                        "instanceLocation": "#/0",
-                        "keyword": "type"
+                        "instanceLocation": "#/0"
                       }
                     ]
                   },
@@ -63,8 +60,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/additionalItems/type",
-                        "instanceLocation": "#/1",
-                        "keyword": "type"
+                        "instanceLocation": "#/1"
                       }
                     ]
                   },
@@ -76,8 +72,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/additionalItems/type",
-                        "instanceLocation": "#/2",
-                        "keyword": "type"
+                        "instanceLocation": "#/2"
                       }
                     ]
                   }
@@ -95,16 +90,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/additionalItems/type",
-            "instanceLocation": "#/2",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#/2"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/additionalItems/type",
-            "instanceLocation": "#/2",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#/2"
           },
           "verbose": {
             "valid": false,
@@ -115,7 +106,6 @@
                 "valid": true,
                 "keywordLocation": "#/items",
                 "instanceLocation": "#",
-                "keyword": "items",
                 "annotations": [
                   {
                     "valid": true,
@@ -128,8 +118,6 @@
                 "valid": false,
                 "keywordLocation": "#/additionalItems",
                 "instanceLocation": "#",
-                "keyword": "additionalItems",
-                "error": "Items not covered by `items` failed validation.",
                 "errors": [
                   {
                     "valid": true,
@@ -139,8 +127,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/additionalItems/type",
-                        "instanceLocation": "#/0",
-                        "keyword": "type"
+                        "instanceLocation": "#/0"
                       }
                     ]
                   },
@@ -152,8 +139,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/additionalItems/type",
-                        "instanceLocation": "#/1",
-                        "keyword": "type"
+                        "instanceLocation": "#/1"
                       }
                     ]
                   },
@@ -165,9 +151,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/additionalItems/type",
-                        "instanceLocation": "#/2",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                        "instanceLocation": "#/2"
                       }
                     ]
                   }
@@ -207,7 +191,6 @@
                 "valid": true,
                 "keywordLocation": "#/items",
                 "instanceLocation": "#",
-                "keyword": "items",
                 "annotations": [
                   {
                     "valid": true,
@@ -239,8 +222,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalItems",
-                "instanceLocation": "#",
-                "keyword": "additionalItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -276,7 +258,6 @@
                 "valid": true,
                 "keywordLocation": "#/items",
                 "instanceLocation": "#",
-                "keyword": "items",
                 "annotations": [
                   {
                     "valid": true,
@@ -293,8 +274,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalItems",
-                "instanceLocation": "#",
-                "keyword": "additionalItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -324,7 +304,6 @@
                 "valid": true,
                 "keywordLocation": "#/items",
                 "instanceLocation": "#",
-                "keyword": "items",
                 "annotations": [
                   {
                     "valid": true,
@@ -346,8 +325,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalItems",
-                "instanceLocation": "#",
-                "keyword": "additionalItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -361,16 +339,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/additionalItems",
-            "instanceLocation": "#",
-            "keyword": "additionalItems",
-            "error": "Items not covered by `items` are not allowed."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/additionalItems",
-            "instanceLocation": "#",
-            "keyword": "additionalItems",
-            "error": "Items not covered by `items` are not allowed."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -381,7 +355,6 @@
                 "valid": true,
                 "keywordLocation": "#/items",
                 "instanceLocation": "#",
-                "keyword": "items",
                 "annotations": [
                   {
                     "valid": true,
@@ -403,9 +376,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/additionalItems",
-                "instanceLocation": "#",
-                "keyword": "additionalItems",
-                "error": "Items not covered by `items` are not allowed."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -440,8 +411,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalItems",
-                "instanceLocation": "#",
-                "keyword": "additionalItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -470,8 +440,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/additionalItems",
-                "instanceLocation": "#",
-                "keyword": "additionalItems"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -507,7 +476,6 @@
                 "valid": true,
                 "keywordLocation": "#/items",
                 "instanceLocation": "#",
-                "keyword": "items",
                 "annotations": [
                   {
                     "valid": true,
@@ -517,8 +485,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/items/0/type",
-                        "instanceLocation": "#/0",
-                        "keyword": "type"
+                        "instanceLocation": "#/0"
                       }
                     ]
                   }

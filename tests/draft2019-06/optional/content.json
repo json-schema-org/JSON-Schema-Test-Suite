@@ -12,14 +12,12 @@
             "valid": true,
             "keywordLocation": "#/contentMediaType",
             "instanceLocation": "#",
-            "keyword": "contentMediaType",
             "annotation": "application/json"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/contentMediaType",
             "instanceLocation": "#",
-            "keyword": "contentMediaType",
             "annotation": "application/json"
           },
           "verbose": {
@@ -31,7 +29,6 @@
                 "valid": true,
                 "keywordLocation": "#/contentMediaType",
                 "instanceLocation": "#",
-                "keyword": "contentMediaType",
                 "annotation": "application/json"
               }
             ]
@@ -47,14 +44,12 @@
             "valid": true,
             "keywordLocation": "#/contentMediaType",
             "instanceLocation": "#",
-            "keyword": "contentMediaType",
             "annotation": "application/json"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/contentMediaType",
             "instanceLocation": "#",
-            "keyword": "contentMediaType",
             "annotation": "application/json"
           },
           "verbose": {
@@ -66,7 +61,6 @@
                 "valid": true,
                 "keywordLocation": "#/contentMediaType",
                 "instanceLocation": "#",
-                "keyword": "contentMediaType",
                 "annotation": "application/json"
               }
             ]
@@ -88,14 +82,12 @@
             "valid": true,
             "keywordLocation": "#/contentEncoding",
             "instanceLocation": "#",
-            "keyword": "contentEncoding",
             "annotation": "base64"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/contentEncoding",
             "instanceLocation": "#",
-            "keyword": "contentEncoding",
             "annotation": "base64"
           },
           "verbose": {
@@ -107,7 +99,6 @@
                 "valid": true,
                 "keywordLocation": "#/contentEncoding",
                 "instanceLocation": "#",
-                "keyword": "contentEncoding",
                 "annotation": "base64"
               }
             ]
@@ -123,14 +114,12 @@
             "valid": true,
             "keywordLocation": "#/contentEncoding",
             "instanceLocation": "#",
-            "keyword": "contentEncoding",
             "annotation": "base64"
           },
           "detailed": {
             "valid": true,
             "keywordLocation": "#/contentEncoding",
             "instanceLocation": "#",
-            "keyword": "contentEncoding",
             "annotation": "base64"
           },
           "verbose": {
@@ -142,7 +131,6 @@
                 "valid": true,
                 "keywordLocation": "#/contentEncoding",
                 "instanceLocation": "#",
-                "keyword": "contentEncoding",
                 "annotation": "base64"
               }
             ]
@@ -171,14 +159,12 @@
                 "valid": true,
                 "keywordLocation": "#/contentMediaType",
                 "instanceLocation": "#",
-                "keyword": "contentMediaType",
                 "annotation": "application/json"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/contentEncoding",
                 "instanceLocation": "#",
-                "keyword": "contentEncoding",
                 "annotation": "base64"
               }
             ]
@@ -192,14 +178,12 @@
                 "valid": true,
                 "keywordLocation": "#/contentMediaType",
                 "instanceLocation": "#",
-                "keyword": "contentMediaType",
                 "annotation": "application/json"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/contentEncoding",
                 "instanceLocation": "#",
-                "keyword": "contentEncoding",
                 "annotation": "base64"
               }
             ]
@@ -213,14 +197,12 @@
                 "valid": true,
                 "keywordLocation": "#/contentMediaType",
                 "instanceLocation": "#",
-                "keyword": "contentMediaType",
                 "annotation": "application/json"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/contentEncoding",
                 "instanceLocation": "#",
-                "keyword": "contentEncoding",
                 "annotation": "base64"
               }
             ]
@@ -240,14 +222,12 @@
                 "valid": true,
                 "keywordLocation": "#/contentMediaType",
                 "instanceLocation": "#",
-                "keyword": "contentMediaType",
                 "annotation": "application/json"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/contentEncoding",
                 "instanceLocation": "#",
-                "keyword": "contentEncoding",
                 "annotation": "base64"
               }
             ]
@@ -261,14 +241,12 @@
                 "valid": true,
                 "keywordLocation": "#/contentMediaType",
                 "instanceLocation": "#",
-                "keyword": "contentMediaType",
                 "annotation": "application/json"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/contentEncoding",
                 "instanceLocation": "#",
-                "keyword": "contentEncoding",
                 "annotation": "base64"
               }
             ]
@@ -282,14 +260,12 @@
                 "valid": true,
                 "keywordLocation": "#/contentMediaType",
                 "instanceLocation": "#",
-                "keyword": "contentMediaType",
                 "annotation": "application/json"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/contentEncoding",
                 "instanceLocation": "#",
-                "keyword": "contentEncoding",
                 "annotation": "base64"
               }
             ]

@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/minProperties",
-                "instanceLocation": "#",
-                "keyword": "minProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -56,8 +55,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/minProperties",
-                "instanceLocation": "#",
-                "keyword": "minProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -71,16 +69,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/minProperties",
-            "instanceLocation": "#",
-            "keyword": "minProperties",
-            "error": "The array should contain at least 1 properties, but 0 were found."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/minProperties",
-            "instanceLocation": "#",
-            "keyword": "minProperties",
-            "error": "The array should contain at least 1 properties, but 0 were found."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -90,9 +84,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/minProperties",
-                "instanceLocation": "#",
-                "keyword": "minProperties",
-                "error": "The array should contain at least 1 properties, but 0 were found."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -121,8 +113,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/minProperties",
-                "instanceLocation": "#",
-                "keyword": "minProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -151,8 +142,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/minProperties",
-                "instanceLocation": "#",
-                "keyword": "minProperties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -181,8 +171,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/minProperties",
-                "instanceLocation": "#",
-                "keyword": "minProperties"
+                "instanceLocation": "#"
               }
             ]
           }

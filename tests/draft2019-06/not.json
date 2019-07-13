@@ -26,8 +26,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -41,16 +40,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -60,9 +55,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not",
-                "error": "Value should not validate against the schema."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -97,8 +90,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -112,16 +104,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -131,9 +119,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not",
-                "error": "Value should not validate against the schema."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -147,16 +133,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -166,9 +148,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not",
-                "error": "Value should not validate against the schema."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -205,8 +185,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -235,8 +214,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -250,16 +228,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -269,9 +243,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not",
-                "error": "Value should not validate against the schema."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -291,16 +263,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/properties/foo/not",
-            "instanceLocation": "#/foo",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#/foo"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/properties/foo/not",
-            "instanceLocation": "#/foo",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#/foo"
           },
           "verbose": {
             "valid": false,
@@ -311,8 +279,6 @@
                 "valid": false,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
-                "error": "At least one subschema failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -322,9 +288,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/properties/foo/not",
-                        "instanceLocation": "#/foo",
-                        "keyword": "not",
-                        "error": "Value should not validate against the schema."
+                        "instanceLocation": "#/foo"
                       }
                     ]
                   }
@@ -357,8 +321,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               }
             ]
           }
@@ -378,16 +341,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/not",
-            "instanceLocation": "#",
-            "keyword": "not",
-            "error": "Value should not validate against the schema."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -397,9 +356,7 @@
               {
                 "valid": false,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not",
-                "error": "Value should not validate against the schema."
+                "instanceLocation": "#"
               }
             ]
           }
@@ -434,8 +391,7 @@
               {
                 "valid": true,
                 "keywordLocation": "#/not",
-                "instanceLocation": "#",
-                "keyword": "not"
+                "instanceLocation": "#"
               }
             ]
           }

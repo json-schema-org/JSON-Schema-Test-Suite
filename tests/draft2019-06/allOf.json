@@ -32,7 +32,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -43,7 +42,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -53,8 +51,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/0/properties/bar/type",
-                                "instanceLocation": "#/bar",
-                                "keyword": "type"
+                                "instanceLocation": "#/bar"
                               }
                             ]
                           }
@@ -63,8 +60,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -77,7 +73,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -87,8 +82,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/1/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -97,8 +91,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -116,16 +109,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/allOf/0/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"bar\"] are required."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/allOf/0/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"bar\"] are required."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -136,8 +125,6 @@
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "1 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -147,15 +134,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/allOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"bar\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -168,7 +152,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -178,8 +161,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/1/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -188,8 +170,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -207,16 +188,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/allOf/1/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"foo\"] are required."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/allOf/1/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"foo\"] are required."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -227,8 +204,6 @@
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "1 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": true,
@@ -239,7 +214,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -249,8 +223,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/0/properties/bar/type",
-                                "instanceLocation": "#/bar",
-                                "keyword": "type"
+                                "instanceLocation": "#/bar"
                               }
                             ]
                           }
@@ -259,8 +232,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -272,15 +244,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/allOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"foo\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -298,16 +267,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/allOf/0/properties/bar/type",
-            "instanceLocation": "#/bar",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#/bar"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/allOf/0/properties/bar/type",
-            "instanceLocation": "#/bar",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+            "instanceLocation": "#/bar"
           },
           "verbose": {
             "valid": false,
@@ -318,8 +283,6 @@
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "1 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -330,8 +293,6 @@
                         "valid": false,
                         "keywordLocation": "#/allOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
-                        "error": "At least one subschema failed validation.",
                         "errors": [
                           {
                             "valid": false,
@@ -341,9 +302,7 @@
                               {
                                 "valid": false,
                                 "keywordLocation": "#/allOf/0/properties/bar/type",
-                                "instanceLocation": "#/bar",
-                                "keyword": "type",
-                                "error": "Values of type \"string\" are not one of the allowed types \"integer\"."
+                                "instanceLocation": "#/bar"
                               }
                             ]
                           }
@@ -352,8 +311,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -366,7 +324,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -376,8 +333,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/1/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -386,8 +342,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -434,7 +389,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -444,8 +398,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -454,14 +407,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -472,7 +423,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -482,8 +432,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/0/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -492,8 +441,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -506,7 +454,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -516,8 +463,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/1/properties/baz/type",
-                                "instanceLocation": "#/baz",
-                                "keyword": "type"
+                                "instanceLocation": "#/baz"
                               }
                             ]
                           }
@@ -526,8 +472,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -545,16 +490,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"bar\"] are required."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"bar\"] are required."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -564,21 +505,17 @@
               {
                 "valid": true,
                 "keywordLocation": "#/properties",
-                "instanceLocation": "#",
-                "keyword": "properties"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"bar\"] are required."
+                "instanceLocation": "#"
               },
               {
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -589,7 +526,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -599,8 +535,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/0/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -609,8 +544,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -623,7 +557,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -633,8 +566,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/1/properties/baz/type",
-                                "instanceLocation": "#/baz",
-                                "keyword": "type"
+                                "instanceLocation": "#/baz"
                               }
                             ]
                           }
@@ -643,8 +575,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -662,16 +593,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/allOf/0/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"foo\"] are required."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/allOf/0/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"foo\"] are required."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -682,7 +609,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -692,8 +618,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -702,15 +627,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "1 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -720,15 +642,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/allOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"foo\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -741,7 +660,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/1/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -751,8 +669,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/1/properties/baz/type",
-                                "instanceLocation": "#/baz",
-                                "keyword": "type"
+                                "instanceLocation": "#/baz"
                               }
                             ]
                           }
@@ -761,8 +678,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -780,16 +696,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/allOf/1/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"baz\"] are required."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/allOf/1/required",
-            "instanceLocation": "#",
-            "keyword": "required",
-            "error": "The properties [\"baz\"] are required."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -800,7 +712,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -810,8 +721,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -820,15 +730,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "1 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": true,
@@ -839,7 +746,6 @@
                         "valid": true,
                         "keywordLocation": "#/allOf/0/properties",
                         "instanceLocation": "#",
-                        "keyword": "properties",
                         "annotations": [
                           {
                             "valid": true,
@@ -849,8 +755,7 @@
                               {
                                 "valid": true,
                                 "keywordLocation": "#/allOf/0/properties/foo/type",
-                                "instanceLocation": "#/foo",
-                                "keyword": "type"
+                                "instanceLocation": "#/foo"
                               }
                             ]
                           }
@@ -859,8 +764,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -872,15 +776,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/allOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"baz\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -901,23 +802,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/allOf",
-                "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "2 of 2 subschemas failed validation."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/allOf/0/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"foo\"] are required."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/allOf/1/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"baz\"] are required."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -925,22 +820,16 @@
             "valid": false,
             "keywordLocation": "#/allOf",
             "instanceLocation": "#",
-            "keyword": "allOf",
-            "error": "2 of 2 subschemas failed validation.",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/allOf/0/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"foo\"] are required."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/allOf/1/required",
-                "instanceLocation": "#",
-                "keyword": "required",
-                "error": "The properties [\"baz\"] are required."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -953,7 +842,6 @@
                 "valid": true,
                 "keywordLocation": "#/properties",
                 "instanceLocation": "#",
-                "keyword": "properties",
                 "annotations": [
                   {
                     "valid": true,
@@ -963,8 +851,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/properties/bar/type",
-                        "instanceLocation": "#/bar",
-                        "keyword": "type"
+                        "instanceLocation": "#/bar"
                       }
                     ]
                   }
@@ -973,15 +860,12 @@
               {
                 "valid": true,
                 "keywordLocation": "#/required",
-                "instanceLocation": "#",
-                "keyword": "required"
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "2 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -991,15 +875,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/allOf/0/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"foo\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1011,15 +892,12 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/properties",
-                        "instanceLocation": "#",
-                        "keyword": "properties"
+                        "instanceLocation": "#"
                       },
                       {
                         "valid": false,
                         "keywordLocation": "#/allOf/1/required",
-                        "instanceLocation": "#",
-                        "keyword": "required",
-                        "error": "The properties [\"baz\"] are required."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1059,7 +937,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -1069,8 +946,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/maximum",
-                        "instanceLocation": "#",
-                        "keyword": "maximum"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1082,8 +958,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1101,16 +976,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/allOf/0/maximum",
-            "instanceLocation": "#",
-            "keyword": "maximum",
-            "error": "The value 35 should be at most 30."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/allOf/0/maximum",
-            "instanceLocation": "#",
-            "keyword": "maximum",
-            "error": "The value 35 should be at most 30."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1121,8 +992,6 @@
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "1 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -1132,9 +1001,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/allOf/0/maximum",
-                        "instanceLocation": "#",
-                        "keyword": "maximum",
-                        "error": "The value 35 should be at most 30."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1146,8 +1013,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/minimum",
-                        "instanceLocation": "#",
-                        "keyword": "minimum"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1187,7 +1053,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -1219,14 +1084,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/allOf/1",
-            "instanceLocation": "#",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/allOf/1",
-            "instanceLocation": "#",
-            "error": "No value is valid against the false schema."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1237,8 +1100,6 @@
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "1 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": true,
@@ -1248,8 +1109,7 @@
                   {
                     "valid": false,
                     "keywordLocation": "#/allOf/1",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   }
                 ]
               }
@@ -1274,21 +1134,17 @@
               {
                 "valid": false,
                 "keywordLocation": "#/allOf",
-                "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "2 of 2 subschemas failed validation."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/allOf/0",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/allOf/1",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -1296,20 +1152,16 @@
             "valid": false,
             "keywordLocation": "#/allOf",
             "instanceLocation": "#",
-            "keyword": "allOf",
-            "error": "2 of 2 subschemas failed validation.",
             "errors": [
               {
                 "valid": false,
                 "keywordLocation": "#/allOf/0",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               },
               {
                 "valid": false,
                 "keywordLocation": "#/allOf/1",
-                "instanceLocation": "#",
-                "error": "No value is valid against the false schema."
+                "instanceLocation": "#"
               }
             ]
           },
@@ -1322,20 +1174,16 @@
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "2 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": false,
                     "keywordLocation": "#/allOf/0",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   },
                   {
                     "valid": false,
                     "keywordLocation": "#/allOf/1",
-                    "instanceLocation": "#",
-                    "error": "No value is valid against the false schema."
+                    "instanceLocation": "#"
                   }
                 ]
               }
@@ -1373,7 +1221,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -1416,7 +1263,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -1464,7 +1310,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -1479,8 +1324,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/1/type",
-                        "instanceLocation": "#",
-                        "keyword": "type"
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1498,16 +1342,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/allOf/1/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/allOf/1/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1518,8 +1358,6 @@
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "1 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": true,
@@ -1534,9 +1372,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/allOf/1/type",
-                        "instanceLocation": "#",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#"
                       }
                     ]
                   }
@@ -1576,7 +1412,6 @@
                 "valid": true,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
                 "annotations": [
                   {
                     "valid": true,
@@ -1586,8 +1421,7 @@
                       {
                         "valid": true,
                         "keywordLocation": "#/allOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type"
+                        "instanceLocation": "#"
                       }
                     ]
                   },
@@ -1610,16 +1444,12 @@
           "basic": {
             "valid": false,
             "keywordLocation": "#/allOf/0/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "detailed": {
             "valid": false,
             "keywordLocation": "#/allOf/0/type",
-            "instanceLocation": "#",
-            "keyword": "type",
-            "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+            "instanceLocation": "#"
           },
           "verbose": {
             "valid": false,
@@ -1630,8 +1460,6 @@
                 "valid": false,
                 "keywordLocation": "#/allOf",
                 "instanceLocation": "#",
-                "keyword": "allOf",
-                "error": "1 of 2 subschemas failed validation.",
                 "errors": [
                   {
                     "valid": false,
@@ -1641,9 +1469,7 @@
                       {
                         "valid": false,
                         "keywordLocation": "#/allOf/0/type",
-                        "instanceLocation": "#",
-                        "keyword": "type",
-                        "error": "Values of type \"string\" are not one of the allowed types \"number\"."
+                        "instanceLocation": "#"
                       }
                     ]
                   },
