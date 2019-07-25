@@ -152,6 +152,7 @@ for more information.
 
 * [jsonschema](https://github.com/Julian/jsonschema)
 * [fastjsonschema](https://github.com/seznam/python-fastjsonschema)
+* [hypothesis-jsonschema](https://github.com/Zac-HD/hypothesis-jsonschema)
 
 ### Ruby ###
 
