@@ -147,7 +147,7 @@
                 "valid": true
             },
             {
-                "description": "anything non-null is ivalid",
+                "description": "anything non-null is invalid",
                 "data": 123,
                 "valid": false
             }
