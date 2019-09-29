@@ -48,7 +48,7 @@
     },
     {
         "description": "const with array",
-        "schema": {"const": [{ "foo": "bar" }]},
+        "schema": {"const": [{"foo": "bar"}]},
         "tests": [
             {
                 "description": "same array is valid",

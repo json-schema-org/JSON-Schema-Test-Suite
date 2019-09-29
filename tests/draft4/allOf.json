@@ -145,7 +145,7 @@
         "schema": {
             "allOf": [
                 {},
-                { "type": "number" }
+                {"type": "number"}
             ]
         },
         "tests": [
@@ -165,7 +165,7 @@
         "description": "allOf with the last empty schema",
         "schema": {
             "allOf": [
-                { "type": "number" },
+                {"type": "number"},
                 {}
             ]
         },

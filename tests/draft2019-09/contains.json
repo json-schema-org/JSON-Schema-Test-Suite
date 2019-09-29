@@ -40,7 +40,7 @@
     {
         "description": "contains keyword with const keyword",
         "schema": {
-            "contains": { "const": 5 }
+            "contains": {"const": 5}
         },
         "tests": [
             {

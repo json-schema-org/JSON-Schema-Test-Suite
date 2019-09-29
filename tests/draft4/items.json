@@ -83,8 +83,8 @@
                     "type": "array",
                     "additionalItems": false,
                     "items": [
-                        { "$ref": "#/definitions/sub-item" },
-                        { "$ref": "#/definitions/sub-item" }
+                        {"$ref": "#/definitions/sub-item"},
+                        {"$ref": "#/definitions/sub-item"}
                     ]
                 },
                 "sub-item": {
@@ -95,9 +95,9 @@
             "type": "array",
             "additionalItems": false,
             "items": [
-                { "$ref": "#/definitions/item" },
-                { "$ref": "#/definitions/item" },
-                { "$ref": "#/definitions/item" }
+                {"$ref": "#/definitions/item"},
+                {"$ref": "#/definitions/item"},
+                {"$ref": "#/definitions/item"}
             ]
         },
         "tests": [

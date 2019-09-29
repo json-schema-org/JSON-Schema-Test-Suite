@@ -138,8 +138,8 @@
                     "type": "array",
                     "additionalItems": false,
                     "items": [
-                        { "$ref": "#/$defs/sub-item" },
-                        { "$ref": "#/$defs/sub-item" }
+                        {"$ref": "#/$defs/sub-item"},
+                        {"$ref": "#/$defs/sub-item"}
                     ]
                 },
                 "sub-item": {
@@ -150,9 +150,9 @@
             "type": "array",
             "additionalItems": false,
             "items": [
-                { "$ref": "#/$defs/item" },
-                { "$ref": "#/$defs/item" },
-                { "$ref": "#/$defs/item" }
+                {"$ref": "#/$defs/item"},
+                {"$ref": "#/$defs/item"},
+                {"$ref": "#/$defs/item"}
             ]
         },
         "tests": [
