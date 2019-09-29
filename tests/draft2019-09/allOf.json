@@ -45,7 +45,7 @@
         "schema": {
             "properties": {"bar": {"type": "integer"}},
             "required": ["bar"],
-            "allOf" : [
+            "allOf": [
                 {
                     "properties": {
                         "foo": {"type": "string"}

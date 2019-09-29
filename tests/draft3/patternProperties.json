@@ -15,7 +15,7 @@
             },
             {
                 "description": "multiple valid matches is valid",
-                "data": {"foo": 1, "foooooo" : 2},
+                "data": {"foo": 1, "foooooo": 2},
                 "valid": true
             },
             {
@@ -25,7 +25,7 @@
             },
             {
                 "description": "multiple invalid matches is invalid",
-                "data": {"foo": "bar", "foooooo" : "baz"},
+                "data": {"foo": "bar", "foooooo": "baz"},
                 "valid": false
             },
             {

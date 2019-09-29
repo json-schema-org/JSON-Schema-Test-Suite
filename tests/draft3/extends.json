@@ -36,7 +36,7 @@
         "description": "multiple extends",
         "schema": {
             "properties": {"bar": {"type": "integer", "required": true}},
-            "extends" : [
+            "extends": [
                 {
                     "properties": {
                         "foo": {"type": "string", "required": true}

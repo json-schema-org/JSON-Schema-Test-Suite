@@ -14,7 +14,7 @@ import unittest
 import warnings
 
 if getattr(unittest, "skipIf", None) is None:
-    unittest.skipIf = lambda cond, msg : lambda fn : fn
+    unittest.skipIf = lambda cond, msg: lambda fn: fn
 
 try:
     import jsonschema

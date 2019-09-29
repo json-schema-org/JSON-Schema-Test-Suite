@@ -68,7 +68,7 @@
             },
             {
                 "description": "ignores non-arrays",
-                "data": {"foo" : "bar"},
+                "data": {"foo": "bar"},
                 "valid": true
             }
         ]

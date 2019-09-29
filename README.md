@@ -29,7 +29,7 @@ illustrate the structure of these with an example:
 ```json
     {
         "description": "the description of the test case",
-        "schema": {"the schema that should" : "be validated against"},
+        "schema": {"the schema that should": "be validated against"},
         "tests": [
             {
                 "description": "a specific test of a valid instance",

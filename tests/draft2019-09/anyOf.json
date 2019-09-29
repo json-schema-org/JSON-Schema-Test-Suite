@@ -38,7 +38,7 @@
         "description": "anyOf with base schema",
         "schema": {
             "type": "string",
-            "anyOf" : [
+            "anyOf": [
                 {
                     "maxLength": 2
                 },

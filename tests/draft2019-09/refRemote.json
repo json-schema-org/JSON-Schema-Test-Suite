@@ -75,7 +75,7 @@
         "description": "base URI change - change folder",
         "schema": {
             "$id": "http://localhost:1234/scope_change_defs1.json",
-            "type" : "object",
+            "type": "object",
             "properties": {"list": {"$ref": "#/$defs/baz"}},
             "$defs": {
                 "baz": {
@@ -102,7 +102,7 @@
         "description": "base URI change - change folder in subschema",
         "schema": {
             "$id": "http://localhost:1234/scope_change_defs2.json",
-            "type" : "object",
+            "type": "object",
             "properties": {"list": {"$ref": "#/$defs/baz/$defs/bar"}},
             "$defs": {
                 "baz": {

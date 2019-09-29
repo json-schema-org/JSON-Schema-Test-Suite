@@ -41,16 +41,16 @@
             {
                 "description": "unique array of nested objects is valid",
                 "data": [
-                    {"foo": {"bar" : {"baz" : true}}},
-                    {"foo": {"bar" : {"baz" : false}}}
+                    {"foo": {"bar": {"baz": true}}},
+                    {"foo": {"bar": {"baz": false}}}
                 ],
                 "valid": true
             },
             {
                 "description": "non-unique array of nested objects is invalid",
                 "data": [
-                    {"foo": {"bar" : {"baz" : true}}},
-                    {"foo": {"bar" : {"baz" : true}}}
+                    {"foo": {"bar": {"baz": true}}},
+                    {"foo": {"bar": {"baz": true}}}
                 ],
                 "valid": false
             },

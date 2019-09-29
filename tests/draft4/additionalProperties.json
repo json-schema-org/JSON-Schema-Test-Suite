@@ -15,7 +15,7 @@
             },
             {
                 "description": "an additional property is invalid",
-                "data": {"foo" : 1, "bar" : 2, "quux" : "boom"},
+                "data": {"foo": 1, "bar": 2, "quux": "boom"},
                 "valid": false
             },
             {
@@ -74,12 +74,12 @@
             },
             {
                 "description": "an additional valid property is valid",
-                "data": {"foo" : 1, "bar" : 2, "quux" : true},
+                "data": {"foo": 1, "bar": 2, "quux": true},
                 "valid": true
             },
             {
                 "description": "an additional invalid property is invalid",
-                "data": {"foo" : 1, "bar" : 2, "quux" : 12},
+                "data": {"foo": 1, "bar": 2, "quux": 12},
                 "valid": false
             }
         ]
@@ -93,12 +93,12 @@
         "tests": [
             {
                 "description": "an additional valid property is valid",
-                "data": {"foo" : true},
+                "data": {"foo": true},
                 "valid": true
             },
             {
                 "description": "an additional invalid property is invalid",
-                "data": {"foo" : 1},
+                "data": {"foo": 1},
                 "valid": false
             }
         ]

@@ -38,7 +38,7 @@
         "description": "oneOf with base schema",
         "schema": {
             "type": "string",
-            "oneOf" : [
+            "oneOf": [
                 {
                     "minLength": 2
                 },
@@ -154,7 +154,7 @@
             },
             {
                 "description": "both valid - invalid",
-                "data": {"foo": 1, "bar": 2, "baz" : 3},
+                "data": {"foo": 1, "bar": 2, "baz": 3},
                 "valid": false
             }
         ]

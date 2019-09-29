@@ -3,7 +3,7 @@
         "description": "required validation",
         "schema": {
             "properties": {
-                "foo": {"required" : true},
+                "foo": {"required": true},
                 "bar": {}
             }
         },
