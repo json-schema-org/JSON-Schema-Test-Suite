@@ -163,7 +163,7 @@
             },
             {
                 "description": "remote ref valid, maxItems ignored",
-                "data": {"foo": [ 1, 2, 3]},
+                "data": {"foo": [1, 2, 3]},
                 "valid": true
             },
             {

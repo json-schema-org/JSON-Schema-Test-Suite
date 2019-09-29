@@ -163,12 +163,12 @@
             },
             {
                 "description": "ref valid, maxItems ignored",
-                "data": {"foo": [ 1, 2, 3]},
+                "data": {"foo": [1, 2, 3]},
                 "valid": true
             },
             {
                 "description": "ref invalid",
-                "data": {"foo": "string"},
+                "data": { "foo": "string" },
                 "valid": false
             }
         ]

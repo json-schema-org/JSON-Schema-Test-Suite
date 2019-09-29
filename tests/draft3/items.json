@@ -7,7 +7,7 @@
         "tests": [
             {
                 "description": "valid items",
-                "data": [ 1, 2, 3 ],
+                "data": [1, 2, 3],
                 "valid": true
             },
             {
@@ -33,12 +33,12 @@
         "tests": [
             {
                 "description": "correct types",
-                "data": [ 1, "foo" ],
+                "data": [1, "foo"],
                 "valid": true
             },
             {
                 "description": "wrong types",
-                "data": [ "foo", 1 ],
+                "data": ["foo", 1],
                 "valid": false
             }
         ]

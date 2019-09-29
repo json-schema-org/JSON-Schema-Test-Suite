@@ -7,7 +7,7 @@
         "tests": [
             {
                 "description": "valid items",
-                "data": [ 1, 2, 3 ],
+                "data": [1, 2, 3],
                 "valid": true
             },
             {
@@ -41,27 +41,27 @@
         "tests": [
             {
                 "description": "correct types",
-                "data": [ 1, "foo" ],
+                "data": [1, "foo"],
                 "valid": true
             },
             {
                 "description": "wrong types",
-                "data": [ "foo", 1 ],
+                "data": ["foo", 1],
                 "valid": false
             },
             {
                 "description": "incomplete array of items",
-                "data": [ 1 ],
+                "data": [1],
                 "valid": true
             },
             {
                 "description": "array with additional items",
-                "data": [ 1, "foo", true ],
+                "data": [1, "foo", true],
                 "valid": true
             },
             {
                 "description": "empty array",
-                "data": [ ],
+                "data": [],
                 "valid": true
             },
             {
@@ -104,28 +104,28 @@
             {
                 "description": "valid items",
                 "data": [
-                    [ {"foo": null}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ]
+                    [{"foo": null}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}]
                 ],
                 "valid": true
             },
             {
                 "description": "too many items",
                 "data": [
-                    [ {"foo": null}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ]
+                    [{"foo": null}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}]
                 ],
                 "valid": false
             },
             {
                 "description": "too many sub-items",
                 "data": [
-                    [ {"foo": null}, {"foo": null}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ]
+                    [{"foo": null}, {"foo": null}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}]
                 ],
                 "valid": false
             },
@@ -133,25 +133,25 @@
                 "description": "wrong item",
                 "data": [
                     {"foo": null},
-                    [ {"foo": null}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ]
+                    [{"foo": null}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}]
                 ],
                 "valid": false
             },
             {
                 "description": "wrong sub-item",
                 "data": [
-                    [ {}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ],
-                    [ {"foo": null}, {"foo": null} ]
+                    [{}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}],
+                    [{"foo": null}, {"foo": null}]
                 ],
                 "valid": false
             },
             {
                 "description": "fewer items is valid",
                 "data": [
-                    [ {"foo": null} ],
-                    [ {"foo": null} ]
+                    [{"foo": null}],
+                    [{"foo": null}]
                 ],
                 "valid": true
             }
