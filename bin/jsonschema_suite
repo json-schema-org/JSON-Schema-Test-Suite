@@ -219,6 +219,7 @@ def main(arguments):
 
             with open(filepath, "w") as out_file:
                 json.dump(schema, out_file, indent=4, sort_keys=True)
+                out_file.write("\n")
     elif arguments.command == "serve":
         try:
             from flask import Flask, jsonify
