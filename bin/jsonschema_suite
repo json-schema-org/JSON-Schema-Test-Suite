@@ -217,7 +217,7 @@ def main(arguments):
                 if e.errno != errno.EEXIST:
                     raise
 
-            with open(filepath, "wb") as out_file:
+            with open(filepath, "w") as out_file:
                 json.dump(schema, out_file, indent=4, sort_keys=True)
     elif arguments.command == "serve":
         try:
