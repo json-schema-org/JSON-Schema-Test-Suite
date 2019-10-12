@@ -364,7 +364,7 @@
             }],
             "$defs": {
                 "A": {
-                    "$id": "#foo",
+                    "$anchor": "foo",
                     "type": "integer"
                 }
             }
@@ -390,7 +390,8 @@
             }],
             "$defs": {
                 "A": {
-                    "$id": "http://localhost:1234/bar#foo",
+                    "$id": "http://localhost:1234/bar",
+                    "$anchor": "foo",
                     "type": "integer"
                 }
             }
@@ -420,7 +421,7 @@
                     "$id": "nested.json",
                     "$defs": {
                         "B": {
-                            "$id": "#foo",
+                            "$anchor": "foo",
                             "type": "integer"
                         }
                     }
