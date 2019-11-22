@@ -165,14 +165,14 @@
             "oneOf": [
                 {
                     "properties": {
-                        "bar": true,
-                        "baz": true
+                        "bar": {},
+                        "baz": {}
                     },
                     "required": ["bar"]
                 },
                 {
                     "properties": {
-                        "foo": true
+                        "foo": {}
                     },
                     "required": ["foo"]
                 }
