@@ -160,7 +160,7 @@
         ]
     },
 	{
-        "description": "issue 307 - oneOf with missing optional property",
+        "description": "oneOf with missing optional property",
         "schema": {
             "oneOf": [
                 {
