@@ -20,12 +20,12 @@
         },
         "tests": [
             {
-                "description": "valid",
+                "description": "string props valid",
                 "data": { "bar": "foo", "bob": "who?" },
                 "valid": true
             },
             {
-                "description": "valid",
+                "description": "null prop is invalid",
                 "data": { "bar": "foo", "bob": null },
                 "valid": false
             }
