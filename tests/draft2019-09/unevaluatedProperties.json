@@ -7,8 +7,8 @@
             "allOf": [
               {
                 "properties": {
-                  "foo": { "type": "string", "null" },
-                  "bar": { "type": "string", "null" }
+                  "foo": { "type": ["string", "null"] },
+                  "bar": { "type": ["string", "null"] }
                 }
               },
               {
