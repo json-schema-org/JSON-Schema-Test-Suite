@@ -147,6 +147,30 @@
         ]
     },
     {
+        "description": "Single-schema items and unevaluatedItems",
+        "schema": {
+            "unevaluatedItems": {"type": "boolean"},
+            "anyOf": [ { "items": {"type": "string"} }, true ]
+        },
+        "tests": [
+            {
+                "description": "unevaluatedItems is applied",
+                "data": [true, false],
+                "valid": true
+            },
+            {
+                "description": "unevaluatedItems isn't applied unnecessarily on items annotation boolean of true",
+                "data": ["yes", "no"],
+                "valid": true
+            },
+            {
+                "description": "unevaluatedItems is applied on items annotation boolean false",
+                "data": ["yes", false],
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "unevaluatedItems with nested additionalItems",
         "schema": {
             "type": "array",
