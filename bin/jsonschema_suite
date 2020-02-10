@@ -42,8 +42,10 @@ REMOTES = {
         },
     },
     "subSchemas.json": {
-        u"integer": {u"type": u"integer"},
-        u"refToInteger": {u"$ref": u"#/integer"},
+        u"$defs": {
+            u"integer": {u"type": u"integer"},
+            u"refToInteger": {u"$ref": u"#/$defs/integer"},
+        }
     },
     "folder/folderInteger.json": {u"type": u"integer"}
 }
