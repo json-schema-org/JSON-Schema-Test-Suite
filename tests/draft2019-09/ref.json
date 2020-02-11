@@ -76,15 +76,9 @@
         "description": "escaped pointer ref",
         "schema": {
             "$defs": {
-                "tilda~field": {
-                    "type": "integer"
-                },
-                "slash/field": {
-                    "type": "integer"
-                },
-                "percent%field": {
-                    "type": "integer"
-                }
+                "tilda~field": {"type": "integer"},
+                "slash/field": {"type": "integer"},
+                "percent%field": {"type": "integer"}
             },
             "properties": {
                 "tilda": {"$ref": "#/$defs/tilda~0field"},
