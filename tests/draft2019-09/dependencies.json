@@ -57,6 +57,11 @@
                 "description": "object with one property",
                 "data": {"bar": 2},
                 "valid": true
+            },
+            {
+                "description": "non-object is valid",
+                "data": 1,
+                "valid": true
             }
         ]
     },
