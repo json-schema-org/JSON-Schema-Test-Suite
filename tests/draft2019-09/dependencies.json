@@ -175,31 +175,6 @@
         ]
     },
     {
-        "description": "empty array of dependentRequired",
-        "schema": {
-            "dependencies": {
-                "foo": []
-            }
-        },
-        "tests": [
-            {
-                "description": "object with property is valid",
-                "data": { "foo": 1 },
-                "valid": true
-            },
-            {
-                "description": "empty object is valid",
-                "data": {},
-                "valid": true
-            },
-            {
-                "description": "non-object is valid",
-                "data": 1,
-                "valid": true
-            }
-        ]
-    },
-    {
         "description": "dependencies with escaped characters",
         "schema": {
             "dependentRequired": {
