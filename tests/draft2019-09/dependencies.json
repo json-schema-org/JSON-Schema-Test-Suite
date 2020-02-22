@@ -1,8 +1,8 @@
 [
     {
-        "description": "dependencies",
+        "description": "dependentRequired",
         "schema": {
-            "dependencies": {"bar": ["foo"]}
+            "dependentRequired": {"bar": ["foo"]}
         },
         "tests": [
             {
@@ -43,9 +43,9 @@
         ]
     },
     {
-        "description": "dependencies with empty array",
+        "description": "dependentRequired with empty array",
         "schema": {
-            "dependencies": {"bar": []}
+            "dependentRequired": {"bar": []}
         },
         "tests": [
             {
@@ -66,9 +66,9 @@
         ]
     },
     {
-        "description": "multiple dependencies",
+        "description": "multiple dependents required",
         "schema": {
-            "dependencies": {"quux": ["foo", "bar"]}
+            "dependentRequired": {"quux": ["foo", "bar"]}
         },
         "tests": [
             {
@@ -104,9 +104,9 @@
         ]
     },
     {
-        "description": "multiple dependencies subschema",
+        "description": "multiple dependentSchemas subschema",
         "schema": {
-            "dependencies": {
+            "dependentSchemas": {
                 "bar": {
                     "properties": {
                         "foo": {"type": "integer"},
@@ -144,9 +144,9 @@
         ]
     },
     {
-        "description": "dependencies with boolean subschemas",
+        "description": "dependentSchemas with boolean subschemas",
         "schema": {
-            "dependencies": {
+            "dependentSchemas": {
                 "foo": true,
                 "bar": false
             }
@@ -175,7 +175,7 @@
         ]
     },
     {
-        "description": "empty array of dependencies",
+        "description": "empty array of dependentRequired",
         "schema": {
             "dependencies": {
                 "foo": []
@@ -202,13 +202,15 @@
     {
         "description": "dependencies with escaped characters",
         "schema": {
-            "dependencies": {
+            "dependentRequired": {
                 "foo\nbar": ["foo\rbar"],
+                "foo\"bar": ["foo'bar"]
+            },
+            "dependentSchemas": {
                 "foo\tbar": {
                     "minProperties": 4
                 },
-                "foo'bar": {"required": ["foo\"bar"]},
-                "foo\"bar": ["foo'bar"]
+                "foo'bar": {"required": ["foo\"bar"]}
             }
         },
         "tests": [
