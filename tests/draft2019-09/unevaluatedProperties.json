@@ -2,7 +2,7 @@
     {
         "description": "allOf with false unevaluatedProperties",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$schema": "http://json-schema.org/draft/2019-09/schema",
             "unevaluatedProperties": false,
             "allOf": [
                 {
@@ -39,7 +39,7 @@
     {
         "description": "complex unevaluated schema",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$schema": "http://json-schema.org/draft/2019-09/schema",
             "unevaluatedProperties": {
                 "allOf": [{"minLength": 3}, {"type":  "string"}]
             },

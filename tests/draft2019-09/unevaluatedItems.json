@@ -2,7 +2,7 @@
     {
         "description": "anyOf with false unevaluatedItems",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$schema": "http://json-schema.org/draft/2019-09/schema",
             "unevaluatedItems": false,
             "anyOf": [
                 {"items": {"type": "string"}},
@@ -40,7 +40,7 @@
     {
         "description": "complex unevaluated schema",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$schema": "http://json-schema.org/draft/2019-09/schema",
             "unevaluatedItems": {
                 "allOf": [{"minLength": 3}, {"type": "string"}]
             },
