@@ -5,7 +5,7 @@
       "tests": [
           {
               "description": "a valid duration string",
-              "data": "P3Y6M4DT12H30M5S",
+              "data": "P4DT12H30M5S",
               "valid": true
           },
           {
