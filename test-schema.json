@@ -1,6 +1,28 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "description": "Schema for tests",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": [ "description", "schema", "tests" ],
+        "properties": {
+            "id": {
+                "description": "Uniquely identifies a set of tests",
+                "type": "string",
+                "format": "uri"
+            },
+            "description": { "type": "string" },
+            "schema": {},
+            "tests": {
+                "description": "A set of related tests all using the same schema",
+                "type": "array",
+                "items": { "$ref": "#/definitions/test" },
+                "minItems": 1
+            }
+        },
+        "additionalProperties": false,
+        "minItems": 1
+    },
     "definitions": {
         "outputItem": {
             "type": "object",
@@ -47,27 +69,5 @@
             },
             "additionalProperties": false
         }
-    },
-    "type": "array",
-    "items": {
-        "type": "object",
-        "required": [ "description", "schema", "tests" ],
-        "properties": {
-            "id": {
-                "description": "Uniquely identifies a set of tests",
-                "type": "string",
-                "format": "uri"
-            },
-            "description": { "type": "string" },
-            "schema": {},
-            "tests": {
-                "description": "A set of related tests all using the same schema",
-                "type": "array",
-                "items": { "$ref": "#/definitions/test" },
-                "minItems": 1
-            }
-        },
-        "additionalProperties": false,
-        "minItems": 1
     }
 }
