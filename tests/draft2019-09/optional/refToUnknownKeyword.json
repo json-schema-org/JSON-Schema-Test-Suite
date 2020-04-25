@@ -1,6 +1,6 @@
 [
     {
-        "description": "reference of a root arbitrary keyword ",
+        "description": "reference to a root arbitrary keyword ",
         "schema": {
             "unknown-keyword": {"type": "integer"},
             "properties": {
@@ -21,7 +21,7 @@
         ]
     },
     {
-        "description": "reference of an arbitrary keyword of a sub-schema",
+        "description": "reference to an arbitrary keyword of a sub-schema",
         "schema": {
             "properties": {
                 "foo": {"unknown-keyword": {"type": "integer"}},
