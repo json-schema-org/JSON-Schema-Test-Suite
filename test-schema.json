@@ -20,6 +20,30 @@
                     "items": {"$ref": "#/definitions/outputItem"}
                 }
             }
+        },
+        "test": {
+            "type": "object",
+            "required": ["description", "data", "valid"],
+            "properties": {
+                "id": {
+                    "description": "Uniquely identifies a single test",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "description": {"type": "string"},
+                "data": {},
+                "valid": {"type": "boolean"},
+                "output": {
+                    "type": "object",
+                    "properties": {
+                        "basic": {"$ref": "#/definitions/outputItem"},
+                        "detailed": {"$ref": "#/definitions/outputItem"},
+                        "verbose": {"$ref": "#/definitions/outputItem"}
+                    },
+                    "required": ["basic", "detailed", "verbose"]
+                }
+            },
+            "additionalProperties": false
         }
     },
     "type": "array",
@@ -36,30 +60,7 @@
             "schema": {},
             "tests": {
                 "type": "array",
-                "items": {
-                    "type": "object",
-                    "required": ["description", "data", "valid"],
-                    "properties": {
-                        "id": {
-                            "description": "Uniquely identifies a single test",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "description": {"type": "string"},
-                        "data": {},
-                        "valid": {"type": "boolean"},
-                        "output": {
-                            "type": "object",
-                            "properties": {
-                                "basic": {"$ref": "#/definitions/outputItem"},
-                                "detailed": {"$ref": "#/definitions/outputItem"},
-                                "verbose": {"$ref": "#/definitions/outputItem"}
-                            },
-                            "required": ["basic", "detailed", "verbose"]
-                        }
-                    },
-                    "additionalProperties": false
-                },
+                "items": { "$ref": "#/definitions/test" },
                 "minItems": 1
             }
         },
