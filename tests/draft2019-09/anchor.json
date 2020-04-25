@@ -2,9 +2,7 @@
     {
         "description": "Location-independent identifier",
         "schema": {
-            "allOf": [{
-                "$ref": "#foo"
-            }],
+            "$ref": "#foo",
             "$defs": {
                 "A": {
                     "$anchor": "foo",
@@ -28,9 +26,7 @@
     {
         "description": "Location-independent identifier with absolute URI",
         "schema": {
-            "allOf": [{
-                "$ref": "http://localhost:1234/bar#foo"
-            }],
+            "$ref": "http://localhost:1234/bar#foo",
             "$defs": {
                 "A": {
                     "$id": "http://localhost:1234/bar",
@@ -56,9 +52,7 @@
         "description": "Location-independent identifier with base URI change in subschema",
         "schema": {
             "$id": "http://localhost:1234/root",
-            "allOf": [{
-                "$ref": "http://localhost:1234/nested.json#foo"
-            }],
+            "$ref": "http://localhost:1234/nested.json#foo",
             "$defs": {
                 "A": {
                     "$id": "nested.json",
@@ -76,6 +70,54 @@
                 "data": 1,
                 "description": "match",
                 "valid": true
+            },
+            {
+                "data": "a",
+                "description": "mismatch",
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "Fragment syntax disallowed",
+        "schema": {
+            "$ref": "#foo",
+            "$defs": {
+                "A": {
+                    "$anchor": "#foo",
+                    "type": "integer"
+                }
+            }
+        },
+        "tests": [
+            {
+                "data": 1,
+                "description": "match",
+                "valid": false
+            },
+            {
+                "data": "a",
+                "description": "mismatch",
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "Invalid characters disallowed",
+        "schema": {
+            "$ref": "#/a/b",
+            "$defs": {
+                "A": {
+                    "$anchor": "/a/b",
+                    "type": "integer"
+                }
+            }
+        },
+        "tests": [
+            {
+                "data": 1,
+                "description": "match",
+                "valid": false
             },
             {
                 "data": "a",
