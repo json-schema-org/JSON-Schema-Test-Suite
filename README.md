@@ -65,6 +65,57 @@ widely used, while draft-03 is long since deprecated.
 If you see anything missing from the current supported drafts, or incorrect
 on any draft still accepting bug fixes, please file an issue or submit a PR.
 
+Optional Tests
+--------------
+
+Tests in the `optional/` directory test optional validation behavior. Validators
+only need to execute tests for implemented features.
+
+There are different sets of optional features for each draft. They are
+summarized below.
+
+1. Arbitrary-precision number support: JSON allows numbers of
+   arbitrary precision.\
+   See: [6. Numbers](https://tools.ietf.org/html/rfc8259#section-6)\
+   Also see:
+   * 2019-09: [4.2. Validation of Numeric Instances](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.4.2)
+   * 7: [4.2. Validation of Numeric Instances](https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-4.2)
+   * 6: [3.2. Validation of numeric instances](https://tools.ietf.org/html/draft-wright-json-schema-validation-01#section-3.2)
+   * 4: [3.2. Validation of numeric instances](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-3.2)
+   * 3: No link
+2. Encoded content in a string: The `"contentMediaType"` property is optional.\
+   See:
+   * 2019-09: [8.4. contentMediaType](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.8.4)
+   * 7: [8.4. contentMediaType](https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-8.4)
+3. ECMA 262 regex quirks.\
+   See:
+   * 2019-09: [6.4. Regular Expressions](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.6.4)
+   * 7: [4.3. Regular Expressions](https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-4.3)
+   * 6: [3.3. Regular expressions](https://tools.ietf.org/html/draft-wright-json-schema-validation-01#section-3.3)
+   * 4: [3.3. Regular expressions](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-3.3)
+   * 3: https://tools.ietf.org/html/draft-zyp-json-schema-03 (look for the term
+     "regular expression")
+4. References to unknown keywords: These may optionally be processed.\
+   See:
+   * 2019-09: [6.5. Extending JSON Schema](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.6.5)
+   * 7: [6.4.  Extending JSON Schema](https://tools.ietf.org/html/draft-handrews-json-schema-01#section-6.4)
+   * 6: [6.4. Extending JSON Schema](https://tools.ietf.org/html/draft-wright-json-schema-01#section-6.4)
+   * 4: [5.6. Extending JSON Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-5.6)
+   * 3: [5.4. additionalProperties](https://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.4)
+5. Numbers having zero-valued fractional parts are integers: In the JSON data
+   model, there is no distinction made between integers and arbitrary numbers.
+   Some parsers, however, may not support floating-point, or even choose to
+   make a distinction between integers and numbers having a zero-valued
+   fractional part.\
+   See: [6. Numbers](https://tools.ietf.org/html/rfc8259#section-6)
+6. All the defined "format" values.\
+   See:
+   * 2019-09: [7. A Vocabulary for Semantic Content With "format"](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7)
+   * 7: [7. Semantic Validation With "format"](https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-7)
+   * 6: [8. Semantic validation with "format"](https://tools.ietf.org/html/draft-wright-json-schema-validation-01#section-8)
+   * 4: [7. Semantic validation with "format"](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-7)
+   * 3: [5.23. format](https://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.23)
+
 Who Uses the Test Suite
 -----------------------
 
