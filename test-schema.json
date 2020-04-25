@@ -27,6 +27,11 @@
         "type": "object",
         "required": ["description", "schema", "tests"],
         "properties": {
+            "id": {
+                "description": "Uniquely identifies a set of tests",
+                "type": "string",
+                "format": "uri"
+            },
             "description": {"type": "string"},
             "schema": {},
             "tests": {
@@ -35,6 +40,11 @@
                     "type": "object",
                     "required": ["description", "data", "valid"],
                     "properties": {
+                        "id": {
+                            "description": "Uniquely identifies a single test",
+                            "type": "string",
+                            "format": "uri"
+                        },
                         "description": {"type": "string"},
                         "data": {},
                         "valid": {"type": "boolean"},
