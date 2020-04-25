@@ -1,5 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Schema for tests",
     "definitions": {
         "outputItem": {
             "type": "object",
@@ -22,6 +23,7 @@
             }
         },
         "test": {
+            "description": "A single test",
             "type": "object",
             "required": ["description", "data", "valid"],
             "properties": {
@@ -59,6 +61,7 @@
             "description": {"type": "string"},
             "schema": {},
             "tests": {
+                "description": "A set of related tests all using the same schema",
                 "type": "array",
                 "items": { "$ref": "#/definitions/test" },
                 "minItems": 1
