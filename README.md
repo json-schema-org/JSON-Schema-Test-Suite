@@ -12,16 +12,16 @@ choice is still the job of the validator implementor.
 Structure of a Test
 -------------------
 
-If you're going to use this suite, you need to know how tests are laid out. The
-tests are contained in the `tests` directory at the root of this repository.
+The tests in this suite are contained in the `tests` directory at the
+root of this repository.
 
 Inside that directory is a subdirectory for each draft or version of the
-schema.
+specification.
 
-If you look inside the draft directory, there are a number of `.json` files,
-which logically group a set of test cases together. Often the grouping is by
-property under test, but not always, especially within optional test files
-(discussed below).
+Inside each draft directory, there are a number of `.json` files, which
+logically group a set of test cases together. Often the grouping is by
+property under test, but not always, especially within optional test
+files (discussed below).
 
 Inside each `.json` file is a single array containing objects. It's easiest to
 illustrate the structure of these with an example:
@@ -45,9 +45,10 @@ illustrate the structure of these with an example:
     }
 ```
 
-So a description, a schema, and some tests, where tests is an array containing
-one or more objects with descriptions, data, and a boolean indicating whether
-they should be valid or invalid.
+In short: a description, a schema under test, and some tests, where each
+test in the `tests` array is an objects with a description of the case
+itself, the instance under test, and a boolean indicating whether it
+should be valid or invalid.
 
 Coverage
 --------
