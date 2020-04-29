@@ -1,0 +1,52 @@
+[
+    {
+        "description": "Meta-schema meta-data tests: readOnly",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-Boolean readOnly: number",
+                "data": {
+                    "readOnly": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean readOnly: string",
+                "data": {
+                    "readOnly": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean readOnly: null",
+                "data": {
+                    "readOnly": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean readOnly: array",
+                "data": {
+                    "readOnly": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean readOnly: object",
+                "data": {
+                    "readOnly": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid readOnly: Boolean",
+                "data": {
+                    "readOnly": true
+                },
+                "valid": true
+            }
+        ]
+    }
+]

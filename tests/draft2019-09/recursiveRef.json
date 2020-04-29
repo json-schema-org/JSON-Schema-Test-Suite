@@ -1,0 +1,52 @@
+[
+    {
+        "description": "Meta-schema core tests: $recursiveRef",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string $recursiveRef: number",
+                "data": {
+                    "$recursiveRef": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $recursiveRef: Boolean",
+                "data": {
+                    "$recursiveRef": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $recursiveRef: null",
+                "data": {
+                    "$recursiveRef": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $recursiveRef: array",
+                "data": {
+                    "$recursiveRef": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $recursiveRef: object",
+                "data": {
+                    "$recursiveRef": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid $recursiveRef",
+                "data": {
+                    "$recursiveRef": "#"
+                },
+                "valid": true
+            }
+        ]
+    }
+]

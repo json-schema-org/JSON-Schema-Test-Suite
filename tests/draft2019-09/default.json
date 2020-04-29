@@ -45,5 +45,20 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema meta-data tests: default",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "default can be anything",
+                "data": {
+                    "default": [ {} ]
+                },
+                "valid": true
+            }
+        ]
     }
 ]

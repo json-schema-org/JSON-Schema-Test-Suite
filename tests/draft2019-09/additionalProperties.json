@@ -129,5 +129,55 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: object",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-schema additionalProperties: number",
+                "data": {
+                    "additionalProperties": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema additionalProperties: string",
+                "data": {
+                    "additionalProperties": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema additionalProperties: array",
+                "data": {
+                    "additionalProperties": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema additionalProperties: null",
+                "data": {
+                    "additionalProperties": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean additionalProperties",
+                "data": {
+                    "additionalProperties": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object additionalProperties",
+                "data": {
+                    "additionalProperties": {}
+                },
+                "valid": true
+            }
+        ]
     }
 ]

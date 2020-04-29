@@ -1,0 +1,52 @@
+[
+    {
+        "description": "Meta-schema core tests: $comment",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string $comment: number",
+                "data": {
+                    "$comment": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $comment: Boolean",
+                "data": {
+                    "$comment": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $comment: null",
+                "data": {
+                    "$comment": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $comment: array",
+                "data": {
+                    "$comment": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $comment: object",
+                "data": {
+                    "$comment": {}
+                },
+                "valid": false
+              },
+            {
+                "description": "Valid $comment",
+                "data": {
+                    "$comment": "This is a fine comment!"
+                },
+                "valid": true
+            }
+        ]
+    }
+]

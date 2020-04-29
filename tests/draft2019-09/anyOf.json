@@ -185,5 +185,104 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: Boolean logic",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-array anyOf: number",
+                "data": {
+                    "anyOf": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array anyOf: string",
+                "data": {
+                    "anyOf": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array anyOf: Boolean",
+                "data": {
+                    "anyOf": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array anyOf: object",
+                "data": {
+                    "anyOf": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array anyOf: null",
+                "data": {
+                    "anyOf": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Empty anyOf",
+                "data": {
+                    "anyOf": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Not-a-schema anyOf: string",
+                "data": {
+                    "anyOf": [ "integer" ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Not-a-schema anyOf: number",
+                "data": {
+                    "anyOf": [ 1 ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Not-a-schema anyOf: null",
+                "data": {
+                    "anyOf": [ null ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Not-a-schema anyOf: array",
+                "data": {
+                    "anyOf": [ [] ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid anyOf: boolean schema",
+                "data": {
+                    "anyOf": [ true ]
+                },
+                "valid": true
+            },
+            {
+                "description": "Valid anyOf: empty schema",
+                "data": {
+                    "anyOf": [ {} ]
+                },
+                "valid": true
+            },
+            {
+                "description": "Valid anyOf: schema",
+                "data": {
+                    "anyOf": [ { "type": "integer" } ]
+                },
+                "valid": true
+            }
+        ]
     }
 ]

@@ -29,5 +29,69 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: strings",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-number maxLength: string",
+                "data": {
+                    "maxLength": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maxLength: Boolean",
+                "data": {
+                    "maxLength": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maxLength: array",
+                "data": {
+                    "maxLength": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maxLength: object",
+                "data": {
+                    "maxLength": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maxLength: null",
+                "data": {
+                    "maxLength": null
+                },
+                "valid": false
+            },
+            {
+                "description": "maxLength is negative",
+                "data": {
+                    "maxLength": -1
+                },
+                "valid": false
+            },
+            {
+                "description": "maxLength is floating-point",
+                "data": {
+                    "maxLength": 1.5
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid maxLength: integer",
+                "data": {
+                    "maxLength": 0
+                },
+                "valid": true
+            }
+        ]
     }
 ]

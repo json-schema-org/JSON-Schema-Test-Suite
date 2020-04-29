@@ -407,5 +407,55 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema core tests: $ref",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string $ref: number",
+                "data": {
+                    "$ref": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $ref: Boolean",
+                "data": {
+                    "$ref": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $ref: null",
+                "data": {
+                    "$ref": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $ref: array",
+                "data": {
+                    "$ref": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $ref: object",
+                "data": {
+                    "$ref": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid $ref",
+                "data": {
+                    "$ref": "#/data"
+                },
+                "valid": true
+            }
+        ]
     }
 ]

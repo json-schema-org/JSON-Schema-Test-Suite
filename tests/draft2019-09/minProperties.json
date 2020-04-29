@@ -34,5 +34,69 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: objects",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-number minProperties: string",
+                "data": {
+                    "minProperties": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minProperties: Boolean",
+                "data": {
+                    "minProperties": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minProperties: array",
+                "data": {
+                    "minProperties": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minProperties: object",
+                "data": {
+                    "minProperties": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minProperties: null",
+                "data": {
+                    "minProperties": null
+                },
+                "valid": false
+            },
+            {
+                "description": "minProperties is negative",
+                "data": {
+                    "minProperties": -1
+                },
+                "valid": false
+            },
+            {
+                "description": "minProperties is floating-point",
+                "data": {
+                    "minProperties": 1.5
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid minProperties: integer",
+                "data": {
+                    "minProperties": 0
+                },
+                "valid": true
+            }
+        ]
     }
 ]

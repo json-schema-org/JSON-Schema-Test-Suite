@@ -73,5 +73,155 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema content tests: contentEncoding",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string contentEncoding: number",
+                "data": {
+                    "contentEncoding": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string contentEncoding: Boolean",
+                "data": {
+                    "contentEncoding": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string contentEncoding: null",
+                "data": {
+                    "contentEncoding": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string contentEncoding: array",
+                "data": {
+                    "contentEncoding": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string contentEncoding: object",
+                "data": {
+                    "contentEncoding": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid contentEncoding",
+                "data": {
+                    "contentEncoding": "base64"
+                },
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "Meta-schema content tests: contentMediaType",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string contentMediaType: number",
+                "data": {
+                    "contentMediaType": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string contentMediaType: Boolean",
+                "data": {
+                    "contentMediaType": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string contentMediaType: null",
+                "data": {
+                    "contentMediaType": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string contentMediaType: array",
+                "data": {
+                    "contentMediaType": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string contentMediaType: object",
+                "data": {
+                    "contentMediaType": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid contentMediaType",
+                "data": {
+                    "contentMediaType": "text/plain"
+                },
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "Meta-schema content tests: contentSchema",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-schema contentSchema: number",
+                "data": {
+                    "contentSchema": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema contentSchema: string",
+                "data": {
+                    "contentSchema": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema contentSchema: array",
+                "data": {
+                    "contentSchema": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema contentSchema: null",
+                "data": {
+                    "contentSchema": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean contentSchema",
+                "data": {
+                    "contentSchema": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object contentSchema",
+                "data": {
+                    "contentSchema": {}
+                },
+                "valid": true
+            }
+        ]
     }
 ]

@@ -168,5 +168,69 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: arrays",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-number minContains: string",
+                "data": {
+                    "minContains": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minContains: Boolean",
+                "data": {
+                    "minContains": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minContains: array",
+                "data": {
+                    "minContains": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minContains: object",
+                "data": {
+                    "minContains": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minContains: null",
+                "data": {
+                    "minContains": null
+                },
+                "valid": false
+            },
+            {
+                "description": "minContains is negative",
+                "data": {
+                    "minContains": -1
+                },
+                "valid": false
+            },
+            {
+                "description": "minContains is floating-point",
+                "data": {
+                    "minContains": 1.5
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid minContains: integer",
+                "data": {
+                    "minContains": 0
+                },
+                "valid": true
+            }
+        ]
     }
 ]

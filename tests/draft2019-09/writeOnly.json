@@ -1,0 +1,52 @@
+[
+    {
+        "description": "Meta-schema meta-data tests: writeOnly",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-Boolean writeOnly: number",
+                "data": {
+                    "writeOnly": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean writeOnly: string",
+                "data": {
+                    "writeOnly": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean writeOnly: null",
+                "data": {
+                    "writeOnly": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean writeOnly: array",
+                "data": {
+                    "writeOnly": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean writeOnly: object",
+                "data": {
+                    "writeOnly": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid writeOnly: Boolean",
+                "data": {
+                    "writeOnly": true
+                },
+                "valid": true
+            }
+        ]
+    }
+]

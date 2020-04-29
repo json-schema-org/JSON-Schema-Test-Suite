@@ -380,5 +380,55 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: arrays",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-Boolean uniqueItems: string",
+                "data": {
+                    "uniqueItems": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean uniqueItems: number",
+                "data": {
+                    "uniqueItems": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean uniqueItems: array",
+                "data": {
+                    "uniqueItems": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean uniqueItems: object",
+                "data": {
+                    "uniqueItems": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-Boolean uniqueItems: null",
+                "data": {
+                    "uniqueItems": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid uniqueItems: Boolean",
+                "data": {
+                    "uniqueItems": true
+                },
+                "valid": true
+            }
+        ]
     }
 ]

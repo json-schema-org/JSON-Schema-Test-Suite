@@ -224,5 +224,139 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: conditional",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-schema if: number",
+                "data": {
+                    "if": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema if: string",
+                "data": {
+                    "if": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema if: array",
+                "data": {
+                    "if": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema if: null",
+                "data": {
+                    "if": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean if",
+                "data": {
+                    "if": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object if",
+                "data": {
+                    "if": {}
+                },
+                "valid": true
+            },
+            {
+                "description": "Non-schema then: number",
+                "data": {
+                    "then": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema then: string",
+                "data": {
+                    "then": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema then: array",
+                "data": {
+                    "then": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema then: null",
+                "data": {
+                    "then": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean then",
+                "data": {
+                    "then": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object then",
+                "data": {
+                    "then": {}
+                },
+                "valid": true
+            },
+            {
+                "description": "Non-schema else: number",
+                "data": {
+                    "else": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema else: string",
+                "data": {
+                    "else": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema else: array",
+                "data": {
+                    "else": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema else: null",
+                "data": {
+                    "else": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean else",
+                "data": {
+                    "else": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object else",
+                "data": {
+                    "else": {}
+                },
+                "valid": true
+            }
+        ]
     }
 ]

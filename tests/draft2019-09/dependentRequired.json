@@ -138,5 +138,75 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: objects",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-object dependentRequired: string",
+                "data": {
+                    "dependentRequired": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object dependentRequired: Boolean",
+                "data": {
+                    "dependentRequired": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object dependentRequired: null",
+                "data": {
+                    "dependentRequired": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object dependentRequired: number",
+                "data": {
+                    "dependentRequired": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object dependentRequired: array",
+                "data": {
+                    "dependentRequired": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string array dependentRequired",
+                "data": {
+                    "dependentRequired": {
+                        "hello": [ 1, "there" ]
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-unique string array dependentRequired",
+                "data": {
+                    "dependentRequired": {
+                        "hello": [ "there", "there" ]
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "String array dependentRequired",
+                "data": {
+                    "dependentRequired": {
+                        "hello": [ "there" ]
+                    }
+                },
+                "valid": true
+            }
+        ]
     }
 ]

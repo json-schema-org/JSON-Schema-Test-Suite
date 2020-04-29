@@ -101,5 +101,76 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: objects",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-array required: string",
+                "data": {
+                    "required": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array required: Boolean",
+                "data": {
+                    "required": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array required: null",
+                "data": {
+                    "required": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array required: object",
+                "data": {
+                    "required": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array required: number",
+                "data": {
+                    "required": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "required with duplicates",
+                "data": {
+                    "required": [ "hello", "hello" ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string array required",
+                "data": {
+                    "required": [ "hello", 1 ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Empty array required",
+                "data": {
+                    "required": []
+                },
+                "valid": true
+            },
+            {
+                "description": "One-element array required",
+                "data": {
+                    "required": [ "hello" ]
+                },
+                "valid": true
+            }
+        ]
     }
 ]

@@ -24,5 +24,69 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: arrays",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-number minItems: string",
+                "data": {
+                    "minItems": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minItems: Boolean",
+                "data": {
+                    "minItems": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minItems: array",
+                "data": {
+                    "minItems": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minItems: object",
+                "data": {
+                    "minItems": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number minItems: null",
+                "data": {
+                    "minItems": null
+                },
+                "valid": false
+            },
+            {
+                "description": "minItems is negative",
+                "data": {
+                    "minItems": -1
+                },
+                "valid": false
+            },
+            {
+                "description": "minItems is floating-point",
+                "data": {
+                    "minItems": 1.5
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid minItems: integer",
+                "data": {
+                    "minItems": 0
+                },
+                "valid": true
+            }
+        ]
     }
 ]

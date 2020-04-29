@@ -152,5 +152,109 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: object",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-object patternProperties: string",
+                "data": {
+                    "patternProperties": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object patternProperties: Boolean",
+                "data": {
+                    "patternProperties": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object patternProperties: null",
+                "data": {
+                    "patternProperties": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object patternProperties: number",
+                "data": {
+                    "patternProperties": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object patternProperties: array",
+                "data": {
+                    "patternProperties": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema property in patternProperties: string",
+                "data": {
+                    "patternProperties": {
+                        "hello": "there"
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema property in patternProperties: null",
+                "data": {
+                    "patternProperties": {
+                        "hello": null
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema property in patternProperties: number",
+                "data": {
+                    "patternProperties": {
+                        "hello": 1
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema property in patternProperties: array",
+                "data": {
+                    "patternProperties": {
+                        "hello": []
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean property in patternProperties",
+                "data": {
+                    "patternProperties": {
+                        "hello": true
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "Object property in patternProperties",
+                "data": {
+                    "patternProperties": {
+                        "hello": {}
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "Empty patternProperties",
+                "data": {
+                    "patternProperties": {}
+                },
+                "valid": true
+            }
+        ]
     }
 ]

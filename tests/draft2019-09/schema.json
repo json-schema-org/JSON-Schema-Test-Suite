@@ -1,0 +1,52 @@
+[
+    {
+        "description": "Meta-schema core tests: $schema",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string $schema: number",
+                "data": {
+                    "$schema": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $schema: Boolean",
+                "data": {
+                    "$schema": true
+                },
+                "valid": false
+              },
+            {
+                "description": "Non-string $schema: null",
+                "data": {
+                    "$schema": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $schema: array",
+                "data": {
+                    "$schema": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $schema: object",
+                "data": {
+                    "$schema": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid $schema",
+                "data": {
+                    "$schema": "http://example.com/foo"
+                },
+                "valid": true
+            }
+        ]
+    }
+]

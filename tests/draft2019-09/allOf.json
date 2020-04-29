@@ -290,5 +290,104 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: Boolean logic",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-array allOf: number",
+                "data": {
+                    "allOf": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array allOf: string",
+                "data": {
+                    "allOf": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array allOf: Boolean",
+                "data": {
+                    "allOf": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array allOf: object",
+                "data": {
+                    "allOf": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array allOf: null",
+                "data": {
+                    "allOf": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Empty allOf",
+                "data": {
+                    "allOf": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Not-a-schema allOf: string",
+                "data": {
+                    "allOf": [ "integer" ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Not-a-schema allOf: number",
+                "data": {
+                    "allOf": [ 1 ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Not-a-schema allOf: null",
+                "data": {
+                    "allOf": [ null ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Not-a-schema allOf: array",
+                "data": {
+                    "allOf": [ [] ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid allOf: boolean schema",
+                "data": {
+                    "allOf": [ true ]
+                },
+                "valid": true
+            },
+            {
+                "description": "Valid allOf: empty schema",
+                "data": {
+                    "allOf": [ {} ]
+                },
+                "valid": true
+            },
+            {
+                "description": "Valid allOf: schema",
+                "data": {
+                    "allOf": [ { "type": "integer" } ]
+                },
+                "valid": true
+            }
+        ]
     }
 ]

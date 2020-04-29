@@ -202,5 +202,62 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema core tests: $id",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string $id: number",
+                "data": {
+                    "$id": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $id: Boolean",
+                "data": {
+                    "$id": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $id: null",
+                "data": {
+                    "$id": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $id: array",
+                "data": {
+                    "$id": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $id: object",
+                "data": {
+                    "$id": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid $id",
+                "data": {
+                    "$id": "http://example.com/foo"
+                },
+                "valid": true
+            },
+            {
+                "description": "Invalid $id: doesn't match pattern",
+                "data": {
+                    "$id": "#a"
+                },
+                "valid": false
+            }
+        ]
     }
 ]
