@@ -144,5 +144,63 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Unnormalized $ids are allowed but discouraged",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Unnormalized identifier",
+                "data": {
+                    "$ref": "http://localhost:1234/foo/baz",
+                    "$defs": {
+                        "A": {
+                            "$id": "http://localhost:1234/foo/bar/../baz",
+                            "type": "integer"
+                        }
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "Unnormalized identifier and no ref",
+                "data": {
+                    "$defs": {
+                        "A": {
+                            "$id": "http://localhost:1234/foo/bar/../baz",
+                            "type": "integer"
+                        }
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "Unnormalized identifier with empty fragment",
+                "data": {
+                    "$ref": "http://localhost:1234/foo/baz",
+                    "$defs": {
+                        "A": {
+                            "$id": "http://localhost:1234/foo/bar/../baz#",
+                            "type": "integer"
+                        }
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "Unnormalized identifier with empty fragment and no ref",
+                "data": {
+                    "$defs": {
+                        "A": {
+                            "$id": "http://localhost:1234/foo/bar/../baz#",
+                            "type": "integer"
+                        }
+                    }
+                },
+                "valid": true
+            }
+        ]
     }
 ]
