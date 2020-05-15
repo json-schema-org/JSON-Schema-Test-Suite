@@ -160,12 +160,12 @@
             {
                 "description": "empty data",
                 "data": [ ],
-                "valid": true
+                "valid": false
             },
             {
-                "description": "minContains = 0 makes contains always pass",
+                "description": "minContains = 0 doesn't mean contains passes",
                 "data": [ 2 ],
-                "valid": true
+                "valid": false
             }
         ]
     }
