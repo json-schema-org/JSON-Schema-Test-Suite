@@ -1,0 +1,277 @@
+[
+    {
+        "description": "$anchor: location-independent identifier",
+        "schema": {
+            "allOf": [{
+                "$ref": "#foo"
+            }],
+            "$defs": {
+                "A": {
+                    "$anchor": "foo",
+                    "type": "integer"
+                }
+            }
+        },
+        "tests": [
+            {
+                "data": 1,
+                "description": "cannot match: $ref is not found",
+                "valid": false
+            },
+            {
+                "data": "a",
+                "description": "mismatch",
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "$id: Location-independent identifier",
+        "schema": {
+            "allOf": [{
+                "$ref": "#foo"
+            }],
+            "$defs": {
+                "A": {
+                    "$id": "#foo",
+                    "type": "integer"
+                }
+            }
+        },
+        "tests": [
+            {
+                "data": 1,
+                "description": "match",
+                "valid": true
+            },
+            {
+                "data": "a",
+                "description": "mismatch",
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "dependentSchemas: single dependency",
+        "schema": {
+            "dependentSchemas": {
+                "bar": {
+                    "properties": {
+                        "foo": {"type": "integer"},
+                        "bar": {"type": "integer"}
+                    }
+                }
+            }
+        },
+        "tests": [
+            {
+                "description": "valid",
+                "data": {"foo": 1, "bar": 2},
+                "valid": true
+            },
+            {
+                "description": "no dependency",
+                "data": {"foo": "quux"},
+                "valid": true
+            },
+            {
+                "description": "wrong type",
+                "data": {"foo": "quux", "bar": 2},
+                "valid": true
+            },
+            {
+                "description": "wrong type other",
+                "data": {"foo": 2, "bar": "quux"},
+                "valid": true
+            },
+            {
+                "description": "wrong type both",
+                "data": {"foo": "quux", "bar": "quux"},
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "dependentRequired: single dependency",
+        "schema": {"dependentRequired": {"bar": ["foo"]}},
+        "tests": [
+            {
+                "description": "neither",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "nondependant",
+                "data": {"foo": 1},
+                "valid": true
+            },
+            {
+                "description": "with dependency",
+                "data": {"foo": 1, "bar": 2},
+                "valid": true
+            },
+            {
+                "description": "missing dependency",
+                "data": {"bar": 2},
+                "valid": true
+            },
+            {
+                "description": "ignores arrays",
+                "data": ["bar"],
+                "valid": true
+            },
+            {
+                "description": "ignores strings",
+                "data": "foobar",
+                "valid": true
+            },
+            {
+                "description": "ignores other non-objects",
+                "data": 12,
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "unevaluatedItems false",
+        "schema": {
+            "type": "array",
+            "unevaluatedItems": false
+        },
+        "tests": [
+            {
+                "description": "with no unevaluated items",
+                "data": [],
+                "valid": true
+            },
+            {
+                "description": "with unevaluated items",
+                "data": ["foo"],
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "unevaluatedProperties schema",
+        "schema": {
+            "type": "object",
+            "unevaluatedProperties": {
+                "type": "string",
+                "minLength": 3
+            }
+        },
+        "tests": [
+            {
+                "description": "with no unevaluated properties",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "with valid unevaluated properties",
+                "data": {
+                    "foo": "foo"
+                },
+                "valid": true
+            },
+            {
+                "description": "with invalid unevaluated properties",
+                "data": {
+                    "foo": "fo"
+                },
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "maxContains with contains",
+        "schema": {
+            "contains": {"const": 1},
+            "maxContains": 1
+        },
+        "tests": [
+            {
+                "description": "empty data",
+                "data": [ ],
+                "valid": false
+            },
+            {
+                "description": "all elements match, valid maxContains",
+                "data": [ 1 ],
+                "valid": true
+            },
+            {
+                "description": "all elements match, invalid maxContains",
+                "data": [ 1, 1 ],
+                "valid": true
+            },
+            {
+                "description": "some elements match, valid maxContains",
+                "data": [ 1, 2 ],
+                "valid": true
+            },
+            {
+                "description": "some elements match, invalid maxContains",
+                "data": [ 1, 2, 1 ],
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "minContains=2 with contains",
+        "schema": {
+            "contains": {"const": 1},
+            "minContains": 2
+        },
+        "tests": [
+            {
+                "description": "empty data",
+                "data": [ ],
+                "valid": false
+            },
+            {
+                "description": "all elements match, invalid minContains",
+                "data": [ 1 ],
+                "valid": true
+            },
+            {
+                "description": "some elements match, invalid minContains",
+                "data": [ 1, 2 ],
+                "valid": true
+            },
+            {
+                "description": "all elements match, valid minContains (exactly as needed)",
+                "data": [ 1, 1 ],
+                "valid": true
+            },
+            {
+                "description": "all elements match, valid minContains (more than needed)",
+                "data": [ 1, 1, 1 ],
+                "valid": true
+            },
+            {
+                "description": "some elements match, valid minContains",
+                "data": [ 1, 2, 1 ],
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "minContains = 0",
+        "schema": {
+            "contains": {"const": 1},
+            "minContains": 0
+        },
+        "tests": [
+            {
+                "description": "empty array is invalid",
+                "data": [ ],
+                "valid": false
+            },
+            {
+                "description": "minContains = 0 would make contains always pass",
+                "data": [ 2 ],
+                "valid": false
+            }
+        ]
+    }
+]
