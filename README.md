@@ -12,16 +12,16 @@ choice is still the job of the validator implementor.
 Structure of a Test
 -------------------
 
-The tests in this suite are contained in the `tests` directory at the
-root of this repository.
+The tests in this suite are contained in the `tests` directory at the root of
+this repository. Inside that directory is a subdirectory for each draft or
+version of the specification.
 
-Inside that directory is a subdirectory for each draft or version of the
-specification.
+Inside each draft directory, there are a number of `.json` files and one or more
+special subdirectories. The subdirectories contain `.json` files meant for a
+specific testing purpose, and each `.json` file logically groups a set of test
+cases together. Often the grouping is by property under test, but not always.
 
-Inside each draft directory, there are a number of `.json` files, which
-logically group a set of test cases together. Often the grouping is by
-property under test, but not always, especially within optional test
-files (discussed below).
+The subdirectories are described in the next section.
 
 Inside each `.json` file is a single array containing objects. It's easiest to
 illustrate the structure of these with an example:
@@ -49,6 +49,14 @@ In short: a description, a schema under test, and some tests, where each
 test in the `tests` array is an objects with a description of the case
 itself, the instance under test, and a boolean indicating whether it
 should be valid or invalid.
+
+Test Subdirectories
+-------------------
+
+There is currently only one subdirectory that may exist within each draft
+directory. This is:
+
+1. `optional/`: Contains tests that are considered optional.
 
 Coverage
 --------
