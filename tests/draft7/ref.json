@@ -644,5 +644,69 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "order of evaluation: $id and $ref",
+        "schema": {
+            "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
+            "$id": "/base/base.json",
+            "$ref": "int.json",
+            "$defs": {
+                "bigint": {
+                    "$comment": "canonical uri: /base/int.json",
+                    "$id": "int.json",
+                    "maximum": 10
+                },
+                "smallint": {
+                    "$comment": "canonical uri: /int.json",
+                    "$id": "/int.json",
+                    "maximum": 2
+                }
+            }
+        },
+        "tests": [
+            {
+                "description": "data is valid against first definition",
+                "data": 5,
+                "valid": true
+            },
+            {
+                "description": "data is invalid against first definition",
+                "data": 50,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "order of evaluation: plain-name $id and $ref",
+        "schema": {
+            "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
+            "$id": "/base.json",
+            "$ref": "#bigint",
+            "$defs": {
+                "bigint": {
+                    "$comment": "canonical uri: /base.json#/$defs/bigint; another valid uri for this location: /base.json#bigint",
+                    "$id": "#bigint",
+                    "maximum": 10
+                },
+                "smallint": {
+                    "$comment": "canonical uri: /#/$defs/smallint; another valid uri for this location: /#bigint",
+                    "$id": "/#bigint",
+                    "maximum": 2
+                }
+            }
+        },
+        "tests": [
+            {
+                "description": "data is valid against first definition",
+                "data": 5,
+                "valid": true
+            },
+            {
+                "description": "data is invalid against first definition",
+                "data": 50,
+                "valid": false
+            }
+        ]
     }
 ]
