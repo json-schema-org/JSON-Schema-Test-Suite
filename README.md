@@ -114,6 +114,7 @@ This suite is being used by:
 * [everit-org/json-schema](https://github.com/everit-org/json-schema)
 * [networknt/json-schema-validator](https://github.com/networknt/json-schema-validator)
 * [Justify](https://github.com/leadpony/justify)
+* [Snow](https://github.com/ssilverman/snowy-json)
 
 ### JavaScript
 
