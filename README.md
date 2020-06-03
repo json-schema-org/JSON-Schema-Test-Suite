@@ -25,22 +25,25 @@ Inside each `.json` file is a single array containing objects. It's easiest to
 illustrate the structure of these with an example:
 
 ```json
-    {
-        "description": "the description of the test case",
-        "schema": {"the schema that should" : "be validated against"},
-        "tests": [
-            {
-                "description": "a specific test of a valid instance",
-                "data": "the instance",
-                "valid": true
-            },
-            {
-                "description": "another specific test this time, invalid",
-                "data": 15,
-                "valid": false
-            }
-        ]
-    }
+{
+    "description": "The description of the test case",
+    "schema": {
+        "description": "The schema against which the data in each test is validated",
+        "type": "string"
+    },
+    "tests": [
+        {
+            "description": "Test for a valid instance",
+            "data": "the instance to validate",
+            "valid": true
+        },
+        {
+            "description": "Test for an invalid instance",
+            "data": 15,
+            "valid": false
+        }
+    ]
+}
 ```
 
 In short: a description, a schema under test, and some tests, where each test
