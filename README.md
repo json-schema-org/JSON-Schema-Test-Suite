@@ -6,27 +6,103 @@ validation libraries can use to test their validators.
 It is meant to be language agnostic and should require only a JSON parser.
 
 The conversion of the JSON objects into tests within your test framework of
-choice is still the job of the validator implementor.
+choice is the job of the validator implementor.
 
-## Structure of a Test
+## Table of Contents
+
+1. [Test Concepts](#test-concepts)
+2. [Introduction to the Test Suite Structure](#introduction-to-the-test-suite-structure)
+   1. [Definitions and Requirements](#definitions-and-requirements)
+   2. [Draft Test Subdirectories](#draft-test-subdirectories)
+3. [Coverage](#coverage)
+4. [How to Utilize the Tests](#how-to-utilize-the-tests)
+   1. [How to Implement a Test Runner](#how-to-implement-a-test-runner)
+   2. [Test Suite Assumptions](#test-assumptions)
+5. [Who Uses the Test Suite](#who-uses-the-test-suite)
+   1. [Clojure](#clojure)
+   2. [Coffeescript](#coffeescript)
+   3. [C++](#c++)
+   4. [Dart](#dart)
+   5. [Elixir](#elixir)
+   6. [Erlang](#erlang)
+   7. [Go](#go)
+   8. [Haskell](#haskell)
+   9. [Java](#java)
+   10. [JavaScript](#javascript)
+   11. [Node.js](#node.js)
+   12. [.NET](#.net)
+   13. [PHP](#php)
+   14. [PostgreSQL](#postgresql)
+   15. [Python](#python)
+   16. [Ruby](#ruby)
+   17. [Rust](#rust)
+   18. [Swift](#swift)
+6. [Contributing](#contributing)
+7. [Resources](#resources)
+
+## Test Concepts
+
+This set of tests can test anything that a JSON Schema can describe. It
+currently does not provide a mechanism for testing anything that a JSON Schema
+cannot describe.
+
+For example, a schema can require that a string is a _URI-reference_ and even
+that it matches a certain pattern, but it is not currently possible to require
+that the URI is normalized.
+
+This means there are limitations when using a draft's meta-schema as the schema
+in a _test case_.
+
+## Introduction to the Test Suite Structure
 
 The tests in this suite are contained in the `tests` directory at the root of
 this repository. Inside that directory is a subdirectory for each draft or
-version of the specification.
+version of the specification.\
+_Summary: There are tests for each draft._
 
-Inside each draft directory, there are a number of `.json` files and one or more
+Inside each draft directory there are a number of `.json` files and one or more
 special subdirectories. The subdirectories contain `.json` files meant for a
-specific testing purpose, and each `.json` file logically groups a set of test
-cases together. Often the grouping is by property under test, but not always.
+specific testing purpose, and each `.json` file logically groups a set of _test
+cases_ together. Often the grouping is by property under test, but not always.\
+_Summary: There are a number of `.json` files for each draft._
 
-The subdirectories are described in the next section.
+The subdirectories are described in a following subsection.
 
-Inside each `.json` file is a single array containing objects. It's easiest to
-illustrate the structure of these with an example:
+Each `.json` file consists of an array containing a number of _test cases_, and
+each _test case_ is composed of one schema and an array of _tests_.
+
+### Definitions and Requirements
+
+An outline of the definitions and requirements follows.
+
+1. _Test_: A single test contains a description, an instance, and a Boolean that
+   indicates whether that instance is considered valid against the associated
+   schema. The required properties are:
+   1. `"description"`: The test description.
+   2. `"data"`: The instance to validate against the schema.
+   3. `"valid"`: The expected validation result. A test is considered to pass if
+      the actual validation result matches this value, and is considered to fail
+      otherwise. Note that this value is only applicable for testing the
+      contents of `"data"` and is not applicable for testing the contents of
+      `"schema"` from the _test case_.
+2. _Test Case_: One schema plus a list of _tests_. The required properties are:
+   1. `"description"`: The test case description.
+   2. `"schema"`: The schema against which all the test instances (`"data"`)
+      are validated. This should be valid and loadable.
+   3. `"tests"`: An array of _tests_.
+3. _Test Runner_: A program that tests a validator implementation using the
+   tests in this suite.
+
+The term _Test Suite_ is left undefined in this section because different
+testing frameworks or testing approaches may refer to a "suite" as the entire
+set of tests or merely as a grouping of test cases. However, this document
+refers to all the tests for all the drafts as the _Test Suite_.
+
+A _test case_ example:
 
 ```json
 {
-    "description": "The description of the test case",
+    "description": "The test case description",
     "schema": {
         "description": "The schema against which the data in each test is validated",
         "type": "string"
@@ -46,17 +122,16 @@ illustrate the structure of these with an example:
 }
 ```
 
-In short: a description, a schema under test, and some tests, where each test
-in the `tests` array is an objects with a description of the case itself, the
-instance under test, and a boolean indicating whether it should be valid
-or invalid.
+### Draft Test Subdirectories
 
-## Test Subdirectories
-
-There is currently only one subdirectory that may exist within each draft
+There is currently only one subdirectory that may exist within each draft test
 directory. This is:
 
 1. `optional/`: Contains tests that are considered optional.
+
+This structure is in flux and may be amended in the future. For example, maybe
+there will be one subdirectory underneath `optional/` for each feature, for
+example, `optional/format/` for `"format"`-specific tests. This is evolving.
 
 ## Coverage
 
@@ -71,6 +146,93 @@ If you see anything missing from the current supported drafts, or incorrect on
 any draft still accepting bug fixes, please
 [file an issue](https://github.com/json-schema-org/JSON-Schema-Test-Suite/issues)
 or [submit a PR](https://github.com/json-schema-org/JSON-Schema-Test-Suite).
+
+## How to Utilize the Tests
+
+The test suite structure was described
+[above](#introduction-to-the-test-suite-structure). This section describes:
+
+1. How to implement a test runner for testing a validator implementation.
+2. Assumptions the test suite makes and their rationales.
+
+Note that the specific steps described here outline a procedure for running the
+tests. The procedure doesn't need to be followed exactly, but the results of
+your own procedure should produce the same effects.
+
+After completing the tests, each test is marked as one of:
+1. Pass
+2. Fail
+3. Not Executed
+
+### How to Implement a Test Runner
+
+To test a specific draft, walk the filesystem tree for that draft and execute
+all the tests in each `.json` file encountered. Each `.json` file is either
+located in the root of the draft test hierarchy or in a subdirectory. The
+approach is similar for both cases, but tests found in subdirectories need to
+follow the assumptions and restrictions for the containing subdirectory.
+
+For each _test case_ in a `.json` file:
+1. Load the schema from `"schema"`.
+   1. If the schema is loaded successfully then it can be used for each test.
+   2. If the schema is not loaded successfully or is found to be invalid, all
+      _tests_ in this _test case_ should be marked as "Not Executed". It is not
+      correct to assume that `"valid"` is false for these tests.
+2. For each _test_ in the _test case_:
+   1. Apply the schema to the instance found in `"data"`.
+   2. The test passes if the schema application result matches the Boolean value
+      found in `"valid"`.
+   3. The test fails if the result does not match the value found in `"valid"`.
+
+### Test Suite Assumptions
+
+There are a few assumptions that the test suite makes around the structure of
+the tests and around schema loading and application.
+
+1. A schema, the contents of `"schema"` in a _test case_, should be valid
+   and loadable.
+
+   The rationale behind this is that we are testing instances in a _test's_
+   `"data"` element, and not the schema itself. There is currently no mechanism
+   for testing a schema unless the schema is represented as an instance inside
+   a _test_ and the associated meta-schema is used as a `"$ref"` inside a
+   _test case_. For example:
+
+   ```json
+   {
+       "description": "Test the \"type\" schema keyword",
+       "schema": {
+           "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+       "tests": [
+           {
+               "description": "Valid: string",
+               "data": {
+                   "type": "string"
+               },
+               "valid": true
+           },
+           {
+               "description": "Invalid: null",
+               "data": {
+                   "type": null
+               },
+               "valid": false
+           }
+       ]
+   }
+   ```
+
+   Even then, if it can't be represented by the JSON Schema language, then it is
+   not currently possible to test. For example, it is not possible to test that a
+   URI-reference is normalized.
+2. Any tests in a subdirectory of a specific draft's test suite is handled a
+   little differently than the tests in a draft's root directory.
+
+   The `optional/` subdirectory contains tests that test concepts that are not
+   required by the specification. For these tests, it is necessary to enable
+   features that would not otherwise be required. For example, some of the
+   optional tests require that a validator's `"format"` features be enabled.
 
 ## Who Uses the Test Suite
 
@@ -191,3 +353,9 @@ There are some sanity checks in place for testing the test suite. You can run
 them with `bin/jsonschema_suite check` or `tox`. They will be run automatically
 by [GitHub Actions](https://github.com/json-schema-org/JSON-Schema-Test-Suite/actions?query=workflow%3A%22Test+Suite+Sanity+Checking%22)
 as well.
+
+## Resources
+
+1. [JSON Schema Test Suite](https://github.com/json-schema-org/JSON-Schema-Test-Suite)
+2. [JSON Schema](https://json-schema.org)
+3. [RFC 3986](https://www.rfc-editor.org/rfc/rfc3986.html)
