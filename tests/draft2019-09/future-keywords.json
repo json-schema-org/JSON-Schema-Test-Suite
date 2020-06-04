@@ -1,6 +1,6 @@
 [
     {
-        "description": "$dynamicRef",
+        "description": "$dynamicRef without $dynamicAnchor works like $ref",
         "schema": {
             "properties": {
                 "foo": {"$dynamicRef": "#"}
@@ -24,10 +24,10 @@
                 "valid": false
             },
             {
-                "description": "recursive mismatch",
+                "description": "recursive mismatch (but $dynamicRef is ignored)",
                 "data": {"foo": {"bar": false}},
-                "valid": false
+                "valid": true
             }
         ]
     }
-}
+]
