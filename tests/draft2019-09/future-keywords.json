@@ -1,0 +1,33 @@
+[
+    {
+        "description": "$dynamicRef",
+        "schema": {
+            "properties": {
+                "foo": {"$dynamicRef": "#"}
+            },
+            "additionalProperties": false
+        },
+        "tests": [
+            {
+                "description": "match",
+                "data": {"foo": false},
+                "valid": true
+            },
+            {
+                "description": "recursive match",
+                "data": {"foo": {"foo": false}},
+                "valid": true
+            },
+            {
+                "description": "mismatch",
+                "data": {"bar": false},
+                "valid": false
+            },
+            {
+                "description": "recursive mismatch",
+                "data": {"foo": {"bar": false}},
+                "valid": false
+            }
+        ]
+    }
+}
