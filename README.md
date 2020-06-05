@@ -60,14 +60,17 @@ directory. This is:
 
 ## Coverage
 
-Drafts 07, 06, 04 and 03 should have full coverage, with drafts 06 and 07 being
-considered current and actively supported.
+Drafts 07, 06, 04, and 03 should have full coverage, with tests for drafts 06,
+07, and 2019-09 being considered current and actively supported. Draft 2019-09
+is almost fully covered.
 
-Draft 2019-09 support is under development. Contributions are very welcome,
-especially from implementers as they add support to their own implementations.
+Contributions are very welcome, especially from implementers as they add support
+to their own implementations.
 
 If you see anything missing from the current supported drafts, or incorrect on
-any draft still accepting bug fixes, please file an issue or submit a PR.
+any draft still accepting bug fixes, please
+[file an issue](https://github.com/json-schema-org/JSON-Schema-Test-Suite/issues)
+or [submit a PR](https://github.com/json-schema-org/JSON-Schema-Test-Suite).
 
 ## Who Uses the Test Suite
 
