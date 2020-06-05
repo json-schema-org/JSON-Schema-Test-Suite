@@ -68,9 +68,9 @@ Contributions are very welcome, especially from implementers as they add support
 to their own implementations.
 
 If you see anything missing from the current supported drafts, or incorrect on
-any draft still accepting bug fixes, please file an issue or submit a PR to the
-[test suite repository](https://github.com/json-schema-org/JSON-Schema-Test-Suite).
-
+any draft still accepting bug fixes, please
+[file an issue](https://github.com/json-schema-org/JSON-Schema-Test-Suite/issues)
+or [submit a PR](https://github.com/json-schema-org/JSON-Schema-Test-Suite).
 
 ## Who Uses the Test Suite
 
