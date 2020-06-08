@@ -151,6 +151,11 @@ which also welcomes your contributions!
 * [Newtonsoft.Json.Schema](https://github.com/JamesNK/Newtonsoft.Json.Schema)
 * [Manatee.Json](https://github.com/gregsdennis/Manatee.Json)
 
+### Perl
+
+* [JSON::Schema::Draft201909](https://github.com/karenetheridge/JSON-Schema-Draft201909)
+* [Test::JSON::Schema::Acceptance](https://github.com/karenetheridge/Test-JSON-Schema-Acceptance)
+
 ### PHP
 
 * [json-schema](https://github.com/justinrainbow/json-schema)
