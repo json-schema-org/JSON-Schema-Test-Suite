@@ -2,6 +2,7 @@
   {
       "description": "validation of duration strings",
       "schema": {"format": "duration"},
+      "comment": "see https://en.wikipedia.org/wiki/ISO_8601#Durations for examples and clarifications",
       "tests": [
           {
               "description": "a valid duration string",
@@ -11,6 +12,107 @@
           {
               "description": "an invalid duration string",
               "data": "PT1D",
+              "valid": false
+          },
+          {
+              "description": "no elements present",
+              "data": "P",
+              "valid": false
+          },
+          {
+              "description": "no time elements present",
+              "data": "P1YT",
+              "valid": false
+          },
+          {
+              "description": "no date or time elements present",
+              "data": "PT",
+              "valid": false
+          },
+          {
+              "description": "elements out of order",
+              "data": "P2D1Y",
+              "valid": false
+          },
+          {
+              "description": "missing time separator",
+              "data": "P1D2H",
+              "valid": false
+          },
+          {
+              "description": "time element in the date position",
+              "data": "P2S",
+              "valid": false
+          },
+          {
+              "description": "four years duration",
+              "data": "P4Y",
+              "valid": true
+          },
+          {
+              "description": "zero time, in seconds",
+              "data": "PT0S",
+              "valid": true
+          },
+          {
+              "description": "zero time, in days",
+              "data": "P0D",
+              "valid": true
+          },
+          {
+              "description": "one month duration",
+              "data": "P1M",
+              "valid": true
+          },
+          {
+              "description": "one minute duration",
+              "data": "PT1M",
+              "valid": true
+          },
+          {
+              "description": "elements may be omitted if their value is zero",
+              "data": "PT1H1S",
+              "valid": true
+          },
+          {
+              "description": "one and a half days, in hours",
+              "data": "PT36H",
+              "valid": true
+          },
+          {
+              "description": "one and a half days, in days and hours",
+              "data": "P1DT12H",
+              "valid": true
+          },
+          {
+              "description": "two weeks",
+              "data": "P2W",
+              "valid": true
+          },
+          {
+              "description": "weeks cannot be combined with other units",
+              "data": "P1Y2W",
+              "valid": false
+          },
+          {
+              "description": "half a year duration, with full stop decimal point",
+              "comment": "ISO 8601 revision in year 2000 added decimals",
+              "data": "P0.5Y",
+              "valid": true
+          },
+          {
+              "description": "half a year duration, with comma decimal point",
+              "data": "P0,5Y",
+              "valid": true
+          },
+          {
+              "description": "only one unit can have a non-integer quantity",
+              "data": "P0.5Y2.1M",
+              "valid": false
+          },
+          {
+              "description": "only the smallest unit can have a non-integer quantity",
+              "data": "P0.5Y2M",
               "valid": false
           }
       ]
