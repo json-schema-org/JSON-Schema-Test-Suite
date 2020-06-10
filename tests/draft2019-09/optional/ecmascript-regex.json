@@ -154,7 +154,7 @@
         ]
     },
     {
-        "description": "ECMA 262 \\w matches everything but ascii letters",
+        "description": "ECMA 262 \\W matches everything but ascii letters",
         "schema": {
             "type": "string",
             "pattern": "^\\W$"
