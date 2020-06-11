@@ -216,7 +216,7 @@
             {
                 "description": "empty data",
                 "data": [ ],
-                "valid": true
+                "valid": false
             },
             {
                 "description": "all elements match, valid maxContains",
@@ -250,7 +250,7 @@
             {
                 "description": "empty data",
                 "data": [ ],
-                "valid": true
+                "valid": false
             },
             {
                 "description": "all elements match, invalid minContains",
@@ -287,14 +287,14 @@
         },
         "tests": [
             {
-                "description": "empty array is invalid",
+                "description": "empty array is valid with minContains=0",
                 "data": [ ],
-                "valid": true
+                "valid": false
             },
             {
                 "description": "minContains = 0 would make contains always pass",
                 "data": [ 2 ],
-                "valid": true
+                "valid": false
             }
         ]
     },
