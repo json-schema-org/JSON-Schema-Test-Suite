@@ -33,7 +33,7 @@
     {
         "description": "prefixItems: an array of schemas for items",
         "schema": {
-            "items": [
+            "prefixItems": [
                 {"type": "integer"},
                 {"type": "string"}
             ]
