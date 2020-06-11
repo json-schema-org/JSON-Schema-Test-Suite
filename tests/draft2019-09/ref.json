@@ -1055,5 +1055,49 @@
                  "valid": false
              }
          ]
-     }
+    },
+    {
+        "description": "$ref uses base URI learned from $id",
+        "schema": {
+            "allOf": [
+                {"$ref": "#/$defs/referencing"}
+            ],
+            "$defs": {
+                "referencing": {
+                    "$id": "/referencing.json",
+                    "$comment": "The $id here changes the base URI that $ref's value is resolved against",
+                    "allOf": [
+                        {"$ref": "#/$defs/referenced"}
+                    ],
+                    "$defs": {
+                        "referenced": {
+                            "$comment": "This schema IS being referenced",
+                            "enum": ["should-be-valid"]
+                        }
+                    }
+                },
+                "referenced": {
+                    "$comment": "This schema is NOT being referenced",
+                    "enum": ["should-NOT-be-valid"]
+                }
+            }
+        },
+        "tests": [
+            {
+                "description": "the correct schema is referenced",
+                "data": "should-be-valid",
+                "valid": true
+            },
+            {
+                "description": "the incorrect schema is not referenced",
+                "data": "should-NOT-be-valid",
+                "valid": false
+            },
+            {
+                "description": "sanity check that other invalid values aren't accepted either",
+                "data": "bogus",
+                "valid": false
+            }
+        ]
+    }
 ]

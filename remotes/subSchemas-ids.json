@@ -1,0 +1,22 @@
+{
+    "$id": "http://localhost:1234/subSchemas-ids.json",
+    "allOf": [
+        {"$ref": "#/$defs/referencing"}
+    ],
+    "$defs": {
+        "referencing": {
+            "$id": "referencing.json",
+            "allOf": [
+                {"$ref": "#/$defs/referenced"}
+            ],
+            "$defs": {
+                "referenced": {
+                    "enum": ["should-be-valid"]
+                }
+            }
+        },
+        "referenced": {
+            "enum": ["should-NOT-be-valid"]
+        }
+    }
+}
