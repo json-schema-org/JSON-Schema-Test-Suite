@@ -1,57 +1,5 @@
 [
     {
-        "description": "$anchor: location-independent identifier",
-        "schema": {
-            "allOf": [{
-                "$ref": "#foo"
-            }],
-            "$defs": {
-                "A": {
-                    "$anchor": "foo",
-                    "type": "integer"
-                }
-            }
-        },
-        "tests": [
-            {
-                "data": 1,
-                "description": "cannot match: $ref is not found",
-                "valid": false
-            },
-            {
-                "data": "a",
-                "description": "mismatch",
-                "valid": false
-            }
-        ]
-    },
-    {
-        "description": "$id: Location-independent identifier",
-        "schema": {
-            "allOf": [{
-                "$ref": "#foo"
-            }],
-            "$defs": {
-                "A": {
-                    "$id": "#foo",
-                    "type": "integer"
-                }
-            }
-        },
-        "tests": [
-            {
-                "data": 1,
-                "description": "match",
-                "valid": true
-            },
-            {
-                "data": "a",
-                "description": "mismatch",
-                "valid": false
-            }
-        ]
-    },
-    {
         "description": "dependentSchemas: single dependency",
         "schema": {
             "dependentSchemas": {
