@@ -2,6 +2,7 @@
     {
         "description": "$dynamicRef without $dynamicAnchor works like $ref",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "properties": {
                 "foo": {"$dynamicRef": "#"}
             },
@@ -33,6 +34,7 @@
     {
         "description": "prefixItems: an array of schemas for items",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "prefixItems": [
                 {"type": "integer"},
                 {"type": "string"}
