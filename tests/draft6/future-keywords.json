@@ -324,12 +324,12 @@
                 "valid": true
             },
             {
-                "description": "two levels, properties match with inner definition",
+                "description": "two levels, additionalProperties always matches, 1",
                 "data": { "foo": { "bar": "hi" } },
                 "valid": true
             },
             {
-                "description": "two levels, no match",
+                "description": "two levels, additionalProperties always matches, 2",
                 "data": { "foo": { "bar": 1 } },
                 "valid": true
             }

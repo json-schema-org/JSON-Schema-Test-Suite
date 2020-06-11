@@ -361,12 +361,12 @@
                 "valid": true
             },
             {
-                "description": "two levels, additionalProperties always matches",
+                "description": "two levels, additionalProperties always matches, 1",
                 "data": { "foo": { "bar": "hi" } },
                 "valid": true
             },
             {
-                "description": "two levels, additionalProperties always matches",
+                "description": "two levels, additionalProperties always matches, 2",
                 "data": { "foo": { "bar": 1 } },
                 "valid": true
             }
