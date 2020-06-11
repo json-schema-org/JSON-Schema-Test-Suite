@@ -36,9 +36,34 @@
                 "valid": false
             },
             {
-                "description": "bad characters",
+                "description": "bad characters (not hex)",
                 "data": "2eb8aa08-aa98-11ea-b4ga-73b441d16380",
                 "valid": false
+            },
+            {
+                "description": "no dashes",
+                "data": "2eb8aa08aa9811eab4aa73b441d16380",
+                "valid": false
+            },
+            {
+                "description": "valid version 4",
+                "data": "98d80576-482e-427f-8434-7f86890ab222",
+                "valid": true
+            },
+            {
+                "description": "valid version 5",
+                "data": "99c17cbb-656f-564a-940f-1a4568f03487",
+                "valid": true
+            },
+            {
+                "description": "hypothetical version 6",
+                "data": "99c17cbb-656f-664a-940f-1a4568f03487",
+                "valid": true
+            },
+            {
+                "description": "hypothetical version 15",
+                "data": "99c17cbb-656f-f64a-940f-1a4568f03487",
+                "valid": true
             }
         ]
     }
