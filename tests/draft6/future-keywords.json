@@ -289,7 +289,7 @@
         "description": "$recursiveRef without using nesting",
         "schema": {
             "$id": "http://localhost:4242",
-            "$defs": {
+            "definitions": {
                 "myobject": {
                     "$id": "myobject.json",
                     "$recursiveAnchor": true,
@@ -304,7 +304,7 @@
             },
             "anyOf": [
                 { "type": "integer" },
-                { "$ref": "#/$defs/myobject" }
+                { "$ref": "#/definitions/myobject" }
             ]
         },
         "tests": [
@@ -340,7 +340,7 @@
         "schema": {
             "$id": "http://localhost:4242",
             "$recursiveAnchor": true,
-            "$defs": {
+            "definitions": {
                 "myobject": {
                     "$id": "myobject.json",
                     "$recursiveAnchor": true,
@@ -355,7 +355,7 @@
             },
             "anyOf": [
                 { "type": "integer" },
-                { "$ref": "#/$defs/myobject" }
+                { "$ref": "#/definitions/myobject" }
             ]
         },
         "tests": [
