@@ -216,7 +216,7 @@
             {
                 "description": "empty data",
                 "data": [ ],
-                "valid": false
+                "valid": true
             },
             {
                 "description": "all elements match, valid maxContains",
@@ -250,7 +250,7 @@
             {
                 "description": "empty data",
                 "data": [ ],
-                "valid": false
+                "valid": true
             },
             {
                 "description": "all elements match, invalid minContains",
@@ -289,12 +289,12 @@
             {
                 "description": "empty array is valid with minContains=0",
                 "data": [ ],
-                "valid": false
+                "valid": true
             },
             {
                 "description": "minContains = 0 would make contains always pass",
                 "data": [ 2 ],
-                "valid": false
+                "valid": true
             }
         ]
     },
@@ -310,6 +310,44 @@
             {
                 "description": "boolean schema true in if (valid when supported)",
                 "data": "else",
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "contains keyword validation",
+        "schema": {
+            "contains": {"minimum": 5}
+        },
+        "tests": [
+            {
+                "description": "array with item matching schema (5) is valid",
+                "data": [3, 4, 5],
+                "valid": true
+            },
+            {
+                "description": "array with item matching schema (6) is valid",
+                "data": [3, 4, 6],
+                "valid": true
+            },
+            {
+                "description": "array with two items matching schema (5, 6) is valid",
+                "data": [3, 4, 5, 6],
+                "valid": true
+            },
+            {
+                "description": "array without items matching schema is invalid",
+                "data": [2, 3, 4],
+                "valid": false
+            },
+            {
+                "description": "empty array is invalid",
+                "data": [],
+                "valid": false
+            },
+            {
+                "description": "not array is valid",
+                "data": {},
                 "valid": true
             }
         ]
