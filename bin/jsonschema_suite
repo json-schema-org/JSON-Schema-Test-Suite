@@ -53,7 +53,7 @@ REMOTES = {
             u"refToInteger": {u"$ref": u"#/$defs/integer"},
         }
     },
-    "folder/folderInteger.json": {u"type": u"integer"}
+    os.path.join("folder", "folderInteger.json"): {u"type": u"integer"}
 }
 REMOTES_DIR = os.path.join(ROOT_DIR, "remotes")
 
@@ -246,6 +246,9 @@ def main(arguments):
 
         @app.route("/<path:path>")
         def serve_path(path):
+            # Needed to ensure that relative paths are following the OS path
+            # separator convention (linux/mac: `/`, windows: `\`)
+            path = os.path.join(*path.split('/'))
             if path in REMOTES:
                 return jsonify(REMOTES[path])
             return "Document does not exist.", 404
