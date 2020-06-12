@@ -7,11 +7,6 @@
                 "description": "[^] is a valid regex",
                 "data": "[^]",
                 "valid": true
-            },
-            {
-                "description": "ECMA 262 has no support for lookbehind",
-                "data": "(?<=foo)bar",
-                "valid": false
             }
         ]
     }
