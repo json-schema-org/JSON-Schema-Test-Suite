@@ -11,14 +11,21 @@ on:
 
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['2.7', '3.5', '3.6', '3.7', '3.8']
+
+    name: Python ${{ matrix.python-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.7
+        python-version: ${{ matrix.python-version }}
     - name: Install tox
       run: python -m pip install tox
     - name: Run the sanity checks
