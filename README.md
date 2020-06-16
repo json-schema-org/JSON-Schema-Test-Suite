@@ -85,6 +85,10 @@ This suite is being used by:
 
 * [jsck](https://github.com/pandastrike/jsck)
 
+### Common Lisp
+
+* [json-schema](https://github.com/fisxoj/json-schema)
+
 ### C++
 
 * [Modern C++ JSON schema validator](https://github.com/pboettch/json-schema-validator)
