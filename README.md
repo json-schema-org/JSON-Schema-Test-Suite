@@ -183,6 +183,7 @@ which also welcomes your contributions!
 
 ### Rust
 
+* [jsonschema](https://github.com/Stranger6667/jsonschema-rs)
 * [valico](https://github.com/rustless/valico)
 
 ### Swift
