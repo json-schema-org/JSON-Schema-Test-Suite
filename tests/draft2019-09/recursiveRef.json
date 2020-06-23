@@ -33,7 +33,7 @@
     {
         "description": "$recursiveRef without using nesting",
         "schema": {
-            "$id": "http://localhost:4242",
+            "$id": "http://localhost:4242/recursiveRef2/schema.json",
             "$defs": {
                 "myobject": {
                     "$id": "myobject.json",
@@ -83,7 +83,7 @@
     {
         "description": "$recursiveRef with nesting",
         "schema": {
-            "$id": "http://localhost:4242",
+            "$id": "http://localhost:4242/recursiveRef3/schema.json",
             "$recursiveAnchor": true,
             "$defs": {
                 "myobject": {
