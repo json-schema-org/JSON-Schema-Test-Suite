@@ -1,3 +1,4 @@
 {
+    "$id": "http://localhost:1234/folder/folderInteger.json",
     "type": "integer"
 }

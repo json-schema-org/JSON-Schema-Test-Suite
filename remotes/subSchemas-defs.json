@@ -1,4 +1,5 @@
 {
+    "$id": "http://localhost:1234/subSchemas-defs.json",
     "$defs": {
         "integer": {
             "type": "integer"

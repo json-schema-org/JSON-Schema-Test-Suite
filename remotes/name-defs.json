@@ -1,4 +1,5 @@
 {
+    "$id": "http://localhost:1234/name-defs.json",
     "$defs": {
         "orNull": {
             "anyOf": [

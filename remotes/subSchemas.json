@@ -1,4 +1,5 @@
 {
+    "$id": "http://localhost:1234/subSchemas.json",
     "integer": {
         "type": "integer"
     },

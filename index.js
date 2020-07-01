@@ -3,13 +3,13 @@
 const Ajv = require('ajv');
 const jsonSchemaTest = require('json-schema-test');
 
-const refs = {
-  'http://localhost:1234/integer.json': require('./remotes/integer.json'),
-  'http://localhost:1234/subSchemas.json': require('./remotes/subSchemas.json'),
-  'http://localhost:1234/folder/folderInteger.json': require('./remotes/folder/folderInteger.json'),
-  'http://localhost:1234/name.json': require('./remotes/name.json'),
-  'http://localhost:1234/name-defs.json': require('./remotes/name-defs.json')
-};
+const refs = [
+  require('./remotes/integer.json'),
+  require('./remotes/subSchemas.json'),
+  require('./remotes/folder/folderInteger.json'),
+  require('./remotes/name.json'),
+  require('./remotes/name-defs.json')
+];
 
 const SKIP = {
   4: ['optional/zeroTerminatedFloats'],
@@ -32,7 +32,7 @@ const SKIP = {
     ajv.addMetaSchema(require(`ajv/lib/refs/json-schema-draft-0${draft}.json`));
     ajv._opts.defaultMeta = `http://json-schema.org/draft-0${draft}/schema#`;
   }
-  for (const uri in refs) ajv.addSchema(refs[uri], uri);
+  for (const ref of refs) ajv.addSchema(ref, ref.$id);
 
   jsonSchemaTest(ajv, {
     description: `Test suite draft-0${draft}`,
