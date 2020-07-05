@@ -231,5 +231,43 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "$recursiveRef with no $recursiveAnchor in the initial target schema resource",
+        "schema": {
+            "$id": "http://localhost:4242/recursiveRef6/base.json",
+            "$recursiveAnchor": true,
+            "anyOf": [
+                { "type": "boolean" },
+                {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$id": "http://localhost:4242/recursiveRef6/inner.json",
+                        "$comment": "there is no $recursiveAnchor: true here, so we do NOT recurse to the base",
+                        "anyOf": [
+                            { "type": "integer" },
+                            { "type": "object", "additionalProperties": { "$recursiveRef": "#" } }
+                        ]
+                    }
+                }
+            ]
+        },
+        "tests": [
+            {
+                "description": "leaf node does not match; no recursion",
+                "data": { "foo": true },
+                "valid": false
+            },
+            {
+                "description": "leaf node matches: recursion only uses inner schema",
+                "data": { "foo": { "bar": 1 } },
+                "valid": true
+            },
+            {
+                "description": "leaf node does not match: recursion only uses inner schema",
+                "data": { "foo": { "bar": true } },
+                "valid": false
+            }
+        ]
     }
 ]
