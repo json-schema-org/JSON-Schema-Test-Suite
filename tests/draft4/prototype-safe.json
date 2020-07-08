@@ -1,0 +1,976 @@
+[
+    {
+        "description": "Does not see elements non existing on the object: 'x' as number",
+        "comment": "This is a baseline check to validate that other properties are treated the same and are not special compared to it",
+        "schema": {
+            "properties": { "x": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "x": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "x": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "x": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "x": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "x": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "x": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "x": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "x": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'x' as object",
+        "comment": "This is a baseline check to validate that other properties are treated the same and are not special compared to it",
+        "schema": {
+            "properties": { "x": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "x": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "x": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "x": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "x": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "x": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "x": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "x": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "x": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "x": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'x' via required",
+        "comment": "This is a baseline check to validate that other properties are treated the same and are not special compared to it",
+        "schema": {
+            "required": ["x"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "x": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "x": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "x": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "x": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "x": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "x": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "x": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "x": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "x": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'length' as number",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "properties": { "length": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "length": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "length": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "length": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "length": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "length": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "length": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "length": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "length": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'length' as object",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "properties": { "length": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "length": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "length": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "length": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "length": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "length": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "length": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "length": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "length": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "length": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'length' via required",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "required": ["length"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "length": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "length": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "length": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "length": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "length": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "length": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "length": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "length": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "length": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'toString' as number",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "properties": { "toString": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "toString": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "toString": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "toString": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "toString": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "toString": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "toString": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "toString": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "toString": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'toString' as object",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "properties": { "toString": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "toString": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "toString": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "toString": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "toString": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "toString": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "toString": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "toString": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "toString": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "toString": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'toString' via required",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "required": ["toString"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "toString": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "toString": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "toString": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "toString": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "toString": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "toString": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "toString": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "toString": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "toString": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'constructor' as number",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "properties": { "constructor": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "constructor": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "constructor": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "constructor": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "constructor": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "constructor": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "constructor": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "constructor": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "constructor": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'constructor' as object",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "properties": { "constructor": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "constructor": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "constructor": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "constructor": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "constructor": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "constructor": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "constructor": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "constructor": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "constructor": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "constructor": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: 'constructor' via required",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "required": ["constructor"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "constructor": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "constructor": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "constructor": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "constructor": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "constructor": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "constructor": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "constructor": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "constructor": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "constructor": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__proto__' as number",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "properties": { "__proto__": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__proto__": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__proto__": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__proto__": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__proto__": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__proto__": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__proto__": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__proto__": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "__proto__": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__proto__' as object",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "properties": { "__proto__": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__proto__": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__proto__": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__proto__": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__proto__": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__proto__": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__proto__": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__proto__": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "__proto__": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "__proto__": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__proto__' via required",
+        "comment": "This is a common bug of some of the JS validators, this test detects it",
+        "schema": {
+            "required": ["__proto__"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "__proto__": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__proto__": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__proto__": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__proto__": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__proto__": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__proto__": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__proto__": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__proto__": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__proto__": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__len' as number",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "properties": { "__len": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__len": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__len": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__len": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__len": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__len": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__len": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__len": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "__len": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__len' as object",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "properties": { "__len": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__len": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__len": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__len": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__len": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__len": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__len": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__len": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "__len": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "__len": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__len' via required",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "required": ["__len"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "__len": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__len": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__len": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__len": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__len": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__len": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__len": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__len": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__len": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__tostring' as number",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "properties": { "__tostring": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__tostring": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__tostring": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__tostring": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__tostring": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__tostring": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__tostring": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__tostring": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "__tostring": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__tostring' as object",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "properties": { "__tostring": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__tostring": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__tostring": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__tostring": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__tostring": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__tostring": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__tostring": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__tostring": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "__tostring": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "__tostring": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__tostring' via required",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "required": ["__tostring"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "__tostring": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__tostring": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__tostring": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__tostring": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__tostring": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__tostring": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__tostring": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__tostring": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__tostring": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__gc' as number",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "properties": { "__gc": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__gc": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__gc": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__gc": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__gc": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__gc": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__gc": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__gc": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "__gc": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__gc' as object",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "properties": { "__gc": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__gc": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__gc": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__gc": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__gc": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__gc": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__gc": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__gc": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "__gc": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "__gc": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__gc' via required",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "required": ["__gc"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "__gc": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__gc": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__gc": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__gc": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__gc": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__gc": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__gc": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__gc": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__gc": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__index' as number",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "properties": { "__index": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__index": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__index": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__index": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__index": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__index": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__index": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__index": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "__index": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__index' as object",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "properties": { "__index": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__index": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__index": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__index": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__index": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__index": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__index": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__index": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "__index": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "__index": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see elements non existing on the object: '__index' via required",
+        "comment": "Also test for Lua special name handling",
+        "schema": {
+            "required": ["__index"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "__index": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__index": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__index": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__index": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__index": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__index": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__index": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__index": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__index": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Default value: 'foo' as number",
+        "comment": "Default should not affect passing validation in all cases",
+        "schema": {
+            "properties": { "foo": { "default": "foo" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if present (string)", "data": { "foo": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "foo": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "foo": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "foo": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "foo": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "foo": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "foo": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "foo": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "foo": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Default value on a '__proto__' property: 'foo' as object",
+        "comment": "Default should not affect passing validation in all cases",
+        "schema": {
+            "properties": { "__proto__": { "properties": { "foo": { "default": "foo" } } } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if present (string)", "data": { "foo": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "foo": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "foo": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "foo": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "foo": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "foo": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "foo": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "foo": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "foo": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: 'foo' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "required": ["foo"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "foo": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "foo": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "foo": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "foo": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "foo": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "foo": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "foo": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "foo": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "foo": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: 'foo' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "properties": { "foo": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "foo": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "foo": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "foo": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "foo": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "foo": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "foo": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "foo": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "foo": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: 'foo' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "properties": { "foo": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "foo": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "foo": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "foo": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "foo": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "foo": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "foo": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "foo": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "foo": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "foo": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Default value: 'length' as number",
+        "comment": "Default should not affect passing validation in all cases",
+        "schema": {
+            "properties": { "length": { "default": "foo" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if present (string)", "data": { "length": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "length": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "length": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "length": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "length": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "length": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "length": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "length": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "length": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Default value on a '__proto__' property: 'length' as object",
+        "comment": "Default should not affect passing validation in all cases",
+        "schema": {
+            "properties": { "__proto__": { "properties": { "length": { "default": "foo" } } } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if present (string)", "data": { "length": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "length": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "length": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "length": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "length": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "length": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "length": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "length": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "length": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: 'length' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "required": ["length"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "length": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "length": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "length": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "length": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "length": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "length": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "length": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "length": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "length": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: 'length' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "properties": { "length": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "length": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "length": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "length": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "length": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "length": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "length": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "length": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "length": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: 'length' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "properties": { "length": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "length": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "length": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "length": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "length": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "length": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "length": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "length": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "length": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "length": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Default value: '__proto__' as number",
+        "comment": "Default should not affect passing validation in all cases",
+        "schema": {
+            "properties": { "__proto__": { "default": "foo" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if present (string)", "data": { "__proto__": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__proto__": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__proto__": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__proto__": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__proto__": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__proto__": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__proto__": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__proto__": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__proto__": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Default value on a '__proto__' property: '__proto__' as object",
+        "comment": "Default should not affect passing validation in all cases",
+        "schema": {
+            "properties": { "__proto__": { "properties": { "__proto__": { "default": "foo" } } } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if present (string)", "data": { "__proto__": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__proto__": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__proto__": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__proto__": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__proto__": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__proto__": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__proto__": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__proto__": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__proto__": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: '__proto__' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "required": ["__proto__"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "__proto__": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__proto__": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__proto__": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__proto__": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__proto__": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__proto__": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__proto__": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__proto__": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__proto__": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: '__proto__' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "properties": { "__proto__": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__proto__": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__proto__": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__proto__": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__proto__": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__proto__": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__proto__": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__proto__": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "__proto__": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: '__proto__' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "properties": { "__proto__": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__proto__": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__proto__": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__proto__": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__proto__": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__proto__": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__proto__": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__proto__": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "__proto__": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "__proto__": 42 }, "valid": false }
+        ]
+    },
+    {
+        "description": "Default value: '__index' as number",
+        "comment": "Default should not affect passing validation in all cases",
+        "schema": {
+            "properties": { "__index": { "default": "foo" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if present (string)", "data": { "__index": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__index": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__index": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__index": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__index": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__index": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__index": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__index": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__index": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Default value on a '__index' property: '__index' as object",
+        "comment": "Default should not affect passing validation in all cases",
+        "schema": {
+            "properties": { "__index": { "properties": { "__index": { "default": "foo" } } } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if present (string)", "data": { "__index": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__index": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__index": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__index": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__index": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__index": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__index": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__index": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__index": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: '__index' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "required": ["__index"]
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Invalid if not present", "data": {}, "valid": false },
+            { "description": "Valid if present (string)", "data": { "__index": "foo" }, "valid": true },
+            { "description": "Valid if present (empty string)", "data": { "__index": "" }, "valid": true },
+            { "description": "Valid if present (boolean true)", "data": { "__index": true }, "valid": true },
+            { "description": "Valid if present (boolean false)", "data": { "__index": false }, "valid": true },
+            { "description": "Valid if present (array)", "data": { "__index": [42] }, "valid": true },
+            { "description": "Valid if present (empty array)", "data": { "__index": [] }, "valid": true },
+            { "description": "Valid if present (object)", "data": { "__index": {} }, "valid": true },
+            { "description": "Valid if present (zero number)", "data": { "__index": 0 }, "valid": true },
+            { "description": "Valid if present (number)", "data": { "__index": 42 }, "valid": true }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: '__index' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "properties": { "__index": { "type": "number" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__index": 10 }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__index": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__index": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__index": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__index": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__index": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__index": [] }, "valid": false },
+            { "description": "Invalid if incorrect (object)", "data": { "__index": {} }, "valid": false }
+        ]
+    },
+    {
+        "description": "Does not see inexisting elements on new objects: '__index' via required",
+        "comment": "Validating a new object should not be affected by previous default",
+        "schema": {
+            "properties": { "__index": { "type": "object" } }
+        },
+        "tests": [
+            { "description": "Valid on numbers", "data": 0, "valid": true },
+            { "description": "Valid on arrays", "data": [], "valid": true },
+            { "description": "Valid if not present", "data": {}, "valid": true },
+            { "description": "Valid if correct", "data": { "__index": {} }, "valid": true },
+            { "description": "Invalid if incorrect (string)", "data": { "__index": "foo" }, "valid": false },
+            { "description": "Invalid if incorrect (empty string)", "data": { "__index": "" }, "valid": false },
+            { "description": "Invalid if incorrect (boolean true)", "data": { "__index": true }, "valid": false },
+            { "description": "Invalid if incorrect (boolean false)", "data": { "__index": false }, "valid": false },
+            { "description": "Invalid if incorrect (array)", "data": { "__index": [42] }, "valid": false },
+            { "description": "Invalid if incorrect (empty array)", "data": { "__index": [] }, "valid": false },
+            { "description": "Invalid if incorrect (zero number)", "data": { "__index": 0 }, "valid": false },
+            { "description": "Invalid if incorrect (number)", "data": { "__index": 42 }, "valid": false }
+        ]
+    }
+]
