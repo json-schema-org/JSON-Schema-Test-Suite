@@ -69,11 +69,6 @@
               "valid": true
           },
           {
-              "description": "elements may be omitted if their value is zero",
-              "data": "PT1H1S",
-              "valid": true
-          },
-          {
               "description": "one and a half days, in hours",
               "data": "PT36H",
               "valid": true
