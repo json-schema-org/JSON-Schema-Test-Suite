@@ -143,13 +143,16 @@ const tests = `[${
         makeBlock(name, 'This is a common bug of some of the JS validators, this test detects it')
       ).join(',')
     },${
+      ['foo', 'length', '__proto__'].map(name => makeBlockDefault(name, '__proto__')).join(',')
+      /*
+      // Lua-targeting, commented out until tested against an actual Lua-based impl
+    },${
       ['__len', '__tostring', '__gc', '__index'].map(name => 
         makeBlock(name, 'Also test for Lua special name handling')
       ).join(',')
     },${
-      ['foo', 'length', '__proto__'].map(name => makeBlockDefault(name, '__proto__')).join(',')
-    },${
       makeBlockDefault('__index', '__index')
+      */
     }
 ]`
 
