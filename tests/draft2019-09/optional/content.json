@@ -73,5 +73,55 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "validation of binary-encoded media type documents with schema",
+        "schema": {
+            "contentMediaType": "application/json",
+            "contentEncoding": "base64",
+            "contentSchema": { "required": ["foo"], "properties": { "foo": { "type": "string" } } }
+        },
+        "tests": [
+            {
+                "description": "a valid base64-encoded JSON document",
+                "data": "eyJmb28iOiAiYmFyIn0K",
+                "valid": true
+            },
+            {
+                "description": "another valid base64-encoded JSON document",
+                "data": "eyJib28iOiAyMCwgImZvbyI6ICJiYXoifQ==",
+                "valid": true
+            },
+            {
+                "description": "an invalid base64-encoded JSON document",
+                "data": "eyJib28iOiAyMH0=",
+                "valid": false
+            },
+            {
+                "description": "an empty object as a base64-encoded JSON document",
+                "data": "e30=",
+                "valid": false
+            },
+            {
+                "description": "an empty array as a base64-encoded JSON document",
+                "data": "W10=",
+                "valid": true
+            },
+            {
+                "description": "a validly-encoded invalid JSON document",
+                "data": "ezp9Cg==",
+                "valid": false
+            },
+            {
+                "description": "an invalid base64 string that is valid JSON",
+                "data": "{}",
+                "valid": false
+            },
+            {
+                "description": "ignores non-strings",
+                "data": 100,
+                "valid": true
+            }
+        ]
     }
 ]
