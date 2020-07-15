@@ -373,7 +373,7 @@
         ]
     },
     {
-        "description": "Does not see inexisting elements on new objects: 'foo' via required",
+        "description": "Does not see inexisting elements on new objects: 'foo' as number",
         "comment": "Validating a new object should not be affected by previous default",
         "schema": {
             "properties": { "foo": { "type": "number" } }
@@ -393,7 +393,7 @@
         ]
     },
     {
-        "description": "Does not see inexisting elements on new objects: 'foo' via required",
+        "description": "Does not see inexisting elements on new objects: 'foo' as object",
         "comment": "Validating a new object should not be affected by previous default",
         "schema": {
             "properties": { "foo": { "type": "object" } }
@@ -477,7 +477,7 @@
         ]
     },
     {
-        "description": "Does not see inexisting elements on new objects: 'length' via required",
+        "description": "Does not see inexisting elements on new objects: 'length' as number",
         "comment": "Validating a new object should not be affected by previous default",
         "schema": {
             "properties": { "length": { "type": "number" } }
@@ -497,7 +497,7 @@
         ]
     },
     {
-        "description": "Does not see inexisting elements on new objects: 'length' via required",
+        "description": "Does not see inexisting elements on new objects: 'length' as object",
         "comment": "Validating a new object should not be affected by previous default",
         "schema": {
             "properties": { "length": { "type": "object" } }
@@ -581,7 +581,7 @@
         ]
     },
     {
-        "description": "Does not see inexisting elements on new objects: '__proto__' via required",
+        "description": "Does not see inexisting elements on new objects: '__proto__' as number",
         "comment": "Validating a new object should not be affected by previous default",
         "schema": {
             "properties": { "__proto__": { "type": "number" } }
@@ -601,7 +601,7 @@
         ]
     },
     {
-        "description": "Does not see inexisting elements on new objects: '__proto__' via required",
+        "description": "Does not see inexisting elements on new objects: '__proto__' as object",
         "comment": "Validating a new object should not be affected by previous default",
         "schema": {
             "properties": { "__proto__": { "type": "object" } }

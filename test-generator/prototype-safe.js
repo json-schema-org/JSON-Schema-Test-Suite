@@ -127,12 +127,12 @@ const makeBlockDefault = (name, proto) => `
         ${makeRequired(name)}
     },
     {
-        "description": "Does not see inexisting elements on new objects: '${inline(name)}' via required",
+        "description": "Does not see inexisting elements on new objects: '${inline(name)}' as number",
         "comment": "Validating a new object should not be affected by previous default",
         ${makeNumber(name)}
     },
     {
-        "description": "Does not see inexisting elements on new objects: '${inline(name)}' via required",
+        "description": "Does not see inexisting elements on new objects: '${inline(name)}' as object",
         "comment": "Validating a new object should not be affected by previous default",
         ${makeObject(name)}
     }`
