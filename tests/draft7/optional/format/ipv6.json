@@ -112,6 +112,26 @@
                 "description": "ipv4 segment must have 4 octets",
                 "data": "1:2:3:4:1.2.3",
                 "valid": false
+            },
+            {
+                "description": "leading whitespace is invalid",
+                "data": "  ::1",
+                "valid": false
+            },
+            {
+                "description": "trailing whitespace is invalid",
+                "data": "::1  ",
+                "valid": false
+            },
+            {
+                "description": "netmask is not a part of ipv6 address",
+                "data": "fe80::/64",
+                "valid": false
+            },
+            {
+                "description": "zone id is not a part of ipv6 address",
+                "data": "fe80::a%eth1",
+                "valid": false
             }
         ]
     }
