@@ -210,5 +210,30 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "subschema nested ref in remote ref",
+        "schema": {
+            "$id": "http://localhost:1234/",
+            "properties": {
+                "name": {"$ref": "folder/subSchemaNestedRef.json"}
+            }
+        },
+        "tests": [
+            {
+                "description": "number is valid",
+                "data": {
+                    "name": {"hole":  1}
+                },
+                "valid": true
+            },
+            {
+                "description": "string is invalid",
+                "data": {
+                    "name": {"hole":  "a"}
+                },
+                "valid": false
+            }
+        ]
     }
 ]
