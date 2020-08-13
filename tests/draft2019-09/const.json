@@ -168,7 +168,7 @@
         ]
     },
     {
-        "description": "const with {\"a\": false} does not match {\"a\": 0}]",
+        "description": "const with {\"a\": false} does not match {\"a\": 0}",
         "schema": {"const": {"a": false}},
         "tests": [
             {
@@ -189,7 +189,7 @@
         ]
     },
     {
-        "description": "const with {\"a\": true} does not match {\"a\": 1}]",
+        "description": "const with {\"a\": true} does not match {\"a\": 1}",
         "schema": {"const": {"a": true}},
         "tests": [
             {
