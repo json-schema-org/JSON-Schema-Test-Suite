@@ -292,7 +292,7 @@
             },
             {
                 "description": "invalidates non-padded day dates",
-                "data": "1998-01-1,
+                "data": "1998-01-1",
                 "valid": false
             }
         ]
