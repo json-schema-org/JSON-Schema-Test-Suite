@@ -284,6 +284,16 @@
                 "description": "ignores null",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "invalidates non-padded month dates",
+                "data": "1998-1-20",
+                "valid": false
+            },
+            {
+                "description": "invalidates non-padded day dates",
+                "data": "1998-01-1,
+                "valid": false
             }
         ]
     },
