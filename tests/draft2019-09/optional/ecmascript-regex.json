@@ -4,8 +4,46 @@
         "schema": { "format": "regex" },
         "tests": [
             {
-                "description": "ECMA 262 has no support for \\Z anchor from .NET",
+                "description": "ECMA 262 has no support for \\Z anchor, but it's still a valid regex",
                 "data": "^\\S(|(.|\\n)*\\S)\\Z",
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "ECMA 262 regex non-compliance",
+        "schema": {
+            "type": "string",
+            "pattern": "^x\\Z"
+        },
+        "tests": [
+            {
+                "description": "\\Z should match literal Z",
+                "data": "xZ",
+                "valid": true
+            },
+            {
+                "description": "\\Z should not match end",
+                "data": "x",
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "ECMA 262 regex non-compliance",
+        "schema": {
+            "type": "string",
+            "pattern": "^x\\z"
+        },
+        "tests": [
+            {
+                "description": "\\z should match literal z",
+                "data": "xz",
+                "valid": true
+            },
+            {
+                "description": "\\z should not match end",
+                "data": "x",
                 "valid": false
             }
         ]
