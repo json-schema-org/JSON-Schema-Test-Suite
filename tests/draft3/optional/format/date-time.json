@@ -26,12 +26,12 @@
             {
                 "description": "invalid non-padded month dates",
                 "data": "1963-6-19T08:30:06.283185Z",
-                "valid": true
+                "valid": false
             },
             {
                 "description": "invalid non-padded day dates",
                 "data": "1963-06-1T08:30:06.283185Z",
-                "valid": true
+                "valid": false
             }
         ]
     }
