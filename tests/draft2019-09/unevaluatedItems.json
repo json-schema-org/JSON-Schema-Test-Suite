@@ -433,5 +433,55 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: array",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-schema unevaluatedItems: number",
+                "data": {
+                    "unevaluatedItems": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema unevaluatedItems: string",
+                "data": {
+                    "unevaluatedItems": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema unevaluatedItems: array",
+                "data": {
+                    "unevaluatedItems": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema unevaluatedItems: null",
+                "data": {
+                    "unevaluatedItems": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean unevaluatedItems",
+                "data": {
+                    "unevaluatedItems": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object unevaluatedItems",
+                "data": {
+                    "unevaluatedItems": {}
+                },
+                "valid": true
+            }
+        ]
     }
 ]

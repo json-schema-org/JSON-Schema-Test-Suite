@@ -1,0 +1,99 @@
+[
+    {
+        "description": "Meta-schema core tests: $vocabulary",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-object $vocabulary: number",
+                "data": {
+                    "$vocabulary": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object $vocabulary: Boolean",
+                "data": {
+                    "$vocabulary": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object $vocabulary: null",
+                "data": {
+                    "$vocabulary": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object $vocabulary: array",
+                "data": {
+                    "$vocabulary": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object $vocabulary: string",
+                "data": {
+                    "$vocabulary": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid $vocabulary",
+                "data": {
+                    "$vocabulary": {
+                        "https://json-schema.org/draft/2019-09/vocab/core": true
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "Invalid $vocabulary property: string",
+                "data": {
+                    "$vocabulary": {
+                        "https://json-schema.org/draft/2019-09/vocab/core": "string"
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Invalid $vocabulary property: number",
+                "data": {
+                  "$vocabulary": {
+                      "https://json-schema.org/draft/2019-09/vocab/core": 1
+                  }
+                },
+                "valid": false
+            },
+            {
+                "description": "Invalid $vocabulary property: null",
+                "data": {
+                  "$vocabulary": {
+                      "https://json-schema.org/draft/2019-09/vocab/core": null
+                  }
+                },
+                "valid": false
+            },
+            {
+                "description": "Invalid $vocabulary property: array",
+                "data": {
+                    "$vocabulary": {
+                        "https://json-schema.org/draft/2019-09/vocab/core": []
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Invalid $vocabulary property: object",
+                "data": {
+                  "$vocabulary": {
+                      "https://json-schema.org/draft/2019-09/vocab/core": {}
+                  }
+                },
+                "valid": false
+            }
+        ]
+    }
+]

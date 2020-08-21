@@ -222,5 +222,62 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: enum",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-array enum: number",
+                "data": {
+                    "enum": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array enum: string",
+                "data": {
+                    "enum": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array enum: Boolean",
+                "data": {
+                    "enum": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array enum: object",
+                "data": {
+                    "enum": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array enum: null",
+                "data": {
+                    "enum": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Empty enum is valid",
+                "data": {
+                    "enum": []
+                },
+                "valid": true
+            },
+            {
+                "description": "Non-unique enums are valid",
+                "data": {
+                    "enum": [ "hello", "hello" ]
+                },
+                "valid": true
+            }
+        ]
     }
 ]

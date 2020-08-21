@@ -246,5 +246,76 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: array",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-schema items: number",
+                "data": {
+                    "items": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema items: string",
+                "data": {
+                    "items": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema items: null",
+                "data": {
+                    "items": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean items",
+                "data": {
+                    "items": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object items",
+                "data": {
+                    "items": {}
+                },
+                "valid": true
+            },
+            {
+                "description": "Empty array items",
+                "data": {
+                    "items": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Not-a-schema array items: string",
+                "data": {
+                    "items": [ "integer" ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid array items: schema",
+                "data": {
+                    "items": [ { "type": "integer" } ]
+                },
+                "valid": true
+            },
+            {
+                "description": "Valid array items: empty schema",
+                "data": {
+                    "items": [ {} ]
+                },
+                "valid": true
+            }
+        ]
     }
 ]

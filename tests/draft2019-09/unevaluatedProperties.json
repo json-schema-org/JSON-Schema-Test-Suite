@@ -809,5 +809,55 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: object",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-schema unevaluatedProperties: number",
+                "data": {
+                    "unevaluatedProperties": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema unevaluatedProperties: string",
+                "data": {
+                    "unevaluatedProperties": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema unevaluatedProperties: array",
+                "data": {
+                    "unevaluatedProperties": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema unevaluatedProperties: null",
+                "data": {
+                    "unevaluatedProperties": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean unevaluatedProperties",
+                "data": {
+                    "unevaluatedProperties": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object unevaluatedProperties",
+                "data": {
+                    "unevaluatedProperties": {}
+                },
+                "valid": true
+            }
+        ]
     }
 ]

@@ -110,5 +110,109 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: conditional",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-object dependentSchemas: string",
+                "data": {
+                    "dependentSchemas": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object dependentSchemas: Boolean",
+                "data": {
+                    "dependentSchemas": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object dependentSchemas: null",
+                "data": {
+                    "dependentSchemas": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object dependentSchemas: number",
+                "data": {
+                    "dependentSchemas": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-object dependentSchemas: array",
+                "data": {
+                    "dependentSchemas": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema property in dependentSchemas: string",
+                "data": {
+                    "dependentSchemas": {
+                        "hello": "there"
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema property in dependentSchemas: null",
+                "data": {
+                    "dependentSchemas": {
+                        "hello": null
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema property in dependentSchemas: number",
+                "data": {
+                    "dependentSchemas": {
+                        "hello": 1
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema property in dependentSchemas: array",
+                "data": {
+                    "dependentSchemas": {
+                        "hello": []
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean property in dependentSchemas",
+                "data": {
+                    "dependentSchemas": {
+                        "hello": true
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "Object property in dependentSchemas",
+                "data": {
+                    "dependentSchemas": {
+                        "hello": {}
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "Empty dependentSchemas",
+                "data": {
+                    "dependentSchemas": {}
+                },
+                "valid": true
+            }
+        ]
     }
 ]

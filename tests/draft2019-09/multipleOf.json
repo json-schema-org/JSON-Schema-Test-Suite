@@ -56,5 +56,62 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: numeric instances",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-number multipleOf: string",
+                "data": {
+                    "multipleOf": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number multipleOf: Boolean",
+                "data": {
+                    "multipleOf": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number multipleOf: array",
+                "data": {
+                    "multipleOf": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number multipleOf: object",
+                "data": {
+                    "multipleOf": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number multipleOf: null",
+                "data": {
+                    "multipleOf": null
+                },
+                "valid": false
+            },
+            {
+                "description": "multipleOf is zero",
+                "data": {
+                    "multipleOf": 0
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid multipleOf: number",
+                "data": {
+                    "multipleOf": 1.1
+                },
+                "valid": true
+            }
+        ]
     }
 ]

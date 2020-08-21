@@ -1,0 +1,56 @@
+[
+    {
+        "description": "Meta-schema meta-data tests: examples",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-array examples: number",
+                "data": {
+                    "examples": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array examples: string",
+                "data": {
+                    "examples": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array examples: null",
+                "data": {
+                    "examples": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array examples: Boolean",
+                "data": {
+                    "examples": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-array examples: object",
+                "data": {
+                    "examples": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid examples: array of anything",
+                "data": {
+                    "examples": [
+                        true,
+                        "hello",
+                        {}
+                    ]
+                },
+                "valid": true
+            }
+        ]
+    }
+]

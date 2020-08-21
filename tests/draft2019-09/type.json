@@ -470,5 +470,34 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: type",
+        "schema": {
+        "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Unknown type",
+                "data": {
+                    "type": "float"
+                },
+                "valid": false
+            },
+            {
+                "description": "Duplicate types",
+                "data": {
+                    "type": [ "null", "null" ]
+                },
+                "valid": false
+            },
+            {
+                "description": "Empty types",
+                "data": {
+                    "type": []
+                },
+                "valid": false
+            }
+        ]
     }
 ]

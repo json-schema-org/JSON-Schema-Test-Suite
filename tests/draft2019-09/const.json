@@ -338,5 +338,20 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: const",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Anything goes for const",
+                "data": {
+                    "const": 1
+                },
+                "valid": true
+            }
+        ]
     }
 ]

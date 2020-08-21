@@ -77,5 +77,95 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema core tests: $anchor",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string $anchor: number",
+                "data": {
+                    "$anchor": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $anchor: Boolean",
+                "data": {
+                    "$anchor": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $anchor: null",
+                "data": {
+                    "$anchor": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $anchor: array",
+                "data": {
+                    "$anchor": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string $anchor: object",
+                "data": {
+                    "$anchor": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid $anchor",
+                "data": {
+                    "$anchor": "himom"
+                },
+                "valid": true
+            },
+            {
+                "description": "Invalid $anchor: starts with invalid",
+                "data": {
+                    "$anchor": "-himom"
+                },
+                "valid": false
+              },
+            {
+                "description": "Invalid $anchor: ends with invalid",
+                "data": {
+                    "$anchor": "himom@"
+                },
+                "valid": false
+            },
+            {
+                "description": "Fragment syntax disallowed",
+                "data": {
+                    "$ref": "#foo",
+                    "$defs": {
+                        "A": {
+                            "$anchor": "#foo",
+                            "type": "integer"
+                        }
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "Invalid characters disallowed",
+                "data": {
+                    "$ref": "#/a/b",
+                    "$defs": {
+                        "A": {
+                            "$anchor": "/a/b",
+                            "type": "integer"
+                        }
+                    }
+                },
+                "valid": false
+            }
+        ]
     }
 ]

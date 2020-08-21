@@ -1,0 +1,52 @@
+[
+    {
+        "description": "Meta-schema meta-data tests: title",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string title: number",
+                "data": {
+                    "title": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string title: Boolean",
+                "data": {
+                    "title": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string title: null",
+                "data": {
+                    "title": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string title: array",
+                "data": {
+                    "title": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string title: object",
+                "data": {
+                    "title": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid title: string",
+                "data": {
+                    "title": "Tome"
+                },
+                "valid": true
+            }
+        ]
+    }
+]

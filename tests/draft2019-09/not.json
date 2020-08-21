@@ -113,5 +113,55 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: Boolean logic",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-schema not: number",
+                "data": {
+                    "not": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema not: string",
+                "data": {
+                    "not": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema not: array",
+                "data": {
+                    "not": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema not: null",
+                "data": {
+                    "not": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean not",
+                "data": {
+                    "not": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object not",
+                "data": {
+                    "not": {}
+                },
+                "valid": true
+            }
+        ]
     }
 ]

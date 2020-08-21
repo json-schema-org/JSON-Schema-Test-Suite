@@ -74,5 +74,55 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema applicator tests: object",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-schema propertyNames: number",
+                "data": {
+                    "propertyNames": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema propertyNames: string",
+                "data": {
+                    "propertyNames": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema propertyNames: array",
+                "data": {
+                    "propertyNames": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-schema propertyNames: null",
+                "data": {
+                    "propertyNames": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Boolean propertyNames",
+                "data": {
+                    "propertyNames": true
+                },
+                "valid": true
+            },
+            {
+                "description": "Object propertyNames",
+                "data": {
+                    "propertyNames": {}
+                },
+                "valid": true
+            }
+        ]
     }
 ]

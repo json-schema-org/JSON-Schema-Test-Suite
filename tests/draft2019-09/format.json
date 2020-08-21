@@ -682,5 +682,55 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema format tests",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-string format: number",
+                "data": {
+                    "format": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string format: Boolean",
+                "data": {
+                    "format": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string format: null",
+                "data": {
+                    "format": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string format: array",
+                "data": {
+                    "format": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-string format: object",
+                "data": {
+                    "format": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid format: string",
+                "data": {
+                    "format": "uri-reference"
+                },
+                "valid": true
+            }
+        ]
     }
 ]

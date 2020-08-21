@@ -26,5 +26,55 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: numeric instances",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-number exclusiveMaximum: string",
+                "data": {
+                    "exclusiveMaximum": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number exclusiveMaximum: Boolean",
+                "data": {
+                    "exclusiveMaximum": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number exclusiveMaximum: array",
+                "data": {
+                    "exclusiveMaximum": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number exclusiveMaximum: object",
+                "data": {
+                    "exclusiveMaximum": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number exclusiveMaximum: null",
+                "data": {
+                    "exclusiveMaximum": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid exclusiveMaximum: number",
+                "data": {
+                    "exclusiveMaximum": 1.1
+                },
+                "valid": true
+            }
+        ]
     }
 ]

@@ -50,5 +50,55 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: numeric instances",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-number maximum: string",
+                "data": {
+                    "maximum": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maximum: Boolean",
+                "data": {
+                    "maximum": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maximum: array",
+                "data": {
+                    "maximum": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maximum: object",
+                "data": {
+                    "maximum": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maximum: null",
+                "data": {
+                    "maximum": null
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid maximum: number",
+                "data": {
+                    "maximum": 1.1
+                },
+                "valid": true
+            }
+        ]
     }
 ]

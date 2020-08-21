@@ -75,5 +75,69 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Meta-schema validation tests: arrays",
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "Non-number maxContains: string",
+                "data": {
+                    "maxContains": "hello"
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maxContains: Boolean",
+                "data": {
+                    "maxContains": true
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maxContains: array",
+                "data": {
+                    "maxContains": []
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maxContains: object",
+                "data": {
+                    "maxContains": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "Non-number maxContains: null",
+                "data": {
+                    "maxContains": null
+                },
+                "valid": false
+            },
+            {
+                "description": "maxContains is negative",
+                "data": {
+                    "maxContains": -1
+                },
+                "valid": false
+            },
+            {
+                "description": "maxContains is floating-point",
+                "data": {
+                    "maxContains": 1.5
+                },
+                "valid": false
+            },
+            {
+                "description": "Valid maxContains: integer",
+                "data": {
+                    "maxContains": 0
+                },
+                "valid": true
+            }
+        ]
     }
 ]
