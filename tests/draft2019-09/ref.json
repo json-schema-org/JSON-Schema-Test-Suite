@@ -75,13 +75,15 @@
     {
         "description": "escaped pointer ref",
         "schema": {
-            "tilda~field": {"type": "integer"},
-            "slash/field": {"type": "integer"},
-            "percent%field": {"type": "integer"},
+            "$defs": {
+                "tilde~field": {"type": "integer"},
+                "slash/field": {"type": "integer"},
+                "percent%field": {"type": "integer"}
+            },
             "properties": {
-                "tilda": {"$ref": "#/tilda~0field"},
-                "slash": {"$ref": "#/slash~1field"},
-                "percent": {"$ref": "#/percent%25field"}
+                "tilde": {"$ref": "#/$defs/tilde~0field"},
+                "slash": {"$ref": "#/$defs/slash~1field"},
+                "percent": {"$ref": "#/$defs/percent%25field"}
             }
         },
         "tests": [
@@ -91,8 +93,8 @@
                 "valid": false
             },
             {
-                "description": "tilda invalid",
-                "data": {"tilda": "aoeu"},
+                "description": "tilde invalid",
+                "data": {"tilde": "aoeu"},
                 "valid": false
             },
             {
@@ -106,8 +108,8 @@
                 "valid": true
             },
             {
-                "description": "tilda valid",
-                "data": {"tilda": 123},
+                "description": "tilde valid",
+                "data": {"tilde": 123},
                 "valid": true
             },
             {
@@ -141,7 +143,7 @@
         ]
     },
     {
-        "description": "ref overrides any sibling keywords",
+        "description": "ref applies alongside sibling keywords",
         "schema": {
             "$defs": {
                 "reffed": {
@@ -157,14 +159,14 @@
         },
         "tests": [
             {
-                "description": "ref valid",
+                "description": "ref valid, maxItems valid",
                 "data": { "foo": [] },
                 "valid": true
             },
             {
-                "description": "ref valid, maxItems ignored",
-                "data": { "foo": [ 1, 2, 3] },
-                "valid": true
+                "description": "ref valid, maxItems invalid",
+                "data": { "foo": [1, 2, 3] },
+                "valid": false
             },
             {
                 "description": "ref invalid",
@@ -194,6 +196,31 @@
         "schema": {
             "properties": {
                 "$ref": {"type": "string"}
+            }
+        },
+        "tests": [
+            {
+                "description": "property named $ref valid",
+                "data": {"$ref": "a"},
+                "valid": true
+            },
+            {
+                "description": "property named $ref invalid",
+                "data": {"$ref": 2},
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "property named $ref, containing an actual $ref",
+        "schema": {
+            "properties": {
+                "$ref": {"$ref": "#/$defs/is-string"}
+            },
+            "$defs": {
+                "is-string": {
+                    "type": "string"
+                }
             }
         },
         "tests": [
@@ -351,6 +378,31 @@
                 "description": "object with strings is invalid",
                 "data": {
                     "foo\"bar": "1"
+                },
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "ref creates new scope when adjacent to keywords",
+        "schema": {
+            "$defs": {
+                "A": {
+                    "unevaluatedProperties": false
+                }
+            },
+            "properties": {
+                "prop1": {
+                    "type": "string"
+                }
+            },
+            "$ref": "#/$defs/A"
+        },
+        "tests": [
+            {
+                "description": "referenced subschema doesn't see annotations from properties",
+                "data": {
+                    "prop1": "match"
                 },
                 "valid": false
             }
