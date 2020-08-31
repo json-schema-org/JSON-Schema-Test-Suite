@@ -139,14 +139,14 @@
                 "valid": true
             },
             {
-                "description": "not a valid JSON-pointer (URI Fragment Identifier) #1",
+                "description": "valid JSON-pointer (URI Fragment Identifier) #1",
                 "data": "#",
-                "valid": false
+                "valid": true
             },
             {
-                "description": "not a valid JSON-pointer (URI Fragment Identifier) #2",
+                "description": "valid JSON-pointer (URI Fragment Identifier) #2",
                 "data": "#/",
-                "valid": false
+                "valid": true
             },
             {
                 "description": "not a valid JSON-pointer (URI Fragment Identifier) #3",
