@@ -5,20 +5,16 @@
             "definitions": {
                 "int": { "type": "integer" }
             },
-            "allOf": [
-                {
-                    "properties": {
-                        "foo": {
-                            "$ref": "#/definitions/int"
-                        }
-                    }
-                },
-                {
-                    "additionalProperties": {
-                        "$ref": "#/definitions/int"
-                    }
+            "properties": {
+                "foo": {
+                    "$ref": "#/definitions/int"
                 }
-            ]
+            },
+            "extends": {
+                "additionalProperties": {
+                    "$ref": "#/definitions/int"
+                }
+            }
         },
         "tests": [
             {
