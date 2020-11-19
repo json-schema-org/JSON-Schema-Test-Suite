@@ -11,9 +11,9 @@
                 "valid": true
             },
             {
-                "description": "an invalid JSON document",
+                "description": "an invalid JSON document; validates true",
                 "data": "{:}",
-                "valid": false
+                "valid": true
             },
             {
                 "description": "ignores non-strings",
@@ -34,9 +34,9 @@
                 "valid": true
             },
             {
-                "description": "an invalid base64 string (% is not a valid character)",
+                "description": "an invalid base64 string (% is not a valid character); validates true",
                 "data": "eyJmb28iOi%iYmFyIn0K",
-                "valid": false
+                "valid": true
             },
             {
                 "description": "ignores non-strings",
@@ -58,14 +58,14 @@
                 "valid": true
             },
             {
-                "description": "a validly-encoded invalid JSON document",
+                "description": "a validly-encoded invalid JSON document; validates true",
                 "data": "ezp9Cg==",
-                "valid": false
+                "valid": true
             },
             {
-                "description": "an invalid base64 string that is valid JSON",
+                "description": "an invalid base64 string that is valid JSON; validates true",
                 "data": "{}",
-                "valid": false
+                "valid": true
             },
             {
                 "description": "ignores non-strings",
@@ -93,14 +93,14 @@
                 "valid": true
             },
             {
-                "description": "an invalid base64-encoded JSON document",
+                "description": "an invalid base64-encoded JSON document; validates true",
                 "data": "eyJib28iOiAyMH0=",
-                "valid": false
+                "valid": true
             },
             {
-                "description": "an empty object as a base64-encoded JSON document",
+                "description": "an empty object as a base64-encoded JSON document; validates true",
                 "data": "e30=",
-                "valid": false
+                "valid": true
             },
             {
                 "description": "an empty array as a base64-encoded JSON document",
@@ -108,14 +108,14 @@
                 "valid": true
             },
             {
-                "description": "a validly-encoded invalid JSON document",
+                "description": "a validly-encoded invalid JSON document; validates true",
                 "data": "ezp9Cg==",
-                "valid": false
+                "valid": true
             },
             {
-                "description": "an invalid base64 string that is valid JSON",
+                "description": "an invalid base64 string that is valid JSON; validates true",
                 "data": "{}",
-                "valid": false
+                "valid": true
             },
             {
                 "description": "ignores non-strings",
