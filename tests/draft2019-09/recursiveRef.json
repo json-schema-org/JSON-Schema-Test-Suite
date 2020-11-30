@@ -264,7 +264,7 @@
                 "valid": true
             },
             {
-                "description": "leaf node matches: recursion uses the inner schema",
+                "description": "leaf node does not match: recursion uses the inner schema",
                 "data": { "foo": { "bar": true } },
                 "valid": false
             }
