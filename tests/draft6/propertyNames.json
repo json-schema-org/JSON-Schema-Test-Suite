@@ -44,6 +44,65 @@
         ]
     },
     {
+        "description": "propertyNames validation with pattern for camelCase",
+        "schema": {
+            "propertyNames": { "pattern": "^[a-z]+([A-Z][a-z]+)*$" }
+        },
+        "tests": [
+            {
+                "description": "all property names valid",
+                "data": {
+                    "f": {},
+                    "foo": {},
+                    "foobar": {},
+                    "fooBar": {}
+                },
+                "valid": true
+            },
+            {
+                "description": "property name with leading capital letter is invalid",
+                "data": {
+                    "Foo": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "property name with adjacent capital letters is invalid",
+                "data": {
+                    "fOO": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "property name with digit is invalid",
+                "data": {
+                    "foo1": {}
+                },
+                "valid": false
+            },
+            {
+                "description": "object without properties is valid",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "ignores arrays",
+                "data": [1, 2, 3, 4],
+                "valid": true
+            },
+            {
+                "description": "ignores strings",
+                "data": "foobar",
+                "valid": true
+            },
+            {
+                "description": "ignores other non-objects",
+                "data": 12,
+                "valid": true
+            }
+        ]
+    },
+    {
         "description": "propertyNames with boolean schema true",
         "schema": {"propertyNames": true},
         "tests": [
