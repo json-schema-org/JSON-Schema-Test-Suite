@@ -46,58 +46,28 @@
     {
         "description": "propertyNames validation with pattern for camelCase",
         "schema": {
-            "propertyNames": { "pattern": "^[a-z]+([A-Z][a-z]+)*$" }
+            "propertyNames": { "pattern": "^a+$" }
         },
         "tests": [
             {
-                "description": "all property names valid",
+                "description": "matching property names valid",
                 "data": {
-                    "f": {},
-                    "foo": {},
-                    "foobar": {},
-                    "fooBar": {}
+                    "a": {},
+                    "aa": {},
+                    "aaa": {}
                 },
                 "valid": true
             },
             {
-                "description": "property name with leading capital letter is invalid",
+                "description": "non-matching property name is invalid",
                 "data": {
-                    "Foo": {}
-                },
-                "valid": false
-            },
-            {
-                "description": "property name with adjacent capital letters is invalid",
-                "data": {
-                    "fOO": {}
-                },
-                "valid": false
-            },
-            {
-                "description": "property name with digit is invalid",
-                "data": {
-                    "foo1": {}
+                    "aaA": {}
                 },
                 "valid": false
             },
             {
                 "description": "object without properties is valid",
                 "data": {},
-                "valid": true
-            },
-            {
-                "description": "ignores arrays",
-                "data": [1, 2, 3, 4],
-                "valid": true
-            },
-            {
-                "description": "ignores strings",
-                "data": "foobar",
-                "valid": true
-            },
-            {
-                "description": "ignores other non-objects",
-                "data": 12,
                 "valid": true
             }
         ]
