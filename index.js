@@ -10,7 +10,8 @@ const refs = {
   'http://localhost:1234/baseUriChangeFolder/folderInteger.json': require('./remotes/baseUriChange/folderInteger.json'),
   'http://localhost:1234/baseUriChangeFolderInSubschema/folderInteger.json': require('./remotes/baseUriChange/folderInteger.json'),
   'http://localhost:1234/name.json': require('./remotes/name.json'),
-  'http://localhost:1234/name-defs.json': require('./remotes/name-defs.json')
+  'http://localhost:1234/name-defs.json': require('./remotes/name-defs.json'),
+  'http://localhost:1234/locationIndependentIdentifier.json': require('./remotes/locationIndependentIdentifier.json')
 };
 
 const SKIP = {

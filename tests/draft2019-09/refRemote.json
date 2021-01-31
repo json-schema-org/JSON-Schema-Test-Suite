@@ -163,5 +163,23 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "Location-independent identifier in remote ref",
+        "schema": {
+            "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/refToInteger"
+        },
+        "tests": [
+            {
+                "description": "integer is valid",
+                "data": 1,
+                "valid": true
+            },
+            {
+                "description": "string is invalid",
+                "data": "foo",
+                "valid": false
+            }
+        ]
     }
 ]

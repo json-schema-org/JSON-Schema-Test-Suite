@@ -54,6 +54,17 @@ REMOTES = {
     "baseUriChange/folderInteger.json": {u"type": u"integer"},
     "baseUriChangeFolder/folderInteger.json": {u"type": u"integer"},
     "baseUriChangeFolderInSubschema/folderInteger.json": {u"type": u"integer"},
+    "locationIndependentIdentifier.json": {
+        "refToInteger": {
+            "$ref": "#foo"
+        },
+        "definitions": {
+            "A": {
+                "id": "#foo",
+                "type": "integer"
+            }
+        }
+    }
 }
 REMOTES_DIR = os.path.join(ROOT_DIR, "remotes")
 
