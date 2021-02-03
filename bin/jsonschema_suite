@@ -55,10 +55,10 @@ REMOTES = {
     "baseUriChangeFolder/folderInteger.json": {u"type": u"integer"},
     "baseUriChangeFolderInSubschema/folderInteger.json": {u"type": u"integer"},
     "locationIndependentIdentifier.json": {
-        "refToInteger": {
-            "$ref": "#foo"
-        },
         "definitions": {
+            "refToInteger": {
+                "$ref": "#foo"
+            },
             "A": {
                 "id": "#foo",
                 "type": "integer"
@@ -175,7 +175,7 @@ class SanityTests(unittest.TestCase):
             path
             for path, contents in expected.items()
             if path in files
-            and contents != files[path]
+               and contents != files[path]
         }
 
         self.assertEqual(
