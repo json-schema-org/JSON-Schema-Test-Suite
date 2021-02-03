@@ -171,7 +171,7 @@
     {
         "description": "Location-independent identifier in remote ref",
         "schema": {
-            "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/refToInteger"
+            "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/definitions/refToInteger"
         },
         "tests": [
             {

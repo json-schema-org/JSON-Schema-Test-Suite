@@ -1,8 +1,8 @@
 {
-    "refToInteger": {
-        "$ref": "#foo"
-    },
     "definitions": {
+        "refToInteger": {
+            "$ref": "#foo"
+        },
         "A": {
             "id": "#foo",
             "type": "integer"
