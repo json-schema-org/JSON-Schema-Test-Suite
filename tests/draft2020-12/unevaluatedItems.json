@@ -80,7 +80,7 @@
         "description": "unevaluatedItems with tuple",
         "schema": {
             "type": "array",
-            "items": [
+            "prefixItems": [
                 { "type": "string" }
             ],
             "unevaluatedItems": false
@@ -99,13 +99,13 @@
         ]
     },
     {
-        "description": "unevaluatedItems with additionalItems",
+        "description": "unevaluatedItems with items",
         "schema": {
             "type": "array",
-            "items": [
+            "prefixItems": [
                 { "type": "string" }
             ],
-            "additionalItems": true,
+            "items": true,
             "unevaluatedItems": false
         },
         "tests": [
@@ -120,12 +120,12 @@
         "description": "unevaluatedItems with nested tuple",
         "schema": {
             "type": "array",
-            "items": [
+            "prefixItems": [
                 { "type": "string" }
             ],
             "allOf": [
                 {
-                    "items": [
+                    "prefixItems": [
                         true,
                         { "type": "number" }
                     ]
@@ -147,15 +147,15 @@
         ]
     },
     {
-        "description": "unevaluatedItems with nested additionalItems",
+        "description": "unevaluatedItems with nested items",
         "schema": {
             "type": "array",
             "allOf": [
                 {
-                    "items": [
+                    "prefixItems": [
                         { "type": "string" }
                     ],
-                    "additionalItems": true
+                    "items": true
                 }
             ],
             "unevaluatedItems": false
@@ -179,7 +179,7 @@
             "type": "array",
             "allOf": [
                 {
-                    "items": [
+                    "prefixItems": [
                         { "type": "string" }
                     ]
                 },
@@ -206,18 +206,18 @@
         "description": "unevaluatedItems with anyOf",
         "schema": {
             "type": "array",
-            "items": [
+            "prefixItems": [
                 { "const": "foo" }
             ],
             "anyOf": [
                 {
-                    "items": [
+                    "prefixItems": [
                         true,
                         { "const": "bar" }
                     ]
                 },
                 {
-                    "items": [
+                    "prefixItems": [
                         true,
                         true,
                         { "const": "baz" }
@@ -253,18 +253,18 @@
         "description": "unevaluatedItems with oneOf",
         "schema": {
             "type": "array",
-            "items": [
+            "prefixItems": [
                 { "const": "foo" }
             ],
             "oneOf": [
                 {
-                    "items": [
+                    "prefixItems": [
                         true,
                         { "const": "bar" }
                     ]
                 },
                 {
-                    "items": [
+                    "prefixItems": [
                         true,
                         { "const": "baz" }
                     ]
@@ -289,12 +289,12 @@
         "description": "unevaluatedItems with not",
         "schema": {
             "type": "array",
-            "items": [
+            "prefixItems": [
                 { "const": "foo" }
             ],
             "not": {
                 "not": {
-                    "items": [
+                    "prefixItems": [
                         true,
                         { "const": "bar" }
                     ]
@@ -314,24 +314,24 @@
         "description": "unevaluatedItems with if/then/else",
         "schema": {
             "type": "array",
-            "items": [
+            "prefixItems": [
                 { "const": "foo" }
             ],
             "if": {
-                "items": [
+                "prefixItems": [
                     true,
                     { "const": "bar" }
                 ]
             },
             "then": {
-                "items": [
+                "prefixItems": [
                     true,
                     true,
                     { "const": "then" }
                 ]
             },
             "else": {
-                "items": [
+                "prefixItems": [
                     true,
                     true,
                     true,
@@ -388,13 +388,13 @@
         "schema": {
             "type": "array",
             "$ref": "#/$defs/bar",
-            "items": [
+            "prefixItems": [
                 { "type": "string" }
             ],
             "unevaluatedItems": false,
             "$defs": {
               "bar": {
-                  "items": [
+                  "prefixItems": [
                       true,
                       { "type": "string" }
                   ]
@@ -419,7 +419,7 @@
         "schema": {
             "allOf": [
                 {
-                    "items": [ true ]
+                    "prefixItems": [ true ]
                 },
                 {
                     "unevaluatedItems": false

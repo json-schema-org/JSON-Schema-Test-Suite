@@ -1,9 +1,10 @@
 [
     {
-        "description": "$recursiveRef without $recursiveAnchor works like $ref",
+        "description": "$dynamicRef without $dynamicAnchor works like $ref",
         "schema": {
+            "$anchor": "foo",
             "properties": {
-                "foo": { "$recursiveRef": "#" }
+                "foo": { "$dynamicRef": "#foo" }
             },
             "additionalProperties": false
         },
@@ -31,18 +32,18 @@
         ]
     },
     {
-        "description": "$recursiveRef without using nesting",
+        "description": "$dynamicRef without using nesting",
         "schema": {
-            "$id": "http://localhost:4242/recursiveRef2/schema.json",
+            "$id": "http://localhost:4242/dynamicRef2/schema.json",
             "$defs": {
                 "myobject": {
                     "$id": "myobject.json",
-                    "$recursiveAnchor": true,
+                    "$dynamicAnchor": "foo",
                     "anyOf": [
                         { "type": "string" },
                         {
                             "type": "object",
-                            "additionalProperties": { "$recursiveRef": "#" }
+                            "additionalProperties": { "$dynamicRef": "#foo" }
                         }
                     ]
                 }
@@ -81,19 +82,19 @@
         ]
     },
     {
-        "description": "$recursiveRef with nesting",
+        "description": "$dynamicRef with nesting",
         "schema": {
-            "$id": "http://localhost:4242/recursiveRef3/schema.json",
-            "$recursiveAnchor": true,
+            "$id": "http://localhost:4242/dynamicRef3/schema.json",
+            "$dynamicAnchor": "foo",
             "$defs": {
                 "myobject": {
                     "$id": "myobject.json",
-                    "$recursiveAnchor": true,
+                    "$dynamicAnchor": "foo",
                     "anyOf": [
                         { "type": "string" },
                         {
                             "type": "object",
-                            "additionalProperties": { "$recursiveRef": "#" }
+                            "additionalProperties": { "$dynamicRef": "#foo" }
                         }
                     ]
                 }
@@ -125,128 +126,28 @@
                 "valid": true
             },
             {
-                "description": "two levels, properties match with $recursiveRef",
+                "description": "two levels, properties match with $dynamicRef",
                 "data": { "foo": { "bar": 1 } },
                 "valid": true
             }
         ]
     },
     {
-        "description": "$recursiveRef with $recursiveAnchor: false works like $ref",
+        "description": "$dynamicRef with no $dynamicAnchor in the initial target schema resource",
         "schema": {
-            "$id": "http://localhost:4242/recursiveRef4/schema.json",
-            "$recursiveAnchor": false,
-            "$defs": {
-                "myobject": {
-                    "$id": "myobject.json",
-                    "$recursiveAnchor": false,
-                    "anyOf": [
-                        { "type": "string" },
-                        {
-                            "type": "object",
-                            "additionalProperties": { "$recursiveRef": "#" }
-                        }
-                    ]
-                }
-            },
-            "anyOf": [
-                { "type": "integer" },
-                { "$ref": "#/$defs/myobject" }
-            ]
-        },
-        "tests": [
-            {
-                "description": "integer matches at the outer level",
-                "data": 1,
-                "valid": true
-            },
-            {
-                "description": "single level match",
-                "data": { "foo": "hi" },
-                "valid": true
-            },
-            {
-                "description": "integer does not match as a property value",
-                "data": { "foo": 1 },
-                "valid": false
-            },
-            {
-                "description": "two levels, properties match with inner definition",
-                "data": { "foo": { "bar": "hi" } },
-                "valid": true
-            },
-            {
-                "description": "two levels, integer does not match as a property value",
-                "data": { "foo": { "bar": 1 } },
-                "valid": false
-            }
-        ]
-    },
-    {
-        "description": "$recursiveRef with no $recursiveAnchor works like $ref",
-        "schema": {
-            "$id": "http://localhost:4242/recursiveRef5/schema.json",
-            "$defs": {
-                "myobject": {
-                    "$id": "myobject.json",
-                    "$recursiveAnchor": false,
-                    "anyOf": [
-                        { "type": "string" },
-                        {
-                            "type": "object",
-                            "additionalProperties": { "$recursiveRef": "#" }
-                        }
-                    ]
-                }
-            },
-            "anyOf": [
-                { "type": "integer" },
-                { "$ref": "#/$defs/myobject" }
-            ]
-        },
-        "tests": [
-            {
-                "description": "integer matches at the outer level",
-                "data": 1,
-                "valid": true
-            },
-            {
-                "description": "single level match",
-                "data": { "foo": "hi" },
-                "valid": true
-            },
-            {
-                "description": "integer does not match as a property value",
-                "data": { "foo": 1 },
-                "valid": false
-            },
-            {
-                "description": "two levels, properties match with inner definition",
-                "data": { "foo": { "bar": "hi" } },
-                "valid": true
-            },
-            {
-                "description": "two levels, integer does not match as a property value",
-                "data": { "foo": { "bar": 1 } },
-                "valid": false
-            }
-        ]
-    },
-    {
-        "description": "$recursiveRef with no $recursiveAnchor in the initial target schema resource",
-        "schema": {
-            "$id": "http://localhost:4242/recursiveRef6/base.json",
-            "$recursiveAnchor": true,
+            "$id": "http://localhost:4242/dynamicRef6/base.json",
+            "$dynamicAnchor": "foo",
             "anyOf": [
                 { "type": "boolean" },
                 {
                     "type": "object",
                     "additionalProperties": {
-                        "$id": "http://localhost:4242/recursiveRef6/inner.json",
-                        "$comment": "there is no $recursiveAnchor: true here, so we do NOT recurse to the base",
+                        "$id": "http://localhost:4242/dynamicRef6/inner.json",
+                        "$comment": "there is no $dynamicAnchor: true here, so we do NOT recurse to the base",
+                        "$anchor": "foo",
                         "anyOf": [
                             { "type": "integer" },
-                            { "type": "object", "additionalProperties": { "$recursiveRef": "#" } }
+                            { "type": "object", "additionalProperties": { "$dynamicRef": "#foo" } }
                         ]
                     }
                 }
@@ -271,19 +172,19 @@
         ]
     },
     {
-        "description": "$recursiveRef with no $recursiveAnchor in the outer schema resource",
+        "description": "$dynamicRef with no $dynamicAnchor in the outer schema resource",
         "schema": {
-            "$id": "http://localhost:4242/recursiveRef7/base.json",
+            "$id": "http://localhost:4242/dynamicRef7/base.json",
             "anyOf": [
                 { "type": "boolean" },
                 {
                     "type": "object",
                     "additionalProperties": {
-                        "$id": "http://localhost:4242/recursiveRef7/inner.json",
-                        "$recursiveAnchor": true,
+                        "$id": "http://localhost:4242/dynamicRef7/inner.json",
+                        "$dynamicAnchor": "foo",
                         "anyOf": [
                             { "type": "integer" },
-                            { "type": "object", "additionalProperties": { "$recursiveRef": "#" } }
+                            { "type": "object", "additionalProperties": { "$dynamicRef": "#foo" } }
                         ]
                     }
                 }
@@ -308,16 +209,16 @@
         ]
     },
     {
-        "description": "multiple dynamic paths to the $recursiveRef keyword",
+        "description": "multiple dynamic paths to the $dynamicRef keyword",
         "schema": {
-            "$id": "recursiveRef8_main.json",
+            "$id": "dynamicRef8_main.json",
             "$defs": {
                 "inner": {
-                    "$id": "recursiveRef8_inner.json",
-                    "$recursiveAnchor": true,
+                    "$id": "dynamicRef8_inner.json",
+                    "$dynamicAnchor": "foo",
                     "title": "inner",
                     "additionalProperties": {
-                        "$recursiveRef": "#"
+                        "$dynamicRef": "#foo"
                     }
                 }
             },
@@ -328,16 +229,16 @@
             },
             "then": {
                 "title": "any type of node",
-                "$id": "recursiveRef8_anyLeafNode.json",
-                "$recursiveAnchor": true,
-                "$ref": "recursiveRef8_main.json#/$defs/inner"
+                "$id": "dynamicRef8_anyLeafNode.json",
+                "$dynamicAnchor": "foo",
+                "$ref": "dynamicRef8_main.json#/$defs/inner"
             },
             "else": {
                 "title": "integer node",
-                "$id": "recursiveRef8_integerNode.json",
-                "$recursiveAnchor": true,
+                "$id": "dynamicRef8_integerNode.json",
+                "$dynamicAnchor": "foo",
                 "type": [ "object", "integer" ],
-                "$ref": "recursiveRef8_main.json#/$defs/inner"
+                "$ref": "dynamicRef8_main.json#/$defs/inner"
             }
         },
         "tests": [

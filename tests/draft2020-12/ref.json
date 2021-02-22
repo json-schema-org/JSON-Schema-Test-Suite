@@ -54,9 +54,9 @@
     {
         "description": "relative pointer ref to array",
         "schema": {
-            "items": [
+            "prefixItems": [
                 {"type": "integer"},
-                {"$ref": "#/items/0"}
+                {"$ref": "#/prefixItems/0"}
             ]
         },
         "tests": [
