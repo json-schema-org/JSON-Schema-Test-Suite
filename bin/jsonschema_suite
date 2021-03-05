@@ -57,15 +57,6 @@ def collect(root_dir):
             yield os.path.join(root, filename)
 
 
-def collect_contents(root_dir):
-    files = {}
-    for path in collect(root_dir):
-        relative_path = os.path.relpath(path, root_dir)
-        with open(path) as schema_file:
-            files[relative_path] = json.load(schema_file)
-    return files
-
-
 class SanityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -153,7 +144,11 @@ def main(arguments):
 
         json.dump(selected_cases, sys.stdout, indent=4, sort_keys=True)
     elif arguments.command == "remotes":
-        remotes = collect_contents(REMOTES_DIR)
+        remotes = {}
+        for path in collect(REMOTES_DIR):
+            relative_path = os.path.relpath(path, REMOTES_DIR)
+            with open(path) as schema_file:
+                remotes[relative_path] = json.load(schema_file)
         json.dump(remotes, sys.stdout, indent=4, sort_keys=True)
     elif arguments.command == "dump_remotes":
         if arguments.update:
@@ -168,7 +163,7 @@ def main(arguments):
             raise
     elif arguments.command == "serve":
         try:
-            from flask import Flask, jsonify
+            import flask
         except ImportError:
             print(textwrap.dedent("""
                 The Flask library is required to serve the remote schemas.
@@ -181,14 +176,11 @@ def main(arguments):
             """.strip("\n")))
             sys.exit(1)
 
-        remotes = collect_contents(REMOTES_DIR)
-        app = Flask(__name__)
+        app = flask.Flask(__name__)
 
         @app.route("/<path:path>")
         def serve_path(path):
-            if path in remotes:
-                return jsonify(remotes[path])
-            return "Document does not exist.", 404
+            return flask.send_from_directory(REMOTES_DIR, path)
 
         app.run(port=1234)
 
