@@ -1,7 +1,9 @@
 [
     {
         "description": "Invalid use of fragments in location-independent $id",
-        "schema": {"$ref": "https://json-schema.org/draft/2019-09/schema"},
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2020-12/schema"
+        },
         "tests": [
             {
                 "description": "Identifier name",
@@ -108,7 +110,7 @@
         "description": "Valid use of empty fragments in location-independent $id",
         "comment": "These are allowed but discouraged",
         "schema": {
-            "$ref": "https://json-schema.org/draft/2019-09/schema"
+            "$ref": "https://json-schema.org/draft/2020-12/schema"
         },
         "tests": [
             {
@@ -148,7 +150,7 @@
     {
         "description": "Unnormalized $ids are allowed but discouraged",
         "schema": {
-            "$ref": "https://json-schema.org/draft/2019-09/schema"
+            "$ref": "https://json-schema.org/draft/2020-12/schema"
         },
         "tests": [
             {
