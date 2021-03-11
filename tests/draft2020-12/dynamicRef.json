@@ -253,5 +253,44 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "$dynamicRef to other resource resolving to current resource",
+        "schema": {
+            "$id": "dynamicRef9_main.json",
+            "$dynamicAnchor": "foo",
+            "type": "object",
+            "properties": {
+                "vanilla": {
+                    "$comment": "This should resolve to other.json normally",
+                    "$ref": "other.json#foo"
+                },
+                "dynamic": {
+                    "$comment": "This should resolve to dynamicRef9_main.json#foo",
+                    "$dynamicRef": "other.json#foo"
+                }
+            },
+            "additionalProperties": false,
+            "$defs": {
+                "Other": {
+                    "$id": "other.json",
+                    "$dynamicAnchor": "foo",
+                    "$comment": "If this schema is evaluated, it will fail validation",
+                    "not": true
+                }
+            }
+        },
+        "tests": [
+            {
+                "description": "vanilla $ref evaluates the other schema",
+                "data": { "vanilla": {} },
+                "valid": false
+            },
+            {
+                "description": "$dynamicRef evaluates to root $dynamicAnchor",
+                "data": { "dynamic": {} },
+                "valid": true
+            }
+        ]
     }
 ]
