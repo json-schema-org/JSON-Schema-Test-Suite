@@ -809,5 +809,147 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "property is evaluated in an uncle schema to unevaluatedProperties",
+        "comment": "see https://stackoverflow.com/questions/66936884/deeply-nested-unevaluatedproperties-and-their-expectations",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "foo": {
+                    "type": "object",
+                    "properties": {
+                        "bar": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                  }
+            },
+            "anyOf": [
+                {
+                    "properties": {
+                        "foo": {
+                            "properties": {
+                                "faz": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "tests": [
+            {
+                "description": "no extra properties",
+                "data": {
+                    "foo": {
+                        "bar": "test"
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "uncle keyword evaluation is not significant",
+                "data": {
+                    "foo": {
+                        "bar": "test",
+                        "faz": "test"
+                    }
+                },
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "in-place applicator siblings, allOf has unevaluated",
+        "schema": {
+            "type": "object",
+            "allOf": [
+                {
+                    "properties": {
+                        "foo": true
+                    },
+                    "unevaluatedProperties": false
+                }
+            ],
+            "anyOf": [
+                {
+                    "properties": {
+                        "bar": true
+                    }
+                }
+            ]
+        },
+        "tests": [
+            {
+                "description": "base case: both properties present",
+                "data": {
+                    "foo": 1,
+                    "bar": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "in place applicator siblings, bar is missing",
+                "data": {
+                    "foo": 1
+                },
+                "valid": true
+            },
+            {
+                "description": "in place applicator siblings, foo is missing",
+                "data": {
+                    "bar": 1
+                },
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "in-place applicator siblings, anyOf has unevaluated",
+        "schema": {
+            "type": "object",
+            "allOf": [
+                {
+                    "properties": {
+                        "foo": true
+                    }
+                }
+            ],
+            "anyOf": [
+                {
+                    "properties": {
+                        "bar": true
+                    },
+                    "unevaluatedProperties": false
+                }
+            ]
+        },
+        "tests": [
+            {
+                "description": "base case: both properties present",
+                "data": {
+                    "foo": 1,
+                    "bar": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "in place applicator siblings, bar is missing",
+                "data": {
+                    "foo": 1
+                },
+                "valid": false
+            },
+            {
+                "description": "in place applicator siblings, foo is missing",
+                "data": {
+                    "bar": 1
+                },
+                "valid": true
+            }
+        ]
     }
 ]
