@@ -602,5 +602,66 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "unevaluatedItems and contains interact to control item dependency relationship",
+        "schema": {
+            "if": {
+                "contains": {"const": "a"}
+            },
+            "then": {
+                "if": {
+                    "contains": {"const": "b"}
+                },
+                "then": {
+                    "if": {
+                        "contains": {"const": "c"}
+                    }
+                }
+            },
+            "unevaluatedItems": false
+        },
+        "tests": [
+            {
+                "description": "empty array is valid",
+                "data": [],
+                "valid": true
+            },
+            {
+                "description": "only a's are valid",
+                "data": [ "a", "a" ],
+                "valid": true
+            },
+            {
+                "description": "a's and b's are valid",
+                "data": [ "a", "b", "a", "b", "a" ],
+                "valid": true
+            },
+            {
+                "description": "a's, b's and c's are valid",
+                "data": [ "c", "a", "c", "c", "b", "a" ],
+                "valid": true
+            },
+            {
+                "description": "only b's are invalid",
+                "data": [ "b", "b" ],
+                "valid": false
+            },
+            {
+                "description": "only c's are invalid",
+                "data": [ "c", "c" ],
+                "valid": false
+            },
+            {
+                "description": "only b's and c's are invalid",
+                "data": [ "c", "b", "c", "b", "c" ],
+                "valid": false
+            },
+            {
+                "description": "only a's and c's are invalid",
+                "data": [ "c", "a", "c", "a", "c" ],
+                "valid": false
+            }
+        ]
     }
 ]
