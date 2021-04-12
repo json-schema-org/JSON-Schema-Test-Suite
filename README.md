@@ -95,11 +95,11 @@ This suite is being used by:
 
 ### Dart
 
-* [json_schema](https://github.com/patefacio/json_schema)
+* [json\_schema](https://github.com/patefacio/json_schema)
 
 ### Elixir
 
-* [ex_json_schema](https://github.com/jonasschmidt/ex_json_schema)
+* [ex\_json\_schema](https://github.com/jonasschmidt/ex_json_schema)
 
 ### Erlang
 
@@ -170,7 +170,7 @@ which also welcomes your contributions!
 ### PostgreSQL
 
 * [postgres-json-schema](https://github.com/gavinwahl/postgres-json-schema)
-* [is_jsonb_valid](https://github.com/furstenheim/is_jsonb_valid)
+* [is\_jsonb\_valid](https://github.com/furstenheim/is_jsonb_valid)
 
 ### Python
 
@@ -182,7 +182,7 @@ which also welcomes your contributions!
 ### Ruby
 
 * [json-schema](https://github.com/hoxworth/json-schema)
-* [json_schemer](https://github.com/davishmcclurg/json_schemer)
+* [json\_schemer](https://github.com/davishmcclurg/json_schemer)
 
 ### Rust
 
