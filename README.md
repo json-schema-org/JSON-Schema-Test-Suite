@@ -61,8 +61,8 @@ directory. This is:
 ## Coverage
 
 Drafts 07, 06, 04, and 03 should have full coverage, with tests for drafts 06,
-07, and 2019-09 being considered current and actively supported. Draft 2019-09
-is almost fully covered.
+07, 2019-09 and 2020-12 being considered current and actively supported.
+Drafts 2019-09 and 2020-12 are almost fully covered.
 
 Contributions are very welcome, especially from implementers as they add support
 to their own implementations.
