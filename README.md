@@ -159,6 +159,7 @@ which also welcomes your contributions!
 ### Perl
 
 * [JSON::Schema::Draft201909](https://github.com/karenetheridge/JSON-Schema-Draft201909)
+* [JSON::Schema::Tiny](https://github.com/karenetheridge/JSON-Schema-Tiny)
 * [Test::JSON::Schema::Acceptance](https://github.com/karenetheridge/Test-JSON-Schema-Acceptance)
 
 ### PHP
