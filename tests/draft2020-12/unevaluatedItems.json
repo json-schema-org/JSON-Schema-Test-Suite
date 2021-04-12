@@ -512,47 +512,6 @@
         ]
     },
     {
-        "description": "unevaluatedItems depends on nested contains",
-        "schema": {
-            "anyOf": [
-                {
-                    "prefixItems": [{"type": "integer"}]
-                },
-                {
-                    "contains": {"type": "string"}
-                }
-            ],
-            "unevaluatedItems": false
-        },
-        "tests": [
-            {
-                "description": "single integer is evaluated by prefixItems",
-                "data": [ 1 ],
-                "valid": true
-            },
-            {
-                "description": "single string is evaluated by contains",
-                "data": [ "foo" ],
-                "valid": true
-            },
-            {
-                "description": "second item is evaluated by contains",
-                "data": [ 1, "foo" ],
-                "valid": true
-            },
-            {
-                "description": "second item is not evaluated, contains fails",
-                "data": [ 1, 2 ],
-                "valid": false
-            },
-            {
-                "description": "second item is not evaluated, contains passes",
-                "data": [ 1, 2, "foo" ],
-                "valid": false
-            }
-        ]
-    },
-    {
         "description": "unevaluatedItems depends on multiple nested contains",
         "schema": {
             "allOf": [
