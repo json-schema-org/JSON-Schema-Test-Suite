@@ -126,5 +126,24 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "items validation adjusts the starting index for additionalItems",
+        "schema": {
+            "items": [ { "type": "string" } ],
+            "additionalItems": { "type": "integer" }
+        },
+        "tests": [
+            {
+                "description": "valid items",
+                "data": [ "x", 2, 3 ],
+                "valid": true
+            },
+            {
+                "description": "wrong type of second item",
+                "data": [ "x", "y" ],
+                "valid": false
+            }
+        ]
     }
 ]
