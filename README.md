@@ -163,6 +163,7 @@ which also welcomes your contributions!
 
 ### PHP
 
+* [opis/json-schema](https://github.com/opis/json-schema)
 * [json-schema](https://github.com/justinrainbow/json-schema)
 * [json-guard](https://github.com/thephpleague/json-guard)
 
