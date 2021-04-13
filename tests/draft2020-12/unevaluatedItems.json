@@ -515,49 +515,20 @@
         "description": "unevaluatedItems depends on multiple nested contains",
         "schema": {
             "allOf": [
-                {
-                    "prefixItems": [true]
-                },
-                {
-                    "contains": {"multipleOf": 2}
-                }
+                { "contains": { "multipleOf": 2 } }
+                { "contains": { "multipleOf": 3 } }
             ],
-            "anyOf": [
-                {
-                    "prefixItems": [true]
-                },
-                {
-                    "contains": {"multipleOf": 3}
-                }
-            ],
-            "unevaluatedItems": {
-                "multipleOf": 5
-            }
+            "unevaluatedItems": { "multipleOf": 5 }
         },
         "tests": [
             {
-                "description": "second item is evaluated by contains #1",
-                "data": [ 1, 2 ],
+                "description": "5 not evaluated, passes unevaluatedItems",
+                "data": [ 2, 3, 4, 5, 6 ],
                 "valid": true
             },
             {
-                "description": "third item is evaluated by contains #2",
-                "data": [ 1, 2, 3 ],
-                "valid": true
-            },
-            {
-                "description": "items 3, 4 are evaluated by contains #2, #1",
-                "data": [ 1, 2, 3, 4 ],
-                "valid": true
-            },
-            {
-                "description": "item 5 not evaluated, passes unevaluatedItems",
-                "data": [ 1, 2, 3, 4, 5, 6 ],
-                "valid": true
-            },
-            {
-                "description": "item 5 not evaluated, fails unevaluatedItems",
-                "data": [ 1, 2, 3, 4, 7, 8 ],
+                "description": "7 not evaluated, fails unevaluatedItems",
+                "data": [ 2, 3, 4, 7, 8 ],
                 "valid": false
             }
         ]
