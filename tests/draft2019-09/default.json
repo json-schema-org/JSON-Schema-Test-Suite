@@ -56,7 +56,7 @@
                     "maximum": 3,
                     "default": 5
                 }
-            },
+            }
         },
         "tests": [
             {
