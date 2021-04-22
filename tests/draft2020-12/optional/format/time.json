@@ -20,6 +20,11 @@
             },
             {
                 "description": "a valid time string with second fraction",
+                "data": "23:20:50.52Z",
+                "valid": true
+            },
+            {
+                "description": "a valid time string with precise second fraction",
                 "data": "08:30:06.283185Z",
                 "valid": true
             },
