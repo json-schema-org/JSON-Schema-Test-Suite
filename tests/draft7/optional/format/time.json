@@ -80,7 +80,7 @@
             },
             {
                 "description": "an invalid time string with invalid time with both Z and numoffset",
-                "data": "01:02:03Z+00:60",
+                "data": "01:02:03Z+00:30",
                 "valid": false
             },
             {
