@@ -105,12 +105,43 @@
         "schema": {
             "id": "http://localhost:1234/scope_change_defs2.json",
             "type" : "object",
+            "properties": {"list": {"$ref": "baseUriChangeFolderInSubschema/#/definitions/bar"}},
+            "definitions": {
+                "baz": {
+                    "id": "baseUriChangeFolderInSubschema/",
+                    "definitions": {
+                        "bar": {
+                            "type": "array",
+                            "items": {"$ref": "folderInteger.json"}
+                        }
+                    }
+                }
+            }
+        },
+        "tests": [
+            {
+                "description": "number is valid",
+                "data": {"list": [1]},
+                "valid": true
+            },
+            {
+                "description": "string is invalid",
+                "data": {"list": ["a"]},
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "base URI change - change folder in subschema with path from root",
+        "schema": {
+            "id": "http://localhost:1234/scope_change_defs3.json",
+            "type" : "object",
             "properties": {
                 "list": {"$ref": "#/definitions/baz/definitions/bar"}
             },
             "definitions": {
                 "baz": {
-                    "id": "baseUriChangeFolderInSubschema/",
+                    "id": "baseUriChangeFolderInSubschema2/",
                     "definitions": {
                         "bar": {
                             "type": "array",
