@@ -455,7 +455,7 @@
                     "$ref": "#/$defs/inner"
                 }
             },
-            "$ref": "schema-relative-uri-defs2.json",
+            "$ref": "schema-relative-uri-defs2.json"
         },
         "tests": [
             {
