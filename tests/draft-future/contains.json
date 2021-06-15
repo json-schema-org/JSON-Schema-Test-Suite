@@ -2,7 +2,7 @@
     {
         "description": "contains keyword validation",
         "schema": {
-            "contains": {"minimum": 5}
+            "contains": { "minimum": 5 }
         },
         "tests": [
             {
@@ -62,7 +62,7 @@
     },
     {
         "description": "contains keyword with boolean schema true",
-        "schema": {"contains": true},
+        "schema": { "contains": true },
         "tests": [
             {
                 "description": "any non-empty array is valid",
@@ -78,7 +78,7 @@
     },
     {
         "description": "contains keyword with boolean schema false",
-        "schema": {"contains": false},
+        "schema": { "contains": false },
         "tests": [
             {
                 "description": "any non-empty array is invalid",
@@ -106,22 +106,22 @@
         "tests": [
             {
                 "description": "matches items, does not match contains",
-                "data": [ 2, 4, 8 ],
+                "data": [2, 4, 8],
                 "valid": false
             },
             {
                 "description": "does not match items, matches contains",
-                "data": [ 3, 6, 9 ],
+                "data": [3, 6, 9],
                 "valid": false
             },
             {
                 "description": "matches both items and contains",
-                "data": [ 6, 12 ],
+                "data": [6, 12],
                 "valid": true
             },
             {
                 "description": "matches neither items nor contains",
-                "data": [ 1, 5 ],
+                "data": [1, 5],
                 "valid": false
             }
         ]

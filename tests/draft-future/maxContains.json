@@ -7,12 +7,12 @@
         "tests": [
             {
                 "description": "one item valid against lone maxContains",
-                "data": [ 1 ],
+                "data": [1],
                 "valid": true
             },
             {
                 "description": "two items still valid against lone maxContains",
-                "data": [ 1, 2 ],
+                "data": [1, 2],
                 "valid": true
             }
         ]
@@ -20,33 +20,33 @@
     {
         "description": "maxContains with contains",
         "schema": {
-            "contains": {"const": 1},
+            "contains": { "const": 1 },
             "maxContains": 1
         },
         "tests": [
             {
                 "description": "empty data",
-                "data": [ ],
+                "data": [],
                 "valid": false
             },
             {
                 "description": "all elements match, valid maxContains",
-                "data": [ 1 ],
+                "data": [1],
                 "valid": true
             },
             {
                 "description": "all elements match, invalid maxContains",
-                "data": [ 1, 1 ],
+                "data": [1, 1],
                 "valid": false
             },
             {
                 "description": "some elements match, valid maxContains",
-                "data": [ 1, 2 ],
+                "data": [1, 2],
                 "valid": true
             },
             {
                 "description": "some elements match, invalid maxContains",
-                "data": [ 1, 2, 1 ],
+                "data": [1, 2, 1],
                 "valid": false
             }
         ]
@@ -54,24 +54,24 @@
     {
         "description": "minContains < maxContains",
         "schema": {
-            "contains": {"const": 1},
+            "contains": { "const": 1 },
             "minContains": 1,
             "maxContains": 3
         },
         "tests": [
             {
                 "description": "actual < minContains < maxContains",
-                "data": [ ],
+                "data": [],
                 "valid": false
             },
             {
                 "description": "minContains < actual < maxContains",
-                "data": [ 1, 1 ],
+                "data": [1, 1],
                 "valid": true
             },
             {
                 "description": "minContains < maxContains < actual",
-                "data": [ 1, 1, 1, 1 ],
+                "data": [1, 1, 1, 1],
                 "valid": false
             }
         ]
