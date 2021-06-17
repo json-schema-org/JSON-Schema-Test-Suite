@@ -44,7 +44,7 @@
         ]
     },
     {
-        "description": "propertyNames validation with pattern for camelCase",
+        "description": "propertyNames validation with pattern",
         "schema": {
             "propertyNames": { "pattern": "^a+$" }
         },
