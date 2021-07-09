@@ -67,7 +67,7 @@
         "schema": {
             "type": "object",
             "patternProperties": {
-                "\\wcole": true
+                "\\wcole": {}
             },
             "additionalProperties": false
         },
@@ -94,7 +94,7 @@
         "schema": {
             "type": "object",
             "patternProperties": {
-                "[a-z]cole": true
+                "[a-z]cole": {}
             },
             "additionalProperties": false
         },
@@ -121,7 +121,7 @@
         "schema": {
             "type": "object",
             "patternProperties": {
-                "^\\d+$": true
+                "^\\d+$": {}
             },
             "additionalProperties": false
         },
