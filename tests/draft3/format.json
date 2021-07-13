@@ -32,11 +32,6 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
-            },
-            {
-                "description": "invalid email string is only an annotation by default",
-                "data": "2962",
-                "valid": true
             }
         ]
     },
@@ -72,11 +67,6 @@
             {
                 "description": "all string formats ignore nulls",
                 "data": null,
-                "valid": true
-            },
-            {
-                "description": "invalid ip-address string is only an annotation by default",
-                "data": "127.0.0.0.1",
                 "valid": true
             }
         ]
@@ -114,11 +104,6 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
-            },
-            {
-                "description": "invalid ipv6 string is only an annotation by default",
-                "data": "12345::",
-                "valid": true
             }
         ]
     },
@@ -154,11 +139,6 @@
             {
                 "description": "all string formats ignore nulls",
                 "data": null,
-                "valid": true
-            },
-            {
-                "description": "invalid host-name string is only an annotation by default",
-                "data": "-a-host-name-that-starts-with--",
                 "valid": true
             }
         ]
@@ -196,11 +176,6 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
-            },
-            {
-                "description": "invalid date-time string is only an annotation by default",
-                "data": "1990-02-31T15:59:60.123-08:00",
-                "valid": true
             }
         ]
     },
@@ -236,11 +211,6 @@
             {
                 "description": "all string formats ignore nulls",
                 "data": null,
-                "valid": true
-            },
-            {
-                "description": "invalid regex string is only an annotation by default",
-                "data": "^(abc]",
                 "valid": true
             }
         ]
@@ -278,11 +248,6 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
-            },
-            {
-                "description": "invalid date string is only an annotation by default",
-                "data": "06/19/1963",
-                "valid": true
             }
         ]
     },
@@ -318,11 +283,6 @@
             {
                 "description": "all string formats ignore nulls",
                 "data": null,
-                "valid": true
-            },
-            {
-                "description": "invalid time string is only an annotation by default",
-                "data": "08:30:06 PST",
                 "valid": true
             }
         ]
@@ -395,11 +355,6 @@
             {
                 "description": "all string formats ignore nulls",
                 "data": null,
-                "valid": true
-            },
-            {
-                "description": "invalid uri string is only an annotation by default",
-                "data": "//foo.bar/?baz=qux#quux",
                 "valid": true
             }
         ]
