@@ -163,5 +163,56 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "properties in combination with $defs",
+        "schema": {
+          "$defs": {
+            "foo": { "required": [ "bar" ] }
+          },
+          "properties": {
+            "aprop": {
+              "$ref": "#/$defs/foo",
+              "required": [ "baz" ]
+            }
+          }
+        },
+        "tests": [
+            {
+                "description": "object with no defined restrictions",
+                "data": {
+                    "foo": 1
+                },
+                "valid": true
+            },
+            {
+                "description": "object with all properties is valid",
+                "data": {
+                    "aprop": {
+                        "bar": 1,
+                        "baz": 1
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "object with with missing direct property",
+                "data": {
+                    "aprop": {
+                        "bar": 1
+                    }
+                },
+                "valid": false
+            },
+            {
+                "description": "object with missing reference properties",
+                "data": {
+                    "aprop": {
+                        "baz": 1
+                    }
+                },
+                "valid": false
+            }
+        ]
     }
 ]
