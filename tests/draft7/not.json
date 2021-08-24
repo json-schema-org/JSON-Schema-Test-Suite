@@ -64,7 +64,7 @@
                 "valid": false
             },
             {
-                "description": "mismatch object with different prop",
+                "description": "mismatch object with different property",
                 "data": { "bar": "foo"},
                 "valid": false
             },
