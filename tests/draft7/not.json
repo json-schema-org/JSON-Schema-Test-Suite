@@ -59,6 +59,16 @@
                 "valid": true
             },
             {
+                "description": "mismatch empty object",
+                "data": {},
+                "valid": false
+            },
+            {
+                "description": "mismatch object with different prop",
+                "data": { "bar": "foo"},
+                "valid": false
+            },
+            {
                 "description": "other match",
                 "data": {"foo": 1},
                 "valid": true
