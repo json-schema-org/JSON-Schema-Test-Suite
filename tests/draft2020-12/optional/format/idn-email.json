@@ -1,7 +1,7 @@
 [
     {
         "description": "validation of an internationalized e-mail addresses",
-        "schema": {"format": "idn-email"},
+        "schema": { "format": "idn-email" },
         "tests": [
             {
                 "description": "a valid idn e-mail (example@example.test in Hangul)",

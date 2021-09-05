@@ -1,11 +1,16 @@
 [
     {
         "description": "validation of host names",
-        "schema": {"format": "hostname"},
+        "schema": { "format": "hostname" },
         "tests": [
             {
                 "description": "a valid host name",
                 "data": "www.example.com",
+                "valid": true
+            },
+            {
+                "description": "a valid punycoded IDN hostname",
+                "data": "xn--4gbwdl.xn--wgbh1c",
                 "valid": true
             },
             {
@@ -61,4 +66,3 @@
         ]
     }
 ]
-

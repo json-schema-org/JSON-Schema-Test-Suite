@@ -1,7 +1,7 @@
 [
     {
         "description": "validation of URI References",
-        "schema": {"format": "uri-reference"},
+        "schema": { "format": "uri-reference" },
         "tests": [
             {
                 "description": "a valid URI",
