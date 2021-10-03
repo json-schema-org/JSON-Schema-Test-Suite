@@ -44,6 +44,16 @@
                 "valid": false
             },
             {
+                "description": "trailing 4 hex symbols is valid",
+                "data": "::abef",
+                "valid": true
+            },
+            {
+                "description": "trailing 5 hex symbols is invalid",
+                "data": "::abcef",
+                "valid": false
+            },
+            {
                 "description": "an IPv6 address with too many components",
                 "data": "1:1:1:1:1:1:1:1:1:1:1:1:1:1:1:1",
                 "valid": false
@@ -82,6 +92,11 @@
                 "description": "missing leading octet with omitted octets later",
                 "data": ":2:3:4::8",
                 "valid": false
+            },
+            {
+                "description": "single set of double colons in the middle is valid",
+                "data": "1:d6::42",
+                "valid": true
             },
             {
                 "description": "two sets of double colons is invalid",
