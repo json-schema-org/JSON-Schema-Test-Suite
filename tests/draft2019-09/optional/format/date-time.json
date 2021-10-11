@@ -64,7 +64,12 @@
                 "valid": true
             },
             {
-                "description": "a invalid day in date-time string",
+                "description": "an invalid date-time past leap second, UTC",
+                "data": "1998-12-31T23:59:61Z",
+                "valid": false
+            },
+            {
+                "description": "an invalid day in date-time string",
                 "data": "1990-02-31T15:59:59.123-08:00",
                 "valid": false
             },
