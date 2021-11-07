@@ -15,7 +15,7 @@
             {
                 "description": "format-assertion: false: invalid string",
                 "data": "not-an-ipv4",
-                "valid": false
+                "valid": true
             }
         ]
     },
