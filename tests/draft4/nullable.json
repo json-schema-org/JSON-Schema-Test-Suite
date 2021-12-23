@@ -1,0 +1,44 @@
+[
+    {
+        "description": "nullable validation",
+        "schema": {"type": "string", "nullable": true},
+        "tests": [
+            {
+                "description": "data null is valid",
+                "data": null,
+                "valid": true
+            },
+            {
+                "description": "empty string is valid",
+                "data": "",
+                "valid": true
+            },
+            {
+                "description": "data is valid",
+                "data": "a normal string",
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "nullable validation (at false)",
+        "schema": {"type": "string", "nullable": false},
+        "tests": [
+            {
+                "description": "data null is invalid",
+                "data": null,
+                "valid": false
+            },
+            {
+                "description": "normal string",
+                "data": "a normal string",
+                "valid": true
+            },
+            {
+                "description": "empty string is valid",
+                "data": "",
+                "valid": true
+            }
+        ]
+    }
+]
