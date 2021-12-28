@@ -1,25 +1,21 @@
 #!/bin/sh
 
-_jq() {
-    echo ${1} | base64 --decode --ignore-garbage | jq -c ${2}
-}
-
-for d in ../tests/*/ ; do
-    for f in $d* ; do # $d contains the ending /
+for d in ../tests/*/
+do
+    for f in $d* # $d contains the ending /
+    do
         echo "$f"
-        json=$(jq -cr '.[] | @base64' < $f)
         scenarioIndex=0
-        for j in $json
+        jq -cr '.[]' < $f | while read j
         do
-            scenario=$(_jq $j '.description')
+            scenario=$(echo $j | jq '.description')
             schemaUri="$f#/$scenarioIndex/schema"
-            cases=$(echo $j | base64 --decode --ignore-garbage | jq -c '.tests[] | @base64')
             caseIndex=0
-            for c in $cases
+            echo $j | jq -c '.tests[]' | while read c
             do
-                case=$(_jq $c '.description')
+                case=$(echo $c | jq '.description')
                 instanceUri="$f#/$scenarioIndex/tests/$caseIndex/data"
-                valid=$(_jq $c '.valid')
+                valid=$(echo $c | jq '.valid')
 
                 ${1} --schema $schemaUri --instance $instanceUri
                 if [[ $? -ne 0 ]]
