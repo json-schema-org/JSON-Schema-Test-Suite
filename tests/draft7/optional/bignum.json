@@ -43,7 +43,7 @@
         ]
     },
     {
-        "description": "integer comparison",
+        "description": "integer comparison, very large number",
         "schema": { "maximum": 18446744073709551615 },
         "tests": [
             {
@@ -54,7 +54,7 @@
         ]
     },
     {
-        "description": "float comparison with high precision",
+        "description": "float comparison with high precision on positive numbers",
         "schema": {
             "exclusiveMaximum": 972783798187987123879878123.18878137
         },
@@ -67,7 +67,7 @@
         ]
     },
     {
-        "description": "integer comparison",
+        "description": "integer comparison, very low number",
         "schema": { "minimum": -18446744073709551615 },
         "tests": [
             {
