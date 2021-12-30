@@ -159,5 +159,34 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "multipleOf with a very large dividend",
+        "schema": {
+            "multipleOf": 0.123456789
+        },
+        "tests": [
+            {
+                "description": "true result",
+                "data": 1.23456789e+307,
+                "valid": true
+            },
+            {
+                "description": "false result",
+                "data": 1e308,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "all integers are multiples of 0.5, if overflow is handled",
+        "schema": { "multipleOf": 0.5 },
+        "tests": [
+            {
+                "description": "valid if optional overflow handling is implemented",
+                "data": 1e308,
+                "valid": true
+            }
+        ]
     }
 ]
