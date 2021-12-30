@@ -1,16 +1,31 @@
 [
     {
-        "description": "by int",
-        "schema": {"multipleOf": 2},
+        "description": "by integer",
+        "schema": { "multipleOf": 2 },
         "tests": [
             {
-                "description": "int by int",
+                "description": "integer by integer",
                 "data": 10,
                 "valid": true
             },
             {
-                "description": "int by int fail",
+                "description": "integer by integer fail",
                 "data": 7,
+                "valid": false
+            },
+            {
+                "description": "integer by integer float",
+                "data": 4.0,
+                "valid": true
+            },
+            {
+                "description": "integer by number fail",
+                "data": 7.5,
+                "valid": false
+            },
+            {
+                "description": "integer by integer float fail",
+                "data": 7.0,
                 "valid": false
             },
             {
@@ -21,8 +36,39 @@
         ]
     },
     {
-        "description": "by number",
-        "schema": {"multipleOf": 1.5},
+        "description": "by integer float",
+        "schema": { "multipleOf": 2.0 },
+        "tests": [
+            {
+                "description": "integer by integer",
+                "data": 10,
+                "valid": true
+            },
+            {
+                "description": "integer by integer fail",
+                "data": 7,
+                "valid": false
+            },
+            {
+                "description": "integer by integer float",
+                "data": 4.0,
+                "valid": true
+            },
+            {
+                "description": "integer by number fail",
+                "data": 7.5,
+                "valid": false
+            },
+            {
+                "description": "ignores non-numbers",
+                "data": "foo",
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "by non-integer number",
+        "schema": { "multipleOf": 1.5 },
         "tests": [
             {
                 "description": "zero is multiple of anything",
@@ -30,13 +76,33 @@
                 "valid": true
             },
             {
-                "description": "4.5 is multiple of 1.5",
+                "description": "float by integer",
+                "data": 6,
+                "valid": true
+            },
+            {
+                "description": "float by integer fail",
+                "data": 35,
+                "valid": false
+            },
+            {
+                "description": "float by float",
                 "data": 4.5,
                 "valid": true
             },
             {
-                "description": "35 is not multiple of 1.5",
-                "data": 35,
+                "description": "float by float fail",
+                "data": 7.2,
+                "valid": false
+            },
+            {
+                "description": "float by integer float",
+                "data": 6.0,
+                "valid": true
+            },
+            {
+                "description": "float by integer float fail",
+                "data": 35.0,
                 "valid": false
             }
         ]
