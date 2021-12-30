@@ -12,6 +12,16 @@
                 "description": "a negative bignum is an integer",
                 "data": -12345678910111213141516171819202122232425262728293031,
                 "valid": true
+            },
+            {
+                "description": "a bignum is an integer if it has a zero fractional component",
+                "data": 12345678910111213141516171819202122232425262728293031.0,
+                "valid": true
+            },
+            {
+                "description": "a negative bignum is an integer if it has a zero fractional component",
+                "data": -12345678910111213141516171819202122232425262728293031.0,
+                "valid": true
             }
         ]
     },
@@ -28,6 +38,16 @@
                 "description": "a negative bignum is a number",
                 "data": -98249283749234923498293171823948729348710298301928331,
                 "valid": true
+            },
+            {
+                "description": "a bignum with a zero fractional component is a number",
+                "data": 98249283749234923498293171823948729348710298301928331.0,
+                "valid": true
+            },
+            {
+                "description": "a negative bignum with a zero fractional component is a number",
+                "data": -98249283749234923498293171823948729348710298301928331.0,
+                "valid": true
             }
         ]
     },
@@ -39,6 +59,16 @@
                 "description": "a bignum is not a string",
                 "data": 98249283749234923498293171823948729348710298301928331,
                 "valid": false
+            },
+            {
+                "description": "a bignum with zero fractional component is not a string",
+                "data": 98249283749234923498293171823948729348710298301928331.0,
+                "valid": false
+            },
+            {
+                "description": "a float bignum is not a string",
+                "data": 98249283749234923498293171823948729348710298301928331.1,
+                "valid": false
             }
         ]
     },
@@ -47,8 +77,18 @@
         "schema": { "maximum": 18446744073709551615 },
         "tests": [
             {
-                "description": "comparison works for high numbers",
+                "description": "comparison works for high integer numbers",
                 "data": 18446744073709551600,
+                "valid": true
+            },
+            {
+                "description": "comparison works for high integer floats",
+                "data": 18446744073709551600.0,
+                "valid": true
+            },
+            {
+                "description": "comparison works for high non-integer floats",
+                "data": 18446744073709551600.1,
                 "valid": true
             }
         ]
@@ -60,7 +100,17 @@
         },
         "tests": [
             {
-                "description": "comparison works for high numbers",
+                "description": "comparison works for high integers",
+                "data": 972783798187987123879878123,
+                "valid": false
+            },
+            {
+                "description": "comparison works for high float integers",
+                "data": 972783798187987123879878124.0,
+                "valid": false
+            },
+            {
+                "description": "comparison works for high non-integer numbers",
                 "data": 972783798187987123879878123.188781371,
                 "valid": false
             }
@@ -71,8 +121,18 @@
         "schema": { "minimum": -18446744073709551615 },
         "tests": [
             {
-                "description": "comparison works for very negative numbers",
+                "description": "comparison works for very negative integers",
                 "data": -18446744073709551600,
+                "valid": true
+            },
+            {
+                "description": "comparison works for very negative float integers",
+                "data": -18446744073709551600.0,
+                "valid": true
+            },
+            {
+                "description": "comparison works for very negative non-integer numbers",
+                "data": -18446744073709551600.1,
                 "valid": true
             }
         ]
@@ -84,8 +144,18 @@
         },
         "tests": [
             {
-                "description": "comparison works for very negative numbers",
-                "data": -972783798187987123879878123.188781371,
+                "description": "comparison works for very negative integers",
+                "data": -972783798187987123879878124,
+                "valid": false
+            },
+            {
+                "description": "comparison works for very negative float integers",
+                "data": -972783798187987123879878124.0,
+                "valid": false
+            },
+            {
+                "description": "comparison works for very negative float non-integers",
+                "data": -972783798187987123879878123.18878137,
                 "valid": false
             }
         ]
