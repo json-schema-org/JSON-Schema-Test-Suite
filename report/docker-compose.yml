@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  test-suite:
+    image: ${IMPLEMENTATION:?Implementation not supplied}
+    volumes:
+      - .:/report
+      - ./${IMPLEMENTATION}:/output
+      - ../tests:/tests
+      - ../remotes:/remotes
+    command: ./report/run-suite.sh

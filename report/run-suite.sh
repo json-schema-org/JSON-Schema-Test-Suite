@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "Running test suite with implementation ${1}"
+
 for d in ../tests/*/
 do
     specVersion=$(basename $d)

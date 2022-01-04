@@ -1,0 +1,6 @@
+[
+    {
+        "name": "JsonSchema.Net",
+        "docker-image": "file:///c/projects/json-everything/JsonSchema.TestSuiteRunner/docker/json-everything.img"
+    }
+]
