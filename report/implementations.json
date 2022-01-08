@@ -1,6 +1,6 @@
 [
     {
-        "name": "JsonSchema.Net",
-        "docker-image": "file:///c/projects/json-everything/JsonSchema.TestSuiteRunner/docker/json-everything.img"
+        "docker-image": "json-everything",
+        "command": "dotnet json-everything.dll"
     }
 ]
