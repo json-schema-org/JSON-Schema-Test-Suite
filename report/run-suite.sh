@@ -6,7 +6,7 @@ command=$(jq -r ".[] | select(.\"docker-image\"==\"${1}\") | .command" /report/i
 versions=$(jq -r ".[] | select(.\"docker-image\"==\"${1}\") | .versions" /report/implementations.json)
 output="/output/result.yml"
 
-sed -e "s/\${IMPLEMENTATION}/${1}/" /report/report-template.yml > ${output}
+sed -e "s~\${IMPLEMENTATION}~${1}~" /report/report-template.yml > ${output}
 
 if [[ "${command}" -eq "" ]]
 then
