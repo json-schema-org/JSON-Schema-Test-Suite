@@ -8,13 +8,13 @@ output="/output/result.yml"
 
 sed -e "s~\${IMPLEMENTATION}~${1}~" /report/report-template.yml > ${output}
 
-if [[ "${command}" -eq "" ]]
+if [[ "${command}" == "" ]]
 then
     echo "Implementation either not found or not configured with a command to execute"
     exit 1
 fi
 
-for d in ../tests/*/
+for d in /tests/*/
 do
     specVersion=$(basename $d)
 
@@ -24,9 +24,16 @@ do
         continue
     fi
 
-    for f in $d* # $d contains the ending /
+    for f in $(find $d) # $d contains the ending /
     do
         filename=$(basename $f)
+        if [[ $f == *"optional"* ]]
+        then
+            optional=true
+        else
+            optional=false
+        fi
+
         scenarioIndex=0
         jq -cr '.[]' < $f | while read j
         do
@@ -56,6 +63,7 @@ do
                 echo "    file: ${filename%%.*}" >> $output
                 echo "    scenario: ${scenario}" >> $output
                 echo "    case: ${case}" >> $output
+                echo "    optional: ${optional}" >> $output
                 echo "    expected: ${expected}" >> $output
                 echo "    result: ${result}" >> $output
 
