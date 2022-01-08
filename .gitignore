@@ -2,4 +2,4 @@
 
 .vscode
 
-report/jq
+report/*/

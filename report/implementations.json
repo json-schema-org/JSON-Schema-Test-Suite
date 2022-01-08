@@ -1,6 +1,7 @@
 [
     {
         "docker-image": "json-everything",
-        "command": "dotnet json-everything.dll"
+        "command": "dotnet json-everything.dll",
+        "versions": ["draft", "draft7", "draft2019-09", "draft2020-12"]
     }
 ]
