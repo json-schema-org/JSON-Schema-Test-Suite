@@ -593,5 +593,33 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "unevaluatedItems on non-applicable type",
+        "schema": {
+            "unevaluatedItems": false
+        },
+        "tests": [
+            {
+                "description": "null is not applicable",
+                "data": null,
+                "valid": true
+            },
+            {
+                "description": "number is not applicable",
+                "data": 42,
+                "valid": true
+            },
+            {
+                "description": "string is not applicable",
+                "data": "foo",
+                "valid": true
+            },
+            {
+                "description": "object is not applicable",
+                "data": {},
+                "valid": true
+            }
+        ]
     }
 ]

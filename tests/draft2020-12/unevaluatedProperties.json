@@ -1307,5 +1307,33 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "unevaluatedProperties on non-applicable type",
+        "schema": {
+            "unevaluatedProperties": false
+        },
+        "tests": [
+            {
+                "description": "null is not applicable",
+                "data": null,
+                "valid": true
+            },
+            {
+                "description": "number is not applicable",
+                "data": 42,
+                "valid": true
+            },
+            {
+                "description": "string is not applicable",
+                "data": "foo",
+                "valid": true
+            },
+            {
+                "description": "array is not applicable",
+                "data": [],
+                "valid": true
+            }
+        ]
     }
 ]
