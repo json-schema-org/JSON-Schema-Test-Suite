@@ -595,29 +595,37 @@
         ]
     },
     {
-        "description": "unevaluatedItems on non-applicable type",
-        "schema": {
-            "unevaluatedItems": false
-        },
+        "description": "non-array instances are valid",
+        "schema": {"unevaluatedItems": false},
         "tests": [
             {
-                "description": "null is not applicable",
-                "data": null,
+                "description": "ignores booleans",
+                "data": true,
                 "valid": true
             },
             {
-                "description": "number is not applicable",
-                "data": 42,
+                "description": "ignores integers",
+                "data": 123,
                 "valid": true
             },
             {
-                "description": "string is not applicable",
+                "description": "ignores floats",
+                "data": 1.0,
+                "valid": true
+            },
+            {
+                "description": "ignores objects",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "ignores strings",
                 "data": "foo",
                 "valid": true
             },
             {
-                "description": "object is not applicable",
-                "data": {},
+                "description": "ignores null",
+                "data": null,
                 "valid": true
             }
         ]

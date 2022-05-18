@@ -1309,29 +1309,37 @@
         ]
     },
     {
-        "description": "unevaluatedProperties on non-applicable type",
-        "schema": {
-            "unevaluatedProperties": false
-        },
+        "description": "non-object instances are valid",
+        "schema": {"unevaluatedProperties": false},
         "tests": [
             {
-                "description": "null is not applicable",
-                "data": null,
+                "description": "ignores booleans",
+                "data": true,
                 "valid": true
             },
             {
-                "description": "number is not applicable",
-                "data": 42,
+                "description": "ignores integers",
+                "data": 123,
                 "valid": true
             },
             {
-                "description": "string is not applicable",
+                "description": "ignores floats",
+                "data": 1.0,
+                "valid": true
+            },
+            {
+                "description": "ignores arrays",
+                "data": [],
+                "valid": true
+            },
+            {
+                "description": "ignores strings",
                 "data": "foo",
                 "valid": true
             },
             {
-                "description": "array is not applicable",
-                "data": [],
+                "description": "ignores null",
+                "data": null,
                 "valid": true
             }
         ]
