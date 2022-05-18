@@ -601,24 +601,24 @@
         },
         "tests": [
             {
-                "description": "null is invalid",
+                "description": "null is not applicable",
                 "data": null,
-                "valid": false
+                "valid": true
             },
             {
-                "description": "number is invalid",
+                "description": "number is not applicable",
                 "data": 42,
-                "valid": false
+                "valid": true
             },
             {
-                "description": "string is invalid",
+                "description": "string is not applicable",
                 "data": "foo",
-                "valid": false
+                "valid": true
             },
             {
-                "description": "object is invalid",
+                "description": "object is not applicable",
                 "data": {},
-                "valid": false
+                "valid": true
             }
         ]
     }
