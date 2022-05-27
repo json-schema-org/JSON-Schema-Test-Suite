@@ -108,7 +108,7 @@
             },
             "definitions": {
                 "baz": {
-                    "$id": "baseUriChangeFolderInSubschema/",
+                    "$id": "baseUriChangeFolderInDefSubschema/",
                     "definitions": {
                         "bar": {
                             "type": "array",
