@@ -336,14 +336,14 @@
                 "valid": true
             },
             {
-                "description": "array without items matching schema is invalid",
+                "description": "array without items matching schema is valid",
                 "data": [2, 3, 4],
-                "valid": false
+                "valid": true
             },
             {
-                "description": "empty array is invalid",
+                "description": "empty array is valid",
                 "data": [],
-                "valid": false
+                "valid": true
             },
             {
                 "description": "not array is valid",
