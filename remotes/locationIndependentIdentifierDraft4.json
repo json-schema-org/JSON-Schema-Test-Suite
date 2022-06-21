@@ -4,7 +4,7 @@
             "$ref": "#foo"
         },
         "A": {
-            "$anchor": "foo",
+            "id": "#foo",
             "type": "integer"
         }
     }
