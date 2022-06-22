@@ -1,7 +1,9 @@
 [
     {
         "description": "Invalid use of fragments in location-independent $id",
-        "schema": {"$ref": "https://json-schema.org/draft/2019-09/schema"},
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
         "tests": [
             {
                 "description": "Identifier name",

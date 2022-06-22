@@ -177,7 +177,9 @@
     },
     {
         "description": "remote ref, containing refs itself",
-        "schema": {"$ref": "https://json-schema.org/draft/2019-09/schema"},
+        "schema": {
+            "$ref": "https://json-schema.org/draft/2019-09/schema"
+        },
         "tests": [
             {
                 "description": "remote ref valid",
@@ -298,7 +300,7 @@
         "tests": [
             {
                 "description": "valid tree",
-                "data": { 
+                "data": {
                     "meta": "root",
                     "nodes": [
                         {
@@ -327,7 +329,7 @@
             },
             {
                 "description": "invalid tree",
-                "data": { 
+                "data": {
                     "meta": "root",
                     "nodes": [
                         {
