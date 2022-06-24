@@ -41,13 +41,12 @@ Each `.json` file consists of a single JSON array of test cases.
 
 For clarity, we first define this document's usage of some testing terminology:
 
-|                 |                                                                                                                                    |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **test suite**  | the entirety of the contents of this repository, containing tests for multiple different releases of the JSON Schema specification |
-| **test case**   | a single schema, along with a description and an array of *test*s                                                                  |
-| **test**        | within a *test case*, a single test example, containing a description, instance and a boolean indicating whether the instance is   |
-|                 | valid under the test case schema                                                                                                   |
-| **test runner** | a program, external to this repository and authored by a user of this suite, which is executing each of the tests in the suite     |
+| term            | definition                                                                                                                                                        |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **test suite**  | the entirety of the contents of this repository, containing tests for multiple different releases of the JSON Schema specification                                |
+| **test case**   | a single schema, along with a description and an array of *test*s                                                                                                 |
+| **test**        | within a *test case*, a single test example, containing a description, instance and a boolean indicating whether the instance is valid under the test case schema |
+| **test runner** | a program, external to this repository and authored by a user of this suite, which is executing each of the tests in the suite                                    |
 
 An example illustrating this structure is immediately below, and a JSON Schema containing a formal definition of the contents of test cases can be found [alongside this README](./test-schema.json).
 
