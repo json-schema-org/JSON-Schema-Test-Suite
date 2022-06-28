@@ -48,5 +48,87 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "non-schema object containing a plain-name $id property",
+        "schema": {
+            "$defs": {
+                "const_not_anchor": {
+                    "const": {
+                        "$id": "#not_a_real_anchor"
+                    }
+                }
+            },
+            "oneOf": [
+                {
+                    "const": "skip not_a_real_anchor"
+                },
+                {
+                    "allOf": [
+                        {
+                            "not": {
+                                "const": "skip not_a_real_anchor"
+                            }
+                        },
+                        {
+                            "$ref": "#/$defs/const_not_anchor"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tests": [
+            {
+                "description": "skip traversing definition for a valid result",
+                "data": "skip not_a_real_anchor",
+                "valid": true
+            },
+            {
+                "description": "const at const_not_anchor does not match",
+                "data": 1,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "non-schema object containing an $id property",
+        "schema": {
+            "$defs": {
+                "const_not_id": {
+                    "const": {
+                        "$id": "not_a_real_id"
+                    }
+                }
+            },
+            "oneOf": [
+                {
+                    "const":"skip not_a_real_id"
+                },
+                {
+                    "allOf": [
+                        {
+                            "not": {
+                                "const": "skip not_a_real_id"
+                            }
+                        },
+                        {
+                            "$ref": "#/$defs/const_not_id"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tests": [
+            {
+                "description": "skip traversing definition for a valid result",
+                "data": "skip not_a_real_id",
+                "valid": true
+            },
+            {
+                "description": "const at const_not_id does not match",
+                "data": 1,
+                "valid": false
+            }
+        ]
     }
 ]
