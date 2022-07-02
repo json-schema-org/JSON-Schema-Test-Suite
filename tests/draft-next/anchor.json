@@ -214,6 +214,11 @@
                 "description": "JSON pointers are not valid",
                 "data": { "$anchor" : "/a/b" },
                 "valid": false
+            },
+            {
+                "description": "invalid with valid beginning",
+                "data": { "$anchor" : "foo#something" },
+                "valid": false
             }
         ]
     }
