@@ -1348,7 +1348,7 @@
         "description": "unevaluatedProperties should properly handle null data",
         "schema": {
             "unevaluatedProperties": {
-                "type": null
+                "type": "null"
             }
         },
         "tests": [

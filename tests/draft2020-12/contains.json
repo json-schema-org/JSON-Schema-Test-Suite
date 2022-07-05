@@ -151,7 +151,7 @@
         "description": "contains should properly handle null data",
         "schema": {
             "contains": {
-                "type": null
+                "type": "null"
             }
         },
         "tests": [

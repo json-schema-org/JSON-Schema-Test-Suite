@@ -630,7 +630,7 @@
         "description": "unevaluatedItems should properly handle null data",
         "schema": {
             "unevaluatedItems": {
-                "type": null
+                "type": "null"
             }
         },
         "tests": [
