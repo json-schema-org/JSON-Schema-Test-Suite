@@ -267,7 +267,7 @@
         "schema": {
             "items": [
                 {
-                "type": null
+                    "type": null
                 }
             ]
         },
