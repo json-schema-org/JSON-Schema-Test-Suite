@@ -137,7 +137,7 @@
         "description": "properties should properly handle null data",
         "schema": {
             "properties": {
-                "foo$": {"type": "null"}
+                "foo": {"type": "null"}
             }
         },
         "tests": [

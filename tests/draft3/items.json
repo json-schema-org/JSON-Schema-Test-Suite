@@ -69,7 +69,7 @@
         },
         "tests": [
             {
-                "description": "null properties allowed",
+                "description": "null items allowed",
                 "data": [ null ],
                 "valid": true
             }

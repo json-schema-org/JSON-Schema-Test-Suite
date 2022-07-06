@@ -165,7 +165,7 @@ If you suspect one, please [file an issue](https://github.com/json-schema-org/JS
            {
                "description": "Invalid: null",
                "data": {
-                   "type": "null"
+                   "type": null
                },
                "valid": false
            }
