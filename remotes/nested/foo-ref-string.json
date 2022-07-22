@@ -1,6 +1,6 @@
 {
     "type": "object",
     "properties": {
-        "hole": {"$ref": "integer.json"}
+        "foo": {"$ref": "string.json"}
     }
 }
