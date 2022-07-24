@@ -55,5 +55,16 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "no pattern keyword",
+        "schema": { "type": "string" },
+        "tests": [
+            {
+                "description": "no pattern in schema is valid",
+                "data": "xxaayy",
+                "valid": true
+            }
+        ]
     }
 ]
