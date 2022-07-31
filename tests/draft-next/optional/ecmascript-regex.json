@@ -7,12 +7,12 @@
         },
         "tests": [
             {
-                "description": "matches in Python, but should not in jsonschema",
+                "description": "matches in Python, but not in ECMA 262",
                 "data": "abc\\n",
                 "valid": false
             },
             {
-                "description": "should match",
+                "description": "matches",
                 "data": "abc",
                 "valid": true
             }
