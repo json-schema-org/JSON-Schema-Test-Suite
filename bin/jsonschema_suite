@@ -141,7 +141,15 @@ class SanityTests(unittest.TestCase):
                 )
         print(f"Found {count} tests.")
 
-    def test_all_descriptions_are_unique(self):
+    def test_all_case_descriptions_are_unique(self):
+        """
+        All cases have unique descriptions in their files.
+        """
+        for path, cases in files(self.test_files):
+            with self.subTest(path=path):
+                self.assertUnique(case["description"] for case in cases)
+
+    def test_all_test_descriptions_are_unique(self):
         """
         All test cases have unique test descriptions in their tests.
         """
