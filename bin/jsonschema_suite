@@ -185,6 +185,11 @@ class SanityTests(unittest.TestCase):
                     r"\bshould\b",
                     message,
                 )
+                self.assertNotRegex(
+                    test["description"],
+                    r"(?i)\btest(s)? that\b",
+                    message,
+                )
 
     @unittest.skipIf(jsonschema is None, "Validation library not present!")
     def test_all_schemas_are_valid(self):
