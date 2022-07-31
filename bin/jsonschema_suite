@@ -116,7 +116,19 @@ class SanityTests(unittest.TestCase):
                 except ValueError as error:
                     self.fail(f"{path} contains invalid JSON ({error})")
 
-    def test_all_descriptions_have_reasonable_length(self):
+    def test_all_case_descriptions_have_reasonable_length(self):
+        """
+        All cases have reasonably long descriptions.
+        """
+        for case in cases(self.test_files):
+            with self.subTest(description=case["description"]):
+                self.assertLess(
+                    len(case["description"]),
+                    150,
+                    "Description is too long (keep it to less than 150 chars)."
+                )
+
+    def test_all_test_descriptions_have_reasonable_length(self):
         """
         All tests have reasonably long descriptions.
         """
