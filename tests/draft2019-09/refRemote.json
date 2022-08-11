@@ -1,7 +1,10 @@
 [
     {
         "description": "remote ref",
-        "schema": {"$ref": "http://localhost:1234/integer.json"},
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$ref": "http://localhost:1234/integer.json"
+        },
         "tests": [
             {
                 "description": "remote ref valid",
@@ -17,7 +20,10 @@
     },
     {
         "description": "fragment within remote ref",
-        "schema": {"$ref": "http://localhost:1234/subSchemas-defs.json#/$defs/integer"},
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$ref": "http://localhost:1234/subSchemas-defs.json#/$defs/integer"
+        },
         "tests": [
             {
                 "description": "remote fragment valid",
@@ -34,6 +40,7 @@
     {
         "description": "ref within remote ref",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$ref": "http://localhost:1234/subSchemas-defs.json#/$defs/refToInteger"
         },
         "tests": [
@@ -52,6 +59,7 @@
     {
         "description": "base URI change",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$id": "http://localhost:1234/",
             "items": {
                 "$id": "baseUriChange/",
@@ -74,6 +82,7 @@
     {
         "description": "base URI change - change folder",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$id": "http://localhost:1234/scope_change_defs1.json",
             "type" : "object",
             "properties": {"list": {"$ref": "baseUriChangeFolder/"}},
@@ -101,6 +110,7 @@
     {
         "description": "base URI change - change folder in subschema",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$id": "http://localhost:1234/scope_change_defs2.json",
             "type" : "object",
             "properties": {"list": {"$ref": "baseUriChangeFolderInSubschema/#/$defs/bar"}},
@@ -132,6 +142,7 @@
     {
         "description": "root ref in remote ref",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$id": "http://localhost:1234/object",
             "type": "object",
             "properties": {
@@ -167,6 +178,7 @@
     {
         "description": "remote ref with ref to defs",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$id": "http://localhost:1234/schema-remote-ref-ref-defs1.json",
             "$ref": "ref-and-defs.json"
         },
@@ -190,6 +202,7 @@
     {
         "description": "Location-independent identifier in remote ref",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/$defs/refToInteger"
         },
         "tests": [
@@ -208,6 +221,7 @@
     {
         "description": "retrieved nested refs resolve relative to their URI not $id",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$id": "http://localhost:1234/some-id",
             "properties": {
                 "name": {"$ref": "nested/foo-ref-string.json"}
