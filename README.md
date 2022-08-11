@@ -131,7 +131,11 @@ If your implementation supports multiple versions, run the above procedure for e
 
 1. The suite, notably in its `refRemote.json` file in each draft, expects a number of remote references to be configured.
    These are JSON documents, identified by URI, which are used by the suite to test the behavior of the `$ref` keyword (and related keywords).
-   Depending on your implementation, you may configure how to "register" these either by retrieving them from the `remotes/` directory at the root of the repository, *or* you may execute `bin/jsonschema_suite remotes` using the executable in the `bin/` directory, which will output a JSON object containing all of the remotes combined, e.g.:
+   Depending on your implementation, you may configure how to "register" these *either*:
+
+    * by directly retrieving them off the filesystem from the `remotes/` directory, in which case you should resolve any `$ref` in the directory relative to a base URI of `http://localhost:1234` such that a `$ref` to `http://localhost:1234/foo/bar/baz.json` resolves to the file at `remotes/foo/bar/baz.json`
+
+    * or alternatively, by executing `bin/jsonschema_suite remotes` using the executable in the `bin/` directory, which will output a JSON object containing all of the remotes combined, e.g.:
 
     ```
 
