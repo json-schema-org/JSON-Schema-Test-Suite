@@ -1,5 +1,6 @@
 {
     "description": "extendible array",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "http://localhost:1234/extendible-dynamic-ref.json",
     "type": "object",
     "properties": {
