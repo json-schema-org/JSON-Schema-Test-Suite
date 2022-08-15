@@ -359,7 +359,6 @@
     },
     {
         "description": "pattern with ASCII ranges",
-        "description": "unicode characters do not match ascii ranges",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "pattern": "[a-z]cole"
