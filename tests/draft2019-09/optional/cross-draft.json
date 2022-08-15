@@ -9,7 +9,7 @@
         "tests": [
             {
                 "description": "first item not a string is invalid",
-                "$comment": "if the implementation is not processing the $ref as a 2020-12 schema, this test will fail",
+                "comment": "if the implementation is not processing the $ref as a 2020-12 schema, this test will fail",
                 "data": [1, 2, 3],
                 "valid": false
             },
@@ -32,7 +32,7 @@
         "tests": [
             {
                 "description": "missing bar is valid",
-                "$comment": "if the implementation is not processing the $ref as a draft 7 schema, this test will fail",
+                "comment": "if the implementation is not processing the $ref as a draft 7 schema, this test will fail",
                 "data": {"foo": "any value"},
                 "valid": true
             }
