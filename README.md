@@ -133,7 +133,7 @@ If your implementation supports multiple versions, run the above procedure for e
    These are JSON documents, identified by URI, which are used by the suite to test the behavior of the `$ref` keyword (and related keywords).
    Depending on your implementation, you may configure how to "register" these *either*:
 
-    * by directly retrieving them off the filesystem from the `remotes/` directory, in which case you should resolve any `$ref` in the directory relative to a base URI of `http://localhost:1234` such that a `$ref` to `http://localhost:1234/foo/bar/baz.json` resolves to the file at `remotes/foo/bar/baz.json`
+    * by directly retrieving them off the filesystem from the `remotes/` directory, in which case you should load each schema with a retrieval URI of `http://localhost:1234` followed by the relative path from the remotes directory -- e.g. a `$ref` to `http://localhost:1234/foo/bar/baz.json` is expected to resolve to the contents of the file at `remotes/foo/bar/baz.json`
 
     * or alternatively, by executing `bin/jsonschema_suite remotes` using the executable in the `bin/` directory, which will output a JSON object containing all of the remotes combined, e.g.:
 
