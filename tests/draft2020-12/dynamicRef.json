@@ -458,7 +458,7 @@
         "description": "strict-tree schema, guards against misspelled properties",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "$id": "http://localhost:1234/strict-tree.json",
+            "$id": "http://localhost:1234/draft2020-12/strict-tree.json",
             "$dynamicAnchor": "node",
 
             "$ref": "tree.json",
@@ -489,7 +489,7 @@
         "description": "tests for implementation dynamic anchor and reference link",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "$id": "http://localhost:1234/strict-extendible.json",
+            "$id": "http://localhost:1234/draft2020-12/strict-extendible.json",
             "$ref": "extendible-dynamic-ref.json",
             "$defs": {
                 "elements": {
@@ -534,7 +534,7 @@
         "description": "$ref and $dynamicAnchor are independent of order - $defs first",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "$id": "http://localhost:1234/strict-extendible-allof-defs-first.json",
+            "$id": "http://localhost:1234/draft2020-12/strict-extendible-allof-defs-first.json",
             "allOf": [
                 {
                     "$ref": "extendible-dynamic-ref.json"
@@ -585,7 +585,7 @@
         "description": "$ref and $dynamicAnchor are independent of order - $ref first",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "$id": "http://localhost:1234/strict-extendible-allof-ref-first.json",
+            "$id": "http://localhost:1234/draft2020-12/strict-extendible-allof-ref-first.json",
             "allOf": [
                 {
                     "$defs": {

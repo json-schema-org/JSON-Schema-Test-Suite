@@ -44,10 +44,10 @@
             {
                 "description": "Identifier name with absolute URI",
                 "data": {
-                    "$ref": "http://localhost:1234/bar#foo",
+                    "$ref": "http://localhost:1234/draft2020-12/bar#foo",
                     "$defs": {
                         "A": {
-                            "$id": "http://localhost:1234/bar#foo",
+                            "$id": "http://localhost:1234/draft2020-12/bar#foo",
                             "type": "integer"
                         }
                     }
@@ -57,10 +57,10 @@
             {
                 "description": "Identifier path with absolute URI",
                 "data": {
-                    "$ref": "http://localhost:1234/bar#/a/b",
+                    "$ref": "http://localhost:1234/draft2020-12/bar#/a/b",
                     "$defs": {
                         "A": {
-                            "$id": "http://localhost:1234/bar#/a/b",
+                            "$id": "http://localhost:1234/draft2020-12/bar#/a/b",
                             "type": "integer"
                         }
                     }
@@ -70,8 +70,8 @@
             {
                 "description": "Identifier name with base URI change in subschema",
                 "data": {
-                    "$id": "http://localhost:1234/root",
-                    "$ref": "http://localhost:1234/nested.json#foo",
+                    "$id": "http://localhost:1234/draft2020-12/root",
+                    "$ref": "http://localhost:1234/draft2020-12/nested.json#foo",
                     "$defs": {
                         "A": {
                             "$id": "nested.json",
@@ -89,8 +89,8 @@
             {
                 "description": "Identifier path with base URI change in subschema",
                 "data": {
-                    "$id": "http://localhost:1234/root",
-                    "$ref": "http://localhost:1234/nested.json#/a/b",
+                    "$id": "http://localhost:1234/draft2020-12/root",
+                    "$ref": "http://localhost:1234/draft2020-12/nested.json#/a/b",
                     "$defs": {
                         "A": {
                             "$id": "nested.json",
@@ -118,10 +118,10 @@
             {
                 "description": "Identifier name with absolute URI",
                 "data": {
-                    "$ref": "http://localhost:1234/bar",
+                    "$ref": "http://localhost:1234/draft2020-12/bar",
                     "$defs": {
                         "A": {
-                            "$id": "http://localhost:1234/bar#",
+                            "$id": "http://localhost:1234/draft2020-12/bar#",
                             "type": "integer"
                         }
                     }
@@ -131,8 +131,8 @@
             {
                 "description": "Identifier name with base URI change in subschema",
                 "data": {
-                    "$id": "http://localhost:1234/root",
-                    "$ref": "http://localhost:1234/nested.json#/$defs/B",
+                    "$id": "http://localhost:1234/draft2020-12/root",
+                    "$ref": "http://localhost:1234/draft2020-12/nested.json#/$defs/B",
                     "$defs": {
                         "A": {
                             "$id": "nested.json",
@@ -159,10 +159,10 @@
             {
                 "description": "Unnormalized identifier",
                 "data": {
-                    "$ref": "http://localhost:1234/foo/baz",
+                    "$ref": "http://localhost:1234/draft2020-12/foo/baz",
                     "$defs": {
                         "A": {
-                            "$id": "http://localhost:1234/foo/bar/../baz",
+                            "$id": "http://localhost:1234/draft2020-12/foo/bar/../baz",
                             "type": "integer"
                         }
                     }
@@ -174,7 +174,7 @@
                 "data": {
                     "$defs": {
                         "A": {
-                            "$id": "http://localhost:1234/foo/bar/../baz",
+                            "$id": "http://localhost:1234/draft2020-12/foo/bar/../baz",
                             "type": "integer"
                         }
                     }
@@ -184,10 +184,10 @@
             {
                 "description": "Unnormalized identifier with empty fragment",
                 "data": {
-                    "$ref": "http://localhost:1234/foo/baz",
+                    "$ref": "http://localhost:1234/draft2020-12/foo/baz",
                     "$defs": {
                         "A": {
-                            "$id": "http://localhost:1234/foo/bar/../baz#",
+                            "$id": "http://localhost:1234/draft2020-12/foo/bar/../baz#",
                             "type": "integer"
                         }
                     }
@@ -199,7 +199,7 @@
                 "data": {
                     "$defs": {
                         "A": {
-                            "$id": "http://localhost:1234/foo/bar/../baz#",
+                            "$id": "http://localhost:1234/draft2020-12/foo/bar/../baz#",
                             "type": "integer"
                         }
                     }
@@ -217,32 +217,32 @@
                 "id_in_enum": {
                     "enum": [
                         {
-                          "$id": "https://localhost:1234/id/my_identifier.json",
+                          "$id": "https://localhost:1234/draft2020-12/id/my_identifier.json",
                           "type": "null"
                         }
                     ]
                 },
                 "real_id_in_schema": {
-                    "$id": "https://localhost:1234/id/my_identifier.json",
+                    "$id": "https://localhost:1234/draft2020-12/id/my_identifier.json",
                     "type": "string"
                 },
                 "zzz_id_in_const": {
                     "const": {
-                        "$id": "https://localhost:1234/id/my_identifier.json",
+                        "$id": "https://localhost:1234/draft2020-12/id/my_identifier.json",
                         "type": "null"
                     }
                 }
             },
             "anyOf": [
                 { "$ref": "#/$defs/id_in_enum" },
-                { "$ref": "https://localhost:1234/id/my_identifier.json" }
+                { "$ref": "https://localhost:1234/draft2020-12/id/my_identifier.json" }
             ]
         },
         "tests": [
             {
                 "description": "exact match to enum, and type matches",
                 "data": {
-                    "$id": "https://localhost:1234/id/my_identifier.json",
+                    "$id": "https://localhost:1234/draft2020-12/id/my_identifier.json",
                     "type": "null"
                 },
                 "valid": true
