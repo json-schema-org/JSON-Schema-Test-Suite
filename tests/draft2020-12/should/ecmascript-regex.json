@@ -1,6 +1,7 @@
 [
     {
         "description": "ECMA 262 regex $ does not match trailing newline",
+        "comment": "§6.4: ' These regular expressions SHOULD be valid according to the regular expression dialect described in ECMA-262, section 21.2.1'",
         "schema": {
             "type": "string",
             "pattern": "^abc$"

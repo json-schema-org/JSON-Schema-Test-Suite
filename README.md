@@ -76,15 +76,13 @@ Here is a single *test case*, containing one or more tests:
 
 ### Subdirectories Within Each Draft
 
-There is currently only one additional subdirectory that may exist within each draft test directory.
+There are currently four additional subdirectories that exist within draft directories.
+They are:
 
-This is:
-
-1. `optional/`: Contains tests that are considered optional.
-
-Note, the `optional/` subdirectory today conflates many reasons why a test may be optional -- it may be because tests within a particular file are indeed not required by the specification but still potentially useful to an implementer, or it may be because tests within it only apply to programming languages with particular functionality (in
-which case they are not truly optional in such a language).
-In the future this directory structure will be made richer to reflect these differences more clearly.
+1. `should/`: Contain tests which the specification designates as recommended behavior, either explicitly or otherwise clearly
+2. `may/`: Contains tests which the specification designates as optional behavior, again explicitly or otherwise clearly
+3. `additional/`: Contains additional tests or subdirectories whose applicability is left for implementations to confirm, either because they test additional vocabularies, apply only to certain languages or environments, or because the strength of their recommendation isn't clear from the specification
+4. `alternatives/`: Contains additional subdirectories of tests which are mutually exclusive to each other. Implementations should often elect a single file within each directory, corresponding to the choice they have made. As a concrete example, the specification in draft 2020 dictates that given `{"$vocabulary": {"foo": false}, ...}`, all implementations regardless of whether they support `"foo"` should proceed with processing. The validation result, however, now depends on whether the implementation understands the vocabulary or not, so the `alternatives` directory has files for each possibility (though not including the third possibility that the implementation disregards the SHOULD and refuses to process the schema entirely).
 
 ## Using the Suite to Test a Validator Implementation
 
