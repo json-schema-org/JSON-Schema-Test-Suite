@@ -151,7 +151,7 @@ If your implementation supports multiple versions, run the above procedure for e
     ```
 
 2. Test cases found within [special subdirectories](#subdirectories-within-each-draft) may require additional configuration to run.
-   In particular, tests within the `optional/format` subdirectory may require implementations to change the way they treat the `"format"`keyword (particularly on older drafts which did not have a notion of vocabularies).
+   In particular, tests within the `additional/format-assertion` subdirectory may require implementations to change the way they treat the `"format"`keyword (particularly on older drafts which did not have a notion of vocabularies).
 
 ### Invariants & Guarantees
 
