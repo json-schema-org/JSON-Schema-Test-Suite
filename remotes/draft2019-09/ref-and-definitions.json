@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "$id": "http://localhost:1234/ref-and-definitions.json",
+    "$id": "http://localhost:1234/draft2019-09/ref-and-definitions.json",
     "definitions": {
         "inner": {
             "properties": {

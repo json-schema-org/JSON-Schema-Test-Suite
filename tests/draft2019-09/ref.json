@@ -285,7 +285,7 @@
         "description": "Recursive references between schemas",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
-            "$id": "http://localhost:1234/tree",
+            "$id": "http://localhost:1234/draft2019-09/tree",
             "description": "tree of nodes",
             "type": "object",
             "properties": {
@@ -298,7 +298,7 @@
             "required": ["meta", "nodes"],
             "$defs": {
                 "node": {
-                    "$id": "http://localhost:1234/node",
+                    "$id": "http://localhost:1234/draft2019-09/node",
                     "description": "node",
                     "type": "object",
                     "properties": {
@@ -601,17 +601,17 @@
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
-            "$id": "/ref-and-id1/base.json",
+            "$id": "/draft2019-09/ref-and-id1/base.json",
             "$ref": "int.json",
             "$defs": {
                 "bigint": {
-                    "$comment": "canonical uri: /ref-and-id1/int.json",
+                    "$comment": "canonical uri: /draft2019-09/ref-and-id1/int.json",
                     "$id": "int.json",
                     "maximum": 10
                 },
                 "smallint": {
-                    "$comment": "canonical uri: /ref-and-id1-int.json",
-                    "$id": "/ref-and-id1-int.json",
+                    "$comment": "canonical uri: /draft2019-09/ref-and-id1-int.json",
+                    "$id": "/draft2019-09/ref-and-id1-int.json",
                     "maximum": 2
                 }
             }
@@ -634,17 +634,17 @@
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
             "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
-            "$id": "/ref-and-id2/base.json",
+            "$id": "/draft2019-09/ref-and-id2/base.json",
             "$ref": "#bigint",
             "$defs": {
                 "bigint": {
-                    "$comment": "canonical uri: /ref-and-id2/base.json/$defs/bigint; another valid uri for this location: /ref-and-id2/base.json#bigint",
+                    "$comment": "canonical uri: /draft2019-09/ref-and-id2/base.json/$defs/bigint; another valid uri for this location: /ref-and-id2/base.json#bigint",
                     "$anchor": "bigint",
                     "maximum": 10
                 },
                 "smallint": {
-                    "$comment": "canonical uri: /ref-and-id2#/$defs/smallint; another valid uri for this location: /ref-and-id2/#bigint",
-                    "$id": "/ref-and-id2/",
+                    "$comment": "canonical uri: /draft2019-09/ref-and-id2#/$defs/smallint; another valid uri for this location: /ref-and-id2/#bigint",
+                    "$id": "/draft2019-09/ref-and-id2/",
                     "$anchor": "bigint",
                     "maximum": 2
                 }

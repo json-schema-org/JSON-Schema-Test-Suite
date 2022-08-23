@@ -28,10 +28,10 @@
         "description": "Location-independent identifier with absolute URI",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
-            "$ref": "http://localhost:1234/bar#foo",
+            "$ref": "http://localhost:1234/draft2019-09/bar#foo",
             "$defs": {
                 "A": {
-                    "$id": "http://localhost:1234/bar",
+                    "$id": "http://localhost:1234/draft2019-09/bar",
                     "$anchor": "foo",
                     "type": "integer"
                 }
@@ -54,8 +54,8 @@
         "description": "Location-independent identifier with base URI change in subschema",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
-            "$id": "http://localhost:1234/root",
-            "$ref": "http://localhost:1234/nested.json#foo",
+            "$id": "http://localhost:1234/draft2019-09/root",
+            "$ref": "http://localhost:1234/draft2019-09/nested.json#foo",
             "$defs": {
                 "A": {
                     "$id": "nested.json",
@@ -143,7 +143,7 @@
         "description": "same $anchor with different base uri",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
-            "$id": "http://localhost:1234/foobar",
+            "$id": "http://localhost:1234/draft2019-09/foobar",
             "$defs": {
                 "A": {
                     "$id": "child1",
