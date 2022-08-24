@@ -1,4 +1,5 @@
 {
+    "$schema": "https://json-schema.org/draft/next/schema",
     "definitions": {
         "refToInteger": {
             "$ref": "#foo"

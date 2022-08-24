@@ -1,6 +1,7 @@
 {
+    "$schema": "https://json-schema.org/draft/next/schema",
     "description": "extendible array",
-    "$id": "http://localhost:1234/extendible-dynamic-ref.json",
+    "$id": "http://localhost:1234/draft-next/extendible-dynamic-ref.json",
     "type": "object",
     "properties": {
         "elements": {

@@ -1,6 +1,7 @@
 {
+    "$schema": "https://json-schema.org/draft/next/schema",
     "description": "tree schema, extensible",
-    "$id": "http://localhost:1234/tree.json",
+    "$id": "http://localhost:1234/draft-next/tree.json",
     "$dynamicAnchor": "node",
 
     "type": "object",

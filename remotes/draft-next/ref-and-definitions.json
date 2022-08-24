@@ -1,5 +1,6 @@
 {
-    "$id": "http://localhost:1234/ref-and-definitions.json",
+    "$schema": "https://json-schema.org/draft/next/schema",
+    "$id": "http://localhost:1234/draft-next/ref-and-definitions.json",
     "definitions": {
         "inner": {
             "properties": {
