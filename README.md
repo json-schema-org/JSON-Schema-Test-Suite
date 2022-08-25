@@ -76,7 +76,7 @@ Here is a single *test case*, containing one or more tests:
 
 ### Subdirectories Within Each Draft
 
-There are currently four additional subdirectories that exist within draft directories.
+There are currently four additional subdirectories that may exist within draft directories.
 They are:
 
 1. `should/`: Contain tests which the specification designates as recommended behavior, either explicitly or otherwise clearly
