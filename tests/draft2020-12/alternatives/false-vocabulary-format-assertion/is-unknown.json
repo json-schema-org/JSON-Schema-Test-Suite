@@ -1,0 +1,22 @@
+[
+    {
+        "description": "schema that uses custom metaschema with format-assertion: false",
+        "comment": "For implementations which do not support the format assertion vocabulary",
+        "schema": {
+            "$schema": "http://localhost:1234/draft2020-12/format-assertion-false.json",
+            "format": "ipv4"
+        },
+        "tests": [
+            {
+                "description": "format-assertion: false: valid string",
+                "data": "127.0.0.1",
+                "valid": true
+            },
+            {
+                "description": "format-assertion: false: invalid string",
+                "data": "not-an-ipv4",
+                "valid": true
+            }
+        ]
+    }
+]

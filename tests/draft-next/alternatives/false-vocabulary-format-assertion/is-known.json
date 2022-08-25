@@ -1,8 +1,8 @@
 [
     {
         "description": "schema that uses custom metaschema with format-assertion: false",
+        "comment": "For implementations which support the format assertion vocabulary",
         "schema": {
-            "$id": "https://schema/using/format-assertion/false",
             "$schema": "http://localhost:1234/draft2020-12/format-assertion-false.json",
             "format": "ipv4"
         },
@@ -21,8 +21,8 @@
     },
     {
         "description": "schema that uses custom metaschema with format-assertion: true",
+        "comment": "For implementations which support the format assertion vocabulary",
         "schema": {
-            "$id": "https://schema/using/format-assertion/true",
             "$schema": "http://localhost:1234/draft2020-12/format-assertion-true.json",
             "format": "ipv4"
         },
