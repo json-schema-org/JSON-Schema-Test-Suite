@@ -1,0 +1,62 @@
+[
+    {
+        "description": "propertyDependencies doesn't act on non-objects",
+        "schema": {
+            "propertyDependencies": {
+                "foo": {"bar": false}
+            }
+        },
+        "tests": [
+            {
+                "description": "ignores booleans",
+                "data": true,
+                "valid": true
+            },
+            {
+                "description": "ignores integers",
+                "data": 123,
+                "valid": true
+            },
+            {
+                "description": "ignores floats",
+                "data": 1.0,
+                "valid": true
+            },
+            {
+                "description": "ignores string",
+                "data": "abc",
+                "valid": true
+            },
+            {
+                "description": "ignores arrays",
+                "data": [],
+                "valid": true
+            },
+            {
+                "description": "ignores null",
+                "data": null,
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "disallowing values",
+        "schema": {
+            "propertyDependencies": {
+                "foo": {"bar": false}
+            }
+        },
+        "tests": [
+            {
+                "description": "bar is invalid",
+                "data": {"foo": "bar"},
+                "valid": false
+            },
+            {
+                "description": "anything else is valid",
+                "data": {"foo": "baz"},
+                "valid": true
+            }
+        ]
+    }
+]
