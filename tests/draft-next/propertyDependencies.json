@@ -93,19 +93,22 @@
         "description": "disallowing values",
         "schema": {
             "propertyDependencies": {
-                "foo": {"bar": false}
+                "foo": {"bar": {"minProperties": 2}}
             }
         },
         "tests": [
             {
-                "description": "bar is invalid",
-                "data": {"foo": "bar"},
-                "valid": false
+                "description": "bar with 2 properties is valid",
+                "data": {
+                    "foo": "bar",
+                    "other-foo": "other-bar"
+                },
+                "valid": true
             },
             {
-                "description": "anything else is valid",
+                "description": "bar without another property is invalid",
                 "data": {"foo": "baz"},
-                "valid": true
+                "valid": false
             }
         ]
     }
