@@ -68,6 +68,16 @@
                 "valid": true
             },
             {
+                "description": "ignores objects wth a key of the expected value",
+                "data": {"foo": {"bar": "baz"}},
+                "valid": true
+            },
+            {
+                "description": "ignores objects with the expected value nested in structure",
+                "data": {"foo": {"baz": "bar"}},
+                "valid": true
+            },
+            {
                 "description": "ignores arrays",
                 "data": {"foo": []},
                 "valid": true
