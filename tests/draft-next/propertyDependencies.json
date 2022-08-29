@@ -40,6 +40,46 @@
         ]
     },
     {
+        "description": "propertyDependencies doesn't act on non-string property values",
+        "schema": {
+            "propertyDependencies": {
+                "foo": {"bar": false}
+            }
+        },
+        "tests": [
+            {
+                "description": "ignores booleans",
+                "data": {"foo": false},
+                "valid": true
+            },
+            {
+                "description": "ignores integers",
+                "data": {"foo": 2},
+                "valid": true
+            },
+            {
+                "description": "ignores floats",
+                "data": {"foo": 1.1},
+                "valid": true
+            },
+            {
+                "description": "ignores objects",
+                "data": {"foo": {}},
+                "valid": true
+            },
+            {
+                "description": "ignores arrays",
+                "data": {"foo": []},
+                "valid": true
+            },
+            {
+                "description": "ignores null",
+                "data": {"foo": null},
+                "valid": true
+            }
+        ]
+    },
+    {
         "description": "disallowing values",
         "schema": {
             "propertyDependencies": {
