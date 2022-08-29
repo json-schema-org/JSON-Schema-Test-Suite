@@ -23,7 +23,7 @@
                 "valid": true
             },
             {
-                "description": "ignores string",
+                "description": "ignores strings",
                 "data": "abc",
                 "valid": true
             },
