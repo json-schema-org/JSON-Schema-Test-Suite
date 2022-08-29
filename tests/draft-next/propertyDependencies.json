@@ -90,15 +90,23 @@
         ]
     },
     {
-        "description": "disallowing values",
+        "description": "multiple options selects the right one",
         "schema": {
             "propertyDependencies": {
-                "foo": {"bar": {"minProperties": 2}}
+                "foo": {
+                    "bar": {
+                        "minProperties": 2,
+                        "maxProperties": 2
+                    },
+                    "baz": {"maxProperties": 1},
+                    "qux": true,
+                    "quux": false
+                }
             }
         },
         "tests": [
             {
-                "description": "bar with 2 properties is valid",
+                "description": "bar with exactly 2 properties is valid",
                 "data": {
                     "foo": "bar",
                     "other-foo": "other-bar"
@@ -106,8 +114,46 @@
                 "valid": true
             },
             {
-                "description": "bar without another property is invalid",
+                "description": "bar with more than 2 properties is invalid",
+                "data": {
+                    "foo": "bar",
+                    "other-foo": "other-bar",
+                    "too": "many"
+                },
+                "valid": false
+            },
+            {
+                "description": "bar with fewer than 2 properties is invalid",
+                "data": {"foo": "bar"},
+                "valid": false
+            },
+            {
+                "description": "baz alone is valid",
                 "data": {"foo": "baz"},
+                "valid": true
+            },
+            {
+                "description": "baz with other properties is invalid",
+                "data": {
+                    "foo": "baz",
+                    "other-foo": "other-bar"
+                },
+                "valid": false
+            },
+            {
+                "description": "anything allowed with qux",
+                "data": {
+                    "foo": "qux",
+                    "blah": ["some other property"],
+                    "more": "properties"
+                },
+                "valid": true
+            },
+            {
+                "description": "quux is disallowed",
+                "data": {
+                    "foo": "quux"
+                },
                 "valid": false
             }
         ]
