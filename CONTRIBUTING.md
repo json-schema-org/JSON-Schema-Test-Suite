@@ -14,15 +14,17 @@ Access for a former contributor may be removed after long periods of inactivity.
 ## Reviewing a Pull Request
 
 Pull requests may (and often should) be reviewed for approval by a single reviewer whose job it is to confirm the change is specified, correct, minimal and follows general style in the repository.
-A reviewer who does not feel comfortable signing off on the correctness of a change is of course free to comment without explicit approval.
-Other contributors are of course also free and encouraged to comment on pull requests whenever they have feedback, even if another contributor has submitted review comments.
+A reviewer who does not feel comfortable signing off on the correctness of a change is free to comment without explicit approval.
+Other contributors are also encouraged to comment on pull requests whenever they have feedback, even if another contributor has submitted review comments.
 A submitter may also choose to request additional feedback if they feel the change is particularly technical or complex, or requires expertise in a particular area of the specification.
+If additional reviewers have participated in a pull request, the submitter should not rely on a single reviewer's approval without some form of confirmation that all participating reviewers are satisfied.
+On the other hand, whenever possible, reviewers who have minor comments should explicitly mention that they are OK with the PR being merged after or potentially *without* addressing them.
 
 When submitting a change, explicitly soliciting a specific reviewer explicitly is currently not needed, as the entire review team is generally pinged for pull requests.
 Nevertheless, submitters may choose to do so if they want specific review from an individual, or if a pull request is sitting without review for a period of time.
-For the latter scenario, leaving a comment on the pull request or in Slack is of course also reasonable.
+For the latter scenario, leaving a comment on the pull request or in Slack is also reasonable.
 
-Confirming that a pull request runs successfully on an implementation is *not* generally sufficient to merge, though of course it is helpful evidence, and highly encouraged.
+Confirming that a pull request runs successfully on an implementation is *not* generally sufficient to merge, though it is helpful evidence, and highly encouraged.
 Proposed changes should be confirmed by reading the specification and ensuring the behavior is specified and correct.
 Submitters are encouraged to link to the specification whenever doing so will be helpful to a reviewer.
 
@@ -50,7 +52,7 @@ In the event the change is indeed correct and CI is flaky or itself incorrect, e
 Improvements to CI itself are very valuable as well, and reviewers who find repeated issues with proposed changes are highly encouraged to improve CI for any changes which may be automatically detected.
 
 Changes should be merged *as-is* and not squashed into single commits.
-Submitters are of course free to structure their commits as they wish throughout the review process, or in some cases to restructure the commits after a review is finished and they are merging the branch, but are not required to do so, and reviewers should not do so on behalf of the submitter without being requested to do so.
+Submitters are free to structure their commits as they wish throughout the review process, or in some cases to restructure the commits after a review is finished and they are merging the branch, but are not required to do so, and reviewers should not do so on behalf of the submitter without being requested to do so.
 
 Contributors with commit access may choose to merge pull requests (or commit directly) to the repository for trivial changes.
 The definition of "trivial" is intentionally slightly ambiguous, and intended to be followed by good-faith contributors.
@@ -62,7 +64,7 @@ If another contributor takes issue with a change merged in this fashion, simply 
 Be familiar with the test structure and assumptions documented in the [README](README.md).
 
 Test cases should include both valid and invalid instances which exercise the test case schema whenever possible.
-Exceptions of course include schemas where only one result is ever possible (such as the `false` schema, or ones using keywords which only produce annotations).
+Exceptions include schemas where only one result is ever possible (such as the `false` schema, or ones using keywords which only produce annotations).
 
 Schemas should be *minimal*, by which we mean that they should contain only those keywords which are being tested by the specific test case, and should not contain complex values when simpler ones would do.
 The same applies to instances -- prefer simpler instances to more complex ones, and when testing string instances, consider using ones which are self-descriptive whenever it aids readability.
