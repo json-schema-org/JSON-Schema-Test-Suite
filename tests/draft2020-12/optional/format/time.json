@@ -192,6 +192,11 @@
                 "valid": false
             },
             {
+                "description": "no time offset with second offset",
+                "data": "12:00:00.52",
+                "valid": false
+            },
+            {
                 "description": "invalid non-ASCII '২' (a Bengali 2)",
                 "data": "1২:00:00Z",
                 "valid": false
