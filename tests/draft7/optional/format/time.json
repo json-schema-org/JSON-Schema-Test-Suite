@@ -189,7 +189,7 @@
                 "valid": false
             },
             {
-                "description": "no time offset with second offset",
+                "description": "no time offset with second fraction",
                 "data": "12:00:00.52",
                 "valid": false
             },
