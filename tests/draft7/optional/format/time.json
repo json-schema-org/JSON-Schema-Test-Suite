@@ -197,6 +197,11 @@
                 "description": "invalid non-ASCII '২' (a Bengali 2)",
                 "data": "1২:00:00Z",
                 "valid": false
+            },
+            {
+                "description": "offset not starting with plus or minus",
+                "data": "08:30:06#00:20",
+                "valid": false
             }
         ]
     }
