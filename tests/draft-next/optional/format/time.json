@@ -205,6 +205,11 @@
                 "description": "offset not starting with plus or minus",
                 "data": "08:30:06#00:20",
                 "valid": false
+            },
+            {
+                "description": "contains letters",
+                "data": "ab:cd:ef",
+                "valid": false
             }
         ]
     }
