@@ -67,6 +67,11 @@
                 "valid": false
             },
             {
+                "description": "explicit positive prefix",
+                "data": "+1/foo/bar",
+                "valid": false
+            },
+            {
                 "description": "## is not a valid json-pointer",
                 "data": "0##",
                 "valid": false
