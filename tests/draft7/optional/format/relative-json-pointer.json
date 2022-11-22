@@ -82,6 +82,11 @@
                 "description": "empty string",
                 "data": "",
                 "valid": false
+            },
+            {
+                "description": "multi-digit integer prefix",
+                "data": "120/foo/bar",
+                "valid": true
             }
         ]
     }
