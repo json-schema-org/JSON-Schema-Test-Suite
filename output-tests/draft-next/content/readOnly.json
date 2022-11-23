@@ -1,14 +1,14 @@
 [
     {
-        "description": "incorrect type",
+        "description": "readOnly generates its value as an annotation",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
-            "$id": "https://json-schema.org/tests/content/draft-next/type/1",
-            "type": "string"
+            "$id": "https://json-schema.org/tests/content/draft-next/readOnly/1",
+            "readOnly": true
         },
         "tests": [
             {
-                "description": "incorrect type may be reported",
+                "description": "readOnly is true",
                 "data": 1,
                 "output": {
                     "basic": {
@@ -19,17 +19,16 @@
                                     "type": "object",
                                     "properties": {
                                         "evaluationPath": {"const": ""},
-                                        "schemaLocation": {"const": "https://json-schema.org/tests/content/draft-next/type/1"},
+                                        "schemaLocation": {"const": "https://json-schema.org/tests/content/draft-next/readOnly/1"},
                                         "instanceLocation": {"const": ""},
-                                        "annotations": false,
-                                        "errors": {
+                                        "annotations": {
                                             "properties": {
-                                                "type": {"type": "string"}
+                                                "readOnly": {"const": true}
                                             },
-                                            "required": ["type"]
+                                            "required": ["readOnly"]
                                         }
                                     },
-                                    "required": ["evaluationPath", "schemaLocation", "instanceLocation"]
+                                    "required": ["evaluationPath", "schemaLocation", "instanceLocation", "annotations"]
                                 }
                             }
                         },

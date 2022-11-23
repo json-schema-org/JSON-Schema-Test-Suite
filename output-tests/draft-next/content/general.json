@@ -1,14 +1,15 @@
 [
     {
-        "description": "readOnly generates its value as an annotation",
+        "description": "failed validation produces no annotations",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
-            "$id": "https://json-schema.org/tests/content/draft-next/readOnly/1",
+            "$id": "https://json-schema.org/tests/content/draft-next/general/1",
+            "type": "string",
             "readOnly": true
         },
         "tests": [
             {
-                "description": "readOnly is true",
+                "description": "dropped annotations MAY appear in droppedAnnotations",
                 "data": 1,
                 "output": {
                     "basic": {
@@ -19,16 +20,17 @@
                                     "type": "object",
                                     "properties": {
                                         "evaluationPath": {"const": ""},
-                                        "schemaLocation": {"const": "https://json-schema.org/tests/content/draft-next/readOnly/1"},
+                                        "schemaLocation": {"const": "https://json-schema.org/tests/content/draft-next/general/1"},
                                         "instanceLocation": {"const": ""},
-                                        "annotations": {
+                                        "annotations": false,
+                                        "droppedAnnotations": {
                                             "properties": {
                                                 "readOnly": {"const": true}
                                             },
                                             "required": ["readOnly"]
                                         }
                                     },
-                                    "required": ["evaluationPath", "schemaLocation", "instanceLocation", "annotations"]
+                                    "required": ["evaluationPath", "schemaLocation", "instanceLocation"]
                                 }
                             }
                         },

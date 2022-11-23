@@ -1,15 +1,14 @@
 [
     {
-        "description": "failed validation produces no annotations",
+        "description": "incorrect type",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
-            "$id": "https://json-schema.org/tests/content/draft-next/general/1",
-            "type": "string",
-            "readOnly": true
+            "$id": "https://json-schema.org/tests/content/draft-next/type/1",
+            "type": "string"
         },
         "tests": [
             {
-                "description": "dropped annotations MAY appear in droppedAnnotations",
+                "description": "incorrect type may be reported",
                 "data": 1,
                 "output": {
                     "basic": {
@@ -20,14 +19,14 @@
                                     "type": "object",
                                     "properties": {
                                         "evaluationPath": {"const": ""},
-                                        "schemaLocation": {"const": "https://json-schema.org/tests/content/draft-next/general/1"},
+                                        "schemaLocation": {"const": "https://json-schema.org/tests/content/draft-next/type/1"},
                                         "instanceLocation": {"const": ""},
                                         "annotations": false,
-                                        "droppedAnnotations": {
+                                        "errors": {
                                             "properties": {
-                                                "readOnly": {"const": true}
+                                                "type": {"type": "string"}
                                             },
-                                            "required": ["readOnly"]
+                                            "required": ["type"]
                                         }
                                     },
                                     "required": ["evaluationPath", "schemaLocation", "instanceLocation"]
