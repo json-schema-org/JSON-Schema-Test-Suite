@@ -12,12 +12,10 @@
                 "data": 1,
                 "output": {
                     "basic": {
-                        "type": "object",
+                        "$ref": "/draft/2020-12/output/schema",
                         "properties": {
                             "annotations": {
-                                "type": "array",
                                 "contains": {
-                                    "type": "object",
                                     "properties": {
                                         "keywordLocation": {"const": "/readOnly"},
                                         "absoluteKeywordLocation": {"const": "https://json-schema.org/tests/content/draft2020-12/readOnly/1#/readOnly"},

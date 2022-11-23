@@ -12,11 +12,10 @@
                 "data": 1,
                 "output": {
                     "basic": {
-                        "type": "object",
+                        "$ref": "/draft/next/output/schema",
                         "properties": {
                             "details": {
                                 "contains": {
-                                    "type": "object",
                                     "properties": {
                                         "evaluationPath": {"const": ""},
                                         "schemaLocation": {"const": "https://json-schema.org/tests/content/draft-next/readOnly/1"},

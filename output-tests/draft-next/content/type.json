@@ -8,24 +8,20 @@
         },
         "tests": [
             {
-                "description": "incorrect type may be reported",
+                "description": "incorrect type must be reported, but a message is not required",
                 "data": 1,
                 "output": {
                     "basic": {
-                        "type": "object",
+                        "$ref": "/draft/next/output/schema",
                         "properties": {
                             "details": {
                                 "contains": {
-                                    "type": "object",
                                     "properties": {
                                         "evaluationPath": {"const": ""},
                                         "schemaLocation": {"const": "https://json-schema.org/tests/content/draft-next/type/1"},
                                         "instanceLocation": {"const": ""},
                                         "annotations": false,
                                         "errors": {
-                                            "properties": {
-                                                "type": {"type": "string"}
-                                            },
                                             "required": ["type"]
                                         }
                                     },

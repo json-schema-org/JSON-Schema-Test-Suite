@@ -13,10 +13,9 @@
                 "data": 1,
                 "output": {
                     "basic": {
-                        "type": "object",
+                        "$ref": "/draft/2019-09/output/schema",
                         "properties": {
                             "errors": {
-                                "type": "array",
                                 "items": {
                                     "properties": {
                                         "annotation": false

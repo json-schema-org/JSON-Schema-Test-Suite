@@ -12,10 +12,9 @@
                 "data": 1,
                 "output": {
                     "basic": {
-                        "type": "object",
+                        "$ref": "/draft/2019-09/output/schema",
                         "properties": {
                             "annotations": {
-                                "type": "array",
                                 "contains": {
                                     "type": "object",
                                     "properties": {
