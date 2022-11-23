@@ -1,12 +1,14 @@
 These tests are intended to validate that implementations are correctly generating output in accordance with the specification.
 
-Output was initially specified with draft 2019-09.  It remained unchanged for draft 2020-12 <!-- do we need explicit tests for 2002-12? -->, but will receive an update with the next release.
+Output was initially specified with draft 2019-09.  It remained unchanged for draft 2020-12, but will receive an update with the next release.
+
+***NOTE** Although the formats didn't change between 2019-09 and 2020-12, the tests are replicated for 2020-12 because the `$schema` is different and implementations may (but shouldn't) produce different output.*
 
 ## Organization
 
-The tests are organized into two categories: content and structure.
+The tests are organized by specification release and then into two categories: content and structure.
 
-Content tests verify that the keywords are producing the correct annotations.  Since there are no requirements on the content of error messages, there's not much that can be verified for them, if they're even generated.  These tests need to extensively cover the annotation behaviors of each keyword.  The expected output format for these tests is `basic`.
+Content tests verify that the keywords are producing the correct annotations and/or error messages.  Since there are no requirements on the content of error messages, there's not much that can be verified for them, but it is possible to identify when a error message _could_ be present.  Primarily, these tests need to extensively cover the annotation behaviors of each keyword.  The only output format needed for these tests is `basic`.
 
 Structure tests verify that the structures of the various formats (i.e. `flag`, `basic`, `detailed`, `verbose`) are correct.  These tests don't need to cover each keyword; rather they need to sufficiently cover the various aspects of building the output structures by using whatever keywords are necessary to do so.
 

@@ -2,8 +2,8 @@
     {
         "description": "failed validation produces no annotations",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2019-09/schema",
-            "$id": "https://json-schema.org/tests/content/draft2019-09/general/1",
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "https://json-schema.org/tests/content/draft2020-12/general/1",
             "type": "string",
             "readOnly": true
         },
