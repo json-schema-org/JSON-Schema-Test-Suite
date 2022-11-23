@@ -12,6 +12,8 @@ Content tests verify that the keywords are producing the correct annotations and
 
 Structure tests verify that the structures of the various formats (i.e. `flag`, `basic`, `detailed`, `verbose`) are correct.  These tests don't need to cover each keyword; rather they need to sufficiently cover the various aspects of building the output structures by using whatever keywords are necessary to do so.
 
+In each release folder, you'll also find an _output-schema.json_ file that contains the schema from the specification repo that describes output for that release.  This schema will need to be loaded as the tests reference it.
+
 ## Test Files
 
 The content of a test file is the same as the validation tests in `tests/`, however an `output` property has been added to each test case.
