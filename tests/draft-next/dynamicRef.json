@@ -504,15 +504,23 @@
                 "expectedTypes": {
                     "strings": {
                         "$id": "east",
-                        "$dynamicAnchor": "foo",
-                        "type": "string",
-                        "$ref": "inner"
+                        "$ref": "inner",
+                        "$defs": {
+                            "foo": {
+                                "$dynamicAnchor": "foo",
+                                "type": "string"
+                            }
+                        }
                     },
                     "integers": {
                         "$id": "west",
-                        "$dynamicAnchor": "foo",
-                        "type": "integer",
-                        "$ref": "inner"
+                        "$ref": "inner",
+                        "$defs": {
+                            "foo": {
+                                "$dynamicAnchor": "foo",
+                                "type": "integer"
+                            }
+                        }
                     }
                 }
             }
