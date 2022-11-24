@@ -1,0 +1,36 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://json-schema.org/tests/output-test-schema",
+    "description": "A schema for files contained within this suite",
+
+    "$ref": "test-schema",
+
+    "$defs": {
+        "test": {
+            "$dynamicAnchor": "foo",
+            "description": "A single output test",
+
+            "allOf": [
+                { "$ref": "test-schema#/$defs/test" },
+                {
+                    "properties": {
+                        "output": {
+                            "description": "schemas that are used to verify output",
+                            "type": "object",
+                            "properties": {
+                                "flag": { "$ref": "https://json-schema.org/draft/2020-12/schema" },
+                                "basic": { "$ref": "https://json-schema.org/draft/2020-12/schema" },
+                                "detailed": { "$ref": "https://json-schema.org/draft/2020-12/schema" },
+                                "verbose": { "$ref": "https://json-schema.org/draft/2020-12/schema" },
+                                "list": { "$ref": "https://json-schema.org/draft/2020-12/schema" },
+                                "hierarchy": { "$ref": "https://json-schema.org/draft/2020-12/schema" }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

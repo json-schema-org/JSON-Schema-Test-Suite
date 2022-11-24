@@ -30,11 +30,13 @@ else:
 
 ROOT_DIR = Path(__file__).parent.parent
 SUITE_ROOT_DIR = ROOT_DIR / "tests"
+OUTPUT_ROOT_DIR = ROOT_DIR / "output-tests"
 
 REMOTES_DIR = ROOT_DIR / "remotes"
 REMOTES_BASE_URL = "http://localhost:1234/"
 
 TESTSUITE_SCHEMA = json.loads((ROOT_DIR / "test-schema.json").read_text())
+OUTPUTTESTSUITE_SCHEMA = json.loads((ROOT_DIR / "output-test-schema.json").read_text())
 
 
 def files(paths):
@@ -88,11 +90,16 @@ class SanityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         print(f"Looking for tests in {SUITE_ROOT_DIR}")
+        print(f"Looking for output tests in {OUTPUT_ROOT_DIR}")
         print(f"Looking for remotes in {REMOTES_DIR}")
 
         cls.test_files = list(collect(SUITE_ROOT_DIR))
         assert cls.test_files, "Didn't find the test files!"
         print(f"Found {len(cls.test_files)} test files")
+
+        cls.output_test_files = list(collect(OUTPUT_ROOT_DIR))
+        assert cls.remote_files, "Didn't find the output test files!"
+        print(f"Found {len(cls.remote_files)} output test files")
 
         cls.remote_files = list(collect(REMOTES_DIR))
         assert cls.remote_files, "Didn't find the remote files!"
@@ -142,6 +149,17 @@ class SanityTests(unittest.TestCase):
                 except ValueError as error:
                     self.fail(f"{path} contains invalid JSON ({error})")
 
+    def test_all_output_test_files_are_valid_json(self):
+        """
+        All test files contain valid JSON.
+        """
+        for path in self.output_test_files:
+            with self.subTest(path=path):
+                try:
+                    json.loads(path.read_text())
+                except ValueError as error:
+                    self.fail(f"{path} contains invalid JSON ({error})")
+
     def test_all_remote_files_are_valid_json(self):
         """
         All remote files contain valid JSON.
@@ -157,7 +175,7 @@ class SanityTests(unittest.TestCase):
         """
         All cases have reasonably long descriptions.
         """
-        for case in cases(self.test_files):
+        for case in cases(self.test_files + self.output_test_files):
             with self.subTest(description=case["description"]):
                 self.assertLess(
                     len(case["description"]),
@@ -169,7 +187,7 @@ class SanityTests(unittest.TestCase):
         """
         All tests have reasonably long descriptions.
         """
-        for count, test in enumerate(tests(self.test_files)):
+        for count, test in enumerate(tests(self.test_files + self.output_test_files)):
             with self.subTest(description=test["description"]):
                 self.assertLess(
                     len(test["description"]),
@@ -182,7 +200,7 @@ class SanityTests(unittest.TestCase):
         """
         All cases have unique descriptions in their files.
         """
-        for path, cases in files(self.test_files):
+        for path, cases in files(self.test_files + self.output_test_files):
             with self.subTest(path=path):
                 self.assertUnique(case["description"] for case in cases)
 
@@ -190,7 +208,7 @@ class SanityTests(unittest.TestCase):
         """
         All test cases have unique test descriptions in their tests.
         """
-        for count, case in enumerate(cases(self.test_files)):
+        for count, case in enumerate(cases(self.test_files + self.output_test_files)):
             with self.subTest(description=case["description"]):
                 self.assertUnique(
                     test["description"] for test in case["tests"]
@@ -198,12 +216,12 @@ class SanityTests(unittest.TestCase):
         print(f"Found {count} test cases.")
 
     def test_case_descriptions_do_not_use_modal_verbs(self):
-        for case in cases(self.test_files):
+        for case in cases(self.test_files + self.output_test_files):
             with self.subTest(description=case["description"]):
                 self.assertFollowsDescriptionStyle(case["description"])
 
     def test_test_descriptions_do_not_use_modal_verbs(self):
-        for test in tests(self.test_files):
+        for test in tests(self.test_files + self.output_test_files):
             with self.subTest(description=test["description"]):
                 self.assertFollowsDescriptionStyle(test["description"])
 
@@ -239,6 +257,17 @@ class SanityTests(unittest.TestCase):
         Validator = jsonschema.validators.validator_for(TESTSUITE_SCHEMA)
         validator = Validator(TESTSUITE_SCHEMA)
         for path, cases in files(self.test_files):
+            with self.subTest(path=path):
+                try:
+                    validator.validate(cases)
+                except jsonschema.ValidationError as error:
+                    self.fail(str(error))
+        """
+        All output test files are valid under output-test-schema.json.
+        """
+        Validator = jsonschema.validators.validator_for(OUTPUTTESTSUITE_SCHEMA)
+        validator = Validator(OUTPUTTESTSUITE_SCHEMA)
+        for path, cases in files(self.output_test_files):
             with self.subTest(path=path):
                 try:
                     validator.validate(cases)
