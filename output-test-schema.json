@@ -7,7 +7,7 @@
 
     "$defs": {
         "test": {
-            "$dynamicAnchor": "foo",
+            "$dynamicAnchor": "test",
             "description": "A single output test",
 
             "allOf": [

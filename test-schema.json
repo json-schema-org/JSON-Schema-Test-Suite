@@ -26,7 +26,7 @@
                 "description": "A set of related tests all using the same schema",
                 "type": "array",
                 "items": {
-                    "$dynamicRef": "#foo",
+                    "$dynamicRef": "#test",
                     "unevaluatedProperties": false
                 },
                 "minItems": 1
@@ -37,7 +37,7 @@
 
     "$defs": {
         "test": {
-            "$dynamicAnchor": "foo",
+            "$dynamicAnchor": "test",
             "description": "A single test",
 
             "type": "object",
