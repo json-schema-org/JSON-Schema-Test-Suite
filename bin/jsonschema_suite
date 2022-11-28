@@ -99,7 +99,7 @@ class SanityTests(unittest.TestCase):
 
         cls.output_test_files = list(collect(OUTPUT_ROOT_DIR))
         assert cls.output_test_files, "Didn't find the output test files!"
-        print(f"Found {len(cls.remote_files)} output test files")
+        print(f"Found {len(cls.output_test_files)} output test files")
 
         cls.remote_files = list(collect(REMOTES_DIR))
         assert cls.remote_files, "Didn't find the remote files!"
