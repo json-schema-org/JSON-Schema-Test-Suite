@@ -84,7 +84,7 @@ def url_for_path(path):
 
     return urljoin(
         REMOTES_BASE_URL,
-        str(path.relative_to(REMOTES_DIR)).replace("\\", "/")  # Windows...
+        str(path.relative_to(REMOTES_DIR)).replace("\\", "/"),  # Windows...
     )
 
 
@@ -100,7 +100,8 @@ class SanityTests(unittest.TestCase):
         print(f"Found {len(cls.test_files)} test files")
 
         cls.output_test_files = [
-            each for each in collect(OUTPUT_ROOT_DIR)
+            each
+            for each in collect(OUTPUT_ROOT_DIR)
             if each.name != "output-schema.json"
         ]
         assert cls.output_test_files, "Didn't find the output test files!"
@@ -163,19 +164,21 @@ class SanityTests(unittest.TestCase):
                 self.assertLess(
                     len(case["description"]),
                     150,
-                    "Description is too long (keep it to less than 150 chars)."
+                    "Description is too long (keep it to less than 150 chars).",
                 )
 
     def test_all_test_descriptions_have_reasonable_length(self):
         """
         All tests have reasonably long descriptions.
         """
-        for count, test in enumerate(tests(self.test_files + self.output_test_files)):
+        for count, test in enumerate(
+            tests(self.test_files + self.output_test_files)
+        ):
             with self.subTest(description=test["description"]):
                 self.assertLess(
                     len(test["description"]),
                     70,
-                    "Description is too long (keep it to less than 70 chars)."
+                    "Description is too long (keep it to less than 70 chars).",
                 )
         print(f"Found {count} tests.")
 
@@ -191,7 +194,9 @@ class SanityTests(unittest.TestCase):
         """
         All test cases have unique test descriptions in their tests.
         """
-        for count, case in enumerate(cases(self.test_files + self.output_test_files)):
+        for count, case in enumerate(
+            cases(self.test_files + self.output_test_files)
+        ):
             with self.subTest(description=case["description"]):
                 self.assertUnique(
                     test["description"] for test in case["tests"]
@@ -226,7 +231,7 @@ class SanityTests(unittest.TestCase):
                             Validator.check_schema(case["schema"])
                         except jsonschema.SchemaError:
                             self.fail(
-                                "Found an invalid schema."
+                                "Found an invalid schema. "
                                 "See the traceback for details on why."
                             )
             else:
@@ -292,7 +297,9 @@ def main(arguments):
         try:
             import flask
         except ImportError:
-            print(textwrap.dedent("""
+            print(
+                textwrap.dedent(
+                    """
                 The Flask library is required to serve the remote schemas.
 
                 You can install it by running `pip install Flask`.
@@ -300,7 +307,11 @@ def main(arguments):
                 Alternatively, see the `jsonschema_suite remotes` or
                 `jsonschema_suite dump_remotes` commands to create static files
                 that can be served with your own web server.
-            """.strip("\n")))
+            """.strip(
+                        "\n"
+                    )
+                )
+            )
             sys.exit(1)
 
         app = flask.Flask(__name__)
@@ -324,7 +335,7 @@ check = subparsers.add_parser("check", help="Sanity check the test suite.")
 
 flatten = subparsers.add_parser(
     "flatten",
-    help="Output a flattened file containing a selected version's test cases."
+    help="Output a flattened file containing a selected version's test cases.",
 )
 flatten.add_argument(
     "--randomize",
@@ -332,17 +343,19 @@ flatten.add_argument(
     help="Randomize the order of the outputted cases.",
 )
 flatten.add_argument(
-    "version", help="The directory containing the version to output",
+    "version",
+    help="The directory containing the version to output",
 )
 
 remotes = subparsers.add_parser(
     "remotes",
     help="Output the expected URLs and their associated schemas for remote "
-         "ref tests as a JSON object."
+    "ref tests as a JSON object.",
 )
 
 dump_remotes = subparsers.add_parser(
-    "dump_remotes", help="Dump the remote ref schemas into a file tree",
+    "dump_remotes",
+    help="Dump the remote ref schemas into a file tree",
 )
 dump_remotes.add_argument(
     "--update",
@@ -358,7 +371,7 @@ dump_remotes.add_argument(
 
 serve = subparsers.add_parser(
     "serve",
-    help="Start a webserver to serve schemas used by remote ref tests."
+    help="Start a webserver to serve schemas used by remote ref tests.",
 )
 
 if __name__ == "__main__":
