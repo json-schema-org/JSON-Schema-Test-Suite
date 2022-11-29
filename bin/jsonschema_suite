@@ -99,7 +99,10 @@ class SanityTests(unittest.TestCase):
         assert cls.test_files, "Didn't find the test files!"
         print(f"Found {len(cls.test_files)} test files")
 
-        cls.output_test_files = list(collect(OUTPUT_ROOT_DIR))
+        cls.output_test_files = [
+            each for each in collect(OUTPUT_ROOT_DIR)
+            if each.name != "output-schema.json"
+        ]
         assert cls.output_test_files, "Didn't find the output test files!"
         print(f"Found {len(cls.output_test_files)} output test files")
 
@@ -234,19 +237,22 @@ class SanityTests(unittest.TestCase):
         """
         All test files are valid under test-schema.json.
         """
-        Validator = jsonschema.validators.validator_for(TESTSUITE_SCHEMA)
-        validator = Validator(TESTSUITE_SCHEMA)
+        Validator = jsonschema.validators.validator_for(TEST_SCHEMA)
+        validator = Validator(TEST_SCHEMA)
         for path, cases in files(self.test_files):
             with self.subTest(path=path):
                 try:
                     validator.validate(cases)
                 except jsonschema.ValidationError as error:
                     self.fail(str(error))
+
+    @unittest.skipIf(jsonschema is None, "Validation library not present!")
+    def test_output_suites_are_valid(self):
         """
         All output test files are valid under output-test-schema.json.
         """
-        Validator = jsonschema.validators.validator_for(OUTPUTTESTSUITE_SCHEMA)
-        validator = Validator(OUTPUTTESTSUITE_SCHEMA)
+        Validator = jsonschema.validators.validator_for(OUTPUT_TEST_SCHEMA)
+        validator = Validator(OUTPUT_TEST_SCHEMA)
         for path, cases in files(self.output_test_files):
             with self.subTest(path=path):
                 try:
