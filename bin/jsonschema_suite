@@ -35,8 +35,10 @@ OUTPUT_ROOT_DIR = ROOT_DIR / "output-tests"
 REMOTES_DIR = ROOT_DIR / "remotes"
 REMOTES_BASE_URL = "http://localhost:1234/"
 
-TESTSUITE_SCHEMA = json.loads((ROOT_DIR / "test-schema.json").read_text())
-OUTPUTTESTSUITE_SCHEMA = json.loads((ROOT_DIR / "output-test-schema.json").read_text())
+TEST_SCHEMA = json.loads(ROOT_DIR.joinpath("test-schema.json").read_text())
+OUTPUT_TEST_SCHEMA = json.loads(
+    ROOT_DIR.joinpath("output-test-schema.json").read_text(),
+)
 
 
 def files(paths):
@@ -69,7 +71,7 @@ def collect(root_dir):
     """
     All of the test file paths within the given root directory, recursively.
     """
-    return root_dir.glob("**/*.json")
+    return root_dir.rglob("*.json")
 
 
 def url_for_path(path):
@@ -138,33 +140,11 @@ class SanityTests(unittest.TestCase):
         self.assertNotRegex(description, r"\bshould\b", message)
         self.assertNotRegex(description, r"(?i)\btest(s)? that\b", message)
 
-    def test_all_test_files_are_valid_json(self):
+    def test_all_json_files_are_valid(self):
         """
-        All test files contain valid JSON.
+        All files (tests, output tests, remotes, etc.) contain valid JSON.
         """
-        for path in self.test_files:
-            with self.subTest(path=path):
-                try:
-                    json.loads(path.read_text())
-                except ValueError as error:
-                    self.fail(f"{path} contains invalid JSON ({error})")
-
-    def test_all_output_test_files_are_valid_json(self):
-        """
-        All test files contain valid JSON.
-        """
-        for path in self.output_test_files:
-            with self.subTest(path=path):
-                try:
-                    json.loads(path.read_text())
-                except ValueError as error:
-                    self.fail(f"{path} contains invalid JSON ({error})")
-
-    def test_all_remote_files_are_valid_json(self):
-        """
-        All remote files contain valid JSON.
-        """
-        for path in self.remote_files:
+        for path in collect(ROOT_DIR):
             with self.subTest(path=path):
                 try:
                     json.loads(path.read_text())
