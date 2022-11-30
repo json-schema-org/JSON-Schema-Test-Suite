@@ -1,6 +1,6 @@
 These tests are intended to validate that implementations are correctly generating output in accordance with the specification.
 
-Output was initially specified with draft 2019-09.  It remained unchanged for draft 2020-12, but will receive an update with the next release.
+Output was initially specified with draft 2019-09.  It remained largely unchanged for draft 2020-12, but will receive an update with the next release.
 
 ***NOTE** Although the formats didn't change between 2019-09 and 2020-12, the tests are replicated for 2020-12 because the `$schema` is different and implementations may (but shouldn't) produce different output.*
 
