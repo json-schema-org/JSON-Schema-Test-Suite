@@ -23,7 +23,7 @@
                                         "instanceLocation": {"const": ""},
                                         "annotation": false
                                     },
-                                    "required": ["keywordLocation", "absoluteKeywordLocation", "instanceLocation"]
+                                    "required": ["keywordLocation", "instanceLocation"]
                                 }
                             }
                         },
@@ -49,7 +49,7 @@
                                         "annotation": false,
                                         "error": false
                                     },
-                                    "required": ["keywordLocation", "absoluteKeywordLocation", "instanceLocation"]
+                                    "required": ["keywordLocation", "instanceLocation"]
                                 }
                             }
                         },

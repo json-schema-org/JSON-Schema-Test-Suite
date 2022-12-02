@@ -23,7 +23,7 @@
                                         "instanceLocation": {"const": ""},
                                         "annotation": {"const": true}
                                     },
-                                    "required": ["keywordLocation", "absoluteKeywordLocation", "instanceLocation", "annotation"]
+                                    "required": ["keywordLocation", "instanceLocation", "annotation"]
                                 }
                             },
                             "errors": false
