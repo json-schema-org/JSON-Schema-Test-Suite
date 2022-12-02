@@ -3,7 +3,7 @@
         "description": "validating type",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "$id": "https://json-schema.org/tests/content/draft2020-12/type/1",
+            "$id": "https://json-schema.org/tests/content/draft2020-12/type/0",
             "type": "string"
         },
         "tests": [
@@ -12,13 +12,14 @@
                 "data": 1,
                 "output": {
                     "basic": {
+                        "$id": "https://json-schema.org/tests/content/draft2020-12/type/0/tests/0/basic",
                         "$ref": "/draft/2020-12/output/schema",
                         "properties": {
                             "errors": {
                                 "contains": {
                                     "properties": {
                                         "keywordLocation": {"const": "/type"},
-                                        "absoluteKeywordLocation": {"const": "https://json-schema.org/tests/content/draft2020-12/type/1#/type"},
+                                        "absoluteKeywordLocation": {"const": "https://json-schema.org/tests/content/draft2020-12/type/0#/type"},
                                         "instanceLocation": {"const": ""},
                                         "annotation": false
                                     },
@@ -32,9 +33,10 @@
             },
             {
                 "description": "correct type yields an output unit",
-                "data": 1,
+                "data": "a string",
                 "output": {
                     "basic": {
+                        "$id": "https://json-schema.org/tests/content/draft2020-12/type/0/tests/1/basic",
                         "$ref": "/draft/2020-12/output/schema",
                         "properties": {
                             "annotations": {
@@ -42,7 +44,7 @@
                                     "properties": {
                                         "valid": {"const": true},
                                         "keywordLocation": {"const": "/type"},
-                                        "absoluteKeywordLocation": {"const": "https://json-schema.org/tests/content/draft2020-12/type/1#/type"},
+                                        "absoluteKeywordLocation": {"const": "https://json-schema.org/tests/content/draft2020-12/type/0#/type"},
                                         "instanceLocation": {"const": ""},
                                         "annotation": false,
                                         "error": false
