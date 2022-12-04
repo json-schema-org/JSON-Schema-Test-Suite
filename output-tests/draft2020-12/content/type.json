@@ -4,7 +4,8 @@
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "$id": "https://json-schema.org/tests/content/draft2020-12/type/0",
-            "type": "string"
+            "type": "string",
+            "anyOf": [ true ]
         },
         "tests": [
             {
