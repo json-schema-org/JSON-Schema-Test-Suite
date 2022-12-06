@@ -224,11 +224,18 @@ class SanityTests(unittest.TestCase):
 
             Validator = VALIDATORS.get(version.name)
             if Validator is not None:
+                # Valid (optional test) schemas contain regexes which
+                # aren't valid Python regexes, so skip checking it
+                Validator.FORMAT_CHECKER.checkers.pop("regex", None)
+
                 test_files = collect(version)
                 for case in cases(test_files):
                     with self.subTest(case=case):
                         try:
-                            Validator.check_schema(case["schema"])
+                            Validator.check_schema(
+                                case["schema"],
+                                format_checker=Validator.FORMAT_CHECKER,
+                            )
                         except jsonschema.SchemaError:
                             self.fail(
                                 "Found an invalid schema. "
@@ -262,6 +269,9 @@ class SanityTests(unittest.TestCase):
             with self.subTest(path=path):
                 try:
                     validator.validate(cases)
+                except jsonschema.exceptions.RefResolutionError as error:
+                    # python-jsonschema/jsonschema#884
+                    pass
                 except jsonschema.ValidationError as error:
                     self.fail(str(error))
 
