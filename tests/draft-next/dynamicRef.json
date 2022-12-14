@@ -495,6 +495,11 @@
                     "$id": "inner",
                     "$dynamicAnchor": "foo",
                     "type": "object",
+                    "properties": {
+                        "expectedTypes": {
+                            "type": "string"
+                        }
+                    },
                     "additionalProperties": {
                         "$dynamicRef": "#foo"
                     }
