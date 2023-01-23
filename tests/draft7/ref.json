@@ -822,11 +822,15 @@
     {
         "description": "ref to if",
         "schema": {
-            "$ref": "http://example.com/ref/if",
-            "if": {
-                "$id": "http://example.com/ref/if",
-                "type": "integer"
-            }
+            "allOf": [
+                {"$ref": "http://example.com/ref/if"},
+                {
+                    "if": {
+                        "$id": "http://example.com/ref/if",
+                        "type": "integer"
+                    }
+                }
+            ]
         },
         "tests": [
             {
@@ -844,11 +848,15 @@
     {
         "description": "ref to then",
         "schema": {
-            "$ref": "http://example.com/ref/then",
-            "then": {
-                "$id": "http://example.com/ref/then",
-                "type": "integer"
-            }
+            "allOf": [
+                {"$ref": "http://example.com/ref/then"},
+                {
+                    "then": {
+                        "$id": "http://example.com/ref/then",
+                        "type": "integer"
+                    }
+                }
+            ]
         },
         "tests": [
             {
@@ -866,11 +874,15 @@
     {
         "description": "ref to else",
         "schema": {
-            "$ref": "http://example.com/ref/else",
-            "else": {
-                "$id": "http://example.com/ref/else",
-                "type": "integer"
-            }
+            "allOf": [
+                {"$ref": "http://example.com/ref/else"},
+                {
+                    "else": {
+                        "$id": "http://example.com/ref/else",
+                        "type": "integer"
+                    }
+                }
+            ]
         },
         "tests": [
             {
