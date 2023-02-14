@@ -139,8 +139,8 @@
         },
         "tests": [
             {
-                "description": "no properties to evaluate",
-                "data": {},
+                "description": "unevaluated property",
+                "data": { "bar": 1 },
                 "valid": true
             },
             {
