@@ -63,7 +63,7 @@
             },
             {
                 "description": "a valid date-time with a leap second, with minus offset",
-                "data": "1998-12-31T15:59:60.123-08:00",
+                "data": "1998-12-31T23:59:60.123-08:00",
                 "valid": true
             },
             {
