@@ -40,7 +40,7 @@
     {
          "description": "anchor within remote ref",
          "schema": {
-             "$schema": "https://json-schema.org/draft/2010-09/schema",
+             "$schema": "https://json-schema.org/draft/2019-09/schema",
              "$ref": "http://localhost:1234/draft2019-09/locationIndependentIdentifier.json#foo"
          },
          "tests": [
