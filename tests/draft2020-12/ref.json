@@ -949,5 +949,27 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "percent-encoded char in json-pointer",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$defs": {
+                "a b": {"type": "number"}
+            },
+            "$ref": "#/$defs/a%20b"
+        },
+        "tests": [
+            {
+                "description": "match",
+                "data": 1,
+                "valid": true
+            },
+            {
+                "description": "mismatch",
+                "data": "foobar",
+                "valid": false
+            }
+        ]
     }
 ]
