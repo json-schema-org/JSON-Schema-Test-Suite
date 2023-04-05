@@ -815,7 +815,7 @@
          ]
      },
      {
-         "description": "$id with file URI should still resolve pointers - *nix",
+         "description": "$id with file URI still resolves pointers - *nix",
          "schema": {
              "$id": "file://folder/file.json",
              "definitions": {
@@ -843,7 +843,7 @@
          ]
      },
      {
-         "description": "$id with file URI should still resolve pointers - windows",
+         "description": "$id with file URI still resolves pointers - windows",
          "schema": {
              "$id": "file:///c:/folder/file.json",
              "definitions": {
