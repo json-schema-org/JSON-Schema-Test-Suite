@@ -982,7 +982,7 @@
      {
          "description": "$id with file URI still resolves pointers - *nix",
          "schema": {
-             "$id": "file://folder/file.json",
+             "$id": "file:///folder/file.json",
              "$defs": {
                  "foo": {
                      "type": "number"
