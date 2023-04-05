@@ -951,32 +951,80 @@
         ]
     },
     {
-         "description": "ref with absolute-path-reference",
-         "schema": {
-             "$id": "http://example.com/ref/absref.json",
-             "$defs": {
-                 "a": {
-                     "$id": "http://example.com/ref/absref/foobar.json",
-                     "type": "number"
-                 },
-                 "b": {
-                     "$id": "http://example.com/absref/foobar.json",
-                     "type": "string"
-                 }
-             },
-             "$ref": "/absref/foobar.json"
-         },
-         "tests": [
-             {
-                 "description": "a string is valid",
-                 "data": "foo",
-                 "valid": true
-             },
-             {
-                 "description": "an integer is invalid",
-                 "data": 12,
-                 "valid": false
-             }
-         ]
-     }
+        "description": "ref with absolute-path-reference",
+        "schema": {
+            "$id": "http://example.com/ref/absref.json",
+            "$defs": {
+                "a": {
+                    "$id": "http://example.com/ref/absref/foobar.json",
+                    "type": "number"
+                },
+                "b": {
+                    "$id": "http://example.com/absref/foobar.json",
+                    "type": "string"
+                }
+            },
+            "$ref": "/absref/foobar.json"
+        },
+        "tests": [
+            {
+                "description": "a string is valid",
+                "data": "foo",
+                "valid": true
+            },
+            {
+                "description": "an integer is invalid",
+                "data": 12,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "$id with file URI still resolves pointers - *nix",
+        "schema": {
+            "$id": "file:///folder/file.json",
+            "$defs": {
+                "foo": {
+                    "type": "number"
+                }
+            },
+            "$ref": "#/$defs/foo"
+        },
+        "tests": [
+            {
+                "description": "number is valid",
+                "data": 1,
+                "valid": true
+            },
+            {
+                "description": "non-number is invalid",
+                "data": "a",
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "$id with file URI still resolves pointers - windows",
+        "schema": {
+            "$id": "file:///c:/folder/file.json",
+            "$defs": {
+                "foo": {
+                    "type": "number"
+                }
+            },
+            "$ref": "#/$defs/foo"
+        },
+        "tests": [
+            {
+                "description": "number is valid",
+                "data": 1,
+                "valid": true
+            },
+            {
+                "description": "non-number is invalid",
+                "data": "a",
+                "valid": false
+            }
+        ]
+    }
 ]

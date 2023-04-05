@@ -978,5 +978,53 @@
                  "valid": false
              }
          ]
+     },
+     {
+         "description": "$id with file URI still resolves pointers - *nix",
+         "schema": {
+             "$id": "file:///folder/file.json",
+             "$defs": {
+                 "foo": {
+                     "type": "number"
+                 }
+             },
+             "$ref": "#/$defs/foo"
+         },
+         "tests": [
+             {
+                 "description": "number is valid",
+                 "data": 1,
+                 "valid": true
+             },
+             {
+                 "description": "non-number is invalid",
+                 "data": "a",
+                 "valid": false
+             }
+         ]
+     },
+     {
+         "description": "$id with file URI still resolves pointers - windows",
+         "schema": {
+             "$id": "file:///c:/folder/file.json",
+             "$defs": {
+                 "foo": {
+                     "type": "number"
+                 }
+             },
+             "$ref": "#/$defs/foo"
+         },
+         "tests": [
+             {
+                 "description": "number is valid",
+                 "data": 1,
+                 "valid": true
+             },
+             {
+                 "description": "non-number is invalid",
+                 "data": "a",
+                 "valid": false
+             }
+         ]
      }
 ]
