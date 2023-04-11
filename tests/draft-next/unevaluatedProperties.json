@@ -1232,7 +1232,7 @@
         ]
     },
     {
-        "description": "dynamic evalation inside nested refs",
+        "description": "dynamic evaluation inside nested refs",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
             "$defs": {
@@ -1482,7 +1482,7 @@
             },
             "propertyDependencies": {
                 "foo": {
-                    "foo1": { 
+                    "foo1": {
                         "properties": {
                             "bar": true
                         }
