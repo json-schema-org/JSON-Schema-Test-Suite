@@ -16,7 +16,7 @@ In each release folder, you'll also find an _output-schema.json_ file that conta
 
 ## Test Files
 
-The content of a test file is similar to the validation tests in `tests/`: for each test case, the `valid` property has been removed, and `output` has been added.
+The content of a test file is similar to the validation tests in `tests/`: for each test case, the `valid` property has been removed, and an `output` property has been added.
 
 The `output` property itself has a property for each of the output formats where the value is a schema that will successfully validate for compliant output.  For the content tests, only `basic`/`list` needs to be present.
 
