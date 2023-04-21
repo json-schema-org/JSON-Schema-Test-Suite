@@ -1026,5 +1026,34 @@
                 "valid": false
             }
         ]
+    }, 
+    {
+        "description": "empty tokens in $ref json-pointer",
+        "schema": {
+            "$defs": {
+                "": {
+                    "$defs": {
+                        "": { "type": "number" }
+                    }
+                } 
+            },
+            "allOf": [
+                {
+                    "$ref": "#/$defs//$defs/"
+                }
+            ]
+        },
+        "tests": [
+            {
+                "description": "number is valid",
+                "data": 1,
+                "valid": true
+            },
+            {
+                "description": "non-number is invalid",
+                "data": "a",
+                "valid": false
+            }
+        ]
     }
 ]
