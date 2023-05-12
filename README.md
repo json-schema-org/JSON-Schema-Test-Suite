@@ -12,6 +12,13 @@ This repository contains a set of JSON objects that implementers of JSON Schema 
 It is meant to be language agnostic and should require only a JSON parser.
 The conversion of the JSON objects into tests within a specific language and test framework of choice is left to be done by the validator implementer.
 
+## Live at Head
+
+JSON Schema Test Suit now follows the
+[Abseil Live at Head philosophy](https://abseil.io/about/philosophy#upgrade-support).
+We recommend
+[updating to the latest commit in the `main` branch as often as possible](https://github.com/abseil/abseil-cpp/blob/master/FAQ.md#what-is-live-at-head-and-how-do-i-do-it).
+
 ## Coverage
 
 All JSON Schema specification releases should be well covered by this suite, including drafts 2020-12, 2019-09, 07, 06, 04 and 03.
