@@ -235,5 +235,31 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "$ref uses base URI learned from $id in remote schemas",
+        "schema": {
+            "$id": "http://localhost:1234/",
+            "allOf": [
+                {"$ref": "subSchemas-ids.json"}
+            ]
+        },
+        "tests": [
+            {
+                "description": "the correct schema is referenced",
+                "data": "should-be-valid",
+                "valid": true
+            },
+            {
+                "description": "the incorrect schema is not referenced",
+                "data": "should-NOT-be-valid",
+                "valid": false
+            },
+            {
+                "description": "sanity check that other invalid values aren't accepted either",
+                "data": "bogus",
+                "valid": false
+            }
+        ]
     }
 ]
