@@ -393,59 +393,82 @@
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "$id": "https://test.json-schema.org/dynamic-ref-with-multiple-paths/main",
             "if": {
-                "propertyNames": {
-                    "pattern": "^[a-m]"
-                }
-            },
-            "then": {
-                "$id": "numberValues",
-                "$defs": {
-                  "foo": {
-                    "$dynamicAnchor": "foo",
-                    "type": "number"
-                  }
+                "properties": {
+                    "kindOfList": { "const": "numbers" }
                 },
-                "$ref": "inner"
+                "required": ["kindOfList"]
             },
-            "else": {
-                "$id": "stringValues",
-                "$defs": {
-                  "foo": {
-                    "$dynamicAnchor": "foo",
-                    "type": "string"
-                  }
-                },
-                "$ref": "inner"
-            },
+            "then": { "$ref": "numberList" },
+            "else": { "$ref": "stringList" },
+
             "$defs": {
-                "inner": {
-                    "$id": "inner",
-                    "$dynamicAnchor": "foo",
-                    "additionalProperties": {
-                        "$dynamicRef": "#foo"
+                "genericList": {
+                    "$id": "genericList",
+                    "properties": {
+                        "list": {
+                            "items": { "$dynamicRef": "#itemType" }
+                        }
+                    },
+                    "$defs": {
+                        "defaultItemType": {
+                            "$comment": "Only needed to satisfy bookending requirement",
+                            "$dynamicAnchor": "itemType"
+                        }
                     }
+                },
+                "numberList": {
+                    "$id": "numberList",
+                    "$defs": {
+                        "itemType": {
+                            "$dynamicAnchor": "itemType",
+                            "type": "number"
+                        }
+                    },
+                    "$ref": "genericList"
+                },
+                "stringList": {
+                    "$id": "stringList",
+                    "$defs": {
+                        "itemType": {
+                            "$dynamicAnchor": "itemType",
+                            "type": "string"
+                        }
+                    },
+                    "$ref": "genericList"
                 }
             }
         },
         "tests": [
             {
-                "description": "alpha with number values",
-                "data": { "alpha": 1.1 },
+                "description": "number list with number values",
+                "data": {
+                    "kindOfList": "numbers",
+                    "list": [1.1]
+                },
                 "valid": true
             },
             {
-                "description": "alpha with string values",
-                "data": { "alpha": "foo" },
+                "description": "number list with string values",
+                "data": {
+                    "kindOfList": "numbers",
+                    "list": ["foo"]
+                },
                 "valid": false
             },
             {
-                "description": "november with number values",
-                "data": { "november": 1.1 },
+                "description": "string list with number values",
+                "data": {
+                    "kindOfList": "strings",
+                    "list": [1.1]
+                },
                 "valid": false
             },
             {
-                "description": "november with string values",
-                "data": { "november": "foo" },
+                "description": "string list with string values",
+                "data": {
+                    "kindOfList": "strings",
+                    "list": ["foo"]
+                },
                 "valid": true
             }
         ]
