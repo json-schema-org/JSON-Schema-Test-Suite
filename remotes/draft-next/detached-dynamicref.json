@@ -1,6 +1,6 @@
 {
-  "$id": "http://localhost:1234/draft2020-12/detached-dynamicref.json",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://localhost:1234/draft-next/detached-dynamicref.json",
+  "$schema": "https://json-schema.org/draft/next/schema",
   "$defs": {
     "foo": {
       "$dynamicRef": "#detached"

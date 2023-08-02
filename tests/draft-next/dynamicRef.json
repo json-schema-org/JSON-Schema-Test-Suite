@@ -594,5 +594,23 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "$ref to $dynamicRef finds detached $dynamicAnchor",
+        "schema": {
+            "$ref": "http://localhost:1234/draft-next/detached-dynamicref.json#/$defs/foo"
+        },
+        "tests": [
+            {
+                "description": "number is valid",
+                "data": 1,
+                "valid": true
+            },
+            {
+                "description": "non-number is invalid",
+                "data": "a",
+                "valid": false
+            }
+        ]
     }
 ]

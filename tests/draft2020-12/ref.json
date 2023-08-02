@@ -1055,23 +1055,5 @@
                 "valid": false
             }
         ]
-    },
-    {
-        "description": "$ref to $ref finds detached $anchor",
-        "schema": {
-            "$ref": "http://localhost:1234/draft2020-12/detached-ref#/$defs/foo"
-        },
-        "tests": [
-            {
-                "description": "number is valid",
-                "data": 1,
-                "valid": true
-            },
-            {
-                "description": "non-number is invalid",
-                "data": "a",
-                "valid": false
-            }
-        ]
     }
 ]
