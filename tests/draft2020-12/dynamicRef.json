@@ -712,7 +712,7 @@
     {
         "description": "$ref to $dynamicRef finds detached $dynamicAnchor",
         "schema": {
-            "$ref": "http://localhost:1234/draft2020-12/detached-dynamicref#/$defs/foo"
+            "$ref": "http://localhost:1234/draft2020-12/detached-dynamicref.json#/$defs/foo"
         },
         "tests": [
             {

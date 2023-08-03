@@ -1,6 +1,6 @@
 {
-  "$id": "http://localhost:1234/draft2019-09/detached-ref.json",
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://localhost:1234/draft-next/detached-ref.json",
+  "$schema": "https://json-schema.org/draft/next/schema",
   "$defs": {
     "foo": {
       "$ref": "#detached"
