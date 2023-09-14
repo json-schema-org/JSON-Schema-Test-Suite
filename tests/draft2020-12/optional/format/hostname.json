@@ -95,6 +95,16 @@
                 "description": "exceeds maximum label length",
                 "data": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijkl.com",
                 "valid": false
+            },
+            {
+                "description": "single label with hyphen",
+                "data": "host-name",
+                "valid": true
+            },
+            {
+                "description": "single label starting with digit",
+                "data": "1host",
+                "valid": true
             }
         ]
     }
