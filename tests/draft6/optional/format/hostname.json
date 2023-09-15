@@ -104,8 +104,18 @@
                 "valid": true
             },
             {
+                "description": "single label with digits",
+                "data": "h0stn4me",
+                "valid": true
+            },
+            {
                 "description": "single label starting with digit",
                 "data": "1host",
+                "valid": true
+            },
+            {
+                "description": "single label ending with digit",
+                "data": "hostnam3",
                 "valid": true
             }
         ]
