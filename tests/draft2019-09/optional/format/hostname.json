@@ -97,6 +97,11 @@
                 "valid": false
             },
             {
+                "description": "single label",
+                "data": "hostname",
+                "valid": true
+            },
+            {
                 "description": "single label with hyphen",
                 "data": "host-name",
                 "valid": true
