@@ -111,7 +111,7 @@
             {
                 "description": "single label starting with digit",
                 "data": "1host",
-                "valid": true
+                "valid": false
             },
             {
                 "description": "single label ending with digit",
