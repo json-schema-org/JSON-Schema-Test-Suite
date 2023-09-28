@@ -203,22 +203,22 @@
     {
         "description": "$ref prevents a sibling id from changing the base uri",
         "schema": {
-            "id": "http://localhost:1234/sibling_id/base/",
+            "id": "http://example.com/sibling_id/base/",
             "definitions": {
                 "foo": {
-                    "id": "http://localhost:1234/sibling_id/foo.json",
+                    "id": "http://example.com/sibling_id/foo.json",
                     "type": "string"
                 },
                 "base_foo": {
-                    "$comment": "this canonical uri is http://localhost:1234/sibling_id/base/foo.json",
+                    "$comment": "this canonical uri is http://example.com/sibling_id/base/foo.json",
                     "id": "foo.json",
                     "type": "number"
                 }
             },
             "extends": [
                 {
-                    "$comment": "$ref resolves to http://localhost:1234/sibling_id/base/foo.json, not http://localhost:1234/sibling_id/foo.json",
-                    "id": "http://localhost:1234/sibling_id/",
+                    "$comment": "$ref resolves to http://example.com/sibling_id/base/foo.json, not http://example.com/sibling_id/foo.json",
+                    "id": "http://example.com/sibling_id/",
                     "$ref": "foo.json"
                 }
             ]

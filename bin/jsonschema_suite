@@ -56,15 +56,16 @@ def cases(paths):
     """
     Each test case within each file in the provided paths.
     """
-    for _, test_file in files(paths):
-        yield from test_file
+    for path, test_file in files(paths):
+        for case in test_file:
+            yield path, case
 
 
 def tests(paths):
     """
     Each individual test within all cases within the provided paths.
     """
-    for case in cases(paths):
+    for _, case in cases(paths):
         for test in case["tests"]:
             test["schema"] = case["schema"]
             yield test
@@ -179,7 +180,7 @@ class SanityTests(unittest.TestCase):
         """
         All cases have reasonably long descriptions.
         """
-        for case in cases(self.test_files + self.output_test_files):
+        for _, case in cases(self.test_files + self.output_test_files):
             with self.subTest(description=case["description"]):
                 self.assertLess(
                     len(case["description"]),
@@ -214,7 +215,7 @@ class SanityTests(unittest.TestCase):
         """
         All test cases have unique test descriptions in their tests.
         """
-        for count, case in enumerate(
+        for count, (_, case) in enumerate(
             cases(self.test_files + self.output_test_files)
         ):
             with self.subTest(description=case["description"]):
@@ -224,7 +225,7 @@ class SanityTests(unittest.TestCase):
         print(f"Found {count} test cases.")
 
     def test_case_descriptions_do_not_use_modal_verbs(self):
-        for case in cases(self.test_files + self.output_test_files):
+        for _, case in cases(self.test_files + self.output_test_files):
             with self.subTest(description=case["description"]):
                 self.assertFollowsDescriptionStyle(case["description"])
 
@@ -324,7 +325,7 @@ class SanityTests(unittest.TestCase):
             Validator.FORMAT_CHECKER.checkers.pop("regex", None)
 
             test_files = collect(version)
-            for case in cases(test_files):
+            for _, case in cases(test_files):
                 with self.subTest(case=case):
                     try:
                         Validator.check_schema(
@@ -664,7 +665,7 @@ class SanityTests(unittest.TestCase):
                 each for each in collect(version)
                 if each.stem != "refOfUnknownKeyword"
             ]
-            for case in cases(test_files):
+            for _, case in cases(test_files):
                 if "unknown keyword" in case["description"]:
                     continue
                 with self.subTest(case=case, version=version.name):
@@ -701,6 +702,31 @@ class SanityTests(unittest.TestCase):
                 except jsonschema.ValidationError as error:
                     self.fail(str(error))
 
+    def test_schemas_do_not_reference_the_magic_remote_uri(self):
+        f"""
+        We use {REMOTES_BASE_URL} as a magic URI that maps to remote resources.
+
+        Tests, other than those in ``refRemote.json``, should not refer to this
+        base URI.
+        """
+
+        for path, case in cases(self.test_files):
+            if path.stem == "refRemote":
+                continue
+
+            with self.subTest(
+                subject=str(path.relative_to(SUITE_ROOT_DIR)),
+                description=case["description"],
+            ):
+                processing = [case["schema"]]
+                while processing:
+                    obj = processing.pop()
+                    if isinstance(obj, dict):
+                        processing.extend(obj.values())
+                    elif isinstance(obj, list):
+                        processing.extend(obj)
+                    elif isinstance(obj, str):
+                        self.assertNotIn(REMOTES_BASE_URL, obj)
 
 def main(arguments):
     if arguments.command == "check":
@@ -708,7 +734,9 @@ def main(arguments):
         result = unittest.TextTestRunner().run(suite)
         sys.exit(not result.wasSuccessful())
     elif arguments.command == "flatten":
-        selected_cases = [case for case in cases(collect(arguments.version))]
+        selected_cases = [
+            case for _, case in cases(collect(arguments.version))
+        ]
 
         if arguments.randomize:
             random.shuffle(selected_cases)
