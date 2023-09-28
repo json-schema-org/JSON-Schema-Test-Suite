@@ -1,4 +1,5 @@
 #! /usr/bin/env python3
+from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urljoin
 import argparse
@@ -231,6 +232,86 @@ class SanityTests(unittest.TestCase):
         for test in tests(self.test_files + self.output_test_files):
             with self.subTest(description=test["description"]):
                 self.assertFollowsDescriptionStyle(test["description"])
+
+    def test_ids_are_unique(self):
+        """
+        Catch duplicated $ids in top-level and some subschemas.
+
+        This helps implementations which maintain process-long caches of $ids
+        not need to reset their caches during test suite runs.
+
+        This function doesn't fully find all $ids in a schema, because doing so
+        means knowing where to look for subschemas, which is a bit more
+        involved than just looking for `$id`. It's better than nothing for now.
+        """
+        def ids_from(id_of, schema):
+            ids = []
+            schemas = [schema]
+            while schemas:
+                each = schemas.pop()
+                if not isinstance(each, dict):
+                    continue
+
+                found = id_of(each)
+                if found is not None:
+                    ids.append(found)
+
+                for validator in (
+                    "allOf", "anyOf", "oneOf", "items", "prefixItems"
+                ):
+                    if validator in each:
+                        schemas.extend(each[validator])
+                schemas.extend(
+                    each[validator] for validator in (
+                        "not",
+                        "if",
+                        "then",
+                        "else",
+                        "items",
+                        "additionalItems",
+                        "contains",
+                    ) if validator in each
+                )
+                for validator in (
+                    "$defs",
+                    "definitions",
+                    "patternProperties",
+                    "properties",
+                    "propertyNames",
+                ):
+                    if validator in each:
+                        schemas.extend(each[validator].values())
+
+            # FIXME: This should recurse into subschemas, but finding
+            #        them is slightly nontrivial, so we just hard code the list
+            #        of applicators. This works for most of the tests, but
+            #        wouldn't with extension vocabularies. It also means we may
+            #        have false positives (e.g. in draft4, using $dynamicRef
+            #        which didn't exist for draft4 may not really mean $id is
+            #        followed, which we'd flag here), but it should always be
+            #        able to test a desired property regardless. If not, we'll
+            #        loosen the check here.
+
+            return ids
+
+        for path, cases in files(self.test_files):
+            version = path.relative_to(ROOT_DIR).parts[1]
+            if version in {"draft3", "draft4", "draft6", "draft7"}:
+                def id_of(schema):
+                    return schema.get("id")
+            else:
+                def id_of(schema):
+                    return schema.get("$id")
+
+            with self.subTest(path=path):
+                seen = defaultdict(list)
+                for case in cases:
+                    for each in ids_from(id_of=id_of, schema=case["schema"]):
+                        seen[each].append(case["description"])
+                for id, values in seen.items():
+                    with self.subTest(id=id):
+                        if len(values) > 1:
+                            self.fail("Non-unique $id found.")
 
     @unittest.skipIf(jsonschema is None, "Validation library not present!")
     def test_all_schemas_are_valid(self):
