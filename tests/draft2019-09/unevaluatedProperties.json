@@ -716,6 +716,63 @@
         ]
     },
     {
+        "description": "unevaluatedProperties with $recursiveRef",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$id": "https://example.com/extended-tree",
+
+            "$recursiveAnchor": true,
+
+            "$ref": "/tree",
+            "properties": {
+                "name": { "type": "string" }
+            },
+
+            "$defs": {
+                "tree": {
+                    "$id": "/tree",
+                    "$recursiveAnchor": true,
+
+                    "type": "object",
+                    "properties": {
+                        "node": true,
+                        "branches": {
+                            "$recursiveRef": "#",
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "required": ["node"]
+                }
+            }
+        },
+        "tests": [
+            {
+                "description": "with no unevaluated properties",
+                "data": {
+                    "name": "a",
+                    "node": 1,
+                    "branches": {
+                      "name": "b",
+                      "node": 2
+                    }
+                },
+                "valid": true
+            },
+            {
+                "description": "with unevaluated properties",
+                "data": {
+                    "name": "a",
+                    "node": 1,
+                    "branches": {
+                      "foo": "b",
+                      "node": 2
+                    }
+                },
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "unevaluatedProperties can't see inside cousins",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",

@@ -716,6 +716,60 @@
         ]
     },
     {
+        "description": "unevaluatedProperties with $dynamicRef",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "https://example.com/derived",
+
+            "$ref": "/baseSchema",
+
+            "$defs": {
+                "derived": {
+                    "$dynamicAnchor": "addons",
+                    "properties": {
+                        "bar": { "type": "string" }
+                    }
+                },
+                "baseSchema": {
+                    "$id": "/baseSchema",
+
+                    "type": "object",
+                    "properties": {
+                        "foo": { "type": "string" }
+                    },
+                    "$dynamicRef": "#addons",
+                    "unevaluatedProperties": false,
+
+                    "$defs": {
+                        "defaultAddons": {
+                            "$comment": "Needed to satisfy the bookending requirement",
+                            "$dynamicAnchor": "addons"
+                        }
+                    }
+                }
+            }
+        },
+        "tests": [
+            {
+                "description": "with no unevaluated properties",
+                "data": {
+                    "foo": "foo",
+                    "bar": "bar"
+                },
+                "valid": true
+            },
+            {
+                "description": "with unevaluated properties",
+                "data": {
+                    "foo": "foo",
+                    "bar": "bar",
+                    "baz": "baz"
+                },
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "unevaluatedProperties can't see inside cousins",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
