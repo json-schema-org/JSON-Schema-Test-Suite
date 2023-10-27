@@ -504,8 +504,9 @@
                     "items": [
                         { "type": "number" },
                         {
-                            "$recursiveRef": "#",
-                            "unevaluatedItems": false
+                            "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+                            "unevaluatedItems": false,
+                            "$recursiveRef": "#"
                         }
                     ]
                 }

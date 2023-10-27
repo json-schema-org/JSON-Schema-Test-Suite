@@ -737,8 +737,9 @@
                     "properties": {
                         "node": true,
                         "branches": {
-                            "$recursiveRef": "#",
-                            "unevaluatedProperties": false
+                            "$comment": "unevaluatedProperties comes first so it's more likely to bugs errors with implementations that are sensitive to keyword ordering",
+                            "unevaluatedProperties": false,
+                            "$recursiveRef": "#"
                         }
                     },
                     "required": ["node"]

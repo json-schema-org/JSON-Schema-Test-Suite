@@ -733,12 +733,13 @@
                 "baseSchema": {
                     "$id": "/baseSchema",
 
+                    "$comment": "unevaluatedProperties comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+                    "unevaluatedProperties": false,
                     "type": "object",
                     "properties": {
                         "foo": { "type": "string" }
                     },
                     "$dynamicRef": "#addons",
-                    "unevaluatedProperties": false,
 
                     "$defs": {
                         "defaultAddons": {

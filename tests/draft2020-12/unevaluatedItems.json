@@ -480,12 +480,13 @@
                 "baseSchema": {
                     "$id": "/baseSchema",
 
+                    "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+                    "unevaluatedItems": false,
                     "type": "array",
                     "prefixItems": [
                         { "type": "string" }
                     ],
                     "$dynamicRef": "#addons",
-                    "unevaluatedItems": false,
 
                     "$defs": {
                         "defaultAddons": {
