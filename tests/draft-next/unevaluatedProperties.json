@@ -743,6 +743,26 @@
                 }
             }
         },
+        "tests": [
+            {
+                "description": "with no unevaluated properties",
+                "data": {
+                    "foo": "foo",
+                    "bar": "bar"
+                },
+                "valid": true
+            },
+            {
+                "description": "with unevaluated properties",
+                "data": {
+                    "foo": "foo",
+                    "bar": "bar",
+                    "baz": "baz"
+                },
+                "valid": false
+            }
+        ]
+    },
     {
         "description": "unevaluatedProperties can't see inside cousins",
         "schema": {
