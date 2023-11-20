@@ -15,16 +15,6 @@
                 "description": "two items still valid against lone maxContains",
                 "data": [1, 2],
                 "valid": true
-            },
-            {
-                "description": "one property valid against lone maxContains",
-                "data": { "a": 1 },
-                "valid": true
-            },
-            {
-                "description": "two properties still valid against lone maxContains",
-                "data": { "a": 1, "b": 2 },
-                "valid": true
             }
         ]
     },
