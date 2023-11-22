@@ -12,4 +12,4 @@ _Implementations must be configured to validate `format` when running these test
 
 The tests in herein cover the first point.  As such, these test cases are valid data for their respective formats, so validation is expected to pass.
 
-An implementation which returns a failing validation for these scenarios is permissible, but discouraged.
+Returning a failing validation for these scenarios is permitted, but discouraged.
