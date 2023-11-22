@@ -1,9 +1,9 @@
 [
     {
-        "description": "validation of regular expressions",
+        "description": "validation of IRIs",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
-            "format": "regex"
+            "format": "iri"
         },
         "tests": [
             {
@@ -37,14 +37,29 @@
                 "valid": true
             },
             {
-                "description": "a valid regular expression",
-                "data": "([abc])+\\s+$",
+                "description": "a valid IRI with anchor tag",
+                "data": "http://ƒøø.ßår/?∂éœ=πîx#πîüx",
                 "valid": true
             },
             {
-                "description": "a regular expression with unclosed parens is invalid",
-                "data": "^(abc]",
-                "valid": false
+                "description": "a valid IRI with anchor tag and parentheses",
+                "data": "http://ƒøø.com/blah_(wîkïpédiå)_blah#ßité-1",
+                "valid": true
+            },
+            {
+                "description": "a valid IRI with URL-encoded stuff",
+                "data": "http://ƒøø.ßår/?q=Test%20URL-encoded%20stuff",
+                "valid": true
+            },
+            {
+                "description": "a valid IRI with many special characters",
+                "data": "http://-.~_!$&'()*+,;=:%40:80%2f::::::@example.com",
+                "valid": true
+            },
+            {
+                "description": "a valid IRI based on IPv6",
+                "data": "http://[2001:0db8:85a3:0000:0000:8a2e:0370:7334]",
+                "valid": true
             }
         ]
     }

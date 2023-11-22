@@ -1,0 +1,21 @@
+[
+    {
+        "description": "validation of an internationalized e-mail addresses",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "format": "idn-email"
+        },
+        "tests": [
+            {
+                "description": "an invalid idn e-mail address",
+                "data": "2962",
+                "valid": false
+            },
+            {
+                "description": "an invalid e-mail address",
+                "data": "2962",
+                "valid": false
+            }
+        ]
+    }
+]
