@@ -1,0 +1,76 @@
+[
+  {
+    "description": "validation of int64, an openapi numeric format",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "format": "int64"
+    },
+    "tests": [
+      {
+        "description": "int64 format ignores null",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "int64 format ignores boolean true",
+        "data": true,
+        "valid": true
+      },
+      {
+        "description": "int64 format ignores boolean false",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "int64 format ignores strings",
+        "data": "",
+        "valid": true
+      },
+      {
+        "description": "int64 format ignores objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "int64 format ignores arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "int64 format allows midrange int",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "int64 format allows float with int value",
+        "data": 1.0,
+        "valid": true
+      },
+      {
+        "description": "int64 format disallows float without int value",
+        "data": 1.1,
+        "valid": false
+      },
+      {
+        "description": "int64 format allows min int32",
+        "data": -2147483648,
+        "valid": true
+      },
+      {
+        "description": "int64 format allows max int32",
+        "data": 2147483647,
+        "valid": true
+      },
+      {
+        "description": "int64 format allows min int64",
+        "data": -9223372036854775808,
+        "valid": true
+      },
+      {
+        "description": "int64 format allows max int64",
+        "data": 9223372036854775807,
+        "valid": true
+      }
+    ]
+  }
+]
