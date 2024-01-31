@@ -108,48 +108,6 @@
         ]
     },
     {
-        "description": "Valid use of empty fragments in location-independent $id",
-        "comment": "These are allowed but discouraged",
-        "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
-            "$ref": "https://json-schema.org/draft/next/schema"
-        },
-        "tests": [
-            {
-                "description": "Identifier name with absolute URI",
-                "data": {
-                    "$ref": "http://localhost:1234/draft-next/bar",
-                    "$defs": {
-                        "A": {
-                            "$id": "http://localhost:1234/draft-next/bar#",
-                            "type": "integer"
-                        }
-                    }
-                },
-                "valid": true
-            },
-            {
-                "description": "Identifier name with base URI change in subschema",
-                "data": {
-                    "$id": "http://localhost:1234/draft-next/root",
-                    "$ref": "http://localhost:1234/draft-next/nested.json#/$defs/B",
-                    "$defs": {
-                        "A": {
-                            "$id": "nested.json",
-                            "$defs": {
-                                "B": {
-                                    "$id": "#",
-                                    "type": "integer"
-                                }
-                            }
-                        }
-                    }
-                },
-                "valid": true
-            }
-        ]
-    },
-    {
         "description": "Unnormalized $ids are allowed but discouraged",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
@@ -175,31 +133,6 @@
                     "$defs": {
                         "A": {
                             "$id": "http://localhost:1234/draft-next/foo/bar/../baz",
-                            "type": "integer"
-                        }
-                    }
-                },
-                "valid": true
-            },
-            {
-                "description": "Unnormalized identifier with empty fragment",
-                "data": {
-                    "$ref": "http://localhost:1234/draft-next/foo/baz",
-                    "$defs": {
-                        "A": {
-                            "$id": "http://localhost:1234/draft-next/foo/bar/../baz#",
-                            "type": "integer"
-                        }
-                    }
-                },
-                "valid": true
-            },
-            {
-                "description": "Unnormalized identifier with empty fragment and no ref",
-                "data": {
-                    "$defs": {
-                        "A": {
-                            "$id": "http://localhost:1234/draft-next/foo/bar/../baz#",
                             "type": "integer"
                         }
                     }
