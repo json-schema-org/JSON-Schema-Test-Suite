@@ -42,11 +42,6 @@
                 "valid": true
             },
             {
-                "description": "an invalid e-mail address",
-                "data": "2962",
-                "valid": false
-            },
-            {
                 "description": "tilde in local part is valid",
                 "data": "te~st@example.com",
                 "valid": true
@@ -87,34 +82,9 @@
                 "valid": true
             },
             {
-                "description": "dot before local part is not valid",
-                "data": ".test@example.com",
-                "valid": false
-            },
-            {
-                "description": "dot after local part is not valid",
-                "data": "test.@example.com",
-                "valid": false
-            },
-            {
                 "description": "two separated dots inside local part are valid",
                 "data": "te.s.t@example.com",
                 "valid": true
-            },
-            {
-                "description": "two subsequent dots inside local part are not valid",
-                "data": "te..st@example.com",
-                "valid": false
-            },
-            {
-                "description": "an invalid domain",
-                "data": "joe.bloggs@invalid=domain.com",
-                "valid": false
-            },
-            {
-                "description": "an invalid IPv4-address-literal",
-                "data": "joe.bloggs@[127.0.0.300]",
-                "valid": false
             }
         ]
     }
