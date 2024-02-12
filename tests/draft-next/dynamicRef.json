@@ -694,7 +694,7 @@
             {
                 "description": "string property fails",
                 "data": { "bar-item": { "content": "value" } },
-                "valid": true
+                "valid": false
             }
         ]
     }
