@@ -3,7 +3,7 @@
       "description": "$dynamicRef skips over intermediate resources - pointer reference across resource boundary",
       "schema": {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "$id": "https://test.json-schema.org/dynamic-ref-skips-intermediate-resource/main",
+        "$id": "https://test.json-schema.org/dynamic-ref-skips-intermediate-resource/optional/main",
         "type": "object",
           "properties": {
               "bar-item": {
