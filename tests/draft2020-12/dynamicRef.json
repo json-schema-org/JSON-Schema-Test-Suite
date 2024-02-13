@@ -761,7 +761,7 @@
         "description": "$dynamicRef skips over intermediate resources - direct reference",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "$id": "https://example.com/foo",
+            "$id": "https://test.json-schema.org/dynamic-ref-skips-intermediate-resource/main",
             "type": "object",
             "properties": {
                 "bar-item": {
@@ -770,7 +770,7 @@
             },
             "$defs": {
                 "bar": {
-                    "$id": "https://example.com/bar",
+                    "$id": "bar",
                     "type": "array",
                     "items": {
                         "$ref": "item"
