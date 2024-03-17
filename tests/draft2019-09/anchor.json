@@ -118,7 +118,7 @@
         ]
     },
     {
-        "description": "invalid anchors",
+        "description": "anchor validity",
         "comment": "Section 8.2.3",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
@@ -126,9 +126,59 @@
         },
         "tests": [
             {
-                "description": "MUST start with a letter (and not #)",
+                "description": "MUST NOT start with #",
                 "data": { "$anchor" : "#foo" },
                 "valid": false
+            },
+            {
+                "description": "MUST NOT start with number",
+                "data": { "$anchor" : "0number" },
+                "valid": false
+            },
+            {
+                "description": "MUST NOT start with period",
+                "data": { "$anchor" : ".period" },
+                "valid": false
+            },
+            {
+                "description": "MUST NOT start with hyphen",
+                "data": { "$anchor" : "-hyphen" },
+                "valid": false
+            },
+            {
+                "description": "MUST NOT start with underscore",
+                "data": { "$anchor" : "_underscore" },
+                "valid": false
+            },
+            {
+                "description": "MUST NOT start with colon",
+                "data": { "$anchor" : ":colon" },
+                "valid": false
+            },
+            {
+                "description": "MAY contain colon",
+                "data": { "$anchor" : "inner:colon" },
+                "valid": true
+            },
+            {
+                "description": "MAY contain underscore",
+                "data": { "$anchor" : "under_score" },
+                "valid": true
+            },
+            {
+                "description": "MAY contain hyphen",
+                "data": { "$anchor" : "inner-hyphen" },
+                "valid": true
+            },
+            {
+                "description": "MAY contain period",
+                "data": { "$anchor" : "inner.period" },
+                "valid": true
+            },
+            {
+                "description": "MAY contain numbers",
+                "data": { "$anchor" : "start0123456789end" },
+                "valid": true
             },
             {
                 "description": "JSON pointers are not valid",
