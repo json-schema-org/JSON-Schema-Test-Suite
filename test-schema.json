@@ -27,6 +27,16 @@
                 "type": "array",
                 "items": { "$ref": "#/$defs/test" },
                 "minItems": 1
+            },
+            "specification":{
+                "description": "Location of the test case in the specification",
+                "type": "object",
+                "minProperties": 1,
+                "properties":{
+                    "jsonschema": {"type": "string"},
+                    "rfc": {"type": "string"}
+                },
+                "additionalProperties": false
             }
         },
         "additionalProperties": false
