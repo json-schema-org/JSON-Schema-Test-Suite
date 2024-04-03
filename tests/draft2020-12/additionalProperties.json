@@ -2,6 +2,9 @@
     {
         "description":
             "additionalProperties being false does not allow other properties",
+        "specification":{
+            "jsonschema":"https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.3.2.3-1"
+        },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "properties": {"foo": {}, "bar": {}},
@@ -63,6 +66,9 @@
     },
     {
         "description": "additionalProperties with schema",
+        "specification":{
+            "jsonschema":"https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.3.2.3-1"
+        },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "properties": {"foo": {}, "bar": {}},
@@ -108,6 +114,9 @@
     },
     {
         "description": "additionalProperties are allowed by default",
+        "specification":{
+            "jsonschema":"https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.3.2.3-5"
+        },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "properties": {"foo": {}, "bar": {}}
@@ -122,6 +131,9 @@
     },
     {
         "description": "additionalProperties does not look in applicators",
+        "specification":{
+            "jsonschema":"https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.2-2"
+        },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "allOf": [
@@ -139,6 +151,9 @@
     },
     {
         "description": "additionalProperties with null valued instance properties",
+        "specification":{
+            "jsonschema": "https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.3.2.3-1"
+        },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "additionalProperties": {
