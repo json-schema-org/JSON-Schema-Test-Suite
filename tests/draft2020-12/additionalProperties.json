@@ -3,7 +3,10 @@
         "description":
             "additionalProperties being false does not allow other properties",
         "specification":{
-            "jsonschema":"https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.3.2.3-1"
+            "jsonschema-core": {
+                "section": "10.3.2.3.",
+                "para": "1"
+            }
         },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -46,6 +49,11 @@
     },
     {
         "description": "non-ASCII pattern with additionalProperties",
+        "specification":{
+            "rfc8259":{
+                "section": "4."
+            }
+        },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "patternProperties": {"^á": {}},
@@ -67,7 +75,10 @@
     {
         "description": "additionalProperties with schema",
         "specification":{
-            "jsonschema":"https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.3.2.3-1"
+            "jsonschema-core": {
+                "section": "10.3.2.3.",
+                "para": "1"
+            }
         },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -115,7 +126,10 @@
     {
         "description": "additionalProperties are allowed by default",
         "specification":{
-            "jsonschema":"https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.3.2.3-5"
+            "jsonschema-core": {
+                "section": "10.3.2.3.",
+                "para": "5"
+            }
         },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -132,7 +146,10 @@
     {
         "description": "additionalProperties does not look in applicators",
         "specification":{
-            "jsonschema":"https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.2-2"
+            "jsonschema-core": {
+                "section": "10.2.",
+                "para": "2"
+            }
         },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -152,7 +169,10 @@
     {
         "description": "additionalProperties with null valued instance properties",
         "specification":{
-            "jsonschema": "https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01#section-10.3.2.3-1"
+            "jsonschema-core": {
+                "section": "10.3.2.3.",
+                "para": "1"
+            }
         },
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",

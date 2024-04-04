@@ -32,9 +32,13 @@
                 "description": "Location of the test case in the specification",
                 "type": "object",
                 "minProperties": 1,
-                "properties":{
-                    "jsonschema": {"type": "string"},
-                    "rfc": {"type": "string"}
+                "properties": {
+                    "jsonschema-core": { "$ref": "#/$defs/spec"},
+                    "jsonschema-validation": {"$ref": "#/$defs/spec"},
+                    "ecma262": { "$ref": "#/$defs/spec"}
+                },
+                "patternProperties": {
+                    "^rfc[0-9]{4}$": {"$ref": "#/$defs/spec"}
                 },
                 "additionalProperties": false
             }
@@ -66,6 +70,18 @@
                 }
             },
             "additionalProperties": false
+        },
+        "spec": {
+            "properties": {
+                "section": {
+                    "type": "string",
+                    "pattern": "^\\d+(\\.\\d+)*\\.$"
+                },
+                "para": {
+                    "type": "string",
+                    "pattern": "^\\d+(\\.\\d+)*\\.$"
+                }
+            }
         }
     }
 }
