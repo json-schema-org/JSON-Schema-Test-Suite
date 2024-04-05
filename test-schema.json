@@ -29,18 +29,24 @@
                 "minItems": 1
             },
             "specification":{
-                "description": "Location of the test case in the specification",
-                "type": "object",
-                "minProperties": 1,
-                "properties": {
-                    "jsonschema-core": { "$ref": "#/$defs/spec"},
-                    "jsonschema-validation": {"$ref": "#/$defs/spec"},
-                    "ecma262": { "$ref": "#/$defs/spec"}
-                },
-                "patternProperties": {
-                    "^rfc[0-9]{4}$": {"$ref": "#/$defs/spec"}
-                },
-                "additionalProperties": false
+                "description": "A reference to a specification document which defines the behavior tested by this test case. Typically this should be a JSON Schema specification document, though in cases where the JSON Schema specification points to another RFC it should contain *both* the portion of the JSON Schema specification which indicates what RFC (and section) to follow as *well* as information on where in that specification the behavior is specified.",
+
+                "type": "array",
+                "minItems": 1,
+                "items":{
+                    "properties": {
+                        "core": { "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$", "type":"string" },
+                        "validation": { "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$", "type":"string" },
+                        "ecma262": { "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$", "type":"string" },
+                        "perl5": { "type":"string" },
+                        "quote": { "type":"string" }
+                    },
+                    "patternProperties": {
+                        "^rfc\\d+$": { "pattern": "^[0-9a-zA-Z]+.([0-9a-zA-Z]+)*$", "type":"string" }
+                    },
+                    "additionalProperties": false,
+                    "minProperties": 1
+                }
             }
         },
         "additionalProperties": false
@@ -70,18 +76,6 @@
                 }
             },
             "additionalProperties": false
-        },
-        "spec": {
-            "properties": {
-                "section": {
-                    "type": "string",
-                    "pattern": "^\\d+(\\.\\d+)*\\.$"
-                },
-                "para": {
-                    "type": "string",
-                    "pattern": "^\\d+(\\.\\d+)*$"
-                }
-            }
         }
     }
 }
