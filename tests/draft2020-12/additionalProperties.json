@@ -2,6 +2,7 @@
     {
         "description":
             "additionalProperties being false does not allow other properties",
+        "specification": [ { "core":"10.3.2.3", "quote": "The value of \"additionalProperties\" MUST be a valid JSON Schema. Boolean \"false\" forbids everything." } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "properties": {"foo": {}, "bar": {}},
@@ -43,6 +44,7 @@
     },
     {
         "description": "non-ASCII pattern with additionalProperties",
+        "specification": [ { "core":"10.3.2.3"} ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "patternProperties": {"^á": {}},
@@ -63,6 +65,7 @@
     },
     {
         "description": "additionalProperties with schema",
+        "specification": [ { "core":"10.3.2.3", "quote": "The value of \"additionalProperties\" MUST be a valid JSON Schema." } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "properties": {"foo": {}, "bar": {}},
@@ -87,8 +90,8 @@
         ]
     },
     {
-        "description":
-            "additionalProperties can exist by itself",
+        "description": "additionalProperties can exist by itself",
+        "specification": [ { "core":"10.3.2.3", "quote": "With no other applicator applying to object instances. This validates all the instance values irrespective of their property names" } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "additionalProperties": {"type": "boolean"}
@@ -108,6 +111,7 @@
     },
     {
         "description": "additionalProperties are allowed by default",
+        "specification": [ { "core":"10.3.2.3", "quote": "Omitting this keyword has the same assertion behavior as an empty schema." } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "properties": {"foo": {}, "bar": {}}
@@ -122,6 +126,7 @@
     },
     {
         "description": "additionalProperties does not look in applicators",
+        "specification":[ { "core": "10.2", "quote": "Subschemas of applicator keywords evaluate the instance completely independently such that the results of one such subschema MUST NOT impact the results of sibling subschemas." } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "allOf": [
@@ -139,6 +144,7 @@
     },
     {
         "description": "additionalProperties with null valued instance properties",
+        "specification": [ { "core":"10.3.2.3" } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "additionalProperties": {
