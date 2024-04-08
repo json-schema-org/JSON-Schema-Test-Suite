@@ -756,5 +756,29 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description" : "json pointer in $dynamicRef",
+        "schema":{
+            "$schema":"https://json-schema.org/draft/2020-12/schema",
+            "$dynamicRef" : "#/$defs/number",
+            "$defs" : {
+                "number" : {
+                    "type" : "number"
+                }
+            }
+        },
+        "tests":[
+            {
+                "description": "number is valid",
+                "data" : 9,
+                "valid" : true
+            },
+            {
+                "description": "other then number is not valid",
+                "data": "",
+                "valid": false
+            }
+        ]
     }
 ]
