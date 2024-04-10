@@ -1053,14 +1053,14 @@
         "description": "$ref with $recursiveAnchor",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
-            "$id": "https://example.com/schemas/array-without-unevaluatedItems",
-            "$ref": "/schemas/array-with-unevaluatedItems",
+            "$id": "https://example.com/schemas/unevaluated-items-are-disallowed",
+            "$ref": "/schemas/unevaluated-items-are-allowed",
             "$recursiveAnchor": true,
             "unevaluatedItems": false,
             "$defs": {
-                "/schemas/array-with-unevaluatedItems": {
+                "/schemas/unevaluated-items-are-allowed": {
                     "$schema": "https://json-schema.org/draft/2019-09/schema",
-                    "$id": "/schemas/array-with-unevaluatedItems",
+                    "$id": "/schemas/unevaluated-items-are-allowed",
                     "$recursiveAnchor": true,
                     "type": "array",
                     "items": [
