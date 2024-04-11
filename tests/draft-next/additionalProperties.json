@@ -176,5 +176,37 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "propertyDependencies with additionalProperties",
+        "schema": {
+            "propertyDependencies" : {
+                "foo": {"bar": {}}
+            },
+            "additionalProperties": false
+        },
+        "tests": [
+            {
+                "description": "propertyDependencies properties are count as additionalproperties" , 
+                "data": {"foo": ""},
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "dependent schema with additionalProperties",
+        "schema": {
+            "dependentSchemas": {
+                "foo": {}
+            },
+            "additionalProperties": false
+        },
+        "tests": [
+            {
+                "description": "dependentSchemas properties are counted as additional properties",
+                "data": {"foo": ""},
+                "valid": false
+            }
+        ]
     }
 ]

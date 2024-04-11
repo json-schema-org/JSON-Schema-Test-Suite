@@ -1603,5 +1603,38 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "propertyDependencies with unevaluatedProperties" ,
+        "schema" : {
+            "propertyDependencies": {
+                "foo": {"bar": {}}
+            },
+            "unevaluatedProperties": false
+        },
+
+        "tests": [
+            {
+                "description": "propertyDependencies properties are count as the unevaluatedProperties" , 
+                "data": {"foo": ""},
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "dependent schema with unevaluatedProperties",
+        "schema": {
+            "dependentSchemas": {
+                "foo": {}
+            },
+            "unevaluatedProperties": false
+        },
+        "tests": [
+            {
+                "description": "dependentSchemas properties are counted as unevaluated properties",
+                "data": {"foo": ""},
+                "valid": false
+            }
+        ]
     }
 ]

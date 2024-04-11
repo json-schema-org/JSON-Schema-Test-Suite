@@ -176,5 +176,22 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "dependent schema with additionalProperties",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "dependentSchemas": {
+                "foo": {}
+            },
+            "additionalProperties": false
+        },
+        "tests": [
+            {
+                "description": "dependentSchemas properties are counted as additional properties",
+                "data": {"foo": ""},
+                "valid": false
+            }
+        ]
     }
 ]
