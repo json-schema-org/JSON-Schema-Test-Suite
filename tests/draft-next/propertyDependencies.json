@@ -183,7 +183,7 @@
             "unevaluatedProperties": false
         },
 
-        "test": [
+        "tests": [
             {
                 "description": "propertyDependencies properties are count as the unevaluatedProperties" , 
                 "data": {"foo": ""},
