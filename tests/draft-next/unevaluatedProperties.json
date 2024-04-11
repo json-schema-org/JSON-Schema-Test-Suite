@@ -1607,8 +1607,15 @@
     {
         "description": "propertyDependencies with unevaluatedProperties" ,
         "schema" : {
+            "$schema": "https://json-schema.org/draft/next/schema",
             "propertyDependencies": {
-                "foo": {"bar": {}}
+                "foo": {
+                    "bar": {
+                        "properties": {
+                            "buz": {}
+                        }
+                    }
+                }
             },
             "unevaluatedProperties": false
         },
@@ -1616,7 +1623,12 @@
         "tests": [
             {
                 "description": "unevaluatedProperties doesn't consider propertyDependencies" , 
-                "data": {"foo": ""},
+                "data": {"foo": "bar"},
+                "valid": false
+            },
+            {
+                "description": "unevaluatedProperties doesn't consider inner schema properties",
+                "data": {"foo": "bar", "buz": ""},
                 "valid": false
             }
         ]
@@ -1624,8 +1636,13 @@
     {
         "description": "dependentSchemas with unevaluatedProperties",
         "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
             "dependentSchemas": {
-                "foo": {}
+                "foo": {
+                    "properties": {
+                        "bar":{}
+                    }
+                }
             },
             "unevaluatedProperties": false
         },
@@ -1633,6 +1650,16 @@
             {
                 "description": "unevaluatedProperties doesn't consider dependentSchemas",
                 "data": {"foo": ""},
+                "valid": false
+            },
+            {
+                "description": "unevaluatedproperties does't consider inner schema property",
+                "data": {"bar": ""},
+                "valid": false
+            },
+            {
+                "description": "unevaluatedProperties doesn't consider both",
+                "data": {"bar": "", "foo": ""},
                 "valid": false
             }
         ]

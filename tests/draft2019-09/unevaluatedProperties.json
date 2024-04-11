@@ -1573,7 +1573,11 @@
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
             "dependentSchemas": {
-                "foo": {}
+                "foo": {
+                    "properties": {
+                        "bar":{}
+                    }
+                }
             },
             "unevaluatedProperties": false
         },
@@ -1581,6 +1585,16 @@
             {
                 "description": "unevaluatedProperties doesn't consider dependentSchemas",
                 "data": {"foo": ""},
+                "valid": false
+            },
+            {
+                "description": "unevaluatedproperties does't consider inner schema property",
+                "data": {"bar": ""},
+                "valid": false
+            },
+            {
+                "description": "unevaluatedProperties doesn't consider both",
+                "data": {"bar": "", "foo": ""},
                 "valid": false
             }
         ]

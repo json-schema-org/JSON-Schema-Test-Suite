@@ -180,15 +180,27 @@
     {
         "description": "propertyDependencies with additionalProperties",
         "schema": {
-            "propertyDependencies" : {
-                "foo": {"bar": {}}
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "propertyDependencies": {
+                "foo": {
+                    "bar": {
+                        "properties": {
+                            "buz": {}
+                        }
+                    }
+                }
             },
             "additionalProperties": false
         },
         "tests": [
             {
-                "description": "additionalProperties doesn't consider propertyDependencies" , 
-                "data": {"foo": ""},
+                "description": "additionalProperties doesn't consider propertyDependencies properties" , 
+                "data": {"foo": "bar"},
+                "valid": false
+            },
+            {
+                "description": "additionalProperties doesn't consider the innner schema properties",
+                "data": {"foo": "bar", "buz": ""},
                 "valid": false
             }
         ]
@@ -196,8 +208,13 @@
     {
         "description": "dependentSchemas with additionalProperties",
         "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
             "dependentSchemas": {
-                "foo": {}
+                "foo": {
+                    "properties": {
+                        "bar":{}
+                    }
+                }
             },
             "additionalProperties": false
         },
@@ -205,6 +222,16 @@
             {
                 "description": "additionalProperties doesn't consider dependentSchemas",
                 "data": {"foo": ""},
+                "valid": false
+            },
+            {
+                "description": "additionalProperties does't consider inner schema property",
+                "data": {"bar": ""},
+                "valid": false
+            },
+            {
+                "description": "additionalProperties doesn't consider both",
+                "data": {"bar": "", "foo": ""},
                 "valid": false
             }
         ]

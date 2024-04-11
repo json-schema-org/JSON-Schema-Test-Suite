@@ -182,7 +182,11 @@
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
             "dependentSchemas": {
-                "foo": {}
+                "foo": {
+                    "properties": {
+                        "bar":{}
+                    }
+                }
             },
             "additionalProperties": false
         },
@@ -190,6 +194,16 @@
             {
                 "description": "additionalProperties doesn't consider dependentSchemas",
                 "data": {"foo": ""},
+                "valid": false
+            },
+            {
+                "description": "additionalProperties does't consider inner schema property",
+                "data": {"bar": ""},
+                "valid": false
+            },
+            {
+                "description": "additionalProperties doesn't consider both",
+                "data": {"bar": "", "foo": ""},
                 "valid": false
             }
         ]
