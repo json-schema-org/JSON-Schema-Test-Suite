@@ -1566,9 +1566,9 @@
         ]
     },
     {
-        "description": "dependent schema with unevaluatedProperties",
+        "description": "dependentSchemas with unevaluatedProperties",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "dependentSchemas": {
                 "foo": {}
             },
@@ -1576,7 +1576,7 @@
         },
         "tests": [
             {
-                "description": "dependentSchemas properties are counted as unevaluated properties",
+                "description": "unevaluatedProperties doesn't consider dependentSchemas",
                 "data": {"foo": ""},
                 "valid": false
             }

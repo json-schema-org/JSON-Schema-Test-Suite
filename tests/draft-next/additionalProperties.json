@@ -187,14 +187,14 @@
         },
         "tests": [
             {
-                "description": "propertyDependencies properties are count as additionalproperties" , 
+                "description": "additionalProperties doesn't consider propertyDependencies" , 
                 "data": {"foo": ""},
                 "valid": false
             }
         ]
     },
     {
-        "description": "dependent schema with additionalProperties",
+        "description": "dependentSchemas with additionalProperties",
         "schema": {
             "dependentSchemas": {
                 "foo": {}
@@ -203,7 +203,7 @@
         },
         "tests": [
             {
-                "description": "dependentSchemas properties are counted as additional properties",
+                "description": "additionalProperties doesn't consider dependentSchemas",
                 "data": {"foo": ""},
                 "valid": false
             }

@@ -178,7 +178,7 @@
         ]
     },
     {
-        "description": "dependent schema with additionalProperties",
+        "description": "dependentSchemas with additionalProperties",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
             "dependentSchemas": {
@@ -188,7 +188,7 @@
         },
         "tests": [
             {
-                "description": "dependentSchemas properties are counted as additional properties",
+                "description": "additionalProperties doesn't consider dependentSchemas",
                 "data": {"foo": ""},
                 "valid": false
             }

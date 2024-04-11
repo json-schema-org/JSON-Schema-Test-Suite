@@ -1615,14 +1615,14 @@
 
         "tests": [
             {
-                "description": "propertyDependencies properties are count as the unevaluatedProperties" , 
+                "description": "unevaluatedProperties doesn't consider propertyDependencies" , 
                 "data": {"foo": ""},
                 "valid": false
             }
         ]
     },
     {
-        "description": "dependent schema with unevaluatedProperties",
+        "description": "dependentSchemas with unevaluatedProperties",
         "schema": {
             "dependentSchemas": {
                 "foo": {}
@@ -1631,7 +1631,7 @@
         },
         "tests": [
             {
-                "description": "dependentSchemas properties are counted as unevaluated properties",
+                "description": "unevaluatedProperties doesn't consider dependentSchemas",
                 "data": {"foo": ""},
                 "valid": false
             }
