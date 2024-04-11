@@ -157,5 +157,38 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "propertyDependencies with additionalProperties",
+        "schema": {
+            "propertyDependencies" : {
+                "foo": {"bar": {}}
+            },
+            "additionalProperties": false
+        },
+        "tests": [
+            {
+                "description": "propertyDependencies properties are count as additionalproperties" , 
+                "data": {"foo": ""},
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "propertyDependencies with unevaluatedProperties" ,
+        "schema" : {
+            "propertyDependencies": {
+                "foo": {"bar": {}}
+            },
+            "unevaluatedProperties": false
+        },
+
+        "test": [
+            {
+                "description": "propertyDependencies properties are count as the unevaluatedProperties" , 
+                "data": {"foo": ""},
+                "valid": false
+            }
+        ]
     }
 ]
