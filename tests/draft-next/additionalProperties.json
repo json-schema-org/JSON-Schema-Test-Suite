@@ -152,5 +152,29 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "additionalProperties with propertyNames",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "propertyNames": {
+                "maxLength": 5
+            },
+            "additionalProperties":{
+                "type": "number"
+            }
+        },
+        "tests": [
+            {
+                "description": "Valid against both keywords",
+                "data": {"apple": 4},
+                "valid": true
+            },
+            {
+                "description": "Valid against propertyNames, but not unevaluatedProperties",
+                "data": { "fig": 2, "pear": "available" },
+                "valid": false
+            }
+        ]
     }
 ]
