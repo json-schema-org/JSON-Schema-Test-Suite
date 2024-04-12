@@ -1,7 +1,6 @@
 [
     {
         "description": "propertyNames validation",
-        "specification": [ { "core": "10.3.2.4" } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "propertyNames": {"maxLength": 3}
@@ -47,7 +46,6 @@
     },
     {
         "description": "propertyNames with boolean schema true",
-        "specification": [ { "core": "10.3.2.4", "quote": "The value of \"propertyNames\" MUST be a valid JSON Schema." } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "propertyNames": true
@@ -67,7 +65,6 @@
     },
     {
         "description": "propertyNames with boolean schema false",
-        "specification": [ { "core": "10.3.2.4", "quote": "The value of \"propertyNames\" MUST be a valid JSON Schema." } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "propertyNames": false
@@ -82,61 +79,6 @@
                 "description": "empty object is valid",
                 "data": {},
                 "valid": true
-            }
-        ]
-    },
-    {
-        "description": "propertyNames with additionalProperties",
-        "specification": [ { "core": "10.3.2.4" }, { "core": "10.3.2.3", "quote": "The validation of propertyNames remains unaffected by the presence or absence of additionalProperties. \"propertyNames\" are validated independently, regardless of other sibling keywords" } ],
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "additionalProperties":{
-                "type": "number"
-            },
-            "propertyNames": {
-                "maxLength": 5
-            }
-        },
-        "tests": [
-            {
-                "description": "property names with the given pattern are valid",
-                "data": {"apple": 4},
-                "valid": true
-            },
-            {
-                "description": "property name is invalid",
-                "data": { "watermelon": 6 },
-                "valid": false
-            }
-        ]
-    },
-    {
-        "description": "propertyNames with unevaluatedProperties",
-        "specification": [ { "core": "10.3.2.4" }, { "core":"11.3", "quote": "The validation of propertyNames remains unaffected by the presence or absence of unevaluatedProperties. \"propertyNames\" are validated independently, regardless of other sibling keywords" } ],
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "properties":{
-                "banana":{
-                    "const": "available"
-                }
-            },
-            "unevaluatedProperties":{
-                "type": "number"
-            },
-            "propertyNames": {
-                "pattern": "^[a-b]"
-            }
-        },
-        "tests": [
-            {
-                "description": "property names with the given pattern are valid",
-                "data": { "banana": "available", "apple": 4 },
-                "valid": true
-            },
-            {
-                "description": "property name chickoo is invalid",
-                "data": { "banana": "available", "chickoo": 10 },
-                "valid": false
             }
         ]
     }

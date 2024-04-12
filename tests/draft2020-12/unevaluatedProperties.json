@@ -1564,5 +1564,35 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "unevaluatedProperties with propertyNames",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "properties":{
+                "banana":{
+                    "const": "available"
+                }
+            },
+            "propertyNames": {
+                "pattern": "^[a-b]"
+            },
+            "unevaluatedProperties":{
+                "type": "number"
+            }
+            
+        },
+        "tests": [
+            {
+                "description": "Valid against all constraints",
+                "data": { "banana": "available", "apple": 4 },
+                "valid": true
+            },
+            {
+                "description": "valid against propertyNames, but not unevaluatedProperties",
+                "data": { "banana": "available", "apple": true },
+                "valid": false
+            }
+        ]
     }
 ]
