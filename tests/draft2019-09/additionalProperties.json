@@ -160,14 +160,14 @@
             "propertyNames": {
                 "maxLength": 5
             },
-            "additionalProperties":{
+            "additionalProperties": {
                 "type": "number"
             }
         },
         "tests": [
             {
                 "description": "Valid against both keywords",
-                "data": {"apple": 4},
+                "data": { "apple": 4 },
                 "valid": true
             },
             {
