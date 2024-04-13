@@ -160,7 +160,7 @@
             "propertyNames": {
                 "maxLength": 5
             },
-            "additionalProperties":{
+            "additionalProperties": {
                 "type": "number"
             }
         },
