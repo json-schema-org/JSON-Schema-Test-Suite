@@ -156,7 +156,7 @@
     {
         "description": "additionalProperties with propertyNames",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "propertyNames": {
                 "maxLength": 5
             },
