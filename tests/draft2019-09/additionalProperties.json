@@ -199,12 +199,12 @@
                 "valid": false
             },
             {
-                "description": "additionalProperties doesn't consider bar",
+                "description": "additionalProperties can't see bar",
                 "data": {"bar": ""},
                 "valid": false
             },
             {
-                "description": "additionalProperties doesn't consider inner schema properties",
+                "description": "additionalProperties can't see bar even when foo2 is present",
                 "data": { "foo2": "", "bar": ""},
                 "valid": false
             }
