@@ -181,8 +181,10 @@
         "description": "propertyDependencies with additionalProperties",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
+            "properties" : {"foo2" : {}},
             "propertyDependencies": {
-                "foo": {
+                "foo" : {},
+                "foo2": {
                     "bar": {
                         "properties": {
                             "buz": {}
@@ -195,12 +197,17 @@
         "tests": [
             {
                 "description": "additionalProperties doesn't consider propertyDependencies properties" , 
-                "data": {"foo": "bar"},
+                "data": {"foo": ""},
                 "valid": false
             },
             {
                 "description": "additionalProperties doesn't consider the innner schema properties",
-                "data": {"foo": "bar", "buz": ""},
+                "data": {"foo2": "bar", "buz": ""},
+                "valid": false
+            },
+            {
+                "description": "additionalProperties doesn't consider buz",
+                "data": {"buz": ""},
                 "valid": false
             }
         ]
@@ -209,10 +216,12 @@
         "description": "dependentSchemas with additionalProperties",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
+            "properties": {"foo2": {}},
             "dependentSchemas": {
-                "foo": {
+                "foo": {},
+                "foo2": {
                     "properties": {
-                        "bar":{}
+                        "bar": {}
                     }
                 }
             },
@@ -225,13 +234,13 @@
                 "valid": false
             },
             {
-                "description": "additionalProperties does't consider inner schema property",
+                "description": "additionalProperties doesn't consider bar",
                 "data": {"bar": ""},
                 "valid": false
             },
             {
-                "description": "additionalProperties doesn't consider both",
-                "data": {"bar": "", "foo": ""},
+                "description": "additionalProperties doesn't consider inner schema properties",
+                "data": {"foo2": "", "bar": ""},
                 "valid": false
             }
         ]

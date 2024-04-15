@@ -187,10 +187,12 @@
         "description": "dependentSchemas with additionalProperties",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "properties": {"foo2": {}},
             "dependentSchemas": {
-                "foo": {
+                "foo" : {},
+                "foo2": {
                     "properties": {
-                        "bar":{}
+                        "bar": {}
                     }
                 }
             },
@@ -203,13 +205,13 @@
                 "valid": false
             },
             {
-                "description": "additionalProperties does't consider inner schema property",
+                "description": "additionalProperties doesn't consider bar",
                 "data": {"bar": ""},
                 "valid": false
             },
             {
-                "description": "additionalProperties doesn't consider both",
-                "data": {"bar": "", "foo": ""},
+                "description": "additionalProperties doesn't consider inner schema properties",
+                "data": {"foo2": "", "bar": ""},
                 "valid": false
             }
         ]
