@@ -795,5 +795,27 @@
             }
 
         ]
+    },
+    {
+        "description": "Exceeding items from minContains are also evaluated" , 
+        "schema":{
+            "$schema":"https://json-schema.org/draft/2020-12/schema",
+            "type": "array",
+            "contains": {"type": "string"},
+            "minContains": 2 , 
+            "unevaluatedItems": false
+        }, 
+        "tests":[
+            {
+                "description": "contains items are consider as the evaluated",
+                "data": ["foo", "bar"],
+                "valid": true
+            },
+            {
+                "description": "execeding contains items also consider as the evaluated", 
+                "data": ["foo", "bar" , "exceeded_item"],
+                "valid": true
+            }
+        ]
     }
 ]
