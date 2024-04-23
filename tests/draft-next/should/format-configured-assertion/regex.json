@@ -1,9 +1,9 @@
 [
     {
-        "description": "format: uri-template",
+        "description": "validation of regular expressions",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
-            "format": "uri-template"
+            "format": "regex"
         },
         "tests": [
             {
@@ -37,23 +37,8 @@
                 "valid": true
             },
             {
-                "description": "a valid uri-template",
-                "data": "http://example.com/dictionary/{term:1}/{term}",
-                "valid": true
-            },
-            {
-                "description": "an invalid uri-template",
-                "data": "http://example.com/dictionary/{term:1}/{term",
-                "valid": false
-            },
-            {
-                "description": "a valid uri-template without variables",
-                "data": "http://example.com/dictionary",
-                "valid": true
-            },
-            {
-                "description": "a valid relative uri-template",
-                "data": "dictionary/{term:1}/{term}",
+                "description": "a valid regular expression",
+                "data": "([abc])+\\s+$",
                 "valid": true
             }
         ]

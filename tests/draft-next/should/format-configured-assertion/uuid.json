@@ -1,9 +1,9 @@
 [
     {
-        "description": "validation of IRI References",
+        "description": "uuid format",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
-            "format": "iri-reference"
+            "format": "uuid"
         },
         "tests": [
             {
@@ -37,39 +37,44 @@
                 "valid": true
             },
             {
-                "description": "a valid IRI",
-                "data": "http://ƒøø.ßår/?∂éœ=πîx#πîüx",
+                "description": "all upper-case",
+                "data": "2EB8AA08-AA98-11EA-B4AA-73B441D16380",
                 "valid": true
             },
             {
-                "description": "a valid protocol-relative IRI Reference",
-                "data": "//ƒøø.ßår/?∂éœ=πîx#πîüx",
+                "description": "all lower-case",
+                "data": "2eb8aa08-aa98-11ea-b4aa-73b441d16380",
                 "valid": true
             },
             {
-                "description": "a valid relative IRI Reference",
-                "data": "/âππ",
+                "description": "mixed case",
+                "data": "2eb8aa08-AA98-11ea-B4Aa-73B441D16380",
                 "valid": true
             },
             {
-                "description": "an invalid IRI Reference",
-                "data": "\\\\WINDOWS\\filëßåré",
-                "valid": false
-            },
-            {
-                "description": "a valid IRI Reference",
-                "data": "âππ",
+                "description": "all zeroes is valid",
+                "data": "00000000-0000-0000-0000-000000000000",
                 "valid": true
             },
             {
-                "description": "a valid IRI fragment",
-                "data": "#ƒrägmênt",
+                "description": "valid version 4",
+                "data": "98d80576-482e-427f-8434-7f86890ab222",
                 "valid": true
             },
             {
-                "description": "an invalid IRI fragment",
-                "data": "#ƒräg\\mênt",
-                "valid": false
+                "description": "valid version 5",
+                "data": "99c17cbb-656f-564a-940f-1a4568f03487",
+                "valid": true
+            },
+            {
+                "description": "hypothetical version 6",
+                "data": "99c17cbb-656f-664a-940f-1a4568f03487",
+                "valid": true
+            },
+            {
+                "description": "hypothetical version 15",
+                "data": "99c17cbb-656f-f64a-940f-1a4568f03487",
+                "valid": true
             }
         ]
     }

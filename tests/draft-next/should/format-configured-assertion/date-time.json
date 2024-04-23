@@ -1,9 +1,9 @@
 [
     {
-        "description": "validation of URI References",
+        "description": "validation of date-time strings",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
-            "format": "uri-reference"
+            "format": "date-time"
         },
         "tests": [
             {
@@ -37,39 +37,39 @@
                 "valid": true
             },
             {
-                "description": "a valid URI",
-                "data": "http://foo.bar/?baz=qux#quux",
+                "description": "a valid date-time string",
+                "data": "1963-06-19T08:30:06.283185Z",
                 "valid": true
             },
             {
-                "description": "a valid protocol-relative URI Reference",
-                "data": "//foo.bar/?baz=qux#quux",
+                "description": "a valid date-time string without second fraction",
+                "data": "1963-06-19T08:30:06Z",
                 "valid": true
             },
             {
-                "description": "a valid relative URI Reference",
-                "data": "/abc",
+                "description": "a valid date-time string with plus offset",
+                "data": "1937-01-01T12:00:27.87+00:20",
                 "valid": true
             },
             {
-                "description": "an invalid URI Reference",
-                "data": "\\\\WINDOWS\\fileshare",
-                "valid": false
-            },
-            {
-                "description": "a valid URI Reference",
-                "data": "abc",
+                "description": "a valid date-time string with minus offset",
+                "data": "1990-12-31T15:59:50.123-08:00",
                 "valid": true
             },
             {
-                "description": "a valid URI fragment",
-                "data": "#fragment",
+                "description": "a valid date-time with a leap second, UTC",
+                "data": "1998-12-31T23:59:60Z",
                 "valid": true
             },
             {
-                "description": "an invalid URI fragment",
-                "data": "#frag\\ment",
-                "valid": false
+                "description": "a valid date-time with a leap second, with minus offset",
+                "data": "1998-12-31T15:59:60.123-08:00",
+                "valid": true
+            },
+            {
+                "description": "case-insensitive T and Z",
+                "data": "1963-06-19t08:30:06.283185z",
+                "valid": true
             }
         ]
     }
