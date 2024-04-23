@@ -46,6 +46,7 @@
         "description": "allOf with base schema",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "specification":[ { "core": "10.2", "quote": "Subschemas of applicator keywords evaluate the instance completely independently such that the results of one such subschema MUST NOT impact the results of sibling subschemas." } ],
             "properties": {"bar": {"type": "integer"}},
             "required": ["bar"],
             "allOf" : [
