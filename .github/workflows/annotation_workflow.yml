@@ -1,4 +1,4 @@
-name: JSON Tests Workflow
+name: Specifications Annotation Workflow
 
 on:
   pull_request:
@@ -7,11 +7,11 @@ on:
 
 jobs:
   run_tests:
-    name: Run JSON Schema Tests
+    name: logging annotations
     runs-on: ubuntu-latest
 
     steps:
-     - name: Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Set up Python
@@ -23,7 +23,7 @@ jobs:
         run: pip install PyGithub
 
       - name: Run Python script
-        run: python json_tests_workflow.py
+        run: python bin/annotation_workflow.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REF: ${{ github.ref }}
