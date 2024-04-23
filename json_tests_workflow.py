@@ -15,7 +15,7 @@ def commit_and_push_changes(repo, branch, commit_message):
 def main():
     # GitHub authentication using personal access token
     # Replace 'YOUR_PERSONAL_ACCESS_TOKEN' with your actual token
-    g = Github(os.environ.get('GITHUB_REPOSITORY'))
+    g = Github(os.environ.get('GITHUB_TOKEN'))
 
     # Get repository and pull request number from environment variables
     repo_name = os.environ.get('GITHUB_REPOSITORY')
