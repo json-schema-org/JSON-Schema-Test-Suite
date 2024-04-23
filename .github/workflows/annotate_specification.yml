@@ -1,0 +1,31 @@
+name: JSON Tests Workflow
+
+on:
+  pull_request:
+    paths:
+      - 'tests/**'
+
+jobs:
+  run_tests:
+    name: Run JSON Schema Tests
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install PyGithub
+
+      - name: Run Python script
+        run: python json_tests_workflow.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_REPOSITORY: ${{ github.repository }} 
+          
