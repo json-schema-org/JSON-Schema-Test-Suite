@@ -61,11 +61,12 @@ def main():
                 for test in json_content:
                     print(test)
                     if "specification" in test:
-                        for spec, section in test["specification"]:
-                            print(spec, section)
-                            if spec in ["core", "validation", "hyper-schema"]: 
-                                print(urls[draft][spec] + section)
-                            else: print(urls[spec] + section)
+                        for specification_object in test["specification"]:
+                            for key, value in specification_object.items():
+                                if key in ["core", "validation", "hyper-schema"]: 
+                                    print(urls[draft][key] + value)
+                                elif key in ["quote"]: continue
+                                else: print(urls[key] + value)
             except json.JSONDecodeError as e:
                 print(f"Error parsing JSON in file '{file}': {e}")
 
