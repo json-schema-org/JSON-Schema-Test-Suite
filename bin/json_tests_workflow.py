@@ -42,13 +42,14 @@ def main():
     # Get the list of changed files in the pull request
     changed_files = [file.filename for file in pr.get_files()]
 
-    print(changed_files)
     # Traverse each file in the 'tests' folder and print JSON content
     for file in changed_files:
+        print(file)
         if file.startswith('tests/'):
             # Read the file content
             draft = file.split('/')[1]
 
+            print(draft)
             urls = json.loads(repo.get_contents("bin/specification_urls.json").decoded_content.decode('utf-8'))
 
             changed_file_content = repo.get_contents(file).decoded_content.decode('utf-8')
@@ -56,6 +57,7 @@ def main():
             try:
                 json_content = json.loads(changed_file_content)
                 for test in json_content:
+                    print("hiiii----------------")
                     if "specification" in test:
                         for spec, section in test["specification"]:
                             if spec in ["core", "validation", "hyper-schema"]: 
