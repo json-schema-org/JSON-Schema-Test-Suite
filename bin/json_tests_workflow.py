@@ -53,11 +53,14 @@ def main():
 
             changed_file_content = repo.get_contents(file).decoded_content.decode('utf-8')
             # Parse JSON content
+            print("--------")
             try:
                 json_content = json.loads(changed_file_content)
                 for test in json_content:
+                    print(test)
                     if "specification" in test:
                         for spec, section in test["specification"]:
+                            print(spec, section)
                             if spec in ["core", "validation", "hyper-schema"]: 
                                 print(urls[draft][spec] + section)
                             else: print(urls[spec] + section)
