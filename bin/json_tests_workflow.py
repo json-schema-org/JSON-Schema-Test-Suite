@@ -2,16 +2,11 @@ from github import Github
 import os
 import sys
 import json
+import re
 
-def commit_and_push_changes(repo, branch, commit_message):
-    try:
-        repo.git.add(update=True)
-        repo.index.commit(commit_message)
-        origin = repo.remote(name='origin')
-        origin.push(refspec=branch)
-        print("Changes committed and pushed successfully.")
-    except Exception as e:
-        print(f"Error occurred while committing and pushing changes: {str(e)}")
+
+def print_github_action_notice(file_name, message):
+    print(f"::notice file={file_name}::{message}")
 
 def main():
 
@@ -52,21 +47,20 @@ def main():
             urls = json.loads(repo.get_contents("specification_urls.json").decoded_content.decode('utf-8'))
 
             branch_name = pr.head.ref
-            print(branch_name)
             changed_file_content = repo.get_contents(file, ref=branch_name).decoded_content.decode('utf-8')
+
             # Parse JSON content
-            print("--------")
             try:
                 json_content = json.loads(changed_file_content)
                 for test in json_content:
-                    print(test)
                     if "specification" in test:
                         for specification_object in test["specification"]:
-                            for key, value in specification_object.items():
-                                if key in ["core", "validation", "hyper-schema"]: 
-                                    print(urls[draft][key] + value)
-                                elif key in ["quote"]: continue
-                                else: print(urls[key] + value)
+                            for spec, section in specification_object.items():
+                                if spec in ["core", "validation", "hyper-schema"]: print_github_action_notice(file, urls[draft][spec] + section)
+                                elif spec in ["quote"]: continue
+                                elif spec in ["ecma262", "perl5"]: print_github_action_notice(file, urls[spec] + section)
+                                elif re.match("^rfc\\d+$"): print_github_action_notice(file, urls["rfc"] + spec + ".txt#" + section)
+                                else: print_github_action_notice(file, urls["iso"])
             except json.JSONDecodeError as e:
                 print(f"Error parsing JSON in file '{file}': {e}")
 
