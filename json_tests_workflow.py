@@ -19,7 +19,17 @@ def main():
 
     # Get repository and pull request number from environment variables
     repo_name = os.environ.get('GITHUB_REPOSITORY')
-    pull_request_number = os.environ.get('GITHUB_REF').split('/')[-1]
+    
+    # Extract pull request number from GITHUB_REF if it's a pull request event
+    event_name = os.environ.get('GITHUB_EVENT_NAME')
+    if event_name == 'pull_request':
+        print(os.environ.get('GITHUB_REF'))
+        pull_request_number = os.environ.get('GITHUB_REF').split('/')[-2]
+        print(pull_request_number)
+    else:
+        print(os.environ.get('GITHUB_REF'))
+        print("Not a pull request event.")
+        sys.exit(1)
 
     if not repo_name or not pull_request_number:
         print("Repository name or pull request number not found in environment variables.")
