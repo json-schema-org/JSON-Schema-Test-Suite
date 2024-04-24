@@ -1,9 +1,9 @@
 [
     {
         "description": "allOf",
+        "specification":[ { "core": "10.2" } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "specification":[ { "core": "10.2" } ],
             "allOf": [
                 {
                     "properties": {
@@ -44,9 +44,9 @@
     },
     {
         "description": "allOf with base schema",
+        "specification":[ { "core": "10.2", "validation": "1.2.3" } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "specification":[ { "core": "10.2", "validation": "1.2.3" } ],
             "properties": {"bar": {"type": "integer"}},
             "required": ["bar"],
             "allOf" : [
