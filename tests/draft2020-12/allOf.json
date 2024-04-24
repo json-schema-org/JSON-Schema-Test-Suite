@@ -44,7 +44,7 @@
     },
     {
         "description": "allOf with base schema",
-        "specification":[ { "core": "10.2", "validation": "1.2.3" } ],
+        "specification":[ { "core": "10.2", "validation": "1.2.3", "rfc1234": "2.3", "perl5": "Hello", "iso123": "Anysection" } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "properties": {"bar": {"type": "integer"}},
