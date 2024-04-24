@@ -49,7 +49,7 @@ def main():
             # Read the file content
             draft = file.split('/')[1]
 
-            urls = json.loads(repo.get_contents("specification_urls.json").decoded_content.decode('utf-8'))
+            urls = json.loads(repo.get_contents("bin/specification_urls.json").decoded_content.decode('utf-8'))
 
             changed_file_content = repo.get_contents(file).decoded_content.decode('utf-8')
             # Parse JSON content
