@@ -117,6 +117,7 @@
     },
     {
         "description": "allOf with boolean schemas, all true",
+        "specification":[ { "core": "10.2", "validation": "1.2.3" } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "allOf": [true, true]
