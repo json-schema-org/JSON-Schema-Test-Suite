@@ -51,7 +51,9 @@ def main():
 
             urls = json.loads(repo.get_contents("specification_urls.json").decoded_content.decode('utf-8'))
 
-            changed_file_content = repo.get_contents(file).decoded_content.decode('utf-8')
+            branch_name = pr.head.ref
+            print(branch_name)
+            changed_file_content = repo.get_contents(file, ref=branch_name).decoded_content.decode('utf-8')
             # Parse JSON content
             print("--------")
             try:
