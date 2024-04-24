@@ -23,7 +23,7 @@ jobs:
         run: pip install PyGithub
 
       - name: Run Python script
-        run: python json_tests_workflow.py
+        run: python bin/json_tests_workflow.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REF: ${{ github.ref }}

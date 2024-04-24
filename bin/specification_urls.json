@@ -1,0 +1,33 @@
+{
+    "draft3": {
+        "core": "https://json-schema.org/draft-03/draft-zyp-json-schema-03.pdf"
+    },
+    "draft4": {
+        "core": "https://json-schema.org/draft-04/draft-zyp-json-schema-04",
+        "validation": "https://json-schema.org/draft-04/draft-fge-json-schema-validation-00"
+    },
+    "draft6": {
+        "core": "https://json-schema.org/draft-06/draft-wright-json-schema-01",
+        "validation": "https://json-schema.org/draft-06/draft-wright-json-schema-validation-01",
+        "hyper-schema": "https://json-schema.org/draft-06/draft-wright-json-schema-hyperschema-01"
+    },
+    "draft7": {
+        "core": "https://json-schema.org/draft-07/draft-handrews-json-schema-01",
+        "validation": "https://json-schema.org/draft-07/draft-handrews-json-schema-validation-01",
+        "hyper-schema": "https://json-schema.org/draft-07/draft-handrews-json-schema-hyperschema-01"
+    },
+    "draft2019-09": {
+        "core": "https://json-schema.org/draft/2019-09/draft-handrews-json-schema-02",
+        "validation": "https://json-schema.org/draft/2019-09/draft-handrews-json-schema-validation-02",
+        "hyper-schema": "https://json-schema.org/draft/2019-09/draft-handrews-json-schema-hyperschema-02"
+    },
+    "draft2020-12": {
+        "core": "https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-01",
+        "validation": "https://json-schema.org/draft/2020-12/draft-bhutton-json-schema-validation-01",
+        "hyper-schema": "https://json-schema.org/draft/2019-09/draft-handrews-json-schema-hyperschema-02"
+    },
+    "rfc": "",
+    "ecma262": "",
+    "iso": "",
+    "perl5": ""
+}
