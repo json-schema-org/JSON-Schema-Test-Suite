@@ -59,7 +59,7 @@ def main():
                                 if spec in ["core", "validation", "hyper-schema"]: print_github_action_notice(file, urls[draft][spec] + section)
                                 elif spec in ["quote"]: continue
                                 elif spec in ["ecma262", "perl5"]: print_github_action_notice(file, urls[spec] + section)
-                                elif re.match("^rfc\\d+$"): print_github_action_notice(file, urls["rfc"] + spec + ".txt#" + section)
+                                elif re.match("^rfc\\d+$", spec): print_github_action_notice(file, urls["rfc"] + spec + ".txt#" + section)
                                 else: print_github_action_notice(file, urls["iso"])
             except json.JSONDecodeError as e:
                 print(f"Error parsing JSON in file '{file}': {e}")
