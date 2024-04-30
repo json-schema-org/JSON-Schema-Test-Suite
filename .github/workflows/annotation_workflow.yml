@@ -19,13 +19,5 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
-        run: pip install PyGithub
-
       - name: Run Python script
         run: python bin/annotation_workflow.py
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REF: ${{ github.ref }}
-          GITHUB_REPOSITORY: ${{ github.repository }} 
-          

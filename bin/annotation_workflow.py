@@ -1,55 +1,25 @@
-from github import Github
-import os
-import sys
 import json
+from pathlib import Path
 import re
 
+# Function to print GitHub action notice
+def print_github_action_notice(file, url):
+    print(f"::warning file={file},line=1::Annotation: {url}")
 
-def print_github_action_notice(file_name, message):
-    print(f"::notice file={file_name}::{message}")
+# Read specification URLs from JSON file
+with open("specification_urls.json", "r") as f:
+    urls = json.load(f)
 
-def main():
-
-    # Get GITHUB_TOKEN from environment variables automatically
-    g = Github(os.environ.get('GITHUB_TOKEN'))
-
-    # Get repository and pull request number from environment variables
-    repo_name = os.environ.get('GITHUB_REPOSITORY')
-    
-    # Extract pull request number from GITHUB_REF if it's a pull request event
-    event_name = os.environ.get('GITHUB_EVENT_NAME')
-    if event_name == 'pull_request':
-        pull_request_number = os.environ.get('GITHUB_REF').split('/')[-2]
-    else:
-        print("Not a pull request event.")
-        sys.exit(1)
-
-    if not repo_name or not pull_request_number:
-        print("Repository name or pull request number not found in environment variables.")
-        sys.exit(1)
-
-    # Get repository object
-    repo = g.get_repo(repo_name)
-
-    # Get the pull request object
-    pr = repo.get_pull(int(pull_request_number))
-
-    # Get the list of changed files in the pull request
-    changed_files = [file.filename for file in pr.get_files()]
-
-    print(changed_files)
-    # Traverse each file in the 'tests' folder and print JSON content
-    for file in changed_files:
-        if file.startswith('tests/'):
+# Iterate through files in tests folder
+for root, dirs, files in Path("tests").walk():
+    for file in files:
+        if file.endswith('.json'):  # Check if file is JSON
+            file_path = root / file
+            
             # Read the file content
-            draft = file.split('/')[1]
-
-            urls = json.loads(repo.get_contents("bin/specification_urls.json").decoded_content.decode('utf-8'))
-
-
-            branch_name = pr.head.ref
-            changed_file_content = repo.get_contents(file, ref=branch_name).decoded_content.decode('utf-8')
-
+            with open(file_path, "r") as f:
+                changed_file_content = f.read()
+                
             # Parse JSON content
             try:
                 json_content = json.loads(changed_file_content)
@@ -57,13 +27,16 @@ def main():
                     if "specification" in test:
                         for specification_object in test["specification"]:
                             for spec, section in specification_object.items():
-                                if spec in ["core", "validation", "hyper-schema"]: print_github_action_notice(file, urls[draft][spec] + section)
-                                elif spec in ["quote"]: continue
-                                elif spec in ["ecma262", "perl5"]: print_github_action_notice(file, urls[spec] + section)
-                                elif re.match("^rfc\\d+$"): print_github_action_notice(file, urls["rfc"] + spec + ".txt#" + section)
-                                else: print_github_action_notice(file, urls["iso"])
-            except json.JSONDecodeError as e:
-                print(f"Error parsing JSON in file '{file}': {e}")
-
-if __name__ == "__main__":
-    main()
+                                draft = root.split('/')[-1]
+                                if spec in ["core", "validation", "hyper-schema"]:
+                                    print_github_action_notice(file_path, urls[draft][spec] + section)
+                                elif spec in ["quote"]:
+                                    continue
+                                elif spec in ["ecma262", "perl5"]:
+                                    print_github_action_notice(file_path, urls[spec] + section)
+                                elif re.match("^rfc\\d+$", spec):
+                                    print_github_action_notice(file_path, urls["rfc"] + spec + ".txt#" + section)
+                                else:
+                                    print_github_action_notice(file_path, urls["iso"])
+            except json.JSONDecodeError:
+                print(f"Failed to parse JSON content for file: {file_path}")
