@@ -1,6 +1,7 @@
 import json
-from pathlib import Path
+import os
 import re
+from pathlib import Path
 
 # Function to print GitHub action notice
 def print_github_action_notice(file, url):
@@ -10,13 +11,13 @@ def print_github_action_notice(file, url):
 with open("bin/specification_urls.json", "r") as f:
     urls = json.load(f)
 
-# Iterate through files in tests folder
-for root, dirs, files in Path("tests").walk():
-    for file in files:
-        if file.endswith('.json'):  # Check if file is JSON
-            file_path = root / file
+# Iterate through JSON files in tests folder and subdirectories
+for root, dirs, files in os.walk("tests"):
+    for file_name in files:
+        if file_name.endswith(".json"):
+            file_path = os.path.join(root, file_name)
             # Read the file content
-            with open(file_path, "r") as f:
+            with open(file_path, 'r', encoding='utf-8') as f:
                 changed_file_content = f.read()
 
             # Parse JSON content
@@ -26,7 +27,7 @@ for root, dirs, files in Path("tests").walk():
                     if "specification" in test:
                         for specification_object in test["specification"]:
                             for spec, section in specification_object.items():
-                                draft = root.split('/')[-1]
+                                draft = Path(file_path).parent.name
                                 if spec in ["core", "validation", "hyper-schema"]:
                                     print_github_action_notice(file_path, urls[draft][spec] + section)
                                 elif spec in ["quote"]:
