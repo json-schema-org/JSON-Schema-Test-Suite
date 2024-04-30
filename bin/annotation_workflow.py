@@ -29,6 +29,12 @@ def find_test_line_number(test_content, test_name):
             return i  # Return the line number if found
     return 1  # Return None if test name is not found
 
+def clear_previous_annotations():
+    """
+    Clear previous GitHub action annotations.
+    """
+    print("::remove-matcher owner=me::")
+
 # Specify the path to the JSON file using pathlib.Path
 json_file_path = Path("bin/specification_urls.json")
 
@@ -62,6 +68,8 @@ for file_path in Path("tests").rglob("*.json"):
                             url = urls["iso"].format(spec=spec, section=section)
                         else:
                             url = urls[spec].format(spec=spec, section=section) 
+
+                        clear_previous_annotations()
                         print(github_action_notice(file_path, url, line_number))
 
     except json.JSONDecodeError:
