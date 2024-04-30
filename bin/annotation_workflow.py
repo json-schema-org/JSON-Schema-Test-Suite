@@ -1,4 +1,4 @@
-import json
+import json, re
 from pathlib import Path
 
 def github_action_notice(file, url, line):
@@ -39,7 +39,7 @@ with json_file_path.open("r", encoding="utf-8") as f:
 # Iterate through JSON files in tests folder and subdirectories
 for file_path in Path("tests").rglob("*.json"):
     # Read the file content using pathlib.Path
-    with file_path.open('r', encoding='utf-8') as f:
+    with file_path.open("r", encoding="utf-8") as f:
         changed_file_content = f.read()
         
     # Parse JSON content
@@ -56,10 +56,13 @@ for file_path in Path("tests").rglob("*.json"):
                             continue
                         elif spec in ["core", "validation", "hyper-schema"]:
                             url = urls[draft][spec].format(spec=spec, section=section)
+                        elif re.match("^rfc\\d+$", spec):
+                            url = urls["rfc"].format(spec=spec, section=section)
+                        elif  re.match("^iso\\d+$", spec):
+                            url = urls["iso"].format(spec=spec, section=section)
                         else:
-                            url = urls[spec].format(spec=spec, section=section)
-                        annotation = github_action_notice(file_path, url, line_number)
-                        print(annotation)
+                            url = urls[spec].format(spec=spec, section=section) 
+                        print(github_action_notice(file_path, url, line_number))
 
     except json.JSONDecodeError:
         print(f"::error file={file_path}::Failed to parse JSON content")
