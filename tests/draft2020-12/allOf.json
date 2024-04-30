@@ -266,7 +266,7 @@
     },
     {
         "description": "allOf combined with anyOf, oneOf",
-        "specification":[ { "core": "10.2", "validation": "1.2.3" } ],
+        "specification": [ { "core":"10.3.2.3", "quote": "The value of \"additionalProperties\" MUST be a valid JSON Schema." } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "allOf": [ { "multipleOf": 2 } ],
