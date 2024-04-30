@@ -52,6 +52,7 @@
     },
     {
         "description": "Location-independent identifier with base URI change in subschema",
+        "specification": [ { "core":"10.3.2.3", "quote": "The value of \"additionalProperties\" MUST be a valid JSON Schema." } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "$id": "http://localhost:1234/draft2020-12/root",
