@@ -7,7 +7,7 @@ def print_github_action_notice(file, url):
     print(f"::warning file={file},line=1::Annotation: {url}")
 
 # Read specification URLs from JSON file
-with open("specification_urls.json", "r") as f:
+with open("bin/specification_urls.json", "r") as f:
     urls = json.load(f)
 
 # Iterate through files in tests folder
