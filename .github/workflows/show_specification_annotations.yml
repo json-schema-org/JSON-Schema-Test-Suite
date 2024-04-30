@@ -1,4 +1,4 @@
-name: Specifications Annotation Workflow
+name: Show Specification Annotations
 
 on:
   pull_request:
@@ -6,16 +6,14 @@ on:
       - 'tests/**'
 
 jobs:
-  run_tests:
-    name: logging annotations
+  annotate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Generate Annotations
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
