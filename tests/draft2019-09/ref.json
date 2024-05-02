@@ -1048,5 +1048,43 @@
                  "valid": false
              }
          ]
-     }
+     },
+     {
+        "description": "$ref with $recursiveAnchor",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$id": "https://example.com/schemas/unevaluated-items-are-disallowed",
+            "$ref": "/schemas/unevaluated-items-are-allowed",
+            "$recursiveAnchor": true,
+            "unevaluatedItems": false,
+            "$defs": {
+                "/schemas/unevaluated-items-are-allowed": {
+                    "$schema": "https://json-schema.org/draft/2019-09/schema",
+                    "$id": "/schemas/unevaluated-items-are-allowed",
+                    "$recursiveAnchor": true,
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "$ref": "#"
+                        }
+                    ]
+                }
+            }
+        },
+        "tests": [
+            {
+                "description": "extra items allowed for inner arrays",
+                "data" : ["foo",["bar" , [] , 8]],
+                "valid": true
+            },
+            {
+                "description": "extra items disallowed for root",
+                "data" : ["foo",["bar" , [] , 8], 8],
+                "valid": false
+            }
+        ]
+    }
 ]
