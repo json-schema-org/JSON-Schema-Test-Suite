@@ -12,14 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          pip install uritemplate
-
       - name: Generate Annotations
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
       - name: Run Python script
-        run: python bin/annotation_workflow.py
+        run: |
+          pip install uritemplate
+          python bin/annotation_workflow.py
