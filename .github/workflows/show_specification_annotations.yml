@@ -11,7 +11,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        run: pip install uritemplate
+
+      - name: Install dependencies
+        run: |
+          pip install uritemplate
 
       - name: Generate Annotations
         uses: actions/setup-python@v5
