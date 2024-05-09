@@ -105,7 +105,7 @@ def main():
                                 path=path,
                                 line=line_number_of(path, test_case),
                                 title="Specification Link",
-                                message=f"See [{section}]({url})",
+                                message=url,
                             ),
                         )
 
