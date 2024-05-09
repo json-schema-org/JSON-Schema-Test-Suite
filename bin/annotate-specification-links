@@ -57,7 +57,7 @@ def line_number_of(path: Path, case: dict[str, Any]) -> int:
     with path.open() as file:
         description = case["description"]
         return next(
-            (i for i, line in enumerate(file, 1) if description in line),
+            (i + 1 for i, line in enumerate(file, 1) if description in line),
             1,
         )
 
