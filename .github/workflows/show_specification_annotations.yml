@@ -18,6 +18,4 @@ jobs:
           python-version: '3.x'
 
       - name: Run Python script
-        run: |
-          pip install uritemplate
-          python bin/annotation_workflow.py
+        run: pip install uritemplate && bin/annotate-specification-links
