@@ -89,9 +89,8 @@ def main():
                 specifications = test_case.get("specification")
                 if specifications is not None:
                     for each in specifications:
-                        (kind, section), = (
-                            (k, v) for k, v in each.items() if k != "quote"
-                        )
+                        quote = each.pop("quote", "")
+                        (kind, section), = each.items()
 
                         number = re.search(r"\d+", kind)
                         spec = "" if number is None else number.group(0)
@@ -100,12 +99,14 @@ def main():
                             spec=spec,
                             section=section,
                         )
+
+                        message = f"{url}\n\n{quote}" if quote else url
                         sys.stdout.write(
                             annotation(
                                 path=path,
                                 line=line_number_of(path, test_case),
                                 title="Specification Link",
-                                message=url,
+                                message=message,
                             ),
                         )
 
