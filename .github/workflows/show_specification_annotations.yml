@@ -1,0 +1,23 @@
+name: Show Specification Annotations
+
+on:
+  pull_request:
+    paths:
+      - 'tests/**'
+
+jobs:
+  annotate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate Annotations
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run Python script
+        run: |
+          pip install uritemplate
+          python bin/annotation_workflow.py
