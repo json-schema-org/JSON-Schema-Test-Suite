@@ -1,6 +1,7 @@
 [
     {
-        "description": "additionalProperties being false does not allow other properties",
+        "description":
+            "additionalProperties being false does not allow other properties",
         "specification": [ { "core":"10.3.2.3", "quote": "The value of \"additionalProperties\" MUST be a valid JSON Schema. Boolean \"false\" forbids everything." } ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
