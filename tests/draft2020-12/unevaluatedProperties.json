@@ -161,6 +161,31 @@
         ]
     },
     {
+        "description": "unevaluatedProperties with non-bool additionalProperties",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": { "type": "string" },
+            "unevaluatedProperties": false
+        },
+        "tests": [
+            {
+                "description": "with only valid additional properties",
+                "data": {
+                    "foo": "foo"
+                },
+                "valid": true
+            },
+            {
+                "description": "with invalid additional properties",
+                "data": {
+                    "foo": "foo",
+                    "bar": 1
+                },
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "unevaluatedProperties with nested properties",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
