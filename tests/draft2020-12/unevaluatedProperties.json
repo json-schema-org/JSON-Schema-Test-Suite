@@ -127,7 +127,7 @@
         ]
     },
     {
-        "description": "unevaluatedProperties with adjacent additionalProperties",
+        "description": "unevaluatedProperties with adjacent bool additionalProperties",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "additionalProperties": true,
@@ -152,7 +152,7 @@
         ]
     },
     {
-        "description": "unevaluatedProperties with non-bool additionalProperties",
+        "description": "unevaluatedProperties with adjacent non-bool additionalProperties",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "additionalProperties": { "type": "string" },
