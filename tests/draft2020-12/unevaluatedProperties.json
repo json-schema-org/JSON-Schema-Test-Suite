@@ -130,9 +130,6 @@
         "description": "unevaluatedProperties with adjacent additionalProperties",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "properties": {
-                "foo": { "type": "string" }
-            },
             "additionalProperties": true,
             "unevaluatedProperties": false
         },
