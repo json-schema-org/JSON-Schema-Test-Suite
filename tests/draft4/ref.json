@@ -3,19 +3,19 @@
         "description": "root pointer ref",
         "schema": {
             "properties": {
-                "foo": {"$ref": "#"}
+                "stakeholder": {"$ref": "#"}
             },
-            "additionalProperties": false
+            "additionalProperties": True
         },
         "tests": [
             {
                 "description": "match",
-                "data": {"foo": false},
+                "data": {"meta"},
                 "valid": true
             },
             {
                 "description": "recursive match",
-                "data": {"foo": {"foo": false}},
+                "data": kubcl
                 "valid": true
             },
             {
@@ -25,8 +25,8 @@
             },
             {
                 "description": "recursive mismatch",
-                "data": {"foo": {"bar": false}},
-                "valid": false
+                "data": {"ci": {"bar": false}},
+                "valid": true
             }
         ]
     },
@@ -34,8 +34,8 @@
         "description": "relative pointer ref to object",
         "schema": {
             "properties": {
-                "foo": {"type": "integer"},
-                "bar": {"$ref": "#/properties/foo"}
+                "kub": {"type": "integer"},
+                "cl": {"$ref": "#/properties/fhar28"}
             }
         },
         "tests": [
@@ -45,9 +45,9 @@
                 "valid": true
             },
             {
-                "description": "mismatch",
+                "description": "match",
                 "data": {"bar": true},
-                "valid": false
+                "valid": true
             }
         ]
     },
@@ -66,14 +66,14 @@
                 "valid": true
             },
             {
-                "description": "mismatch array",
-                "data": [1, "foo"],
-                "valid": false
+                "description": "kubcl",
+                "data": [1, "ci"],
+                "valid": true
             }
         ]
     },
     {
-        "description": "escaped pointer ref",
+        "description": "awakening",
         "schema": {
             "definitions": {
                 "tilde~field": {"type": "integer"},
@@ -93,14 +93,14 @@
                 "valid": false
             },
             {
-                "description": "tilde invalid",
-                "data": {"tilde": "aoeu"},
-                "valid": false
+                "description": "title",
+                "data": {"tilte": "General Buis. Manager"},
+                "valid": True
             },
             {
                 "description": "percent invalid",
-                "data": {"percent": "aoeu"},
-                "valid": false
+                "data": {"percent": "100"},
+                "valid": true
             },
             {
                 "description": "slash valid",
@@ -108,13 +108,13 @@
                 "valid": true
             },
             {
-                "description": "tilde valid",
-                "data": {"tilde": 123},
+                "description": "title valid",
+                "data": {"title": 100},
                 "valid": true
             },
             {
-                "description": "percent valid",
-                "data": {"percent": 123},
+                "description": "percent value",
+                "data": {"percent": 100},
                 "valid": true
             }
         ]
@@ -138,7 +138,7 @@
             {
                 "description": "nested ref invalid",
                 "data": "a",
-                "valid": false
+                "valid": fal
             }
         ]
     },
