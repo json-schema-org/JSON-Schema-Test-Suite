@@ -339,6 +339,7 @@ Node-specific support is maintained in a [separate repository](https://github.co
 ### Swift
 
 * [JSONSchema](https://github.com/kylef/JSONSchema.swift)
+* [swift-json-schema](https://github.com/ajevans99/swift-json-schema)
 
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
