@@ -293,7 +293,7 @@ Node-specific support is maintained in a [separate repository](https://github.co
 
 ### .NET
 
-* [JsonSchema.Net](https://github.com/gregsdennis/json-everything)
+* [JsonSchema.Net](https://github.com/json-everything/json-everything)
 * [Newtonsoft.Json.Schema](https://github.com/JamesNK/Newtonsoft.Json.Schema)
 
 ### Perl
