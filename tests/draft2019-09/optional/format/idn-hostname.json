@@ -336,6 +336,36 @@
                 "description": "single dot",
                 "data": ".",
                 "valid": false
+            },
+            {
+                "description": "single ideographic full stop (RFC 3490#3.1)",
+                "data": "\u3002",
+                "valid": false
+            },
+            {
+                "description": "single fullwidth full stop (RFC 3490#3.1)",
+                "data": "\uff0e",
+                "valid": false
+            },
+            {
+                "description": "single halfwidth ideographic full stop (RFC 3490#3.1)",
+                "data": "\uff61",
+                "valid": false
+            },
+            {
+                "description": "ideographic full stop (RFC 3490#3.1) as label separator",
+                "data": "a\u3002b",
+                "valid": true
+            },
+            {
+                "description": "fullwidth full stop (RFC 3490#3.1) as label separator",
+                "data": "a\uff0eb",
+                "valid": true
+            },
+            {
+                "description": "halfwidth ideographic full stop (RFC 3490#3.1) as label separator",
+                "data": "a\uff61b",
+                "valid": true
             }
         ]
     }
