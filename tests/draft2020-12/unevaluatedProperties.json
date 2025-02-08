@@ -526,12 +526,19 @@
         },
         "tests": [
             {
-                "description": "when if is true and has no unevaluated properties",
+                "description": "when if is true and has unknown unevaluated properties",
                 "data": {
                     "foo": "then",
                     "bar": "bar"
                 },
                 "valid": false
+            },
+            {
+                "description": "when if is true and has no unevaluated properties",
+                "data":{
+                    "foo": "then"
+                },
+                "valid": true
             },
             {
                 "description": "when if is true and has unevaluated properties",
