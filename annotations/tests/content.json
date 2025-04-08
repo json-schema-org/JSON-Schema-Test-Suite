@@ -1,0 +1,64 @@
+{
+  "$schema": "../test-suite.schema.json",
+  "description": "The content vocabulary",
+  "suite": [
+    {
+      "description": "`contentMediaType` is an annotation",
+      "compatibility": "7",
+      "schema": {
+        "contentMediaType": "application/json"
+      },
+      "tests": [
+        {
+          "instance": "{ \"foo\": \"bar\" }",
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "contentMediaType",
+              "expected": ["application/json"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`contentEncoding` is an annotation",
+      "compatibility": "7",
+      "schema": {
+        "contentEncoding": "base64"
+      },
+      "tests": [
+        {
+          "instance": "SGVsbG8gZnJvbSBKU09OIFNjaGVtYQ==",
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "contentEncoding",
+              "expected": ["base64"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`contentSchema` is an annotation",
+      "compatibility": "2019",
+      "schema": {
+        "$id": "https://annotations.json-schema.org/test/contentSchema-is-an-annotation",
+        "contentSchema": { "type": "number" }
+      },
+      "tests": [
+        {
+          "instance": "42",
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "contentSchema",
+              "expected": ["https://annotations.json-schema.org/test/contentSchema-is-an-annotation#/contentSchema"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

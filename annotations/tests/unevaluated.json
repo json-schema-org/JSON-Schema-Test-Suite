@@ -1,0 +1,579 @@
+{
+  "$schema": "../test-suite.schema.json",
+  "description": "The unevaluated vocabulary",
+  "suite": [
+    {
+      "description": "`unevaluatedProperties` alone",
+      "compatibility": "2019",
+      "schema": {
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "foo": 42, "bar": 24 },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedProperties` with `properties`",
+      "compatibility": "2019",
+      "schema": {
+        "properties": {
+          "foo": { "title": "Evaluated" }
+        },
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "foo": 42, "bar": 24 },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedProperties` with `patternProperties`",
+      "compatibility": "2019",
+      "schema": {
+        "patternProperties": {
+          "^a": { "title": "Evaluated" }
+        },
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "apple": 42, "bar": 24 },
+          "assertions": [
+            {
+              "location": "/apple",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedProperties` with `additionalProperties`",
+      "compatibility": "2019",
+      "schema": {
+        "additionalProperties": { "title": "Evaluated" },
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "foo": 42, "bar": 24 },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedProperties` with `dependentSchemas`",
+      "compatibility": "2019",
+      "schema": {
+        "dependentSchemas": {
+          "foo": {
+            "properties": {
+              "bar": { "title": "Evaluated" }
+            }
+          }
+        },
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "foo": 42, "bar": 24 },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedProperties` with `if`, `then`, and `else`",
+      "compatibility": "2019",
+      "schema": {
+        "if": {
+          "properties": {
+            "foo": {
+              "type": "string",
+              "title": "If"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "foo": { "title": "Then" }
+          }
+        },
+        "else": {
+          "properties": {
+            "foo": { "title": "Else" }
+          }
+        },
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "foo": "", "bar": 42 },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Then", "If"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        },
+        {
+          "instance": { "foo": 42, "bar": "" },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Else"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedProperties` with `allOf`",
+      "compatibility": "2019",
+      "schema": {
+        "allOf": [
+          {
+            "properties": {
+              "foo": { "title": "Evaluated" }
+            }
+          }
+        ],
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "foo": 42, "bar": 24 },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedProperties` with `anyOf`",
+      "compatibility": "2019",
+      "schema": {
+        "anyOf": [
+          {
+            "properties": {
+              "foo": { "title": "Evaluated" }
+            }
+          }
+        ],
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "foo": 42, "bar": 24 },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedProperties` with `oneOf`",
+      "compatibility": "2019",
+      "schema": {
+        "oneOf": [
+          {
+            "properties": {
+              "foo": { "title": "Evaluated" }
+            }
+          }
+        ],
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "foo": 42, "bar": 24 },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedProperties` with `not`",
+      "compatibility": "2019",
+      "schema": {
+        "not": {
+          "not": {
+            "properties": {
+              "foo": { "title": "Evaluated" }
+            }
+          }
+        },
+        "unevaluatedProperties": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": { "foo": 42, "bar": 24 },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            },
+            {
+              "location": "/bar",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedItems` alone",
+      "compatibility": "2019",
+      "schema": {
+        "unevaluatedItems": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": [42, 24],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedItems` with `prefixItems`",
+      "compatibility": "2020",
+      "schema": {
+        "prefixItems": [{ "title": "Evaluated" }],
+        "unevaluatedItems": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": [42, 24],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedItems` with `contains`",
+      "compatibility": "2020",
+      "schema": {
+        "contains": {
+          "type": "string",
+          "title": "Evaluated"
+        },
+        "unevaluatedItems": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": ["foo", 42],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedItems` with `if`, `then`, and `else`",
+      "compatibility": "2020",
+      "schema": {
+        "if": {
+          "prefixItems": [
+            {
+              "type": "string",
+              "title": "If"
+            }
+          ]
+        },
+        "then": {
+          "prefixItems": [
+            { "title": "Then" }
+          ]
+        },
+        "else": {
+          "prefixItems": [
+            { "title": "Else" }
+          ]
+        },
+        "unevaluatedItems": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": ["", 42],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": ["Then", "If"]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        },
+        {
+          "instance": [42, ""],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": ["Else"]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedItems` with `allOf`",
+      "compatibility": "2020",
+      "schema": {
+        "allOf": [
+          {
+            "prefixItems": [
+              { "title": "Evaluated" }
+            ]
+          }
+        ],
+        "unevaluatedItems": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": [42, 24],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedItems` with `anyOf`",
+      "compatibility": "2020",
+      "schema": {
+        "anyOf": [
+          {
+            "prefixItems": [
+              { "title": "Evaluated" }
+            ]
+          }
+        ],
+        "unevaluatedItems": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": [42, 24],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedItems` with `oneOf`",
+      "compatibility": "2020",
+      "schema": {
+        "oneOf": [
+          {
+            "prefixItems": [
+              { "title": "Evaluated" }
+            ]
+          }
+        ],
+        "unevaluatedItems": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": [42, 24],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": ["Evaluated"]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`unevaluatedItems` with `not`",
+      "compatibility": "2020",
+      "schema": {
+        "not": {
+          "not": {
+            "prefixItems": [
+              { "title": "Evaluated" }
+            ]
+          }
+        },
+        "unevaluatedItems": { "title": "Unevaluated" }
+      },
+      "tests": [
+        {
+          "instance": [42, 24],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": ["Unevaluated"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
