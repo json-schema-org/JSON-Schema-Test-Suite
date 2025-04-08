@@ -1,0 +1,459 @@
+{
+  "$schema": "../test-suite.schema.json",
+  "description": "The applicator vocabulary",
+  "suite": [
+    {
+      "description": "`properties`, `patternProperties`, and `additionalProperties`",
+      "compatibility": "3",
+      "schema": {
+        "properties": {
+          "foo": {
+            "title": "Foo"
+          }
+        },
+        "patternProperties": {
+          "^a": {
+            "title": "Bar"
+          }
+        },
+        "additionalProperties": {
+          "title": "Baz"
+        }
+      },
+      "tests": [
+        {
+          "instance": {},
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": []
+            },
+            {
+              "location": "#/apple",
+              "keyword": "title",
+              "expected": []
+            },
+            {
+              "location": "#/bar",
+              "keyword": "title",
+              "expected": []
+            }
+          ]
+        },
+        {
+          "instance": {
+            "foo": {},
+            "apple": {},
+            "baz": {}
+          },
+          "assertions": [
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": [
+                "Foo"
+              ]
+            },
+            {
+              "location": "/apple",
+              "keyword": "title",
+              "expected": [
+                "Bar"
+              ]
+            },
+            {
+              "location": "/baz",
+              "keyword": "title",
+              "expected": [
+                "Baz"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`propertyNames`",
+      "compatibility": "6",
+      "schema": {
+        "propertyNames": {
+          "const": "foo",
+          "title": "Foo"
+        }
+      },
+      "tests": [
+        {
+          "instance": {
+            "foo": 42
+          },
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "propertyNames",
+              "expected": []
+            },
+            {
+              "location": "/foo",
+              "keyword": "title",
+              "expected": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`prefixItems` and `items`",
+      "compatibility": "2020",
+      "schema": {
+        "prefixItems": [
+          {
+            "title": "Foo"
+          }
+        ],
+        "items": {
+          "title": "Bar"
+        }
+      },
+      "tests": [
+        {
+          "instance": [
+            "foo",
+            "bar"
+          ],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": [
+                "Foo"
+              ]
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": [
+                "Bar"
+              ]
+            },
+            {
+              "location": "/2",
+              "keyword": "title",
+              "expected": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`contains`",
+      "compatibility": "6",
+      "schema": {
+        "contains": {
+          "type": "number",
+          "title": "Foo"
+        }
+      },
+      "tests": [
+        {
+          "instance": [
+            "foo",
+            42,
+            true
+          ],
+          "assertions": [
+            {
+              "location": "/0",
+              "keyword": "title",
+              "expected": []
+            },
+            {
+              "location": "/1",
+              "keyword": "title",
+              "expected": [
+                "Foo"
+              ]
+            },
+            {
+              "location": "/2",
+              "keyword": "title",
+              "expected": []
+            },
+            {
+              "location": "/3",
+              "keyword": "title",
+              "expected": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`allOf`",
+      "compatibility": "4",
+      "schema": {
+        "allOf": [
+          {
+            "title": "Foo"
+          },
+          {
+            "title": "Bar"
+          }
+        ]
+      },
+      "tests": [
+        {
+          "instance": "foo",
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "allOf",
+              "expected": []
+            },
+            {
+              "location": "",
+              "keyword": "title",
+              "expected": [
+                "Bar",
+                "Foo"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`anyOf`",
+      "compatibility": "4",
+      "schema": {
+        "anyOf": [
+          {
+            "type": "integer",
+            "title": "Foo"
+          },
+          {
+            "type": "number",
+            "title": "Bar"
+          }
+        ]
+      },
+      "tests": [
+        {
+          "instance": 42,
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "anyOf",
+              "expected": []
+            },
+            {
+              "location": "",
+              "keyword": "title",
+              "expected": [
+                "Bar",
+                "Foo"
+              ]
+            }
+          ]
+        },
+        {
+          "instance": 4.2,
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "title",
+              "expected": [
+                "Bar"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`oneOf`",
+      "compatibility": "4",
+      "schema": {
+        "oneOf": [
+          {
+            "type": "string",
+            "title": "Foo"
+          },
+          {
+            "type": "number",
+            "title": "Bar"
+          }
+        ]
+      },
+      "tests": [
+        {
+          "instance": "foo",
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "oneOf",
+              "expected": []
+            },
+            {
+              "location": "",
+              "keyword": "title",
+              "expected": [
+                "Foo"
+              ]
+            }
+          ]
+        },
+        {
+          "instance": 42,
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "title",
+              "expected": [
+                "Bar"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`not`",
+      "compatibility": "4",
+      "schema": {
+        "title": "Foo",
+        "not": {
+          "not": {
+            "title": "Bar"
+          }
+        }
+      },
+      "tests": [
+        {
+          "instance": {},
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "not",
+              "expected": []
+            },
+            {
+              "location": "",
+              "keyword": "title",
+              "expected": [
+                "Foo"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`dependentSchemas`",
+      "compatibility": "2019",
+      "schema": {
+        "dependentSchemas": {
+          "foo": {
+            "title": "Foo"
+          }
+        }
+      },
+      "tests": [
+        {
+          "instance": {
+            "foo": 42
+          },
+          "assertions": [
+            {
+              "keyword": "dependentSchemas",
+              "location": "",
+              "expected": []
+            },
+            {
+              "keyword": "title",
+              "location": "",
+              "expected": [
+                "Foo"
+              ]
+            }
+          ]
+        },
+        {
+          "instance": {
+            "foo": 42
+          },
+          "assertions": [
+            {
+              "keyword": "title",
+              "location": "/foo",
+              "expected": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`if`, `then`, and `else`",
+      "compatibility": "7",
+      "schema": {
+        "if": {
+          "title": "If",
+          "type": "string"
+        },
+        "then": {
+          "title": "Then"
+        },
+        "else": {
+          "title": "Else"
+        }
+      },
+      "tests": [
+        {
+          "instance": "foo",
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "if",
+              "expected": []
+            },
+            {
+              "location": "",
+              "keyword": "then",
+              "expected": []
+            },
+            {
+              "location": "",
+              "keyword": "title",
+              "expected": [
+                "Then",
+                "If"
+              ]
+            }
+          ]
+        },
+        {
+          "instance": 42,
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "if",
+              "expected": []
+            },
+            {
+              "location": "",
+              "keyword": "else",
+              "expected": []
+            },
+            {
+              "location": "",
+              "keyword": "title",
+              "expected": [
+                "Else"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
