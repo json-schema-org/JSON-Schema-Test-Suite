@@ -7,7 +7,7 @@
       "markdownDescription": "The JSON instance to be annotated."
     },
     "assertions": {
-      "markdownDescription": "An array of annotations on the `keyword` - instance `location` pair.",
+      "markdownDescription": "A collection of assertions that must be true for the test to pass.",
       "type": "array",
       "items": { "$ref": "./assertion.schema.json" }
     }

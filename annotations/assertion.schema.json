@@ -13,7 +13,7 @@
       "type": "string"
     },
     "expected": {
-      "markdownDescription": "An array of annotations on the `keyword` - instance `location` pair.",
+      "markdownDescription": "An array of `keyword` annotations expected on the instance at `location`.",
       "type": "array"
     }
   },
