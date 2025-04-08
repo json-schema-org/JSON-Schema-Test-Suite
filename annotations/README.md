@@ -1,7 +1,10 @@
-# Annotation Tests
+# Annotations Tests Suite
 
-The annotations Test Suite tests which annotations should appear (or not appear)
+The Annotations Test Suite tests which annotations should appear (or not appear)
 on which values of an instance. These tests are agnostic of any output format.
+Similar to the validation tests, they only test the end result and don't include
+details like mapping the annotation back to the schema location that contributed
+it. This Test Suite leaves those details to be tested by output format tests.
 
 ## Supported Dialects
 
@@ -63,13 +66,13 @@ designed to work with as many releases as possible.
 
 ### externalSchemas
 
-`externalSchemas` allows you to define additional schemas that `schema` makes
-references to. The value is an object where the keys are retrieval URIs and
-values are schemas. Most external schemas aren't self identifying (using
-`id`/`$id`) and rely on the retrieval URI for identification. This is done to
-increase the number of dialects that the test is compatible with.  Because `id`
-changed to `$id` in draft-06, if you use `$id`, the test becomes incompatible
-with draft-03/4 and in most cases, that's not necessary.
+This allows you to define additional schemas that `schema` makes references to.
+The value is an object where the keys are retrieval URIs and values are schemas.
+Most external schemas aren't self identifying (using `id`/`$id`) and rely on the
+retrieval URI for identification. This is done to increase the number of
+dialects that the test is compatible with.  Because `id` changed to `$id` in
+draft-06, if you use `$id`, the test becomes incompatible with draft-03/4 and in
+most cases, that's not necessary.
 
 ### tests
 
@@ -83,7 +86,7 @@ The JSON instance to be annotated.
 
 ### assertions
 
-`assertions` are a collection of assertions that must be true for the test to pass.
+A collection of assertions that must be true for the test to pass.
 
 ## Assertions Components
 
@@ -97,8 +100,10 @@ The annotating keyword.
 
 ### expected
 
-An array of annotations on the `keyword` - instance `location` pair. `expected`
-is an array because there's always a chance that an annotation is applied
-multiple times to any given instance location. The `expected` array should be
-sorted such that the most recently encountered value for an annotation during
-evaluation comes before previously encountered values.
+An array of `keyword` annotations expected on the instance at `location`.
+`expected` is an array because there's always a chance that an annotation is
+applied multiple times to any given instance location. Test runners can consider
+this an unordered list, but as a convention for this Test Suite, the `expected`
+array should be sorted such that the most recently encountered value for an
+annotation given top-down evaluation of the schema comes before previously
+encountered values.
