@@ -28,11 +28,15 @@ A short description of what behavior the Test Case is covering.
 
 The `compatibility` option allows you to set which dialects the Test Case is
 compatible with. Test Runners can use this value to filter out Test Cases that
-don't apply the to dialect currently under test. Dialects are indicated by the
-number corresponding to their release. Date-based releases use just the year.
+don't apply the to dialect currently under test. The concept of annotations
+didn't appear in the spec until 2019-09, but the concept is compatible with
+older releases as well. When setting `compatibility`, test authors should take
+into account dialects before 2019-09 for implementations that chose to support
+annotations for older dialects.
 
-If this option isn't present, it means the Test Case is compatible with any
-dialect.
+Dialects are indicated by the number corresponding to their release. Date-based
+releases use just the year. If this option isn't present, it means the Test Case
+is compatible with any dialect.
 
 If this option is present with a number, the number indicates the minimum
 release the Test Case is compatible with. This example indicates that the Test
@@ -102,8 +106,11 @@ The annotating keyword.
 
 An array of `keyword` annotations expected on the instance at `location`.
 `expected` is an array because there's always a chance that an annotation is
-applied multiple times to any given instance location. Test runners can consider
-this an unordered list, but as a convention for this Test Suite, the `expected`
-array should be sorted such that the most recently encountered value for an
-annotation given top-down evaluation of the schema comes before previously
-encountered values.
+applied multiple times to any given instance location. An empty array is an
+assertion that the annotation must not appear at the `location` for the
+`keyword`.
+
+Test runners can consider this an unordered list, but as a convention for this
+Test Suite, the `expected` array should be sorted such that the most recently
+encountered value for an annotation given top-down evaluation of the schema
+comes before previously encountered values.
