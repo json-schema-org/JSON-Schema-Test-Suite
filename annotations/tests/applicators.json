@@ -365,13 +365,13 @@
           },
           "assertions": [
             {
-              "keyword": "dependentSchemas",
               "location": "",
+              "keyword": "dependentSchemas",
               "expected": []
             },
             {
-              "keyword": "title",
               "location": "",
+              "keyword": "title",
               "expected": [
                 "Foo"
               ]
@@ -384,8 +384,8 @@
           },
           "assertions": [
             {
-              "keyword": "title",
               "location": "/foo",
+              "keyword": "title",
               "expected": []
             }
           ]
