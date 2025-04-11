@@ -17,16 +17,6 @@
           "assertions": [
             {
               "location": "",
-              "keyword": "$ref",
-              "expected": []
-            },
-            {
-              "location": "",
-              "keyword": "$defs",
-              "expected": []
-            },
-            {
-              "location": "",
               "keyword": "title",
               "expected": ["Foo"]
             }

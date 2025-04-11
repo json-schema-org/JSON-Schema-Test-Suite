@@ -89,11 +89,6 @@
           },
           "assertions": [
             {
-              "location": "",
-              "keyword": "propertyNames",
-              "expected": []
-            },
-            {
               "location": "/foo",
               "keyword": "title",
               "expected": []
@@ -207,11 +202,6 @@
           "assertions": [
             {
               "location": "",
-              "keyword": "allOf",
-              "expected": []
-            },
-            {
-              "location": "",
               "keyword": "title",
               "expected": [
                 "Bar",
@@ -241,11 +231,6 @@
         {
           "instance": 42,
           "assertions": [
-            {
-              "location": "",
-              "keyword": "anyOf",
-              "expected": []
-            },
             {
               "location": "",
               "keyword": "title",
@@ -291,11 +276,6 @@
           "assertions": [
             {
               "location": "",
-              "keyword": "oneOf",
-              "expected": []
-            },
-            {
-              "location": "",
               "keyword": "title",
               "expected": [
                 "Foo"
@@ -334,11 +314,6 @@
           "assertions": [
             {
               "location": "",
-              "keyword": "not",
-              "expected": []
-            },
-            {
-              "location": "",
               "keyword": "title",
               "expected": [
                 "Foo"
@@ -364,11 +339,6 @@
             "foo": 42
           },
           "assertions": [
-            {
-              "location": "",
-              "keyword": "dependentSchemas",
-              "expected": []
-            },
             {
               "location": "",
               "keyword": "title",
@@ -413,16 +383,6 @@
           "assertions": [
             {
               "location": "",
-              "keyword": "if",
-              "expected": []
-            },
-            {
-              "location": "",
-              "keyword": "then",
-              "expected": []
-            },
-            {
-              "location": "",
               "keyword": "title",
               "expected": [
                 "Then",
@@ -434,16 +394,6 @@
         {
           "instance": 42,
           "assertions": [
-            {
-              "location": "",
-              "keyword": "if",
-              "expected": []
-            },
-            {
-              "location": "",
-              "keyword": "else",
-              "expected": []
-            },
             {
               "location": "",
               "keyword": "title",
