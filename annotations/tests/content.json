@@ -3,7 +3,7 @@
   "description": "The content vocabulary",
   "suite": [
     {
-      "description": "`contentMediaType` is an annotation",
+      "description": "`contentMediaType` is an annotation for string instances",
       "compatibility": "7",
       "schema": {
         "contentMediaType": "application/json"
@@ -18,11 +18,21 @@
               "expected": ["application/json"]
             }
           ]
+        },
+        {
+          "instance": 42,
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "contentMediaType",
+              "expected": []
+            }
+          ]
         }
       ]
     },
     {
-      "description": "`contentEncoding` is an annotation",
+      "description": "`contentEncoding` is an annotation for string instances",
       "compatibility": "7",
       "schema": {
         "contentEncoding": "base64"
@@ -37,11 +47,52 @@
               "expected": ["base64"]
             }
           ]
+        },
+        {
+          "instance": 42,
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "contentEncoding",
+              "expected": []
+            }
+          ]
         }
       ]
     },
     {
-      "description": "`contentSchema` is an annotation",
+      "description": "`contentSchema` is an annotation for string instances",
+      "compatibility": "2019",
+      "schema": {
+        "$id": "https://annotations.json-schema.org/test/contentSchema-is-an-annotation",
+        "contentMediaType": "application/json",
+        "contentSchema": { "type": "number" }
+      },
+      "tests": [
+        {
+          "instance": "42",
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "contentSchema",
+              "expected": [{ "type": "number" }]
+            }
+          ]
+        },
+        {
+          "instance": 42,
+          "assertions": [
+            {
+              "location": "",
+              "keyword": "contentSchema",
+              "expected": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`contentSchema` requires `contentMediaType`",
       "compatibility": "2019",
       "schema": {
         "$id": "https://annotations.json-schema.org/test/contentSchema-is-an-annotation",
@@ -54,7 +105,7 @@
             {
               "location": "",
               "keyword": "contentSchema",
-              "expected": ["https://annotations.json-schema.org/test/contentSchema-is-an-annotation#/contentSchema"]
+              "expected": []
             }
           ]
         }
