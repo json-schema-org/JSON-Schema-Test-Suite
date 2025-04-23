@@ -14,7 +14,9 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": ["Foo"]
+              "expected": {
+                "#": "Foo"
+              }
             }
           ]
         }
@@ -32,7 +34,9 @@
             {
               "location": "",
               "keyword": "description",
-              "expected": ["Foo"]
+              "expected": {
+                "#": "Foo"
+              }
             }
           ]
         }
@@ -50,7 +54,9 @@
             {
               "location": "",
               "keyword": "default",
-              "expected": ["Foo"]
+              "expected": {
+                "#": "Foo"
+              }
             }
           ]
         }
@@ -69,7 +75,9 @@
             {
               "location": "",
               "keyword": "deprecated",
-              "expected": [true]
+              "expected": {
+                "#": true
+              }
             }
           ]
         }
@@ -88,7 +96,9 @@
             {
               "location": "",
               "keyword": "readOnly",
-              "expected": [true]
+              "expected": {
+                "#": true
+              }
             }
           ]
         }
@@ -107,7 +117,9 @@
             {
               "location": "",
               "keyword": "writeOnly",
-              "expected": [true]
+              "expected": {
+                "#": true
+              }
             }
           ]
         }
@@ -126,7 +138,9 @@
             {
               "location": "",
               "keyword": "examples",
-              "expected": [["Foo", "Bar"]]
+              "expected": {
+                "#": ["Foo", "Bar"]
+              }
             }
           ]
         }

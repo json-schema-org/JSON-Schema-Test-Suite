@@ -15,7 +15,9 @@
             {
               "location": "",
               "keyword": "contentMediaType",
-              "expected": ["application/json"]
+              "expected": {
+                "#": "application/json"
+              }
             }
           ]
         },
@@ -25,7 +27,7 @@
             {
               "location": "",
               "keyword": "contentMediaType",
-              "expected": []
+              "expected": {}
             }
           ]
         }
@@ -44,7 +46,9 @@
             {
               "location": "",
               "keyword": "contentEncoding",
-              "expected": ["base64"]
+              "expected": {
+                "#": "base64"
+              }
             }
           ]
         },
@@ -54,7 +58,7 @@
             {
               "location": "",
               "keyword": "contentEncoding",
-              "expected": []
+              "expected": {}
             }
           ]
         }
@@ -75,7 +79,9 @@
             {
               "location": "",
               "keyword": "contentSchema",
-              "expected": [{ "type": "number" }]
+              "expected": {
+                "#": { "type": "number" }
+              }
             }
           ]
         },
@@ -85,7 +91,7 @@
             {
               "location": "",
               "keyword": "contentSchema",
-              "expected": []
+              "expected": {}
             }
           ]
         }
@@ -105,7 +111,7 @@
             {
               "location": "",
               "keyword": "contentSchema",
-              "expected": []
+              "expected": {}
             }
           ]
         }

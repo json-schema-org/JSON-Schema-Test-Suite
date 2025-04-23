@@ -18,7 +18,9 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": ["Foo"]
+              "expected": {
+                "#/$defs/foo": "Foo"
+              }
             }
           ]
         }

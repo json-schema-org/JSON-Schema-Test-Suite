@@ -6,7 +6,7 @@
       "description": "`unknownKeyword` is an annotation",
       "schema": {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "unknownKeyword": "Foo"
+        "x-unknownKeyword": "Foo"
       },
       "tests": [
         {
@@ -14,8 +14,10 @@
           "assertions": [
             {
               "location": "",
-              "keyword": "unknownKeyword",
-              "expected": ["Foo"]
+              "keyword": "x-unknownKeyword",
+              "expected": {
+                "#": "Foo"
+              }
             }
           ]
         }
