@@ -13,8 +13,11 @@
       "type": "string"
     },
     "expected": {
-      "markdownDescription": "An array of `keyword` annotations expected on the instance at `location`.",
-      "type": "array"
+      "markdownDescription": "An object of schemaLocation/annotations pairs for `keyword` annotations expected on the instance at `location`.",
+      "type": "object",
+      "propertyNames": {
+        "format": "uri"
+      }
     }
   },
   "required": ["location", "keyword", "expected"]

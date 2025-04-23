@@ -2,16 +2,13 @@
 
 The Annotations Test Suite tests which annotations should appear (or not appear)
 on which values of an instance. These tests are agnostic of any output format.
-Similar to the validation tests, they only test the end result and don't include
-details like mapping the annotation back to the schema location that contributed
-it. This Test Suite leaves those details to be tested by output format tests.
 
 ## Supported Dialects
 
-Although the concept of annotations didn't appear in the spec until 2019-09, the
-concept is compatible with every version of JSON Schema. Test Cases in this Test
-Suite are designed to be compatible with as many releases of JSON Schema as
-possible. They do not include `$schema` or `$id`/`id` keywords so that
+Although the annotation terminology of didn't appear in the spec until 2019-09,
+the concept is compatible with every version of JSON Schema. Test Cases in this
+Test Suite are designed to be compatible with as many releases of JSON Schema as
+possible. They do not include `$schema` or `$id`/`id` keywords so
 implementations can run the same Test Suite for each dialect they support.
 
 Since this Test Suite can be used for a variety of dialects, there are a couple
@@ -28,7 +25,7 @@ A short description of what behavior the Test Case is covering.
 
 The `compatibility` option allows you to set which dialects the Test Case is
 compatible with. Test Runners can use this value to filter out Test Cases that
-don't apply the to dialect currently under test. The concept of annotations
+don't apply the to dialect currently under test. The terminology for annotations
 didn't appear in the spec until 2019-09, but the concept is compatible with
 older releases as well. When setting `compatibility`, test authors should take
 into account dialects before 2019-09 for implementations that chose to support
@@ -104,13 +101,16 @@ The annotating keyword.
 
 ### expected
 
-An array of `keyword` annotations expected on the instance at `location`.
-`expected` is an array because there's always a chance that an annotation is
-applied multiple times to any given instance location. An empty array is an
-assertion that the annotation must not appear at the `location` for the
-`keyword`.
+A collection of `keyword` annotations expected on the instance at `location`.
+`expected` is an object where the keys are schema locations and the values are
+the annotation that schema location contributed for the given `keyword`.
 
-Test runners can consider this an unordered list, but as a convention for this
-Test Suite, the `expected` array should be sorted such that the most recently
-encountered value for an annotation given top-down evaluation of the schema
-comes before previously encountered values.
+There can be more than one expected annotation because multiple schema locations
+could contribute annotations for a single keyword.
+
+An empty object is an assertion that the annotation must not appear at the
+`location` for the `keyword`.
+
+As a convention for this Test Suite, the `expected` array should be sorted such
+that the most recently encountered value for an annotation given top-down
+evaluation of the schema comes before previously encountered values.

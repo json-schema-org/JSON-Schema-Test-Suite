@@ -27,17 +27,17 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": []
+              "expected": {}
             },
             {
               "location": "/apple",
               "keyword": "title",
-              "expected": []
+              "expected": {}
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": []
+              "expected": {}
             }
           ]
         },
@@ -51,23 +51,23 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": [
-                "Foo"
-              ]
+              "expected": {
+                "#/properties/foo": "Foo"
+              }
             },
             {
               "location": "/apple",
               "keyword": "title",
-              "expected": [
-                "Bar"
-              ]
+              "expected": {
+                "#/patternProperties/%5Ea": "Bar"
+              }
             },
             {
               "location": "/baz",
               "keyword": "title",
-              "expected": [
-                "Baz"
-              ]
+              "expected": {
+                "#/additionalProperties": "Baz"
+              }
             }
           ]
         }
@@ -91,7 +91,7 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": []
+              "expected": {}
             }
           ]
         }
@@ -120,21 +120,21 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": [
-                "Foo"
-              ]
+              "expected": {
+                "#/prefixItems/0": "Foo"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": [
-                "Bar"
-              ]
+              "expected": {
+                "#/items": "Bar"
+              }
             },
             {
               "location": "/2",
               "keyword": "title",
-              "expected": []
+              "expected": {}
             }
           ]
         }
@@ -160,24 +160,24 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": []
+              "expected": {}
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": [
-                "Foo"
-              ]
+              "expected": {
+                "#/contains": "Foo"
+              }
             },
             {
               "location": "/2",
               "keyword": "title",
-              "expected": []
+              "expected": {}
             },
             {
               "location": "/3",
               "keyword": "title",
-              "expected": []
+              "expected": {}
             }
           ]
         }
@@ -203,10 +203,10 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": [
-                "Bar",
-                "Foo"
-              ]
+              "expected": {
+                "#/allOf/1": "Bar",
+                "#/allOf/0": "Foo"
+              }
             }
           ]
         }
@@ -234,10 +234,10 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": [
-                "Bar",
-                "Foo"
-              ]
+              "expected": {
+                "#/anyOf/1": "Bar",
+                "#/anyOf/0": "Foo"
+              }
             }
           ]
         },
@@ -247,9 +247,9 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": [
-                "Bar"
-              ]
+              "expected": {
+                "#/anyOf/1": "Bar"
+              }
             }
           ]
         }
@@ -277,9 +277,9 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": [
-                "Foo"
-              ]
+              "expected": {
+                "#/oneOf/0": "Foo"
+              }
             }
           ]
         },
@@ -289,9 +289,9 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": [
-                "Bar"
-              ]
+              "expected": {
+                "#/oneOf/1": "Bar"
+              }
             }
           ]
         }
@@ -315,9 +315,9 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": [
-                "Foo"
-              ]
+              "expected": {
+                "#": "Foo"
+              }
             }
           ]
         }
@@ -342,9 +342,9 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": [
-                "Foo"
-              ]
+              "expected": {
+                "#/dependentSchemas/foo": "Foo"
+              }
             }
           ]
         },
@@ -356,7 +356,7 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": []
+              "expected": {}
             }
           ]
         }
@@ -384,10 +384,10 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": [
-                "Then",
-                "If"
-              ]
+              "expected": {
+                "#/then": "Then",
+                "#/if": "If"
+              }
             }
           ]
         },
@@ -397,9 +397,9 @@
             {
               "location": "",
               "keyword": "title",
-              "expected": [
-                "Else"
-              ]
+              "expected": {
+                "#/else": "Else"
+              }
             }
           ]
         }

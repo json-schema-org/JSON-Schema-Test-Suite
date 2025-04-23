@@ -15,12 +15,16 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             }
           ]
         }
@@ -42,12 +46,16 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/properties/foo": "Evaluated"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             }
           ]
         }
@@ -69,12 +77,16 @@
             {
               "location": "/apple",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/patternProperties/%5Ea": "Evaluated"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             }
           ]
         }
@@ -94,12 +106,16 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/additionalProperties": "Evaluated"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/additionalProperties": "Evaluated"
+              }
             }
           ]
         }
@@ -125,12 +141,16 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/dependentSchemas/foo/properties/bar": "Evaluated"
+              }
             }
           ]
         }
@@ -167,12 +187,17 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Then", "If"]
+              "expected": {
+                "#/then/properties/foo": "Then",
+                "#/if/properties/foo": "If"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             }
           ]
         },
@@ -182,12 +207,16 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Else"]
+              "expected": {
+                "#/else/properties/foo": "Else"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             }
           ]
         }
@@ -213,12 +242,16 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/allOf/0/properties/foo": "Evaluated"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             }
           ]
         }
@@ -244,12 +277,16 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/anyOf/0/properties/foo": "Evaluated"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             }
           ]
         }
@@ -275,12 +312,16 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/oneOf/0/properties/foo": "Evaluated"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             }
           ]
         }
@@ -306,12 +347,16 @@
             {
               "location": "/foo",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             },
             {
               "location": "/bar",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedProperties": "Unevaluated"
+              }
             }
           ]
         }
@@ -330,12 +375,16 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             }
           ]
         }
@@ -355,12 +404,16 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/prefixItems/0": "Evaluated"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             }
           ]
         }
@@ -383,12 +436,16 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/contains": "Evaluated"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             }
           ]
         }
@@ -425,12 +482,17 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": ["Then", "If"]
+              "expected": {
+                "#/then/prefixItems/0": "Then",
+                "#/if/prefixItems/0": "If"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             }
           ]
         },
@@ -440,12 +502,16 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": ["Else"]
+              "expected": {
+                "#/else/prefixItems/0": "Else"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             }
           ]
         }
@@ -471,12 +537,16 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/allOf/0/prefixItems/0": "Evaluated"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             }
           ]
         }
@@ -502,12 +572,16 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/anyOf/0/prefixItems/0": "Evaluated"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             }
           ]
         }
@@ -533,12 +607,16 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": ["Evaluated"]
+              "expected": {
+                "#/oneOf/0/prefixItems/0": "Evaluated"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             }
           ]
         }
@@ -564,12 +642,16 @@
             {
               "location": "/0",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             },
             {
               "location": "/1",
               "keyword": "title",
-              "expected": ["Unevaluated"]
+              "expected": {
+                "#/unevaluatedItems": "Unevaluated"
+              }
             }
           ]
         }

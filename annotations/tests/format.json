@@ -14,7 +14,9 @@
             {
               "location": "",
               "keyword": "format",
-              "expected": ["email"]
+              "expected": {
+                "#": "email"
+              }
             }
           ]
         }
