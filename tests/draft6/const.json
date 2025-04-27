@@ -338,5 +338,57 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "graphemes evaluated codepoint-for-codepoint",
+        "schema": { "const": "μ" },
+        "tests": [
+            {
+                "description": "grapheme is equal for codepoint",
+                "data": "μ",
+                "valid": true
+            },
+            {
+                "description": "grapheme is not equal for codepoint",
+                "data": "µ",
+                "valid": false
+            },
+            {
+                "description": "codepoint is equal for grapheme",
+                "data": "\u03bc",
+                "valid": true
+            },
+            {
+                "description": "codepoint is not equal for grapheme",
+                "data": "\u00b5",
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "combining marks evaluated codepoint-for-codepoint",
+        "schema": { "const": "a\u0308" },
+        "tests": [
+            {
+                "description": "grapheme is equal codepoint-for-codepoint",
+                "data": "ä",
+                "valid": true
+            },
+            {
+                "description": "grapheme is not equal codepoint-for-codepoint",
+                "data": "ä",
+                "valid": false
+            },
+            {
+                "description": "codepoints are equal codepoint-for-codepoint",
+                "data": "\u0061\u0308",
+                "valid": true
+            },
+            {
+                "description": "codepoints are not equal codepoint-for-codepoint",
+                "data": "\u00e4",
+                "valid": false
+            }
+        ]
     }
 ]
