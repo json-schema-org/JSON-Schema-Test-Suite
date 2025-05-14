@@ -74,7 +74,7 @@
       ]
     },
     {
-      "description": "`propertyNames`",
+      "description": "`propertyNames` doesn't annotate property values",
       "compatibility": "6",
       "schema": {
         "propertyNames": {
