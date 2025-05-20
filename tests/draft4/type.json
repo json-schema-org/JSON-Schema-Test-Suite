@@ -9,7 +9,47 @@
                 "valid": true
             },
             {
-                "description": "a float is not an integer",
+                "description": "a negative integer is an integer",
+                "data": -1,
+                "valid": true
+            },
+            {
+                "description": "zero is an integer",
+                "data": 0,
+                "valid": true
+            },
+            {
+                "description": "negative zero is an integer",
+                "data": -0,
+                "valid": true
+            },
+            {
+                "description": "a float with zero fractional part is an integer",
+                "data": 1.0,
+                "valid": true
+            },
+            {
+                "description": "a float with an exponent and a zero fractional part is an integer",
+                "data": 1e0,
+                "valid": true
+            },
+            {
+                "description": "a small float whose non-zero fractional part is truncated in a binary64 float is an integer",
+                "data": 1.00000000000001,
+                "valid": true
+            },
+            {
+                "description": "a large float whose non-zero fractional part is truncated in a binary64 float is an integer",
+                "data": 9007199254740991.5,
+                "valid": true
+            },
+            {
+                "description": "a number near the maximum representable value for a binary64 float is an integer",
+                "data": 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368,
+                "valid": true
+            },
+            {
+                "description": "a float with a non-zero fractional part is not an integer",
                 "data": 1.1,
                 "valid": false
             },
