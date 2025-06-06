@@ -80,7 +80,7 @@
               "location": "",
               "keyword": "contentSchema",
               "expected": {
-                "#": { "type": "number" }
+                "https://annotations.json-schema.org/test/contentSchema-is-an-annotation#": { "type": "number" }
               }
             }
           ]
