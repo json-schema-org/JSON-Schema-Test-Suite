@@ -12,6 +12,11 @@
                 "description": "a negative bignum is an integer",
                 "data": -12345678910111213141516171819202122232425262728293031,
                 "valid": true
+            },
+            {
+                "description": "a bignum with a nonzero-value fractional part is not an integer",
+                "data": 12345678910111213141516171819202122232425262728293031.5,
+                "valid": false
             }
         ]
     },
