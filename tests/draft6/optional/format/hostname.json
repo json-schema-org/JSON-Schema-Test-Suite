@@ -122,6 +122,16 @@
                 "description": "single dot",
                 "data": ".",
                 "valid": false
+            },
+            {
+                "description": "leading dot",
+                "data": ".example",
+                "valid": false
+            },
+            {
+                "description": "trailing dot",
+                "data": "example.",
+                "valid": false
             }
         ]
     }
