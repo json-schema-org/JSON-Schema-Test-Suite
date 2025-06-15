@@ -132,6 +132,11 @@
                 "description": "trailing dot",
                 "data": "example.",
                 "valid": false
+            },
+            {
+                "description": "IDN label separator",
+                "data": "example\uff0ecom",
+                "valid": false
             }
         ]
     }
