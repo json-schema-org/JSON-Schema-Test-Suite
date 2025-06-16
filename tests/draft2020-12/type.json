@@ -12,12 +12,32 @@
                 "valid": true
             },
             {
-                "description": "a float with zero fractional part is an integer",
+                "description": "a negative integer is an integer",
+                "data": -1,
+                "valid": true
+            },
+            {
+                "description": "zero is an integer",
+                "data": 0,
+                "valid": true
+            },
+            {
+                "description": "negative zero is an integer",
+                "data": -0,
+                "valid": true
+            },
+            {
+                "description": "a float with zero-value fractional part is an integer",
                 "data": 1.0,
                 "valid": true
             },
             {
-                "description": "a float is not an integer",
+                "description": "a float with an exponent and zero-value fractional part is an integer",
+                "data": 1.1e1,
+                "valid": true
+            },
+            {
+                "description": "a float with a nonzero-value fractional part is not an integer",
                 "data": 1.1,
                 "valid": false
             },
