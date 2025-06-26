@@ -70,6 +70,16 @@
                 "description": "an invalid URI fragment",
                 "data": "#frag\\ment",
                 "valid": false
+            },
+            {
+                "description": "unescaped non US-ASCII characters",
+                "data": "/foobar®.txt",
+                "valid": false
+            },
+            {
+                "description": "invalid backslash character",
+                "data": "https://example.org/foobar\\.txt",
+                "valid": false
             }
         ]
     }
