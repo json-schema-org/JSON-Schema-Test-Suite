@@ -1,0 +1,201 @@
+[
+    {
+        "description": "binary64 float (double) truncation",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "integer"
+        },
+        "tests": [
+            {
+                "description": "a small float whose fractional part is truncated is not an integer",
+                "data": 1.00000000000001,
+                "valid": false
+            },
+            {
+                "description": "a large float whose fractional part is truncated is not an integer",
+                "data": 9007199254740991.5,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "maximum signed 32-bit integer comparison",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minimum": 2147483647,
+            "maximum": 2147483647
+        },
+        "tests": [
+            {
+                "description": "comparison is true for equal numbers",
+                "data": 2147483647,
+                "valid": true
+            },
+            {
+                "description": "comparison is false for inequal numbers",
+                "data": 2147483646,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "minimum signed 32-bit integer comparison",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minimum": -2147483648,
+            "maximum": -2147483648
+        },
+        "tests": [
+            {
+                "description": "comparison is true for equal numbers",
+                "data": -2147483648,
+                "valid": true
+            },
+            {
+                "description": "comparison is false for inequal numbers",
+                "data": -2147483647,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "maximum unsigned 32-bit integer comparison",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minimum": 4294967295,
+            "maximum": 4294967295
+        },
+        "tests": [
+            {
+                "description": "comparison is true for equal numbers",
+                "data": 4294967295,
+                "valid": true
+            },
+            {
+                "description": "comparison is false for inequal numbers",
+                "data": 4294967294,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "ECMAScript Number.MAX_SAFE_INTEGER (2^53-1) comparison",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minimum": 9007199254740991,
+            "maximum": 9007199254740991
+        },
+        "tests": [
+            {
+                "description": "comparison is true for equal numbers",
+                "data": 9007199254740991,
+                "valid": true
+            },
+            {
+                "description": "comparison is false for inequal numbers",
+                "data": 9007199254740990,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "ECMAScript Number.MIN_SAFE_INTEGER (-2^53-1) comparison",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minimum": -9007199254740991,
+            "maximum": -9007199254740991
+        },
+        "tests": [
+            {
+                "description": "comparison is true for equal numbers",
+                "data": -9007199254740991,
+                "valid": true
+            },
+            {
+                "description": "comparison is false for inequal numbers",
+                "data": -9007199254740990,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "maximum signed 64-bit integer comparison",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minimum": 9223372036854775807,
+            "maximum": 9223372036854775807
+        },
+        "tests": [
+            {
+                "description": "comparison is true for equal numbers",
+                "data": 9223372036854775807,
+                "valid": true
+            },
+            {
+                "description": "comparison is false for inequal numbers",
+                "data": 9223372036854775806,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "minimum signed 64-bit integer comparison",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minimum": -9223372036854775808,
+            "maximum": -9223372036854775808
+        },
+        "tests": [
+            {
+                "description": "comparison is true for equal numbers",
+                "data": -9223372036854775808,
+                "valid": true
+            },
+            {
+                "description": "comparison is false for inequal numbers",
+                "data": -9223372036854775807,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "maximum unsigned 64-bit integer comparison",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minimum": 18446744073709551615,
+            "maximum": 18446744073709551615
+        },
+        "tests": [
+            {
+                "description": "comparison is true for equal numbers",
+                "data": 18446744073709551615,
+                "valid": true
+            },
+            {
+                "description": "comparison is false for inequal numbers",
+                "data": 18446744073709551614,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "maximum unsigned 128-bit integer comparison",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minimum": 340282366920938463463374607431768211455,
+            "maximum": 340282366920938463463374607431768211455
+        },
+        "tests": [
+            {
+                "description": "comparison is true for equal numbers",
+                "data": 340282366920938463463374607431768211455,
+                "valid": true
+            },
+            {
+                "description": "comparison is false for inequal numbers",
+                "data": 340282366920938463463374607431768211454,
+                "valid": false
+            }
+        ]
+    }
+]
