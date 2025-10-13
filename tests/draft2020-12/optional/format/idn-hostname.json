@@ -383,6 +383,86 @@
                 "description": "halfwidth ideographic full stop as label separator",
                 "data": "a\uff61b",
                 "valid": true
+            },
+            {
+                "description": "leading dot",
+                "data": ".example",
+                "valid": false
+            },
+            {
+                "description": "leading ideographic full stop",
+                "data": "\u3002example",
+                "valid": false
+            },
+            {
+                "description": "leading fullwidth full stop",
+                "data": "\uff0eexample",
+                "valid": false
+            },
+            {
+                "description": "leading halfwidth ideographic full stop",
+                "data": "\uff61example",
+                "valid": false
+            },
+            {
+                "description": "trailing dot",
+                "data": "example.",
+                "valid": false
+            },
+            {
+                "description": "trailing ideographic full stop",
+                "data": "example\u3002",
+                "valid": false
+            },
+            {
+                "description": "trailing fullwidth full stop",
+                "data": "example\uff0e",
+                "valid": false
+            },
+            {
+                "description": "trailing halfwidth ideographic full stop",
+                "data": "example\uff61",
+                "valid": false
+            },
+            {
+                "description": "dot separator with label that is too long when separator is ignored",
+                "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμα.com",
+                "valid": true
+            },
+            {
+                "description": "ideographic full stop separator with label that is too long when separator is ignored",
+                "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμα\u3002com",
+                "valid": true
+            },
+            {
+                "description": "fullwidth full stop separator with label that is too long when separator is ignored",
+                "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμα\uff0ecom",
+                "valid": true
+            },
+            {
+                "description": "halfwidth ideographic full stop separator with label that is too long when separator is ignored",
+                "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμα\uff61com",
+                "valid": true
+            },
+            {
+                "description": "dot separator with label that is too long when separator is respected",
+                "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμα.com",
+                "valid": false
+            },
+            {
+                "description": "ideographic full stop separator with label that is too long when separator is respected",
+                "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμα\u3002com",
+                "valid": false
+            },
+            {
+                "description": "fullwidth full stop separator with label that is too long when separator is respected",
+                "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμα\uff0ecom",
+                "valid": false
+            },
+            {
+                "description": "halfwidth ideographic full stop separator with label that is too long when separator is respected",
+                "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμα\uff61com",
+                "valid": false
             }
         ]
     }
