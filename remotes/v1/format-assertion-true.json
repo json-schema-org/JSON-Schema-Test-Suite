@@ -1,0 +1,13 @@
+{
+    "$id": "http://localhost:1234/v1/format-assertion-true.json",
+    "$schema": "https://json-schema.org/v1",
+    "$vocabulary": {
+        "https://json-schema.org/v1/vocab/core": true,
+        "https://json-schema.org/v1/vocab/format-assertion": true
+    },
+    "$dynamicAnchor": "meta",
+    "allOf": [
+        { "$ref": "https://json-schema.org/v1/meta/core" },
+        { "$ref": "https://json-schema.org/v1/meta/format-assertion" }
+    ]
+}

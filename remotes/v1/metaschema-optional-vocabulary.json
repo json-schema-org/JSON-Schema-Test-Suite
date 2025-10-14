@@ -1,0 +1,14 @@
+{
+    "$schema": "https://json-schema.org/v1",
+    "$id": "http://localhost:1234/v1/metaschema-optional-vocabulary.json",
+    "$vocabulary": {
+        "https://json-schema.org/v1/vocab/validation": true,
+        "https://json-schema.org/v1/vocab/core": true,
+        "http://localhost:1234/v1/vocab/custom": false
+    },
+    "$dynamicAnchor": "meta",
+    "allOf": [
+        { "$ref": "https://json-schema.org/v1/meta/validation" },
+        { "$ref": "https://json-schema.org/v1/meta/core" }
+    ]
+}
