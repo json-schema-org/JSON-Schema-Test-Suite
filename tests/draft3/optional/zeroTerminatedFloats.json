@@ -6,8 +6,13 @@
         },
         "tests": [
             {
-                "description": "a float is not an integer even without fractional part",
+                "description": "a float with zero-value fractional part isn't an integer",
                 "data": 1.0,
+                "valid": false
+            },
+            {
+                "description": "a float with exponent and zero-value fractional part isn't an integer",
+                "data": 1.1e1,
                 "valid": false
             }
         ]
