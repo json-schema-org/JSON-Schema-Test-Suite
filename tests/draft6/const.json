@@ -340,53 +340,43 @@
         ]
     },
     {
-        "description": "graphemes evaluated codepoint-for-codepoint",
-        "schema": { "const": "μ" },
+        "description": "characters with the same visual representation but different codepoint",
+        "schema": {
+            "const": "μ",
+            "$comment": "U+03BC"
+        },
         "tests": [
             {
-                "description": "grapheme is equal for codepoint",
+                "description": "character uses the same codepoint",
                 "data": "μ",
+                "comment": "U+03BC",
                 "valid": true
             },
             {
-                "description": "grapheme is not equal for codepoint",
+                "description": "character looks the same but uses a different codepoint",
                 "data": "µ",
-                "valid": false
-            },
-            {
-                "description": "codepoint is equal for grapheme",
-                "data": "\u03bc",
-                "valid": true
-            },
-            {
-                "description": "codepoint is not equal for grapheme",
-                "data": "\u00b5",
+                "comment": "U+00B5",
                 "valid": false
             }
         ]
     },
     {
-        "description": "combining marks evaluated codepoint-for-codepoint",
-        "schema": { "const": "a\u0308" },
+        "description": "characters with the same visual representation, but different number of codepoints",
+        "schema": {
+            "const": "ä",
+            "$comment": "U+00E4"
+        },
         "tests": [
             {
-                "description": "grapheme is equal codepoint-for-codepoint",
-                "data": "ä",
-                "valid": true
-            },
-            {
-                "description": "grapheme is not equal codepoint-for-codepoint",
+                "description": "character uses the same codepoint",
                 "data": "ä",
-                "valid": false
-            },
-            {
-                "description": "codepoints are equal codepoint-for-codepoint",
-                "data": "\u0061\u0308",
+                "comment": "U+00E4",
                 "valid": true
             },
             {
-                "description": "codepoints are not equal codepoint-for-codepoint",
-                "data": "\u00e4",
+                "description": "character looks the same but uses combining marks",
+                "data": "ä",
+                "comment": "a, U+0308",
                 "valid": false
             }
         ]
