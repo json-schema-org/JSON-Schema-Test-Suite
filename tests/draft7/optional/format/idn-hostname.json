@@ -414,22 +414,22 @@
                 "valid": false
             },
             {
-                "description": "dot separator with label that is too long when separator is ignored",
+                "description": "label too long if separator ignored (full stop)",
                 "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπα.com",
                 "valid": true
             },
             {
-                "description": "ideographic full stop separator with label that is too long when separator is ignored",
+                "description": "label too long if separator ignored (ideographic full stop)",
                 "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπα\u3002com",
                 "valid": true
             },
             {
-                "description": "fullwidth full stop separator with label that is too long when separator is ignored",
+                "description": "label too long if separator ignored (fullwidth full stop)",
                 "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπα\uff0ecom",
                 "valid": true
             },
             {
-                "description": "halfwidth ideographic full stop separator with label that is too long when separator is ignored",
+                "description": "label too long if separator ignored (halfwidth ideographic full stop)",
                 "data": "παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπα\uff61com",
                 "valid": true
             }
