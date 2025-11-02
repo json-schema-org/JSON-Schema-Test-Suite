@@ -1,33 +1,29 @@
 [
     {
-        "description": "failed validation produces no annotations",
+        "description": "incorrect type",
         "schema": {
             "$schema": "https://json-schema.org/draft/next/schema",
-            "$id": "https://json-schema.org/tests/content/draft-next/general/0",
-            "type": "string",
-            "readOnly": true
+            "$id": "https://json-schema.org/tests/content/v1/type/0",
+            "type": "string"
         },
         "tests": [
             {
-                "description": "dropped annotations MAY appear in droppedAnnotations",
+                "description": "incorrect type must be reported, but a message is not required",
                 "data": 1,
                 "output": {
                     "list": {
-                        "$id": "https://json-schema.org/tests/content/draft-next/general/0/tests/0/basic",
+                        "$id": "https://json-schema.org/tests/content/v1/type/0/tests/0/basic",
                         "$ref": "/draft/next/output/schema",
                         "properties": {
                             "details": {
                                 "contains": {
                                     "properties": {
                                         "evaluationPath": {"const": ""},
-                                        "schemaLocation": {"const": "https://json-schema.org/tests/content/draft-next/general/0#"},
+                                        "schemaLocation": {"const": "https://json-schema.org/tests/content/v1/type/0#"},
                                         "instanceLocation": {"const": ""},
                                         "annotations": false,
-                                        "droppedAnnotations": {
-                                            "properties": {
-                                                "readOnly": {"const": true}
-                                            },
-                                            "required": ["readOnly"]
+                                        "errors": {
+                                            "required": ["type"]
                                         }
                                     },
                                     "required": ["evaluationPath", "schemaLocation", "instanceLocation"]
