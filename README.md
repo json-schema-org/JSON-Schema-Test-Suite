@@ -16,8 +16,8 @@ The recommended workflow of this test suite is to clone the `main` branch of thi
 
 ## Coverage
 
-All JSON Schema specification releases should be well covered by this suite, including drafts 2020-12, 2019-09, 07, 06, 04 and 03.
-Drafts 04 and 03 are considered "frozen" in that less effort is put in to backport new tests to these versions.
+All JSON Schema specification releases should be well covered by this suite, including versions draft-2020-12, draft-2019-09, draft-07, draft-06, draft-04 and draft-03.
+Versions draft-04 and draft-03 are considered "frozen" in that less effort is put in to backport new tests to these versions.
 
 Additional coverage is always welcome, particularly for bugs encountered in real-world implementations.
 If you see anything missing or incorrect, please feel free to [file an issue](https://github.com/json-schema-org/JSON-Schema-Test-Suite/issues) or [submit a PR](https://github.com/json-schema-org/JSON-Schema-Test-Suite).
@@ -31,14 +31,13 @@ Inside that directory is a subdirectory for each released version of the specifi
 
 The structure and contents of each file in these directories is described below.
 
-In addition to the version-specific subdirectories, two additional directories are present:
+In addition to the version-specific subdirectories, one additional directory is present:
 
-1. `draft-next/`: containing tests for the next version of the specification whilst it is in development
-2. `latest/`: a symbolic link which points to the directory which is the most recent release (which may be useful for implementations providing specific entry points for validating against the latest version of the specification)
+1. `latest/`: a symbolic link which points to the directory which is the most recent release (which may be useful for implementations providing specific entry points for validating against the latest version of the specification)
 
 Inside each version directory there are a number of `.json` files each containing a collection of related tests.
 Often the grouping is by property under test, but not always.
-In addition to the `.json` files, each version directory contains one or more special subdirectories whose purpose is [described below](#subdirectories-within-each-draft), and which contain additional `.json` files.
+In addition to the `.json` files, each version directory contains one or more special subdirectories whose purpose is [described below](#subdirectories-within-each-version-directory), and which contain additional `.json` files.
 
 Each `.json` file consists of a single JSON array of test cases.
 
@@ -78,9 +77,9 @@ Here is a single *test case*, containing one or more tests:
 }
 ```
 
-### Subdirectories Within Each Draft
+### Subdirectories Within Each Version directory
 
-There is currently only one additional subdirectory that may exist within each draft test directory.
+There is currently only one additional subdirectory that may exist within each specification version test directory.
 
 This is:
 
@@ -107,8 +106,8 @@ The precise steps described do not need to be followed exactly, but the results 
 
 To test a specific version:
 
-* For 2019-09 and later published drafts, implementations that are able to detect the draft of each schema via `$schema` SHOULD be configured to do so
-* For draft-07 and earlier, draft-next, and implementations unable to detect via `$schema`, implementations MUST be configured to expect the draft matching the test directory name
+* For 2019-09 and later published versions, implementations that are able to detect the version of each schema via `$schema` SHOULD be configured to do so
+* For draft-07 and earlier, v1 (not yet released), and implementations unable to detect via `$schema`, implementations MUST be configured to expect the version matching the test directory name
 * Load any remote references [described below](#additional-assumptions) and configure your implementation to retrieve them via their URIs
 * Walk the filesystem tree for that version's subdirectory and for each `.json` file found:
 
@@ -135,7 +134,7 @@ If your implementation supports multiple versions, run the above procedure for e
 
 ### Additional Assumptions
 
-1. The suite, notably in its `refRemote.json` file in each draft, expects a number of remote references to be configured.
+1. The suite, notably in its `refRemote.json` file in each specification version directory, expects a number of remote references to be configured.
    These are JSON documents, identified by URI, which are used by the suite to test the behavior of the `$ref` keyword (and related keywords).
    Depending on your implementation, you may configure how to "register" these *either*:
 
@@ -158,7 +157,7 @@ If your implementation supports multiple versions, run the above procedure for e
     }
     ```
 
-2. Test cases found within [special subdirectories](#subdirectories-within-each-draft) may require additional configuration to run.
+2. Test cases found within [special subdirectories](#subdirectories-within-each-version-directory) may require additional configuration to run.
    In particular, when running tests within the `optional/format` subdirectory, test runners should configure implementations to enable format validation, where the implementation supports it.
 
 ### Invariants & Guarantees
