@@ -2,7 +2,7 @@
     {
         "description": "email format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "email"
         },
         "tests": [
@@ -46,7 +46,7 @@
     {
         "description": "idn-email format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "idn-email"
         },
         "tests": [
@@ -90,7 +90,7 @@
     {
         "description": "regex format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "regex"
         },
         "tests": [
@@ -134,7 +134,7 @@
     {
         "description": "ipv4 format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "ipv4"
         },
         "tests": [
@@ -178,7 +178,7 @@
     {
         "description": "ipv6 format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "ipv6"
         },
         "tests": [
@@ -222,7 +222,7 @@
     {
         "description": "idn-hostname format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "idn-hostname"
         },
         "tests": [
@@ -266,7 +266,7 @@
     {
         "description": "hostname format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "hostname"
         },
         "tests": [
@@ -310,7 +310,7 @@
     {
         "description": "date format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "date"
         },
         "tests": [
@@ -354,7 +354,7 @@
     {
         "description": "date-time format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "date-time"
         },
         "tests": [
@@ -398,7 +398,7 @@
     {
         "description": "time format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "time"
         },
         "tests": [
@@ -442,7 +442,7 @@
     {
         "description": "json-pointer format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "json-pointer"
         },
         "tests": [
@@ -486,7 +486,7 @@
     {
         "description": "relative-json-pointer format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "relative-json-pointer"
         },
         "tests": [
@@ -530,7 +530,7 @@
     {
         "description": "iri format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "iri"
         },
         "tests": [
@@ -574,7 +574,7 @@
     {
         "description": "iri-reference format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "iri-reference"
         },
         "tests": [
@@ -618,7 +618,7 @@
     {
         "description": "uri format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "uri"
         },
         "tests": [
@@ -662,7 +662,7 @@
     {
         "description": "uri-reference format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "uri-reference"
         },
         "tests": [
@@ -706,7 +706,7 @@
     {
         "description": "uri-template format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "uri-template"
         },
         "tests": [
@@ -750,7 +750,7 @@
     {
         "description": "uuid format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "uuid"
         },
         "tests": [
@@ -794,7 +794,7 @@
     {
         "description": "duration format",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "duration"
         },
         "tests": [

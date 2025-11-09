@@ -132,7 +132,7 @@
     {
         "description": "validation of A-label (punycode) host names",
         "schema": {
-            "$schema": "https://json-schema.org/draft/next/schema",
+            "$schema": "https://json-schema.org/v1",
             "format": "hostname"
         },
         "tests": [
