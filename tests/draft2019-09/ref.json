@@ -721,6 +721,30 @@
         ]
     },
     {
+        "description": "simple tag URI base URI with $ref via the tag URI",
+        "schema": {
+            "$comment": "URIs do not have to have HTTP(s) schemes",
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "tag:foo.example,2025:bar/baz",
+            "minimum": 30,
+            "properties": {
+                "foo": {"$ref": "tag:foo.example,2025:bar/baz"}
+            }
+        },
+        "tests": [
+            {
+                "description": "valid under the tag URI IDed schema",
+                "data": {"foo": 37},
+                "valid": true
+            },
+            {
+                "description": "invalid under the tag URI IDed schema",
+                "data": {"foo": 12},
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "simple URN base URI with JSON pointer",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
