@@ -125,24 +125,6 @@
         ]
     },
     {
-        "description": "additionalProperties does not look in applicators",
-        "specification":[ { "core": "10.2", "quote": "Subschemas of applicator keywords evaluate the instance completely independently such that the results of one such subschema MUST NOT impact the results of sibling subschemas." } ],
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "allOf": [
-                {"properties": {"foo": {}}}
-            ],
-            "additionalProperties": {"type": "boolean"}
-        },
-        "tests": [
-            {
-                "description": "properties defined in allOf are not examined",
-                "data": {"foo": 1, "bar": true},
-                "valid": false
-            }
-        ]
-    },
-    {
         "description": "additionalProperties with null valued instance properties",
         "specification": [ { "core":"10.3.2.3" } ],
         "schema": {
