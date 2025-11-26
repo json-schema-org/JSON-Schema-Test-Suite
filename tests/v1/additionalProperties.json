@@ -121,6 +121,23 @@
         ]
     },
     {
+        "description": "additionalProperties does not look in applicators",
+        "schema": {
+            "$schema": "https://json-schema.org/v1",
+            "allOf": [
+                {"properties": {"foo": {}}}
+            ],
+            "additionalProperties": {"type": "boolean"}
+        },
+        "tests": [
+            {
+                "description": "properties defined in allOf are not examined",
+                "data": {"foo": 1, "bar": true},
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "additionalProperties with null valued instance properties",
         "schema": {
             "$schema": "https://json-schema.org/v1",
