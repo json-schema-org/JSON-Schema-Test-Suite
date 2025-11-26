@@ -660,24 +660,24 @@
         ]
     },
     {
-        "description": "simple tag URI base URI with $ref via the tag URI",
+        "description": "simple custom URI base URI with $ref via the custom URI",
         "schema": {
             "$comment": "URIs do not have to have HTTP(s) schemes",
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "$id": "tag:foo.example,2025:bar/baz",
+            "$id": "foo:bar/baz",
             "minimum": 30,
             "properties": {
-                "foo": {"$ref": "tag:foo.example,2025:bar/baz"}
+                "foo": {"$ref": "foo:bar/baz"}
             }
         },
         "tests": [
             {
-                "description": "valid under the tag URI IDed schema",
+                "description": "valid under the custom URI IDed schema",
                 "data": {"foo": 37},
                 "valid": true
             },
             {
-                "description": "invalid under the tag URI IDed schema",
+                "description": "invalid under the custom URI IDed schema",
                 "data": {"foo": 12},
                 "valid": false
             }
