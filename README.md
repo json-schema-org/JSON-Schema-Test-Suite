@@ -334,7 +334,6 @@ Node-specific support is maintained in a [separate repository](https://github.co
 ### Scala
 
 * [json-schema-validation-comparison](https://www.creekservice.org/json-schema-validation-comparison/functional) (Comparison site for JVM-based validator implementations)
-* [typed-json](https://github.com/frawa/typed-json)
 
 ### Swift
 
