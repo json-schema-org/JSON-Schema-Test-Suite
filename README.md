@@ -341,6 +341,10 @@ Node-specific support is maintained in a [separate repository](https://github.co
 * [JSONSchema](https://github.com/kylef/JSONSchema.swift)
 * [swift-json-schema](https://github.com/ajevans99/swift-json-schema)
 
+### Unison
+
+* [typed-json](https://share.unison-lang.org/@frawa/typed-json)
+
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
 
