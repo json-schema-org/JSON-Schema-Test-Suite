@@ -317,12 +317,12 @@
         },
         "tests":[
             {
-                "description": "matches if → then executes and else does not execute →invalid",
+                "description": "matches if → then executes and else does not execute → invalid",
                 "data": 4,
                 "valid": false
             },
             {
-                "description": "does not match if → else executes →invalid",
+                "description": "does not match if → else executes → invalid",
                 "data": "foo",
                 "valid": false
             }
