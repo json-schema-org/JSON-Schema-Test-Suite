@@ -287,24 +287,19 @@
     {
         "description": "else: false fails when condition does not match",
         "schema": {
-            "if": {
-                "properties":{
-                    "name":{"type":"string"}
-                },
-                "required": ["name"]
-            },
+            "if": { "const": 1 },
             "else": false
         },
         "tests": [
             {
+               "description": "matches if → else ignored → valid",
+               "data": 1,
+               "valid": true
+            },
+            {
                 "description": "does not match if → else executes → invalid",
                 "data": 2,
                 "valid": false
-            },
-            {
-                "description": "matches if → else does not execute → valid",
-                "data":{"name":"foo"},
-                "valid":true
             }
         ]
     },
