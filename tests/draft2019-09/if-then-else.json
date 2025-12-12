@@ -266,7 +266,7 @@
         ]
     },
     {
-        "description": "then: false should fail if condition matches",
+        "description": "then: false fails when condition matches",
         "schema": {
             "if": { "const": 1 },
             "then": false
@@ -285,7 +285,7 @@
         ]
     },
     {
-        "description": "else: false should fail when if condition does not match",
+        "description": "else: false fails when condition does not match",
         "schema": {
             "if": {
                 "properties":{
