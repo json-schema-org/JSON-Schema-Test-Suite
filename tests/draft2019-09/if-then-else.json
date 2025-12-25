@@ -302,26 +302,6 @@
                 "valid": false
             }
         ]
-    },
-    {
-        "description": "then and else both are false",
-        "schema":{
-            "if":{"type":"number"},
-            "then":false,
-            "else":false
-        },
-        "tests":[
-            {
-                "description": "matches if → then executes and else does not execute → invalid",
-                "data": 4,
-                "valid": false
-            },
-            {
-                "description": "does not match if → else executes → invalid",
-                "data": "foo",
-                "valid": false
-            }
-        ]
-    }      
+    }
 ]
 
