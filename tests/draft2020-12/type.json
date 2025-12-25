@@ -1,9 +1,13 @@
 [
     {
         "description": "integer type matches integers",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+        "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "integer"
@@ -58,9 +62,13 @@
     },
     {
         "description": "number type matches numbers",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+        "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "number"
@@ -115,9 +123,13 @@
     },
     {
         "description": "string type matches strings",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+       "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "string"
@@ -172,9 +184,13 @@
     },
     {
         "description": "object type matches objects",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+       "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "object"
@@ -219,9 +235,13 @@
     },
     {
         "description": "array type matches arrays",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+        "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "array"
@@ -266,9 +286,13 @@
     },
     {
         "description": "boolean type matches booleans",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+       "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "boolean"
@@ -328,9 +352,13 @@
     },
     {
         "description": "null type matches only the null object",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+        "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "null"
@@ -390,9 +418,13 @@
     },
     {
         "description": "multiple types can be specified in an array",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+        "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": ["integer", "string"]
@@ -437,9 +469,13 @@
     },
     {
         "description": "type as array with one item",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+       "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": ["string"]
@@ -459,9 +495,13 @@
     },
     {
         "description": "type: array or object",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+        "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": ["array", "object"]
@@ -496,9 +536,13 @@
     },
     {
         "description": "type: array, object or null",
-        "specification": {
-            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type"
-        },
+        "specification": [
+        {
+            "vocabulary": "validation",
+            "url": "https://json-schema.org/draft/2020-12/json-schema-validation#type",
+            "quote": "The value of this keyword MUST be either a string or an array. If it is an array, elements of the array MUST be strings and MUST be unique."
+        }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": ["array", "object", "null"]
