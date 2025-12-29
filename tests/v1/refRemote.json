@@ -267,7 +267,7 @@
         "description": "remote HTTP ref with different $id",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "$ref": "http://localhost:1234/different-id-ref-string.json"
+            "$ref": "http://localhost:1234/v1/different-id-ref-string.json"
         },
         "tests": [
             {
@@ -286,7 +286,7 @@
         "description": "remote HTTP ref with different URN $id",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "$ref": "http://localhost:1234/urn-ref-string.json"
+            "$ref": "http://localhost:1234/v1/urn-ref-string.json"
         },
         "tests": [
             {
@@ -305,7 +305,7 @@
         "description": "remote HTTP ref with nested absolute ref",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "$ref": "http://localhost:1234/nested-absolute-ref-to-string.json"
+            "$ref": "http://localhost:1234/v1/nested-absolute-ref-to-string.json"
         },
         "tests": [
             {
