@@ -13,7 +13,7 @@
                 "valid": true
             },
             {
-                "description": "format-assertion: false: invalid string but validation skipped as an annotation",
+                "description": "format-assertion: false: invalid string but ignored as an annotation",
                 "data": "not-an-ipv4",
                 "valid": true
             }
