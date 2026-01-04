@@ -83,7 +83,9 @@ There is currently only one additional subdirectory that may exist within each s
 
 This is:
 
-1. `optional/`: Contains tests that are considered optional.
+1. `optional/`: Optional tests cover behavior that depends on implementation capabilities, such as language or runtime limitations, optional specification features, or representational constraints. Implementations should run these tests only if the relevant feature or distinction exists.
+For example, the test asserting that `1.0` is not an integer is optional because some languages (e.g. JavaScript) cannot distinguish between integers and floating-point numbers.
+Failing optional tests does not imply non-compliance with the JSON Schema specification.
 
 Note, the `optional/` subdirectory today conflates many reasons why a test may be optional -- it may be because tests within a particular file are indeed not required by the specification but still potentially useful to an implementer, or it may be because tests within it only apply to programming languages with particular functionality (in
 which case they are not truly optional in such a language).
