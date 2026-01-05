@@ -1,8 +1,10 @@
 import * as fs from "node:fs";
 import * as crypto from "node:crypto";
 import jsonStringify from "json-stringify-deterministic";
+import { parse, modify, applyEdits } from "jsonc-parser";
 import { normalize } from "./normalize.js";
 import { loadRemotes } from "./load-remotes.js";
+
 
 const DIALECT_MAP = {
   "draft2020-12": "https://json-schema.org/draft/2020-12/schema",
@@ -12,40 +14,67 @@ const DIALECT_MAP = {
   "draft4": "http://json-schema.org/draft-04/schema#"
 };
 
+
 function generateTestId(normalizedSchema, testData, testValid) {
   return crypto
     .createHash("md5")
-    .update(jsonStringify(normalizedSchema) + jsonStringify(testData) + testValid)
+    .update(
+      jsonStringify(normalizedSchema) +
+      jsonStringify(testData) +
+      testValid
+    )
     .digest("hex");
 }
 
 async function addIdsToFile(filePath, dialectUri) {
   console.log("Reading:", filePath);
-  const tests = JSON.parse(fs.readFileSync(filePath, "utf8"));
+
+  const text = fs.readFileSync(filePath, "utf8");
+  const tests = parse(text);
+  let edits = [];
   let added = 0;
 
-  for (const testCase of tests) {
-    // Pass dialectUri from directory, not from schema
-    // @hyperjump/json-schema handles the schema's $schema internally
+  for (let i = 0; i < tests.length; i++) {
+    const testCase = tests[i];
     const normalizedSchema = await normalize(testCase.schema, dialectUri);
 
-    for (const test of testCase.tests) {
+    for (let j = 0; j < testCase.tests.length; j++) {
+      const test = testCase.tests[j];
+
       if (!test.id) {
-        test.id = generateTestId(normalizedSchema, test.data, test.valid);
+        const id = generateTestId(
+          normalizedSchema,
+          test.data,
+          test.valid
+        );
+
+        const path = [i, "tests", j, "id"];
+
+        edits.push(
+          ...modify(text, path, id, {
+            formattingOptions: {
+              insertSpaces: true,
+              tabSize: 2
+            }
+          })
+        );
+
         added++;
       }
     }
   }
 
   if (added > 0) {
-    fs.writeFileSync(filePath, JSON.stringify(tests, null, 4) + "\n");
+    const updatedText = applyEdits(text, edits);
+    fs.writeFileSync(filePath, updatedText);
     console.log(` Added ${added} IDs`);
   } else {
     console.log(" All tests already have IDs");
   }
 }
 
-// Get dialect from command line argument (e.g., "draft2020-12")
+//CLI stuff
+
 const dialectArg = process.argv[2];
 if (!dialectArg || !DIALECT_MAP[dialectArg]) {
   console.error("Usage: node add-test-ids.js <dialect> [file-path]");
@@ -60,13 +89,11 @@ const filePath = process.argv[3];
 loadRemotes(dialectUri, "./remotes");
 
 if (filePath) {
-  // Process single file
-  addIdsToFile(filePath, dialectUri);
+  await addIdsToFile(filePath, dialectUri);
 } else {
-  // Process all files in the dialect directory
   const testDir = `tests/${dialectArg}`;
-  const files = fs.readdirSync(testDir).filter(f => f.endsWith('.json'));
-  
+  const files = fs.readdirSync(testDir).filter(f => f.endsWith(".json"));
+
   for (const file of files) {
     await addIdsToFile(`${testDir}/${file}`, dialectUri);
   }

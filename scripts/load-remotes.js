@@ -17,20 +17,29 @@ export const loadRemotes = (dialectId, filePath, url = "") => {
       const remotePath = `${filePath}/${entry.name}`;
       const remoteUrl = `http://localhost:1234${url}/${entry.name}`;
 
-      //  If we've already registered this URL once, skip it
+      // Skip if already registered
       if (loadedRemotes.has(remoteUrl)) {
         return;
       }
 
       const remote = JSON.parse(fs.readFileSync(remotePath, "utf8"));
 
+      //  FIXEDhere
+      if (typeof remote.$id === "string" && remote.$id.startsWith("file:")) {
+        remote.$id = remote.$id.replace(/^file:/, "x-file:");
+      }
+
       // Only register if $schema matches dialect OR there's no $schema
       if (!remote.$schema || toAbsoluteIri(remote.$schema) === dialectId) {
         registerSchema(remote, remoteUrl, dialectId);
-        loadedRemotes.add(remoteUrl); // ✅ Remember we've registered it
+        loadedRemotes.add(remoteUrl);
       }
     } else if (entry.isDirectory()) {
-      loadRemotes(dialectId, `${filePath}/${entry.name}`, `${url}/${entry.name}`);
+      loadRemotes(
+        dialectId,
+        `${filePath}/${entry.name}`,
+        `${url}/${entry.name}`
+      );
     }
   });
 };
