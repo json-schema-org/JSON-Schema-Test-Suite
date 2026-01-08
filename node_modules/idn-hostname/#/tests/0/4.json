@@ -1,0 +1,5 @@
+{
+    "description": "ZERO WIDTH NON-JOINER (U+200C) not preceded by a Virama",
+    "data": "exam‌ple.测试",
+    "valid": false
+}

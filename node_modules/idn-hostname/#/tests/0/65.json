@@ -1,0 +1,5 @@
+{
+    "description": "Bidi Rule 1 — R-branch fail: contains R but doesn't start with R",
+    "data": "gא",
+    "valid": false
+}
