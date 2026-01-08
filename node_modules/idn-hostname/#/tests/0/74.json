@@ -1,0 +1,5 @@
+{
+    "description": "Bidi Rule 3 — fail: starts AL but last strong is ES (not allowed)",
+    "data": "ا-",
+    "valid": false
+}

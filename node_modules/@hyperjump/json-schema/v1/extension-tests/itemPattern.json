@@ -1,0 +1,462 @@
+[
+    {
+        "description": "itemPattern ``",
+        "schema": {
+            "itemPattern": []
+        },
+        "tests": [
+            {
+                "description": "*empty*",
+                "data": [],
+                "valid": true
+            },
+            {
+                "description": "a",
+                "data": ["a"],
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `a`",
+        "schema": {
+            "itemPattern": [
+                { "const": "a" }
+            ]
+        },
+        "tests": [
+            {
+                "description": "*empty*",
+                "data": [],
+                "valid": false
+            },
+            {
+                "description": "a",
+                "data": ["a"],
+                "valid": true
+            },
+            {
+                "description": "b",
+                "data": ["b"],
+                "valid": false
+            },
+            {
+                "description": "ab",
+                "data": ["a", "b"],
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `ab`",
+        "schema": {
+            "itemPattern": [
+                { "const": "a" },
+                { "const": "b" }
+            ]
+        },
+        "tests": [
+            {
+                "description": "a",
+                "data": ["a"],
+                "valid": false
+            },
+            {
+                "description": "aa",
+                "data": ["a", "a"],
+                "valid": false
+            },
+            {
+                "description": "ab",
+                "data": ["a", "b"],
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `a+b`",
+        "schema": {
+            "itemPattern": [
+                { "const": "a" }, "+",
+                { "const": "b" }
+            ]
+        },
+        "tests": [
+            {
+                "description": "b",
+                "data": ["b"],
+                "valid": false
+            },
+            {
+                "description": "ab",
+                "data": ["a", "b"],
+                "valid": true
+            },
+            {
+                "description": "aab",
+                "data": ["a", "a", "b"],
+                "valid": true
+            },
+            {
+                "description": "aaab",
+                "data": ["a", "a", "a", "b"],
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `a*b`",
+        "schema": {
+            "itemPattern": [
+                { "const": "a" }, "*",
+                { "const": "b" }
+            ]
+        },
+        "tests": [
+            {
+                "description": "b",
+                "data": ["b"],
+                "valid": true
+            },
+            {
+                "description": "ab",
+                "data": ["a", "b"],
+                "valid": true
+            },
+            {
+                "description": "aab",
+                "data": ["a", "a", "b"],
+                "valid": true
+            },
+            {
+                "description": "aaab",
+                "data": ["a", "a", "a", "b"],
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `(ab)+`",
+        "schema": {
+            "itemPattern": [
+                [
+                    { "const": "a" },
+                    { "const": "b" }
+                ], "+"
+            ]
+        },
+        "tests": [
+            {
+                "description": "*empty*",
+                "data": [],
+                "valid": false
+            },
+            {
+                "description": "a",
+                "data": ["a"],
+                "valid": false
+            },
+            {
+                "description": "ab",
+                "data": ["a", "b"],
+                "valid": true
+            },
+            {
+                "description": "aba",
+                "data": ["a", "b", "a"],
+                "valid": false
+            },
+            {
+                "description": "abab",
+                "data": ["a", "b", "a", "b"],
+                "valid": true
+            },
+            {
+                "description": "ababa",
+                "data": ["a", "b", "a", "b", "a"],
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `a(b+c)*`",
+        "schema": {
+            "itemPattern": [
+                { "const": "a" },
+                [
+                    { "const": "b" }, "+",
+                    { "const": "c" }
+                ], "*"
+            ]
+        },
+        "tests": [
+            {
+                "description": "*empty*",
+                "data": [],
+                "valid": false
+            },
+            {
+                "description": "a",
+                "data": ["a"],
+                "valid": true
+            },
+            {
+                "description": "ab",
+                "data": ["a", "b"],
+                "valid": false
+            },
+            {
+                "description": "abc",
+                "data": ["a", "b", "c"],
+                "valid": true
+            },
+            {
+                "description": "abbc",
+                "data": ["a", "b", "b", "c"],
+                "valid": true
+            },
+            {
+                "description": "abbbc",
+                "data": ["a", "b", "b", "b", "c"],
+                "valid": true
+            },
+            {
+                "description": "abcbc",
+                "data": ["a", "b", "c", "b", "c"],
+                "valid": true
+            },
+            {
+                "description": "abcb",
+                "data": ["a", "b", "c", "b"],
+                "valid": false
+            },
+            {
+                "description": "abbcbc",
+                "data": ["a", "b", "b", "c", "b", "c"],
+                "valid": true
+            },
+            {
+                "description": "abcbbc",
+                "data": ["a", "b", "c", "b", "b", "c"],
+                "valid": true
+            },
+            {
+                "description": "abbcbbc",
+                "data": ["a", "b", "b", "c", "b", "b", "c"],
+                "valid": true
+            },
+            {
+                "description": "abbcbbcb",
+                "data": ["a", "b", "b", "c", "b", "b", "c", "b"],
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `(abc)*abd`",
+        "schema": {
+            "itemPattern": [
+                [
+                    { "const": "a" },
+                    { "const": "b" },
+                    { "const": "c" }
+                ], "*",
+                { "const": "a" },
+                { "const": "b" },
+                { "const": "d" }
+            ]
+        },
+        "tests": [
+            {
+                "description": "*empty*",
+                "data": [],
+                "valid": false
+            },
+            {
+                "description": "abc",
+                "data": ["a", "b", "c"],
+                "valid": false
+            },
+            {
+                "description": "abd",
+                "data": ["a", "b", "d"],
+                "valid": true
+            },
+            {
+                "description": "abcabd",
+                "data": ["a", "b", "c", "a", "b", "d"],
+                "valid": true
+            },
+            {
+                "description": "abcabcabd",
+                "data": ["a", "b", "c", "a", "b", "c", "a", "b", "d"],
+                "valid": true
+            },
+            {
+                "description": "abcabcabda",
+                "data": ["a", "b", "c", "a", "b", "c", "a", "b", "d", "a"],
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `(ab|bd)+`",
+        "schema": {
+            "itemPattern": [
+                [
+                    { "const": "a" },
+                    { "const": "b" },
+                    "|",
+                    { "const": "c" },
+                    { "const": "d" }
+                ], "+"
+            ]
+        },
+        "tests": [
+            {
+                "description": "*empty*",
+                "data": [],
+                "valid": false
+            },
+            {
+                "description": "ab",
+                "data": ["a", "b"],
+                "valid": true
+            },
+            {
+                "description": "cd",
+                "data": ["c", "d"],
+                "valid": true
+            },
+            {
+                "description": "abab",
+                "data": ["a", "b", "a", "b"],
+                "valid": true
+            },
+            {
+                "description": "abcd",
+                "data": ["a", "b", "c", "d"],
+                "valid": true
+            },
+            {
+                "description": "abc",
+                "data": ["a", "b", "c"],
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `ab?|c`",
+        "schema": {
+            "itemPattern": [
+                { "const": "a" },
+                { "const": "b" }, "?",
+                "|",
+                { "const": "c" }
+            ]
+        },
+        "tests": [
+            {
+                "description": "a",
+                "data": ["a"],
+                "valid": true
+            },
+            {
+                "description": "ab",
+                "data": ["a", "b"],
+                "valid": true
+            },
+            {
+                "description": "c",
+                "data": ["c"],
+                "valid": true
+            },
+            {
+                "description": "ac",
+                "data": ["a", "c"],
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `a*(ab)+`",
+        "schema": {
+            "itemPattern": [
+                { "const": "a" }, "*",
+                [
+                    { "const": "a" },
+                    { "const": "b" }
+                ], "+"
+            ]
+        },
+        "tests": [
+            {
+                "description": "*empty*",
+                "data": [],
+                "valid": false
+            },
+            {
+                "description": "a",
+                "data": ["a"],
+                "valid": false
+            },
+            {
+                "description": "ab",
+                "data": ["a", "b"],
+                "valid": true
+            },
+            {
+                "description": "aab",
+                "data": ["a", "a", "b"],
+                "valid": true
+            },
+            {
+                "description": "aabab",
+                "data": ["a", "a", "b", "a", "b"],
+                "valid": true
+            },
+            {
+                "description": "aaab",
+                "data": ["a", "a", "a", "b"],
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "itemPattern `(a+)+`",
+        "schema": {
+            "itemPattern": [
+                [
+                    { "const": "a" }, "+"
+                ], "+"
+            ]
+        },
+        "tests": [
+            {
+                "description": "*empty*",
+                "data": [],
+                "valid": false
+            },
+            {
+                "description": "a",
+                "data": ["a"],
+                "valid": true
+            },
+            {
+                "description": "aa",
+                "data": ["a", "a"],
+                "valid": true
+            },
+            {
+                "description": "aaaaaaaaaaaaaaaa",
+                "data": ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+                "valid": true
+            },
+            {
+                "description": "aaaaaaaaaaaaaaaaX",
+                "data": ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "X"],
+                "valid": false
+            }
+        ]
+    }
+]

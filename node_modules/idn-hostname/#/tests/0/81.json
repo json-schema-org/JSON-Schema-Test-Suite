@@ -1,0 +1,5 @@
+{
+    "description": "Bidi Rule 5 — fail: starts L but contains R (disallowed)",
+    "data": "gא",
+    "valid": false
+}

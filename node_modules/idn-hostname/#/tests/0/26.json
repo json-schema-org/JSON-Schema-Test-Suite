@@ -1,0 +1,6 @@
+{
+    "description": "U-label starts and ends with a dash",
+    "comment": "https://tools.ietf.org/html/rfc5891#section-4.2.3.1",
+    "data": "-hello-",
+    "valid": false
+}

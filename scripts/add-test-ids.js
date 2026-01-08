@@ -1,9 +1,9 @@
 import * as fs from "node:fs";
-import * as crypto from "node:crypto";
-import jsonStringify from "json-stringify-deterministic";
+
 import { parse, modify, applyEdits } from "jsonc-parser";
 import { normalize } from "./normalize.js";
 import { loadRemotes } from "./load-remotes.js";
+import generateTestId from "./utils/generateTestIds.js";
 
 
 const DIALECT_MAP = {
@@ -15,16 +15,7 @@ const DIALECT_MAP = {
 };
 
 
-function generateTestId(normalizedSchema, testData, testValid) {
-  return crypto
-    .createHash("md5")
-    .update(
-      jsonStringify(normalizedSchema) +
-      jsonStringify(testData) +
-      testValid
-    )
-    .digest("hex");
-}
+
 
 async function addIdsToFile(filePath, dialectUri) {
   console.log("Reading:", filePath);
@@ -54,7 +45,7 @@ async function addIdsToFile(filePath, dialectUri) {
           ...modify(text, path, id, {
             formattingOptions: {
               insertSpaces: true,
-              tabSize: 2
+              tabSize: 4
             }
           })
         );

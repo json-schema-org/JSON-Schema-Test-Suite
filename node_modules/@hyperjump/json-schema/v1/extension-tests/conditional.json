@@ -1,0 +1,289 @@
+[
+    {
+        "description": "if - then",
+        "schema": {
+            "conditional": [
+                { "type": "string" },
+                { "maxLength": 5 }
+            ]
+        },
+        "tests": [
+            {
+                "description": "if passes, then passes",
+                "data": "foo",
+                "valid": true
+            },
+            {
+                "description": "if passes, then fails",
+                "data": "foobar",
+                "valid": false
+            },
+            {
+                "description": "if fails",
+                "data": 42,
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "if - then - else",
+        "schema": {
+            "conditional": [
+                { "type": "string" },
+                { "maxLength": 5 },
+                { "type": "number" }
+            ]
+        },
+        "tests": [
+            {
+                "description": "if passes, then passes",
+                "data": "foo",
+                "valid": true
+            },
+            {
+                "description": "if passes, then fails",
+                "data": "foobar",
+                "valid": false
+            },
+            {
+                "description": "if fails, else passes",
+                "data": 42,
+                "valid": true
+            },
+            {
+                "description": "if fails, else fails",
+                "data": true,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "if - then - elseif - then",
+        "schema": {
+            "conditional": [
+                { "type": "string" },
+                { "maxLength": 5 },
+                { "type": "number" },
+                { "maximum": 50 }
+            ]
+        },
+        "tests": [
+            {
+                "description": "if passes, then passes",
+                "data": "foo",
+                "valid": true
+            },
+            {
+                "description": "if passes, then fails",
+                "data": "foobar",
+                "valid": false
+            },
+            {
+                "description": "if fails, elseif passes, then passes",
+                "data": 42,
+                "valid": true
+            },
+            {
+                "description": "if fails, elseif passes, then fails",
+                "data": 100,
+                "valid": false
+            },
+            {
+                "description": "if fails, elseif fails",
+                "data": true,
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "if - then - elseif - then - else",
+        "schema": {
+            "conditional": [
+                { "type": "string" },
+                { "maxLength": 5 },
+                { "type": "number" },
+                { "maximum": 50 },
+                { "const": true }
+            ]
+        },
+        "tests": [
+            {
+                "description": "if passes, then passes",
+                "data": "foo",
+                "valid": true
+            },
+            {
+                "description": "if passes, then fails",
+                "data": "foobar",
+                "valid": false
+            },
+            {
+                "description": "if fails, elseif passes, then passes",
+                "data": 42,
+                "valid": true
+            },
+            {
+                "description": "if fails, elseif passes, then fails",
+                "data": 100,
+                "valid": false
+            },
+            {
+                "description": "if fails, elseif fails, else passes",
+                "data": true,
+                "valid": true
+            },
+            {
+                "description": "if fails, elseif fails, else fails",
+                "data": false,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "nested if - then - elseif - then - else",
+        "schema": {
+            "conditional": [
+                [
+                    { "type": "string" },
+                    { "maxLength": 5 }
+                ],
+                [
+                    { "type": "number" },
+                    { "maximum": 50 }
+                ],
+                { "const": true }
+            ]
+        },
+        "tests": [
+            {
+                "description": "if passes, then passes",
+                "data": "foo",
+                "valid": true
+            },
+            {
+                "description": "if passes, then fails",
+                "data": "foobar",
+                "valid": false
+            },
+            {
+                "description": "if fails, elseif passes, then passes",
+                "data": 42,
+                "valid": true
+            },
+            {
+                "description": "if fails, elseif passes, then fails",
+                "data": 100,
+                "valid": false
+            },
+            {
+                "description": "if fails, elseif fails, else passes",
+                "data": true,
+                "valid": true
+            },
+            {
+                "description": "if fails, elseif fails, else fails",
+                "data": false,
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "if - then - else with unevaluatedProperties",
+        "schema": {
+            "allOf": [
+                {
+                    "properties": {
+                        "foo": {}
+                    },
+                    "conditional": [
+                        { "required": ["foo"] },
+                        {
+                            "properties": {
+                                "bar": {}
+                            }
+                        },
+                        {
+                            "properties": {
+                                "baz": {}
+                            }
+                        }
+                    ]
+                }
+            ],
+            "unevaluatedProperties": false
+        },
+        "tests": [
+            {
+                "description": "if foo, then bar is allowed",
+                "data": { "foo": 42, "bar": true },
+                "valid": true
+            },
+            {
+                "description": "if foo, then baz is not allowed",
+                "data": { "foo": 42, "baz": true },
+                "valid": false
+            },
+            {
+                "description": "if not foo, then baz is allowed",
+                "data": { "baz": true },
+                "valid": true
+            },
+            {
+                "description": "if not foo, then bar is not allowed",
+                "data": { "bar": true },
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "if - then - else with unevaluatedItems",
+        "schema": {
+            "allOf": [
+                {
+                    "conditional": [
+                        { "prefixItems": [{ "const": "foo" }] },
+                        {
+                            "prefixItems": [{}, { "const": "bar" }]
+                        },
+                        {
+                            "prefixItems": [{}, { "const": "baz" }]
+                        }
+                    ]
+                }
+            ],
+            "unevaluatedItems": false
+        },
+        "tests": [
+            {
+                "description": "foo, bar",
+                "data": ["foo", "bar"],
+                "valid": true
+            },
+            {
+                "description": "foo, baz",
+                "data": ["foo", "baz"],
+                "valid": false
+            },
+            {
+                "description": "foo, bar, additional",
+                "data": ["foo", "bar", ""],
+                "valid": false
+            },
+            {
+                "description": "not-foo, baz",
+                "data": ["not-foo", "baz"],
+                "valid": true
+            },
+            {
+                "description": "not-foo, bar",
+                "data": ["not-foo", "bar"],
+                "valid": false
+            },
+            {
+                "description": "not-foo, baz, additional",
+                "data": ["not-foo", "baz", ""],
+                "valid": false
+            }
+        ]
+    }
+]

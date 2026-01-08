@@ -1,0 +1,5 @@
+{
+    "description": "invalid hostname ending with hyphen",
+    "data": "example-.com",
+    "valid": false
+}

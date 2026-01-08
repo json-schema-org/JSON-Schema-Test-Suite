@@ -1,0 +1,5 @@
+{
+    "description": "a valid host name (example.test in Hangul)",
+    "data": "실례.테스트",
+    "valid": true
+}

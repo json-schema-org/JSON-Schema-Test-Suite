@@ -1,0 +1,5 @@
+{
+    "description": "illegal first char U+302E Hangul single dot tone mark",
+    "data": "〮실례.테스트",
+    "valid": false
+}

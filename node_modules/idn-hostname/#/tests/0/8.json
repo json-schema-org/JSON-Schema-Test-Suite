@@ -1,0 +1,5 @@
+{
+    "description": "invalid tld starting with hyphen",
+    "data": "example.-com",
+    "valid": false
+}
