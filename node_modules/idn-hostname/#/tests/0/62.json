@@ -1,0 +1,6 @@
+{
+    "description": "Labels with \"--\" in the third and fourth positions are ACE labels and must start with \"xn\" (RFC 5891 §4.2.1).",
+    "comment": "https://tools.ietf.org/html/rfc5891#section-4.2.1",
+    "data": "xn--cd.ef--gh",
+    "valid": false
+}

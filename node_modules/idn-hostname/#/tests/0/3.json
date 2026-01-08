@@ -1,0 +1,5 @@
+{
+    "description": "valid hostname with multiple internationalized segments",
+    "data": "测试.例子.测试",
+    "valid": true
+}

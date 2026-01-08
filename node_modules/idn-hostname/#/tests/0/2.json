@@ -1,0 +1,5 @@
+{
+    "description": "valid hostname with alphanumeric characters and hyphens",
+    "data": "sub-example.example.com",
+    "valid": true
+}

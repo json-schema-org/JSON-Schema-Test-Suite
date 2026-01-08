@@ -10,14 +10,11 @@ import "@hyperjump/json-schema/draft-06";
 import "@hyperjump/json-schema/draft-04";
 
 
-// ===========================================
-//  CHANGE #2 (ADDED): sanitize file:// $id
-// ===========================================
 const sanitizeTopLevelId = (schema) => {
   if (typeof schema !== "object" || schema === null) return schema;
   const copy = { ...schema };
   if (typeof copy.$id === "string" && copy.$id.startsWith("file:")) {
-    delete copy.$id;
+    copy.$id = copy.$id.replace(/^file:/, "x-file:");
   }
   return copy;
 };
@@ -27,14 +24,11 @@ const sanitizeTopLevelId = (schema) => {
 export const normalize = async (rawSchema, dialectUri) => {
   const schemaUri = "https://test-suite.json-schema.org/main";
 
-  // ===========================================
-  //  CHANGE #2 (APPLIED HERE)
-  // ===========================================
+ 
   const safeSchema = sanitizeTopLevelId(rawSchema);
-  // ===========================================
-
+ 
   try {
-    // BEFORE: registerSchema(rawSchema, schemaUri, dialectUri)
+    
     registerSchema(safeSchema, schemaUri, dialectUri);
 
     const schema = await getSchema(schemaUri);
@@ -132,11 +126,8 @@ const keywordHandlers = {
   "https://json-schema.org/keyword/description": simpleValue,
   "https://json-schema.org/keyword/dynamicRef": simpleValue, // base dynamicRef
 
-  // ===========================================
-  // CHANGE #1 (ADDED): draft-2020-12/dynamicRef
-  // ===========================================
   "https://json-schema.org/keyword/draft-2020-12/dynamicRef": simpleValue,
-  // ===========================================
+  
 
   "https://json-schema.org/keyword/else": simpleApplicator,
   "https://json-schema.org/keyword/enum": simpleValue,

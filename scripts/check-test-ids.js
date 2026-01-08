@@ -1,23 +1,12 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import * as crypto from "node:crypto";
-import jsonStringify from "json-stringify-deterministic";
 import { normalize } from "./normalize.js";
 import { loadRemotes } from "./load-remotes.js";
+import generateTestId from "./utils/generateTestIds.js";
+import jsonFiles from "./utils/jsonfiles.js";
 
 
 // Helpers       
-
-function* jsonFiles(dir) {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      yield* jsonFiles(full);
-    } else if (entry.isFile() && entry.name.endsWith(".json")) {
-      yield full;
-    }
-  }
-}
 
 function dialectFromDir(dir) {
   const draft = path.basename(dir);
@@ -38,16 +27,6 @@ function dialectFromDir(dir) {
   }
 }
 
-function generateTestId(normalizedSchema, testData, testValid) {
-  return crypto
-    .createHash("md5")
-    .update(
-      jsonStringify(normalizedSchema) +
-      jsonStringify(testData) +
-      testValid
-    )
-    .digest("hex");
-}
 
 
 
@@ -62,9 +41,7 @@ async function checkVersion(dir) {
 
   // Load remotes ONCE for this dialect
   const remotesPath = "./remotes";
-  if (fs.existsSync(remotesPath)) {
-    loadRemotes(dialectUri, remotesPath);
-  }
+  loadRemotes(dialectUri, remotesPath);
 
   for (const file of jsonFiles(dir)) {
     const testCases = JSON.parse(fs.readFileSync(file, "utf8"));

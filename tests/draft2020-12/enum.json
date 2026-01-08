@@ -1,501 +1,403 @@
 [
-  {
-    "description": "simple enum validation",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        1,
-        2,
-        3
-      ]
-    },
-    "tests": [
-      {
-        "description": "one of the enum is valid",
-        "data": 1,
-        "valid": true,
-        "id": "bc16cb75d14903a732326a24d1416757"
-      },
-      {
-        "description": "something else is invalid",
-        "data": 4,
-        "valid": false,
-        "id": "2ea4a168ef00d32d444b3d49dc5a617d"
-      }
-    ]
-  },
-  {
-    "description": "heterogeneous enum validation",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        6,
-        "foo",
-        [],
-        true,
-        {
-          "foo": 12
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "one of the enum is valid",
-        "data": [],
-        "valid": true,
-        "id": "e31a02b023906271a7f40576a03df0de"
-      },
-      {
-        "description": "something else is invalid",
-        "data": null,
-        "valid": false,
-        "id": "b47e0170004d316b00a5151b0d2b566c"
-      },
-      {
-        "description": "objects are deep compared",
-        "data": {
-          "foo": false
+    {
+        "description": "simple enum validation",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [1, 2, 3]
         },
-        "valid": false,
-        "id": "7285822674e57f31de9c7280fa9d8900"
-      },
-      {
-        "description": "valid object matches",
-        "data": {
-          "foo": 12
-        },
-        "valid": true,
-        "id": "27ffbacf5774ff2354458a6954ed1591"
-      },
-      {
-        "description": "extra properties in object is invalid",
-        "data": {
-          "foo": 12,
-          "boo": 42
-        },
-        "valid": false,
-        "id": "e220c92cdef194c74c49f9b7eb86b211"
-      }
-    ]
-  },
-  {
-    "description": "heterogeneous enum-with-null validation",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        6,
-        null
-      ]
-    },
-    "tests": [
-      {
-        "description": "null is valid",
-        "data": null,
-        "valid": true,
-        "id": "326f454f3db2a5fb76d797b43c812285"
-      },
-      {
-        "description": "number is valid",
-        "data": 6,
-        "valid": true,
-        "id": "9884c0daef3095b4ff88c309bc87a620"
-      },
-      {
-        "description": "something else is invalid",
-        "data": "test",
-        "valid": false,
-        "id": "4032c1754a28b94e914f8dfea1e12a26"
-      }
-    ]
-  },
-  {
-    "description": "enums in properties",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "foo": {
-          "enum": [
-            "foo"
-          ]
-        },
-        "bar": {
-          "enum": [
-            "bar"
-          ]
-        }
-      },
-      "required": [
-        "bar"
-      ]
-    },
-    "tests": [
-      {
-        "description": "both properties are valid",
-        "data": {
-          "foo": "foo",
-          "bar": "bar"
-        },
-        "valid": true,
-        "id": "dba127f9663272184ec3ea3072676b4d"
-      },
-      {
-        "description": "wrong foo value",
-        "data": {
-          "foo": "foot",
-          "bar": "bar"
-        },
-        "valid": false,
-        "id": "0f0cca9923128d29922561fe7d92a436"
-      },
-      {
-        "description": "wrong bar value",
-        "data": {
-          "foo": "foo",
-          "bar": "bart"
-        },
-        "valid": false,
-        "id": "d32cef9094b8a87100a57cee099310d4"
-      },
-      {
-        "description": "missing optional property is valid",
-        "data": {
-          "bar": "bar"
-        },
-        "valid": true,
-        "id": "23a7c86ef0b1e3cac9ebb6175de888d0"
-      },
-      {
-        "description": "missing required property is invalid",
-        "data": {
-          "foo": "foo"
-        },
-        "valid": false,
-        "id": "61ac5943d52ba688c77e26a1a7b5d174"
-      },
-      {
-        "description": "missing all properties is invalid",
-        "data": {},
-        "valid": false,
-        "id": "8b7be28a144634955b915ad780f4f2a5"
-      }
-    ]
-  },
-  {
-    "description": "enum with escaped characters",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        "foo\nbar",
-        "foo\rbar"
-      ]
-    },
-    "tests": [
-      {
-        "description": "member 1 is valid",
-        "data": "foo\nbar",
-        "valid": true,
-        "id": "056ae2b9aad469dd32a63b1c97716c6e"
-      },
-      {
-        "description": "member 2 is valid",
-        "data": "foo\rbar",
-        "valid": true,
-        "id": "ade764a27bb0fed294cefb1b6b275cd5"
-      },
-      {
-        "description": "another string is invalid",
-        "data": "abc",
-        "valid": false,
-        "id": "1faca62e488e50dc47de0b3a26751477"
-      }
-    ]
-  },
-  {
-    "description": "enum with false does not match 0",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        false
-      ]
-    },
-    "tests": [
-      {
-        "description": "false is valid",
-        "data": false,
-        "valid": true,
-        "id": "4e5b4da53732e4fdeaa5ed74127363bc"
-      },
-      {
-        "description": "integer zero is invalid",
-        "data": 0,
-        "valid": false,
-        "id": "24f12f5bf7ae6be32a9634be17835176"
-      },
-      {
-        "description": "float zero is invalid",
-        "data": 0,
-        "valid": false,
-        "id": "24f12f5bf7ae6be32a9634be17835176"
-      }
-    ]
-  },
-  {
-    "description": "enum with [false] does not match [0]",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        [
-          false
+        "tests": [
+            {
+                "description": "one of the enum is valid",
+                "data": 1,
+                "valid": true,
+                "id": "bc16cb75d14903a732326a24d1416757"
+            },
+            {
+                "description": "something else is invalid",
+                "data": 4,
+                "valid": false,
+                "id": "2ea4a168ef00d32d444b3d49dc5a617d"
+            }
         ]
-      ]
     },
-    "tests": [
-      {
-        "description": "[false] is valid",
-        "data": [
-          false
-        ],
-        "valid": true,
-        "id": "9fe1fb5471d006782fe7ead4aa9909fa"
-      },
-      {
-        "description": "[0] is invalid",
-        "data": [
-          0
-        ],
-        "valid": false,
-        "id": "8fc4591c8c9ddf9bd41a234d5fa24521"
-      },
-      {
-        "description": "[0.0] is invalid",
-        "data": [
-          0
-        ],
-        "valid": false,
-        "id": "8fc4591c8c9ddf9bd41a234d5fa24521"
-      }
-    ]
-  },
-  {
-    "description": "enum with true does not match 1",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        true
-      ]
-    },
-    "tests": [
-      {
-        "description": "true is valid",
-        "data": true,
-        "valid": true,
-        "id": "71738e4d71680e268bbee31fc43a4932"
-      },
-      {
-        "description": "integer one is invalid",
-        "data": 1,
-        "valid": false,
-        "id": "e8901b103bcc1340391efd3e02420500"
-      },
-      {
-        "description": "float one is invalid",
-        "data": 1,
-        "valid": false,
-        "id": "e8901b103bcc1340391efd3e02420500"
-      }
-    ]
-  },
-  {
-    "description": "enum with [true] does not match [1]",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        [
-          true
+    {
+        "description": "heterogeneous enum validation",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [6, "foo", [], true, {"foo": 12}]
+        },
+        "tests": [
+            {
+                "description": "one of the enum is valid",
+                "data": [],
+                "valid": true,
+                "id": "e31a02b023906271a7f40576a03df0de"
+            },
+            {
+                "description": "something else is invalid",
+                "data": null,
+                "valid": false,
+                "id": "b47e0170004d316b00a5151b0d2b566c"
+            },
+            {
+                "description": "objects are deep compared",
+                "data": {"foo": false},
+                "valid": false,
+                "id": "7285822674e57f31de9c7280fa9d8900"
+            },
+            {
+                "description": "valid object matches",
+                "data": {"foo": 12},
+                "valid": true,
+                "id": "27ffbacf5774ff2354458a6954ed1591"
+            },
+            {
+                "description": "extra properties in object is invalid",
+                "data": {"foo": 12, "boo": 42},
+                "valid": false,
+                "id": "e220c92cdef194c74c49f9b7eb86b211"
+            }
         ]
-      ]
     },
-    "tests": [
-      {
-        "description": "[true] is valid",
-        "data": [
-          true
-        ],
-        "valid": true,
-        "id": "44049e91dee93b7dafd9cdbc0156a604"
-      },
-      {
-        "description": "[1] is invalid",
-        "data": [
-          1
-        ],
-        "valid": false,
-        "id": "f8b1b069fd03b04f07f5b70786cb916c"
-      },
-      {
-        "description": "[1.0] is invalid",
-        "data": [
-          1
-        ],
-        "valid": false,
-        "id": "f8b1b069fd03b04f07f5b70786cb916c"
-      }
-    ]
-  },
-  {
-    "description": "enum with 0 does not match false",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        0
-      ]
-    },
-    "tests": [
-      {
-        "description": "false is invalid",
-        "data": false,
-        "valid": false,
-        "id": "5cedc4948cc5d6744fa620039487ac15"
-      },
-      {
-        "description": "integer zero is valid",
-        "data": 0,
-        "valid": true,
-        "id": "133e04205807df77ac09e730c237aba4"
-      },
-      {
-        "description": "float zero is valid",
-        "data": 0,
-        "valid": true,
-        "id": "133e04205807df77ac09e730c237aba4"
-      }
-    ]
-  },
-  {
-    "description": "enum with [0] does not match [false]",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        [
-          0
+    {
+        "description": "heterogeneous enum-with-null validation",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [6, null]
+        },
+        "tests": [
+            {
+                "description": "null is valid",
+                "data": null,
+                "valid": true,
+                "id": "326f454f3db2a5fb76d797b43c812285"
+            },
+            {
+                "description": "number is valid",
+                "data": 6,
+                "valid": true,
+                "id": "9884c0daef3095b4ff88c309bc87a620"
+            },
+            {
+                "description": "something else is invalid",
+                "data": "test",
+                "valid": false,
+                "id": "4032c1754a28b94e914f8dfea1e12a26"
+            }
         ]
-      ]
     },
-    "tests": [
-      {
-        "description": "[false] is invalid",
-        "data": [
-          false
-        ],
-        "valid": false,
-        "id": "e6da8d988a7c265913e24eaed91af3de"
-      },
-      {
-        "description": "[0] is valid",
-        "data": [
-          0
-        ],
-        "valid": true,
-        "id": "10ba58a9539f8558892d28d2f5e3493d"
-      },
-      {
-        "description": "[0.0] is valid",
-        "data": [
-          0
-        ],
-        "valid": true,
-        "id": "10ba58a9539f8558892d28d2f5e3493d"
-      }
-    ]
-  },
-  {
-    "description": "enum with 1 does not match true",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        1
-      ]
-    },
-    "tests": [
-      {
-        "description": "true is invalid",
-        "data": true,
-        "valid": false,
-        "id": "a8356b24823e955bc3895c25b9e442eb"
-      },
-      {
-        "description": "integer one is valid",
-        "data": 1,
-        "valid": true,
-        "id": "603d6607a05072c21bcbff4578494e22"
-      },
-      {
-        "description": "float one is valid",
-        "data": 1,
-        "valid": true,
-        "id": "603d6607a05072c21bcbff4578494e22"
-      }
-    ]
-  },
-  {
-    "description": "enum with [1] does not match [true]",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        [
-          1
+    {
+        "description": "enums in properties",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type":"object",
+            "properties": {
+                "foo": {"enum":["foo"]},
+                "bar": {"enum":["bar"]}
+            },
+            "required": ["bar"]
+        },
+        "tests": [
+            {
+                "description": "both properties are valid",
+                "data": {"foo":"foo", "bar":"bar"},
+                "valid": true,
+                "id": "dba127f9663272184ec3ea3072676b4d"
+            },
+            {
+                "description": "wrong foo value",
+                "data": {"foo":"foot", "bar":"bar"},
+                "valid": false,
+                "id": "0f0cca9923128d29922561fe7d92a436"
+            },
+            {
+                "description": "wrong bar value",
+                "data": {"foo":"foo", "bar":"bart"},
+                "valid": false,
+                "id": "d32cef9094b8a87100a57cee099310d4"
+            },
+            {
+                "description": "missing optional property is valid",
+                "data": {"bar":"bar"},
+                "valid": true,
+                "id": "23a7c86ef0b1e3cac9ebb6175de888d0"
+            },
+            {
+                "description": "missing required property is invalid",
+                "data": {"foo":"foo"},
+                "valid": false,
+                "id": "61ac5943d52ba688c77e26a1a7b5d174"
+            },
+            {
+                "description": "missing all properties is invalid",
+                "data": {},
+                "valid": false,
+                "id": "8b7be28a144634955b915ad780f4f2a5"
+            }
         ]
-      ]
     },
-    "tests": [
-      {
-        "description": "[true] is invalid",
-        "data": [
-          true
-        ],
-        "valid": false,
-        "id": "732eec1f5b7fdf6d24c40d77072628e3"
-      },
-      {
-        "description": "[1] is valid",
-        "data": [
-          1
-        ],
-        "valid": true,
-        "id": "8064c0569b7c7a17631d0dc802090303"
-      },
-      {
-        "description": "[1.0] is valid",
-        "data": [
-          1
-        ],
-        "valid": true,
-        "id": "8064c0569b7c7a17631d0dc802090303"
-      }
-    ]
-  },
-  {
-    "description": "nul characters in strings",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "enum": [
-        "hello\u0000there"
-      ]
+    {
+        "description": "enum with escaped characters",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": ["foo\nbar", "foo\rbar"]
+        },
+        "tests": [
+            {
+                "description": "member 1 is valid",
+                "data": "foo\nbar",
+                "valid": true,
+                "id": "056ae2b9aad469dd32a63b1c97716c6e"
+            },
+            {
+                "description": "member 2 is valid",
+                "data": "foo\rbar",
+                "valid": true,
+                "id": "ade764a27bb0fed294cefb1b6b275cd5"
+            },
+            {
+                "description": "another string is invalid",
+                "data": "abc",
+                "valid": false,
+                "id": "1faca62e488e50dc47de0b3a26751477"
+            }
+        ]
     },
-    "tests": [
-      {
-        "description": "match string with nul",
-        "data": "hello\u0000there",
-        "valid": true,
-        "id": "d94ca2719908ab9c789d7c71e4cc93e4"
-      },
-      {
-        "description": "do not match string lacking nul",
-        "data": "hellothere",
-        "valid": false,
-        "id": "a2c7a2aa3202a473dc03b5a8fcc070e9"
-      }
-    ]
-  }
+    {
+        "description": "enum with false does not match 0",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [false]
+        },
+        "tests": [
+            {
+                "description": "false is valid",
+                "data": false,
+                "valid": true,
+                "id": "4e5b4da53732e4fdeaa5ed74127363bc"
+            },
+            {
+                "description": "integer zero is invalid",
+                "data": 0,
+                "valid": false,
+                "id": "24f12f5bf7ae6be32a9634be17835176"
+            },
+            {
+                "description": "float zero is invalid",
+                "data": 0.0,
+                "valid": false,
+                "id": "24f12f5bf7ae6be32a9634be17835176"
+            }
+        ]
+    },
+    {
+        "description": "enum with [false] does not match [0]",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [[false]]
+        },
+        "tests": [
+            {
+                "description": "[false] is valid",
+                "data": [false],
+                "valid": true,
+                "id": "9fe1fb5471d006782fe7ead4aa9909fa"
+            },
+            {
+                "description": "[0] is invalid",
+                "data": [0],
+                "valid": false,
+                "id": "8fc4591c8c9ddf9bd41a234d5fa24521"
+            },
+            {
+                "description": "[0.0] is invalid",
+                "data": [0.0],
+                "valid": false,
+                "id": "8fc4591c8c9ddf9bd41a234d5fa24521"
+            }
+        ]
+    },
+    {
+        "description": "enum with true does not match 1",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [true]
+        },
+        "tests": [
+            {
+                "description": "true is valid",
+                "data": true,
+                "valid": true,
+                "id": "71738e4d71680e268bbee31fc43a4932"
+            },
+            {
+                "description": "integer one is invalid",
+                "data": 1,
+                "valid": false,
+                "id": "e8901b103bcc1340391efd3e02420500"
+            },
+            {
+                "description": "float one is invalid",
+                "data": 1.0,
+                "valid": false,
+                "id": "e8901b103bcc1340391efd3e02420500"
+            }
+        ]
+    },
+    {
+        "description": "enum with [true] does not match [1]",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [[true]]
+        },
+        "tests": [
+            {
+                "description": "[true] is valid",
+                "data": [true],
+                "valid": true,
+                "id": "44049e91dee93b7dafd9cdbc0156a604"
+            },
+            {
+                "description": "[1] is invalid",
+                "data": [1],
+                "valid": false,
+                "id": "f8b1b069fd03b04f07f5b70786cb916c"
+            },
+            {
+                "description": "[1.0] is invalid",
+                "data": [1.0],
+                "valid": false,
+                "id": "f8b1b069fd03b04f07f5b70786cb916c"
+            }
+        ]
+    },
+    {
+        "description": "enum with 0 does not match false",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [0]
+        },
+        "tests": [
+            {
+                "description": "false is invalid",
+                "data": false,
+                "valid": false,
+                "id": "5cedc4948cc5d6744fa620039487ac15"
+            },
+            {
+                "description": "integer zero is valid",
+                "data": 0,
+                "valid": true,
+                "id": "133e04205807df77ac09e730c237aba4"
+            },
+            {
+                "description": "float zero is valid",
+                "data": 0.0,
+                "valid": true,
+                "id": "133e04205807df77ac09e730c237aba4"
+            }
+        ]
+    },
+    {
+        "description": "enum with [0] does not match [false]",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [[0]]
+        },
+        "tests": [
+            {
+                "description": "[false] is invalid",
+                "data": [false],
+                "valid": false,
+                "id": "e6da8d988a7c265913e24eaed91af3de"
+            },
+            {
+                "description": "[0] is valid",
+                "data": [0],
+                "valid": true,
+                "id": "10ba58a9539f8558892d28d2f5e3493d"
+            },
+            {
+                "description": "[0.0] is valid",
+                "data": [0.0],
+                "valid": true,
+                "id": "10ba58a9539f8558892d28d2f5e3493d"
+            }
+        ]
+    },
+    {
+        "description": "enum with 1 does not match true",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [1]
+        },
+        "tests": [
+            {
+                "description": "true is invalid",
+                "data": true,
+                "valid": false,
+                "id": "a8356b24823e955bc3895c25b9e442eb"
+            },
+            {
+                "description": "integer one is valid",
+                "data": 1,
+                "valid": true,
+                "id": "603d6607a05072c21bcbff4578494e22"
+            },
+            {
+                "description": "float one is valid",
+                "data": 1.0,
+                "valid": true,
+                "id": "603d6607a05072c21bcbff4578494e22"
+            }
+        ]
+    },
+    {
+        "description": "enum with [1] does not match [true]",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [[1]]
+        },
+        "tests": [
+            {
+                "description": "[true] is invalid",
+                "data": [true],
+                "valid": false,
+                "id": "732eec1f5b7fdf6d24c40d77072628e3"
+            },
+            {
+                "description": "[1] is valid",
+                "data": [1],
+                "valid": true,
+                "id": "8064c0569b7c7a17631d0dc802090303"
+            },
+            {
+                "description": "[1.0] is valid",
+                "data": [1.0],
+                "valid": true,
+                "id": "8064c0569b7c7a17631d0dc802090303"
+            }
+        ]
+    },
+    {
+        "description": "nul characters in strings",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "enum": [ "hello\u0000there" ]
+        },
+        "tests": [
+            {
+                "description": "match string with nul",
+                "data": "hello\u0000there",
+                "valid": true,
+                "id": "d94ca2719908ab9c789d7c71e4cc93e4"
+            },
+            {
+                "description": "do not match string lacking nul",
+                "data": "hellothere",
+                "valid": false,
+                "id": "a2c7a2aa3202a473dc03b5a8fcc070e9"
+            }
+        ]
+    }
 ]
