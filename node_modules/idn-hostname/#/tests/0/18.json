@@ -1,5 +1,0 @@
-{
-    "description": "contains illegal char U+302E Hangul single dot tone mark",
-    "data": "실〮례.테스트",
-    "valid": false
-}

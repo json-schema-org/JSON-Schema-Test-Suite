@@ -1,5 +1,0 @@
-{
-    "description": "BiDi rules not affecting label that does not contain RTL chars",
-    "data": "1host",
-    "valid": true
-}

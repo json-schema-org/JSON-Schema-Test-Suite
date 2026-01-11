@@ -1,5 +1,0 @@
-{
-    "description": "Bidi Rule 6 — fail: starts L and ends with ET (not L or EN)",
-    "data": "g%",
-    "valid": false
-}

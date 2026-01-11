@@ -1,4 +1,0 @@
-{
-    "description": "An internationalized hostname as defined by RFC5890, RFC5891, RFC5892, RFC5893, RFC3492 and UTS#46",
-    "$ref": "#/#/#/#/idn-hostname"
-}
