@@ -1,5 +1,0 @@
-{
-    "description": "Bidi Rule 2 — fail: starts AL but contains L (disallowed)",
-    "data": "اG",
-    "valid": false
-}

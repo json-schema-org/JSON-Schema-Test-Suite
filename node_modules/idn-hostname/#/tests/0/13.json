@@ -1,5 +1,0 @@
-{
-    "description": "invalid hostname with leading dot",
-    "data": ".example.com",
-    "valid": false
-}

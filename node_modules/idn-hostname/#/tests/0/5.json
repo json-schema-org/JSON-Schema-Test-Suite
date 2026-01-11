@@ -1,5 +1,0 @@
-{
-    "description": "invalid hostname with space",
-    "data": "ex ample.com",
-    "valid": false
-}

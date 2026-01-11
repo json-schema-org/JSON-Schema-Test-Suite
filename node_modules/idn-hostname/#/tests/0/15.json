@@ -1,5 +1,0 @@
-{
-    "description": "valid hostname with single segment (no TLD)",
-    "data": "localhost",
-    "valid": true
-}

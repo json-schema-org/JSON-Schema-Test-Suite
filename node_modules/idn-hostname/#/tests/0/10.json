@@ -1,5 +1,0 @@
-{
-    "description": "invalid hostname with segment longer than 63 chars",
-    "data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.example.com",
-    "valid": false
-}

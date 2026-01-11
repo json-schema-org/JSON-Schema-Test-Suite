@@ -1,6 +1,0 @@
-{
-    "description": "Begins with an Enclosing Mark",
-    "comment": "https://tools.ietf.org/html/rfc5891#section-4.2.3.2",
-    "data": "҈hello",
-    "valid": false
-}
