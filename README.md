@@ -283,6 +283,7 @@ This suite is being used by:
 ### Kotlin
 
 * [json-schema-validation-comparison](https://www.creekservice.org/json-schema-validation-comparison/functional) (Comparison site for JVM-based validator implementations)
+* [kotlinx-schema](https://github.com/Kotlin/kotlinx-schema)
 
 ### Node.js
 
