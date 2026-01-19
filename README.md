@@ -285,6 +285,10 @@ This suite is being used by:
 * [json-schema-validation-comparison](https://www.creekservice.org/json-schema-validation-comparison/functional) (Comparison site for JVM-based validator implementations)
 * [kotlinx-schema](https://github.com/Kotlin/kotlinx-schema)
 
+### Lua
+
+* [lua-schema](https://framagit.org/fperrad/lua-schema)
+
 ### Node.js
 
 For node.js developers, the suite is also available as an [npm](https://www.npmjs.com/package/@json-schema-org/tests) package.
