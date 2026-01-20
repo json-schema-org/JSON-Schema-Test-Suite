@@ -48,6 +48,42 @@
         ]
     },
     {
+        "description": "by fractional number above 1",
+        "schema": {"multipleOf": 1.1},
+        "tests": [
+            {"description": "zero is multiple of anything", "data": 0, "valid": true},
+            {"description": "1.1 is multiple of itself", "data": 1.1, "valid": true},
+            {"description": "3.3 is multiple of 1.1", "data": 3.3, "valid": true},
+            {"description": "6.6 is multiple of 1.1", "data": 6.6, "valid": true},
+            {"description": "7.7 is multiple of 1.1", "data": 7.7, "valid": true},
+            {"description": "1.2 is not multiple of 1.1", "data": 1.2, "valid": false}
+        ]
+    },
+    {
+        "description": "by number below 1",
+        "schema": {"multipleOf": 0.1},
+        "tests": [
+            {"description": "zero is multiple of anything", "data": 0, "valid": true},
+            {"description": "0.1 is multiple of itself", "data": 0.1, "valid": true},
+            {"description": "0.3 is multiple of 0.1", "data": 0.3, "valid": true},
+            {"description": "0.6 is multiple of 0.1", "data": 0.6, "valid": true},
+            {"description": "0.7 is multiple of 0.1", "data": 0.7, "valid": true},
+            {"description": "0.35 is not multiple of 0.1", "data": 0.35, "valid": false}
+        ]
+    },
+    {
+        "description": "by another number below 1",
+        "schema": {"multipleOf": 0.01},
+        "tests": [
+            {"description": "zero is multiple of anything", "data": 0, "valid": true},
+            {"description": "0.01 is multiple of itself", "data": 0.01, "valid": true},
+            {"description": "0.03 is multiple of 0.01", "data": 0.03, "valid": true},
+            {"description": "0.06 is multiple of 0.01", "data": 0.06, "valid": true},
+            {"description": "0.07 is multiple of 0.01", "data": 0.07, "valid": true},
+            {"description": "0.035 is not multiple of 0.01", "data": 0.035, "valid": false}
+        ]
+    },
+    {
         "description": "by small number",
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
