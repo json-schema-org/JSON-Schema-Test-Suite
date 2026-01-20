@@ -1,0 +1,81 @@
+[
+    {
+        "description": "validation of host names",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "format": "hostname"
+        },
+        "tests": [
+            {
+                "description": "all string formats ignore integers",
+                "data": 12,
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore floats",
+                "data": 13.7,
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore objects",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore arrays",
+                "data": [],
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore booleans",
+                "data": false,
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore nulls",
+                "data": null,
+                "valid": true
+            },
+            {
+                "description": "a valid host name",
+                "data": "www.example.com",
+                "valid": true
+            },
+            {
+                "description": "a valid punycoded IDN hostname",
+                "data": "xn--4gbwdl.xn--wgbh1c",
+                "valid": true
+            },
+            {
+                "description": "maximum label length",
+                "data": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk.com",
+                "valid": true
+            },
+            {
+                "description": "single label",
+                "data": "hostname",
+                "valid": true
+            },
+            {
+                "description": "single label with hyphen",
+                "data": "host-name",
+                "valid": true
+            },
+            {
+                "description": "single label with digits",
+                "data": "h0stn4me",
+                "valid": true
+            },
+            {
+                "description": "single label starting with digit",
+                "data": "1host",
+                "valid": true
+            },
+            {
+                "description": "single label ending with digit",
+                "data": "hostnam3",
+                "valid": true
+            }
+        ]
+    }
+]
