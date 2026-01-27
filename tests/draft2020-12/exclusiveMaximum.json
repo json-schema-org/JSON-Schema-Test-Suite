@@ -27,5 +27,83 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "exclusiveMaximum validation with signed integer",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "exclusiveMaximum": -1
+        },
+        "tests": [
+            {
+                "description": "negative below the exclusiveMaximum is valid",
+                "data": -2,
+                "valid": true
+            },
+            {
+                "description": "boundary point is invalid",
+                "data": -1,
+                "valid": false
+            },
+            {
+                "description": "boundary point with float is invalid",
+                "data": -1.0,
+                "valid": false
+            },
+            {
+                "description": "float above the exclusiveMaximum is invalid",
+                "data": -0.9999,
+                "valid": false
+            },
+            {
+                "description": "positive int above the exclusiveMaximum is invalid",
+                "data": 0,
+                "valid": false
+            },
+            {
+                "description": "ignores non-numbers",
+                "data": "x",
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "exclusiveMaximum with zero",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "exclusiveMaximum": 0
+        },
+        "tests": [
+            {
+                "description": "negative number is valid",
+                "data": -0.1,
+                "valid": true
+            },
+            {
+                "description": "negative integer is valid",
+                "data": -1,
+                "valid": true
+            },
+            {
+                "description": "zero integer is invalid",
+                "data": 0,
+                "valid": false
+            },
+            {
+                "description": "zero float is invalid",
+                "data": 0.0,
+                "valid": false
+            },
+            {
+                "description": "positive number is invalid",
+                "data": 1,
+                "valid": false
+            },
+            {
+                "description": "positive float is invalid",
+                "data": 0.001,
+                "valid": false
+            }
+        ]
     }
 ]

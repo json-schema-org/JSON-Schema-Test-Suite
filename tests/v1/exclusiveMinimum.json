@@ -27,5 +27,88 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "exclusiveMinimum validation with signed integer",
+        "schema": {
+            "$schema": "https://json-schema.org/v1",
+            "exclusiveMinimum": -2
+        },
+        "tests": [
+            {
+                "description": "negative above the exclusiveMinimum is valid",
+                "data": -1,
+                "valid": true
+            },
+            {
+                "description": "positive above the exclusiveMinimum is valid",
+                "data": 0,
+                "valid": true
+            },
+            {
+                "description": "boundary point is invalid",
+                "data": -2,
+                "valid": false
+            },
+            {
+                "description": "boundary point with float is invalid",
+                "data": -2.0,
+                "valid": false
+            },
+            {
+                "description": "float below the exclusiveMinimum is invalid",
+                "data": -2.0001,
+                "valid": false
+            },
+            {
+                "description": "int below the exclusiveMinimum is invalid",
+                "data": -3,
+                "valid": false
+            },
+            {
+                "description": "ignores non-numbers",
+                "data": "x",
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "exclusiveMinimum with zero",
+        "schema": {
+            "$schema": "https://json-schema.org/v1",
+            "exclusiveMinimum": 0
+        },
+        "tests": [
+            {
+                "description": "positive number is valid",
+                "data": 0.1,
+                "valid": true
+            },
+            {
+                "description": "positive integer is valid",
+                "data": 1,
+                "valid": true
+            },
+            {
+                "description": "zero integer is invalid",
+                "data": 0,
+                "valid": false
+            },
+            {
+                "description": "zero float is invalid",
+                "data": 0.0,
+                "valid": false
+            },
+            {
+                "description": "negative number is invalid",
+                "data": -1,
+                "valid": false
+            },
+            {
+                "description": "negative float is invalid",
+                "data": -0.001,
+                "valid": false
+            }
+        ]
     }
 ]
