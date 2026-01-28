@@ -51,5 +51,24 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "minLength validation with value 1",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "minLength": 1
+        },
+        "tests": [
+            {
+                "description": "empty string is invalid",
+                "data": "",
+                "valid": false
+            },
+            {
+                "description": "string with one character is valid",
+                "data": "a",
+                "valid": true
+            }
+        ]
     }
 ]
