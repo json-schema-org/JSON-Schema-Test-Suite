@@ -33,6 +33,11 @@
                 "description": "ignores other non-objects",
                 "data": 12,
                 "valid": true
+            },
+            {
+                "description": "null is valid",
+                "data": null,
+                "valid": true
             }
         ]
     },
