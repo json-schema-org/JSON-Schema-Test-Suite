@@ -36,8 +36,13 @@
                 "valid": true
             },
             {
-                "description": "null is valid",
+                "description": "ignores null",
                 "data": null,
+                "valid": true
+            },
+            {
+                "description": "ignores boolean",
+                "data": true,
                 "valid": true
             }
         ]
