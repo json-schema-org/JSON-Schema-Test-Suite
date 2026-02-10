@@ -214,6 +214,7 @@ This suite is being used by:
 
 * [jinx](https://github.com/juxt/jinx)
 * [json-schema](https://github.com/tatut/json-schema)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Kotlin, Scala, and JavaScript)
 
 ### Coffeescript
 
@@ -261,6 +262,7 @@ This suite is being used by:
 * [Snow](https://github.com/ssilverman/snowy-json)
 * [jsonschemafriend](https://github.com/jimblackler/jsonschemafriend)
 * [OpenAPI JSON Schema Generator](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Kotlin, Scala, and JavaScript)
 
 ### JavaScript
 
@@ -279,11 +281,13 @@ This suite is being used by:
 * [jsen](https://github.com/bugventure/jsen)
 * [ajv](https://github.com/epoberezkin/ajv)
 * [djv](https://github.com/korzio/djv)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Kotlin, and Scala)
 
 ### Kotlin
 
 * [json-schema-validation-comparison](https://www.creekservice.org/json-schema-validation-comparison/functional) (Comparison site for JVM-based validator implementations)
 * [kotlinx-schema](https://github.com/Kotlin/kotlinx-schema)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Scala, and JavaScript)
 
 ### Lua
 
@@ -338,6 +342,7 @@ Node-specific support is maintained in a [separate repository](https://github.co
 ### Scala
 
 * [json-schema-validation-comparison](https://www.creekservice.org/json-schema-validation-comparison/functional) (Comparison site for JVM-based validator implementations)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Kotlin, and JavaScript)
 
 ### Swift
 
