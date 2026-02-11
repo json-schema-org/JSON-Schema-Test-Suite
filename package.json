@@ -1,6 +1,7 @@
 {
   "name": "json-schema-test-suite",
   "version": "0.1.0",
+  "type": "module",
   "description": "A language agnostic test suite for the JSON Schema specifications",
   "repository": "github:json-schema-org/JSON-Schema-Test-Suite",
   "keywords": [
@@ -8,5 +9,16 @@
     "tests"
   ],
   "author": "http://json-schema.org",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@hyperjump/browser": "^1.3.1",
+    "@hyperjump/json-pointer": "^1.1.1",
+    "@hyperjump/json-schema": "^1.17.2",
+    "@hyperjump/pact": "^1.4.0",
+    "@hyperjump/uri": "^1.3.2",
+    "json-stringify-deterministic": "^1.0.12"
+  },
+  "devDependencies": {
+    "jsonc-parser": "^3.3.1"
+  }
 }
