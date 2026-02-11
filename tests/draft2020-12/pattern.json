@@ -61,5 +61,29 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "unicode literal in pattern",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "pattern": "^π$"
+        },
+        "tests": [
+            {
+                "description": "matches single unicode character",
+                "data": "π",
+                "valid": true
+            },
+            {
+                "description": "ASCII character does not match",
+                "data": "p",
+                "valid": false
+            },
+            {
+                "description": "multiple unicode characters do not match",
+                "data": "ππ",
+                "valid": false
+            }
+        ]
     }
 ]
