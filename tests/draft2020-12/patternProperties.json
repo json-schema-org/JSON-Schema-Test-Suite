@@ -172,5 +172,33 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "unicode literal in patternProperties",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "patternProperties": {
+                "^π": { "type": "number" }
+            },
+            "additionalProperties": true
+        },
+        "tests": [
+            {
+                "description": "property name starting with unicode character matches",
+                "data": { "πValue": 3 },
+                "valid": true
+            },
+            {
+                "description": "matching property name with wrong type is invalid",
+                "data": { "πValue": "three" },
+                "valid": false
+            },
+            {
+                "description": "non-matching property name is ignored",
+                "data": { "pValue": "three" },
+                "valid": true
+            }
+        ]
     }
 ]
