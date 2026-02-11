@@ -97,6 +97,21 @@
                 "valid": false
             },
             {
+                "description": "an invalid hour in date-time string",
+                "data": "1990-12-31T24:00:00Z",
+                "valid": false
+            },
+            {
+                "description": "an invalid minute in date-time string",
+                "data": "1990-12-31T15:60:00Z",
+                "valid": false
+            },
+            {
+                "description": "an invalid offset minute in date-time string",
+                "data": "1990-12-31T10:00:00+10:60",
+                "valid": false
+            },
+            {
                 "description": "an invalid date-time string",
                 "data": "06/19/1963 08:30:06 PST",
                 "valid": false
