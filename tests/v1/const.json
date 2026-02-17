@@ -12,31 +12,16 @@
         "tests": [
             {
                 "description": "same value is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": 2,
                 "valid": true
             },
             {
                 "description": "another value is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": 5,
                 "valid": false
             },
             {
                 "description": "another type is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": "a",
                 "valid": false
             }
@@ -55,41 +40,21 @@
         "tests": [
             {
                 "description": "same object is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {"foo": "bar", "baz": "bax"},
                 "valid": true
             },
             {
                 "description": "same object with different property order is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {"baz": "bax", "foo": "bar"},
                 "valid": true
             },
             {
                 "description": "another object is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {"foo": "bar"},
                 "valid": false
             },
             {
                 "description": "another type is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [1, 2],
                 "valid": false
             }
@@ -108,31 +73,16 @@
         "tests": [
             {
                 "description": "same array is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [{"foo": "bar"}],
                 "valid": true
             },
             {
                 "description": "another array item is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [2],
                 "valid": false
             },
             {
                 "description": "array with additional items is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [1, 2, 3],
                 "valid": false
             }
@@ -151,21 +101,11 @@
         "tests": [
             {
                 "description": "null is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": null,
                 "valid": true
             },
             {
                 "description": "not null is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": 0,
                 "valid": false
             }
@@ -184,31 +124,16 @@
         "tests": [
             {
                 "description": "false is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": false,
                 "valid": true
             },
             {
                 "description": "integer zero is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": 0,
                 "valid": false
             },
             {
                 "description": "float zero is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": 0.0,
                 "valid": false
             }
@@ -227,31 +152,16 @@
         "tests": [
             {
                 "description": "true is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": true,
                 "valid": true
             },
             {
                 "description": "integer one is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": 1,
                 "valid": false
             },
             {
                 "description": "float one is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": 1.0,
                 "valid": false
             }
@@ -270,31 +180,16 @@
         "tests": [
             {
                 "description": "[false] is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [false],
                 "valid": true
             },
             {
                 "description": "[0] is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [0],
                 "valid": false
             },
             {
                 "description": "[0.0] is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [0.0],
                 "valid": false
             }
@@ -313,31 +208,16 @@
         "tests": [
             {
                 "description": "[true] is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [true],
                 "valid": true
             },
             {
                 "description": "[1] is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [1],
                 "valid": false
             },
             {
                 "description": "[1.0] is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [1.0],
                 "valid": false
             }
@@ -356,31 +236,16 @@
         "tests": [
             {
                 "description": "{\"a\": false} is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {"a": false},
                 "valid": true
             },
             {
                 "description": "{\"a\": 0} is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {"a": 0},
                 "valid": false
             },
             {
                 "description": "{\"a\": 0.0} is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {"a": 0.0},
                 "valid": false
             }
@@ -399,31 +264,16 @@
         "tests": [
             {
                 "description": "{\"a\": true} is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {"a": true},
                 "valid": true
             },
             {
                 "description": "{\"a\": 1} is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {"a": 1},
                 "valid": false
             },
             {
                 "description": "{\"a\": 1.0} is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {"a": 1.0},
                 "valid": false
             }
@@ -442,61 +292,31 @@
         "tests": [
             {
                 "description": "false is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": false,
                 "valid": false
             },
             {
                 "description": "integer zero is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": 0,
                 "valid": true
             },
             {
                 "description": "float zero is valid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": 0.0,
                 "valid": true
             },
             {
                 "description": "empty object is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": {},
                 "valid": false
             },
             {
                 "description": "empty array is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": [],
                 "valid": false
             },
             {
                 "description": "empty string is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": "",
                 "valid": false
             }
@@ -515,36 +335,24 @@
         "tests": [
             {
                 "description": "true is invalid",
-                "compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
                 "data": true,
                 "valid": false
             },
             {
-                "description": "integer one is valid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "integer one is valid",
                 "data": 1,
                 "valid": true
             },
             {
-                "description": "float one is valid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "float one is valid",
                 "data": 1.0,
                 "valid": true
             }
         ]
     },
     {
-        "description": "const with -2.0 matches integer and float types","compatibility": [
+        "description": "const with -2.0 matches integer and float types",
+        "compatibility": [
             "draft6",
             "draft7",
             "draft2019-09",
@@ -554,54 +362,35 @@
         },
         "tests": [
             {
-                "description": "integer -2 is valid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "integer -2 is valid",
                 "data": -2,
                 "valid": true
             },
             {
-                "description": "integer 2 is invalid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "integer 2 is invalid",
                 "data": 2,
                 "valid": false
             },
             {
-                "description": "float -2.0 is valid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "float -2.0 is valid",
                 "data": -2.0,
                 "valid": true
             },
             {
-                "description": "float 2.0 is invalid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "float 2.0 is invalid",
                 "data": 2.0,
                 "valid": false
             },
             {
-                "description": "float -2.00001 is invalid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "float -2.00001 is invalid",
                 "data": -2.00001,
                 "valid": false
             }
         ]
     },
     {
-        "description": "float and integers are equal up to 64-bit representation limits","compatibility": [
+        "description": "float and integers are equal up to 64-bit representation limits",
+        "compatibility": [
             "draft6",
             "draft7",
             "draft2019-09",
@@ -611,45 +400,30 @@
         },
         "tests": [
             {
-                "description": "integer is valid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "integer is valid",
                 "data": 9007199254740992,
                 "valid": true
             },
             {
-                "description": "integer minus one is invalid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "integer minus one is invalid",
                 "data": 9007199254740991,
                 "valid": false
             },
             {
-                "description": "float is valid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "float is valid",
                 "data": 9007199254740992.0,
                 "valid": true
             },
             {
-                "description": "float minus one is invalid","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "float minus one is invalid",
                 "data": 9007199254740991.0,
                 "valid": false
             }
         ]
     },
     {
-        "description": "nul characters in strings","compatibility": [
+        "description": "nul characters in strings",
+        "compatibility": [
             "draft6",
             "draft7",
             "draft2019-09",
@@ -659,27 +433,20 @@
         },
         "tests": [
             {
-                "description": "match string with nul","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "match string with nul",
                 "data": "hello\u0000there",
                 "valid": true
             },
             {
-                "description": "do not match string lacking nul","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "do not match string lacking nul",
                 "data": "hellothere",
                 "valid": false
             }
         ]
     },
     {
-        "description": "characters with the same visual representation but different codepoint","compatibility": [
+        "description": "characters with the same visual representation but different codepoint",
+        "compatibility": [
             "draft6",
             "draft7",
             "draft2019-09",
@@ -690,21 +457,13 @@
         },
         "tests": [
             {
-                "description": "character uses the same codepoint","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "character uses the same codepoint",
                 "data": "μ",
                 "comment": "U+03BC",
                 "valid": true
             },
             {
-                "description": "character looks the same but uses a different codepoint","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "character looks the same but uses a different codepoint",
                 "data": "µ",
                 "comment": "U+00B5",
                 "valid": false
@@ -724,21 +483,13 @@
         },
         "tests": [
             {
-                "description": "character uses the same codepoint","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "character uses the same codepoint",
                 "data": "ä",
                 "comment": "U+00E4",
                 "valid": true
             },
             {
-                "description": "character looks the same but uses combining marks","compatibility": [
-            "draft6",
-            "draft7",
-            "draft2019-09",
-            "draft2020-12"],
+                "description": "character looks the same but uses combining marks",
                 "data": "ä",
                 "comment": "a, U+0308",
                 "valid": false
