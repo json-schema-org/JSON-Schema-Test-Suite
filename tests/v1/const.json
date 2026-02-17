@@ -1,4 +1,4 @@
-[
+{ "tests":[
     {
         "description": "const validation",
         "compatibility": [
@@ -746,3 +746,4 @@
         ]
     }
 ]
+}
