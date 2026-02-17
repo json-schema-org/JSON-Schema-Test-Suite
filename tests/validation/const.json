@@ -7,7 +7,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": 2
         },
         "tests": [
@@ -51,7 +50,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": {"foo": "bar", "baz": "bax"}
         },
         "tests": [
@@ -105,7 +103,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": [{ "foo": "bar" }]
         },
         "tests": [
@@ -149,7 +146,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": null
         },
         "tests": [
@@ -183,7 +179,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": false
         },
         "tests": [
@@ -227,7 +222,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": true
         },
         "tests": [
@@ -271,7 +265,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": [false]
         },
         "tests": [
@@ -315,7 +308,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": [true]
         },
         "tests": [
@@ -359,7 +351,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": {"a": false}
         },
         "tests": [
@@ -403,7 +394,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": {"a": true}
         },
         "tests": [
@@ -447,7 +437,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": 0
         },
         "tests": [
@@ -521,7 +510,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": 1
         },
         "tests": [
@@ -562,7 +550,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": -2.0
         },
         "tests": [
@@ -620,7 +607,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": 9007199254740992
         },
         "tests": [
@@ -669,7 +655,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": "hello\u0000there"
         },
         "tests": [
@@ -700,7 +685,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": "μ",
             "$comment": "U+03BC"
         },
@@ -735,7 +719,6 @@
             "draft2019-09",
             "draft2020-12"],
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "const": "ä",
             "$comment": "U+00E4"
         },
