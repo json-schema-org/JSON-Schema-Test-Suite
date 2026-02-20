@@ -149,6 +149,11 @@
                 "description": "null is not a string",
                 "data": null,
                 "valid": false
+            },
+            {
+            "description": "string containing only a space",
+            "data": " ",
+            "valid": true
             }
         ]
     },
