@@ -80,24 +80,6 @@
                 "description": "invalid backslash character",
                 "data": "https://example.org/foobar\\.txt",
                 "valid": false
-            },
-            {
-                "description": "URI Reference: IPv4 with leading zero in last octet invalid",
-                "comment": "RFC 3986, Section 3.2.2: IPv4address = dec-octet \".\" dec-octet... where dec-octet forbids leading zeros to prevent octal parsing.",
-                "data": "http://192.168.0.01/",
-                "valid": false
-            },
-            {
-                "description": "URI Reference: IPv4 with leading zero in first octet invalid",
-                "comment": "RFC 3986, Section 3.2.2: dec-octet = DIGIT / %x31-39 DIGIT...",
-                "data": "http://01.1.1.1/",
-                "valid": false
-            },
-            {
-                "description": "URI Reference containing valid strict IPv4",
-                "comment": "RFC 3986, Section 3.2.2: strictly formatted IPv4 literal in host component",
-                "data": "http://192.168.0.1/",
-                "valid": true
             }
         ]
     }

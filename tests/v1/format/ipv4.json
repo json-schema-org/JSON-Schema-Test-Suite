@@ -86,6 +86,126 @@
                 "description": "netmask is not a part of ipv4 address",
                 "data": "192.168.1.0/24",
                 "valid": false
+            },
+            {
+                "description": "leading zero in last octet is invalid in v1 (anti-octal)",
+                "comment": "JSON Schema v1 moves to strict anti-octal rules (like RFC 3986 dec-octet) to prevent vulnerabilities like CVE-2021-28918.",
+                "data": "192.168.0.01",
+                "valid": false
+            },
+            {
+                "description": "leading whitespace is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte",
+                "data": " 192.168.0.1",
+                "valid": false
+            },
+            {
+                "description": "trailing whitespace is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte",
+                "data": "192.168.0.1 ",
+                "valid": false
+            },
+            {
+                "description": "trailing newline is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte",
+                "data": "192.168.0.1\n",
+                "valid": false
+            },
+            {
+                "description": "hexadecimal notation is invalid",
+                "comment": "RFC 2673, Section 3.2: decbyte = 1*3DIGIT (requires DIGIT, forbids alpha/hex)",
+                "data": "0x7f.0.0.1",
+                "valid": false
+            },
+            {
+                "description": "octal notation explicit is invalid",
+                "comment": "RFC 2673, Section 3.2: decbyte = 1*3DIGIT (requires DIGIT, forbids alpha)",
+                "data": "0o10.0.0.1",
+                "valid": false
+            },
+            {
+                "description": "empty part (double dot) is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte",
+                "data": "192.168..1",
+                "valid": false
+            },
+            {
+                "description": "leading dot is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte",
+                "data": ".192.168.0.1",
+                "valid": false
+            },
+            {
+                "description": "trailing dot is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte",
+                "data": "192.168.0.1.",
+                "valid": false
+            },
+            {
+                "description": "minimum valid IPv4 address",
+                "comment": "RFC 2673, Section 3.2: decbyte = 1*3DIGIT",
+                "data": "0.0.0.0",
+                "valid": true
+            },
+            {
+                "description": "maximum valid IPv4 address",
+                "comment": "RFC 2673, Section 3.2: decbyte = 1*3DIGIT",
+                "data": "255.255.255.255",
+                "valid": true
+            },
+            {
+                "description": "empty string is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad requires 4 decbytes",
+                "data": "",
+                "valid": false
+            },
+            {
+                "description": "plus sign is invalid",
+                "comment": "RFC 2673, Section 3.2: decbyte = 1*3DIGIT (forbids symbols)",
+                "data": "+1.2.3.4",
+                "valid": false
+            },
+            {
+                "description": "negative sign is invalid",
+                "comment": "RFC 2673, Section 3.2: decbyte = 1*3DIGIT (forbids symbols)",
+                "data": "-1.2.3.4",
+                "valid": false
+            },
+            {
+                "description": "exponential notation is invalid",
+                "comment": "RFC 2673, Section 3.2: decbyte = 1*3DIGIT (forbids alpha)",
+                "data": "1e2.0.0.1",
+                "valid": false
+            },
+            {
+                "description": "alpha characters are invalid",
+                "comment": "RFC 2673, Section 3.2: decbyte = 1*3DIGIT (forbids alpha)",
+                "data": "192.168.a.1",
+                "valid": false
+            },
+            {
+                "description": "internal whitespace is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte",
+                "data": "192. 168.0.1",
+                "valid": false
+            },
+            {
+                "description": "tab character is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte",
+                "data": "192.168.0.1\t",
+                "valid": false
+            },
+            {
+                "description": "with port number is invalid",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte",
+                "data": "192.168.0.1:80",
+                "valid": false
+            },
+            {
+                "description": "single octet out of range in last position",
+                "comment": "RFC 2673 limits the semantic value of decbyte to 255.",
+                "data": "192.168.0.256",
+                "valid": false
             }
         ]
     }
