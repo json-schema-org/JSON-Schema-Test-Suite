@@ -51,5 +51,25 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "maxLength with combining character sequences",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "maxLength": 1
+        },
+        "tests": [
+            {
+                "description": "latin small letter e with combining acute accent",
+                "data": "e\u0301",
+                "valid": false
+            },
+            {
+                "description": "single basic character",
+                "data": "a",
+                "valid": true
+            }
+        ]
     }
+
 ]
