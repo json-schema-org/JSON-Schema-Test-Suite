@@ -61,5 +61,49 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "pattern with literal Unicode characters (draft 2020-12)",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "pattern": "^λ+$"
+        },
+        "tests": [
+            {
+                "description": "matching repeated Greek letter",
+                "data": "λλλ",
+                "valid": true
+            },
+            {
+                "description": "non-matching mixed characters",
+                "data": "λaλ",
+                "valid": false
+            },
+            {
+                "description": "matching single literal",
+                "data": "λ",
+                "valid": true
+            }
+        ]
+    },
+    {
+        "description": "pattern with literal emoji character",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "pattern": "^😊$"
+        },
+        "tests": [
+            {
+                "description": "exact emoji match",
+                "data": "😊",
+                "valid": true
+            },
+            {
+                "description": "emoji plus extra character fails",
+                "data": "😊a",
+                "valid": false
+            }
+        ]
     }
+
 ]

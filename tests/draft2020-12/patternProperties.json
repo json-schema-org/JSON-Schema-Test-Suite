@@ -172,5 +172,32 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "patternProperties with literal Unicode key patterns (draft 2020-12)",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "patternProperties": {
+                "^λ+$": { "type": "number" }
+            }
+        },
+        "tests": [
+            {
+                "description": "matching Unicode property name",
+                "data": { "λλ": 1 },
+                "valid": true
+            },
+            {
+                "description": "non-matching property name ignored",
+                "data": { "aa": 1 },
+                "valid": true
+            },
+            {
+                "description": "matching property name with invalid type",
+                "data": { "λλ": "not number" },
+                "valid": false
+            }
+        ]
     }
+
 ]
