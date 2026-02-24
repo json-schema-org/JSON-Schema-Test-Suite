@@ -86,6 +86,26 @@
                 "description": "netmask is not a part of ipv4 address",
                 "data": "192.168.1.0/24",
                 "valid": false
+            },
+            {
+                "description": "ipv4 with three octets",
+                "data": "1.2.3",
+                "valid": false
+            },
+            {
+                "description": "ipv4 with negative octet",
+                "data": "1.2.3.-1",
+                "valid": false
+            },
+            {
+                "description": "ipv4 with trailing dot",
+                "data": "1.2.3.4.",
+                "valid": false
+            },
+            {
+                "description": "ipv4 with internal whitespace",
+                "data": "1.2.3. 4",
+                "valid": false
             }
         ]
     }
