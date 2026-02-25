@@ -97,6 +97,26 @@
                 "valid": false
             },
             {
+                "description": "too long",
+                "data": "2eb8aa08-aa98-11ea-b4aa-73b441d163800",
+                "valid": false
+            },
+            {
+                "description": "first segment too short",
+                "data": "2eb8aa0-aa98-11ea-b4aa-73b441d16380",
+                "valid": false
+            },
+            {
+                "description": "second segment too long",
+                "data": "2eb8aa08-aa980-11ea-b4aa-73b441d16380",
+                "valid": false
+            },
+            {
+                "description": "extra hyphen",
+                "data": "2eb8aa08--aa98-11ea-b4aa-73b441d16380",
+                "valid": false
+            },
+            {
                 "description": "valid version 4",
                 "data": "98d80576-482e-427f-8434-7f86890ab222",
                 "valid": true
