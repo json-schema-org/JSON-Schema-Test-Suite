@@ -67,10 +67,10 @@
                 "valid": false
             },
             {
-                "description": "invalid leading zeroes, as they are treated as octals",
-                "comment": "see https://sick.codes/universal-netmask-npm-package-used-by-270000-projects-vulnerable-to-octal-input-data-server-side-request-forgery-remote-file-inclusion-local-file-inclusion-and-more-cve-2021-28918/",
+                "description": "leading zeroes are valid under RFC 2673",
+                "comment": "Pending formal spec changes, strict anti-octal checks (CVE-2021-28918) are not enforced. RFC 2673 allows 1*3DIGIT.",
                 "data": "087.10.0.1",
-                "valid": false
+                "valid": true
             },
             {
                 "description": "value without leading zero is valid",
@@ -88,10 +88,10 @@
                 "valid": false
             },
             {
-                "description": "leading zero in last octet is invalid in v1 (anti-octal)",
-                "comment": "JSON Schema v1 moves to strict anti-octal rules (like RFC 3986 dec-octet) to prevent vulnerabilities like CVE-2021-28918.",
+                "description": "leading zero in last octet is valid under RFC 2673",
+                "comment": "Pending formal spec changes, strict anti-octal checks are not enforced.",
                 "data": "192.168.0.01",
-                "valid": false
+                "valid": true
             },
             {
                 "description": "leading whitespace is invalid",
