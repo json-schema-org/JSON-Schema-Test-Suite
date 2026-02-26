@@ -67,8 +67,8 @@
                 "valid": false
             },
             {
-                "description": "leading zeroes valid per RFC 2673 (CVE-2021-28918 risks)",
-                "comment": "see https://sick.codes/universal-netmask-npm-package-used-by-270000-projects-vulnerable-to-octal-input-data-server-side-request-forgery-remote-file-inclusion-local-file-inclusion-and-more-cve-2021-28918/ - NOTE: strict anti-octal rules belong in URI formats for Draft 2020-12, but will be integrated into ipv4 in the v1 spec.",
+                "description": "leading zeroes are valid under RFC 2673",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte (where decbyte = 1*3DIGIT).",
                 "data": "087.10.0.1",
                 "valid": true
             },
@@ -88,8 +88,8 @@
                 "valid": false
             },
             {
-                "description": "leading zero is valid under RFC 2673 loose syntax",
-                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte (where decbyte = 1*3DIGIT). NOTE: Planned for update in v1 spec to enforce strict anti-octal rules.",
+                "description": "leading zero in last octet is valid under RFC 2673",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte (where decbyte = 1*3DIGIT). ",
                 "data": "192.168.0.01",
                 "valid": true
             },
