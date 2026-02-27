@@ -89,7 +89,7 @@
             },
             {
                 "description": "leading zero in last octet is valid under RFC 2673",
-                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte (where decbyte = 1*3DIGIT). ",
+                "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte (where decbyte = 1*3DIGIT).",
                 "data": "192.168.0.01",
                 "valid": true
             },
