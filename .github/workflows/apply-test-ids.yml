@@ -1,0 +1,149 @@
+name: apply-test-ids
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout base branch (trusted code )
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 0
+
+      # 2. Save trusted scripts before checking out PR code
+      - name: Save base automation scripts
+        run: |
+          mkdir -p /tmp/base-scripts/scripts/utils
+          cp scripts/add-test-ids.js           /tmp/base-scripts/scripts/add-test-ids.js
+          cp scripts/normalize.js              /tmp/base-scripts/scripts/normalize.js
+          cp scripts/load-remotes.js           /tmp/base-scripts/scripts/load-remotes.js
+          cp scripts/utils/generateTestIds.js  /tmp/base-scripts/scripts/utils/generateTestIds.js
+          cp scripts/utils/jsonfiles.js        /tmp/base-scripts/scripts/utils/jsonfiles.js
+
+      # 3. Checkout PR branch (contributor test files)
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      # 4. Restore trusted scripts over PR code (prevents script injection)
+      - name: Restore trusted scripts
+        run: |
+          cp /tmp/base-scripts/scripts/add-test-ids.js          scripts/add-test-ids.js
+          cp /tmp/base-scripts/scripts/normalize.js             scripts/normalize.js
+          cp /tmp/base-scripts/scripts/load-remotes.js          scripts/load-remotes.js
+          cp /tmp/base-scripts/scripts/utils/generateTestIds.js scripts/utils/generateTestIds.js
+          cp /tmp/base-scripts/scripts/utils/jsonfiles.js       scripts/utils/jsonfiles.js
+
+      # 5. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 6. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 7. Fetch list of files changed in this PR
+      - name: Get changed test files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            "${{ github.event.pull_request.url }}/files?per_page=100" \
+            | jq -r ".[].filename" \
+            > changed-files.txt
+
+          grep -E "^tests/(draft[^/]+)/.*\.json$" changed-files.txt \
+            | sed -E "s|^tests/([^/]+)/.*|\1|" \
+            | sort -u \
+            > affected-drafts.txt
+
+      # 8. Run add-test-ids.js for each changed file
+      - name: Apply missing test IDs
+        env:
+          CI: "false"
+        run: |
+          if [ ! -s affected-drafts.txt ]; then
+            echo "No test JSON files changed - nothing to do."
+            exit 0
+          fi
+
+          while IFS= read -r draft; do
+            echo "Processing dialect: $draft"
+            grep -E "^tests/${draft}/.*\.json$" changed-files.txt | while IFS= read -r file; do
+              if [ -f "$file" ]; then
+                echo "  -> $file"
+                node scripts/add-test-ids.js "$draft" "$file"
+              fi
+            done
+          done < affected-drafts.txt
+
+      # 9. Commit and push back to the PR branch
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name  "test-id-bot"
+          git config user.email "test-id-bot@users.noreply.github.com"
+
+          git add "tests/**/*.json"
+
+          if git diff --cached --quiet; then
+            echo "No test ID changes needed - nothing to commit."
+            echo "CHANGES_MADE=false" >> $GITHUB_ENV
+          else
+            SUMMARY=""
+            TOTAL=0
+            while IFS= read -r file; do
+              COUNT=$(git diff --cached -- "$file" | grep "^+" | grep '"id":' | wc -l | tr -d " ")
+              if [ "$COUNT" -gt 0 ]; then
+                SUMMARY="${SUMMARY}\n- \`${file}\` - **${COUNT}** ID(s) added"
+                TOTAL=$((TOTAL + COUNT))
+              fi
+            done < <(git diff --cached --name-only)
+
+            printf "%b" "$SUMMARY" > /tmp/summary.txt
+            echo "TOTAL_IDS=${TOTAL}" >> $GITHUB_ENV
+
+            git commit -m "chore: auto-add missing test IDs"
+
+            COMMIT_SHA=$(git rev-parse HEAD)
+            echo "COMMIT_SHA=${COMMIT_SHA}" >> $GITHUB_ENV
+
+            git push \
+              https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git \
+              HEAD:refs/heads/${{ github.event.pull_request.head.ref }}
+
+            echo "CHANGES_MADE=true" >> $GITHUB_ENV
+          fi
+
+      # 10. Post a summary comment on the PR
+      - name: Post PR comment
+        if: env.CHANGES_MADE == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SUMMARY=$(cat /tmp/summary.txt)
+          COMMIT_URL="https://github.com/${{ github.event.pull_request.head.repo.full_name }}/commit/${COMMIT_SHA}"
+
+          BODY="### test-id-bot added ${TOTAL_IDS} missing test ID(s)\n\n${SUMMARY}\n\nView the full diff of added IDs: ${COMMIT_URL}\n\n> IDs are deterministic hashes based on the schema, test data, and expected result."
+
+          curl -s -X POST \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Content-Type: application/json" \
+            "${{ github.event.pull_request.comments_url }}" \
+            --data "$(jq -n --arg body "$(printf '%b' "$BODY")" '{body: $body}')"
