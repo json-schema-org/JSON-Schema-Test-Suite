@@ -194,10 +194,11 @@
                 "valid": false
             },
             {
-                "description": "Non-letter property name does not match pattern, value type is unconstrained",
+                "description": "Non-letter property name does not match pattern",
                 "data": {"123": 1},
                 "valid": true
             }
         ]
     }
 ]
+
