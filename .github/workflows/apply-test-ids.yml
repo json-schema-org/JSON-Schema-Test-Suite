@@ -3,6 +3,8 @@ name: apply-test-ids
 on:
   pull_request_target:
     types: [opened, synchronize]
+    paths:
+      - 'tests/**/*.json'
 
 permissions:
   contents: write
@@ -13,51 +15,50 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout base branch (trusted code )
-      - name: Checkout base branch
-        uses: actions/checkout@v4
+      # 1. Detect what changed in this PR
+      - name: Check changed paths
+        uses: dorny/paths-filter@v3
+        id: filter
         with:
-          ref: ${{ github.event.pull_request.base.ref }}
-          fetch-depth: 0
+          filters: |
+            tests:
+              - 'tests/**/*.json'
+            scripts:
+              - 'scripts/**'
+              - 'package.json'
+              - 'package-lock.json'
 
-      # 2. Save trusted scripts before checking out PR code
-      - name: Save base automation scripts
+      # 2. Fail if both tests AND scripts changed together
+      - name: Block mixed changes
+        if: steps.filter.outputs.tests == 'true' && steps.filter.outputs.scripts == 'true'
         run: |
-          mkdir -p /tmp/base-scripts/scripts/utils
-          cp scripts/add-test-ids.js           /tmp/base-scripts/scripts/add-test-ids.js
-          cp scripts/normalize.js              /tmp/base-scripts/scripts/normalize.js
-          cp scripts/load-remotes.js           /tmp/base-scripts/scripts/load-remotes.js
-          cp scripts/utils/generateTestIds.js  /tmp/base-scripts/scripts/utils/generateTestIds.js
-          cp scripts/utils/jsonfiles.js        /tmp/base-scripts/scripts/utils/jsonfiles.js
+          echo "This PR changes both test files and scripts at the same time."
+          echo "Please split them into separate PRs."
+          exit 1
 
-      # 3. Checkout PR branch (contributor test files)
-      - name: Checkout PR branch
+      # 3. Checkout repo
+      - name: Checkout
+        if: steps.filter.outputs.tests == 'true'
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      # 4. Restore trusted scripts over PR code (prevents script injection)
-      - name: Restore trusted scripts
-        run: |
-          cp /tmp/base-scripts/scripts/add-test-ids.js          scripts/add-test-ids.js
-          cp /tmp/base-scripts/scripts/normalize.js             scripts/normalize.js
-          cp /tmp/base-scripts/scripts/load-remotes.js          scripts/load-remotes.js
-          cp /tmp/base-scripts/scripts/utils/generateTestIds.js scripts/utils/generateTestIds.js
-          cp /tmp/base-scripts/scripts/utils/jsonfiles.js       scripts/utils/jsonfiles.js
-
-      # 5. Setup Node.js
+      # 4. Setup Node.js
       - name: Setup Node.js
+        if: steps.filter.outputs.tests == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # 6. Install dependencies
+      # 5. Install dependencies
       - name: Install dependencies
+        if: steps.filter.outputs.tests == 'true'
         run: npm ci
 
-      # 7. Fetch list of files changed in this PR
+      # 6. Fetch list of files changed in this PR
       - name: Get changed test files
+        if: steps.filter.outputs.tests == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -72,8 +73,9 @@ jobs:
             | sort -u \
             > affected-drafts.txt
 
-      # 8. Run add-test-ids.js for each changed file
+      # 7. Run add-test-ids.js for each changed file
       - name: Apply missing test IDs
+        if: steps.filter.outputs.tests == 'true'
         env:
           CI: "false"
         run: |
@@ -92,8 +94,9 @@ jobs:
             done
           done < affected-drafts.txt
 
-      # 9. Commit and push back to the PR branch
+      # 8. Commit and push back to the PR branch
       - name: Commit and push changes
+        if: steps.filter.outputs.tests == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -131,7 +134,7 @@ jobs:
             echo "CHANGES_MADE=true" >> $GITHUB_ENV
           fi
 
-      # 10. Post a summary comment on the PR
+      # 9. Post a summary comment on the PR
       - name: Post PR comment
         if: env.CHANGES_MADE == 'true'
         env:
