@@ -1,0 +1,53 @@
+[
+    {
+        "description": "basic output has valid, errors array, each error has keywordLocation, instanceLocation, valid",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "https://json-schema.org/tests/structure/draft2020-12/basic/0",
+            "type": "string",
+            "anyOf": [true]
+        },
+        "tests": [
+            {
+                "description": "invalid data produces valid false, errors array with required structure",
+                "data": 1,
+                "output": {
+                    "basic": {
+                        "$id": "https://json-schema.org/tests/structure/draft2020-12/basic/0/tests/0/basic",
+                        "$ref": "/draft/2020-12/output/schema",
+                        "properties": {
+                            "valid": { "const": false },
+                            "errors": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                    "required": ["keywordLocation", "instanceLocation", "valid"],
+                                    "properties": {
+                                        "keywordLocation": { "type": "string" },
+                                        "instanceLocation": { "type": "string" },
+                                        "valid": { "type": "boolean" }
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["valid", "errors"]
+                    }
+                }
+            },
+            {
+                "description": "valid data produces valid true, no errors or empty",
+                "data": "hello",
+                "output": {
+                    "basic": {
+                        "$id": "https://json-schema.org/tests/structure/draft2020-12/basic/0/tests/1/basic",
+                        "$ref": "/draft/2020-12/output/schema",
+                        "properties": {
+                            "valid": { "const": true }
+                        },
+                        "required": ["valid"]
+                    }
+                }
+            }
+        ]
+    }
+]

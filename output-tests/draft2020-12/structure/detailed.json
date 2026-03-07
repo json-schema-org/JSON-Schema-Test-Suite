@@ -1,0 +1,43 @@
+[
+    {
+        "description": "detailed output has keywordLocation, instanceLocation, valid, nested errors when invalid",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "https://json-schema.org/tests/structure/draft2020-12/detailed/0",
+            "allOf": [
+                { "type": "string" },
+                { "minLength": 10 }
+            ]
+        },
+        "tests": [
+            {
+                "description": "invalid data produces output node with required fields and nested errors",
+                "data": 1,
+                "output": {
+                    "detailed": {
+                        "$id": "https://json-schema.org/tests/structure/draft2020-12/detailed/0/tests/0/detailed",
+                        "$ref": "/draft/2020-12/output/schema",
+                        "properties": {
+                            "keywordLocation": { "type": "string" },
+                            "instanceLocation": { "type": "string" },
+                            "valid": { "const": false },
+                            "errors": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                    "required": ["keywordLocation", "instanceLocation", "valid"],
+                                    "properties": {
+                                        "keywordLocation": { "type": "string" },
+                                        "instanceLocation": { "type": "string" },
+                                        "valid": { "type": "boolean" }
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["keywordLocation", "instanceLocation", "valid", "errors"]
+                    }
+                }
+            }
+        ]
+    }
+]

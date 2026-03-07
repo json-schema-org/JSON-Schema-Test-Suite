@@ -1,0 +1,42 @@
+[
+    {
+        "description": "flag output has only valid key, no extra keys",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "$id": "https://json-schema.org/tests/structure/draft2019-09/flag/0",
+            "type": "string"
+        },
+        "tests": [
+            {
+                "description": "valid schema and valid data produces only valid true",
+                "data": "hello",
+                "output": {
+                    "flag": {
+                        "$id": "https://json-schema.org/tests/structure/draft2019-09/flag/0/tests/0/flag",
+                        "$ref": "/draft/2019-09/output/schema",
+                        "properties": {
+                            "valid": { "const": true }
+                        },
+                        "required": ["valid"],
+                        "additionalProperties": false
+                    }
+                }
+            },
+            {
+                "description": "valid schema and invalid data produces only valid false",
+                "data": 1,
+                "output": {
+                    "flag": {
+                        "$id": "https://json-schema.org/tests/structure/draft2019-09/flag/0/tests/1/flag",
+                        "$ref": "/draft/2019-09/output/schema",
+                        "properties": {
+                            "valid": { "const": false }
+                        },
+                        "required": ["valid"],
+                        "additionalProperties": false
+                    }
+                }
+            }
+        ]
+    }
+]
