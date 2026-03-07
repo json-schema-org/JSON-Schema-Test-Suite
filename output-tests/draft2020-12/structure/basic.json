@@ -9,7 +9,7 @@
         },
         "tests": [
             {
-                "description": "invalid data produces valid false, errors array with required structure",
+                "description": "invalid data produces valid: false and errors array",
                 "data": 1,
                 "output": {
                     "basic": {

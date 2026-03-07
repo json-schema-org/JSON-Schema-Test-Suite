@@ -11,7 +11,7 @@
         },
         "tests": [
             {
-                "description": "invalid data produces output node with required fields and nested errors",
+                "description": "invalid data produces nested errors with required fields",
                 "data": 1,
                 "output": {
                     "detailed": {
