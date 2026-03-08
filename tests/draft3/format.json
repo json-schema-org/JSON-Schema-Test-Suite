@@ -39,7 +39,7 @@
                 "valid": false
             },
             {
-                "description": "User should use a specific domain",
+                "description": "User uses a specific domain",
                 "data": "user@",
                 "valid": false
             },
