@@ -168,6 +168,12 @@
                 "valid": true
             },
             {
+                "description": "fractional duration is not allowed by RFC 3339 ABNF",
+                "comment": "numeric components use 1*DIGIT where DIGIT = %x30-39; '.' is not allowed",
+                "data": "PT0.5S",
+                "valid": false
+            },
+            {
                 "description": "leading whitespace is invalid",
                 "data": " P1D",
                 "valid": false
