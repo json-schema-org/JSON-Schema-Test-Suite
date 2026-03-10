@@ -10,15 +10,13 @@
   ],
   "author": "http://json-schema.org",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "@hyperjump/browser": "^1.3.1",
     "@hyperjump/json-pointer": "^1.1.1",
-    "@hyperjump/json-schema": "^1.17.2",
+    "@hyperjump/json-schema": "^1.17.4",
     "@hyperjump/pact": "^1.4.0",
     "@hyperjump/uri": "^1.3.2",
-    "json-stringify-deterministic": "^1.0.12"
-  },
-  "devDependencies": {
+    "json-stringify-deterministic": "^1.0.12",
     "jsonc-parser": "^3.3.1"
   }
 }
