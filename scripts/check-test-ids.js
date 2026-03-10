@@ -1,8 +1,6 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { normalize } from "./normalize.js";
-import { loadRemotes } from "./load-remotes.js";
-import generateTestId from "./utils/generateTestIds.js";
+import { loadRemotes, generateTestId, normalizeSchema } from "./utils/test-ids.js";
 import jsonFiles from "./utils/jsonfiles.js";
 
 
@@ -47,7 +45,7 @@ async function checkVersion(dir) {
     const testCases = JSON.parse(fs.readFileSync(file, "utf8"));
 
     for (const testCase of testCases) {
-      const normalizedSchema = await normalize(testCase.schema, dialectUri);
+      const normalizedSchema = await normalizeSchema(testCase.schema, dialectUri);
 
       for (const test of testCase.tests) {
         if (!test.id) {

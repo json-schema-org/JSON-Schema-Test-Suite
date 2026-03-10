@@ -1,34 +1,108 @@
-import * as Schema from "@hyperjump/browser";
+import * as crypto from "node:crypto";
+import * as fs from "node:fs/promises";
+import * as path from "node:path";
+import jsonStringify from "json-stringify-deterministic";
+import { applyEdits, modify } from "jsonc-parser";
+
 import * as Pact from "@hyperjump/pact";
 import * as JsonPointer from "@hyperjump/json-pointer";
-import { toAbsoluteIri } from "@hyperjump/uri";
-import { registerSchema, unregisterSchema } from "@hyperjump/json-schema/draft-2020-12";
-import { getSchema, getKeywordId } from "@hyperjump/json-schema/experimental";
+import * as Schema from "@hyperjump/browser";
+import { registerSchema, unregisterSchema } from "@hyperjump/json-schema";
+import { getSchema, getKeywordId, getKeywordName } from "@hyperjump/json-schema/experimental";
+import "@hyperjump/json-schema/draft-2020-12";
 import "@hyperjump/json-schema/draft-2019-09";
 import "@hyperjump/json-schema/draft-07";
 import "@hyperjump/json-schema/draft-06";
 import "@hyperjump/json-schema/draft-04";
 
-
-const sanitizeTopLevelId = (schema) => {
-  if (typeof schema !== "object" || schema === null) return schema;
-  const copy = { ...schema };
-  if (typeof copy.$id === "string" && copy.$id.startsWith("file:")) {
-    copy.$id = copy.$id.replace(/^file:/, "x-file:");
-  }
-  return copy;
+const DIALECT_MAP = {
+  "v1": "https://json-schema.org/v1",
+  "draft2020-12": "https://json-schema.org/draft/2020-12/schema",
+  "draft2019-09": "https://json-schema.org/draft/2019-09/schema",
+  "draft7": "http://json-schema.org/draft-07/schema",
+  "draft6": "http://json-schema.org/draft-06/schema",
+  "draft4": "http://json-schema.org/draft-04/schema",
+  "draft3": "http://json-schema.org/draft-03/schema"
 };
-// ===========================================
 
+export const generateIdsFor = async (version) => {
+  const dialectUri = DIALECT_MAP[version];
 
-export const normalize = async (rawSchema, dialectUri) => {
+  const registeredSchemas = await loadRemotes(version);
+
+  for (const entry of await fs.readdir(`./tests/${version}`, { recursive: true, withFileTypes: true })) {
+    if (!entry.isFile() || path.extname(entry.name) !== ".json") {
+      continue;
+    }
+
+    const edits = [];
+    const filePath = path.resolve(entry.parentPath, entry.name);
+    const json = await fs.readFile(filePath, "utf8")
+    const suite = JSON.parse(json);
+
+    for (let testCaseIndex = 0; testCaseIndex < suite.length; testCaseIndex++) {
+      const testCase = suite[testCaseIndex];
+
+      try {
+        const normalizedSchema = await normalizeSchema(testCase.schema, dialectUri);
+
+        for (let testIndex = 0; testIndex < testCase.tests.length; testIndex++) {
+          const test = testCase.tests[testIndex];
+          const id = generateTestId(normalizedSchema, test.data, test.valid);
+
+          edits.push(...modify(json, [testCaseIndex, "tests", testIndex, "id"], id, {
+            formattingOptions: {
+              insertSpaces: true,
+              tabSize: 4
+            }
+          }));
+        }
+      } catch (error) {
+        console.log(`Failed to generate an ID for ${version} ${entry.name}: ${testCase.description}`);
+        // console.log(error);
+      }
+    }
+
+    if (edits.length > 0) {
+      const updatedJson = applyEdits(json, edits);
+      await fs.writeFile(filePath, updatedJson);
+    }
+  }
+
+  for (const remoteUri of registeredSchemas) {
+    unregisterSchema(remoteUri);
+  }
+};
+
+export const loadRemotes = async (version, filePath = `./remotes`, url = "") => {
+  const registeredSchemas = [];
+
+  for (const entry of await fs.readdir(filePath, { withFileTypes: true })) {
+    if (entry.isFile() && path.extname(entry.name) === ".json") {
+      const remote = JSON.parse(await fs.readFile(`${filePath}/${entry.name}`, "utf8"));
+      const schemaUri = `http://localhost:1234${url}/${entry.name}`;
+      registerSchema(remote, schemaUri, DIALECT_MAP[version]);
+      registeredSchemas.push(schemaUri);
+    } else if (entry.isDirectory() && entry.name === version || !(entry.name in DIALECT_MAP)) {
+      registeredSchemas.push(...await loadRemotes(version, `${filePath}/${entry.name}`, `${url}/${entry.name}`));
+    }
+  }
+
+  return registeredSchemas;
+};
+
+export const generateTestId = (normalizedSchema, testData, testValid) => {
+  return crypto
+    .createHash("md5")
+    .update(jsonStringify(normalizedSchema) + jsonStringify(testData) + testValid)
+    .digest("hex");
+};
+
+export const normalizeSchema = async (rawSchema, dialectUri) => {
   const schemaUri = "https://test-suite.json-schema.org/main";
 
- 
-  const safeSchema = sanitizeTopLevelId(rawSchema);
- 
   try {
-    
+    const safeSchema = sanitizeTopLevelId(rawSchema, dialectUri);
     registerSchema(safeSchema, schemaUri, dialectUri);
 
     const schema = await getSchema(schemaUri);
@@ -38,6 +112,20 @@ export const normalize = async (rawSchema, dialectUri) => {
   } finally {
     unregisterSchema(schemaUri);
   }
+};
+
+const sanitizeTopLevelId = (schema, dialectUri) => {
+  if (typeof schema !== "object") {
+    return schema;
+  }
+
+  const idToken = getKeywordName(dialectUri, "https://json-schema.org/keyword/id")
+    ?? getKeywordName(dialectUri, "https://json-schema.org/keyword/draft-04/id");
+  if (idToken in schema) {
+    schema[idToken] = schema[idToken].replace(/^file:/, "x-file:");
+  }
+
+  return schema;
 };
 
 const compile = async (schema, ast) => {
@@ -124,16 +212,13 @@ const keywordHandlers = {
   "https://json-schema.org/keyword/dependentSchemas": objectApplicator,
   "https://json-schema.org/keyword/deprecated": simpleValue,
   "https://json-schema.org/keyword/description": simpleValue,
-  "https://json-schema.org/keyword/dynamicRef": simpleValue, // base dynamicRef
-
-  "https://json-schema.org/keyword/draft-2020-12/dynamicRef": simpleValue,
-  
-
+  "https://json-schema.org/keyword/dynamicRef": simpleValue,
   "https://json-schema.org/keyword/else": simpleApplicator,
   "https://json-schema.org/keyword/enum": simpleValue,
   "https://json-schema.org/keyword/examples": simpleValue,
   "https://json-schema.org/keyword/exclusiveMaximum": simpleValue,
   "https://json-schema.org/keyword/exclusiveMinimum": simpleValue,
+  "https://json-schema.org/keyword/format": simpleValue,
   "https://json-schema.org/keyword/if": simpleApplicator,
   "https://json-schema.org/keyword/items": simpleApplicator,
   "https://json-schema.org/keyword/maxContains": simpleValue,
@@ -153,6 +238,22 @@ const keywordHandlers = {
   "https://json-schema.org/keyword/patternProperties": objectApplicator,
   "https://json-schema.org/keyword/prefixItems": arrayApplicator,
   "https://json-schema.org/keyword/properties": objectApplicator,
+  "https://json-schema.org/keyword/propertyDependencies": (keyword, ast) => {
+    return Pact.pipe(
+      Schema.entries(keyword),
+      Pact.asyncMap(async ([propertyName, valueSchemaMap]) => {
+        return [
+          propertyName,
+          await Pact.pipe(
+            Schema.entries(valueSchemaMap),
+            Pact.asyncMap(async ([propertyValue, schema]) => [propertyValue, await compile(schema, ast)]),
+            Pact.asyncCollectObject
+          )
+        ];
+      }),
+      Pact.asyncCollectObject
+    );
+  },
   "https://json-schema.org/keyword/propertyNames": simpleApplicator,
   "https://json-schema.org/keyword/readOnly": simpleValue,
   "https://json-schema.org/keyword/ref": compile,
@@ -166,6 +267,7 @@ const keywordHandlers = {
   "https://json-schema.org/keyword/unknown": simpleValue,
   "https://json-schema.org/keyword/writeOnly": simpleValue,
 
+  "https://json-schema.org/keyword/draft-2020-12/dynamicRef": simpleValue,
   "https://json-schema.org/keyword/draft-2020-12/format": simpleValue,
   "https://json-schema.org/keyword/draft-2020-12/format-assertion": simpleValue,
 

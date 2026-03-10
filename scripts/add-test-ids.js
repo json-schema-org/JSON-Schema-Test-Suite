@@ -1,9 +1,7 @@
 import * as fs from "node:fs";
 
 import { parse, modify, applyEdits } from "jsonc-parser";
-import { normalize } from "./normalize.js";
-import { loadRemotes } from "./load-remotes.js";
-import generateTestId from "./utils/generateTestIds.js";
+import { loadRemotes, generateTestId, normalizeSchema } from "./utils/test-ids.js";
 
 
 const DIALECT_MAP = {
@@ -27,7 +25,7 @@ async function addIdsToFile(filePath, dialectUri) {
 
   for (let i = 0; i < tests.length; i++) {
     const testCase = tests[i];
-    const normalizedSchema = await normalize(testCase.schema, dialectUri);
+    const normalizedSchema = await normalizeSchema(testCase.schema, dialectUri);
 
     for (let j = 0; j < testCase.tests.length; j++) {
       const test = testCase.tests[j];
