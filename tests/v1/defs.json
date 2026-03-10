@@ -3,7 +3,7 @@
         "description": "validate definition against metaschema",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "$ref": "https://json-schema.org/v1"
+            "$ref": "http://localhost:1234/v1/meta-schema.json"
         },
         "tests": [
             {
