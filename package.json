@@ -8,8 +8,5 @@
     "tests"
   ],
   "author": "http://json-schema.org",
-  "license": "MIT",
-  "dependencies": {
-    "jsonschema": "^1.5.0"
-  }
+  "license": "MIT"
 }

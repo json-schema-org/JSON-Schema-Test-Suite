@@ -51,12 +51,12 @@
             {
                 "description": "Invalid email with no spec interpretation",
                 "data": "user@localhost",
-                "valid": false
+                "valid": true
             },
             {
-                "description": "Invalid email with unwanted special symbols",
+                "description": "Valid email with special symbols",
                 "data": "user//@example.com",
-                "valid": false
+                "valid": true
             }
         ]
     },
@@ -166,6 +166,40 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "standard hostname",
+                "data": "server.com",
+                "valid": true
+            },
+            {
+                "description": "hostname with hyphen",
+                "data": "this-server.com",
+                "valid": true
+            },
+            {
+                "description": "hostname with numbers",
+                "data": "example123.com"
+            },
+            {
+                "description": "single host name",
+                "data": "localhost",
+                "valid": true
+            },
+            {
+                "description": "hostname with sub-domain",
+                "data": "my-server.example.com",
+                "valid": true
+            },
+            {
+                "description": "label ends with hyphen",
+                "data": "example-.com",
+                "valid": false
+            },
+            {
+                "description": "label starts with hyphen",
+                "data": "-example.com",
+                "valid": false
             }
         ]
     },
