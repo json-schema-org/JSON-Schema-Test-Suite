@@ -179,7 +179,8 @@
             },
             {
                 "description": "hostname with numbers",
-                "data": "example123.com"
+                "data": "example123.com",
+                "valid": true
             },
             {
                 "description": "single host name",
