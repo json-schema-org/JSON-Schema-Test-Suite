@@ -187,6 +187,36 @@
                 "description": "empty string is invalid",
                 "data": "",
                 "valid": false
+            },
+            {
+                "description": "years and months can appear without days",
+                "data": "P1Y2M",
+                "valid": true
+            },
+            {
+                "description": "years and days cannot appear without months",
+                "data": "P1Y2D",
+                "valid": false
+            },
+            {
+                "description": "months and days can appear without years",
+                "data": "P1M2D",
+                "valid": true
+            },
+            {
+                "description": "hours and minutes can appear without seconds",
+                "data": "PT1H2M",
+                "valid": true
+            },
+            {
+                "description": "hours and seconds cannot appear without minutes",
+                "data": "PT1H2S",
+                "valid": false
+            },
+            {
+                "description": "minutes and seconds can appear without hour",
+                "data": "PT1M2S",
+                "valid": true
             }
         ]
     }
