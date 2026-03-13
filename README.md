@@ -86,7 +86,7 @@ These are:
 
 1. `optional/`: Contains tests that are considered optional. Note that this subdirectory currently conflates many reasons why a test may be optional -- it may be because tests within a particular file are indeed not required by the specification but still potentially useful to an implementer, or it may be because tests within it only apply to programming languages with particular functionality (in which case they are not truly optional in such a language). In the future this directory structure will be made richer to reflect these differences more clearly.
 
-2. `proposals/`: Contains a subfolder for each active proposal to the specification. If the proposal is a keyword (generally the case), then the subfolder will bear the name of that keyword. Inside the proposal subfolder is a series of test files that would contain amendments to the required test suite should the proposal be incorporated into the specification. These test should be considered volitile while the proposal is in development, however implementations claiming to support the proposal are expected to pass its tests.
+2. `proposals/`: Contains a subfolder for each active proposal to the specification. If the proposal is a keyword (generally the case), then the subfolder will bear the name of that keyword. Inside the proposal subfolder is a series of test files that would contain amendments to the required test suite should the proposal be incorporated into the specification. These tests should be considered volatile while the proposal is in development; however, implementations claiming to support the proposal are expected to pass its tests.
 
 ## Using the Suite to Test a Validator Implementation
 
