@@ -32,6 +32,31 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "User with double dot in email",
+                "data": "user@example..com",
+                "valid": false
+            },
+            {
+                "description": "User uses a specific domain",
+                "data": "user@",
+                "valid": false
+            },
+            {
+                "description": "Invalid email with space",
+                "data": "user name@example.com",
+                "valid": false
+            },
+            {
+                "description": "Invalid email with no spec interpretation",
+                "data": "user@localhost",
+                "valid": true
+            },
+            {
+                "description": "Valid email with special symbols",
+                "data": "user//@example.com",
+                "valid": true
             }
         ]
     },
@@ -69,6 +94,7 @@
                 "data": null,
                 "valid": true
             }
+
         ]
     },
     {
@@ -140,6 +166,41 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "standard hostname",
+                "data": "server.com",
+                "valid": true
+            },
+            {
+                "description": "hostname with hyphen",
+                "data": "this-server.com",
+                "valid": true
+            },
+            {
+                "description": "hostname with numbers",
+                "data": "example123.com",
+                "valid": true
+            },
+            {
+                "description": "single host name",
+                "data": "localhost",
+                "valid": true
+            },
+            {
+                "description": "hostname with sub-domain",
+                "data": "my-server.example.com",
+                "valid": true
+            },
+            {
+                "description": "label ends with hyphen",
+                "data": "example-.com",
+                "valid": false
+            },
+            {
+                "description": "label starts with hyphen",
+                "data": "-example.com",
+                "valid": false
             }
         ]
     },
