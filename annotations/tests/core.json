@@ -26,7 +26,6 @@
         }
       ]
     },
-
     {
       "description": "`$dynamicRef` resolves to `$dynamicAnchor`",
       "compatibility": "2020",
@@ -54,7 +53,6 @@
         }
       ]
     },
-
     {
       "description": "`$dynamicRef` resolves to different `$dynamicAnchor`s depending on dynamic path",
       "compatibility": "2020",
@@ -132,4 +130,3 @@
 
   ]
 } 
-
