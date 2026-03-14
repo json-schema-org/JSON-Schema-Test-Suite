@@ -39,7 +39,7 @@ jobs:
         if: steps.changes.outputs.other != 'true'
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: latest
 
       - name: Install dependencies
         if: steps.changes.outputs.other != 'true'
