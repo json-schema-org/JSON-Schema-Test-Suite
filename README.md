@@ -8,6 +8,7 @@
 [![Build Status](https://github.com/json-schema-org/JSON-Schema-Test-Suite/workflows/Test%20Suite%20Sanity%20Checking/badge.svg)](https://github.com/json-schema-org/JSON-Schema-Test-Suite/actions?query=workflow%3A%22Test+Suite+Sanity+Checking%22)
 
 This repository contains a set of JSON objects that implementers of JSON Schema validation libraries can use to test their validators.
+The test suite repository exists to verify specified behavior defined by the JSON Schema specification and should not be confused with a style guide. It is not intended to demonstrate how schemas ought to be written. Tests may appear unusual or unintuitive, but they exist solely to exercise behavior prescribed by the specification.
 
 It is meant to be language agnostic and should require only a JSON parser.
 The conversion of the JSON objects into tests within a specific language and test framework of choice is left to be done by the validator implementer.
@@ -79,15 +80,13 @@ Here is a single *test case*, containing one or more tests:
 
 ### Subdirectories Within Each Version directory
 
-There is currently only one additional subdirectory that may exist within each specification version test directory.
+A specification version test directory may contain one or more subdirectories.
 
-This is:
+These are:
 
-1. `optional/`: Contains tests that are considered optional.
+1. `optional/`: Contains tests that are considered optional. Note that this subdirectory currently conflates many reasons why a test may be optional -- it may be because tests within a particular file are indeed not required by the specification but still potentially useful to an implementer, or it may be because tests within it only apply to programming languages with particular functionality (in which case they are not truly optional in such a language). In the future this directory structure will be made richer to reflect these differences more clearly.
 
-Note, the `optional/` subdirectory today conflates many reasons why a test may be optional -- it may be because tests within a particular file are indeed not required by the specification but still potentially useful to an implementer, or it may be because tests within it only apply to programming languages with particular functionality (in
-which case they are not truly optional in such a language).
-In the future this directory structure will be made richer to reflect these differences more clearly.
+2. `proposals/`: Contains a subfolder for each active proposal to the specification. If the proposal is a keyword (generally the case), then the subfolder will bear the name of that keyword. Inside the proposal subfolder is a series of test files that would contain amendments to the required test suite should the proposal be incorporated into the specification. These test should be considered volitile while the proposal is in development, however implementations claiming to support the proposal are expected to pass its tests.
 
 ## Using the Suite to Test a Validator Implementation
 
@@ -215,6 +214,7 @@ This suite is being used by:
 
 * [jinx](https://github.com/juxt/jinx)
 * [json-schema](https://github.com/tatut/json-schema)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Kotlin, Scala, and JavaScript)
 
 ### Coffeescript
 
@@ -262,6 +262,7 @@ This suite is being used by:
 * [Snow](https://github.com/ssilverman/snowy-json)
 * [jsonschemafriend](https://github.com/jimblackler/jsonschemafriend)
 * [OpenAPI JSON Schema Generator](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Kotlin, Scala, and JavaScript)
 
 ### JavaScript
 
@@ -280,10 +281,17 @@ This suite is being used by:
 * [jsen](https://github.com/bugventure/jsen)
 * [ajv](https://github.com/epoberezkin/ajv)
 * [djv](https://github.com/korzio/djv)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Kotlin, and Scala)
 
 ### Kotlin
 
 * [json-schema-validation-comparison](https://www.creekservice.org/json-schema-validation-comparison/functional) (Comparison site for JVM-based validator implementations)
+* [kotlinx-schema](https://github.com/Kotlin/kotlinx-schema)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Scala, and JavaScript)
+
+### Lua
+
+* [lua-schema](https://framagit.org/fperrad/lua-schema)
 
 ### Node.js
 
@@ -334,12 +342,16 @@ Node-specific support is maintained in a [separate repository](https://github.co
 ### Scala
 
 * [json-schema-validation-comparison](https://www.creekservice.org/json-schema-validation-comparison/functional) (Comparison site for JVM-based validator implementations)
-* [typed-json](https://github.com/frawa/typed-json)
+* [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Kotlin, and JavaScript)
 
 ### Swift
 
 * [JSONSchema](https://github.com/kylef/JSONSchema.swift)
 * [swift-json-schema](https://github.com/ajevans99/swift-json-schema)
+
+### Unison
+
+* [typed-json](https://share.unison-lang.org/@frawa/typed-json)
 
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
