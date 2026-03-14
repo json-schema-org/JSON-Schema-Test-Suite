@@ -19,36 +19,34 @@ jobs:
         id: changes
         with:
           filters: |
-            tests:
-              - 'tests/**/*.json'
             other:
               - '!tests/**/*.json'
 
       - name: Block mixed changes
-        if: steps.changes.outputs.tests == 'true' && steps.changes.outputs.other == 'true'
+        if: steps.changes.outputs.other == 'true'
         run: |
           echo "Tests and other files were changed together."
           echo "Please submit test JSON changes separately."
           exit 1
 
       - name: Checkout PR branch
-        if: steps.changes.outputs.tests == 'true'
+        if: steps.changes.outputs.other != 'true'
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup Node.js
-        if: steps.changes.outputs.tests == 'true'
+        if: steps.changes.outputs.other != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install dependencies
-        if: steps.changes.outputs.tests == 'true'
+        if: steps.changes.outputs.other != 'true'
         run: npm ci
 
       - name: Generate test IDs
-        if: steps.changes.outputs.tests == 'true'
+        if: steps.changes.outputs.other != 'true'
         run: |
           node scripts/generate-ids-for.js draft2020-12
           node scripts/generate-ids-for.js draft2019-09
@@ -58,7 +56,7 @@ jobs:
           node scripts/generate-ids-for.js v1
 
       - name: Commit and push
-        if: steps.changes.outputs.tests == 'true'
+        if: steps.changes.outputs.other != 'true'
         run: |
           git config user.name "test-id-bot"
           git config user.email "test-id-bot@users.noreply.github.com"
