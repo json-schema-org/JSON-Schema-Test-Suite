@@ -10,17 +10,6 @@
   ],
   "author": "http://json-schema.org",
   "license": "MIT",
-<<<<<<< HEAD
-  "dependencies": {
-    "@hyperjump/browser": "^1.3.1",
-    "@hyperjump/json-pointer": "^1.1.1",
-    "@hyperjump/json-schema": "^1.17.2",
-    "@hyperjump/pact": "^1.4.0",
-    "@hyperjump/uri": "^1.3.2",
-    "json-stringify-deterministic": "^1.0.12"
-  },
-  "devDependencies": {
-=======
   "devDependencies": {
     "@hyperjump/browser": "^1.3.1",
     "@hyperjump/json-pointer": "^1.1.1",
@@ -28,7 +17,6 @@
     "@hyperjump/pact": "^1.4.0",
     "@hyperjump/uri": "^1.3.2",
     "json-stringify-deterministic": "^1.0.12",
->>>>>>> 470010d59ba1c4714cfcdf056d60818f2a782309
     "jsonc-parser": "^3.3.1"
   }
 }
