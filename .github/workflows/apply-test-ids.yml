@@ -1,0 +1,68 @@
+name: Test IDs
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+    paths:
+      - 'tests/**/*.json'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Detect changed files
+        uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            other:
+              - '!tests/**/*.json'
+
+      - name: Block mixed changes
+        if: steps.changes.outputs.other == 'true'
+        run: |
+          echo "Tests and other files were changed together."
+          echo "Please submit test JSON changes separately."
+          exit 1
+
+      - name: Checkout PR branch
+        if: steps.changes.outputs.other != 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup Node.js
+        if: steps.changes.outputs.other != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Install dependencies
+        if: steps.changes.outputs.other != 'true'
+        run: npm ci
+
+      - name: Generate test IDs
+        if: steps.changes.outputs.other != 'true'
+        run: |
+          node scripts/generate-ids-for.js draft2020-12
+          node scripts/generate-ids-for.js draft2019-09
+          node scripts/generate-ids-for.js draft7
+          node scripts/generate-ids-for.js draft6
+          node scripts/generate-ids-for.js draft4
+          node scripts/generate-ids-for.js v1
+
+      - name: Commit and push
+        if: steps.changes.outputs.other != 'true'
+        run: |
+          git config user.name "test-id-bot"
+          git config user.email "test-id-bot@users.noreply.github.com"
+
+          git add $(find tests -name "*.json" ! -type l)
+
+          git diff --cached --quiet || git commit -m "chore: auto-add missing test IDs"
+
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git HEAD:refs/heads/${{ github.event.pull_request.head.ref }}
