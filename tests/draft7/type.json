@@ -1,5 +1,6 @@
 [
     {
+        "id": "integer-type-matches-integers"
         "description": "integer type matches integers",
         "schema": {"type": "integer"},
         "tests": [
