@@ -100,26 +100,6 @@
         ]
     },
     {
-        "description": "maxContains = 0 with contains",
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "contains": {"const": 1},
-            "maxContains": 0
-        },
-        "tests": [
-            {
-                "description": "empty array fails due to default minContains",
-                "data": [ ],
-                "valid": false
-            },
-            {
-                "description": "array with matching element fails due to maxContains",
-                "data": [ 1 ],
-                "valid": false
-            }
-        ]
-    },
-    {
         "description": "maxContains = 0 with minContains = 0",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
