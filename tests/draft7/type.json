@@ -1,50 +1,58 @@
 [
     {
-        "id": "integer-type-matches-integers"
         "description": "integer type matches integers",
         "schema": {"type": "integer"},
         "tests": [
             {
+                "id": "integer-test-1",
                 "description": "an integer is an integer",
                 "data": 1,
                 "valid": true
             },
             {
+                "id": "integer-test-2",
                 "description": "a float with zero fractional part is an integer",
                 "data": 1.0,
                 "valid": true
             },
             {
+                "id": "integer-test-3",
                 "description": "a float is not an integer",
                 "data": 1.1,
                 "valid": false
             },
             {
+                "id": "integer-test-4",
                 "description": "a string is not an integer",
                 "data": "foo",
                 "valid": false
             },
             {
+                "id": "integer-test-5",
                 "description": "a string is still not an integer, even if it looks like one",
                 "data": "1",
                 "valid": false
             },
             {
+                "id": "integer-test-6",
                 "description": "an object is not an integer",
                 "data": {},
                 "valid": false
             },
             {
+                "id": "integer-test-7",
                 "description": "an array is not an integer",
                 "data": [],
                 "valid": false
             },
             {
+                "id": "integer-test-8",
                 "description": "a boolean is not an integer",
                 "data": true,
                 "valid": false
             },
             {
+                "id": "integer-test-9",
                 "description": "null is not an integer",
                 "data": null,
                 "valid": false
