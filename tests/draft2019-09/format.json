@@ -35,6 +35,51 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "a valid email address",
+                "data": "test@example.com",
+                "valid": true
+            },
+            {
+                "description": "email with subdomain",
+                "data": "test@sub.example.com",
+                "valid": true
+            },
+            {
+                "description": "email with '+' in local part",
+                "data": "test+alias@example.com",
+                "valid": true
+            },
+            {
+                "description": "empty string is not an email",
+                "data": "",
+                "valid": false
+            },
+            {
+                "description": "just a string is not an email",
+                "data": "test",
+                "valid": false
+            },
+            {
+                "description": "missing local part",
+                "data": "@example.com",
+                "valid": false
+            },
+            {
+                "description": "missing domain",
+                "data": "test@",
+                "valid": false
+            },
+            {
+                "description": "domain contains invalid characters",
+                "data": "test@ex@mple.com",
+                "valid": false
+            },
+            {
+                "description": "local part contains invalid characters",
+                "data": "test\"@example.com",
+                "valid": false
             }
         ]
     },
@@ -113,6 +158,26 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "a valid regex",
+                "data": "^\\d+$",
+                "valid": true
+            },
+            {
+                "description": "an invalid regex (unclosed a)",
+                "data": "[",
+                "valid": false
+            },
+            {
+                "description": "an invalid regex (unclosed b)",
+                "data": "(",
+                "valid": false
+            },
+            {
+                "description": "an invalid regex (unterminated character class)",
+                "data": "[a-",
+                "valid": false
             }
         ]
     },
@@ -152,6 +217,41 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "a valid ipv4 address",
+                "data": "192.168.0.1",
+                "valid": true
+            },
+            {
+                "description": "boundary valid ipv4 address",
+                "data": "0.0.0.0",
+                "valid": true
+            },
+            {
+                "description": "boundary valid ipv4 address",
+                "data": "255.255.255.255",
+                "valid": true
+            },
+            {
+                "description": "invalid ipv4 address with out-of-range octet",
+                "data": "256.0.0.0",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4 address with too few octets",
+                "data": "192.168.0",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4 address with non-integer octets",
+                "data": "192.168.0.a",
+                "valid": false
+            },
+            {
+                "description": "empty string is not an ipv4",
+                "data": "",
+                "valid": false
             }
         ]
     },
@@ -269,6 +369,26 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "a valid hostname",
+                "data": "example.com",
+                "valid": true
+            },
+            {
+                "description": "hostname starting with hyphen",
+                "data": "-example.com",
+                "valid": false
+            },
+            {
+                "description": "hostname ending with hyphen",
+                "data": "example.com-",
+                "valid": false
+            },
+            {
+                "description": "hostname with adjacent dots",
+                "data": "example..com",
+                "valid": false
             }
         ]
     },
@@ -308,6 +428,26 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "a valid date (leap day)",
+                "data": "2024-02-29",
+                "valid": true
+            },
+            {
+                "description": "an invalid date (not a leap year)",
+                "data": "2023-02-29",
+                "valid": false
+            },
+            {
+                "description": "an invalid date (invalid month)",
+                "data": "2024-13-01",
+                "valid": false
+            },
+            {
+                "description": "an invalid date (invalid day)",
+                "data": "2024-01-32",
+                "valid": false
             }
         ]
     },
@@ -346,6 +486,36 @@
             {
                 "description": "all string formats ignore nulls",
                 "data": null,
+                "valid": true
+            },
+            {
+                "description": "a valid date-time with Z",
+                "data": "2023-03-19T10:00:00Z",
+                "valid": true
+            },
+            {
+                "description": "a valid date-time with offset",
+                "data": "2023-03-19T10:00:00+05:30",
+                "valid": true
+            },
+            {
+                "description": "a date is not a date-time",
+                "data": "2023-03-19",
+                "valid": false
+            },
+            {
+                "description": "invalid date-time with no timezone",
+                "data": "2023-03-19T10:00:00",
+                "valid": false
+            },
+            {
+                "description": "invalid date-time with incorrect separator",
+                "data": "2023-03-19 10:00:00Z",
+                "valid": false
+            },
+            {
+                "description": "leap second is valid",
+                "data": "2016-12-31T23:59:60Z",
                 "valid": true
             }
         ]
@@ -386,6 +556,31 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "a valid time",
+                "data": "23:59:59Z",
+                "valid": true
+            },
+            {
+                "description": "a valid time without timezone",
+                "data": "10:30:00",
+                "valid": true
+            },
+            {
+                "description": "an invalid time (hour out of range)",
+                "data": "24:00:00Z",
+                "valid": false
+            },
+            {
+                "description": "an invalid time (minute out of range)",
+                "data": "23:60:00Z",
+                "valid": false
+            },
+            {
+                "description": "an invalid time (second out of range)",
+                "data": "23:59:61Z",
+                "valid": false
             }
         ]
     },
@@ -581,6 +776,26 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "a valid uri",
+                "data": "https://www.example.com/path?query=1",
+                "valid": true
+            },
+            {
+                "description": "an invalid uri (malformed scheme)",
+                "data": "http:://example.com",
+                "valid": false
+            },
+            {
+                "description": "an invalid uri (missing scheme)",
+                "data": "//example.com",
+                "valid": false
+            },
+            {
+                "description": "an invalid uri (missing scheme delimiter)",
+                "data": "://example.com",
+                "valid": false
             }
         ]
     },
@@ -698,6 +913,26 @@
                 "description": "all string formats ignore nulls",
                 "data": null,
                 "valid": true
+            },
+            {
+                "description": "a valid uuid",
+                "data": "f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+                "valid": true
+            },
+            {
+                "description": "an invalid uuid (too short)",
+                "data": "f81d4fae-7dec-11d0-a765-00a0c91e6bf",
+                "valid": false
+            },
+            {
+                "description": "an invalid uuid (invalid character)",
+                "data": "f81d4fae-7dec-11d0-a765-00a0c91e6bf6X",
+                "valid": false
+            },
+            {
+                "description": "an invalid uuid (invalid separators)",
+                "data": "f81d4fae_7dec_11d0_a765_00a0c91e6bf6",
+                "valid": false
             }
         ]
     },
