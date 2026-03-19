@@ -224,12 +224,12 @@
                 "valid": true
             },
             {
-                "description": "boundary valid ipv4 address",
+                "description": "lowest valid ipv4 address",
                 "data": "0.0.0.0",
                 "valid": true
             },
             {
-                "description": "boundary valid ipv4 address",
+                "description": "highest valid ipv4 address",
                 "data": "255.255.255.255",
                 "valid": true
             },
