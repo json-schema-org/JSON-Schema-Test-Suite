@@ -247,25 +247,25 @@
                 "valid": false
             },
             {
-                "description": "valid: year 0000 is a leap year per RFC 3339 Appendix C (0 % 400 == 0)",
+                "description": "year 0000 is a leap year (0 % 400 == 0)",
                 "comment": "https://www.rfc-editor.org/rfc/rfc3339#appendix-C — year zero leap year edge case",
                 "data": "0000-02-29",
                 "valid": true
             },
             {
-                "description": "invalid: century year 0100 is not divisible by 400, so not a leap year",
+                "description": "century year 0100 is not a leap year",
                 "comment": "https://www.rfc-editor.org/rfc/rfc3339#appendix-C — 100 % 100 == 0 but 100 % 400 != 0",
                 "data": "0100-02-29",
                 "valid": false
             },
             {
-                "description": "valid: century year 0400 is divisible by 400, so it is a leap year",
+                "description": "century year 0400 is a leap year",
                 "comment": "https://www.rfc-editor.org/rfc/rfc3339#appendix-C — 400-year cycle boundary",
                 "data": "0400-02-29",
                 "valid": true
             },
             {
-                "description": "invalid: century year 2100 is not divisible by 400, so not a leap year",
+                "description": "century year 2100 is not a leap year",
                 "comment": "https://www.rfc-editor.org/rfc/rfc3339#appendix-C — future century year",
                 "data": "2100-02-29",
                 "valid": false
