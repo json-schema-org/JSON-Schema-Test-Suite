@@ -202,7 +202,7 @@
     },
     {
         "description": "root ref in remote ref",
-        "compatibility": "4",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/object",

@@ -172,6 +172,7 @@
     },
     {
         "description": "additionalProperties does not look in applicators",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "allOf": [

@@ -120,14 +120,18 @@ def dialect_is_compatible(compatibility, version_name):
 
 def rewrite_v1_dialect(value, version_name):
     if isinstance(value, dict):
-        return {
-            key: (
+        rewritten = {}
+        for key, child in value.items():
+            rewritten_key = (
+                "id" if version_name in {"draft3", "draft4"} and key == "$id"
+                else key
+            )
+            rewritten[rewritten_key] = (
                 DIALECT_URI_FOR_VERSION[version_name]
                 if key == "$schema" and child == V1_DIALECT_URI
                 else rewrite_v1_dialect(child, version_name)
             )
-            for key, child in value.items()
-        }
+        return rewritten
     if isinstance(value, list):
         return [rewrite_v1_dialect(each, version_name) for each in value]
     return value
@@ -433,6 +437,7 @@ class SanityTests(unittest.TestCase):
                 "patternProperties",
                 "prefixItems",
                 "properties",
+                "propertyDependencies",
                 "propertyNames",
                 "required",
                 "then",
