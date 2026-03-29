@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of regular expressions",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "regex"

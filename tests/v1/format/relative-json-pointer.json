@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of Relative JSON Pointers (RJP)",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "relative-json-pointer"

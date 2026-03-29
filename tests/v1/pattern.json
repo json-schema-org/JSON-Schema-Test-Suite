@@ -64,6 +64,7 @@
     },
     {
         "description": "pattern with Unicode property escape",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "type": "string",

@@ -1,13 +1,18 @@
 [
     {
         "description": "multiple dynamic paths to the $dynamicRef keyword",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "https://test.json-schema.org/dynamic-ref-with-multiple-paths/main",
             "propertyDependencies": {
                 "kindOfList": {
-                    "numbers": { "$ref": "numberList" },
-                    "strings": { "$ref": "stringList" }
+                    "numbers": {
+                        "$ref": "numberList"
+                    },
+                    "strings": {
+                        "$ref": "stringList"
+                    }
                 }
             },
             "$defs": {
@@ -15,7 +20,9 @@
                     "$id": "genericList",
                     "properties": {
                         "list": {
-                            "items": { "$dynamicRef": "#itemType" }
+                            "items": {
+                                "$dynamicRef": "#itemType"
+                            }
                         }
                     }
                 },
@@ -46,7 +53,9 @@
                 "description": "number list with number values",
                 "data": {
                     "kindOfList": "numbers",
-                    "list": [1.1]
+                    "list": [
+                        1.1
+                    ]
                 },
                 "valid": true
             },
@@ -54,7 +63,9 @@
                 "description": "number list with string values",
                 "data": {
                     "kindOfList": "numbers",
-                    "list": ["foo"]
+                    "list": [
+                        "foo"
+                    ]
                 },
                 "valid": false
             },
@@ -62,7 +73,9 @@
                 "description": "string list with number values",
                 "data": {
                     "kindOfList": "strings",
-                    "list": [1.1]
+                    "list": [
+                        1.1
+                    ]
                 },
                 "valid": false
             },
@@ -70,7 +83,9 @@
                 "description": "string list with string values",
                 "data": {
                     "kindOfList": "strings",
-                    "list": ["foo"]
+                    "list": [
+                        "foo"
+                    ]
                 },
                 "valid": true
             }
@@ -78,6 +93,7 @@
     },
     {
         "description": "$dynamicAnchor inside propertyDependencies",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/dynamicanchor-in-propertydependencies.json",

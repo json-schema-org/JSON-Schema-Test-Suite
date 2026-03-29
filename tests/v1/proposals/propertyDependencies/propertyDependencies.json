@@ -1,9 +1,12 @@
 [
     {
         "description": "propertyDependencies doesn't act on non-objects",
+        "compatibility": "=2020",
         "schema": {
             "propertyDependencies": {
-                "foo": {"bar": false}
+                "foo": {
+                    "bar": false
+                }
             }
         },
         "tests": [
@@ -41,56 +44,80 @@
     },
     {
         "description": "propertyDependencies doesn't act on non-string property values",
+        "compatibility": "=2020",
         "schema": {
             "propertyDependencies": {
-                "foo": {"bar": false}
+                "foo": {
+                    "bar": false
+                }
             }
         },
         "tests": [
             {
                 "description": "ignores booleans",
-                "data": {"foo": false},
+                "data": {
+                    "foo": false
+                },
                 "valid": true
             },
             {
                 "description": "ignores integers",
-                "data": {"foo": 2},
+                "data": {
+                    "foo": 2
+                },
                 "valid": true
             },
             {
                 "description": "ignores floats",
-                "data": {"foo": 1.1},
+                "data": {
+                    "foo": 1.1
+                },
                 "valid": true
             },
             {
                 "description": "ignores objects",
-                "data": {"foo": {}},
+                "data": {
+                    "foo": {}
+                },
                 "valid": true
             },
             {
                 "description": "ignores objects wth a key of the expected value",
-                "data": {"foo": {"bar": "baz"}},
+                "data": {
+                    "foo": {
+                        "bar": "baz"
+                    }
+                },
                 "valid": true
             },
             {
                 "description": "ignores objects with the expected value nested in structure",
-                "data": {"foo": {"baz": "bar"}},
+                "data": {
+                    "foo": {
+                        "baz": "bar"
+                    }
+                },
                 "valid": true
             },
             {
                 "description": "ignores arrays",
-                "data": {"foo": []},
+                "data": {
+                    "foo": []
+                },
                 "valid": true
             },
             {
                 "description": "ignores null",
-                "data": {"foo": null},
+                "data": {
+                    "foo": null
+                },
                 "valid": true
             }
         ]
     },
     {
         "description": "multiple options selects the right one",
+        "compatibility": "=2020",
         "schema": {
             "propertyDependencies": {
                 "foo": {
@@ -98,7 +125,9 @@
                         "minProperties": 2,
                         "maxProperties": 2
                     },
-                    "baz": {"maxProperties": 1},
+                    "baz": {
+                        "maxProperties": 1
+                    },
                     "qux": true,
                     "quux": false
                 }
@@ -124,12 +153,16 @@
             },
             {
                 "description": "bar with fewer than 2 properties is invalid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": false
             },
             {
                 "description": "baz alone is valid",
-                "data": {"foo": "baz"},
+                "data": {
+                    "foo": "baz"
+                },
                 "valid": true
             },
             {
@@ -144,7 +177,9 @@
                 "description": "anything allowed with qux",
                 "data": {
                     "foo": "qux",
-                    "blah": ["some other property"],
+                    "blah": [
+                        "some other property"
+                    ],
                     "more": "properties"
                 },
                 "valid": true

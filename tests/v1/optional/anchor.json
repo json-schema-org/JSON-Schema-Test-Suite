@@ -1,6 +1,7 @@
 [
     {
         "description": "$anchor inside an enum is not a real identifier",
+        "compatibility": "2019",
         "comment": "the implementation must not be confused by an $anchor buried in the enum",
         "schema": {
             "$schema": "https://json-schema.org/v1",
@@ -25,8 +26,12 @@
                 }
             },
             "anyOf": [
-                { "$ref": "#/$defs/anchor_in_enum" },
-                { "$ref": "#my_anchor" }
+                {
+                    "$ref": "#/$defs/anchor_in_enum"
+                },
+                {
+                    "$ref": "#my_anchor"
+                }
             ]
         },
         "tests": [

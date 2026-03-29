@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of time strings",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "time"

@@ -1,9 +1,12 @@
 [
     {
         "description": "propertyNames validation",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "propertyNames": {"maxLength": 3}
+            "propertyNames": {
+                "maxLength": 3
+            }
         },
         "tests": [
             {
@@ -29,7 +32,12 @@
             },
             {
                 "description": "ignores arrays",
-                "data": [1, 2, 3, 4],
+                "data": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
                 "valid": true
             },
             {
@@ -46,6 +54,7 @@
     },
     {
         "description": "propertyNames with boolean schema true",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "propertyNames": true
@@ -53,7 +62,9 @@
         "tests": [
             {
                 "description": "object with any properties is valid",
-                "data": {"foo": 1},
+                "data": {
+                    "foo": 1
+                },
                 "valid": true
             },
             {
@@ -65,6 +76,7 @@
     },
     {
         "description": "propertyNames with boolean schema false",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "propertyNames": false
@@ -72,7 +84,9 @@
         "tests": [
             {
                 "description": "object with any properties is invalid",
-                "data": {"foo": 1},
+                "data": {
+                    "foo": 1
+                },
                 "valid": false
             },
             {

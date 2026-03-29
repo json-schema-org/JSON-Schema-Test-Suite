@@ -371,7 +371,10 @@
         "description": "multiple types can be specified in an array",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "type": ["integer", "string"]
+            "type": [
+                "integer",
+                "string"
+            ]
         },
         "tests": [
             {
@@ -413,9 +416,12 @@
     },
     {
         "description": "type as array with one item",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "type": ["string"]
+            "type": [
+                "string"
+            ]
         },
         "tests": [
             {
@@ -432,19 +438,29 @@
     },
     {
         "description": "type: array or object",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "type": ["array", "object"]
+            "type": [
+                "array",
+                "object"
+            ]
         },
         "tests": [
             {
                 "description": "array is valid",
-                "data": [1,2,3],
+                "data": [
+                    1,
+                    2,
+                    3
+                ],
                 "valid": true
             },
             {
                 "description": "object is valid",
-                "data": {"foo": 123},
+                "data": {
+                    "foo": 123
+                },
                 "valid": true
             },
             {
@@ -466,19 +482,30 @@
     },
     {
         "description": "type: array, object or null",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "type": ["array", "object", "null"]
+            "type": [
+                "array",
+                "object",
+                "null"
+            ]
         },
         "tests": [
             {
                 "description": "array is valid",
-                "data": [1,2,3],
+                "data": [
+                    1,
+                    2,
+                    3
+                ],
                 "valid": true
             },
             {
                 "description": "object is valid",
-                "data": {"foo": 123},
+                "data": {
+                    "foo": 123
+                },
                 "valid": true
             },
             {

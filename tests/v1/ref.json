@@ -4,29 +4,43 @@
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
-                "foo": {"$ref": "#"}
+                "foo": {
+                    "$ref": "#"
+                }
             },
             "additionalProperties": false
         },
         "tests": [
             {
                 "description": "match",
-                "data": {"foo": false},
+                "data": {
+                    "foo": false
+                },
                 "valid": true
             },
             {
                 "description": "recursive match",
-                "data": {"foo": {"foo": false}},
+                "data": {
+                    "foo": {
+                        "foo": false
+                    }
+                },
                 "valid": true
             },
             {
                 "description": "mismatch",
-                "data": {"bar": false},
+                "data": {
+                    "bar": false
+                },
                 "valid": false
             },
             {
                 "description": "recursive mismatch",
-                "data": {"foo": {"bar": false}},
+                "data": {
+                    "foo": {
+                        "bar": false
+                    }
+                },
                 "valid": false
             }
         ]
@@ -36,19 +50,27 @@
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
-                "foo": {"type": "integer"},
-                "bar": {"$ref": "#/properties/foo"}
+                "foo": {
+                    "type": "integer"
+                },
+                "bar": {
+                    "$ref": "#/properties/foo"
+                }
             }
         },
         "tests": [
             {
                 "description": "match",
-                "data": {"bar": 3},
+                "data": {
+                    "bar": 3
+                },
                 "valid": true
             },
             {
                 "description": "mismatch",
-                "data": {"bar": true},
+                "data": {
+                    "bar": true
+                },
                 "valid": false
             }
         ]
@@ -58,19 +80,29 @@
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
-                {"type": "integer"},
-                {"$ref": "#/prefixItems/0"}
+                {
+                    "type": "integer"
+                },
+                {
+                    "$ref": "#/prefixItems/0"
+                }
             ]
         },
         "tests": [
             {
                 "description": "match array",
-                "data": [1, 2],
+                "data": [
+                    1,
+                    2
+                ],
                 "valid": true
             },
             {
                 "description": "mismatch array",
-                "data": [1, "foo"],
+                "data": [
+                    1,
+                    "foo"
+                ],
                 "valid": false
             }
         ]
@@ -80,45 +112,69 @@
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {
-                "tilde~field": {"type": "integer"},
-                "slash/field": {"type": "integer"},
-                "percent%field": {"type": "integer"}
+                "tilde~field": {
+                    "type": "integer"
+                },
+                "slash/field": {
+                    "type": "integer"
+                },
+                "percent%field": {
+                    "type": "integer"
+                }
             },
             "properties": {
-                "tilde": {"$ref": "#/$defs/tilde~0field"},
-                "slash": {"$ref": "#/$defs/slash~1field"},
-                "percent": {"$ref": "#/$defs/percent%25field"}
+                "tilde": {
+                    "$ref": "#/$defs/tilde~0field"
+                },
+                "slash": {
+                    "$ref": "#/$defs/slash~1field"
+                },
+                "percent": {
+                    "$ref": "#/$defs/percent%25field"
+                }
             }
         },
         "tests": [
             {
                 "description": "slash invalid",
-                "data": {"slash": "aoeu"},
+                "data": {
+                    "slash": "aoeu"
+                },
                 "valid": false
             },
             {
                 "description": "tilde invalid",
-                "data": {"tilde": "aoeu"},
+                "data": {
+                    "tilde": "aoeu"
+                },
                 "valid": false
             },
             {
                 "description": "percent invalid",
-                "data": {"percent": "aoeu"},
+                "data": {
+                    "percent": "aoeu"
+                },
                 "valid": false
             },
             {
                 "description": "slash valid",
-                "data": {"slash": 123},
+                "data": {
+                    "slash": 123
+                },
                 "valid": true
             },
             {
                 "description": "tilde valid",
-                "data": {"tilde": 123},
+                "data": {
+                    "tilde": 123
+                },
                 "valid": true
             },
             {
                 "description": "percent valid",
-                "data": {"percent": 123},
+                "data": {
+                    "percent": 123
+                },
                 "valid": true
             }
         ]
@@ -128,9 +184,15 @@
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {
-                "a": {"type": "integer"},
-                "b": {"$ref": "#/$defs/a"},
-                "c": {"$ref": "#/$defs/b"}
+                "a": {
+                    "type": "integer"
+                },
+                "b": {
+                    "$ref": "#/$defs/a"
+                },
+                "c": {
+                    "$ref": "#/$defs/b"
+                }
             },
             "$ref": "#/$defs/c"
         },
@@ -149,6 +211,7 @@
     },
     {
         "description": "ref applies alongside sibling keywords",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {
@@ -166,17 +229,27 @@
         "tests": [
             {
                 "description": "ref valid, maxItems valid",
-                "data": { "foo": [] },
+                "data": {
+                    "foo": []
+                },
                 "valid": true
             },
             {
                 "description": "ref valid, maxItems invalid",
-                "data": { "foo": [1, 2, 3] },
+                "data": {
+                    "foo": [
+                        1,
+                        2,
+                        3
+                    ]
+                },
                 "valid": false
             },
             {
                 "description": "ref invalid",
-                "data": { "foo": "string" },
+                "data": {
+                    "foo": "string"
+                },
                 "valid": false
             }
         ]
@@ -190,33 +263,44 @@
         "tests": [
             {
                 "description": "remote ref valid",
-                "data": {"minLength": 1},
+                "data": {
+                    "minLength": 1
+                },
                 "valid": true
             },
             {
                 "description": "remote ref invalid",
-                "data": {"minLength": -1},
+                "data": {
+                    "minLength": -1
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "property named $ref that is not a reference",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
-                "$ref": {"type": "string"}
+                "$ref": {
+                    "type": "string"
+                }
             }
         },
         "tests": [
             {
                 "description": "property named $ref valid",
-                "data": {"$ref": "a"},
+                "data": {
+                    "$ref": "a"
+                },
                 "valid": true
             },
             {
                 "description": "property named $ref invalid",
-                "data": {"$ref": 2},
+                "data": {
+                    "$ref": 2
+                },
                 "valid": false
             }
         ]
@@ -226,7 +310,9 @@
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
-                "$ref": {"$ref": "#/$defs/is-string"}
+                "$ref": {
+                    "$ref": "#/$defs/is-string"
+                }
             },
             "$defs": {
                 "is-string": {
@@ -237,18 +323,23 @@
         "tests": [
             {
                 "description": "property named $ref valid",
-                "data": {"$ref": "a"},
+                "data": {
+                    "$ref": "a"
+                },
                 "valid": true
             },
             {
                 "description": "property named $ref invalid",
-                "data": {"$ref": 2},
+                "data": {
+                    "$ref": 2
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "$ref to boolean schema true",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$ref": "#/$defs/bool",
@@ -266,6 +357,7 @@
     },
     {
         "description": "$ref to boolean schema false",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$ref": "#/$defs/bool",
@@ -283,29 +375,43 @@
     },
     {
         "description": "Recursive references between schemas",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/tree",
             "description": "tree of nodes",
             "type": "object",
             "properties": {
-                "meta": {"type": "string"},
+                "meta": {
+                    "type": "string"
+                },
                 "nodes": {
                     "type": "array",
-                    "items": {"$ref": "node"}
+                    "items": {
+                        "$ref": "node"
+                    }
                 }
             },
-            "required": ["meta", "nodes"],
+            "required": [
+                "meta",
+                "nodes"
+            ],
             "$defs": {
                 "node": {
                     "$id": "http://localhost:1234/v1/node",
                     "description": "node",
                     "type": "object",
                     "properties": {
-                        "value": {"type": "number"},
-                        "subtree": {"$ref": "tree"}
+                        "value": {
+                            "type": "number"
+                        },
+                        "subtree": {
+                            "$ref": "tree"
+                        }
                     },
-                    "required": ["value"]
+                    "required": [
+                        "value"
+                    ]
                 }
             }
         },
@@ -320,8 +426,12 @@
                             "subtree": {
                                 "meta": "child",
                                 "nodes": [
-                                    {"value": 1.1},
-                                    {"value": 1.2}
+                                    {
+                                        "value": 1.1
+                                    },
+                                    {
+                                        "value": 1.2
+                                    }
                                 ]
                             }
                         },
@@ -330,8 +440,12 @@
                             "subtree": {
                                 "meta": "child",
                                 "nodes": [
-                                    {"value": 2.1},
-                                    {"value": 2.2}
+                                    {
+                                        "value": 2.1
+                                    },
+                                    {
+                                        "value": 2.2
+                                    }
                                 ]
                             }
                         }
@@ -349,8 +463,12 @@
                             "subtree": {
                                 "meta": "child",
                                 "nodes": [
-                                    {"value": "string is invalid"},
-                                    {"value": 1.2}
+                                    {
+                                        "value": "string is invalid"
+                                    },
+                                    {
+                                        "value": 1.2
+                                    }
                                 ]
                             }
                         },
@@ -359,8 +477,12 @@
                             "subtree": {
                                 "meta": "child",
                                 "nodes": [
-                                    {"value": 2.1},
-                                    {"value": 2.2}
+                                    {
+                                        "value": 2.1
+                                    },
+                                    {
+                                        "value": 2.2
+                                    }
                                 ]
                             }
                         }
@@ -372,13 +494,18 @@
     },
     {
         "description": "refs with quote",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
-                "foo\"bar": {"$ref": "#/$defs/foo%22bar"}
+                "foo\"bar": {
+                    "$ref": "#/$defs/foo%22bar"
+                }
             },
             "$defs": {
-                "foo\"bar": {"type": "number"}
+                "foo\"bar": {
+                    "type": "number"
+                }
             }
         },
         "tests": [
@@ -400,6 +527,7 @@
     },
     {
         "description": "ref creates new scope when adjacent to keywords",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {
@@ -429,10 +557,14 @@
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {
-                "a_string": { "type": "string" }
+                "a_string": {
+                    "type": "string"
+                }
             },
             "enum": [
-                { "$ref": "#/$defs/a_string" }
+                {
+                    "$ref": "#/$defs/a_string"
+                }
             ]
         },
         "tests": [
@@ -443,18 +575,23 @@
             },
             {
                 "description": "do not evaluate the $ref inside the enum, definition exact match",
-                "data": { "type": "string" },
+                "data": {
+                    "type": "string"
+                },
                 "valid": false
             },
             {
                 "description": "match the enum exactly",
-                "data": { "$ref": "#/$defs/a_string" },
+                "data": {
+                    "$ref": "#/$defs/a_string"
+                },
                 "valid": true
             }
         ]
     },
     {
         "description": "refs with relative uris and defs",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://example.com/schema-relative-uri-defs1.json",
@@ -464,7 +601,9 @@
                     "$defs": {
                         "inner": {
                             "properties": {
-                                "bar": { "type": "string" }
+                                "bar": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -508,6 +647,7 @@
     },
     {
         "description": "relative refs with absolute uris and defs",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://example.com/schema-refs-absolute-uris-defs1.json",
@@ -517,7 +657,9 @@
                     "$defs": {
                         "inner": {
                             "properties": {
-                                "bar": { "type": "string" }
+                                "bar": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -561,6 +703,7 @@
     },
     {
         "description": "$id must be resolved against nearest parent, not just immediate parent",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://example.com/a.json",
@@ -598,6 +741,7 @@
     },
     {
         "description": "order of evaluation: $id and $ref",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
@@ -631,6 +775,7 @@
     },
     {
         "description": "order of evaluation: $id and $anchor and $ref",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
@@ -665,6 +810,7 @@
     },
     {
         "description": "order of evaluation: $id and $ref on nested schema",
+        "compatibility": "2019",
         "schema": {
             "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
             "$schema": "https://json-schema.org/v1",
@@ -698,134 +844,178 @@
     },
     {
         "description": "simple URN base URI with $ref via the URN",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "URIs do not have to have HTTP(s) schemes",
             "$id": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed",
             "minimum": 30,
             "properties": {
-                "foo": {"$ref": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed"}
+                "foo": {
+                    "$ref": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed"
+                }
             }
         },
         "tests": [
             {
                 "description": "valid under the URN IDed schema",
-                "data": {"foo": 37},
+                "data": {
+                    "foo": 37
+                },
                 "valid": true
             },
             {
                 "description": "invalid under the URN IDed schema",
-                "data": {"foo": 12},
+                "data": {
+                    "foo": 12
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "simple URN base URI with JSON pointer",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "URIs do not have to have HTTP(s) schemes",
             "$id": "urn:uuid:deadbeef-1234-00ff-ff00-4321feebdaed",
             "properties": {
-                "foo": {"$ref": "#/$defs/bar"}
+                "foo": {
+                    "$ref": "#/$defs/bar"
+                }
             },
             "$defs": {
-                "bar": {"type": "string"}
+                "bar": {
+                    "type": "string"
+                }
             }
         },
         "tests": [
             {
                 "description": "a string is valid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": true
             },
             {
                 "description": "a non-string is invalid",
-                "data": {"foo": 12},
+                "data": {
+                    "foo": 12
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "URN base URI with NSS",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "RFC 8141 §2.2",
             "$id": "urn:example:1/406/47452/2",
             "properties": {
-                "foo": {"$ref": "#/$defs/bar"}
+                "foo": {
+                    "$ref": "#/$defs/bar"
+                }
             },
             "$defs": {
-                "bar": {"type": "string"}
+                "bar": {
+                    "type": "string"
+                }
             }
         },
         "tests": [
             {
                 "description": "a string is valid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": true
             },
             {
                 "description": "a non-string is invalid",
-                "data": {"foo": 12},
+                "data": {
+                    "foo": 12
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "URN base URI with r-component",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "RFC 8141 §2.3.1",
             "$id": "urn:example:foo-bar-baz-qux?+CCResolve:cc=uk",
             "properties": {
-                "foo": {"$ref": "#/$defs/bar"}
+                "foo": {
+                    "$ref": "#/$defs/bar"
+                }
             },
             "$defs": {
-                "bar": {"type": "string"}
+                "bar": {
+                    "type": "string"
+                }
             }
         },
         "tests": [
             {
                 "description": "a string is valid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": true
             },
             {
                 "description": "a non-string is invalid",
-                "data": {"foo": 12},
+                "data": {
+                    "foo": 12
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "URN base URI with q-component",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "RFC 8141 §2.3.2",
             "$id": "urn:example:weather?=op=map&lat=39.56&lon=-104.85&datetime=1969-07-21T02:56:15Z",
             "properties": {
-                "foo": {"$ref": "#/$defs/bar"}
+                "foo": {
+                    "$ref": "#/$defs/bar"
+                }
             },
             "$defs": {
-                "bar": {"type": "string"}
+                "bar": {
+                    "type": "string"
+                }
             }
         },
         "tests": [
             {
                 "description": "a string is valid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": true
             },
             {
                 "description": "a non-string is invalid",
-                "data": {"foo": 12},
+                "data": {
+                    "foo": 12
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "URN base URI with f-component",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "RFC 8141 §2.3.3, but we don't allow fragments",
@@ -834,43 +1024,57 @@
         "tests": [
             {
                 "description": "is invalid",
-                "data": {"$id": "urn:example:foo-bar-baz-qux#somepart"},
+                "data": {
+                    "$id": "urn:example:foo-bar-baz-qux#somepart"
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "URN base URI with URN and JSON pointer ref",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed",
             "properties": {
-                "foo": {"$ref": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed#/$defs/bar"}
+                "foo": {
+                    "$ref": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed#/$defs/bar"
+                }
             },
             "$defs": {
-                "bar": {"type": "string"}
+                "bar": {
+                    "type": "string"
+                }
             }
         },
         "tests": [
             {
                 "description": "a string is valid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": true
             },
             {
                 "description": "a non-string is invalid",
-                "data": {"foo": 12},
+                "data": {
+                    "foo": 12
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "URN base URI with URN and anchor ref",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed",
             "properties": {
-                "foo": {"$ref": "urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed#something"}
+                "foo": {
+                    "$ref": "urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed#something"
+                }
             },
             "$defs": {
                 "bar": {
@@ -882,25 +1086,34 @@
         "tests": [
             {
                 "description": "a string is valid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": true
             },
             {
                 "description": "a non-string is invalid",
-                "data": {"foo": 12},
+                "data": {
+                    "foo": 12
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "URN ref with nested pointer ref",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$ref": "urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed",
             "$defs": {
                 "foo": {
                     "$id": "urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed",
-                    "$defs": {"bar": {"type": "string"}},
+                    "$defs": {
+                        "bar": {
+                            "type": "string"
+                        }
+                    },
                     "$ref": "#/$defs/bar"
                 }
             }
@@ -920,6 +1133,7 @@
     },
     {
         "description": "ref to if",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$ref": "http://example.com/ref/if",
@@ -943,6 +1157,7 @@
     },
     {
         "description": "ref to then",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$ref": "http://example.com/ref/then",
@@ -966,6 +1181,7 @@
     },
     {
         "description": "ref to else",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$ref": "http://example.com/ref/else",
@@ -989,6 +1205,7 @@
     },
     {
         "description": "ref with absolute-path-reference",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://example.com/ref/absref.json",
@@ -1019,6 +1236,7 @@
     },
     {
         "description": "$id with file URI still resolves pointers - *nix",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "file:///folder/file.json",
@@ -1044,6 +1262,7 @@
     },
     {
         "description": "$id with file URI still resolves pointers - windows",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "file:///c:/folder/file.json",
@@ -1066,17 +1285,20 @@
                 "valid": false
             }
         ]
-    }, 
+    },
     {
         "description": "empty tokens in $ref json-pointer",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {
                 "": {
                     "$defs": {
-                        "": { "type": "number" }
+                        "": {
+                            "type": "number"
+                        }
                     }
-                } 
+                }
             },
             "allOf": [
                 {

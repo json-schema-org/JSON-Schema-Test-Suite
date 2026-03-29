@@ -1,6 +1,7 @@
 [
     {
         "description": "minProperties validation",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "minProperties": 1
@@ -8,12 +9,17 @@
         "tests": [
             {
                 "description": "longer is valid",
-                "data": {"foo": 1, "bar": 2},
+                "data": {
+                    "foo": 1,
+                    "bar": 2
+                },
                 "valid": true
             },
             {
                 "description": "exact length is valid",
-                "data": {"foo": 1},
+                "data": {
+                    "foo": 1
+                },
                 "valid": true
             },
             {
@@ -40,6 +46,7 @@
     },
     {
         "description": "minProperties validation with a decimal",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "minProperties": 1.0
@@ -47,7 +54,10 @@
         "tests": [
             {
                 "description": "longer is valid",
-                "data": {"foo": 1, "bar": 2},
+                "data": {
+                    "foo": 1,
+                    "bar": 2
+                },
                 "valid": true
             },
             {

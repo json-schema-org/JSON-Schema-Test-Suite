@@ -1,13 +1,18 @@
 [
     {
         "description": "single dependency",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "dependentSchemas": {
                 "bar": {
                     "properties": {
-                        "foo": {"type": "integer"},
-                        "bar": {"type": "integer"}
+                        "foo": {
+                            "type": "integer"
+                        },
+                        "bar": {
+                            "type": "integer"
+                        }
                     }
                 }
             }
@@ -15,32 +20,48 @@
         "tests": [
             {
                 "description": "valid",
-                "data": {"foo": 1, "bar": 2},
+                "data": {
+                    "foo": 1,
+                    "bar": 2
+                },
                 "valid": true
             },
             {
                 "description": "no dependency",
-                "data": {"foo": "quux"},
+                "data": {
+                    "foo": "quux"
+                },
                 "valid": true
             },
             {
                 "description": "wrong type",
-                "data": {"foo": "quux", "bar": 2},
+                "data": {
+                    "foo": "quux",
+                    "bar": 2
+                },
                 "valid": false
             },
             {
                 "description": "wrong type other",
-                "data": {"foo": 2, "bar": "quux"},
+                "data": {
+                    "foo": 2,
+                    "bar": "quux"
+                },
                 "valid": false
             },
             {
                 "description": "wrong type both",
-                "data": {"foo": "quux", "bar": "quux"},
+                "data": {
+                    "foo": "quux",
+                    "bar": "quux"
+                },
                 "valid": false
             },
             {
                 "description": "ignores arrays",
-                "data": ["bar"],
+                "data": [
+                    "bar"
+                ],
                 "valid": true
             },
             {
@@ -57,6 +78,7 @@
     },
     {
         "description": "boolean subschemas",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "dependentSchemas": {
@@ -67,17 +89,24 @@
         "tests": [
             {
                 "description": "object with property having schema true is valid",
-                "data": {"foo": 1},
+                "data": {
+                    "foo": 1
+                },
                 "valid": true
             },
             {
                 "description": "object with property having schema false is invalid",
-                "data": {"bar": 2},
+                "data": {
+                    "bar": 2
+                },
                 "valid": false
             },
             {
                 "description": "object with both properties is invalid",
-                "data": {"foo": 1, "bar": 2},
+                "data": {
+                    "foo": 1,
+                    "bar": 2
+                },
                 "valid": false
             },
             {
@@ -89,11 +118,18 @@
     },
     {
         "description": "dependencies with escaped characters",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "dependentSchemas": {
-                "foo\tbar": {"minProperties": 4},
-                "foo'bar": {"required": ["foo\"bar"]}
+                "foo\tbar": {
+                    "minProperties": 4
+                },
+                "foo'bar": {
+                    "required": [
+                        "foo\"bar"
+                    ]
+                }
             }
         },
         "tests": [
@@ -110,7 +146,9 @@
             {
                 "description": "quoted quote",
                 "data": {
-                    "foo'bar": {"foo\"bar": 1}
+                    "foo'bar": {
+                        "foo\"bar": 1
+                    }
                 },
                 "valid": false
             },
@@ -124,13 +162,16 @@
             },
             {
                 "description": "quoted quote invalid under dependent schema",
-                "data": {"foo'bar": 1},
+                "data": {
+                    "foo'bar": 1
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "dependent subschema incompatible with root",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
@@ -148,22 +189,31 @@
         "tests": [
             {
                 "description": "matches root",
-                "data": {"foo": 1},
+                "data": {
+                    "foo": 1
+                },
                 "valid": false
             },
             {
                 "description": "matches dependency",
-                "data": {"bar": 1},
+                "data": {
+                    "bar": 1
+                },
                 "valid": true
             },
             {
                 "description": "matches both",
-                "data": {"foo": 1, "bar": 2},
+                "data": {
+                    "foo": 1,
+                    "bar": 2
+                },
                 "valid": false
             },
             {
                 "description": "no dependency",
-                "data": {"baz": 1},
+                "data": {
+                    "baz": 1
+                },
                 "valid": true
             }
         ]

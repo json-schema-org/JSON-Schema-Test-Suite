@@ -3,7 +3,11 @@
         "description": "simple enum validation",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [1, 2, 3]
+            "enum": [
+                1,
+                2,
+                3
+            ]
         },
         "tests": [
             {
@@ -22,7 +26,15 @@
         "description": "heterogeneous enum validation",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [6, "foo", [], true, {"foo": 12}]
+            "enum": [
+                6,
+                "foo",
+                [],
+                true,
+                {
+                    "foo": 12
+                }
+            ]
         },
         "tests": [
             {
@@ -37,17 +49,24 @@
             },
             {
                 "description": "objects are deep compared",
-                "data": {"foo": false},
+                "data": {
+                    "foo": false
+                },
                 "valid": false
             },
             {
                 "description": "valid object matches",
-                "data": {"foo": 12},
+                "data": {
+                    "foo": 12
+                },
                 "valid": true
             },
             {
                 "description": "extra properties in object is invalid",
-                "data": {"foo": 12, "boo": 42},
+                "data": {
+                    "foo": 12,
+                    "boo": 42
+                },
                 "valid": false
             }
         ]
@@ -56,7 +75,10 @@
         "description": "heterogeneous enum-with-null validation",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [6, null]
+            "enum": [
+                6,
+                null
+            ]
         },
         "tests": [
             {
@@ -80,37 +102,60 @@
         "description": "enums in properties",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "type":"object",
+            "type": "object",
             "properties": {
-                "foo": {"enum":["foo"]},
-                "bar": {"enum":["bar"]}
+                "foo": {
+                    "enum": [
+                        "foo"
+                    ]
+                },
+                "bar": {
+                    "enum": [
+                        "bar"
+                    ]
+                }
             },
-            "required": ["bar"]
+            "required": [
+                "bar"
+            ]
         },
         "tests": [
             {
                 "description": "both properties are valid",
-                "data": {"foo":"foo", "bar":"bar"},
+                "data": {
+                    "foo": "foo",
+                    "bar": "bar"
+                },
                 "valid": true
             },
             {
                 "description": "wrong foo value",
-                "data": {"foo":"foot", "bar":"bar"},
+                "data": {
+                    "foo": "foot",
+                    "bar": "bar"
+                },
                 "valid": false
             },
             {
                 "description": "wrong bar value",
-                "data": {"foo":"foo", "bar":"bart"},
+                "data": {
+                    "foo": "foo",
+                    "bar": "bart"
+                },
                 "valid": false
             },
             {
                 "description": "missing optional property is valid",
-                "data": {"bar":"bar"},
+                "data": {
+                    "bar": "bar"
+                },
                 "valid": true
             },
             {
                 "description": "missing required property is invalid",
-                "data": {"foo":"foo"},
+                "data": {
+                    "foo": "foo"
+                },
                 "valid": false
             },
             {
@@ -122,9 +167,13 @@
     },
     {
         "description": "enum with escaped characters",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": ["foo\nbar", "foo\rbar"]
+            "enum": [
+                "foo\nbar",
+                "foo\rbar"
+            ]
         },
         "tests": [
             {
@@ -146,9 +195,12 @@
     },
     {
         "description": "enum with false does not match 0",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [false]
+            "enum": [
+                false
+            ]
         },
         "tests": [
             {
@@ -170,33 +222,47 @@
     },
     {
         "description": "enum with [false] does not match [0]",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [[false]]
+            "enum": [
+                [
+                    false
+                ]
+            ]
         },
         "tests": [
             {
                 "description": "[false] is valid",
-                "data": [false],
+                "data": [
+                    false
+                ],
                 "valid": true
             },
             {
                 "description": "[0] is invalid",
-                "data": [0],
+                "data": [
+                    0
+                ],
                 "valid": false
             },
             {
                 "description": "[0.0] is invalid",
-                "data": [0.0],
+                "data": [
+                    0.0
+                ],
                 "valid": false
             }
         ]
     },
     {
         "description": "enum with true does not match 1",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [true]
+            "enum": [
+                true
+            ]
         },
         "tests": [
             {
@@ -218,33 +284,47 @@
     },
     {
         "description": "enum with [true] does not match [1]",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [[true]]
+            "enum": [
+                [
+                    true
+                ]
+            ]
         },
         "tests": [
             {
                 "description": "[true] is valid",
-                "data": [true],
+                "data": [
+                    true
+                ],
                 "valid": true
             },
             {
                 "description": "[1] is invalid",
-                "data": [1],
+                "data": [
+                    1
+                ],
                 "valid": false
             },
             {
                 "description": "[1.0] is invalid",
-                "data": [1.0],
+                "data": [
+                    1.0
+                ],
                 "valid": false
             }
         ]
     },
     {
         "description": "enum with 0 does not match false",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [0]
+            "enum": [
+                0
+            ]
         },
         "tests": [
             {
@@ -266,33 +346,47 @@
     },
     {
         "description": "enum with [0] does not match [false]",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [[0]]
+            "enum": [
+                [
+                    0
+                ]
+            ]
         },
         "tests": [
             {
                 "description": "[false] is invalid",
-                "data": [false],
+                "data": [
+                    false
+                ],
                 "valid": false
             },
             {
                 "description": "[0] is valid",
-                "data": [0],
+                "data": [
+                    0
+                ],
                 "valid": true
             },
             {
                 "description": "[0.0] is valid",
-                "data": [0.0],
+                "data": [
+                    0.0
+                ],
                 "valid": true
             }
         ]
     },
     {
         "description": "enum with 1 does not match true",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [1]
+            "enum": [
+                1
+            ]
         },
         "tests": [
             {
@@ -314,24 +408,35 @@
     },
     {
         "description": "enum with [1] does not match [true]",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [[1]]
+            "enum": [
+                [
+                    1
+                ]
+            ]
         },
         "tests": [
             {
                 "description": "[true] is invalid",
-                "data": [true],
+                "data": [
+                    true
+                ],
                 "valid": false
             },
             {
                 "description": "[1] is valid",
-                "data": [1],
+                "data": [
+                    1
+                ],
                 "valid": true
             },
             {
                 "description": "[1.0] is valid",
-                "data": [1.0],
+                "data": [
+                    1.0
+                ],
                 "valid": true
             }
         ]
@@ -340,7 +445,9 @@
         "description": "nul characters in strings",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "enum": [ "hello\u0000there" ]
+            "enum": [
+                "hello\u0000there"
+            ]
         },
         "tests": [
             {
@@ -357,6 +464,7 @@
     },
     {
         "description": "empty enum",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "enum": []

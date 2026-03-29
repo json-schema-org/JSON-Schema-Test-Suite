@@ -1,9 +1,12 @@
 [
     {
         "description": "not",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "not": {"type": "integer"}
+            "not": {
+                "type": "integer"
+            }
         },
         "tests": [
             {
@@ -20,9 +23,15 @@
     },
     {
         "description": "not multiple types",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "not": {"type": ["integer", "boolean"]}
+            "not": {
+                "type": [
+                    "integer",
+                    "boolean"
+                ]
+            }
         },
         "tests": [
             {
@@ -44,6 +53,7 @@
     },
     {
         "description": "not more complex schema",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "not": {
@@ -53,7 +63,7 @@
                         "type": "string"
                     }
                 }
-             }
+            }
         },
         "tests": [
             {
@@ -63,22 +73,27 @@
             },
             {
                 "description": "other match",
-                "data": {"foo": 1},
+                "data": {
+                    "foo": 1
+                },
                 "valid": true
             },
             {
                 "description": "mismatch",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "forbidden property",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
-                "foo": { 
+                "foo": {
                     "not": {}
                 }
             }
@@ -86,18 +101,25 @@
         "tests": [
             {
                 "description": "property present",
-                "data": {"foo": 1, "bar": 2},
+                "data": {
+                    "foo": 1,
+                    "bar": 2
+                },
                 "valid": false
             },
             {
                 "description": "property absent",
-                "data": {"bar": 1, "baz": 2},
+                "data": {
+                    "bar": 1,
+                    "baz": 2
+                },
                 "valid": true
             }
         ]
     },
     {
         "description": "forbid everything with empty schema",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "not": {}
@@ -130,7 +152,9 @@
             },
             {
                 "description": "object is invalid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": false
             },
             {
@@ -140,7 +164,9 @@
             },
             {
                 "description": "array is invalid",
-                "data": ["foo"],
+                "data": [
+                    "foo"
+                ],
                 "valid": false
             },
             {
@@ -152,6 +178,7 @@
     },
     {
         "description": "forbid everything with boolean schema true",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "not": true
@@ -184,7 +211,9 @@
             },
             {
                 "description": "object is invalid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": false
             },
             {
@@ -194,7 +223,9 @@
             },
             {
                 "description": "array is invalid",
-                "data": ["foo"],
+                "data": [
+                    "foo"
+                ],
                 "valid": false
             },
             {
@@ -206,6 +237,7 @@
     },
     {
         "description": "allow everything with boolean schema false",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "not": false
@@ -238,7 +270,9 @@
             },
             {
                 "description": "object is valid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": true
             },
             {
@@ -248,7 +282,9 @@
             },
             {
                 "description": "array is valid",
-                "data": ["foo"],
+                "data": [
+                    "foo"
+                ],
                 "valid": true
             },
             {
@@ -260,9 +296,12 @@
     },
     {
         "description": "double negation",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "not": { "not": {} }
+            "not": {
+                "not": {}
+            }
         },
         "tests": [
             {
@@ -274,13 +313,18 @@
     },
     {
         "description": "collect annotations inside a 'not', even if collection is disabled",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "not": {
                 "$comment": "this subschema must still produce annotations internally, even though the 'not' will ultimately discard them",
                 "anyOf": [
                     true,
-                    { "properties": { "foo": true } }
+                    {
+                        "properties": {
+                            "foo": true
+                        }
+                    }
                 ],
                 "unevaluatedProperties": false
             }
@@ -288,14 +332,18 @@
         "tests": [
             {
                 "description": "unevaluated property",
-                "data": { "bar": 1 },
+                "data": {
+                    "bar": 1
+                },
                 "valid": true
             },
             {
                 "description": "annotations are still collected inside a 'not'",
-                "data": { "foo": 1 },
+                "data": {
+                    "foo": 1
+                },
                 "valid": false
             }
         ]
-     }
+    }
 ]

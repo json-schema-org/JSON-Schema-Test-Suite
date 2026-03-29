@@ -1,6 +1,7 @@
 [
     {
         "description": "unevaluatedProperties can see inside propertyDependencies",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
@@ -46,12 +47,15 @@
         ]
     },
     {
-        "description": "propertyDependencies with unevaluatedProperties" ,
-        "schema" : {
+        "description": "propertyDependencies with unevaluatedProperties",
+        "compatibility": "=2020",
+        "schema": {
             "$schema": "https://json-schema.org/v1",
-            "properties" : {"foo2" : {}},
+            "properties": {
+                "foo2": {}
+            },
             "propertyDependencies": {
-                "foo" : {},
+                "foo": {},
                 "foo2": {
                     "bar": {
                         "properties": {
@@ -62,21 +66,27 @@
             },
             "unevaluatedProperties": false
         },
-
         "tests": [
             {
-                "description": "unevaluatedProperties doesn't consider propertyDependencies" , 
-                "data": {"foo": "bar"},
+                "description": "unevaluatedProperties doesn't consider propertyDependencies",
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": false
             },
             {
                 "description": "unevaluatedProperties sees buz when foo2 is present",
-                "data": {"foo2": "bar", "buz": ""},
+                "data": {
+                    "foo2": "bar",
+                    "buz": ""
+                },
                 "valid": true
             },
             {
                 "description": "unevaluatedProperties doesn't see buz when foo2 is absent",
-                "data": {"buz": ""},
+                "data": {
+                    "buz": ""
+                },
                 "valid": false
             }
         ]

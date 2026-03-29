@@ -29,6 +29,25 @@ else:
         "latest": jsonschema.validators.Draft202012Validator,
     }
 
+RELEASE_FOR_DIALECT = {
+    "draft3": 3,
+    "draft4": 4,
+    "draft6": 6,
+    "draft7": 7,
+    "draft2019-09": 2019,
+    "draft2020-12": 2020,
+    "latest": 2020,
+}
+DIALECT_URI_FOR_VERSION = {
+    "draft3": "http://json-schema.org/draft-03/schema#",
+    "draft4": "http://json-schema.org/draft-04/schema#",
+    "draft6": "http://json-schema.org/draft-06/schema#",
+    "draft7": "http://json-schema.org/draft-07/schema#",
+    "draft2019-09": "https://json-schema.org/draft/2019-09/schema",
+    "draft2020-12": "https://json-schema.org/draft/2020-12/schema",
+    "latest": "https://json-schema.org/draft/2020-12/schema",
+}
+V1_DIALECT_URI = "https://json-schema.org/v1"
 
 ROOT_DIR = Path(__file__).parent.parent
 SUITE_ROOT_DIR = ROOT_DIR / "tests"
@@ -37,10 +56,18 @@ OUTPUT_ROOT_DIR = ROOT_DIR / "output-tests"
 REMOTES_DIR = ROOT_DIR / "remotes"
 REMOTES_BASE_URL = "http://localhost:1234/"
 
-TEST_SCHEMA = json.loads(ROOT_DIR.joinpath("test-schema.json").read_text())
-OUTPUT_TEST_SCHEMA = json.loads(
-    ROOT_DIR.joinpath("output-test-schema.json").read_text(),
+TEST_SCHEMA = json.loads(
+    ROOT_DIR.joinpath("test-schema.json").read_text(encoding="utf-8")
 )
+OUTPUT_TEST_SCHEMA = json.loads(
+    ROOT_DIR.joinpath("output-test-schema.json").read_text(
+        encoding="utf-8"
+    ),
+)
+
+
+def read_json(path):
+    return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
 def files(paths):
@@ -48,7 +75,7 @@ def files(paths):
     Each test file in the provided paths, as an array of test cases.
     """
     for path in paths:
-        yield path, json.loads(path.read_text())
+        yield path, read_json(path)
 
 
 def cases(paths):
@@ -69,10 +96,80 @@ def tests(paths):
             yield test
 
 
+def release_for(version_name):
+    return RELEASE_FOR_DIALECT[version_name]
+
+
+def dialect_is_compatible(compatibility, version_name):
+    if compatibility is None:
+        return True
+
+    release = release_for(version_name)
+    for raw_constraint in compatibility.split(","):
+        constraint = raw_constraint.strip()
+        if constraint.startswith("<="):
+            if release > int(constraint[2:]):
+                return False
+        elif constraint.startswith("="):
+            if release != int(constraint[1:]):
+                return False
+        elif release < int(constraint):
+            return False
+    return True
+
+
+def rewrite_v1_dialect(value, version_name):
+    if isinstance(value, dict):
+        return {
+            key: (
+                DIALECT_URI_FOR_VERSION[version_name]
+                if key == "$schema" and child == V1_DIALECT_URI
+                else rewrite_v1_dialect(child, version_name)
+            )
+            for key, child in value.items()
+        }
+    if isinstance(value, list):
+        return [rewrite_v1_dialect(each, version_name) for each in value]
+    return value
+
+
+def cases_for_version(paths, version_name):
+    for case in cases(paths):
+        compatibility = case.get("compatibility")
+        if version_name == "v1":
+            yield case
+            continue
+        if not dialect_is_compatible(compatibility, version_name):
+            continue
+
+        rewritten = dict(case)
+        rewritten.pop("compatibility", None)
+        rewritten["schema"] = rewrite_v1_dialect(case["schema"], version_name)
+        if "tests" in rewritten:
+            rewritten["tests"] = [dict(test) for test in case["tests"]]
+        yield rewritten
+
+
+def suite_version_for(path):
+    current = Path(path)
+    current = current.parent if current.suffix == ".json" else current
+    known = set(RELEASE_FOR_DIALECT) | {"v1"}
+
+    while current.name not in known:
+        parent = current.parent
+        if parent == current:
+            break
+        current = parent
+    return current.name
+
+
 def collect(root_dir):
     """
     All of the test file paths within the given root directory, recursively.
     """
+    root_dir = Path(root_dir)
+    if root_dir.is_file():
+        return [root_dir]
     return root_dir.rglob("*.json")
 
 
@@ -170,7 +267,7 @@ class SanityTests(unittest.TestCase):
         for path in collect(ROOT_DIR):
             with self.subTest(path=path):
                 try:
-                    json.loads(path.read_text())
+                    read_json(path)
                 except ValueError as error:
                     self.fail(f"{path} contains invalid JSON ({error})")
 
@@ -255,6 +352,27 @@ class SanityTests(unittest.TestCase):
                             "Found an invalid schema. "
                             "See the traceback for details on why."
                         )
+
+        v1 = SUITE_ROOT_DIR / "v1"
+        if v1.exists():
+            test_files = collect(v1)
+            for version_name, Validator in VALIDATORS.items():
+                if version_name in {"latest"}:
+                    continue
+
+                Validator.FORMAT_CHECKER.checkers.pop("regex", None)
+                for case in cases_for_version(test_files, version_name):
+                    with self.subTest(case=case, version=version_name):
+                        try:
+                            Validator.check_schema(
+                                case["schema"],
+                                format_checker=Validator.FORMAT_CHECKER,
+                            )
+                        except jsonschema.SchemaError:
+                            self.fail(
+                                "Found an invalid schema in tests/v1. "
+                                "See the traceback for details on why."
+                            )
 
     @unittest.skipIf(jsonschema is None, "Validation library not present!")
     def test_arbitrary_schemas_do_not_use_unknown_keywords(self):
@@ -545,7 +663,7 @@ class SanityTests(unittest.TestCase):
             },
         }
 
-        def missing(d):
+        def missing(d, version_name):
             from collections.abc import Mapping
 
             class BlowUpForUnknownProperties(Mapping):
@@ -553,9 +671,9 @@ class SanityTests(unittest.TestCase):
                     return iter(d)
 
                 def __getitem__(this, k):
-                    if k not in KNOWN[version.name]:
+                    if k not in KNOWN[version_name]:
                         self.fail(
-                            f"{k} is not a known keyword for {version.name}. "
+                            f"{k} is not a known keyword for {version_name}. "
                             "If this test is testing behavior related to "
                             "unknown keywords you may need to add it to the "
                             "allowlist in the jsonschema_suite checker. "
@@ -575,7 +693,9 @@ class SanityTests(unittest.TestCase):
             self.addCleanup(
                 setattr, Validator, "VALIDATORS", Validator.VALIDATORS,
             )
-            Validator.VALIDATORS = missing(dict(Validator.VALIDATORS))
+            Validator.VALIDATORS = missing(
+                dict(Validator.VALIDATORS), version.name
+            )
 
             test_files = [
                 each for each in collect(version)
@@ -589,6 +709,32 @@ class SanityTests(unittest.TestCase):
                         Validator(case["schema"]).is_valid(12)
                     except Unresolvable:
                         pass
+
+        v1 = SUITE_ROOT_DIR / "v1"
+        if v1.exists():
+            test_files = [
+                each for each in collect(v1)
+                if each.stem != "refOfUnknownKeyword"
+            ]
+            for version_name, Validator in VALIDATORS.items():
+                if version_name in {"latest"}:
+                    continue
+
+                self.addCleanup(
+                    setattr, Validator, "VALIDATORS", Validator.VALIDATORS,
+                )
+                Validator.VALIDATORS = missing(
+                    dict(Validator.VALIDATORS), version_name
+                )
+
+                for case in cases_for_version(test_files, version_name):
+                    if "unknown keyword" in case["description"]:
+                        continue
+                    with self.subTest(case=case, version=version_name):
+                        try:
+                            Validator(case["schema"]).is_valid(12)
+                        except Unresolvable:
+                            pass
 
     @unittest.skipIf(jsonschema is None, "Validation library not present!")
     def test_suites_are_valid(self):
@@ -625,7 +771,25 @@ def main(arguments):
         result = unittest.TextTestRunner().run(suite)
         sys.exit(not result.wasSuccessful())
     elif arguments.command == "flatten":
-        selected_cases = [case for case in cases(collect(arguments.version))]
+        version_name = suite_version_for(arguments.version)
+        selected_cases = list(
+            cases_for_version(collect(arguments.version), version_name)
+        )
+
+        if version_name == "v1" and arguments.dialect is not None:
+            selected_cases = [
+                dict(
+                    case,
+                    schema=rewrite_v1_dialect(case["schema"], arguments.dialect),
+                    tests=[dict(test) for test in case["tests"]],
+                )
+                for case in selected_cases
+                if dialect_is_compatible(
+                    case.get("compatibility"), arguments.dialect
+                )
+            ]
+            for case in selected_cases:
+                case.pop("compatibility", None)
 
         if arguments.randomize:
             random.shuffle(selected_cases)
@@ -633,7 +797,7 @@ def main(arguments):
         json.dump(selected_cases, sys.stdout, indent=4, sort_keys=True)
     elif arguments.command == "remotes":
         remotes = {
-            url_for_path(path): json.loads(path.read_text())
+            url_for_path(path): read_json(path)
             for path in collect(REMOTES_DIR)
         }
         json.dump(remotes, sys.stdout, indent=4, sort_keys=True)
@@ -694,6 +858,11 @@ flatten.add_argument(
     "--randomize",
     action="store_true",
     help="Randomize the order of the outputted cases.",
+)
+flatten.add_argument(
+    "--dialect",
+    choices=sorted(RELEASE_FOR_DIALECT),
+    help="When flattening tests/v1, filter to the selected dialect and rewrite the v1 $schema marker.",
 )
 flatten.add_argument(
     "version",

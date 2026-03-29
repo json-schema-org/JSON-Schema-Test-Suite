@@ -106,7 +106,8 @@ The precise steps described do not need to be followed exactly, but the results 
 To test a specific version:
 
 * For 2019-09 and later published versions, implementations that are able to detect the version of each schema via `$schema` SHOULD be configured to do so
-* For draft-07 and earlier, v1 (not yet released), and implementations unable to detect via `$schema`, implementations MUST be configured to expect the version matching the test directory name
+* For draft-07 and earlier, and implementations unable to detect via `$schema`, implementations MUST be configured to expect the version matching the test directory name
+* The `tests/v1` directory is the unified validation suite. It uses `https://json-schema.org/v1` as a placeholder dialect marker and may include a `compatibility` property on a test case indicating which dialects the case applies to. Test runners should select a concrete dialect, filter out incompatible cases, and replace that placeholder with the concrete dialect URI before running the case.
 * Load any remote references [described below](#additional-assumptions) and configure your implementation to retrieve them via their URIs
 * Walk the filesystem tree for that version's subdirectory and for each `.json` file found:
 

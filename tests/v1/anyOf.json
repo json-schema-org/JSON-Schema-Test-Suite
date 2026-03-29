@@ -1,6 +1,7 @@
 [
     {
         "description": "anyOf",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "anyOf": [
@@ -37,10 +38,11 @@
     },
     {
         "description": "anyOf with base schema",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "type": "string",
-            "anyOf" : [
+            "anyOf": [
                 {
                     "maxLength": 2
                 },
@@ -69,9 +71,13 @@
     },
     {
         "description": "anyOf with boolean schemas, all true",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "anyOf": [true, true]
+            "anyOf": [
+                true,
+                true
+            ]
         },
         "tests": [
             {
@@ -83,9 +89,13 @@
     },
     {
         "description": "anyOf with boolean schemas, some true",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "anyOf": [true, false]
+            "anyOf": [
+                true,
+                false
+            ]
         },
         "tests": [
             {
@@ -97,9 +107,13 @@
     },
     {
         "description": "anyOf with boolean schemas, all false",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "anyOf": [false, false]
+            "anyOf": [
+                false,
+                false
+            ]
         },
         "tests": [
             {
@@ -111,52 +125,74 @@
     },
     {
         "description": "anyOf complex types",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "anyOf": [
                 {
                     "properties": {
-                        "bar": {"type": "integer"}
+                        "bar": {
+                            "type": "integer"
+                        }
                     },
-                    "required": ["bar"]
+                    "required": [
+                        "bar"
+                    ]
                 },
                 {
                     "properties": {
-                        "foo": {"type": "string"}
+                        "foo": {
+                            "type": "string"
+                        }
                     },
-                    "required": ["foo"]
+                    "required": [
+                        "foo"
+                    ]
                 }
             ]
         },
         "tests": [
             {
                 "description": "first anyOf valid (complex)",
-                "data": {"bar": 2},
+                "data": {
+                    "bar": 2
+                },
                 "valid": true
             },
             {
                 "description": "second anyOf valid (complex)",
-                "data": {"foo": "baz"},
+                "data": {
+                    "foo": "baz"
+                },
                 "valid": true
             },
             {
                 "description": "both anyOf valid (complex)",
-                "data": {"foo": "baz", "bar": 2},
+                "data": {
+                    "foo": "baz",
+                    "bar": 2
+                },
                 "valid": true
             },
             {
                 "description": "neither anyOf valid (complex)",
-                "data": {"foo": 2, "bar": "quux"},
+                "data": {
+                    "foo": 2,
+                    "bar": "quux"
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "anyOf with one empty schema",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "anyOf": [
-                { "type": "number" },
+                {
+                    "type": "number"
+                },
                 {}
             ]
         },
@@ -175,6 +211,7 @@
     },
     {
         "description": "nested anyOf, to check validation semantics",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "anyOf": [

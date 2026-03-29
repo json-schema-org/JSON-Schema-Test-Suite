@@ -1,11 +1,14 @@
 [
     {
         "description": "A $dynamicRef to a $dynamicAnchor in the same schema resource behaves like a normal $ref to an $anchor",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "https://test.json-schema.org/dynamicRef-dynamicAnchor-same-schema/root",
             "type": "array",
-            "items": { "$dynamicRef": "#items" },
+            "items": {
+                "$dynamicRef": "#items"
+            },
             "$defs": {
                 "foo": {
                     "$dynamicAnchor": "items",
@@ -16,18 +19,25 @@
         "tests": [
             {
                 "description": "An array of strings is valid",
-                "data": ["foo", "bar"],
+                "data": [
+                    "foo",
+                    "bar"
+                ],
                 "valid": true
             },
             {
                 "description": "An array containing non-strings is invalid",
-                "data": ["foo", 42],
+                "data": [
+                    "foo",
+                    42
+                ],
                 "valid": false
             }
         ]
     },
     {
         "description": "A $dynamicRef resolves to the first $dynamicAnchor still in scope that is encountered when the schema is evaluated",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "https://test.json-schema.org/typical-dynamic-resolution/root",
@@ -40,25 +50,34 @@
                 "list": {
                     "$id": "list",
                     "type": "array",
-                    "items": { "$dynamicRef": "#items" }
+                    "items": {
+                        "$dynamicRef": "#items"
+                    }
                 }
             }
         },
         "tests": [
             {
                 "description": "An array of strings is valid",
-                "data": ["foo", "bar"],
+                "data": [
+                    "foo",
+                    "bar"
+                ],
                 "valid": true
             },
             {
                 "description": "An array containing non-strings is invalid",
-                "data": ["foo", 42],
+                "data": [
+                    "foo",
+                    42
+                ],
                 "valid": false
             }
         ]
     },
     {
         "description": "A $dynamicRef with intermediate scopes that don't include a matching $dynamicAnchor does not affect dynamic scope resolution",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "https://test.json-schema.org/dynamic-resolution-with-intermediate-scopes/root",
@@ -75,25 +94,34 @@
                 "list": {
                     "$id": "list",
                     "type": "array",
-                    "items": { "$dynamicRef": "#items" }
+                    "items": {
+                        "$dynamicRef": "#items"
+                    }
                 }
             }
         },
         "tests": [
             {
                 "description": "An array of strings is valid",
-                "data": ["foo", "bar"],
+                "data": [
+                    "foo",
+                    "bar"
+                ],
                 "valid": true
             },
             {
                 "description": "An array containing non-strings is invalid",
-                "data": ["foo", 42],
+                "data": [
+                    "foo",
+                    42
+                ],
                 "valid": false
             }
         ]
     },
     {
         "description": "An $anchor with the same name as a $dynamicAnchor is not used for dynamic scope resolution",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "https://test.json-schema.org/dynamic-resolution-ignores-anchors/root",
@@ -106,11 +134,13 @@
                 "list": {
                     "$id": "list",
                     "type": "array",
-                    "items": { "$dynamicRef": "#items" },
+                    "items": {
+                        "$dynamicRef": "#items"
+                    },
                     "$defs": {
-                      "items": {
-                          "$dynamicAnchor": "items"
-                      }
+                        "items": {
+                            "$dynamicAnchor": "items"
+                        }
                     }
                 }
             }
@@ -118,13 +148,17 @@
         "tests": [
             {
                 "description": "Any array is valid",
-                "data": ["foo", 42],
+                "data": [
+                    "foo",
+                    42
+                ],
                 "valid": true
             }
         ]
     },
     {
         "description": "after leaving a dynamic scope, it is not used by a $dynamicRef",
+        "compatibility": "=2020",
         "schema": {
             "$id": "https://test.json-schema.org/dynamic-ref-leaving-dynamic-scope/main",
             "if": {
@@ -187,11 +221,11 @@
     },
     {
         "description": "strict-tree schema, guards against misspelled properties",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/strict-tree.json",
             "$dynamicAnchor": "node",
-
             "$ref": "tree.json",
             "unevaluatedProperties": false
         },
@@ -199,18 +233,22 @@
             {
                 "description": "instance with misspelled field",
                 "data": {
-                    "children": [{
+                    "children": [
+                        {
                             "daat": 1
-                        }]
+                        }
+                    ]
                 },
                 "valid": false
             },
             {
                 "description": "instance with correct field",
                 "data": {
-                    "children": [{
+                    "children": [
+                        {
                             "data": 1
-                        }]
+                        }
+                    ]
                 },
                 "valid": true
             }
@@ -218,6 +256,7 @@
     },
     {
         "description": "tests for implementation dynamic anchor and reference link",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/strict-extendible.json",
@@ -228,7 +267,9 @@
                     "properties": {
                         "a": true
                     },
-                    "required": ["a"],
+                    "required": [
+                        "a"
+                    ],
                     "additionalProperties": false
                 }
             }
@@ -245,7 +286,9 @@
                 "description": "incorrect extended schema",
                 "data": {
                     "elements": [
-                        { "b": 1 }
+                        {
+                            "b": 1
+                        }
                     ]
                 },
                 "valid": false
@@ -254,7 +297,9 @@
                 "description": "correct extended schema",
                 "data": {
                     "elements": [
-                        { "a": 1 }
+                        {
+                            "a": 1
+                        }
                     ]
                 },
                 "valid": true
@@ -263,6 +308,7 @@
     },
     {
         "description": "$ref and $dynamicAnchor are independent of order - $defs first",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/strict-extendible-allof-defs-first.json",
@@ -277,7 +323,9 @@
                             "properties": {
                                 "a": true
                             },
-                            "required": ["a"],
+                            "required": [
+                                "a"
+                            ],
                             "additionalProperties": false
                         }
                     }
@@ -296,7 +344,9 @@
                 "description": "incorrect extended schema",
                 "data": {
                     "elements": [
-                        { "b": 1 }
+                        {
+                            "b": 1
+                        }
                     ]
                 },
                 "valid": false
@@ -305,7 +355,9 @@
                 "description": "correct extended schema",
                 "data": {
                     "elements": [
-                        { "a": 1 }
+                        {
+                            "a": 1
+                        }
                     ]
                 },
                 "valid": true
@@ -314,6 +366,7 @@
     },
     {
         "description": "$ref and $dynamicAnchor are independent of order - $ref first",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/strict-extendible-allof-ref-first.json",
@@ -325,7 +378,9 @@
                             "properties": {
                                 "a": true
                             },
-                            "required": ["a"],
+                            "required": [
+                                "a"
+                            ],
                             "additionalProperties": false
                         }
                     }
@@ -347,7 +402,9 @@
                 "description": "incorrect extended schema",
                 "data": {
                     "elements": [
-                        { "b": 1 }
+                        {
+                            "b": 1
+                        }
                     ]
                 },
                 "valid": false
@@ -356,7 +413,9 @@
                 "description": "correct extended schema",
                 "data": {
                     "elements": [
-                        { "a": 1 }
+                        {
+                            "a": 1
+                        }
                     ]
                 },
                 "valid": true
@@ -365,6 +424,7 @@
     },
     {
         "description": "$ref to $dynamicRef finds detached $dynamicAnchor",
+        "compatibility": "=2020",
         "schema": {
             "$ref": "http://localhost:1234/v1/detached-dynamicref.json#/$defs/foo"
         },
@@ -383,6 +443,7 @@
     },
     {
         "description": "$dynamicRef skips over intermediate resources - direct reference",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "https://test.json-schema.org/dynamic-ref-skips-intermediate-resource/main",
@@ -426,18 +487,27 @@
         "tests": [
             {
                 "description": "integer property passes",
-                "data": { "bar-item": { "content": 42 } },
+                "data": {
+                    "bar-item": {
+                        "content": 42
+                    }
+                },
                 "valid": true
             },
             {
                 "description": "string property fails",
-                "data": { "bar-item": { "content": "value" } },
+                "data": {
+                    "bar-item": {
+                        "content": "value"
+                    }
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "$dynamicRef avoids the root of each schema, but scopes are still registered",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "https://test.json-schema.org/dynamic-ref-avoids-root-of-each-schema/base",

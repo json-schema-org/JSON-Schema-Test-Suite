@@ -1,6 +1,7 @@
 [
     {
         "description": "email format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "email"
@@ -45,6 +46,7 @@
     },
     {
         "description": "idn-email format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "idn-email"
@@ -89,6 +91,7 @@
     },
     {
         "description": "regex format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "regex"
@@ -133,6 +136,7 @@
     },
     {
         "description": "ipv4 format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "ipv4"
@@ -177,6 +181,7 @@
     },
     {
         "description": "ipv6 format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "ipv6"
@@ -221,6 +226,7 @@
     },
     {
         "description": "idn-hostname format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "idn-hostname"
@@ -265,6 +271,7 @@
     },
     {
         "description": "hostname format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "hostname"
@@ -309,6 +316,7 @@
     },
     {
         "description": "date format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "date"
@@ -353,6 +361,7 @@
     },
     {
         "description": "date-time format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "date-time"
@@ -397,6 +406,7 @@
     },
     {
         "description": "time format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "time"
@@ -441,6 +451,7 @@
     },
     {
         "description": "json-pointer format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "json-pointer"
@@ -485,6 +496,7 @@
     },
     {
         "description": "relative-json-pointer format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "relative-json-pointer"
@@ -529,6 +541,7 @@
     },
     {
         "description": "iri format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "iri"
@@ -573,6 +586,7 @@
     },
     {
         "description": "iri-reference format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "iri-reference"
@@ -617,6 +631,7 @@
     },
     {
         "description": "uri format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "uri"
@@ -661,6 +676,7 @@
     },
     {
         "description": "uri-reference format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "uri-reference"
@@ -705,6 +721,7 @@
     },
     {
         "description": "uri-template format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "uri-template"
@@ -749,6 +766,7 @@
     },
     {
         "description": "uuid format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "uuid"
@@ -793,6 +811,7 @@
     },
     {
         "description": "duration format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "duration"

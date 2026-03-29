@@ -1,37 +1,54 @@
 [
     {
         "description": "a schema given for prefixItems",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
-                {"type": "integer"},
-                {"type": "string"}
+                {
+                    "type": "integer"
+                },
+                {
+                    "type": "string"
+                }
             ]
         },
         "tests": [
             {
                 "description": "correct types",
-                "data": [ 1, "foo" ],
+                "data": [
+                    1,
+                    "foo"
+                ],
                 "valid": true
             },
             {
                 "description": "wrong types",
-                "data": [ "foo", 1 ],
+                "data": [
+                    "foo",
+                    1
+                ],
                 "valid": false
             },
             {
                 "description": "incomplete array of items",
-                "data": [ 1 ],
+                "data": [
+                    1
+                ],
                 "valid": true
             },
             {
                 "description": "array with additional items",
-                "data": [ 1, "foo", true ],
+                "data": [
+                    1,
+                    "foo",
+                    true
+                ],
                 "valid": true
             },
             {
                 "description": "empty array",
-                "data": [ ],
+                "data": [],
                 "valid": true
             },
             {
@@ -47,19 +64,28 @@
     },
     {
         "description": "prefixItems with boolean schemas",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "prefixItems": [true, false]
+            "prefixItems": [
+                true,
+                false
+            ]
         },
         "tests": [
             {
                 "description": "array with one item is valid",
-                "data": [ 1 ],
+                "data": [
+                    1
+                ],
                 "valid": true
             },
             {
                 "description": "array with two items is invalid",
-                "data": [ 1, "foo" ],
+                "data": [
+                    1,
+                    "foo"
+                ],
                 "valid": false
             },
             {
@@ -71,20 +97,30 @@
     },
     {
         "description": "additional items are allowed by default",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "prefixItems": [{"type": "integer"}]
+            "prefixItems": [
+                {
+                    "type": "integer"
+                }
+            ]
         },
         "tests": [
             {
                 "description": "only the first item is validated",
-                "data": [1, "foo", false],
+                "data": [
+                    1,
+                    "foo",
+                    false
+                ],
                 "valid": true
             }
         ]
     },
     {
         "description": "prefixItems with null instance elements",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
@@ -96,7 +132,9 @@
         "tests": [
             {
                 "description": "allows null elements",
-                "data": [ null ],
+                "data": [
+                    null
+                ],
                 "valid": true
             }
         ]

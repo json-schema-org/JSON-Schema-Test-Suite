@@ -1,6 +1,7 @@
 [
     {
         "description": "format: uri-template",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "uri-template"

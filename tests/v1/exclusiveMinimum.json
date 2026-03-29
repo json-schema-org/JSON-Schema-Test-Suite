@@ -1,6 +1,7 @@
 [
     {
         "description": "exclusiveMinimum validation",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "exclusiveMinimum": 1.1

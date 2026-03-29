@@ -15,6 +15,11 @@
                 "description": "The test case description",
                 "type": "string"
             },
+            "compatibility": {
+                "description": "Set which dialects this test case is compatible with. Examples: \"7\" for draft-07 and above, \"<=2019\" for 2019-09 and earlier, \"6,<=2019\" for draft-06 through 2019-09, or \"=2020\" for 2020-12 only.",
+                "type": "string",
+                "pattern": "^(<=|=)?([123467]|2019|2020)(,(<=|=)?([123467]|2019|2020))*$"
+            },
             "comment": {
                 "description": "Any additional comments about the test case",
                 "type": "string"

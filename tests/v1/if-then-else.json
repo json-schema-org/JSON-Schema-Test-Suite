@@ -1,6 +1,7 @@
 [
     {
         "description": "ignore if without then or else",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "if": {
@@ -22,6 +23,7 @@
     },
     {
         "description": "ignore then without if",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "then": {
@@ -43,6 +45,7 @@
     },
     {
         "description": "ignore else without if",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "else": {
@@ -64,6 +67,7 @@
     },
     {
         "description": "if and then without else",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "if": {
@@ -93,6 +97,7 @@
     },
     {
         "description": "if and else without then",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "if": {
@@ -122,6 +127,7 @@
     },
     {
         "description": "validate against correct branch, then vs else",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "if": {
@@ -159,6 +165,7 @@
     },
     {
         "description": "non-interference across combined schemas",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "allOf": [
@@ -194,11 +201,16 @@
     },
     {
         "description": "if with boolean schema true",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "if": true,
-            "then": { "const": "then" },
-            "else": { "const": "else" }
+            "then": {
+                "const": "then"
+            },
+            "else": {
+                "const": "else"
+            }
         },
         "tests": [
             {
@@ -215,11 +227,16 @@
     },
     {
         "description": "if with boolean schema false",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "if": false,
-            "then": { "const": "then" },
-            "else": { "const": "else" }
+            "then": {
+                "const": "then"
+            },
+            "else": {
+                "const": "else"
+            }
         },
         "tests": [
             {
@@ -236,11 +253,18 @@
     },
     {
         "description": "if appears at the end when serialized (keyword processing sequence)",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "then": { "const": "yes" },
-            "else": { "const": "other" },
-            "if": { "maxLength": 4 }
+            "then": {
+                "const": "yes"
+            },
+            "else": {
+                "const": "other"
+            },
+            "if": {
+                "maxLength": 4
+            }
         },
         "tests": [
             {

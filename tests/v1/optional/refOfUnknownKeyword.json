@@ -1,77 +1,109 @@
 [
     {
         "description": "reference of a root arbitrary keyword ",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "unknown-keyword": {"type": "integer"},
+            "unknown-keyword": {
+                "type": "integer"
+            },
             "properties": {
-                "bar": {"$ref": "#/unknown-keyword"}
+                "bar": {
+                    "$ref": "#/unknown-keyword"
+                }
             }
         },
         "tests": [
             {
                 "description": "match",
-                "data": {"bar": 3},
+                "data": {
+                    "bar": 3
+                },
                 "valid": true
             },
             {
                 "description": "mismatch",
-                "data": {"bar": true},
+                "data": {
+                    "bar": true
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "reference of a root arbitrary keyword with encoded ref",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "unknown/keyword": {"type": "integer"},
+            "unknown/keyword": {
+                "type": "integer"
+            },
             "properties": {
-                "bar": {"$ref": "#/unknown~1keyword"}
+                "bar": {
+                    "$ref": "#/unknown~1keyword"
+                }
             }
         },
         "tests": [
             {
                 "description": "match",
-                "data": {"bar": 3},
+                "data": {
+                    "bar": 3
+                },
                 "valid": true
             },
             {
                 "description": "mismatch",
-                "data": {"bar": true},
+                "data": {
+                    "bar": true
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "reference of an arbitrary keyword of a sub-schema",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
-                "foo": {"unknown-keyword": {"type": "integer"}},
-                "bar": {"$ref": "#/properties/foo/unknown-keyword"}
+                "foo": {
+                    "unknown-keyword": {
+                        "type": "integer"
+                    }
+                },
+                "bar": {
+                    "$ref": "#/properties/foo/unknown-keyword"
+                }
             }
         },
         "tests": [
             {
                 "description": "match",
-                "data": {"bar": 3},
+                "data": {
+                    "bar": 3
+                },
                 "valid": true
             },
             {
                 "description": "mismatch",
-                "data": {"bar": true},
+                "data": {
+                    "bar": true
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "reference internals of known non-applicator",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "/base",
             "examples": [
-              { "type": "string" }
+                {
+                    "type": "string"
+                }
             ],
             "$ref": "#/examples/0"
         },
@@ -90,22 +122,33 @@
     },
     {
         "description": "reference of an arbitrary keyword of a sub-schema with encoded ref",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
-                "foo": {"unknown/keyword": {"type": "integer"}},
-                "bar": {"$ref": "#/properties/foo/unknown~1keyword"}
+                "foo": {
+                    "unknown/keyword": {
+                        "type": "integer"
+                    }
+                },
+                "bar": {
+                    "$ref": "#/properties/foo/unknown~1keyword"
+                }
             }
         },
         "tests": [
             {
                 "description": "match",
-                "data": {"bar": 3},
+                "data": {
+                    "bar": 3
+                },
                 "valid": true
             },
             {
                 "description": "mismatch",
-                "data": {"bar": true},
+                "data": {
+                    "bar": true
+                },
                 "valid": false
             }
         ]

@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of URI References",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "uri-reference"

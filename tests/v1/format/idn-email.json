@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of an internationalized e-mail addresses",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "idn-email"

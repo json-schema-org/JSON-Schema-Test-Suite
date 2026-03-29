@@ -1,6 +1,7 @@
 [
     {
         "description": "boolean schema 'true'",
+        "compatibility": "6",
         "schema": true,
         "tests": [
             {
@@ -30,7 +31,9 @@
             },
             {
                 "description": "object is valid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": true
             },
             {
@@ -40,7 +43,9 @@
             },
             {
                 "description": "array is valid",
-                "data": ["foo"],
+                "data": [
+                    "foo"
+                ],
                 "valid": true
             },
             {
@@ -52,6 +57,7 @@
     },
     {
         "description": "boolean schema 'false'",
+        "compatibility": "6",
         "schema": false,
         "tests": [
             {
@@ -81,7 +87,9 @@
             },
             {
                 "description": "object is invalid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": false
             },
             {
@@ -91,7 +99,9 @@
             },
             {
                 "description": "array is invalid",
-                "data": ["foo"],
+                "data": [
+                    "foo"
+                ],
                 "valid": false
             },
             {

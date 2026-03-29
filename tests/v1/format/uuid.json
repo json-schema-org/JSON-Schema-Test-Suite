@@ -1,6 +1,7 @@
 [
     {
         "description": "uuid format",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "uuid"

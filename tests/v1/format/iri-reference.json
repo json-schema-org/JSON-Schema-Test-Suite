@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of IRI References",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "iri-reference"

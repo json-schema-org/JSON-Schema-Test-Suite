@@ -1,6 +1,7 @@
 [
     {
         "description": "const validation",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": 2
@@ -25,59 +26,90 @@
     },
     {
         "description": "const with object",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "const": {"foo": "bar", "baz": "bax"}
+            "const": {
+                "foo": "bar",
+                "baz": "bax"
+            }
         },
         "tests": [
             {
                 "description": "same object is valid",
-                "data": {"foo": "bar", "baz": "bax"},
+                "data": {
+                    "foo": "bar",
+                    "baz": "bax"
+                },
                 "valid": true
             },
             {
                 "description": "same object with different property order is valid",
-                "data": {"baz": "bax", "foo": "bar"},
+                "data": {
+                    "baz": "bax",
+                    "foo": "bar"
+                },
                 "valid": true
             },
             {
                 "description": "another object is invalid",
-                "data": {"foo": "bar"},
+                "data": {
+                    "foo": "bar"
+                },
                 "valid": false
             },
             {
                 "description": "another type is invalid",
-                "data": [1, 2],
+                "data": [
+                    1,
+                    2
+                ],
                 "valid": false
             }
         ]
     },
     {
         "description": "const with array",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "const": [{ "foo": "bar" }]
+            "const": [
+                {
+                    "foo": "bar"
+                }
+            ]
         },
         "tests": [
             {
                 "description": "same array is valid",
-                "data": [{"foo": "bar"}],
+                "data": [
+                    {
+                        "foo": "bar"
+                    }
+                ],
                 "valid": true
             },
             {
                 "description": "another array item is invalid",
-                "data": [2],
+                "data": [
+                    2
+                ],
                 "valid": false
             },
             {
                 "description": "array with additional items is invalid",
-                "data": [1, 2, 3],
+                "data": [
+                    1,
+                    2,
+                    3
+                ],
                 "valid": false
             }
         ]
     },
     {
         "description": "const with null",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": null
@@ -97,6 +129,7 @@
     },
     {
         "description": "const with false does not match 0",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": false
@@ -121,6 +154,7 @@
     },
     {
         "description": "const with true does not match 1",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": true
@@ -145,102 +179,139 @@
     },
     {
         "description": "const with [false] does not match [0]",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "const": [false]
+            "const": [
+                false
+            ]
         },
         "tests": [
             {
                 "description": "[false] is valid",
-                "data": [false],
+                "data": [
+                    false
+                ],
                 "valid": true
             },
             {
                 "description": "[0] is invalid",
-                "data": [0],
+                "data": [
+                    0
+                ],
                 "valid": false
             },
             {
                 "description": "[0.0] is invalid",
-                "data": [0.0],
+                "data": [
+                    0.0
+                ],
                 "valid": false
             }
         ]
     },
     {
         "description": "const with [true] does not match [1]",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "const": [true]
+            "const": [
+                true
+            ]
         },
         "tests": [
             {
                 "description": "[true] is valid",
-                "data": [true],
+                "data": [
+                    true
+                ],
                 "valid": true
             },
             {
                 "description": "[1] is invalid",
-                "data": [1],
+                "data": [
+                    1
+                ],
                 "valid": false
             },
             {
                 "description": "[1.0] is invalid",
-                "data": [1.0],
+                "data": [
+                    1.0
+                ],
                 "valid": false
             }
         ]
     },
     {
         "description": "const with {\"a\": false} does not match {\"a\": 0}",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "const": {"a": false}
+            "const": {
+                "a": false
+            }
         },
         "tests": [
             {
                 "description": "{\"a\": false} is valid",
-                "data": {"a": false},
+                "data": {
+                    "a": false
+                },
                 "valid": true
             },
             {
                 "description": "{\"a\": 0} is invalid",
-                "data": {"a": 0},
+                "data": {
+                    "a": 0
+                },
                 "valid": false
             },
             {
                 "description": "{\"a\": 0.0} is invalid",
-                "data": {"a": 0.0},
+                "data": {
+                    "a": 0.0
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "const with {\"a\": true} does not match {\"a\": 1}",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "const": {"a": true}
+            "const": {
+                "a": true
+            }
         },
         "tests": [
             {
                 "description": "{\"a\": true} is valid",
-                "data": {"a": true},
+                "data": {
+                    "a": true
+                },
                 "valid": true
             },
             {
                 "description": "{\"a\": 1} is invalid",
-                "data": {"a": 1},
+                "data": {
+                    "a": 1
+                },
                 "valid": false
             },
             {
                 "description": "{\"a\": 1.0} is invalid",
-                "data": {"a": 1.0},
+                "data": {
+                    "a": 1.0
+                },
                 "valid": false
             }
         ]
     },
     {
         "description": "const with 0 does not match other zero-like types",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": 0
@@ -280,6 +351,7 @@
     },
     {
         "description": "const with 1 does not match true",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": 1
@@ -304,6 +376,7 @@
     },
     {
         "description": "const with -2.0 matches integer and float types",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": -2.0
@@ -338,6 +411,7 @@
     },
     {
         "description": "float and integers are equal up to 64-bit representation limits",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": 9007199254740992
@@ -367,6 +441,7 @@
     },
     {
         "description": "nul characters in strings",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": "hello\u0000there"
@@ -386,6 +461,7 @@
     },
     {
         "description": "characters with the same visual representation but different codepoint",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": "μ",
@@ -408,6 +484,7 @@
     },
     {
         "description": "characters with the same visual representation, but different number of codepoints",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "const": "ä",

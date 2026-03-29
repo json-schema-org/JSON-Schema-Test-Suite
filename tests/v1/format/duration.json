@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of duration strings",
+        "compatibility": "2019",
         "comment": "RFC 3339 Appendix A defines the ABNF grammar for ISO-8601 durations used by JSON Schema format 'duration'. These tests enforce only the syntax defined by that grammar.",
         "schema": {
             "$schema": "https://json-schema.org/v1",

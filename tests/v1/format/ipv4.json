@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of IP addresses",
+        "compatibility": "4",
         "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte. A 'decbyte' (1*3DIGIT) restricts semantic values to 0-255, allows leading zeros, and strictly forbids symbols, alpha/hex, whitespace, and non-ASCII characters.",
         "schema": {
             "$schema": "https://json-schema.org/v1",

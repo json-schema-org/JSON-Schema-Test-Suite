@@ -7,17 +7,23 @@
                 "foo": {},
                 "bar": {}
             },
-            "required": ["foo"]
+            "required": [
+                "foo"
+            ]
         },
         "tests": [
             {
                 "description": "present required property is valid",
-                "data": {"foo": 1},
+                "data": {
+                    "foo": 1
+                },
                 "valid": true
             },
             {
                 "description": "non-present required property is invalid",
-                "data": {"bar": 1},
+                "data": {
+                    "bar": 1
+                },
                 "valid": false
             },
             {
@@ -65,6 +71,7 @@
     },
     {
         "description": "required with empty array",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
@@ -82,6 +89,7 @@
     },
     {
         "description": "required with escaped characters",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "required": [
@@ -118,10 +126,15 @@
     },
     {
         "description": "required properties whose names are Javascript object property names",
+        "compatibility": "4",
         "comment": "Ensure JS implementations don't universally consider e.g. __proto__ to always be present in an object.",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "required": ["__proto__", "toString", "constructor"]
+            "required": [
+                "__proto__",
+                "toString",
+                "constructor"
+            ]
         },
         "tests": [
             {
@@ -141,24 +154,36 @@
             },
             {
                 "description": "__proto__ present",
-                "data": { "__proto__": "foo" },
+                "data": {
+                    "__proto__": "foo"
+                },
                 "valid": false
             },
             {
                 "description": "toString present",
-                "data": { "toString": { "length": 37 } },
+                "data": {
+                    "toString": {
+                        "length": 37
+                    }
+                },
                 "valid": false
             },
             {
                 "description": "constructor present",
-                "data": { "constructor": { "length": 37 } },
+                "data": {
+                    "constructor": {
+                        "length": 37
+                    }
+                },
                 "valid": false
             },
             {
                 "description": "all present",
-                "data": { 
+                "data": {
                     "__proto__": 12,
-                    "toString": { "length": "foo" },
+                    "toString": {
+                        "length": "foo"
+                    },
                     "constructor": 37
                 },
                 "valid": true

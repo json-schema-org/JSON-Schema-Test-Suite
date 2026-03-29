@@ -1,6 +1,7 @@
 [
     {
         "description": "$id inside an enum is not a real identifier",
+        "compatibility": "2019",
         "comment": "the implementation must not be confused by an $id buried in the enum",
         "schema": {
             "$schema": "https://json-schema.org/v1",
@@ -8,8 +9,8 @@
                 "id_in_enum": {
                     "enum": [
                         {
-                          "$id": "https://localhost:1234/v1/id/my_identifier.json",
-                          "type": "null"
+                            "$id": "https://localhost:1234/v1/id/my_identifier.json",
+                            "type": "null"
                         }
                     ]
                 },
@@ -25,8 +26,12 @@
                 }
             },
             "anyOf": [
-                { "$ref": "#/$defs/id_in_enum" },
-                { "$ref": "https://localhost:1234/v1/id/my_identifier.json" }
+                {
+                    "$ref": "#/$defs/id_in_enum"
+                },
+                {
+                    "$ref": "https://localhost:1234/v1/id/my_identifier.json"
+                }
             ]
         },
         "tests": [

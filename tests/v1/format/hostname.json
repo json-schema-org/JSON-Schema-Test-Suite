@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of host names",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "hostname"
@@ -83,7 +84,7 @@
             },
             {
                 "description": "IDN label separator",
-                "data": "example\uff0ecom",
+                "data": "example．com",
                 "valid": false
             },
             {
@@ -131,6 +132,7 @@
     },
     {
         "description": "validation of A-label (punycode) host names",
+        "compatibility": "7",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "hostname"

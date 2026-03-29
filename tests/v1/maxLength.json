@@ -28,13 +28,14 @@
             },
             {
                 "description": "two graphemes is long enough",
-                "data": "\uD83D\uDCA9\uD83D\uDCA9",
+                "data": "💩💩",
                 "valid": true
             }
         ]
     },
     {
         "description": "maxLength validation with a decimal",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "maxLength": 2.0
