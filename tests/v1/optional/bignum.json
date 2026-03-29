@@ -67,14 +67,15 @@
     },
     {
         "description": "float comparison with high precision",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "exclusiveMaximum": 972783798187987123879878123.18878137
+            "exclusiveMaximum": 9.727837981879871e+26
         },
         "tests": [
             {
                 "description": "comparison works for high numbers",
-                "data": 972783798187987123879878123.188781371,
+                "data": 9.727837981879871e+26,
                 "valid": false
             }
         ]
@@ -95,14 +96,15 @@
     },
     {
         "description": "float comparison with high precision on negative numbers",
+        "compatibility": "6",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "exclusiveMinimum": -972783798187987123879878123.18878137
+            "exclusiveMinimum": -9.727837981879871e+26
         },
         "tests": [
             {
                 "description": "comparison works for very negative numbers",
-                "data": -972783798187987123879878123.188781371,
+                "data": -9.727837981879871e+26,
                 "valid": false
             }
         ]

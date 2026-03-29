@@ -686,6 +686,12 @@ class SanityTests(unittest.TestCase):
 
             return BlowUpForUnknownProperties()
 
+        original_validators = {
+            version.name: dict(Validator.VALIDATORS)
+            for version, Validator in versions_and_validators()
+            if version.name != "latest"
+        }
+
         for version, Validator in versions_and_validators():
             if version.name == "latest":
                 continue
@@ -694,7 +700,7 @@ class SanityTests(unittest.TestCase):
                 setattr, Validator, "VALIDATORS", Validator.VALIDATORS,
             )
             Validator.VALIDATORS = missing(
-                dict(Validator.VALIDATORS), version.name
+                dict(original_validators[version.name]), version.name
             )
 
             test_files = [
@@ -724,7 +730,7 @@ class SanityTests(unittest.TestCase):
                     setattr, Validator, "VALIDATORS", Validator.VALIDATORS,
                 )
                 Validator.VALIDATORS = missing(
-                    dict(Validator.VALIDATORS), version_name
+                    dict(original_validators[version_name]), version_name
                 )
 
                 for case in cases_for_version(test_files, version_name):

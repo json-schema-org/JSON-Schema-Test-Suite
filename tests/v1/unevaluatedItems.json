@@ -97,7 +97,7 @@
     },
     {
         "description": "unevaluatedItems with tuple",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
@@ -186,7 +186,7 @@
     },
     {
         "description": "unevaluatedItems with nested tuple",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
@@ -308,7 +308,7 @@
     },
     {
         "description": "unevaluatedItems with nested unevaluatedItems",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "allOf": [
@@ -346,7 +346,7 @@
     },
     {
         "description": "unevaluatedItems with anyOf",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
@@ -416,7 +416,7 @@
     },
     {
         "description": "unevaluatedItems with oneOf",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
@@ -466,7 +466,7 @@
     },
     {
         "description": "unevaluatedItems with not",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
@@ -499,7 +499,7 @@
     },
     {
         "description": "unevaluatedItems with if/then/else",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
@@ -606,7 +606,7 @@
     },
     {
         "description": "unevaluatedItems with $ref",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$ref": "#/$defs/bar",
@@ -649,7 +649,7 @@
     },
     {
         "description": "unevaluatedItems before $ref",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "unevaluatedItems": false,
@@ -743,7 +743,7 @@
     },
     {
         "description": "unevaluatedItems can't see inside cousins",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "allOf": [
@@ -769,7 +769,7 @@
     },
     {
         "description": "item is evaluated in an uncle schema to unevaluatedItems",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
@@ -1112,7 +1112,7 @@
     },
     {
         "description": "unevaluatedItems can see annotations from if without then and else",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "if": {
@@ -1143,7 +1143,7 @@
     },
     {
         "description": "Evaluated items collection needs to consider instance location",
-        "compatibility": "2019",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [

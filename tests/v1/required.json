@@ -1,6 +1,7 @@
 [
     {
         "description": "required validation",
+        "compatibility": "4",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {

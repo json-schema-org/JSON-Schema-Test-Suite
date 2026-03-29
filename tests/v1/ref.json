@@ -77,6 +77,7 @@
     },
     {
         "description": "relative pointer ref to array",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "prefixItems": [
@@ -109,6 +110,7 @@
     },
     {
         "description": "escaped pointer ref",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {
@@ -181,6 +183,7 @@
     },
     {
         "description": "nested refs",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {
@@ -307,6 +310,7 @@
     },
     {
         "description": "property named $ref, containing an actual $ref",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
@@ -339,7 +343,7 @@
     },
     {
         "description": "$ref to boolean schema true",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$ref": "#/$defs/bool",
@@ -357,7 +361,7 @@
     },
     {
         "description": "$ref to boolean schema false",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$ref": "#/$defs/bool",
@@ -375,7 +379,7 @@
     },
     {
         "description": "Recursive references between schemas",
-        "compatibility": "4",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/tree",
@@ -494,7 +498,7 @@
     },
     {
         "description": "refs with quote",
-        "compatibility": "4",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "properties": {
@@ -554,6 +558,7 @@
     },
     {
         "description": "naive replacement of $ref with its destination is not correct",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {
@@ -591,7 +596,7 @@
     },
     {
         "description": "refs with relative uris and defs",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://example.com/schema-relative-uri-defs1.json",
@@ -647,7 +652,7 @@
     },
     {
         "description": "relative refs with absolute uris and defs",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://example.com/schema-refs-absolute-uris-defs1.json",
@@ -703,7 +708,7 @@
     },
     {
         "description": "$id must be resolved against nearest parent, not just immediate parent",
-        "compatibility": "7",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://example.com/a.json",
@@ -875,7 +880,7 @@
     },
     {
         "description": "simple URN base URI with JSON pointer",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "URIs do not have to have HTTP(s) schemes",
@@ -910,7 +915,7 @@
     },
     {
         "description": "URN base URI with NSS",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "RFC 8141 §2.2",
@@ -945,7 +950,7 @@
     },
     {
         "description": "URN base URI with r-component",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "RFC 8141 §2.3.1",
@@ -980,7 +985,7 @@
     },
     {
         "description": "URN base URI with q-component",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$comment": "RFC 8141 §2.3.2",
@@ -1033,7 +1038,7 @@
     },
     {
         "description": "URN base URI with URN and JSON pointer ref",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed",
@@ -1067,7 +1072,7 @@
     },
     {
         "description": "URN base URI with URN and anchor ref",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed",
@@ -1205,7 +1210,7 @@
     },
     {
         "description": "ref with absolute-path-reference",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://example.com/ref/absref.json",
@@ -1236,7 +1241,7 @@
     },
     {
         "description": "$id with file URI still resolves pointers - *nix",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "file:///folder/file.json",
@@ -1262,7 +1267,7 @@
     },
     {
         "description": "$id with file URI still resolves pointers - windows",
-        "compatibility": "6",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "file:///c:/folder/file.json",
@@ -1288,7 +1293,7 @@
     },
     {
         "description": "empty tokens in $ref json-pointer",
-        "compatibility": "4",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {

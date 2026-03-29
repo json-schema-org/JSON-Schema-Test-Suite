@@ -92,7 +92,7 @@
     },
     {
         "description": "items and subitems",
-        "compatibility": "4",
+        "compatibility": "=2020",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$defs": {

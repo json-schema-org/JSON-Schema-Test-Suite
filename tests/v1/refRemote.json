@@ -112,7 +112,7 @@
     },
     {
         "description": "base URI change - change folder",
-        "compatibility": "4",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/scope_change_defs1.json",
@@ -155,7 +155,7 @@
     },
     {
         "description": "base URI change - change folder in subschema",
-        "compatibility": "4",
+        "compatibility": "2019",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "$id": "http://localhost:1234/v1/scope_change_defs2.json",
