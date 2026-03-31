@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gsoc-annotation-harness"
+version = "0.1.0"
+description = "GSoC 2026 Qualification Task: JSON Schema Annotation Test Harness"
+readme = "HARNESS_README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "jschon>=0.11.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.3.0"
+]
+
+[project.scripts]
+annotation-harness = "annotation_harness:run_harness"
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+# Enable Pyflakes (F) and pycodestyle (E)
+select = ["E", "F"]
+ignore = []
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = [
+    ".",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning:rfc3986",
+]
