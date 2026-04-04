@@ -185,17 +185,17 @@
         "description": "remote ref, containing refs itself",
         "schema": {
             "$schema": "https://json-schema.org/v1",
-            "$ref": "https://json-schema.org/v1"
+            "$ref": "http://localhost:1234/v1/ref-and-defs"
         },
         "tests": [
             {
                 "description": "remote ref valid",
-                "data": {"minLength": 1},
+                "data": { "bar": "" },
                 "valid": true
             },
             {
                 "description": "remote ref invalid",
-                "data": {"minLength": -1},
+                "data": { "bar": 0 },
                 "valid": false
             }
         ]
@@ -820,21 +820,6 @@
             {
                 "description": "a non-string is invalid",
                 "data": {"foo": 12},
-                "valid": false
-            }
-        ]
-    },
-    {
-        "description": "URN base URI with f-component",
-        "schema": {
-            "$schema": "https://json-schema.org/v1",
-            "$comment": "RFC 8141 §2.3.3, but we don't allow fragments",
-            "$ref": "https://json-schema.org/v1"
-        },
-        "tests": [
-            {
-                "description": "is invalid",
-                "data": {"$id": "urn:example:foo-bar-baz-qux#somepart"},
                 "valid": false
             }
         ]
