@@ -535,7 +535,7 @@
             },
             {
                 "description": "non-IP content inside address literal brackets is not valid",
-                "data": "test@[RFC-5322]-domain-literal]",
+                "data": "test@[RFC-5322-domain-literal]",
                 "valid": false
             },
             {
