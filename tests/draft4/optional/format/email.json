@@ -832,6 +832,11 @@
                 "description": "leading hyphen and consecutive dots in domain are not valid",
                 "data": "test@-iana..org",
                 "valid": false
+            },
+            {
+                "description": "backtick in local part is valid",
+                "data": "`test`@iana.org",
+                "valid": true
             }
         ]
     }
