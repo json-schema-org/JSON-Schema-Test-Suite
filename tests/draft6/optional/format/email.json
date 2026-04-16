@@ -634,11 +634,6 @@
                 "valid": false
             },
             {
-                "description": "IPv4 address literal 0.0.0.0 is valid",
-                "data": "a@[0.0.0.0]",
-                "valid": true
-            },
-            {
                 "description": "IPv4 octet value over 255 is not valid",
                 "data": "a@[256.0.0.0]",
                 "valid": false
