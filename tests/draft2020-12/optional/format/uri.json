@@ -52,7 +52,7 @@
                 "valid": true
             },
             {
-                "description": "a valid puny-coded URL ",
+                "description": "a valid puny-coded URL",
                 "data": "http://xn--nw2a.xn--j6w193g/",
                 "valid": true
             },
@@ -226,6 +226,1033 @@
             {
                 "description": "non-numeric port is invalid",
                 "data": "http://example.com:abc/path",
+                "valid": false
+            },
+            {
+                "description": "empty string",
+                "data": "",
+                "valid": false
+            },
+            {
+                "description": "single space",
+                "data": " ",
+                "valid": false
+            },
+            {
+                "description": "single tab",
+                "data": "\t",
+                "valid": false
+            },
+            {
+                "description": "single newline",
+                "data": "\n",
+                "valid": false
+            },
+            {
+                "description": "leading space before valid URI",
+                "data": " http://a.com",
+                "valid": false
+            },
+            {
+                "description": "leading tab before valid URI",
+                "data": "\thttp://a.com",
+                "valid": false
+            },
+            {
+                "description": "trailing space after valid URI",
+                "data": "http://a.com ",
+                "valid": false
+            },
+            {
+                "description": "trailing newline after valid URI",
+                "data": "http://a.com\n",
+                "valid": false
+            },
+            {
+                "description": "trailing content after valid URI",
+                "data": "http://a.com extra",
+                "valid": false
+            },
+            {
+                "description": "embedded tab",
+                "data": "http://a\t.com",
+                "valid": false
+            },
+            {
+                "description": "embedded newline",
+                "data": "http://a\n.com",
+                "valid": false
+            },
+            {
+                "description": "minimum valid URI is scheme and colon",
+                "data": "a:",
+                "valid": true
+            },
+            {
+                "description": "scheme uppercase ALPHA",
+                "data": "HTTP:",
+                "valid": true
+            },
+            {
+                "description": "scheme mixed case",
+                "data": "HtTp:",
+                "valid": true
+            },
+            {
+                "description": "scheme with digits after first character",
+                "data": "a0123456789:",
+                "valid": true
+            },
+            {
+                "description": "scheme with plus",
+                "data": "a+b:",
+                "valid": true
+            },
+            {
+                "description": "scheme with minus",
+                "data": "a-b:",
+                "valid": true
+            },
+            {
+                "description": "scheme with dot",
+                "data": "a.b:",
+                "valid": true
+            },
+            {
+                "description": "scheme with all special scheme characters",
+                "data": "a+-.b:",
+                "valid": true
+            },
+            {
+                "description": "scheme cannot start with plus",
+                "data": "+http:",
+                "valid": false
+            },
+            {
+                "description": "scheme cannot start with minus",
+                "data": "-http:",
+                "valid": false
+            },
+            {
+                "description": "scheme cannot start with dot",
+                "data": ".http:",
+                "valid": false
+            },
+            {
+                "description": "tilde is not valid in scheme",
+                "data": "ht~tp:",
+                "valid": false
+            },
+            {
+                "description": "space is not valid in scheme",
+                "data": "ht tp:",
+                "valid": false
+            },
+            {
+                "description": "slash is not valid in scheme",
+                "data": "ht/tp:",
+                "valid": false
+            },
+            {
+                "description": "equals is not valid in scheme",
+                "data": "ht=tp:",
+                "valid": false
+            },
+            {
+                "description": "scheme cannot be empty before colon",
+                "data": ":foo",
+                "valid": false
+            },
+            {
+                "description": "missing scheme colon",
+                "data": "http",
+                "valid": false
+            },
+            {
+                "description": "valid percent-encoding with uppercase hex",
+                "data": "http://a.com/%2F",
+                "valid": true
+            },
+            {
+                "description": "valid percent-encoding with lowercase hex",
+                "data": "http://a.com/%2f",
+                "valid": true
+            },
+            {
+                "description": "valid percent-encoding with mixed-case hex",
+                "data": "http://a.com/%aF",
+                "valid": true
+            },
+            {
+                "description": "valid percent-encoding with digits only",
+                "data": "http://a.com/%00",
+                "valid": true
+            },
+            {
+                "description": "valid percent-encoding with max hex value",
+                "data": "http://a.com/%FF",
+                "valid": true
+            },
+            {
+                "description": "valid encoded space",
+                "data": "http://a.com/%20",
+                "valid": true
+            },
+            {
+                "description": "valid double-encoded percent",
+                "data": "http://a.com/%2520",
+                "valid": true
+            },
+            {
+                "description": "valid percent-encoding in userinfo",
+                "data": "http://us%65r@a.com",
+                "valid": true
+            },
+            {
+                "description": "valid percent-encoding in reg-name",
+                "data": "http://ex%61mple.com",
+                "valid": true
+            },
+            {
+                "description": "valid percent-encoding in path",
+                "data": "http://a.com/p%61th",
+                "valid": true
+            },
+            {
+                "description": "valid percent-encoding in query",
+                "data": "http://a.com/?q=%23",
+                "valid": true
+            },
+            {
+                "description": "valid percent-encoding in fragment",
+                "data": "http://a.com/#f%23",
+                "valid": true
+            },
+            {
+                "description": "invalid percent-encoding with non-hex letter G",
+                "data": "http://a.com/%G0",
+                "valid": false
+            },
+            {
+                "description": "incomplete percent-encoding in query",
+                "data": "http://a.com/?q=%2",
+                "valid": false
+            },
+            {
+                "description": "incomplete percent-encoding in fragment",
+                "data": "http://a.com/#%2",
+                "valid": false
+            },
+            {
+                "description": "incomplete percent-encoding in userinfo",
+                "data": "http://%2@a.com",
+                "valid": false
+            },
+            {
+                "description": "all unreserved characters are valid in path",
+                "data": "http://a.com/AZaz09-._~",
+                "valid": true
+            },
+            {
+                "description": "all sub-delimiters are valid in path",
+                "data": "http://a.com/!$&'()*+,;=",
+                "valid": true
+            },
+            {
+                "description": "colon is valid in path segment",
+                "data": "http://a.com/a:b",
+                "valid": true
+            },
+            {
+                "description": "at-sign is valid in path segment",
+                "data": "http://a.com/a@b",
+                "valid": true
+            },
+            {
+                "description": "close brace is invalid in path",
+                "data": "http://a.com/}",
+                "valid": false
+            },
+            {
+                "description": "DEL is invalid in path",
+                "data": "http://a.com/",
+                "valid": false
+            },
+            {
+                "description": "NUL is invalid in path",
+                "data": "http://a.com/\u0000",
+                "valid": false
+            },
+            {
+                "description": "control character is invalid in path",
+                "data": "http://a.com/\u0001",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII Latin character in host",
+                "data": "http://exämple.com",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII Cyrillic characters in host",
+                "data": "http://пример.рф",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII emoji in path",
+                "data": "http://a.com/😀",
+                "valid": false
+            },
+            {
+                "description": "userinfo may be absent",
+                "data": "http://a.com",
+                "valid": true
+            },
+            {
+                "description": "userinfo may be a single character",
+                "data": "http://u@a.com",
+                "valid": true
+            },
+            {
+                "description": "userinfo may contain colon-delimited password text",
+                "data": "http://user:pass@a.com",
+                "valid": true
+            },
+            {
+                "description": "userinfo may contain multiple colons",
+                "data": "http://u:p:x@a.com",
+                "valid": true
+            },
+            {
+                "description": "userinfo may contain all sub-delimiters",
+                "data": "http://!$&'()*+,;=@a.com",
+                "valid": true
+            },
+            {
+                "description": "userinfo may contain all unreserved characters",
+                "data": "http://-._~@a.com",
+                "valid": true
+            },
+            {
+                "description": "userinfo may be empty",
+                "data": "http://@a.com",
+                "valid": true
+            },
+            {
+                "description": "space is invalid in userinfo",
+                "data": "http://us er@a.com",
+                "valid": false
+            },
+            {
+                "description": "caret is invalid in userinfo",
+                "data": "http://us^er@a.com",
+                "valid": false
+            },
+            {
+                "description": "userinfo slash boundary: slash starts path",
+                "comment": "RFC 3986 parses the authority as host `u`; `/s@a.com` is the path, so the URI is syntactically valid.",
+                "data": "http://u/s@a.com",
+                "valid": true
+            },
+            {
+                "description": "userinfo question boundary: question mark starts query",
+                "comment": "RFC 3986 parses the authority as host `u`; `s@a.com` is the query, so the URI is syntactically valid.",
+                "data": "http://u?s@a.com",
+                "valid": true
+            },
+            {
+                "description": "host may be a single-character reg-name",
+                "data": "http://a",
+                "valid": true
+            },
+            {
+                "description": "host reg-name may be empty",
+                "data": "http://",
+                "valid": true
+            },
+            {
+                "description": "host reg-name may contain hyphens",
+                "data": "http://a-b-c.com",
+                "valid": true
+            },
+            {
+                "description": "host reg-name may contain multiple subdomains",
+                "data": "http://a.b.c.d.example.com",
+                "valid": true
+            },
+            {
+                "description": "host reg-name may contain sub-delimiters",
+                "data": "http://!$&'()*+,;=.com",
+                "valid": true
+            },
+            {
+                "description": "host reg-name may end with a dot",
+                "data": "http://example.com.",
+                "valid": true
+            },
+            {
+                "description": "host IPv4 minimum",
+                "data": "http://0.0.0.0",
+                "valid": true
+            },
+            {
+                "description": "host IPv4 maximum",
+                "data": "http://255.255.255.255",
+                "valid": true
+            },
+            {
+                "description": "host IPv4 typical private address",
+                "data": "http://192.168.1.1",
+                "valid": true
+            },
+            {
+                "description": "host with too few IPv4 octets is structurally valid as a reg-name",
+                "data": "http://1.2.3",
+                "valid": true
+            },
+            {
+                "description": "host with too many IPv4 octets is structurally valid as a reg-name",
+                "data": "http://1.2.3.4.5",
+                "valid": true
+            },
+            {
+                "description": "host IPv6 full form",
+                "data": "http://[2001:0db8:85a3:0000:0000:8a2e:0370:7334]",
+                "valid": true
+            },
+            {
+                "description": "host IPv6 compressed",
+                "data": "http://[2001:db8::1]",
+                "valid": true
+            },
+            {
+                "description": "host IPv6 loopback",
+                "data": "http://[::1]",
+                "valid": true
+            },
+            {
+                "description": "host IPv6 unspecified",
+                "data": "http://[::]",
+                "valid": true
+            },
+            {
+                "description": "host IPv6 with embedded IPv4",
+                "data": "http://[::ffff:192.168.1.1]",
+                "valid": true
+            },
+            {
+                "description": "host IPv6 with port",
+                "data": "http://[2001:db8::1]:8080",
+                "valid": true
+            },
+            {
+                "description": "host IPv6 missing brackets",
+                "data": "http://2001:db8::1",
+                "valid": false
+            },
+            {
+                "description": "host IPv6 only opening bracket",
+                "data": "http://[2001:db8::1",
+                "valid": false
+            },
+            {
+                "description": "host IPv6 only closing bracket",
+                "data": "http://2001:db8::1]",
+                "valid": false
+            },
+            {
+                "description": "host IPv6 with invalid hex digits",
+                "data": "http://[2001:db8::gggg]",
+                "valid": false
+            },
+            {
+                "description": "host IPv6 empty brackets",
+                "data": "http://[]",
+                "valid": false
+            },
+            {
+                "description": "host IPvFuture valid",
+                "data": "http://[v1.fe80::a+b]",
+                "valid": true
+            },
+            {
+                "description": "host IPvFuture missing version",
+                "data": "http://[v.fe80]",
+                "valid": false
+            },
+            {
+                "description": "host IPvFuture missing dot",
+                "data": "http://[v1fe80]",
+                "valid": false
+            },
+            {
+                "description": "host IPvFuture empty content after dot",
+                "data": "http://[v1.]",
+                "valid": false
+            },
+            {
+                "description": "port may be absent",
+                "data": "http://a.com/path",
+                "valid": true
+            },
+            {
+                "description": "port may be empty when colon is present",
+                "data": "http://a.com:",
+                "valid": true
+            },
+            {
+                "description": "port may be a single digit",
+                "data": "http://a.com:0",
+                "valid": true
+            },
+            {
+                "description": "port may be a typical value",
+                "data": "http://a.com:80",
+                "valid": true
+            },
+            {
+                "description": "port may be 65535",
+                "data": "http://a.com:65535",
+                "valid": true
+            },
+            {
+                "description": "port has no RFC 3986 upper bound",
+                "data": "http://a.com:999999999",
+                "valid": true
+            },
+            {
+                "description": "port with leading plus is invalid",
+                "data": "http://a.com:+80",
+                "valid": false
+            },
+            {
+                "description": "port with leading minus is invalid",
+                "data": "http://a.com:-80",
+                "valid": false
+            },
+            {
+                "description": "port with space is invalid",
+                "data": "http://a.com: 80",
+                "valid": false
+            },
+            {
+                "description": "port with decimal point is invalid",
+                "data": "http://a.com:80.5",
+                "valid": false
+            },
+            {
+                "description": "path-abempty single slash",
+                "data": "http://a.com/",
+                "valid": true
+            },
+            {
+                "description": "path-abempty deep path",
+                "data": "http://a.com/a/b/c/d/e/f/g",
+                "valid": true
+            },
+            {
+                "description": "path-abempty empty segments",
+                "data": "http://a.com//",
+                "valid": true
+            },
+            {
+                "description": "path-abempty all empty segments",
+                "data": "http://a.com/////",
+                "valid": true
+            },
+            {
+                "description": "path-absolute",
+                "data": "http:/foo",
+                "valid": true
+            },
+            {
+                "description": "path-absolute deep path",
+                "data": "http:/a/b/c",
+                "valid": true
+            },
+            {
+                "description": "path-rootless",
+                "data": "http:foo",
+                "valid": true
+            },
+            {
+                "description": "path-rootless deep path",
+                "data": "http:foo/bar/baz",
+                "valid": true
+            },
+            {
+                "description": "path with all pchar characters",
+                "data": "http://a.com/a:b@c-d.e_f~g!h$i&j'k(l)m*n+o,p;q=r%20s",
+                "valid": true
+            },
+            {
+                "description": "path with dot segment",
+                "data": "http://a.com/./a",
+                "valid": true
+            },
+            {
+                "description": "path with double-dot segment",
+                "data": "http://a.com/../a",
+                "valid": true
+            },
+            {
+                "description": "query may be absent",
+                "data": "http://a.com/p",
+                "valid": true
+            },
+            {
+                "description": "query may be empty",
+                "data": "http://a.com/?",
+                "valid": true
+            },
+            {
+                "description": "query with key-value pair",
+                "data": "http://a.com/?k=v",
+                "valid": true
+            },
+            {
+                "description": "query with multiple pairs",
+                "data": "http://a.com/?a=1&b=2&c=3",
+                "valid": true
+            },
+            {
+                "description": "query may contain pchar characters",
+                "data": "http://a.com/?a:b@c-d",
+                "valid": true
+            },
+            {
+                "description": "query may contain slash",
+                "data": "http://a.com/?a/b",
+                "valid": true
+            },
+            {
+                "description": "query may contain question mark",
+                "data": "http://a.com/?a?b",
+                "valid": true
+            },
+            {
+                "description": "query may contain percent-encoding",
+                "data": "http://a.com/?a=%23%26",
+                "valid": true
+            },
+            {
+                "description": "query cannot contain brackets",
+                "data": "http://a.com/?arr[]=1",
+                "valid": false
+            },
+            {
+                "description": "query cannot contain caret",
+                "data": "http://a.com/?a^b",
+                "valid": false
+            },
+            {
+                "description": "query cannot contain space",
+                "data": "http://a.com/?a b",
+                "valid": false
+            },
+            {
+                "description": "fragment may be empty",
+                "data": "http://a.com/#",
+                "valid": true
+            },
+            {
+                "description": "fragment simple",
+                "data": "http://a.com/#frag",
+                "valid": true
+            },
+            {
+                "description": "fragment may contain slash",
+                "data": "http://a.com/#a/b",
+                "valid": true
+            },
+            {
+                "description": "fragment may contain question mark",
+                "data": "http://a.com/#a?b",
+                "valid": true
+            },
+            {
+                "description": "fragment may contain pchar characters",
+                "data": "http://a.com/#a:b@c",
+                "valid": true
+            },
+            {
+                "description": "fragment may contain percent-encoding",
+                "data": "http://a.com/#%23",
+                "valid": true
+            },
+            {
+                "description": "fragment cannot contain second hash",
+                "data": "http://a.com/#a#b",
+                "valid": false
+            },
+            {
+                "description": "fragment cannot contain caret",
+                "data": "http://a.com/#a^b",
+                "valid": false
+            },
+            {
+                "description": "fragment cannot contain space",
+                "data": "http://a.com/#a b",
+                "valid": false
+            },
+            {
+                "description": "a valid file URI",
+                "data": "file:///path/to/file",
+                "valid": true
+            },
+            {
+                "description": "a valid data URI",
+                "data": "data:text/plain;base64,SGVsbG8=",
+                "valid": true
+            },
+            {
+                "description": "a valid URL with every major component present",
+                "data": "https://user:pass@example.com:8443/path/to/resource?query=value&foo=bar#section",
+                "valid": true
+            },
+            {
+                "description": "port digit boundary: forward slash terminates port and starts path",
+                "comment": "RFC 3986 section 3.2.3: '/' is a delimiter after port; this parses as port=8 and path=/0.",
+                "data": "http://a.com:8/0",
+                "valid": true
+            },
+            {
+                "description": "port digit boundary: one above range (colon)",
+                "comment": "RFC 3986 section 3.2.3: ':' is not a digit; extra ':' after host:port makes authority invalid.",
+                "data": "http://a.com:8:0",
+                "valid": false
+            },
+            {
+                "description": "authority/path law: double slash selects authority form",
+                "comment": "RFC 3986 section 3: '//...' selects hier-part authority form in generic syntax.",
+                "data": "mailto://user@a.com",
+                "valid": true
+            },
+            {
+                "description": "authority/path law: empty authority with absolute path",
+                "comment": "RFC 3986 section 3.3: empty authority followed by path-abempty is valid.",
+                "data": "scheme:///path",
+                "valid": true
+            },
+            {
+                "description": "wrong-format string: date-time passed as URI",
+                "comment": "Format-specificity check: this is not a URI.",
+                "data": "2024-03-15T12:00:00Z",
+                "valid": false
+            },
+            {
+                "description": "layer 4 practical: URI at 2084 characters",
+                "comment": "RFC 3986 has no generic maximum length; this remains syntactically valid.",
+                "data": "http://example.com/path?q=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "valid": true
+            },
+            {
+                "description": "above-ceiling DIGIT in port: colon is %x3A, one above 9 (%x39)",
+                "comment": "RFC 3986 §3.2.3: port = *DIGIT; ':' is not a DIGIT, so extra ':' after host:port is invalid | layer: 1",
+                "data": "http://a.com::",
+                "valid": false
+            },
+            {
+                "description": "slash (%x2F) is below HEXDIG floor in percent-encoding",
+                "comment": "RFC 3986 §2.1: pct-encoded = '%' HEXDIG HEXDIG; '/' is not HEXDIG, so this percent-encoding is invalid | layer: 1",
+                "data": "http://a.com/%/0",
+                "valid": false
+            },
+            {
+                "description": "Unicode decimal digit in port is not DIGIT",
+                "comment": "RFC 3986 §3.2.3: port = *DIGIT; non-ASCII decimal digits do not match the port grammar | layer: 1",
+                "data": "http://a.com:٤٠",
+                "valid": false
+            },
+            {
+                "description": "IPvFuture with uppercase V is valid",
+                "comment": "RFC 3986 §3.2.2: IPvFuture uses literal 'v'; ABNF string literals are case-insensitive, so uppercase 'V' is valid | layer: 1",
+                "data": "http://[V1.test]",
+                "valid": true
+            },
+            {
+                "description": "IPv6 address with all groups at minimum one hex digit is valid",
+                "comment": "RFC 3986 §3.2.2: h16 = 1*4HEXDIG; 8 one-digit groups match the full IPv6address form | layer: 1",
+                "data": "http://[1:2:3:4:5:6:7:8]",
+                "valid": true
+            },
+            {
+                "description": "IPv6 group with five hex digits exceeds h16 maximum of four",
+                "comment": "RFC 3986 §3.2.2: h16 = 1*4HEXDIG; five hex digits in one group exceed the h16 maximum | layer: 1",
+                "data": "http://[2001:db8::00000]",
+                "valid": false
+            },
+            {
+                "description": "IPv6 address with two double-colons is invalid",
+                "comment": "RFC 3986 §3.2.2: each IPv6address alternative allows at most one '::'; two occurrences match no alternative | layer: 1",
+                "data": "http://[2001::db8::1]",
+                "valid": false
+            },
+            {
+                "description": "IPv6 address with seven groups and no double-colon is invalid",
+                "comment": "RFC 3986 §3.2.2: without '::', the full IPv6address form requires 8 groups; 7 groups are invalid | layer: 1",
+                "data": "http://[1:2:3:4:5:6:7]",
+                "valid": false
+            },
+            {
+                "description": "IPv6 address with nine groups is invalid",
+                "comment": "RFC 3986 §3.2.2: no IPv6address alternative allows more than 8 groups; 9 groups are invalid | layer: 1",
+                "data": "http://[1:2:3:4:5:6:7:8:9]",
+                "valid": false
+            },
+            {
+                "description": "IPv4 dec-octet alternative 1 ceiling: 9 (single DIGIT)",
+                "comment": "RFC 3986 §3.2.2: dec-octet = DIGIT / ... — alt1 is a bare DIGIT, range 0-9; 9 is the ceiling of this alternative | layer: 1",
+                "data": "http://9.9.9.9",
+                "valid": true
+            },
+            {
+                "description": "IPv4 dec-octet alternative 2 floor: 10 (%x31-39 DIGIT)",
+                "comment": "RFC 3986 §3.2.2: dec-octet alt2 = %x31-39 DIGIT — starts at 10 (first two-digit value); this is the floor of alt2 | layer: 1",
+                "data": "http://10.10.10.10",
+                "valid": true
+            },
+            {
+                "description": "IPv4 dec-octet alternative 2 ceiling: 99 (%x31-39 DIGIT)",
+                "comment": "RFC 3986 §3.2.2: dec-octet alt2 ceiling is 99 — %x39 DIGIT = '9' followed by any digit | layer: 1",
+                "data": "http://99.99.99.99",
+                "valid": true
+            },
+            {
+                "description": "IPv4 dec-octet alternative 3 floor: 100 (1 2DIGIT)",
+                "comment": "RFC 3986 §3.2.2: dec-octet alt3 = '1' 2DIGIT — starts at 100; this is the floor of alt3 | layer: 1",
+                "data": "http://100.100.100.100",
+                "valid": true
+            },
+            {
+                "description": "IPv4 dec-octet alternative 3 ceiling: 199 (1 2DIGIT)",
+                "comment": "RFC 3986 §3.2.2: dec-octet alt3 ceiling is 199 — '1' followed by two nines | layer: 1",
+                "data": "http://199.199.199.199",
+                "valid": true
+            },
+            {
+                "description": "IPv4 dec-octet alternative 4 floor: 200 (2 %x30-34 DIGIT)",
+                "comment": "RFC 3986 §3.2.2: dec-octet alt4 = '2' %x30-34 DIGIT — starts at 200; '2' + '0' + any DIGIT | layer: 1",
+                "data": "http://200.200.200.200",
+                "valid": true
+            },
+            {
+                "description": "IPv4 dec-octet alternative 4 ceiling: 249 (2 %x30-34 DIGIT)",
+                "comment": "RFC 3986 §3.2.2: dec-octet alt4 ceiling is 249 — '2' + %x34 ('4') + '9' | layer: 1",
+                "data": "http://249.249.249.249",
+                "valid": true
+            },
+            {
+                "description": "IPv4 dec-octet alternative 5 floor: 250 (25 %x30-35)",
+                "comment": "RFC 3986 §3.2.2: dec-octet alt5 = '25' %x30-35 — starts at 250; this is also the transition point where alt4 ends and alt5 begins | layer: 1",
+                "data": "http://250.250.250.250",
+                "valid": true
+            },
+            {
+                "description": "at-sign is valid in query because pchar includes at-sign",
+                "comment": "RFC 3986 §3.4: query = *(pchar / '/' / '?'); pchar includes '@'; at-sign is valid in query — symmetry with path test | layer: 1",
+                "data": "http://a.com/?a@b",
+                "valid": true
+            },
+            {
+                "description": "at-sign is valid in fragment because pchar includes at-sign",
+                "comment": "RFC 3986 §3.5: fragment = *(pchar / '/' / '?'); pchar includes '@'; at-sign is valid in fragment — symmetry with path test | layer: 1",
+                "data": "http://a.com/#a@b",
+                "valid": true
+            },
+            {
+                "description": "open brace is invalid in query for same reason as in path",
+                "comment": "RFC 3986 §3.4: query = *(pchar / '/' / '?'); '{' is not in pchar, '/', or '?'; same exclusion as path — proves forbidden charset applies universally across components | layer: 1",
+                "data": "http://a.com/?a{b",
+                "valid": false
+            },
+            {
+                "description": "open brace is invalid in fragment for same reason as in path",
+                "comment": "RFC 3986 §3.5: fragment = *(pchar / '/' / '?'); '{' is not in pchar, '/', or '?'; same exclusion as path | layer: 1",
+                "data": "http://a.com/#a{b",
+                "valid": false
+            },
+            {
+                "description": "empty path with query directly after authority is valid",
+                "comment": "RFC 3986 §3.3: path-abempty = *('/' segment); '*' allows zero repetitions; query follows the authority immediately without any path slash | layer: 1",
+                "data": "http://a.com?q",
+                "valid": true
+            },
+            {
+                "description": "empty path with fragment directly after authority is valid",
+                "comment": "RFC 3986 §3.3: path-abempty may be empty (zero repetitions); fragment follows authority directly | layer: 1",
+                "data": "http://a.com#f",
+                "valid": true
+            },
+            {
+                "description": "colon in first segment makes scheme separator, yielding valid URI",
+                "comment": "RFC 3986 §3: 'this:that' parses as scheme='this', path-rootless='that' — a valid URI, not a relative-ref; distinguishes uri from uri-reference where path-noscheme forbids colon in first segment | layer: 1",
+                "data": "this:that",
+                "valid": true
+            },
+            {
+                "description": "IPv6 trailing double-colon is valid with prefix groups",
+                "comment": "RFC 3986 §3.2.2: IPv6address includes [ *6( h16 ':' ) h16 ] '::', so a valid prefix followed by trailing '::' is valid | layer: 1",
+                "data": "http://[2001:db8::]",
+                "valid": true
+            },
+            {
+                "description": "port with leading zero is valid under unrestricted *DIGIT port",
+                "comment": "RFC 3986 §3.2.3: port = *DIGIT; ABNF places no restriction on leading zeros — '080' is three DIGIT characters and matches the production | layer: 1",
+                "data": "http://a.com:080/",
+                "valid": true
+            },
+            {
+                "description": "tilde is valid in reg-name because it is an unreserved character",
+                "comment": "RFC 3986 §3.2.2: reg-name = *(unreserved / pct-encoded / sub-delims); unreserved = ALPHA / DIGIT / '-' / '.' / '_' / '~'; tilde tested in host context (also valid in path, userinfo per reused unreserved production) | layer: 1",
+                "data": "http://exa~mple.com/",
+                "valid": true
+            },
+            {
+                "description": "underscore is valid in reg-name because it is an unreserved character",
+                "comment": "RFC 3986 §3.2.2: reg-name allows unreserved characters, and unreserved includes '_' | layer: 1",
+                "data": "http://under_score.com/",
+                "valid": true
+            },
+            {
+                "description": "two at-signs in authority leave trailing @ and make URI invalid",
+                "comment": "RFC 3986 §3.2.1: userinfo = *( unreserved / pct-encoded / sub-delims / ':' ); '@' is not in this set — the first '@' terminates userinfo='user'; host parses as 'pass' (stops at second '@'); '@a.com' is then unconsumed (not a valid path/query/fragment delimiter) — URI invalid. Guards against implementations that scan for the last '@' to split userinfo | layer: 1",
+                "data": "http://user@pass@a.com",
+                "valid": false
+            },
+            {
+                "description": "invalid percent-encoding in reg-name (host)",
+                "comment": "RFC 3986 §3.2.2 + §2.1: reg-name = *( unreserved / pct-encoded / sub-delims ); pct-encoded = '%' HEXDIG HEXDIG; 'G' (%x47) is not in HEXDIG (%x41-46); reg-name parse fails at the '%'; URI invalid. Invalid pct-encoding was tested in path, query, fragment, and userinfo — this closes the reg-name context | layer: 1",
+                "data": "http://%6G.com/",
+                "valid": false
+            },
+            {
+                "description": "path-absolute consisting of a single slash is valid",
+                "comment": "RFC 3986 §3.3: path-absolute = '/' [ segment-nz *('/' segment) ]; the optional segment-nz may be absent — '/' alone is a valid path-absolute | layer: 1",
+                "data": "http:/",
+                "valid": true
+            },
+            {
+                "description": "path-rootless URI may carry both a query and a fragment",
+                "comment": "RFC 3986 §3: URI = scheme ':' hier-part ['?' query] ['#' fragment]; hier-part may be path-rootless; both optional suffixes may be present simultaneously | layer: 1",
+                "data": "http:foo?bar#baz",
+                "valid": true
+            },
+            {
+                "description": "authority with empty host and explicit port is valid",
+                "comment": "RFC 3986 §3.2.2: host = reg-name = *( unreserved / pct-encoded / sub-delims ); '*' allows zero chars — empty host is valid; port = *DIGIT = '80' follows normally | layer: 1",
+                "data": "http://:80",
+                "valid": true
+            },
+            {
+                "description": "userinfo with non-empty value and empty host is valid",
+                "comment": "RFC 3986 §3.2: authority = [userinfo '@'] host [':' port]; userinfo='user', '@' present, host=reg-name='' (empty reg-name is valid), port absent | layer: 1",
+                "data": "http://user@",
+                "valid": true
+            },
+            {
+                "description": "query invalid percent-encoding with non-hex in first nibble",
+                "data": "http://a.com/?q=%G0",
+                "valid": false
+            },
+            {
+                "description": "query lone percent is invalid",
+                "data": "http://a.com/?q=%",
+                "valid": false
+            },
+            {
+                "description": "fragment invalid percent-encoding with non-hex in first nibble",
+                "data": "http://a.com/#%G0",
+                "valid": false
+            },
+            {
+                "description": "fragment lone percent is invalid",
+                "data": "http://a.com/#%",
+                "valid": false
+            },
+            {
+                "description": "userinfo invalid percent-encoding with non-hex in first nibble",
+                "data": "http://us%G0er@a.com",
+                "valid": false
+            },
+            {
+                "description": "userinfo lone percent is invalid",
+                "data": "http://us%@a.com",
+                "valid": false
+            },
+            {
+                "description": "reg-name incomplete percent-encoding with one hex digit",
+                "data": "http://%A.com/",
+                "valid": false
+            },
+            {
+                "description": "reg-name lone percent is invalid",
+                "data": "http://%.com/",
+                "valid": false
+            },
+            {
+                "description": "path-empty non-authority with query is valid",
+                "data": "a:?q",
+                "valid": true
+            },
+            {
+                "description": "path-empty non-authority with fragment is valid",
+                "data": "a:#f",
+                "valid": true
+            },
+            {
+                "description": "path-empty non-authority with query and fragment is valid",
+                "data": "a:?q#f",
+                "valid": true
+            },
+            {
+                "description": "IPvFuture with non-hex version is invalid",
+                "data": "http://[vG.test]",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII in query is invalid",
+                "data": "http://a.com/?q=é",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII in fragment is invalid",
+                "data": "http://a.com/#é",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII in userinfo is invalid",
+                "data": "http://usér@a.com",
+                "valid": false
+            },
+            {
+                "description": "brackets are invalid in path",
+                "comment": "RFC 3986 §3.3: segment = *pchar; pchar = unreserved / pct-encoded / sub-delims / ':' / '@'; '[' (%x5B) and ']' (%x5D) are gen-delims — not in any pchar alternative | layer: 1",
+                "data": "http://a.com/[]",
+                "valid": false
+            },
+            {
+                "description": "brackets are invalid in fragment",
+                "comment": "RFC 3986 §3.5: fragment = *(pchar / '/' / '?'); '[' and ']' are gen-delims not in pchar, '/', or '?' — same exclusion as path and query | layer: 1",
+                "data": "http://a.com/#a[b]",
+                "valid": false
+            },
+            {
+                "description": "percent-encoding is invalid in port",
+                "comment": "RFC 3986 Section 3.2.3: port = *DIGIT; there is no pct-encoded alternative, so percent-encoded digits are invalid here.",
+                "data": "http://a.com:%38%30",
+                "valid": false
+            },
+            {
+                "description": "percent-encoding is invalid in scheme",
+                "comment": "RFC 3986 Section 3.1: scheme = ALPHA *( ALPHA / DIGIT / '+' / '-' / '.' ); there is no pct-encoded alternative in scheme.",
+                "data": "ht%74p:foo",
+                "valid": false
+            },
+            {
+                "description": "IPv6 with embedded IPv4 containing out-of-range octet is invalid",
+                "comment": "RFC 3986 Section 3.2.2: IPv6address ls32 alternatives reuse IPv4address; dec-octet does not allow 256, so the embedded IPv4 must fail.",
+                "data": "http://[::ffff:1.2.3.256]",
                 "valid": false
             }
         ]
