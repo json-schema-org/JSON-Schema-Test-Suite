@@ -1,6 +1,7 @@
 [
     {
         "description": "validation of date-time strings",
+        "comment": "RFC 3339 §5.6 date-time format and §5.7 prose constraints. Key rules: month 01-12, day 01-max(month,year) per Gregorian calendar, hour 00-23, minute 00-59, second 00-60 (60 only at a known leap second). T and Z may each be lowercase. -00:00 is valid per §5.2.",
         "schema": {
             "$schema": "https://json-schema.org/v1",
             "format": "date-time"
@@ -67,7 +68,7 @@
                 "valid": true
             },
             {
-                "description": "an invalid date-time past leap second, UTC",
+                "description": "second 61 is above the absolute maximum of 60",
                 "data": "1998-12-31T23:59:61Z",
                 "valid": false
             },
@@ -149,6 +150,511 @@
             {
                 "description": "invalid extended year",
                 "data": "+11963-06-19T08:30:06.283185Z",
+                "valid": false
+            },
+            {
+                "description": "empty string is invalid",
+                "data": "",
+                "valid": false
+            },
+            {
+                "description": "leading whitespace is invalid",
+                "data": " 1985-04-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "trailing whitespace is invalid",
+                "data": "1985-04-12T23:20:50Z ",
+                "valid": false
+            },
+            {
+                "description": "trailing content after valid date-time is invalid",
+                "data": "1985-04-12T23:20:50Z extra",
+                "valid": false
+            },
+            {
+                "description": "date-only string is not a valid date-time",
+                "data": "1985-04-12",
+                "valid": false
+            },
+            {
+                "description": "time-only string is not a valid date-time",
+                "data": "08:30:06Z",
+                "valid": false
+            },
+            {
+                "description": "standard valid date-time",
+                "data": "1985-04-12T23:20:50Z",
+                "valid": true
+            },
+            {
+                "description": "valid lowercase t with uppercase Z",
+                "data": "1963-06-19t08:30:06Z",
+                "valid": true
+            },
+            {
+                "description": "valid uppercase T with lowercase z",
+                "data": "1963-06-19T08:30:06z",
+                "valid": true
+            },
+            {
+                "description": "T separator absent is invalid",
+                "data": "1985-04-1223:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "space instead of T separator is invalid",
+                "data": "1985-04-12 23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "tab instead of T separator is invalid",
+                "data": "1985-04-12\t23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "duplicated T separator is invalid",
+                "data": "1985-04-12TT23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "first date hyphen absent is invalid",
+                "data": "198504-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "second date hyphen absent is invalid",
+                "data": "1985-0412T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "slash instead of date hyphen is invalid",
+                "data": "1985/04/12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "dot instead of date hyphen is invalid",
+                "data": "1985.04.12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "duplicated date hyphen is invalid",
+                "data": "1985--04-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "first time colon absent is invalid",
+                "data": "1985-04-12T232050Z",
+                "valid": false
+            },
+            {
+                "description": "second time colon absent is invalid",
+                "data": "1985-04-12T23:2050Z",
+                "valid": false
+            },
+            {
+                "description": "hyphen instead of time colon is invalid",
+                "data": "1985-04-12T23-20-50Z",
+                "valid": false
+            },
+            {
+                "description": "dot instead of time colon is invalid",
+                "data": "1985-04-12T23.20.50Z",
+                "valid": false
+            },
+            {
+                "description": "duplicated time colon is invalid",
+                "data": "1985-04-12T23::20:50Z",
+                "valid": false
+            },
+            {
+                "description": "missing time offset is invalid",
+                "data": "1985-04-12T23:20:50",
+                "valid": false
+            },
+            {
+                "description": "invalid character at offset position",
+                "data": "1985-04-12T23:20:50A",
+                "valid": false
+            },
+            {
+                "description": "offset without colon is invalid",
+                "data": "1985-04-12T23:20:50+0000",
+                "valid": false
+            },
+            {
+                "description": "year with 3 digits is invalid",
+                "data": "985-04-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "year with 5 digits is invalid",
+                "data": "19850-04-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "character just below digit range in year is invalid",
+                "data": "198/-04-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "character just above digit range in year is invalid",
+                "data": "198:-04-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII digit in year is invalid",
+                "data": "19৬3-06-19T08:30:06Z",
+                "valid": false
+            },
+            {
+                "description": "negative sign prefix on year is invalid",
+                "data": "-0001-06-19T08:30:06Z",
+                "valid": false
+            },
+            {
+                "description": "year 0000 is valid",
+                "data": "0000-01-01T00:00:00Z",
+                "valid": true
+            },
+            {
+                "description": "month 01 is valid",
+                "data": "1985-01-15T23:20:50Z",
+                "valid": true
+            },
+            {
+                "description": "month 12 is valid",
+                "data": "1985-12-15T23:20:50Z",
+                "valid": true
+            },
+            {
+                "description": "month 00 is invalid",
+                "data": "1985-00-15T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "month 13 is invalid",
+                "data": "1985-13-15T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "3-digit month is invalid",
+                "data": "1985-012-15T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII digit in month is invalid",
+                "data": "1985-১২-15T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "day 01 is valid",
+                "data": "1985-04-01T23:20:50Z",
+                "valid": true
+            },
+            {
+                "description": "January 31 is valid",
+                "data": "1985-01-31T23:20:50Z",
+                "valid": true
+            },
+            {
+                "description": "April 30 is valid",
+                "data": "1985-04-30T23:20:50Z",
+                "valid": true
+            },
+            {
+                "description": "February 28 in non-leap year is valid",
+                "data": "1985-02-28T23:20:50Z",
+                "valid": true
+            },
+            {
+                "description": "February 29 in non-century leap year 1996 is valid",
+                "data": "1996-02-29T12:00:00Z",
+                "valid": true
+            },
+            {
+                "description": "February 29 in century year divisible by 400 is valid",
+                "data": "2000-02-29T12:00:00Z",
+                "valid": true
+            },
+            {
+                "description": "February 29 in year 0000 is valid",
+                "data": "0000-02-29T00:00:00Z",
+                "valid": true
+            },
+            {
+                "description": "day 00 is invalid",
+                "data": "1985-04-00T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "April 31 is invalid",
+                "data": "1985-04-31T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "January 32 is invalid",
+                "data": "1985-01-32T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "February 29 in non-leap year 1985 is invalid",
+                "data": "1985-02-29T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "February 30 in leap year is invalid",
+                "data": "2000-02-30T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "February 29 in century non-leap year 1900 is invalid",
+                "data": "1900-02-29T00:00:00Z",
+                "valid": false
+            },
+            {
+                "description": "3-digit day is invalid",
+                "data": "1985-04-012T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "hour 00 is valid",
+                "data": "1985-04-12T00:20:50Z",
+                "valid": true
+            },
+            {
+                "description": "non-padded time-hour is invalid",
+                "data": "1985-04-12T3:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "3-digit time-hour is invalid",
+                "data": "1985-04-12T023:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "minute 00 is valid",
+                "data": "1985-04-12T23:00:50Z",
+                "valid": true
+            },
+            {
+                "description": "minute 59 is valid",
+                "data": "1985-04-12T23:59:50Z",
+                "valid": true
+            },
+            {
+                "description": "non-padded time-minute is invalid",
+                "data": "1985-04-12T23:2:50Z",
+                "valid": false
+            },
+            {
+                "description": "3-digit time-minute is invalid",
+                "data": "1985-04-12T23:020:50Z",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII digit in time-minute is invalid",
+                "data": "1985-04-12T23:৩0:50Z",
+                "valid": false
+            },
+            {
+                "description": "second 00 is valid",
+                "data": "1985-04-12T23:20:00Z",
+                "valid": true
+            },
+            {
+                "description": "second 59 is valid",
+                "data": "1985-04-12T23:59:59Z",
+                "valid": true
+            },
+            {
+                "description": "non-padded time-second is invalid",
+                "data": "1985-04-12T23:20:5Z",
+                "valid": false
+            },
+            {
+                "description": "3-digit time-second is invalid",
+                "data": "1985-04-12T23:20:050Z",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII digit in time-second is invalid",
+                "data": "1985-04-12T23:20:৫0Z",
+                "valid": false
+            },
+            {
+                "description": "valid leap second on another confirmed IERS date 2016",
+                "data": "2016-12-31T23:59:60Z",
+                "valid": true
+            },
+            {
+                "description": "leap second with offset producing wrong UTC is invalid",
+                "data": "1998-12-31T23:59:60+01:00",
+                "valid": false
+            },
+            {
+                "description": "secfrac with 1 digit is valid",
+                "data": "1985-04-12T23:20:50.5Z",
+                "valid": true
+            },
+            {
+                "description": "secfrac with leading zero digit is valid",
+                "data": "1985-04-12T23:20:50.0Z",
+                "valid": true
+            },
+            {
+                "description": "secfrac with all zeros is valid",
+                "data": "1985-04-12T23:20:50.000000Z",
+                "valid": true
+            },
+            {
+                "description": "secfrac with very long precision is valid",
+                "data": "1985-04-12T23:20:50.0000000000000000001Z",
+                "valid": true
+            },
+            {
+                "description": "dot with no fractional digits is invalid",
+                "data": "1985-04-12T23:20:50.Z",
+                "valid": false
+            },
+            {
+                "description": "double dot in secfrac is invalid",
+                "data": "1985-04-12T23:20:50..1Z",
+                "valid": false
+            },
+            {
+                "description": "multiple dot separators in secfrac is invalid",
+                "data": "1985-04-12T23:20:50.1.2Z",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII digit mid-secfrac is invalid",
+                "data": "1985-04-12T23:20:50.1২3Z",
+                "valid": false
+            },
+            {
+                "description": "wrong character for offset sign is invalid",
+                "data": "1985-04-12T23:20:50±00:00",
+                "valid": false
+            },
+            {
+                "description": "duplicated offset sign is invalid",
+                "data": "1985-04-12T23:20:50++00:00",
+                "valid": false
+            },
+            {
+                "description": "mixed invalid offset signs +- is invalid",
+                "data": "1985-04-12T23:20:50+-01:00",
+                "valid": false
+            },
+            {
+                "description": "mixed invalid offset signs -+ is invalid",
+                "data": "1985-04-12T23:20:50-+01:00",
+                "valid": false
+            },
+            {
+                "description": "UTC offset +00:00 is valid",
+                "data": "1985-04-12T23:20:50+00:00",
+                "valid": true
+            },
+            {
+                "description": "offset hour 23 is valid",
+                "data": "1985-04-12T23:20:50+23:00",
+                "valid": true
+            },
+            {
+                "description": "offset hour 24 is invalid with positive sign",
+                "data": "1985-04-12T23:20:50+24:00",
+                "valid": false
+            },
+            {
+                "description": "non-padded offset hour is invalid",
+                "data": "1985-04-12T23:20:50+1:00",
+                "valid": false
+            },
+            {
+                "description": "3-digit offset hour is invalid",
+                "data": "1985-04-12T23:20:50+001:00",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII digit in offset hour is invalid",
+                "data": "1985-04-12T23:20:50+৮0:00",
+                "valid": false
+            },
+            {
+                "description": "offset minute 59 is valid",
+                "data": "1985-04-12T23:20:50+00:59",
+                "valid": true
+            },
+            {
+                "description": "non-padded offset minute is invalid",
+                "data": "1985-04-12T23:20:50+00:1",
+                "valid": false
+            },
+            {
+                "description": "3-digit offset minute is invalid",
+                "data": "1985-04-12T23:20:50+00:001",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII digit in offset minute is invalid",
+                "data": "1985-04-12T23:20:50+08:৩0",
+                "valid": false
+            },
+            {
+                "description": "maximum positive offset +23:59 is valid",
+                "data": "1985-04-12T23:20:50+23:59",
+                "valid": true
+            },
+            {
+                "description": "maximum negative offset -23:59 is valid",
+                "data": "1985-04-12T23:20:50-23:59",
+                "valid": true
+            },
+            {
+                "description": "negative zero offset -00:00 is valid",
+                "data": "1985-04-12T23:20:50-00:00",
+                "valid": true
+            },
+            {
+                "description": "secfrac with max positive offset is valid",
+                "data": "1985-04-12T23:20:50.123+23:59",
+                "valid": true
+            },
+            {
+                "description": "secfrac with max negative offset is valid",
+                "data": "1985-04-12T23:20:50.123-23:59",
+                "valid": true
+            },
+            {
+                "description": "minimum boundary date-time with numoffset is valid",
+                "data": "0000-01-01T00:00:00+00:00",
+                "valid": true
+            },
+            {
+                "description": "month 13 rejects before reaching invalid day hour minute second",
+                "data": "1985-13-32T25:61:61Z",
+                "valid": false
+            },
+            {
+                "description": "month 00 rejects before reaching invalid day",
+                "data": "1985-00-00T00:00:00Z",
+                "valid": false
+            },
+            {
+                "description": "decimal comma separator is invalid",
+                "data": "1985-04-12T23:20:50,123Z",
+                "valid": false
+            },
+            {
+                "description": "Z followed by numeric offset is invalid",
+                "data": "1985-04-12T23:20:50Z+00:00",
+                "valid": false
+            },
+            {
+                "description": "trailing colon after valid secfrac is invalid",
+                "data": "1985-04-12T23:20:50.123:00",
                 "valid": false
             }
         ]
