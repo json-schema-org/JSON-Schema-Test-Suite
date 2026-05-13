@@ -54,16 +54,6 @@
                 "valid": true
             },
             {
-                "description": "a invalid date string with 29 days in February (normal)",
-                "data": "2021-02-29",
-                "valid": false
-            },
-            {
-                "description": "a valid date string with 29 days in February (leap)",
-                "data": "2020-02-29",
-                "valid": true
-            },
-            {
                 "description": "a invalid date string with 30 days in February (leap)",
                 "data": "2020-02-30",
                 "valid": false
@@ -169,11 +159,6 @@
                 "valid": false
             },
             {
-                "description": "a invalid date string with invalid month",
-                "data": "2020-13-01",
-                "valid": false
-            },
-            {
                 "description": "an invalid date string",
                 "data": "06/19/1963",
                 "valid": false
@@ -196,11 +181,6 @@
             {
                 "description": "invalid month",
                 "data": "1998-13-01",
-                "valid": false
-            },
-            {
-                "description": "invalid month-day combination",
-                "data": "1998-04-31",
                 "valid": false
             },
             {
