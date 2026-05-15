@@ -144,6 +144,12 @@
                 "valid": true
             },
             {
+                "description": "time with unknown local offset is valid",
+                "comment": "RFC 3339 section 4.3 (unknown local offset)",
+                "data": "12:34:56-00:00",
+                "valid": true
+            },
+            {
                 "description": "hour, minute in time-offset must be two digits",
                 "data": "08:30:06-8:000",
                 "valid": false
