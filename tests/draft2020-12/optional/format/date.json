@@ -273,6 +273,71 @@
                 "comment": "https://www.rfc-editor.org/rfc/rfc3339#section-5.6 — date-mday = 2DIGIT ; 01-28/29/30/31",
                 "data": "2024-01-00",
                 "valid": false
+            },
+            {
+                "description": "invalid: empty string",
+                "data": "",
+                "valid": false
+            },
+            {
+                "description": "invalid: embedded whitespace between year and month",
+                "data": "2020 -01-01",
+                "valid": false
+            },
+            {
+                "description": "invalid: trailing character after valid full-date",
+                "data": "2020-01-01X",
+                "valid": false
+            },
+            {
+                "description": "invalid: trailing Z after full-date",
+                "data": "2020-01-01Z",
+                "valid": false
+            },
+            {
+                "description": "invalid: full-date followed by space and time component",
+                "data": "2020-01-01 00:00:00Z",
+                "valid": false
+            },
+            {
+                "description": "valid: four-digit year 0001",
+                "data": "0001-01-01",
+                "valid": true
+            },
+            {
+                "description": "invalid: two-digit year (N-2 digits)",
+                "data": "20-01-01",
+                "valid": false
+            },
+            {
+                "description": "invalid: three-digit year (N-1 digits)",
+                "data": "998-01-01",
+                "valid": false
+            },
+            {
+                "description": "invalid: five-digit year (N+1 digits)",
+                "data": "12020-01-01",
+                "valid": false
+            },
+            {
+                "description": "invalid: positive sign prefix on year",
+                "data": "+2020-01-01",
+                "valid": false
+            },
+            {
+                "description": "invalid: negative sign prefix on year",
+                "data": "-2020-01-01",
+                "valid": false
+            },
+            {
+                "description": "invalid: non-ASCII Bengali digit in year field",
+                "data": "২020-01-01",
+                "valid": false
+            },
+            {
+                "description": "invalid: alphabetic characters in year field",
+                "data": "YYYY-01-01",
+                "valid": false
             }
         ]
     }
