@@ -58,6 +58,16 @@
                 "valid": false
             },
             {
+                "description": "a 2-part address resolving to a routable IP (inet_aton shorthand)",
+                "data": "127.1",
+                "valid": false
+            },
+            {
+                "description": "a 3-part address resolving to a routable IP (inet_aton shorthand)",
+                "data": "127.0.1",
+                "valid": false
+            },
+            {
                 "description": "an IP address as an integer",
                 "data": "0x7f000001",
                 "valid": false
