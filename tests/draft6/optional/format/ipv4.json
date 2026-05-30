@@ -160,6 +160,16 @@
                 "valid": false
             },
             {
+                "description": "additional content after an embedded NUL byte",
+                "data": "192.168.0.1\u0000.evil.com",
+                "valid": false
+            },
+            {
+                "description": "additional content after a trailing CRLF",
+                "data": "192.168.0.1\r\nHost: evil",
+                "valid": false
+            },
+            {
                 "description": "with port number is invalid",
                 "data": "192.168.0.1:80",
                 "valid": false
