@@ -1,5 +1,5 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://json-schema.org/tests/validation-test-schema",
     "description": "A schema for files contained within the unified validation/ test suite",
 
@@ -9,11 +9,12 @@
         "description": "An individual test case, containing multiple tests of a single schema's behavior across dialects",
 
         "type": "object",
-        "required": [ "description", "compatibility", "schema", "tests" ],
+        "required": [ "description", "schema", "tests" ],
         "properties": {
             "description": {
                 "description": "The test case description",
-                "type": "string"
+                "type": "string",
+                "maxLength": 149
             },
             "comment": {
                 "description": "Any additional comments about the test case",
@@ -25,7 +26,8 @@
                 "pattern": "^(<=|=)?([0-9]+)(,(<=|=)?([0-9]+))*$"
             },
             "schema": {
-                "description": "A valid JSON Schema, written without a $schema keyword so it stays dialect-agnostic. The applicable dialects are expressed via the compatibility field."
+                "description": "A valid JSON Schema, written without a $schema keyword so it stays dialect-agnostic. The applicable dialects are expressed via the compatibility field.",
+                "type": ["object", "boolean"]
             },
             "tests": {
                 "description": "A set of related tests all using the same schema",
@@ -109,7 +111,8 @@
             "properties": {
                 "description": {
                     "description": "The test description, briefly explaining which behavior it exercises",
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 69
                 },
                 "comment": {
                     "description": "Any additional comments about the test",

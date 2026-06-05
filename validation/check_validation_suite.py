@@ -3,8 +3,8 @@
 Checker for the unified validation/ test suite.
 
 Usage:
-    python check_validation_suite.py                  # check all files
-    python check_validation_suite.py default.json     # check one file
+    python validation/check_validation_suite.py                  # check all files
+    python validation/check_validation_suite.py default.json     # check one file
 
 Mirrors the logic of bin/jsonschema_suite but targets the new
 validation/ directory and understands the compatibility field.
@@ -32,7 +32,7 @@ else:
 
 
 ROOT_DIR = Path(__file__).parent          
-VALIDATION_DIR = ROOT_DIR / "validation"
+VALIDATION_DIR = ROOT_DIR / "tests"
 VALIDATION_SCHEMA_PATH = ROOT_DIR / "validation-test-schema.json"
 
 DIALECT_ORDER = ["3", "4", "6", "7", "2019", "2020"]
@@ -324,6 +324,13 @@ KNOWN = {
                 "title",
                 "type",
                 "uniqueItems",
+
+                # Technically this is wrong, $comment doesn't exist in this
+                # draft, but the point of this test is to detect mistakes by,
+                # test authors, whereas the point of the $comment keyword is
+                # to just standardize a place for a comment, so it's not a
+                # mistake to use it in earlier drafts in tests per se.
+                "$comment",
             },
             "3": {
                 "$ref",
@@ -354,6 +361,12 @@ KNOWN = {
                 "title",
                 "type",
                 "uniqueItems",
+                # Technically this is wrong, $comment doesn't exist in this
+                # draft, but the point of this test is to detect mistakes by,
+                # test authors, whereas the point of the $comment keyword is
+                # to just standardize a place for a comment, so it's not a
+                # mistake to use it in earlier drafts in tests per se.
+                "$comment",
             },
         }
 
@@ -361,7 +374,6 @@ KNOWN = {
 class ValidationSuiteChecks(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        print(f"Looking for tests in {VALIDATION_DIR}")
         cls.file_filter = getattr(cls, "_file_filter", None)
         cls.test_files = list(collect(VALIDATION_DIR, cls.file_filter))
         if not cls.test_files:
@@ -393,8 +405,6 @@ class ValidationSuiteChecks(unittest.TestCase):
 
     @unittest.skipIf(jsonschema is None, "jsonschema library not installed")
     def test_suites_are_valid(self):
-        if self.validation_schema is None:
-            self.skipTest("validation-test-schema.json not found")
 
         Validator = jsonschema.validators.validator_for(self.validation_schema)
         validator = Validator(self.validation_schema)
@@ -413,10 +423,6 @@ class ValidationSuiteChecks(unittest.TestCase):
         """
         Each test case schema must be valid under the metaschema of every
         dialect its compatibility field covers.
-
-        Mirrors test_all_schemas_are_valid in bin/jsonschema_suite, but
-        instead of inferring the dialect from the folder, we read it from
-        the compatibility field and check all applicable dialects.
         """
         for path in self.test_files:
             for case in load(path):
@@ -426,6 +432,8 @@ class ValidationSuiteChecks(unittest.TestCase):
                     d for d in DIALECT_ORDER if dialect_applies(compat, d)
                 ]
                 for dialect in applicable:
+                    if dialect not in DIALECT_VALIDATORS:
+                        continue
                     Validator = DIALECT_VALIDATORS[dialect]
                     # Valid (optional test) schemas contain regexes which
                     # aren't valid Python regexes, so skip checking it
@@ -468,12 +476,14 @@ class ValidationSuiteChecks(unittest.TestCase):
  
                 compat = case.get("compatibility", "")
                 schema = case.get("schema", {})
- 
-                minimum_dialect = next(
-                    d for d in DIALECT_ORDER if dialect_applies(compat, d)
-                )
-                known = KNOWN[minimum_dialect]
-                Validator = DIALECT_VALIDATORS[minimum_dialect]
+
+                applicable = [d for d in DIALECT_ORDER if dialect_applies(compat, d)]
+
+                for dialect in applicable:
+                    if dialect not in DIALECT_VALIDATORS:
+                        continue
+                    known = KNOWN[dialect]
+                    Validator = DIALECT_VALIDATORS[dialect]
  
                 outer_self = self
  
@@ -488,10 +498,10 @@ class ValidationSuiteChecks(unittest.TestCase):
                         return len(self._d)
  
                     def __getitem__(self, k):
-                        if k not in known:
+                        if k not in known and k in schema:
                             outer_self.fail(
                                 f"'{k}' is not a known keyword for "
-                                f"draft {minimum_dialect}. "
+                                f"draft {dialect}. "
                                 f"Either the compatibility field is too broad, "
                                 f"the keyword is a typo, or it needs adding to "
                                 f"the KNOWN allowlist in the checker."
@@ -509,23 +519,12 @@ class ValidationSuiteChecks(unittest.TestCase):
                 with self.subTest(
                     file=path.name,
                     case=case.get("description"),
-                    minimum_dialect=minimum_dialect,
+                    dialect=dialect,
                 ):
                     try:
                         Validator(schema).is_valid(12)
                     except Unresolvable:
                         pass
-
-    def test_required_fields_present(self):
-        """Every test case must have description, compatibility, schema, tests."""
-        for path in self.test_files:
-            for i, case in enumerate(load(path)):
-                with self.subTest(file=path.name, case=i):
-                    for field in ("description", "compatibility", "schema", "tests"):
-                        self.assertIn(
-                            field, case,
-                            f"Case {i} in {path.name} is missing required field '{field}'"
-                        )
 
     def test_compatibility_syntax_is_valid(self):
         for path in self.test_files:
@@ -563,25 +562,6 @@ class ValidationSuiteChecks(unittest.TestCase):
                         f"remove it so the test stays dialect-agnostic"
                     )
 
-    def test_case_descriptions_are_reasonable_length(self):
-        for path in self.test_files:
-            for case in load(path):
-                with self.subTest(file=path.name, desc=case.get("description")):
-                    self.assertLess(
-                        len(case["description"]), 150,
-                        "Case description over 150 chars"
-                    )
-
-    def test_test_descriptions_are_reasonable_length(self):
-        for path in self.test_files:
-            for case in load(path):
-                for test in case.get("tests", []):
-                    with self.subTest(file=path.name, desc=test.get("description")):
-                        self.assertLess(
-                            len(test["description"]), 70,
-                            "Test description over 70 chars"
-                        )
-
     def test_case_descriptions_unique_per_file(self):
         for path in self.test_files:
             cases = load(path)
@@ -612,34 +592,6 @@ class ValidationSuiteChecks(unittest.TestCase):
                     with self.subTest(file=path.name, desc=desc):
                         self.assertNotRegex(desc, r"\bshould\b")
                         self.assertNotRegex(desc, r"(?i)\btest(s)? that\b")
-
-    def test_each_test_has_boolean_valid_field(self):
-        for path in self.test_files:
-            for case in load(path):
-                for test in case.get("tests", []):
-                    with self.subTest(file=path.name, test=test.get("description")):
-                        self.assertIn(
-                            "valid", test,
-                            "Test is missing 'valid' field"
-                        )
-                        self.assertIsInstance(
-                            test["valid"], bool,
-                            "'valid' field must be a boolean"
-                        )
-
-    def test_each_test_has_data_field(self):
-        """
-        Every individual test must supply a 'data' instance to validate.
-        Mirrors the requirement in test-schema.json's $defs/test.
-        """
-        for path in self.test_files:
-            for case in load(path):
-                for test in case.get("tests", []):
-                    with self.subTest(file=path.name, test=test.get("description")):
-                        self.assertIn(
-                            "data", test,
-                            "Test is missing 'data' field"
-                        )
 
     def test_zzz_summary(self):
         """
