@@ -450,7 +450,7 @@ class ValidationSuiteChecks(unittest.TestCase):
                             Validator.check_schema(schema)
                         except jsonschema.SchemaError as e:
                             self.fail(
-                                f"Schema is invalid under draft {dialect} "
+                                f"Schema is invalid under release {dialect} "
                                 f"metaschema:\n{e.message}"
                             )
 
@@ -501,7 +501,7 @@ class ValidationSuiteChecks(unittest.TestCase):
                         if k not in known and k in schema:
                             outer_self.fail(
                                 f"'{k}' is not a known keyword for "
-                                f"draft {dialect}. "
+                                f"release {dialect}. "
                                 f"Either the compatibility field is too broad, "
                                 f"the keyword is a typo, or it needs adding to "
                                 f"the KNOWN allowlist in the checker."
