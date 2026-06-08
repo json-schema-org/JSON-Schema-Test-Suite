@@ -57,10 +57,7 @@ def parse_compat(compatibility: str) -> list[tuple[str, str]]:
             op, dialect = ">=", raw.strip()
 
         if dialect not in DIALECT_ORDER:
-            raise ValueError(
-                f"Unknown dialect {dialect!r} in compatibility {compatibility!r}. "
-                f"Valid dialects: {DIALECT_ORDER}"
-            )
+            continue
         parts.append((op, dialect))
     return parts
 
@@ -71,6 +68,8 @@ def dialect_applies(compatibility: str, target: str) -> bool:
     """
     if not compatibility:
         return True
+    if target not in DIALECT_ORDER:
+        return False
     target_idx = DIALECT_ORDER.index(target)
     for op, dialect in parse_compat(compatibility):
         compat_idx = DIALECT_ORDER.index(dialect)
