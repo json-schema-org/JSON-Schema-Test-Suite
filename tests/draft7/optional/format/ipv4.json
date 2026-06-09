@@ -80,6 +80,16 @@
                 "valid": false
             },
             {
+                "description": "invalid fullwidth digits (non-ASCII)",
+                "data": "１９２.１６８.１.１",
+                "valid": false
+            },
+            {
+                "description": "invalid mathematical bold digits (non-ASCII)",
+                "data": "𝟏𝟗𝟐.𝟏𝟔𝟖.𝟏.𝟏",
+                "valid": false
+            },
+            {
                 "description": "netmask is not a part of ipv4 address",
                 "data": "192.168.1.0/24",
                 "valid": false
