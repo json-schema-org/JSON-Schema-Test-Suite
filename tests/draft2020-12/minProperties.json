@@ -1,6 +1,11 @@
 [
     {
         "description": "minProperties validation",
+        "specification": [
+            {
+                "validation": "6.5.2"
+            }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "minProperties": 1
@@ -50,6 +55,11 @@
     },
     {
         "description": "minProperties validation with a decimal",
+        "specification": [
+            {
+                "validation": "6.5.2"
+            }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "minProperties": 1.0
