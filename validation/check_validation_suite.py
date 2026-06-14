@@ -93,6 +93,11 @@ def load(path: Path):
     return json.loads(path.read_text())
 
 
+def load_cases(path: Path) -> list:
+    suite = load(path)
+    return suite["tests"] if isinstance(suite, dict) else suite
+
+
 KNOWN = {
             "2020": {
                 "$anchor",
@@ -398,7 +403,7 @@ class ValidationSuiteChecks(unittest.TestCase):
         for path in self.test_files:
             with self.subTest(path=path.name):
                 try:
-                    load(path)
+                    load_cases(path)
                 except json.JSONDecodeError as e:
                     self.fail(f"{path.name} is not valid JSON: {e}")
 
@@ -424,7 +429,7 @@ class ValidationSuiteChecks(unittest.TestCase):
         dialect its compatibility field covers.
         """
         for path in self.test_files:
-            for case in load(path):
+            for case in load_cases(path):
                 compat = case.get("compatibility", "")
                 schema = case.get("schema", {})
                 applicable = [
@@ -469,7 +474,7 @@ class ValidationSuiteChecks(unittest.TestCase):
         from collections.abc import Mapping
  
         for path in self.test_files:
-            for case in load(path):
+            for case in load_cases(path):
                 if "unknown keyword" in case.get("description", ""):
                     continue
  
@@ -527,7 +532,7 @@ class ValidationSuiteChecks(unittest.TestCase):
 
     def test_compatibility_syntax_is_valid(self):
         for path in self.test_files:
-            for i, case in enumerate(load(path)):
+            for i, case in enumerate(load_cases(path)):
                 compat = case.get("compatibility", "")
                 with self.subTest(file=path.name, case=case.get("description", i)):
                     try:
@@ -537,7 +542,7 @@ class ValidationSuiteChecks(unittest.TestCase):
 
     def test_each_case_applies_to_at_least_one_dialect(self):
         for path in self.test_files:
-            for case in load(path):
+            for case in load_cases(path):
                 compat = case.get("compatibility", "")
                 with self.subTest(file=path.name, case=case.get("description")):
                     matches = [d for d in DIALECT_ORDER if dialect_applies(compat, d)]
@@ -553,7 +558,7 @@ class ValidationSuiteChecks(unittest.TestCase):
         schemas so they stay compatible with as many dialects as possible.
         """
         for path in self.test_files:
-            for case in load(path):
+            for case in load_cases(path):
                 with self.subTest(file=path.name, case=case.get("description")):
                     self.assertNotIn(
                         "$schema", case.get("schema", {}),
@@ -563,7 +568,7 @@ class ValidationSuiteChecks(unittest.TestCase):
 
     def test_case_descriptions_unique_per_file(self):
         for path in self.test_files:
-            cases = load(path)
+            cases = load_cases(path)
             descs = [c["description"] for c in cases]
             with self.subTest(file=path.name):
                 self.assertEqual(
@@ -573,7 +578,7 @@ class ValidationSuiteChecks(unittest.TestCase):
 
     def test_test_descriptions_unique_per_case(self):
         for path in self.test_files:
-            for case in load(path):
+            for case in load_cases(path):
                 descs = [t["description"] for t in case.get("tests", [])]
                 with self.subTest(file=path.name, case=case.get("description")):
                     self.assertEqual(
@@ -583,7 +588,7 @@ class ValidationSuiteChecks(unittest.TestCase):
 
     def test_descriptions_do_not_use_modal_verbs(self):
         for path in self.test_files:
-            for case in load(path):
+            for case in load_cases(path):
                 all_descs = [case["description"]] + [
                     t["description"] for t in case.get("tests", [])
                 ]
@@ -598,7 +603,7 @@ class ValidationSuiteChecks(unittest.TestCase):
         """
         total_cases = 0
         for path in self.test_files:
-            cases = load(path)
+            cases = load_cases(path)
             total_cases += len(cases)
             coverage = {d: 0 for d in DIALECT_ORDER}
             for case in cases:
