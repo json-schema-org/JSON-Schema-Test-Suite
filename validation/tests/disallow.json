@@ -1,83 +1,86 @@
-[
-    {
-        "description": "disallow",
-        "compatibility": "=3",
-        "schema": {
-            "disallow": "integer"
+{
+    "description": "disallow validation",
+    "tests": [
+        {
+            "description": "disallow",
+            "compatibility": "=3",
+            "schema": {
+                "disallow": "integer"
+            },
+            "tests": [
+                {
+                    "description": "allowed",
+                    "data": "foo",
+                    "valid": true
+                },
+                {
+                    "description": "disallowed",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
         },
-        "tests": [
-            {
-                "description": "allowed",
-                "data": "foo",
-                "valid": true
+        {
+            "description": "multiple disallow",
+            "compatibility": "=3",
+            "schema": {
+                "disallow": ["integer", "boolean"]
             },
-            {
-                "description": "disallowed",
-                "data": 1,
-                "valid": false
-            }
-        ]
-    },
-    {
-        "description": "multiple disallow",
-        "compatibility": "=3",
-        "schema": {
-            "disallow": ["integer", "boolean"]
+            "tests": [
+                {
+                    "description": "valid",
+                    "data": "foo",
+                    "valid": true
+                },
+                {
+                    "description": "mismatch",
+                    "data": 1,
+                    "valid": false
+                },
+                {
+                    "description": "other mismatch",
+                    "data": true,
+                    "valid": false
+                }
+            ]
         },
-        "tests": [
-            {
-                "description": "valid",
-                "data": "foo",
-                "valid": true
-            },
-            {
-                "description": "mismatch",
-                "data": 1,
-                "valid": false
-            },
-            {
-                "description": "other mismatch",
-                "data": true,
-                "valid": false
-            }
-        ]
-    },
-    {
-        "description": "multiple disallow subschema",
-        "compatibility": "=3",
-        "schema": {
-            "disallow":
-                ["string",
-                 {
-                    "type": "object",
-                    "properties": {
-                        "foo": {
-                            "type": "string"
+        {
+            "description": "multiple disallow subschema",
+            "compatibility": "=3",
+            "schema": {
+                "disallow":
+                    ["string",
+                    {
+                        "type": "object",
+                        "properties": {
+                            "foo": {
+                                "type": "string"
+                            }
                         }
-                    }
-                 }]
-        },
-        "tests": [
-            {
-                "description": "match",
-                "data": 1,
-                "valid": true
+                    }]
             },
-            {
-                "description": "other match",
-                "data": {"foo": 1},
-                "valid": true
-            },
-            {
-                "description": "mismatch",
-                "data": "foo",
-                "valid": false
-            },
-            {
-                "description": "other mismatch",
-                "data": {"foo": "bar"},
-                "valid": false
-            }
-        ]
-    }
-]
+            "tests": [
+                {
+                    "description": "match",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "other match",
+                    "data": { "foo": 1 },
+                    "valid": true
+                },
+                {
+                    "description": "mismatch",
+                    "data": "foo",
+                    "valid": false
+                },
+                {
+                    "description": "other mismatch",
+                    "data": { "foo": "bar" },
+                    "valid": false
+                }
+            ]
+        }
+    ]
+}
