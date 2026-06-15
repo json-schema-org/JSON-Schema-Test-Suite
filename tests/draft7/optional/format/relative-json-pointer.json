@@ -69,6 +69,11 @@
                 "valid": false
             },
             {
+                "description": "non-ASCII digit in the prefix is not allowed",
+                "data": "١/foo",
+                "valid": false
+            },
+            {
                 "description": "## is not a valid json-pointer",
                 "data": "0##",
                 "valid": false
