@@ -1,6 +1,12 @@
 [
     {
         "description": "exclusiveMaximum validation",
+        "specification": [
+            {
+                "validation": "6.2.3",
+                "quote": "If the instance is a number, then the instance is valid only if it has a value strictly less than (not equal to) \"exclusiveMaximum\"."
+            }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "exclusiveMaximum": 3.0
