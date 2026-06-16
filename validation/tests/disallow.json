@@ -1,4 +1,5 @@
 {
+    "$schema": "../validation-test-schema.json",
     "description": "disallow validation",
     "tests": [
         {
