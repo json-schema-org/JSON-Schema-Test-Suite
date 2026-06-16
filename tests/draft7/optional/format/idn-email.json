@@ -57,6 +57,11 @@
                 "description": "a non-ASCII quoted local part is valid",
                 "data": "\"δοκιμή\"@example.com",
                 "valid": true
+            },
+            {
+                "description": "a local part with a lone UTF-16 surrogate is invalid",
+                "data": "\ud800@example.com",
+                "valid": false
             }
         ]
     }
