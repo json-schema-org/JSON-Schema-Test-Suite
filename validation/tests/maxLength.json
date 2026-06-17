@@ -4,7 +4,6 @@
     "tests": [
         {
             "description": "maxLength validation",
-            "compatibility": "3",
             "schema": { "maxLength": 2 },
             "tests": [
                 {
