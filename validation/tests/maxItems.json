@@ -4,7 +4,6 @@
     "tests": [
         {
             "description": "maxItems validation",
-            "compatibility": "3",
             "schema": { "maxItems": 2 },
             "tests": [
                 {
