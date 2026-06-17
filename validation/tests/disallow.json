@@ -4,7 +4,7 @@
     "tests": [
         {
             "description": "disallow",
-            "compatibility": "=3",
+            "compatibility": "<=3",
             "schema": {
                 "disallow": "integer"
             },
@@ -23,7 +23,7 @@
         },
         {
             "description": "multiple disallow",
-            "compatibility": "=3",
+            "compatibility": "<=3",
             "schema": {
                 "disallow": ["integer", "boolean"]
             },
@@ -47,7 +47,7 @@
         },
         {
             "description": "multiple disallow subschema",
-            "compatibility": "=3",
+            "compatibility": "<=3",
             "schema": {
                 "disallow":
                     ["string",
