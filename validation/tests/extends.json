@@ -4,7 +4,7 @@
     "tests": [
         {
             "description": "extends",
-            "compatibility": "=3",
+            "compatibility": "<=3",
             "schema": {
                 "properties": { "bar": { "type": "integer", "required": true } },
                 "extends": {
@@ -38,7 +38,7 @@
         },
         {
             "description": "multiple extends",
-            "compatibility": "=3",
+            "compatibility": "<=3",
             "schema": {
                 "properties": { "bar": { "type": "integer", "required": true } },
                 "extends" : [
@@ -79,7 +79,7 @@
         },
         {
             "description": "extends simple types",
-            "compatibility": "=3",
+            "compatibility": "<=3",
             "schema": {
                 "minimum": 20,
                 "extends": { "maximum": 30 }
