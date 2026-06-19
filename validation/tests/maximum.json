@@ -56,7 +56,7 @@
         },
         {
             "description": "maximum validation (explicit false exclusivity)",
-            "compatibility": "=4",
+            "compatibility": "3,<=4",
             "schema": { "maximum": 3.0, "exclusiveMaximum": false },
             "tests": [
                 {
@@ -83,7 +83,7 @@
         },
         {
             "description": "exclusiveMaximum validation (boolean form)",
-            "compatibility": "=4",
+            "compatibility": "3,<=4",
             "schema": {
                 "maximum": 3.0,
                 "exclusiveMaximum": true
