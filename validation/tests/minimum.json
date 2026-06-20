@@ -119,9 +119,7 @@
         {
             "description": "exclusiveMinimum validation",
             "compatibility": "6",
-            "schema": {
-                "exclusiveMinimum": 1.1
-            },
+            "schema": { "exclusiveMinimum": 1.1 },
             "tests": [
                 {
                     "description": "above the exclusiveMinimum is valid",
