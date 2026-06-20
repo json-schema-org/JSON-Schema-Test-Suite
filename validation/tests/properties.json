@@ -44,8 +44,7 @@
             ]
         },
         {
-            "description":
-                "properties, patternProperties, additionalProperties interaction",
+            "description": "properties, patternProperties, additionalProperties interaction",
             "schema": {
                 "properties": {
                     "foo": { "type": "array", "maxItems": 3 },
@@ -131,7 +130,6 @@
         },
         {
             "description": "properties with escaped characters",
-            "compatibility": "4",
             "schema": {
                 "properties": {
                     "foo\nbar": { "type": "number" },
@@ -186,7 +184,6 @@
         },
         {
             "description": "properties whose names are Javascript object property names",
-            "compatibility": "4",
             "comment": "Ensure JS implementations don't universally consider e.g. __proto__ to always be present in an object.",
             "schema": {
                 "properties": {
