@@ -1,0 +1,21 @@
+[
+    {
+        "description": "validation of IRI References",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "format": "iri-reference"
+        },
+        "tests": [
+            {
+                "description": "an invalid IRI Reference",
+                "data": "\\\\WINDOWS\\filëßåré",
+                "valid": false
+            },
+            {
+                "description": "an invalid IRI fragment",
+                "data": "#ƒräg\\mênt",
+                "valid": false
+            }
+        ]
+    }
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "description": "validation of Relative JSON Pointers (RJP)",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "format": "relative-json-pointer"
+        },
+        "tests": [
+            {
+                "description": "all string formats ignore integers",
+                "data": 12,
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore floats",
+                "data": 13.7,
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore objects",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore arrays",
+                "data": [],
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore booleans",
+                "data": false,
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore nulls",
+                "data": null,
+                "valid": true
+            },
+            {
+                "description": "a valid upwards RJP",
+                "data": "1",
+                "valid": true
+            },
+            {
+                "description": "a valid downwards RJP",
+                "data": "0/foo/bar",
+                "valid": true
+            },
+            {
+                "description": "a valid up and then down RJP, with array index",
+                "data": "2/0/baz/1/zip",
+                "valid": true
+            },
+            {
+                "description": "a valid RJP taking the member or index name",
+                "data": "0#",
+                "valid": true
+            },
+            {
+                "description": "multi-digit integer prefix",
+                "data": "120/foo/bar",
+                "valid": true
+            }
+        ]
+    }
+]
