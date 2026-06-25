@@ -50,6 +50,16 @@
                 "description": "a valid e-mail address",
                 "data": "joe.bloggs@example.com",
                 "valid": true
+            },
+            {
+                "description": "a domain label that is not in Unicode NFC is invalid",
+                "data": "user@cafe\u0301.com",
+                "valid": false
+            },
+            {
+                "description": "a local part that is not in Unicode NFC is valid",
+                "data": "cafe\u0301@example.com",
+                "valid": true
             }
         ]
     }
