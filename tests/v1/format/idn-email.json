@@ -55,6 +55,11 @@
                 "description": "an invalid e-mail address",
                 "data": "2962",
                 "valid": false
+            },
+            {
+                "description": "a local part with a lone UTF-16 surrogate is invalid",
+                "data": "\ud800@example.com",
+                "valid": false
             }
         ]
     }
