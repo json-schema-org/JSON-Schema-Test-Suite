@@ -227,6 +227,61 @@
                 "description": "non-numeric port is invalid",
                 "data": "http://example.com:abc/path",
                 "valid": false
+            },
+            {
+                "description": "port digit boundary: one above range (colon)",
+                "data": "http://a.com:8:0",
+                "valid": false
+            },
+            {
+                "description": "above-ceiling DIGIT in port: colon is %x3A, one above 9 (%x39)",
+                "data": "http://a.com::",
+                "valid": false
+            },
+            {
+                "description": "port may be empty when colon is present",
+                "data": "http://a.com:",
+                "valid": true
+            },
+            {
+                "description": "port has no RFC 3986 upper bound",
+                "data": "http://a.com:999999999",
+                "valid": true
+            },
+            {
+                "description": "authority with empty host and explicit port is valid",
+                "data": "http://:80",
+                "valid": true
+            },
+            {
+                "description": "userinfo may be empty",
+                "data": "http://@a.com",
+                "valid": true
+            },
+            {
+                "description": "userinfo with non-empty value and empty host is valid",
+                "data": "http://user@",
+                "valid": true
+            },
+            {
+                "description": "host reg-name may contain sub-delimiters",
+                "data": "http://!$&'()*+,;=.com",
+                "valid": true
+            },
+            {
+                "description": "host reg-name may end with a dot",
+                "data": "http://example.com.",
+                "valid": true
+            },
+            {
+                "description": "tilde is valid in reg-name because it is an unreserved character",
+                "data": "http://exa~mple.com/",
+                "valid": true
+            },
+            {
+                "description": "underscore is valid in reg-name because it is an unreserved character",
+                "data": "http://under_score.com/",
+                "valid": true
             }
         ]
     }
