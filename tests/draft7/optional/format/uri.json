@@ -224,6 +224,66 @@
                 "description": "non-numeric port is invalid",
                 "data": "http://example.com:abc/path",
                 "valid": false
+            },
+            {
+                "description": "incomplete percent-encoding in query",
+                "data": "http://a.com/?q=%2",
+                "valid": false
+            },
+            {
+                "description": "query invalid percent-encoding with non-hex in first nibble",
+                "data": "http://a.com/?q=%G0",
+                "valid": false
+            },
+            {
+                "description": "query lone percent is invalid",
+                "data": "http://a.com/?q=%",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII in query is invalid",
+                "data": "http://a.com/?q=é",
+                "valid": false
+            },
+            {
+                "description": "query cannot contain caret",
+                "data": "http://a.com/?a^b",
+                "valid": false
+            },
+            {
+                "description": "incomplete percent-encoding in fragment",
+                "data": "http://a.com/#%2",
+                "valid": false
+            },
+            {
+                "description": "fragment invalid percent-encoding with non-hex in first nibble",
+                "data": "http://a.com/#%G0",
+                "valid": false
+            },
+            {
+                "description": "fragment lone percent is invalid",
+                "data": "http://a.com/#%",
+                "valid": false
+            },
+            {
+                "description": "fragment cannot contain second hash",
+                "data": "http://a.com/#a#b",
+                "valid": false
+            },
+            {
+                "description": "fragment cannot contain caret",
+                "data": "http://a.com/#a^b",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII in fragment is invalid",
+                "data": "http://a.com/#é",
+                "valid": false
+            },
+            {
+                "description": "valid percent-encoding in reg-name",
+                "data": "http://ex%61mple.com",
+                "valid": true
             }
         ]
     }
