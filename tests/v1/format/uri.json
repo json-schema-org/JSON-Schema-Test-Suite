@@ -227,6 +227,106 @@
                 "description": "non-numeric port is invalid",
                 "data": "http://example.com:abc/path",
                 "valid": false
+            },
+            {
+                "description": "host IPv6 missing brackets",
+                "data": "http://2001:db8::1",
+                "valid": false
+            },
+            {
+                "description": "host IPv6 with invalid hex digits",
+                "data": "http://[2001:db8::gggg]",
+                "valid": false
+            },
+            {
+                "description": "host IPv6 empty brackets",
+                "data": "http://[]",
+                "valid": false
+            },
+            {
+                "description": "query cannot contain brackets",
+                "data": "http://a.com/?arr[]=1",
+                "valid": false
+            },
+            {
+                "description": "brackets are invalid in fragment",
+                "data": "http://a.com/#a[b]",
+                "valid": false
+            },
+            {
+                "description": "brackets are invalid in path",
+                "data": "http://a.com/[]",
+                "valid": false
+            },
+            {
+                "description": "IPv6 address with two double-colons is invalid",
+                "data": "http://[2001::db8::1]",
+                "valid": false
+            },
+            {
+                "description": "IPv6 address with seven groups and no double-colon is invalid",
+                "data": "http://[1:2:3:4:5:6:7]",
+                "valid": false
+            },
+            {
+                "description": "IPv6 address with nine groups is invalid",
+                "data": "http://[1:2:3:4:5:6:7:8:9]",
+                "valid": false
+            },
+            {
+                "description": "IPv6 group with five hex digits exceeds h16 maximum of four",
+                "data": "http://[2001:db8::00000]",
+                "valid": false
+            },
+            {
+                "description": "IPv6 with embedded IPv4 containing out-of-range octet is invalid",
+                "data": "http://[::ffff:1.2.3.256]",
+                "valid": false
+            },
+            {
+                "description": "host IPv6 with embedded IPv4",
+                "data": "http://[::ffff:192.168.1.1]",
+                "valid": true
+            },
+            {
+                "description": "host IPvFuture missing version",
+                "data": "http://[v.fe80]",
+                "valid": false
+            },
+            {
+                "description": "host IPvFuture missing dot",
+                "data": "http://[v1fe80]",
+                "valid": false
+            },
+            {
+                "description": "host IPvFuture empty content after dot",
+                "data": "http://[v1.]",
+                "valid": false
+            },
+            {
+                "description": "IPvFuture with non-hex version is invalid",
+                "data": "http://[vG.test]",
+                "valid": false
+            },
+            {
+                "description": "host IPvFuture valid",
+                "data": "http://[v1.fe80::a+b]",
+                "valid": true
+            },
+            {
+                "description": "IPvFuture with uppercase V is valid",
+                "data": "http://[V1.test]",
+                "valid": true
+            },
+            {
+                "description": "non-ASCII Cyrillic characters in host",
+                "data": "http://пример.рф",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII Latin character in host",
+                "data": "http://exämple.com",
+                "valid": false
             }
         ]
     }
