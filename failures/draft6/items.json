@@ -1,0 +1,37 @@
+[
+    {
+        "description": "cannot be number",
+        "schema": { "items": 42 },
+        "instance": [ "foo" ]
+    },
+    {
+        "description": "cannot be string",
+        "schema": { "items": "value" },
+        "instance": [ "foo" ]
+    },
+    {
+        "description": "cannot be null",
+        "schema": { "items": null },
+        "instance": [ "foo" ]
+    },
+    {
+        "description": "array form cannot contain number",
+        "schema": { "items": [ 42 ] },
+        "instance": [ "foo" ]
+    },
+    {
+        "description": "array form cannot contain string",
+        "schema": { "items": [ "value" ] },
+        "instance": [ "foo" ]
+    },
+    {
+        "description": "array form cannot contain null",
+        "schema": { "items": [ null ] },
+        "instance": ["foo" ]
+    },
+    {
+        "description": "array form cannot contain array",
+        "schema": { "items": [ [ true ] ] },
+        "instance": [ "foo" ]
+    }
+]
