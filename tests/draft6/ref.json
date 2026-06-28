@@ -660,6 +660,30 @@
         ]
     },
     {
+        "description": "simple custom URI base URI with $ref via the custom URI",
+        "schema": {
+            "$comment": "URIs do not have to have HTTP(s) schemes",
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "foo:bar/baz",
+            "minimum": 30,
+            "properties": {
+                "foo": {"$ref": "foo:bar/baz"}
+            }
+        },
+        "tests": [
+            {
+                "description": "valid under the custom URI IDed schema",
+                "data": {"foo": 37},
+                "valid": true
+            },
+            {
+                "description": "invalid under the custom URI IDed schema",
+                "data": {"foo": 12},
+                "valid": false
+            }
+        ]
+    },
+    {
         "description": "simple URN base URI with JSON pointer",
         "schema": {
             "$comment": "URIs do not have to have HTTP(s) schemes",
