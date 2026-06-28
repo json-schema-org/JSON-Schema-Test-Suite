@@ -135,6 +135,15 @@ If your implementation supports multiple versions, run the above procedure for e
 
 1. The suite, notably in its `refRemote.json` file in each specification version directory, expects a number of remote references to be configured.
    These are JSON documents, identified by URI, which are used by the suite to test the behavior of the `$ref` keyword (and related keywords).
+
+   "Remotes" are located in the top-level "remotes" directory. Within this
+   directory are folders matching the directory names of each dialect's test
+   suite. The schemas in those directories are required for the test suite that
+   matches the directory name. For example, the remotes in
+   `remotes/draft2020-12` are required by the `tests/draft2020-12` test suite.
+   Any schemas in the remotes directory that are not in a folder corresponding
+   to a test suite are required by all test suites.
+
    Depending on your implementation, you may configure how to "register" these *either*:
 
     * by directly retrieving them off the filesystem from the `remotes/` directory, in which case you should load each schema with a retrieval URI of `http://localhost:1234` followed by the relative path from the remotes directory -- e.g. a `$ref` to `http://localhost:1234/foo/bar/baz.json` is expected to resolve to the contents of the file at `remotes/foo/bar/baz.json`
