@@ -338,6 +338,12 @@
                 "valid": false
             },
             {
+                "description": "zero width space is not allowed",
+                "comment": "https://www.rfc-editor.org/rfc/rfc5892#section-2.6 U+200B is DISALLOWED",
+                "data": "a\u200bb",
+                "valid": false
+            },
+            {
                 "description": "zero width non-joiner must pass at every occurrence",
                 "comment": "https://www.rfc-editor.org/rfc/rfc5892#appendix-A.1",
                 "data": "\u0915\u094d\u200c\u0937x\u200cy",
