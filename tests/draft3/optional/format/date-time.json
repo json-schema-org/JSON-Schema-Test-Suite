@@ -37,6 +37,11 @@
                 "description": "invalid extended year",
                 "data": "+11963-06-19T08:30:06.283185Z",
                 "valid": false
+            },
+            {
+                "description": "hour 24 is invalid even with a leap second",
+                "data": "2016-12-31T24:59:60+01:00",
+                "valid": false
             }
         ]
     }
