@@ -30,7 +30,7 @@
         },
         {
             "description": "minimum validation (explicit false exclusivity)",
-            "compatibility": "=4",
+            "compatibility": "3,<=4",
             "schema": { "minimum": 1.1, "exclusiveMinimum": false },
             "tests": [
                 {
@@ -57,7 +57,7 @@
         },
         {
             "description": "exclusiveMinimum validation (boolean form)",
-            "compatibility": "=3",
+            "compatibility": "3,<=4",
             "schema": {
                 "minimum": 1.1,
                 "exclusiveMinimum": true
