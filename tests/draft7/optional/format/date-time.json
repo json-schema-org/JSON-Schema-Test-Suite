@@ -147,6 +147,41 @@
                 "description": "invalid extended year",
                 "data": "+11963-06-19T08:30:06.283185Z",
                 "valid": false
+            },
+            {
+                "description": "character just below digit range in year is invalid",
+                "data": "198/-04-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "character just above digit range in year is invalid",
+                "data": "198:-04-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "decimal comma separator is invalid",
+                "data": "1985-04-12T23:20:50,123Z",
+                "valid": false
+            },
+            {
+                "description": "slash instead of date hyphen is invalid",
+                "data": "1985/04/12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "dot instead of date hyphen is invalid",
+                "data": "1985.04.12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "dot instead of time colon is invalid",
+                "data": "1985-04-12T23.20.50Z",
+                "valid": false
+            },
+            {
+                "description": "secfrac with very long precision is valid",
+                "data": "1985-04-12T23:20:50.0000000000000000001Z",
+                "valid": true
             }
         ]
     }
