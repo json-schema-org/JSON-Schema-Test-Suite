@@ -1,0 +1,33 @@
+{
+    "$schema": "../validation-test-schema.json",
+    "description": "infinite-loop-detection-legacy validation",
+    "tests": [
+        {
+            "description": "evaluating the same schema location against the same data location twice is not a sign of an infinite loop",
+            "compatibility": "<=7",
+            "schema": {
+                "definitions": { "int": { "type": "integer" } },
+                "allOf": [
+                    {
+                        "properties": { "foo": { "$ref": "#/definitions/int" } }
+                    },
+                    {
+                        "additionalProperties": { "$ref": "#/definitions/int" }
+                    }
+                ]
+            },
+            "tests": [
+                {
+                    "description": "passing case",
+                    "data": { "foo": 1 },
+                    "valid": true
+                },
+                {
+                    "description": "failing case",
+                    "data": { "foo": "a string" },
+                    "valid": false
+                }
+            ]
+        }
+    ]
+}
