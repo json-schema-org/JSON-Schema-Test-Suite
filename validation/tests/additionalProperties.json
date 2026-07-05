@@ -196,7 +196,7 @@
                 "dependentSchemas": {
                     "foo" : {},
                     "foo2": {
-                        "properties": { "bar":{} }
+                        "properties": { "bar": {} }
                     }
                 },
                 "additionalProperties": false
