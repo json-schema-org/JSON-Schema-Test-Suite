@@ -1,6 +1,6 @@
 {
     "$schema": "../validation-test-schema.json",
-    "description": "unify pattern validation",
+    "description": "pattern validation",
     "tests": [
         {
             "description": "pattern validation",
