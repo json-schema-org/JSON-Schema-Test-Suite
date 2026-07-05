@@ -17,6 +17,7 @@ from pathlib import Path
 
 try:
     import jsonschema.validators
+    from referencing.exceptions import Unresolvable
 except ImportError:
     jsonschema = Unresolvable = None
     DIALECT_VALIDATORS = {}
@@ -481,6 +482,10 @@ class ValidationSuiteChecks(unittest.TestCase):
                 compat = case.get("compatibility", "")
                 schema = case.get("schema", {})
 
+                # Boolean schema (true/false) have no keywords.
+                if isinstance(schema, bool):
+                    continue
+
                 applicable = [d for d in DIALECT_ORDER if dialect_applies(compat, d)]
 
                 for dialect in applicable:
@@ -560,8 +565,14 @@ class ValidationSuiteChecks(unittest.TestCase):
         for path in self.test_files:
             for case in load_cases(path):
                 with self.subTest(file=path.name, case=case.get("description")):
+                    schema = case.get("schema", {})
+
+                    if isinstance(schema, bool):
+                        continue
+
                     self.assertNotIn(
-                        "$schema", case.get("schema", {}),
+                        "$schema",
+                        schema,
                         f"Test case schema must not contain $schema — "
                         f"remove it so the test stays dialect-agnostic"
                     )
