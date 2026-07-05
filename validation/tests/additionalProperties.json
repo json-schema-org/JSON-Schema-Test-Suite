@@ -170,7 +170,7 @@
         },
         {
             "description": "additionalProperties with propertyNames",
-            "compatibility": "2019",
+            "compatibility": "6",
             "schema": {
                 "propertyNames": { "maxLength": 5 },
                 "additionalProperties": { "type": "number" }
