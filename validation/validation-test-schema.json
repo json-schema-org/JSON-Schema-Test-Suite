@@ -38,6 +38,18 @@
                         "description": "A valid JSON Schema, written without a $schema keyword so it stays dialect-agnostic. The applicable dialects are expressed via the compatibility field.",
                         "type": ["object", "boolean"]
                     },
+                    "externalSchemas": {
+                        "description": "The keys are retrieval URIs and values are schemas.",
+                        "type": "object",
+                        "patternProperties": {
+                            "": {
+                                "type": ["boolean", "object"]
+                            }
+                        },
+                        "propertyNames": {
+                            "format": "uri"
+                        }
+                    },
                     "tests": {
                         "description": "A set of related tests all using the same schema",
                         "type": "array",
