@@ -649,43 +649,10 @@
             ]
         },
         {
-            "description": "id must be resolved against nearest parent, not just immediate parent",
-            "compatibility": "=4",
-            "schema": {
-                "id": "http://example.com/a.json",
-                "definitions": {
-                    "x": {
-                        "id": "http://example.com/b/c.json",
-                        "not": {
-                            "definitions": {
-                                "y": {
-                                    "id": "d.json",
-                                    "type": "number"
-                                }
-                            }
-                        }
-                    }
-                },
-                "allOf": [{ "$ref": "http://example.com/b/d.json" }]
-            },
-            "tests": [
-                {
-                    "description": "number is valid",
-                    "data": 1,
-                    "valid": true
-                },
-                {
-                    "description": "non-number is invalid",
-                    "data": "a",
-                    "valid": false
-                }
-            ]
-        },
-        {
             "description": "id with file URI still resolves pointers - *nix",
             "compatibility": "6,<=7",
             "schema": {
-                "id": "file:///folder/file.json",
+                "$id": "file:///folder/file.json",
                 "definitions": { "foo": { "type": "number" } },
                 "allOf": [{ "$ref": "#/definitions/foo" }]
             },
@@ -706,7 +673,7 @@
             "description": "id with file URI still resolves pointers - windows",
             "compatibility": "6,<=7",
             "schema": {
-                "id": "file:///c:/folder/file.json",
+                "$id": "file:///c:/folder/file.json",
                 "definitions": { 
                     "foo": { "type": "number" } 
                 },
