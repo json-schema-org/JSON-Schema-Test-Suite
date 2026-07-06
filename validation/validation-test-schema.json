@@ -43,7 +43,7 @@
                         "type": "object",
                         "patternProperties": {
                             "": {
-                            "type": ["boolean", "object"]
+                                "type": ["boolean", "object"]
                             }
                         },
                         "propertyNames": {
