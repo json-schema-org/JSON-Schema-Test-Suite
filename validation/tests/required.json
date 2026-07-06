@@ -74,6 +74,7 @@
         },
         {
             "description": "required default validation",
+            "compatibility": "3",
             "schema": {
                 "properties": {
                     "foo": {}
