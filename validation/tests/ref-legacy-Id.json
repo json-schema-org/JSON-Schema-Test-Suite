@@ -1,0 +1,132 @@
+{
+    "$schema": "../validation-test-schema.json",
+    "description": "ref legacy id validation",
+    "tests": [
+        {
+            "description": "$ref prevents a sibling id from changing the base uri",
+            "compatibility": "<=4",
+            "schema": {
+                "id": "http://localhost:1234/sibling_id/base/",
+                "definitions": {
+                    "foo": {
+                        "id": "http://localhost:1234/sibling_id/foo.json",
+                        "type": "string"
+                    },
+                    "base_foo": {
+                        "$comment": "this canonical uri is http://localhost:1234/sibling_id/base/foo.json",
+                        "id": "foo.json",
+                        "type": "number"
+                    }
+                },
+                "allOf": [
+                    {
+                        "$comment": "$ref resolves to http://localhost:1234/sibling_id/base/foo.json, not http://localhost:1234/sibling_id/foo.json",
+                        "id": "http://localhost:1234/sibling_id/",
+                        "$ref": "foo.json"
+                    }
+                ]
+            },
+            "tests": [
+                {
+                    "description": "$ref resolves to /definitions/base_foo, data does not validate",
+                    "data": "a",
+                    "valid": false
+                },
+                {
+                    "description": "$ref resolves to /definitions/base_foo, data validates",
+                    "data": 1,
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "Recursive references between schemas",
+            "compatibility": "=4",
+            "schema": {
+                "id": "http://localhost:1234/tree",
+                "description": "tree of nodes",
+                "type": "object",
+                "properties": {
+                    "meta": { "type": "string" },
+                    "nodes": {
+                        "type": "array",
+                        "items": { "$ref": "node" }
+                    }
+                },
+                "required": ["meta", "nodes"],
+                "definitions": {
+                    "node": {
+                        "id": "http://localhost:1234/node",
+                        "description": "node",
+                        "type": "object",
+                        "properties": {
+                            "value": { "type": "number" },
+                            "subtree": { "$ref": "tree" }
+                        },
+                        "required": ["value"]
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "valid tree",
+                    "data": { 
+                        "meta": "root",
+                        "nodes": [
+                            {
+                                "value": 1,
+                                "subtree": {
+                                    "meta": "child",
+                                    "nodes": [
+                                        { "value": 1.1 },
+                                        { "value": 1.2 }
+                                    ]
+                                }
+                            },
+                            {
+                                "value": 2,
+                                "subtree": {
+                                    "meta": "child",
+                                    "nodes": [
+                                        { "value": 2.1 },
+                                        { "value": 2.2 }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "valid": true
+                },
+                {
+                    "description": "invalid tree",
+                    "data": { 
+                        "meta": "root",
+                        "nodes": [
+                            {
+                                "value": 1,
+                                "subtree": {
+                                    "meta": "child",
+                                    "nodes": [
+                                        { "value": "string is invalid" },
+                                        { "value": 1.2 }
+                                    ]
+                                }
+                            },
+                            {
+                                "value": 2,
+                                "subtree": {
+                                    "meta": "child",
+                                    "nodes": [
+                                        { "value": 2.1 },
+                                        { "value": 2.2 }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "valid": false
+                }
+            ]
+        }
+    ]
+}
