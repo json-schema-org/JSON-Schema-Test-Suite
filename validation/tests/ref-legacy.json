@@ -734,7 +734,7 @@
             "compatibility": "3,<=4",
             "schema": {
                 "$comment": "URIs do not have to have HTTP(s) schemes",
-                "$id": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed",
+                "id": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed",
                 "minimum": 30,
                 "properties": {
                     "foo": { "$ref": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed" }
@@ -1152,7 +1152,7 @@
         },
         {
             "description": "id with file URI still resolves pointers - *nix (id)",
-            "compatibility": "6,<=7",
+            "compatibility": "3,<=4",
             "schema": {
                 "id": "file:///folder/file.json",
                 "definitions": {
