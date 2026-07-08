@@ -378,7 +378,6 @@
                         "items": { "$ref": "node" }
                     }
                 },
-                "required": ["meta", "nodes"],
                 "definitions": {
                     "node": {
                         "id": "http://localhost:1234/node",
@@ -387,8 +386,7 @@
                         "properties": {
                             "value": { "type": "number" },
                             "subtree": { "$ref": "tree" }
-                        },
-                        "required": ["value"]
+                        }
                     }
                 }
             },
@@ -1021,7 +1019,9 @@
                 "definitions": {
                     "foo": {
                         "$id": "urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed",
-                        "definitions": { "bar": { "type": "string" } },
+                        "definitions": {
+                            "bar": { "type": "string" }
+                        },
                         "$ref": "#/definitions/bar"
                     }
                 }
@@ -1047,7 +1047,9 @@
                 "definitions": {
                     "foo": {
                         "id": "urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed",
-                        "definitions": { "bar": { "type": "string" } },
+                        "definitions": {
+                            "bar": { "type": "string" }
+                        },
                         "$ref": "#/definitions/bar"
                     }
                 }
