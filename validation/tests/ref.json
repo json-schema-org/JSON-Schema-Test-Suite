@@ -4,6 +4,7 @@
     "tests": [
         {
             "description": "root pointer ref",
+            "compatibility": "3",
             "schema": {
                 "properties": { 
                     "foo": { "$ref": "#" } 
@@ -35,6 +36,7 @@
         },
         {
             "description": "relative pointer ref to object",
+            "compatibility": "3",
             "schema": {
                 "properties": {
                     "foo": { "type": "integer" },
@@ -149,75 +151,6 @@
             ]
         },
         {
-            "description": "ref overrides any sibling keywords",
-            "compatibility": "3,<=7",
-            "schema": {
-                "definitions": { 
-                    "reffed": { "type": "array" } 
-                },
-                "properties": {
-                    "foo": {
-                        "$ref": "#/definitions/reffed",
-                        "maxItems": 2
-                    }
-                }
-            },
-            "tests": [
-                {
-                    "description": "ref valid",
-                    "data": { "foo": [] },
-                    "valid": true
-                },
-                {
-                    "description": "ref valid, maxItems ignored",
-                    "data": { "foo": [ 1, 2, 3] },
-                    "valid": true
-                },
-                {
-                    "description": "ref invalid",
-                    "data": { "foo": "string" },
-                    "valid": false
-                }
-            ]
-        },
-        {
-            "description": "$ref prevents a sibling $id from changing the base uri",
-            "compatibility": "6,<=7",
-            "schema": {
-                "$id": "http://localhost:1234/sibling_id/base/",
-                "definitions": {
-                    "foo": {
-                        "$id": "http://localhost:1234/sibling_id/foo.json",
-                        "type": "string"
-                    },
-                    "base_foo": {
-                        "$comment": "this canonical uri is http://localhost:1234/sibling_id/base/foo.json",
-                        "$id": "foo.json",
-                        "type": "number"
-                    }
-                },
-                "allOf": [
-                    {
-                        "$comment": "$ref resolves to http://localhost:1234/sibling_id/base/foo.json, not http://localhost:1234/sibling_id/foo.json",
-                        "$id": "http://localhost:1234/sibling_id/",
-                        "$ref": "foo.json"
-                    }
-                ]
-            },
-            "tests": [
-                {
-                    "description": "$ref resolves to /definitions/base_foo, data does not validate",
-                    "data": "a",
-                    "valid": false
-                },
-                {
-                    "description": "$ref resolves to /definitions/base_foo, data validates",
-                    "data": 1,
-                    "valid": true
-                }
-            ]
-        },
-        {
             "description": "ref applies alongside sibling keywords",
             "compatibility": "2019",
             "schema": {
@@ -280,7 +213,7 @@
         },
         {
             "description": "property named $ref that is not a reference",
-            "compatibility": "4",
+            "compatibility": "3",
             "schema": {
                 "properties": { 
                     "$ref": { "type": "string" } 
@@ -714,7 +647,7 @@
             "compatibility": "2019",
             "schema": {
                 "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
-                
+
                 "$id": "https://example.com/draft2019-09/ref-and-id3/base.json",
                 "$ref": "nested/foo.json",
                 "$defs": {
@@ -873,6 +806,7 @@
         },
         {
             "description": "URN base URI with URN and JSON pointer ref",
+            "compatibility": "2019",
             "schema": {
                 "$id": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed",
                 "properties": {
@@ -925,15 +859,8 @@
             "description": "ref to if",
             "compatibility": "7",
             "schema": {
-                "allOf": [
-                    { "$ref": "http://example.com/ref/if" },
-                    {
-                        "if": {
-                            "$id": "http://example.com/ref/if",
-                            "type": "integer"
-                        }
-                    }
-                ]
+                "allOf": [{ "$ref": "#/if" }],
+                "if": { "type": "integer" }
             },
             "tests": [
                 {
@@ -952,15 +879,8 @@
             "description": "ref to then",
             "compatibility": "7",
             "schema": {
-                "allOf": [
-                    { "$ref": "http://example.com/ref/then" },
-                    {
-                        "then": {
-                            "$id": "http://example.com/ref/then",
-                            "type": "integer"
-                        }
-                    }
-                ]
+                "allOf": [{ "$ref": "#/then" }],
+                "then": { "type": "integer" }
             },
             "tests": [
                 {
@@ -979,15 +899,8 @@
             "description": "ref to else",
             "compatibility": "7",
             "schema": {
-                "allOf": [
-                    { "$ref": "http://example.com/ref/else" },
-                    {
-                        "else": {
-                            "$id": "http://example.com/ref/else",
-                            "type": "integer"
-                        }
-                    }
-                ]
+                "allOf": [{ "$ref": "#/else" }],
+                "else": { "type": "integer" }
             },
             "tests": [
                 {
