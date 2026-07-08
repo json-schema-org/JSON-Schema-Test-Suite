@@ -1,0 +1,207 @@
+{
+    "$schema": "../validation-test-schema.json",
+    "description": "refRemote-legacy-Id validation",
+    "tests": [
+        {
+            "description": "change resolution scope",
+            "compatibility": "=3",
+            "schema": {
+                "id": "http://localhost:1234/",
+                "items": {
+                    "id": "baseUriChange/",
+                    "items": { "$ref": "folderInteger.json" }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/baseUriChange/folderInteger.json": {
+                    "type": "integer"
+                }
+            },
+            "tests": [
+                {
+                    "description": "changed scope ref valid",
+                    "data": [[1]],
+                    "valid": true
+                },
+                {
+                    "description": "changed scope ref invalid",
+                    "data": [["a"]],
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "base URI change",
+            "compatibility": "=4",
+            "schema": {
+                "id": "http://localhost:1234/",
+                "items": {
+                    "id": "baseUriChange/",
+                    "items": { "$ref": "folderInteger.json" }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/baseUriChange/folderInteger.json": {
+                    "type": "integer"
+                }
+            },
+            "tests": [
+                {
+                    "description": "base URI change ref valid",
+                    "data": [[1]],
+                    "valid": true
+                },
+                {
+                    "description": "base URI change ref invalid",
+                    "data": [["a"]],
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "base URI change - change folder",
+            "compatibility": "=4",
+            "schema": {
+                "id": "http://localhost:1234/scope_change_defs1.json",
+                "type" : "object",
+                "properties": {
+                    "list": { "$ref": "#/definitions/baz" }
+                },
+                "definitions": {
+                    "baz": {
+                        "id": "baseUriChangeFolder/",
+                        "type": "array",
+                        "items": { "$ref": "folderInteger.json" }
+                    }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/baseUriChangeFolder/folderInteger.json": {
+                    "type": "integer"
+                }
+            },
+            "tests": [
+                {
+                    "description": "number is valid",
+                    "data": { "list": [1] },
+                    "valid": true
+                },
+                {
+                    "description": "string is invalid",
+                    "data": { "list": ["a"] },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "base URI change - change folder in subschema",
+            "compatibility": "=4",
+            "schema": {
+                "id": "http://localhost:1234/scope_change_defs2.json",
+                "type" : "object",
+                "properties": {
+                    "list": { "$ref": "#/definitions/baz/definitions/bar" }
+                },
+                "definitions": {
+                    "baz": {
+                        "id": "baseUriChangeFolderInSubschema/",
+                        "definitions": {
+                            "bar": {
+                                "type": "array",
+                                "items": { "$ref": "folderInteger.json" }
+                            }
+                        }
+                    }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/baseUriChangeFolderInSubschema/folderInteger.json": {
+                    "type": "integer"
+                }
+            },
+            "tests": [
+                {
+                    "description": "number is valid",
+                    "data": { "list": [1] },
+                    "valid": true
+                },
+                {
+                    "description": "string is invalid",
+                    "data": { "list": ["a"] },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "root ref in remote ref",
+            "compatibility": "=4",
+            "schema": {
+                "id": "http://localhost:1234/object",
+                "type": "object",
+                "properties": {
+                    "name": { "$ref": "name.json#/definitions/orNull" }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/name.json": {
+                    "definitions": {
+                        "orNull": {
+                            "anyOf": [
+                                { "type": "null" },
+                                { "$ref": "#" }
+                            ]
+                        }
+                    },
+                    "type": "string"
+                }
+            },
+            "tests": [
+                {
+                    "description": "string is valid",
+                    "data": { "name": "foo" },
+                    "valid": true
+                },
+                {
+                    "description": "null is valid",
+                    "data": { "name": null },
+                    "valid": true
+                },
+                {
+                    "description": "object is invalid",
+                    "data": { "name": { "name": null } },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "Location-independent identifier in remote ref",
+            "compatibility": "=4",
+            "schema": { "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/definitions/refToInteger" },
+            "externalSchemas": {
+                "http://localhost:1234/locationIndependentIdentifier.json": {
+                    "definitions": {
+                        "refToInteger": {
+                            "$ref": "#foo"
+                        },
+                        "A": {
+                            "id": "#foo",
+                            "type": "integer"
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "integer is valid",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "string is invalid",
+                    "data": "foo",
+                    "valid": false
+                }
+            ]
+        }
+    ]
+}
