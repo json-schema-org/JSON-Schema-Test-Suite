@@ -237,6 +237,16 @@
                 "description": "a trailing newline is invalid",
                 "data": "P1D\n",
                 "valid": false
+            },
+            {
+                "description": "weeks cannot be combined with a time component",
+                "data": "P1WT1H",
+                "valid": false
+            },
+            {
+                "description": "weeks cannot be combined with a zero-valued component",
+                "data": "P0Y1W",
+                "valid": false
             }
         ]
     }
