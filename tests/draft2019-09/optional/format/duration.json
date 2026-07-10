@@ -222,6 +222,11 @@
                 "description": "a leading sign is not allowed",
                 "data": "-P1D",
                 "valid": false
+            },
+            {
+                "description": "a number before the time separator has no unit",
+                "data": "P1D2T3H",
+                "valid": false
             }
         ]
     }
