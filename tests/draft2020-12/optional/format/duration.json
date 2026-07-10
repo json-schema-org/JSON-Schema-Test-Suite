@@ -232,6 +232,11 @@
                 "description": "exponent notation is not allowed in a component",
                 "data": "P1e2D",
                 "valid": false
+            },
+            {
+                "description": "a trailing newline is invalid",
+                "data": "P1D\n",
+                "valid": false
             }
         ]
     }
