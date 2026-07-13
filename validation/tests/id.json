@@ -1,92 +1,105 @@
 {
     "$schema": "../validation-test-schema.json",
-    "description": "ref Id validation",
+    "description": "$id validation",
     "tests": [
         {
-            "description": "Recursive references between schemas",
-            "compatibility": "2019",
+            "description": "base URI change",
+            "compatibility": "6",
             "schema": {
-                "$id": "http://localhost:1234/tree",
-                "description": "tree of nodes",
-                "type": "object",
-                "properties": {
-                    "meta": { "type": "string" },
-                    "nodes": {
-                        "type": "array",
-                        "items": { "$ref": "node" }
-                    }
-                },
-                "required": ["meta", "nodes"],
-                "$defs": {
-                    "node": {
-                        "$id": "http://localhost:1234/node",
-                        "description": "node",
-                        "type": "object",
-                        "properties": {
-                            "value": { "type": "number" },
-                            "subtree": { "$ref": "tree" }
-                        },
-                        "required": ["value"]
-                    }
+                "$id": "http://localhost:1234/",
+                "items": {
+                    "$id": "baseUriChange/",
+                    "items": { "$ref": "folderInteger.json" }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/baseUriChange/folderInteger.json": {
+                    "type": "integer"
                 }
             },
             "tests": [
                 {
-                    "description": "valid tree",
-                    "data": {
-                        "meta": "root",
-                        "nodes": [
-                            {
-                                "value": 1,
-                                "subtree": {
-                                    "meta": "child",
-                                    "nodes": [
-                                        { "value": 1.1 },
-                                        { "value": 1.2 }
-                                    ]
-                                }
-                            },
-                            {
-                                "value": 2,
-                                "subtree": {
-                                    "meta": "child",
-                                    "nodes": [
-                                        { "value": 2.1 },
-                                        { "value": 2.2 }
-                                    ]
-                                }
-                            }
-                        ]
-                    },
+                    "description": "base URI change ref valid",
+                    "data": [[1]],
                     "valid": true
                 },
                 {
-                    "description": "invalid tree",
-                    "data": {
-                        "meta": "root",
-                        "nodes": [
-                            {
-                                "value": 1,
-                                "subtree": {
-                                    "meta": "child",
-                                    "nodes": [
-                                        { "value": "string is invalid" },
-                                        { "value": 1.2 }
-                                    ]
-                                }
-                            },
-                            {
-                                "value": 2,
-                                "subtree": {
-                                    "meta": "child",
-                                    "nodes": [
-                                        { "value": 2.1 },
-                                        { "value": 2.2 }
-                                    ]
-                                }
+                    "description": "base URI change ref invalid",
+                    "data": [["a"]],
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "base URI change - change folder",
+            "compatibility": "2019",
+            "schema": {
+                "$id": "http://localhost:1234/scope_change_defs1.json",
+                "type" : "object",
+                "properties": {
+                    "list": { "$ref": "baseUriChangeFolder/" }
+                },
+                "$defs": {
+                    "baz": {
+                        "$id": "baseUriChangeFolder/",
+                        "type": "array",
+                        "items": { "$ref": "folderInteger.json" }
+                    }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/baseUriChangeFolder/folderInteger.json": {
+                    "type": "integer"
+                }
+            },
+            "tests": [
+                {
+                    "description": "number is valid",
+                    "data": { "list": [1] },
+                    "valid": true
+                },
+                {
+                    "description": "string is invalid",
+                    "data": { "list": ["a"] },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "base URI change - change folder in subschema",
+            "compatibility": "2019",
+            "schema": {
+                "$id": "http://localhost:1234/scope_change_defs2.json",
+                "type" : "object",
+                "properties": {
+                    "list": { "$ref": "baseUriChangeFolderInSubschema/#/$defs/bar" }
+                },
+                "$defs": {
+                    "baz": {
+                        "$id": "baseUriChangeFolderInSubschema/",
+                        "$defs": {
+                            "bar": {
+                                "type": "array",
+                                "items": { "$ref": "folderInteger.json" }
                             }
-                        ]
-                    },
+                        }
+                    }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/baseUriChangeFolderInSubschema/folderInteger.json": {
+                    "type": "integer"
+                }
+            },
+            "tests": [
+                {
+                    "description": "number is valid",
+                    "data": { "list": [1] },
+                    "valid": true
+                },
+                {
+                    "description": "string is invalid",
+                    "data": { "list": ["a"] },
                     "valid": false
                 }
             ]
@@ -326,8 +339,8 @@
                 "$comment": "URIs do not have to have HTTP(s) schemes",
                 "$id": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed",
                 "minimum": 30,
-                "properties": { 
-                    "foo": { "$ref": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed" } 
+                "properties": {
+                    "foo": { "$ref": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed" }
                 }
             },
             "tests": [
@@ -549,39 +562,6 @@
             ]
         },
         {
-            "description": "$ref with $recursiveAnchor",
-            "compatibility": "=2019",
-            "schema": {
-                "$id": "https://example.com/schemas/unevaluated-items-are-disallowed",
-                "$ref": "/schemas/unevaluated-items-are-allowed",
-                "$recursiveAnchor": true,
-                "unevaluatedItems": false,
-                "$defs": {
-                    "/schemas/unevaluated-items-are-allowed": {
-                        "$id": "/schemas/unevaluated-items-are-allowed",
-                        "$recursiveAnchor": true,
-                        "type": "array",
-                        "items": [
-                            { "type": "string" },
-                            { "$ref": "#" }
-                        ]
-                    }
-                }
-            },
-            "tests": [
-                {
-                    "description": "extra items allowed for inner arrays",
-                    "data" : ["foo",["bar" , [] , 8]],
-                    "valid": true
-                },
-                {
-                    "description": "extra items disallowed for root",
-                    "data" : ["foo",["bar" , [] , 8], 8],
-                    "valid": false
-                }
-            ]
-        },
-        {
             "description": "URN ref with nested pointer ref",
             "compatibility": "2019",
             "schema": {
@@ -604,6 +584,116 @@
                     "description": "a non-string is invalid",
                     "data": 12,
                     "valid": false
+                }
+            ]
+        },
+        {
+            "description": "retrieved nested refs resolve relative to their URI not $id",
+            "compatibility": "6",
+            "schema": {
+                "$id": "http://localhost:1234/some-id",
+                "properties": {
+                    "name": { "$ref": "nested/foo-ref-string.json" }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/nested/foo-ref-string.json": {
+                    "type": "object",
+                    "properties": {
+                        "foo": { "$ref": "string.json" }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "number is invalid",
+                    "data": { "name": { "foo":  1} },
+                    "valid": false
+                },
+                {
+                    "description": "string is valid",
+                    "data": { "name": { "foo":  "a"} },
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "remote HTTP ref with different $id",
+            "compatibility": "2019",
+            "schema": { "$ref": "http://localhost:1234/different-id-ref-string.json" },
+            "externalSchemas": {
+                "http://localhost:1234/different-id-ref-string.json": {
+                    "$id": "http://localhost:1234/draft2020-12/real-id-ref-string.json",
+                    "$defs": {
+                        "bar": { "type": "string" }
+                    },
+                    "$ref": "#/$defs/bar"
+                }
+            },
+            "tests": [
+                {
+                    "description": "number is invalid",
+                    "data": 1,
+                    "valid": false
+                },
+                {
+                    "description": "string is valid",
+                    "data": "foo",
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "remote HTTP ref with different URN $id",
+            "compatibility": "2019",
+            "schema": { "$ref": "http://localhost:1234/urn-ref-string.json" },
+            "externalSchemas": {
+                "http://localhost:1234/urn-ref-string.json": {
+                    "$id": "urn:uuid:feebdaed-ffff-0000-2020-1200deadbeef",
+                    "$defs": {
+                        "bar": { "type": "string" }
+                    },
+                    "$ref": "#/$defs/bar"
+                }
+            },
+            "tests": [
+                {
+                    "description": "number is invalid",
+                    "data": 1,
+                    "valid": false
+                },
+                {
+                    "description": "string is valid",
+                    "data": "foo",
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "remote HTTP ref with nested absolute ref",
+            "compatibility": "2019",
+            "schema": { "$ref": "http://localhost:1234/nested-absolute-ref-to-string.json" },
+            "externalSchemas": {
+                "http://localhost:1234/nested-absolute-ref-to-string.json": {
+                    "$defs": {
+                        "bar": {
+                            "$id": "http://localhost:1234/the-nested-id.json",
+                            "type": "string"
+                        }
+                    },
+                    "$ref": "http://localhost:1234/the-nested-id.json"
+                }
+            },
+            "tests": [
+                {
+                    "description": "number is invalid",
+                    "data": 1,
+                    "valid": false
+                },
+                {
+                    "description": "string is valid",
+                    "data": "foo",
+                    "valid": true
                 }
             ]
         }

@@ -1,6 +1,6 @@
 {
     "$schema": "../validation-test-schema.json",
-    "description": "ref legacy validation",
+    "description": "$ref legacy validation",
     "tests": [
         {
             "description": "relative pointer ref to array",
@@ -124,35 +124,6 @@
                 {
                     "description": "ref invalid",
                     "data": { "foo": "string" },
-                    "valid": false
-                }
-            ]
-        },
-        {
-            "description": "remote ref, containing refs itself",
-            "compatibility": "3,<=7",
-            "schema": { "$ref": "http://localhost:1234/subSchemas.json#/definitions/refToInteger" },
-            "externalSchemas": {
-                "http://localhost:1234/subSchemas.json": {
-                    "definitions": {
-                        "integer": {
-                            "type": "integer"
-                        },
-                        "refToInteger": {
-                            "$ref": "#/definitions/integer"
-                        }
-                    }
-                }
-            },
-            "tests": [
-                {
-                    "description": "remote ref valid",
-                    "data": { "minLength": 1 },
-                    "valid": true
-                },
-                {
-                    "description": "remote ref invalid",
-                    "data": { "minLength": -1 },
                     "valid": false
                 }
             ]
@@ -285,6 +256,132 @@
                     "description": "non-number is invalid",
                     "data": "a",
                     "valid": false
+                }
+            ]
+        },
+        {
+            "description": "fragment within remote ref",
+            "compatibility": "3,<=7",
+            "schema": { "$ref": "http://localhost:1234/subSchemas.json#/definitions/integer" },
+            "externalSchemas": {
+                "http://localhost:1234/subSchemas.json": {
+                    "definitions": {
+                        "integer": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "remote fragment valid",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "remote fragment invalid",
+                    "data": "a",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "ref within remote ref",
+            "compatibility": "3,<=7",
+            "schema": { "$ref": "http://localhost:1234/subSchemas.json#/definitions/refToInteger" },
+            "externalSchemas": {
+                "http://localhost:1234/subSchemas.json": {
+                    "definitions": {
+                        "integer": {
+                            "type": "integer"
+                        },
+                        "refToInteger": {
+                            "$ref": "#/definitions/integer"
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "ref within ref valid",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "ref within ref invalid",
+                    "data": "a",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "root ref in remote ref",
+            "compatibility": "4,<=7",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "name": { "$ref": "http://localhost:1234/name.json#/definitions/orNull" }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/name.json": {
+                    "definitions": {
+                        "orNull": {
+                            "anyOf": [
+                                { "type": "null" },
+                                { "$ref": "#" }
+                            ]
+                        }
+                    },
+                    "type": "string"
+                }
+            },
+            "tests": [
+                {
+                    "description": "string is valid",
+                    "data": { "name": "foo" },
+                    "valid": true
+                },
+                {
+                    "description": "null is valid",
+                    "data": { "name": null },
+                    "valid": true
+                },
+                {
+                    "description": "object is invalid",
+                    "data": { "name": { "name": null } },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "remote ref with ref to definitions",
+            "compatibility": "4,<=7",
+            "schema": {
+                "allOf": [{ "$ref": "http://localhost:1234/ref-and-definitions.json" }]
+            },
+            "externalSchemas": {
+                "http://localhost:1234/ref-and-definitions.json": {
+                    "definitions": {
+                        "inner": {
+                            "properties": {
+                                "bar": { "type": "string" }
+                            }
+                        }
+                    },
+                    "allOf": [{ "$ref": "#/definitions/inner" }]
+                }
+            },
+            "tests": [
+                {
+                    "description": "invalid",
+                    "data": { "bar": 1 },
+                    "valid": false
+                },
+                {
+                    "description": "valid",
+                    "data": { "bar": "a" },
+                    "valid": true
                 }
             ]
         }

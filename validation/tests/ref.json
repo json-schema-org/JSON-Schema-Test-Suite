@@ -1,13 +1,13 @@
 {
     "$schema": "../validation-test-schema.json",
-    "description": "ref validation",
+    "description": "$ref validation",
     "tests": [
         {
             "description": "root pointer ref",
             "compatibility": "3",
             "schema": {
-                "properties": { 
-                    "foo": { "$ref": "#" } 
+                "properties": {
+                    "foo": { "$ref": "#" }
                 },
                 "additionalProperties": false
             },
@@ -183,40 +183,11 @@
             ]
         },
         {
-            "description": "remote ref, containing refs itself",
-            "compatibility": "2019",
-            "schema": { "$ref": "http://localhost:1234/subSchemas.json#/$defs/refToInteger" },
-            "externalSchemas": {
-                "http://localhost:1234/subSchemas.json": {
-                    "$defs": {
-                        "integer": {
-                            "type": "integer"
-                        },
-                        "refToInteger": {
-                            "$ref": "#/defs/integer"
-                        }
-                    }
-                }
-            },
-            "tests": [
-                {
-                    "description": "remote ref valid",
-                    "data": "a",
-                    "valid": true
-                },
-                {
-                    "description": "remote ref invalid",
-                    "data": 1,
-                    "valid": false
-                }
-            ]
-        },
-        {
             "description": "property named $ref that is not a reference",
             "compatibility": "3",
             "schema": {
-                "properties": { 
-                    "$ref": { "type": "string" } 
+                "properties": {
+                    "$ref": { "type": "string" }
                 }
             },
             "tests": [
@@ -316,6 +287,91 @@
             ]
         },
         {
+            "description": "Recursive references between schemas",
+            "compatibility": "3",
+            "schema": {
+                "description": "tree of nodes",
+                "type": "object",
+                "properties": {
+                    "meta": { "type": "string" },
+                    "nodes": {
+                        "type": "array",
+                        "items": { "$ref": "http://localhost:1234/node" }
+                    }
+                }
+            },
+            "externalSchemas": {
+                "https://localhost:1234/node": {
+                    "description": "node",
+                    "type": "object",
+                    "properties": {
+                        "value": { "type": "number" },
+                        "subtree": { "$ref": "tree" }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "valid tree",
+                    "data": {
+                        "meta": "root",
+                        "nodes": [
+                            {
+                                "value": 1,
+                                "subtree": {
+                                    "meta": "child",
+                                    "nodes": [
+                                        { "value": 1.1 },
+                                        { "value": 1.2 }
+                                    ]
+                                }
+                            },
+                            {
+                                "value": 2,
+                                "subtree": {
+                                    "meta": "child",
+                                    "nodes": [
+                                        { "value": 2.1 },
+                                        { "value": 2.2 }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "valid": true
+                },
+                {
+                    "description": "invalid tree",
+                    "data": {
+                        "meta": "root",
+                        "nodes": [
+                            {
+                                "value": 1,
+                                "subtree": {
+                                    "meta": "child",
+                                    "nodes": [
+                                        { "value": "string is invalid" },
+                                        { "value": 1.2 }
+                                    ]
+                                }
+                            },
+                            {
+                                "value": 2,
+                                "subtree": {
+                                    "meta": "child",
+                                    "nodes": [
+                                        { "value": 2.1 },
+                                        { "value": 2.2 }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "valid": false
+                }
+            ]
+        },
+        {
             "description": "refs with quote",
             "compatibility": "2019",
             "schema": {
@@ -343,11 +399,11 @@
             "description": "ref creates new scope when adjacent to keywords",
             "compatibility": "2019",
             "schema": {
-                "$defs": { 
-                    "A": { "unevaluatedProperties": false } 
+                "$defs": {
+                    "A": { "unevaluatedProperties": false }
                 },
-                "properties": { 
-                    "prop1": { "type": "string" } 
+                "properties": {
+                    "prop1": { "type": "string" }
                 },
                 "$ref": "#/$defs/A"
             },
@@ -428,7 +484,7 @@
                         "$defs": {
                             "": { "type": "number" }
                         }
-                    } 
+                    }
                 },
                 "allOf": [{ "$ref": "#/$defs//$defs/" }]
             },
@@ -442,6 +498,154 @@
                     "description": "non-number is invalid",
                     "data": "a",
                     "valid": false
+                }
+            ]
+        },
+        {
+            "description": "remote ref",
+            "schema": { "$ref": "http://localhost:1234/integer.json" },
+            "compatibility": "3",
+            "externalSchemas": {
+                "http://localhost:1234/integer.json": {
+                    "type": "integer"
+                }
+            },
+            "tests": [
+                {
+                    "description": "remote ref valid",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "remote ref invalid",
+                    "data": "a",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "fragment within remote ref",
+            "compatibility": "2019",
+            "schema": { "$ref": "http://localhost:1234/subSchemas.json#/$defs/integer" },
+            "externalSchemas": {
+                "http://localhost:1234/subSchemas.json": {
+                    "$defs": {
+                        "integer": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "remote fragment valid",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "remote fragment invalid",
+                    "data": "a",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "ref within remote ref",
+            "compatibility": "2019",
+            "schema": { "$ref": "http://localhost:1234/subSchemas.json#/$defs/refToInteger" },
+            "externalSchemas": {
+                "http://localhost:1234/subSchemas.json": {
+                    "$defs": {
+                        "integer": {
+                            "type": "integer"
+                        },
+                        "refToInteger": {
+                            "$ref": "#/$defs/integer"
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "ref within ref valid",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "ref within ref invalid",
+                    "data": "a",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "root ref in remote ref",
+            "compatibility": "2019",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "name": { "$ref": "http://localhost:1234/name-defs.json#/$defs/orNull" }
+                }
+            },
+            "externalSchemas": {
+                "http://localhost:1234/name-defs.json": {
+                    "$defs": {
+                        "orNull": {
+                            "anyOf": [
+                                { "type": "null" },
+                                { "$ref": "#" }
+                            ]
+                        }
+                    },
+                    "type": "string"
+                }
+            },
+            "tests": [
+                {
+                    "description": "string is valid",
+                    "data": { "name": "foo" },
+                    "valid": true
+                },
+                {
+                    "description": "null is valid",
+                    "data": { "name": null },
+                    "valid": true
+                },
+                {
+                    "description": "object is invalid",
+                    "data": { "name": { "name": null } },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "remote ref with ref to defs",
+            "compatibility": "2019",
+            "schema": {
+                "$ref": "http://localhost:1234/ref-and-defs.json"
+            },
+            "externalSchemas": {
+                "http://localhost:1234/ref-and-defs.json": {
+                    "$defs": {
+                        "inner": {
+                            "properties": {
+                                "bar": { "type": "string" }
+                            }
+                        }
+                    },
+                    "$ref": "#/$defs/inner"
+                }
+            },
+            "tests": [
+                {
+                    "description": "invalid",
+                    "data": { "bar": 1 },
+                    "valid": false
+                },
+                {
+                    "description": "valid",
+                    "data": { "bar": "a" },
+                    "valid": true
                 }
             ]
         }
