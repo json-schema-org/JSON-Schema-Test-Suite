@@ -48,7 +48,9 @@
             "description": "allOf with base schema",
             "compatibility": "4",
             "schema": {
-                "properties": { "bar": { "type": "integer" } },
+                "properties": {
+                    "bar": { "type": "integer" }
+                },
                 "required": ["bar"],
                 "allOf" : [
                     {
@@ -118,7 +120,9 @@
         {
             "description": "allOf with boolean schemas, all true",
             "compatibility": "6",
-            "schema": { "allOf": [true, true] },
+            "schema": {
+                "allOf": [true, true]
+            },
             "tests": [
                 {
                     "description": "any value is valid",
@@ -130,7 +134,9 @@
         {
             "description": "allOf with boolean schemas, some false",
             "compatibility": "6",
-            "schema": { "allOf": [true, false] },
+            "schema": {
+                "allOf": [true, false]
+            },
             "tests": [
                 {
                     "description": "any value is invalid",
@@ -142,7 +148,9 @@
         {
             "description": "allOf with boolean schemas, all false",
             "compatibility": "6",
-            "schema": { "allOf": [false, false] },
+            "schema": {
+                "allOf": [false, false]
+            },
             "tests": [
                 {
                     "description": "any value is invalid",
@@ -155,7 +163,7 @@
             "description": "allOf with one empty schema",
             "compatibility": "4",
             "schema": {
-                "allOf": [ {} ]
+                "allOf": [{}]
             },
             "tests": [
                 {
