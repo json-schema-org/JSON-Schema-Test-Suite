@@ -1,0 +1,178 @@
+{
+    "$schema": "../validation-test-schema.json",
+    "description": "$anchor legacy validation",
+    "tests": [
+        {
+            "description": "Location-independent identifier",
+            "compatibility": "6,<=7",
+            "schema": {
+                "$ref": "#foo",
+                "definitions": {
+                    "A": {
+                        "$id": "#foo",
+                        "type": "integer"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "data": 1,
+                    "description": "match",
+                    "valid": true
+                },
+                {
+                    "data": "a",
+                    "description": "mismatch",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "Location-independent identifier (id)",
+            "compatibility": "3,<=4",
+            "schema": {
+                "$ref": "#foo",
+                "definitions": {
+                    "A": {
+                        "id": "#foo",
+                        "type": "integer"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "data": 1,
+                    "description": "match",
+                    "valid": true
+                },
+                {
+                    "data": "a",
+                    "description": "mismatch",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "Location-independent identifier with base URI change in subschema",
+            "compatibility": "6,<=7",
+            "schema": {
+                "$id": "http://localhost:1234/root",
+                "$ref": "http://localhost:1234/nested.json#foo",
+                "definitions": {
+                    "A": {
+                        "$id": "nested.json",
+                        "$defs": {
+                            "B": {
+                                "$anchor": "foo",
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "data": 1,
+                    "description": "match",
+                    "valid": true
+                },
+                {
+                    "data": "a",
+                    "description": "mismatch",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "Location-independent identifier with base URI change in subschema (id)",
+            "compatibility": "3,<=4",
+            "schema": {
+                "id": "http://localhost:1234/root",
+                "$ref": "http://localhost:1234/nested.json#foo",
+                "definitions": {
+                    "A": {
+                        "id": "nested.json",
+                        "$defs": {
+                            "B": {
+                                "$anchor": "foo",
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "data": 1,
+                    "description": "match",
+                    "valid": true
+                },
+                {
+                    "data": "a",
+                    "description": "mismatch",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "Location-independent identifier in remote ref",
+            "compatibility": "6,<=7",
+            "schema": { "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/$defs/refToInteger" },
+            "externalSchemas": {
+                "http://localhost:1234/locationIndependentIdentifier.json": {
+                    "definitions": {
+                        "refToInteger": {
+                            "$ref": "#foo"
+                        },
+                        "A": {
+                            "$id": "#foo",
+                            "type": "integer"
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "integer is valid",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "string is invalid",
+                    "data": "foo",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "Location-independent identifier in remote ref (id)",
+            "compatibility": "3,<=4",
+            "schema": { "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/$defs/refToInteger" },
+            "externalSchemas": {
+                "http://localhost:1234/locationIndependentIdentifier.json": {
+                    "definitions": {
+                        "refToInteger": {
+                            "$ref": "#foo"
+                        },
+                        "A": {
+                            "id": "#foo",
+                            "type": "integer"
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "integer is valid",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "string is invalid",
+                    "data": "foo",
+                    "valid": false
+                }
+            ]
+        }
+    ]
+}
