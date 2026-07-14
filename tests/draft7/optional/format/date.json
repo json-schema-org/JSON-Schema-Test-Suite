@@ -354,6 +354,26 @@
                 "description": "invalid: alphabetic characters in day field",
                 "data": "2020-01-DD",
                 "valid": false
+            },
+            {
+                "description": "invalid: leading tab character before valid date",
+                "data": "\t2020-01-01",
+                "valid": false
+            },
+            {
+                "description": "invalid: trailing newline after valid date",
+                "data": "2020-01-01\n",
+                "valid": false
+            },
+            {
+                "description": "invalid: leading non-breaking space before valid date",
+                "data": "\u00A02020-01-01",
+                "valid": false
+            },
+            {
+                "description": "valid: maximum boundary full-date",
+                "data": "9999-12-31",
+                "valid": true
             }
         ]
     }
