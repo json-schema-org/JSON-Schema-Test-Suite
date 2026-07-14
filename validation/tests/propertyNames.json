@@ -43,7 +43,7 @@
         },
         {
             "description": "propertyNames validation with pattern",
-            "compatibility": "6,<=2020",
+            "compatibility": "6",
             "schema": {
                 "propertyNames": { "pattern": "^a+$" }
             },
@@ -101,7 +101,7 @@
         },
         {
             "description": "propertyNames with const",
-            "compatibility": "6,<=2020",
+            "compatibility": "6",
             "schema": {
                 "propertyNames": { "const": "foo" }
             },
@@ -125,7 +125,7 @@
         },
         {
             "description": "propertyNames with enum",
-            "compatibility": "6,<=2020",
+            "compatibility": "6",
             "schema": {
                 "propertyNames": { "enum": ["foo", "bar"] }
             },
