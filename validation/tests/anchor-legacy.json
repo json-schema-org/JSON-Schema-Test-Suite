@@ -6,7 +6,7 @@
             "description": "Location-independent identifier",
             "compatibility": "6,<=7",
             "schema": {
-                "$ref": "#foo",
+                "allOf": [{ "$ref": "#foo" }],
                 "definitions": {
                     "A": {
                         "$id": "#foo",
@@ -31,7 +31,9 @@
             "description": "Location-independent identifier (id)",
             "compatibility": "3,<=4",
             "schema": {
-                "$ref": "#foo",
+                "properties": {
+                    "foo": { "$ref": "#foo" }
+                },
                 "definitions": {
                     "A": {
                         "id": "#foo",
@@ -41,12 +43,12 @@
             },
             "tests": [
                 {
-                    "data": 1,
+                    "data": { "foo": 1 },
                     "description": "match",
                     "valid": true
                 },
                 {
-                    "data": "a",
+                    "data": { "foo": "a" },
                     "description": "mismatch",
                     "valid": false
                 }
@@ -57,13 +59,13 @@
             "compatibility": "6,<=7",
             "schema": {
                 "$id": "http://localhost:1234/root",
-                "$ref": "http://localhost:1234/nested.json#foo",
+                "allOf": [{ "$ref": "http://localhost:1234/nested.json#foo" }],
                 "definitions": {
                     "A": {
                         "$id": "nested.json",
-                        "$defs": {
+                        "definitions": {
                             "B": {
-                                "$anchor": "foo",
+                                "$id": "#foo",
                                 "type": "integer"
                             }
                         }
@@ -88,13 +90,15 @@
             "compatibility": "3,<=4",
             "schema": {
                 "id": "http://localhost:1234/root",
-                "$ref": "http://localhost:1234/nested.json#foo",
+                "properties": {
+                    "foo": { "$ref": "http://localhost:1234/nested.json#foo" }
+                },
                 "definitions": {
                     "A": {
                         "id": "nested.json",
-                        "$defs": {
+                        "definitions": {
                             "B": {
-                                "$anchor": "foo",
+                                "id": "#foo",
                                 "type": "integer"
                             }
                         }
@@ -103,12 +107,12 @@
             },
             "tests": [
                 {
-                    "data": 1,
+                    "data": { "foo": 1 },
                     "description": "match",
                     "valid": true
                 },
                 {
-                    "data": "a",
+                    "data": { "foo": "a" },
                     "description": "mismatch",
                     "valid": false
                 }
@@ -117,7 +121,7 @@
         {
             "description": "Location-independent identifier in remote ref",
             "compatibility": "6,<=7",
-            "schema": { "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/$defs/refToInteger" },
+            "schema": { "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/definitions/refToInteger" },
             "externalSchemas": {
                 "http://localhost:1234/locationIndependentIdentifier.json": {
                     "definitions": {
@@ -147,7 +151,7 @@
         {
             "description": "Location-independent identifier in remote ref (id)",
             "compatibility": "3,<=4",
-            "schema": { "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/$defs/refToInteger" },
+            "schema": { "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/definitions/refToInteger" },
             "externalSchemas": {
                 "http://localhost:1234/locationIndependentIdentifier.json": {
                     "definitions": {
