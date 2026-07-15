@@ -76,7 +76,7 @@
                 },
                 "definitions": {
                     "baz": {
-                        "$id": "baseUriChangeFolder/",
+                        "id": "baseUriChangeFolder/",
                         "type": "array",
                         "items": { "$ref": "folderInteger.json" }
                     }
@@ -216,8 +216,8 @@
             ]
         },
         {
-            "description": "$ref prevents a sibling id from changing the base uri (id)",
-            "compatibility": "<=4",
+            "description": "$ref prevents a sibling id from changing the base uri",
+            "compatibility": "3,<=4",
             "schema": {
                 "id": "http://localhost:1234/sibling_id/base/",
                 "definitions": {
@@ -231,23 +231,23 @@
                         "type": "number"
                     }
                 },
-                "allOf": [
-                    {
+                "properties": {
+                    "foo": {
                         "$comment": "$ref resolves to http://localhost:1234/sibling_id/base/foo.json, not http://localhost:1234/sibling_id/foo.json",
                         "id": "http://localhost:1234/sibling_id/",
                         "$ref": "foo.json"
                     }
-                ]
+                }
             },
             "tests": [
                 {
                     "description": "$ref resolves to /definitions/base_foo, data does not validate",
-                    "data": "a",
+                    "data": { "foo": "a" },
                     "valid": false
                 },
                 {
                     "description": "$ref resolves to /definitions/base_foo, data validates",
-                    "data": 1,
+                    "data": { "foo": 1 },
                     "valid": true
                 }
             ]
@@ -301,7 +301,7 @@
         },
         {
             "description": "refs with relative uris and defs (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "=4",
             "schema": {
                 "id": "http://example.com/schema-relative-uri-defs1.json",
                 "properties": {
@@ -395,7 +395,7 @@
         },
         {
             "description": "relative refs with absolute uris and defs (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "=4",
             "schema": {
                 "id": "http://example.com/schema-refs-absolute-uris-defs1.json",
                 "properties": {
@@ -491,17 +491,19 @@
                         }
                     }
                 },
-                "allOf": [{ "$ref": "http://example.com/b/d.json" }]
+                "properties": {
+                    "foo": { "$ref": "http://example.com/b/d.json" }
+                }
             },
             "tests": [
                 {
                     "description": "number is valid",
-                    "data": 1,
+                    "data": { "foo": 1 },
                     "valid": true
                 },
                 {
                     "description": "non-number is invalid",
-                    "data": "a",
+                    "data": { "foo": "a" },
                     "valid": false
                 }
             ]
@@ -833,23 +835,25 @@
                         "type": "string"
                     }
                 },
-                "allOf": [{ "$ref": "/absref/foobar.json" }]
+                "properties": {
+                    "foo": { "$ref": "/absref/foobar.json" }
+                }
             },
             "tests": [
                 {
                     "description": "a string is valid",
-                    "data": "foo",
+                    "data": { "foo": "foo" },
                     "valid": true
                 },
                 {
                     "description": "an integer is invalid",
-                    "data": 12,
+                    "data": { "foo": 12 },
                     "valid": false
                 }
             ]
         },
         {
-            "description": "id with file URI still resolves pointers - *nix",
+            "description": "$id with file URI still resolves pointers - *nix",
             "compatibility": "6,<=7",
             "schema": {
                 "$id": "file:///folder/file.json",
@@ -872,30 +876,32 @@
             ]
         },
         {
-            "description": "id with file URI still resolves pointers - *nix (id)",
+            "description": "id with file URI still resolves pointers - *nix",
             "compatibility": "3,<=4",
             "schema": {
                 "id": "file:///folder/file.json",
                 "definitions": {
                     "foo": { "type": "number" }
                 },
-                "allOf": [{ "$ref": "#/definitions/foo" }]
+                "properties": {
+                    "foo": { "$ref": "#/definitions/foo" }
+                }
             },
             "tests": [
                 {
                     "description": "number is valid",
-                    "data": 1,
+                    "data": { "foo": 1 },
                     "valid": true
                 },
                 {
                     "description": "non-number is invalid",
-                    "data": "a",
+                    "data": { "foo": "a" },
                     "valid": false
                 }
             ]
         },
         {
-            "description": "id with file URI still resolves pointers - windows",
+            "description": "$id with file URI still resolves pointers - windows",
             "compatibility": "6,<=7",
             "schema": {
                 "$id": "file:///c:/folder/file.json",
@@ -918,24 +924,26 @@
             ]
         },
         {
-            "description": "id with file URI still resolves pointers - windows (id)",
+            "description": "id with file URI still resolves pointers - windows",
             "compatibility": "3,<=4",
             "schema": {
                 "id": "file:///c:/folder/file.json",
                 "definitions": {
                     "foo": { "type": "number" }
                 },
-                "allOf": [{ "$ref": "#/definitions/foo" }]
+                "properties": {
+                    "foo": { "$ref": "#/definitions/foo" }
+                }
             },
             "tests": [
                 {
                     "description": "number is valid",
-                    "data": 1,
+                    "data": { "foo": 1 },
                     "valid": true
                 },
                 {
                     "description": "non-number is invalid",
-                    "data": "a",
+                    "data": { "foo": "a" },
                     "valid": false
                 }
             ]
@@ -951,7 +959,7 @@
                         "definitions": {
                             "bar": { "type": "string" }
                         },
-                        "$ref": "#/definitions/bar"
+                        "allOf": [{ "$ref": "#/definitions/bar" }]
                     }
                 }
             },
@@ -972,26 +980,30 @@
             "description": "URN ref with nested pointer ref (id)",
             "compatibility": "3,<=4",
             "schema": {
-                "allOf": [{ "$ref": "urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed" }],
+                "properties": {
+                    "foo": { "$ref": "urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed" }
+                },
                 "definitions": {
                     "foo": {
                         "id": "urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed",
                         "definitions": {
                             "bar": { "type": "string" }
                         },
-                        "$ref": "#/definitions/bar"
+                        "properties": {
+                            "bar": { "$ref": "#/definitions/bar" }
+                        }
                     }
                 }
             },
             "tests": [
                 {
                     "description": "a string is valid",
-                    "data": "bar",
+                    "data": { "foo": { "bar": "bar" } },
                     "valid": true
                 },
                 {
                     "description": "a non-string is invalid",
-                    "data": 12,
+                    "data": { "foo": { "bar": 12 } },
                     "valid": false
                 }
             ]
@@ -1006,7 +1018,7 @@
                     "definitions": {
                         "bar": { "type": "string" }
                     },
-                    "$ref": "#/definitions/bar"
+                    "allOf": [{ "$ref": "#/definitions/bar" }]
                 }
             },
             "tests": [
@@ -1032,18 +1044,20 @@
                     "definitions": {
                         "bar": { "type": "string" }
                     },
-                    "$ref": "#/definitions/bar"
+                    "properties": {
+                        "bar": { "$ref": "#/definitions/bar" }
+                    }
                 }
             },
             "tests": [
                 {
                     "description": "number is invalid",
-                    "data": 1,
+                    "data": { "bar": 1 },
                     "valid": false
                 },
                 {
                     "description": "string is valid",
-                    "data": "foo",
+                    "data": { "bar": "foo" },
                     "valid": true
                 }
             ]
@@ -1058,7 +1072,7 @@
                     "definitions": {
                         "bar": { "type": "string" }
                     },
-                    "$ref": "#/definitions/bar"
+                    "allOf": [{ "$ref": "#/definitions/bar" }]
                 }
             },
             "tests": [
@@ -1084,18 +1098,20 @@
                     "definitions": {
                         "bar": { "type": "string" }
                     },
-                    "$ref": "#/definitions/bar"
+                    "properties": {
+                        "bar": { "$ref": "#/definitions/bar" }
+                    }
                 }
             },
             "tests": [
                 {
                     "description": "number is invalid",
-                    "data": 1,
+                    "data": { "bar": 1 },
                     "valid": false
                 },
                 {
                     "description": "string is valid",
-                    "data": "foo",
+                    "data": { "bar": "foo" },
                     "valid": true
                 }
             ]
@@ -1112,7 +1128,7 @@
                             "type": "string"
                         }
                     },
-                    "$ref": "http://localhost:1234/the-nested-id.json"
+                    "allOf": [{ "$ref": "http://localhost:1234/the-nested-id.json" }]
                 }
             },
             "tests": [
@@ -1140,18 +1156,20 @@
                             "type": "string"
                         }
                     },
-                    "$ref": "http://localhost:1234/the-nested-id.json"
+                    "properties": {
+                        "bar": { "$ref": "http://localhost:1234/the-nested-id.json" }
+                    }
                 }
             },
             "tests": [
                 {
                     "description": "number is invalid",
-                    "data": 1,
+                    "data": { "bar": 1 },
                     "valid": false
                 },
                 {
                     "description": "string is valid",
-                    "data": "foo",
+                    "data": { "bar": "foo" },
                     "valid": true
                 }
             ]
