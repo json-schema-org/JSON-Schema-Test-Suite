@@ -569,7 +569,9 @@
                 "$defs": {
                     "foo": {
                         "$id": "urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed",
-                        "$defs": { "bar": { "type": "string" } },
+                        "$defs": {
+                            "bar": { "type": "string" }
+                        },
                         "$ref": "#/$defs/bar"
                     }
                 }
@@ -602,6 +604,9 @@
                     "properties": {
                         "foo": { "$ref": "string.json" }
                     }
+                },
+                "http://localhost:1234/nested/string.json": {
+                    "type": "string"
                 }
             },
             "tests": [
