@@ -86,6 +86,34 @@
             ]
         },
         {
+            "description": "URN base URI with URN and anchor ref",
+            "compatibility": "6,<=7",
+            "schema": {
+                "$id": "urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed",
+                "properties": { 
+                    "foo": { "$ref": "urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed#something" } 
+                },
+                "definitions": {
+                    "bar": {
+                        "$id": "#something",
+                        "type": "string"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a string is valid",
+                    "data": { "foo": "bar" },
+                    "valid": true
+                },
+                {
+                    "description": "a non-string is invalid",
+                    "data": { "foo": 12 },
+                    "valid": false
+                }
+            ]
+        },
+        {
             "description": "Location-independent identifier with base URI change in subschema (id)",
             "compatibility": "3,<=4",
             "schema": {
