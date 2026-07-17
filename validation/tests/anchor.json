@@ -122,13 +122,13 @@
         },
         {
             "description": "Reference an anchor with a non-relative URI",
-            "compatibility": "6,<=7",
+            "compatibility": "2019",
             "schema": {
                 "$id": "https://example.com/schema-with-anchor",
                 "allOf": [{ "$ref": "https://example.com/schema-with-anchor#foo" }],
-                "definitions": {
+                "$defs": {
                     "A": {
-                        "$id": "#foo",
+                        "$anchor": "foo",
                         "type": "integer"
                     }
                 }
