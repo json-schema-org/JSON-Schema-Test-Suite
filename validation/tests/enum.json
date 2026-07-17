@@ -80,36 +80,39 @@
             "description": "enums in properties boolean required",
             "compatibility": "=3",
             "schema": {
-                "type":"object",
+                "type": "object",
                 "properties": {
-                    "foo": { "enum":["foo"] },
-                    "bar": { "enum":["bar"], "required":true }
+                    "foo": { "enum": ["foo"] },
+                    "bar": {
+                        "enum": ["bar"],
+                        "required": true
+                    }
                 }
             },
             "tests": [
                 {
                     "description": "both properties are valid",
-                    "data": { "foo":"foo", "bar":"bar" },
+                    "data": { "foo": "foo", "bar": "bar" },
                     "valid": true
                 },
                 {
                     "description": "wrong foo value",
-                    "data": { "foo":"foot", "bar":"bar" },
+                    "data": { "foo": "foot", "bar": "bar" },
                     "valid": false
                 },
                 {
                     "description": "wrong bar value",
-                    "data": { "foo":"foo", "bar":"bart" },
+                    "data": { "foo": "foo", "bar": "bart" },
                     "valid": false
                 },
                 {
                     "description": "missing optional property is valid",
-                    "data": { "bar":"bar" },
+                    "data": { "bar": "bar" },
                     "valid": true
                 },
                 {
                     "description": "missing required property is invalid",
-                    "data": { "foo":"foo" },
+                    "data": { "foo": "foo" },
                     "valid": false
                 },
                 {
@@ -123,37 +126,37 @@
             "description": "enums in properties",
             "compatibility": "4",
             "schema": {
-                "type":"object",
+                "type": "object",
                 "properties": {
-                    "foo": { "enum":["foo"] },
-                    "bar": { "enum":["bar"] }
+                    "foo": { "enum": ["foo"] },
+                    "bar": { "enum": ["bar"] }
                 },
                 "required": ["bar"]
             },
             "tests": [
                 {
                     "description": "both properties are valid",
-                    "data": { "foo":"foo", "bar":"bar" },
+                    "data": { "foo": "foo", "bar": "bar" },
                     "valid": true
                 },
                 {
                     "description": "wrong foo value",
-                    "data": { "foo":"foot", "bar":"bar" },
+                    "data": { "foo": "foot", "bar": "bar" },
                     "valid": false
                 },
                 {
                     "description": "wrong bar value",
-                    "data": { "foo":"foo", "bar":"bart" },
+                    "data": { "foo": "foo", "bar": "bart" },
                     "valid": false
                 },
                 {
                     "description": "missing optional property is valid",
-                    "data": { "bar":"bar" },
+                    "data": { "bar": "bar" },
                     "valid": true
                 },
                 {
                     "description": "missing required property is invalid",
-                    "data": { "foo":"foo" },
+                    "data": { "foo": "foo" },
                     "valid": false
                 },
                 {
@@ -165,7 +168,6 @@
         },
         {
             "description": "enum with escaped characters",
-            "compatibility": "4",
             "schema": {
                 "enum": ["foo\nbar", "foo\rbar"]
             },
@@ -438,7 +440,6 @@
         },
         {
             "description": "characters with the same visual representation but different codepoint",
-            "compatibility": "=4",
             "schema": {
                 "enum": ["μ"],
                 "$comment": "U+03BC"
@@ -460,7 +461,6 @@
         },
         {
             "description": "characters with the same visual representation, but different number of codepoints",
-            "compatibility": "=4",
             "schema": {
                 "enum": ["ä"],
                 "$comment": "U+00E4"
