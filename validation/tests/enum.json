@@ -191,7 +191,6 @@
         },
         {
             "description": "enum with false does not match 0",
-            "compatibility": "4",
             "schema": { 
                 "enum": [false] 
             },
@@ -215,7 +214,6 @@
         },
         {
             "description": "enum with [false] does not match [0]",
-            "compatibility": "4",
             "schema": { 
                 "enum": [[false]] 
             },
@@ -239,7 +237,6 @@
         },
         {
             "description": "enum with true does not match 1",
-            "compatibility": "4",
             "schema": { 
                 "enum": [true] 
             },
@@ -263,7 +260,6 @@
         },
         {
             "description": "enum with [true] does not match [1]",
-            "compatibility": "4",
             "schema": { 
                 "enum": [[true]] 
             },
@@ -287,7 +283,6 @@
         },
         {
             "description": "enum with 0 does not match false",
-            "compatibility": "4",
             "schema": { 
                 "enum": [0] 
             },
@@ -311,7 +306,6 @@
         },
         {
             "description": "enum with [0] does not match [false]",
-            "compatibility": "4",
             "schema": { 
                 "enum": [[0]] 
             },
@@ -335,7 +329,6 @@
         },
         {
             "description": "enum with 1 does not match true",
-            "compatibility": "4",
             "schema": { 
                 "enum": [1] 
             },
@@ -359,7 +352,6 @@
         },
         {
             "description": "enum with [1] does not match [true]",
-            "compatibility": "4",
             "schema": { 
                 "enum": [[1]] 
             },
