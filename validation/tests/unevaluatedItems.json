@@ -837,26 +837,65 @@
             ]
         },
         {
-            "description": "unevaluatedItems with $dynamicRef",
-            "compatibility": "2020",
+            "description": "unevaluatedItems with $dynamicRef (2020-12)",
+            "compatibility": "=2020",
             "schema": {
                 "$id": "https://example.com/unevaluated-items-with-dynamic-ref/derived",
                 "$ref": "./baseSchema",
                 "$defs": {
                     "derived": {
                         "$dynamicAnchor": "addons",
-                        "prefixItems": [
-                            true,
-                            { "type": "string" }
-                        ]
+                        "prefixItems": [true, { "type": "string" }]
                     },
                     "baseSchema": {
                         "$id": "./baseSchema",
+                        "$dynamicAnchor": "addons",
                         "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
                         "unevaluatedItems": false,
                         "type": "array",
                         "prefixItems": [{ "type": "string" }],
-                        "$dynamicRef": "#addons"
+                        "$dynamicRef": "#addons",
+                        "$defs": {
+                            "defaultAddons": {
+                                "$comment": "Needed to satisfy the bookending requirement",
+                                "$dynamicAnchor": "addons"
+                            }
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "with no unevaluated items",
+                    "data": ["foo", "bar"],
+                    "valid": true
+                },
+                {
+                    "description": "with unevaluated items",
+                    "data": ["foo", "bar", "baz"],
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "unevaluatedItems with $dynamicRef",
+            "compatibility": "9999",
+            "schema": {
+                "$id": "https://example.com/unevaluated-items-with-dynamic-ref/derived",
+                "$ref": "./baseSchema",
+                "$defs": {
+                    "derived": {
+                        "$dynamicAnchor": "addons",
+                        "prefixItems": [true, { "type": "string" }]
+                    },
+                    "baseSchema": {
+                        "$id": "./baseSchema",
+                        "$dynamicAnchor": "addons",
+                        "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+                        "unevaluatedItems": false,
+                        "type": "array",
+                        "prefixItems": [{ "type": "string" }],
+                        "$dynamicRef": "addons"
                     }
                 }
             },
