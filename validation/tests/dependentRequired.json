@@ -305,7 +305,7 @@
         },
         {
             "description": "dependencies with escaped characters (dependencies)",
-            "compatibility": "2019",
+            "compatibility": "3,<=7",
             "schema": {
                 "dependencies": {
                     "foo\nbar": ["foo\rbar"],
