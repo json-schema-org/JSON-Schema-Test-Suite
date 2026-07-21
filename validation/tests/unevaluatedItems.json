@@ -5,8 +5,8 @@
         {
             "description": "unevaluatedItems true",
             "compatibility": "2019",
-            "schema": { 
-                "unevaluatedItems": true 
+            "schema": {
+                "unevaluatedItems": true
             },
             "tests": [
                 {
@@ -24,8 +24,8 @@
         {
             "description": "unevaluatedItems false",
             "compatibility": "2019",
-            "schema": { 
-                "unevaluatedItems": false 
+            "schema": {
+                "unevaluatedItems": false
             },
             "tests": [
                 {
@@ -80,26 +80,6 @@
             ]
         },
         {
-            "description": "unevaluatedItems with tuple",
-            "compatibility": "=2019",
-            "schema": {
-                "items": [{ "type": "string" }],
-                "unevaluatedItems": false
-            },
-            "tests": [
-                {
-                    "description": "with no unevaluated items",
-                    "data": ["foo"],
-                    "valid": true
-                },
-                {
-                    "description": "with unevaluated items",
-                    "data": ["foo", "bar"],
-                    "valid": false
-                }
-            ]
-        },
-        {
             "description": "unevaluatedItems with tuple (prefixItems)",
             "compatibility": "2020",
             "schema": {
@@ -120,11 +100,31 @@
             ]
         },
         {
-            "description": "unevaluatedItems with items and additionalItems",
+            "description": "unevaluatedItems with tuple",
             "compatibility": "=2019",
             "schema": {
                 "items": [{ "type": "string" }],
-                "additionalItems": true,
+                "unevaluatedItems": false
+            },
+            "tests": [
+                {
+                    "description": "with no unevaluated items",
+                    "data": ["foo"],
+                    "valid": true
+                },
+                {
+                    "description": "with unevaluated items",
+                    "data": ["foo", "bar"],
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "unevaluatedItems with items and prefixItems",
+            "compatibility": "2020",
+            "schema": {
+                "prefixItems": [{ "type": "string" }],
+                "items": true,
                 "unevaluatedItems": false
             },
             "tests": [
@@ -136,53 +136,11 @@
             ]
         },
         {
-            "description": "unevaluatedItems with ignored additionalItems",
+            "description": "unevaluatedItems with items and additionalItems",
             "compatibility": "=2019",
             "schema": {
-                "additionalItems": { "type": "number" },
-                "unevaluatedItems": { "type": "string" }
-            },
-            "tests": [
-                {
-                    "description": "invalid under unevaluatedItems",
-                    "comment": "additionalItems is entirely ignored when items isn't present, so all elements need to be valid against the unevaluatedItems schema",
-                    "data": ["foo", 1],
-                    "valid": false
-                },
-                {
-                    "description": "all valid under unevaluatedItems",
-                    "data": ["foo", "bar", "baz"],
-                    "valid": true
-                }
-            ]
-        },
-        {
-            "description": "unevaluatedItems with ignored applicator additionalItems",
-            "compatibility": "=2019",
-            "schema": {
-                "allOf": [{ "additionalItems": { "type": "number" } }],
-                "unevaluatedItems": { "type": "string" }
-            },
-            "tests": [
-                {
-                    "description": "invalid under unevaluatedItems",
-                    "comment": "additionalItems is entirely ignored when items isn't present, so all elements need to be valid against the unevaluatedItems schema",
-                    "data": ["foo", 1],
-                    "valid": false
-                },
-                {
-                    "description": "all valid under unevaluatedItems",
-                    "data": ["foo", "bar", "baz"],
-                    "valid": true
-                }
-            ]
-        },
-        {
-            "description": "unevaluatedItems with items and prefixItems",
-            "compatibility": "2020",
-            "schema": {
-                "prefixItems": [{ "type": "string" }],
-                "items": true,
+                "items": [{ "type": "string" }],
+                "additionalItems": true,
                 "unevaluatedItems": false
             },
             "tests": [
@@ -215,16 +173,34 @@
             ]
         },
         {
-            "description": "unevaluatedItems with nested tuple",
+            "description": "unevaluatedItems with ignored additionalItems",
             "compatibility": "=2019",
             "schema": {
-                "items": [{ "type": "string" }],
+                "additionalItems": { "type": "number" },
+                "unevaluatedItems": { "type": "string" }
+            },
+            "tests": [
+                {
+                    "description": "invalid under unevaluatedItems",
+                    "comment": "additionalItems is entirely ignored when items isn't present, so all elements need to be valid against the unevaluatedItems schema",
+                    "data": ["foo", 1],
+                    "valid": false
+                },
+                {
+                    "description": "all valid under unevaluatedItems",
+                    "data": ["foo", "bar", "baz"],
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "unevaluatedItems with nested tuple (prefixItems)",
+            "compatibility": "2020",
+            "schema": {
+                "prefixItems": [{ "type": "string" }],
                 "allOf": [
                     {
-                        "items": [
-                            true,
-                            { "type": "number" }
-                        ]
+                        "prefixItems": [true, { "type": "number" }]
                     }
                 ],
                 "unevaluatedItems": false
@@ -243,16 +219,13 @@
             ]
         },
         {
-            "description": "unevaluatedItems with nested tuple (prefixItems)",
-            "compatibility": "2020",
+            "description": "unevaluatedItems with nested tuple",
+            "compatibility": "=2019",
             "schema": {
-                "prefixItems": [{ "type": "string" }],
+                "items": [{ "type": "string" }],
                 "allOf": [
                     {
-                        "prefixItems": [
-                            true,
-                            { "type": "number" }
-                        ]
+                        "items": [true, { "type": "number" }]
                     }
                 ],
                 "unevaluatedItems": false
@@ -267,6 +240,31 @@
                     "description": "with unevaluated items",
                     "data": ["foo", 42, true],
                     "valid": false
+                }
+            ]
+        },
+        {
+            "description": "unevaluatedItems with ignored applicator additionalItems",
+            "compatibility": "=2019",
+            "schema": {
+                "allOf": [
+                    {
+                        "additionalItems": { "type": "number" }
+                    }
+                ],
+                "unevaluatedItems": { "type": "string" }
+            },
+            "tests": [
+                {
+                    "description": "invalid under unevaluatedItems",
+                    "comment": "additionalItems is entirely ignored when items isn't present, so all elements need to be valid against the unevaluatedItems schema",
+                    "data": ["foo", 1],
+                    "valid": false
+                },
+                {
+                    "description": "all valid under unevaluatedItems",
+                    "data": ["foo", "bar", "baz"],
+                    "valid": true
                 }
             ]
         },
@@ -299,31 +297,6 @@
             ]
         },
         {
-            "description": "unevaluatedItems with nested items and additionalItems",
-            "compatibility": "=2019",
-            "schema": {
-                "allOf": [
-                    {
-                        "items": [{ "type": "string" }],
-                        "additionalItems": true
-                    }
-                ],
-                "unevaluatedItems": false
-            },
-            "tests": [
-                {
-                    "description": "with no additional items",
-                    "data": ["foo"],
-                    "valid": true
-                },
-                {
-                    "description": "with additional items",
-                    "data": ["foo", 42, true],
-                    "valid": true
-                }
-            ]
-        },
-        {
             "description": "unevaluatedItems with nested prefixItems and items",
             "compatibility": "2020",
             "schema": {
@@ -349,12 +322,14 @@
             ]
         },
         {
-            "description": "unevaluatedItems with nested unevaluatedItems",
+            "description": "unevaluatedItems with nested items and additionalItems",
             "compatibility": "=2019",
             "schema": {
                 "allOf": [
-                    { "items": [{ "type": "string" }] },
-                    { "unevaluatedItems": true }
+                    {
+                        "items": [{ "type": "string" }],
+                        "additionalItems": true
+                    }
                 ],
                 "unevaluatedItems": false
             },
@@ -395,23 +370,39 @@
             ]
         },
         {
-            "description": "unevaluatedItems with anyOf",
+            "description": "unevaluatedItems with nested unevaluatedItems",
             "compatibility": "=2019",
             "schema": {
-                "items": [{ "const": "foo" }],
+                "allOf": [
+                    { "items": [{ "type": "string" }] },
+                    { "unevaluatedItems": true }
+                ],
+                "unevaluatedItems": false
+            },
+            "tests": [
+                {
+                    "description": "with no additional items",
+                    "data": ["foo"],
+                    "valid": true
+                },
+                {
+                    "description": "with additional items",
+                    "data": ["foo", 42, true],
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "unevaluatedItems with anyOf (prefixItems)",
+            "compatibility": "2020",
+            "schema": {
+                "prefixItems": [{ "const": "foo" }],
                 "anyOf": [
                     {
-                        "items": [
-                            true,
-                            { "const": "bar" }
-                        ]
+                        "prefixItems": [true, { "const": "bar" }]
                     },
                     {
-                        "items": [
-                            true,
-                            true,
-                            { "const": "baz" }
-                        ]
+                        "prefixItems": [true, true, { "const": "baz" }]
                     }
                 ],
                 "unevaluatedItems": false
@@ -440,23 +431,16 @@
             ]
         },
         {
-            "description": "unevaluatedItems with anyOf (prefixItems)",
-            "compatibility": "2020",
+            "description": "unevaluatedItems with anyOf",
+            "compatibility": "=2019",
             "schema": {
-                "prefixItems": [{ "const": "foo" }],
+                "items": [{ "const": "foo" }],
                 "anyOf": [
                     {
-                        "prefixItems": [
-                            true,
-                            { "const": "bar" }
-                        ]
+                        "items": [true, { "const": "bar" }]
                     },
                     {
-                        "prefixItems": [
-                            true,
-                            true,
-                            { "const": "baz" }
-                        ]
+                        "items": [true, true, { "const": "baz" }]
                     }
                 ],
                 "unevaluatedItems": false
@@ -480,6 +464,34 @@
                 {
                     "description": "when two schemas match and has unevaluated items",
                     "data": ["foo", "bar", "baz", 42],
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "unevaluatedItems with oneOf (prefixItems)",
+            "compatibility": "2020",
+            "schema": {
+                "prefixItems": [{ "const": "foo" }],
+                "oneOf": [
+                    {
+                        "prefixItems": [true, { "const": "bar" }]
+                    },
+                    {
+                        "prefixItems": [true, { "const": "baz" }]
+                    }
+                ],
+                "unevaluatedItems": false
+            },
+            "tests": [
+                {
+                    "description": "with no unevaluated items",
+                    "data": ["foo", "bar"],
+                    "valid": true
+                },
+                {
+                    "description": "with unevaluated items",
+                    "data": ["foo", "bar", 42],
                     "valid": false
                 }
             ]
@@ -519,35 +531,21 @@
             ]
         },
         {
-            "description": "unevaluatedItems with oneOf (prefixItems)",
+            "description": "unevaluatedItems with not (prefixItems)",
             "compatibility": "2020",
             "schema": {
                 "prefixItems": [{ "const": "foo" }],
-                "oneOf": [
-                    {
-                        "prefixItems": [
-                            true,
-                            { "const": "bar" }
-                        ]
-                    },
-                    {
-                        "prefixItems": [
-                            true,
-                            { "const": "baz" }
-                        ]
+                "not": {
+                    "not": {
+                        "prefixItems": [true, { "const": "bar" }]
                     }
-                ],
+                },
                 "unevaluatedItems": false
             },
             "tests": [
                 {
-                    "description": "with no unevaluated items",
-                    "data": ["foo", "bar"],
-                    "valid": true
-                },
-                {
                     "description": "with unevaluated items",
-                    "data": ["foo", "bar", 42],
+                    "data": ["foo", "bar"],
                     "valid": false
                 }
             ]
@@ -559,10 +557,7 @@
                 "items": [{ "const": "foo" }],
                 "not": {
                     "not": {
-                        "items": [
-                            true,
-                            { "const": "bar" }
-                        ]
+                        "items": [true, { "const": "bar" }]
                     }
                 },
                 "unevaluatedItems": false
@@ -576,53 +571,18 @@
             ]
         },
         {
-            "description": "unevaluatedItems with not (prefixItems)",
+            "description": "unevaluatedItems with if/then/else (prefixItems)",
             "compatibility": "2020",
             "schema": {
                 "prefixItems": [{ "const": "foo" }],
-                "not": {
-                    "not": {
-                        "prefixItems": [
-                            true,
-                            { "const": "bar" }
-                        ]
-                    }
-                },
-                "unevaluatedItems": false
-            },
-            "tests": [
-                {
-                    "description": "with unevaluated items",
-                    "data": ["foo", "bar"],
-                    "valid": false
-                }
-            ]
-        },
-        {
-            "description": "unevaluatedItems with if/then/else",
-            "compatibility": "=2019",
-            "schema": {
-                "items": [{ "const": "foo" }],
                 "if": {
-                    "items": [
-                        true,
-                        { "const": "bar" }
-                    ]
+                    "prefixItems": [true, { "const": "bar" }]
                 },
                 "then": {
-                    "items": [
-                        true,
-                        true,
-                        { "const": "then" }
-                    ]
+                    "prefixItems": [true, true, { "const": "then" }]
                 },
                 "else": {
-                    "items": [
-                        true,
-                        true,
-                        true,
-                        { "const": "else" }
-                    ]
+                    "prefixItems": [true, true, true, { "const": "else" }]
                 },
                 "unevaluatedItems": false
             },
@@ -650,30 +610,18 @@
             ]
         },
         {
-            "description": "unevaluatedItems with if/then/else (prefixItems)",
-            "compatibility": "2020",
+            "description": "unevaluatedItems with if/then/else",
+            "compatibility": "=2019",
             "schema": {
-                "prefixItems": [{ "const": "foo" }],
+                "items": [{ "const": "foo" }],
                 "if": {
-                    "prefixItems": [
-                        true,
-                        { "const": "bar" }
-                    ]
+                    "items": [true, { "const": "bar" }]
                 },
                 "then": {
-                    "prefixItems": [
-                        true,
-                        true,
-                        { "const": "then" }
-                    ]
+                    "items": [true, true, { "const": "then" }]
                 },
                 "else": {
-                    "prefixItems": [
-                        true,
-                        true,
-                        true,
-                        { "const": "else" }
-                    ]
+                    "items": [true, true, true, { "const": "else" }]
                 },
                 "unevaluatedItems": false
             },
@@ -721,35 +669,6 @@
             ]
         },
         {
-            "description": "unevaluatedItems with $ref",
-            "compatibility": "=2019",
-            "schema": {
-                "$ref": "#/$defs/bar",
-                "items": [{ "type": "string" }],
-                "unevaluatedItems": false,
-                "$defs": {
-                    "bar": {
-                        "items": [
-                            true,
-                            { "type": "string" }
-                        ]
-                    }
-                }
-            },
-            "tests": [
-                {
-                    "description": "with no unevaluated items",
-                    "data": ["foo", "bar"],
-                    "valid": true
-                },
-                {
-                    "description": "with unevaluated items",
-                    "data": ["foo", "bar", "baz"],
-                    "valid": false
-                }
-            ]
-        },
-        {
             "description": "unevaluatedItems with $ref (prefixItems)",
             "compatibility": "2020",
             "schema": {
@@ -758,10 +677,7 @@
                 "unevaluatedItems": false,
                 "$defs": {
                     "bar": {
-                        "prefixItems": [
-                            true,
-                            { "type": "string" }
-                        ]
+                        "prefixItems": [true, { "type": "string" }]
                     }
                 }
             },
@@ -779,18 +695,15 @@
             ]
         },
         {
-            "description": "unevaluatedItems before $ref",
+            "description": "unevaluatedItems with $ref",
             "compatibility": "=2019",
             "schema": {
-                "unevaluatedItems": false,
-                "items": [{ "type": "string" }],
                 "$ref": "#/$defs/bar",
+                "items": [{ "type": "string" }],
+                "unevaluatedItems": false,
                 "$defs": {
                     "bar": {
-                        "items": [
-                            true,
-                            { "type": "string" }
-                        ]
+                        "items": [true, { "type": "string" }]
                     }
                 }
             },
@@ -816,10 +729,68 @@
                 "$ref": "#/$defs/bar",
                 "$defs": {
                     "bar": {
-                        "prefixItems": [
-                            true,
-                            { "type": "string" }
-                        ]
+                        "prefixItems": [true, { "type": "string" }]
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "with no unevaluated items",
+                    "data": ["foo", "bar"],
+                    "valid": true
+                },
+                {
+                    "description": "with unevaluated items",
+                    "data": ["foo", "bar", "baz"],
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "unevaluatedItems before $ref",
+            "compatibility": "=2019",
+            "schema": {
+                "unevaluatedItems": false,
+                "items": [{ "type": "string" }],
+                "$ref": "#/$defs/bar",
+                "$defs": {
+                    "bar": {
+                        "items": [true, { "type": "string" }]
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "with no unevaluated items",
+                    "data": ["foo", "bar"],
+                    "valid": true
+                },
+                {
+                    "description": "with unevaluated items",
+                    "data": ["foo", "bar", "baz"],
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "unevaluatedItems with $dynamicRef",
+            "compatibility": "9999",
+            "schema": {
+                "$id": "https://example.com/unevaluated-items-with-dynamic-ref/derived",
+                "$ref": "./baseSchema",
+                "$defs": {
+                    "derived": {
+                        "$dynamicAnchor": "addons",
+                        "prefixItems": [true, { "type": "string" }]
+                    },
+                    "baseSchema": {
+                        "$id": "./baseSchema",
+                        "$dynamicAnchor": "addons",
+                        "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+                        "unevaluatedItems": false,
+                        "type": "array",
+                        "prefixItems": [{ "type": "string" }],
+                        "$dynamicRef": "addons"
                     }
                 }
             },
@@ -878,52 +849,13 @@
             ]
         },
         {
-            "description": "unevaluatedItems with $dynamicRef",
-            "compatibility": "9999",
-            "schema": {
-                "$id": "https://example.com/unevaluated-items-with-dynamic-ref/derived",
-                "$ref": "./baseSchema",
-                "$defs": {
-                    "derived": {
-                        "$dynamicAnchor": "addons",
-                        "prefixItems": [true, { "type": "string" }]
-                    },
-                    "baseSchema": {
-                        "$id": "./baseSchema",
-                        "$dynamicAnchor": "addons",
-                        "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
-                        "unevaluatedItems": false,
-                        "type": "array",
-                        "prefixItems": [{ "type": "string" }],
-                        "$dynamicRef": "addons"
-                    }
-                }
-            },
-            "tests": [
-                {
-                    "description": "with no unevaluated items",
-                    "data": ["foo", "bar"],
-                    "valid": true
-                },
-                {
-                    "description": "with unevaluated items",
-                    "data": ["foo", "bar", "baz"],
-                    "valid": false
-                }
-            ]
-        },
-        {
             "description": "unevaluatedItems with $recursiveRef",
             "compatibility": "=2019",
             "schema": {
                 "$id": "https://example.com/unevaluated-items-with-recursive-ref/extended-tree",
                 "$recursiveAnchor": true,
                 "$ref": "./tree",
-                "items": [
-                    true,
-                    true,
-                    { "type": "string" }
-                ],
+                "items": [true, true, { "type": "string" }],
 
                 "$defs": {
                     "tree": {
@@ -955,23 +887,6 @@
             ]
         },
         {
-            "description": "unevaluatedItems can't see inside cousins",
-            "compatibility": "=2019",
-            "schema": {
-                "allOf": [
-                    { "items": [true] },
-                    { "unevaluatedItems": false }
-                ]
-            },
-            "tests": [
-                {
-                    "description": "always fails",
-                    "data": [1],
-                    "valid": false
-                }
-            ]
-        },
-        {
             "description": "unevaluatedItems can't see inside cousins (prefixItems)",
             "compatibility": "2020",
             "schema": {
@@ -989,37 +904,18 @@
             ]
         },
         {
-            "description": "item is evaluated in an uncle schema to unevaluatedItems",
+            "description": "unevaluatedItems can't see inside cousins",
             "compatibility": "=2019",
             "schema": {
-                "properties": {
-                    "foo": {
-                        "items": [{ "type": "string" }],
-                        "unevaluatedItems": false
-                    }
-                },
-                "anyOf": [
-                    {
-                        "properties": {
-                            "foo": {
-                                "items": [
-                                    true,
-                                    { "type": "string" }
-                                ]
-                            }
-                        }
-                    }
+                "allOf": [
+                    { "items": [true] },
+                    { "unevaluatedItems": false }
                 ]
             },
             "tests": [
                 {
-                    "description": "no extra items",
-                    "data": { "foo": ["test"] },
-                    "valid": true
-                },
-                {
-                    "description": "uncle keyword evaluation is not significant",
-                    "data": { "foo": ["test", "test"] },
+                    "description": "always fails",
+                    "data": [1],
                     "valid": false
                 }
             ]
@@ -1042,6 +938,39 @@
                                     true,
                                     { "type": "string" }
                                 ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "tests": [
+                {
+                    "description": "no extra items",
+                    "data": { "foo": ["test"] },
+                    "valid": true
+                },
+                {
+                    "description": "uncle keyword evaluation is not significant",
+                    "data": { "foo": ["test", "test"] },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "item is evaluated in an uncle schema to unevaluatedItems",
+            "compatibility": "=2019",
+            "schema": {
+                "properties": {
+                    "foo": {
+                        "items": [{ "type": "string" }],
+                        "unevaluatedItems": false
+                    }
+                },
+                "anyOf": [
+                    {
+                        "properties": {
+                            "foo": {
+                                "items": [true, { "type": "string" }]
                             }
                         }
                     }
@@ -1199,8 +1128,8 @@
         {
             "description": "non-array instances are valid",
             "compatibility": "2019",
-            "schema": { 
-                "unevaluatedItems": false 
+            "schema": {
+                "unevaluatedItems": false
             },
             "tests": [
                 {
@@ -1250,10 +1179,34 @@
             ]
         },
         {
+            "description": "unevaluatedItems can see annotations from if without then and else (prefixItems)",
+            "compatibility": "2020",
+            "schema": {
+                "if": {
+                    "prefixItems": [{ "const": "a" }]
+                },
+                "unevaluatedItems": false
+            },
+            "tests": [
+                {
+                    "description": "valid in case if is evaluated",
+                    "data": ["a"],
+                    "valid": true
+                },
+                {
+                    "description": "invalid in case if is evaluated",
+                    "data": ["b"],
+                    "valid": false
+                }
+            ]
+        },
+        {
             "description": "unevaluatedItems can see annotations from if without then and else",
             "compatibility": "=2019",
             "schema": {
-                "if": { "items": [{ "const": "a" }] },
+                "if": {
+                    "items": [{ "const": "a" }]
+                },
                 "unevaluatedItems": false
             },
             "tests": [
@@ -1271,35 +1224,12 @@
             ]
         },
         {
-            "description": "unevaluatedItems can see annotations from if without then and else (prefixItems)",
+            "description": "Evaluated items collection needs to consider instance location (prefixItems)",
             "compatibility": "2020",
             "schema": {
-                "if": { "prefixItems": [{ "const": "a" }] },
-                "unevaluatedItems": false
-            },
-            "tests": [
-                {
-                    "description": "valid in case if is evaluated",
-                    "data": ["a"],
-                    "valid": true
-                },
-                {
-                    "description": "invalid in case if is evaluated",
-                    "data": ["b"],
-                    "valid": false
-                }
-            ]
-        },
-        {
-            "description": "Evaluated items collection needs to consider instance location",
-            "compatibility": "=2019",
-            "schema": {
-                "items": [
+                "prefixItems": [
                     {
-                        "items": [
-                            true,
-                            { "type": "string" }
-                        ]
+                        "prefixItems": [true, { "type": "string" }]
                     }
                 ],
                 "unevaluatedItems": false
@@ -1313,15 +1243,12 @@
             ]
         },
         {
-            "description": "Evaluated items collection needs to consider instance location (prefixItems)",
-            "compatibility": "2020",
+            "description": "Evaluated items collection needs to consider instance location",
+            "compatibility": "=2019",
             "schema": {
-                "prefixItems": [
+                "items": [
                     {
-                        "prefixItems": [
-                            true,
-                            { "type": "string" }
-                        ]
+                        "items": [true, { "type": "string" }]
                     }
                 ],
                 "unevaluatedItems": false
