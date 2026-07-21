@@ -4,8 +4,8 @@
     "tests": [
         {
             "description": "simple enum validation",
-            "schema": { 
-                "enum": [1, 2, 3] 
+            "schema": {
+                "enum": [1, 2, 3]
             },
             "tests": [
                 {
@@ -55,8 +55,8 @@
         },
         {
             "description": "heterogeneous enum-with-null validation",
-            "schema": { 
-                "enum": [6, null] 
+            "schema": {
+                "enum": [6, null]
             },
             "tests": [
                 {
@@ -191,8 +191,8 @@
         },
         {
             "description": "enum with false does not match 0",
-            "schema": { 
-                "enum": [false] 
+            "schema": {
+                "enum": [false]
             },
             "tests": [
                 {
@@ -214,8 +214,8 @@
         },
         {
             "description": "enum with [false] does not match [0]",
-            "schema": { 
-                "enum": [[false]] 
+            "schema": {
+                "enum": [[false]]
             },
             "tests": [
                 {
@@ -237,8 +237,8 @@
         },
         {
             "description": "enum with true does not match 1",
-            "schema": { 
-                "enum": [true] 
+            "schema": {
+                "enum": [true]
             },
             "tests": [
                 {
@@ -260,8 +260,8 @@
         },
         {
             "description": "enum with [true] does not match [1]",
-            "schema": { 
-                "enum": [[true]] 
+            "schema": {
+                "enum": [[true]]
             },
             "tests": [
                 {
@@ -283,8 +283,8 @@
         },
         {
             "description": "enum with 0 does not match false",
-            "schema": { 
-                "enum": [0] 
+            "schema": {
+                "enum": [0]
             },
             "tests": [
                 {
@@ -306,8 +306,8 @@
         },
         {
             "description": "enum with [0] does not match [false]",
-            "schema": { 
-                "enum": [[0]] 
+            "schema": {
+                "enum": [[0]]
             },
             "tests": [
                 {
@@ -329,8 +329,8 @@
         },
         {
             "description": "enum with 1 does not match true",
-            "schema": { 
-                "enum": [1] 
+            "schema": {
+                "enum": [1]
             },
             "tests": [
                 {
@@ -352,8 +352,8 @@
         },
         {
             "description": "enum with [1] does not match [true]",
-            "schema": { 
-                "enum": [[1]] 
+            "schema": {
+                "enum": [[1]]
             },
             "tests": [
                 {
@@ -375,8 +375,8 @@
         },
         {
             "description": "nul characters in strings",
-            "schema": { 
-                "enum": ["hello\u0000there"] 
+            "schema": {
+                "enum": ["hello\u0000there"]
             },
             "tests": [
                 {
@@ -432,9 +432,9 @@
         },
         {
             "description": "characters with the same visual representation but different codepoint",
+            "comment": "μ is U+03BC",
             "schema": {
-                "enum": ["μ"],
-                "$comment": "U+03BC"
+                "enum": ["μ"]
             },
             "tests": [
                 {
@@ -453,9 +453,9 @@
         },
         {
             "description": "characters with the same visual representation, but different number of codepoints",
+            "comment": "ä is U+00E4",
             "schema": {
-                "enum": ["ä"],
-                "$comment": "U+00E4"
+                "enum": ["ä"]
             },
             "tests": [
                 {
