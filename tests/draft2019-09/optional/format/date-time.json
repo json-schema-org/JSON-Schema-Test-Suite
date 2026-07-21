@@ -150,6 +150,41 @@
                 "description": "invalid extended year",
                 "data": "+11963-06-19T08:30:06.283185Z",
                 "valid": false
+            },
+            {
+                "description": "UTC offset +00:00 is valid",
+                "data": "1985-04-12T23:20:50+00:00",
+                "valid": true
+            },
+            {
+                "description": "negative zero offset -00:00 is valid",
+                "data": "1985-04-12T23:20:50-00:00",
+                "valid": true
+            },
+            {
+                "description": "maximum positive offset +23:59 is valid",
+                "data": "1985-04-12T23:20:50+23:59",
+                "valid": true
+            },
+            {
+                "description": "maximum negative offset -23:59 is valid",
+                "data": "1985-04-12T23:20:50-23:59",
+                "valid": true
+            },
+            {
+                "description": "offset hour 24 is invalid with positive sign",
+                "data": "1985-04-12T23:20:50+24:00",
+                "valid": false
+            },
+            {
+                "description": "Z followed by numeric offset is invalid",
+                "data": "1985-04-12T23:20:50Z+00:00",
+                "valid": false
+            },
+            {
+                "description": "leap second with offset producing wrong UTC is invalid",
+                "data": "1998-12-31T23:59:60+01:00",
+                "valid": false
             }
         ]
     }
