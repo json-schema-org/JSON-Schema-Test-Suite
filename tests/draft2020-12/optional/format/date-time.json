@@ -150,6 +150,36 @@
                 "description": "invalid extended year",
                 "data": "+11963-06-19T08:30:06.283185Z",
                 "valid": false
+            },
+            {
+                "description": "empty string is invalid",
+                "data": "",
+                "valid": false
+            },
+            {
+                "description": "leading whitespace is invalid",
+                "data": " 1985-04-12T23:20:50Z",
+                "valid": false
+            },
+            {
+                "description": "trailing whitespace is invalid",
+                "data": "1985-04-12T23:20:50Z ",
+                "valid": false
+            },
+            {
+                "description": "trailing content after valid date-time is invalid",
+                "data": "1985-04-12T23:20:50Z extra",
+                "valid": false
+            },
+            {
+                "description": "date-only string is not a valid date-time",
+                "data": "1985-04-12",
+                "valid": false
+            },
+            {
+                "description": "time-only string is not a valid date-time",
+                "data": "08:30:06Z",
+                "valid": false
             }
         ]
     }
