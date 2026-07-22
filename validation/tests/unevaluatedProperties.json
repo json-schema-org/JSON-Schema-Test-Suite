@@ -641,7 +641,45 @@
             ]
         },
         {
-            "description": "unevaluatedProperties with $dynamicRef and defaultAddons",
+            "description": "unevaluatedProperties with $dynamicRef",
+            "compatibility": "9999",
+            "schema": {
+                "$id": "https://example.com/unevaluated-properties-with-dynamic-ref/derived",
+                "$ref": "./baseSchema",
+                "$defs": {
+                    "derived": {
+                        "$dynamicAnchor": "addons",
+                        "properties": {
+                            "bar": { "type": "string" }
+                        }
+                    },
+                    "baseSchema": {
+                        "$id": "./baseSchema",
+                        "$comment": "unevaluatedProperties comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+                        "unevaluatedProperties": false,
+                        "type": "object",
+                        "properties": {
+                            "foo": { "type": "string" }
+                        },
+                        "$dynamicRef": "addons"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "with no unevaluated properties",
+                    "data": { "foo": "foo", "bar": "bar" },
+                    "valid": true
+                },
+                {
+                    "description": "with unevaluated properties",
+                    "data": { "foo": "foo", "bar": "bar", "baz": "baz" },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "unevaluatedProperties with $dynamicRef (2020)",
             "compatibility": "=2020",
             "schema": {
                 "$id": "https://example.com/unevaluated-properties-with-dynamic-ref/derived",
@@ -667,44 +705,6 @@
                                 "$dynamicAnchor": "addons"
                             }
                         }
-                    }
-                }
-            },
-            "tests": [
-                {
-                    "description": "with no unevaluated properties",
-                    "data": { "foo": "foo", "bar": "bar" },
-                    "valid": true
-                },
-                {
-                    "description": "with unevaluated properties",
-                    "data": { "foo": "foo", "bar": "bar", "baz": "baz" },
-                    "valid": false
-                }
-            ]
-        },
-        {
-            "description": "unevaluatedProperties with $dynamicRef",
-            "compatibility": "2020",
-            "schema": {
-                "$id": "https://example.com/unevaluated-properties-with-dynamic-ref/derived",
-                "$ref": "./baseSchema",
-                "$defs": {
-                    "derived": {
-                        "$dynamicAnchor": "addons",
-                        "properties": {
-                            "bar": { "type": "string" }
-                        }
-                    },
-                    "baseSchema": {
-                        "$id": "./baseSchema",
-                        "$comment": "unevaluatedProperties comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
-                        "unevaluatedProperties": false,
-                        "type": "object",
-                        "properties": {
-                            "foo": { "type": "string" }
-                        },
-                        "$dynamicRef": "#addons"
                     }
                 }
             },
