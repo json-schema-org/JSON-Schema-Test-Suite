@@ -47,45 +47,6 @@
             ]
         },
         {
-            "description": "ip-address format",
-            "compatibility": "=3",
-            "schema": {
-                "format": "ip-address"
-            },
-            "tests": [
-                {
-                    "description": "all string formats ignore integers",
-                    "data": 12,
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore floats",
-                    "data": 13.7,
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore objects",
-                    "data": {},
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore arrays",
-                    "data": [],
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore booleans",
-                    "data": false,
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore nulls",
-                    "data": null,
-                    "valid": true
-                }
-            ]
-        },
-        {
             "description": "ipv4 format",
             "compatibility": "4,<=2020",
             "schema": {
@@ -130,8 +91,48 @@
             ]
         },
         {
+            "description": "ip-address format",
+            "comment": "renamed to ipv4 in draft-04",
+            "compatibility": "<=3",
+            "schema": {
+                "format": "ip-address"
+            },
+            "tests": [
+                {
+                    "description": "all string formats ignore integers",
+                    "data": 12,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore floats",
+                    "data": 13.7,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore objects",
+                    "data": {},
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore arrays",
+                    "data": [],
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore booleans",
+                    "data": false,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore nulls",
+                    "data": null,
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "ipv6 format",
-            "compatibility": "3,<=2020",
+            "compatibility": "<=2020",
             "schema": {
                 "format": "ipv6"
             },
@@ -175,7 +176,7 @@
         },
         {
             "description": "hostname format",
-            "compatibility": "3,<=2020",
+            "compatibility": "4,<=2020",
             "schema": {
                 "format": "hostname"
             },
@@ -218,8 +219,53 @@
             ]
         },
         {
+            "description": "host-name format",
+            "comment": "renamed to hostname in draft-04",
+            "compatibility": "=3",
+            "schema": {
+                "format": "host-name"
+            },
+            "tests": [
+                {
+                    "description": "all string formats ignore integers",
+                    "data": 12,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore floats",
+                    "data": 13.7,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore objects",
+                    "data": {},
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore arrays",
+                    "data": [],
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore booleans",
+                    "data": false,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore nulls",
+                    "data": null,
+                    "valid": true
+                },
+                {
+                    "description": "invalid hostname string is only an annotation by default",
+                    "data": "-a-host-name-that-starts-with--",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "date-time format",
-            "compatibility": "3,<=2020",
+            "compatibility": "<=2020",
             "schema": {
                 "format": "date-time"
             },
@@ -262,52 +308,8 @@
             ]
         },
         {
-            "description": "regex format",
-            "compatibility": "=3,7,<=2020",
-            "schema": {
-                "format": "regex"
-            },
-            "tests": [
-                {
-                    "description": "all string formats ignore integers",
-                    "data": 12,
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore floats",
-                    "data": 13.7,
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore objects",
-                    "data": {},
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore arrays",
-                    "data": [],
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore booleans",
-                    "data": false,
-                    "valid": true
-                },
-                {
-                    "description": "all string formats ignore nulls",
-                    "data": null,
-                    "valid": true
-                },
-                {
-                    "description": "invalid regex string is only an annotation by default",
-                    "data": "^(abc]",
-                    "valid": true
-                }
-            ]
-        },
-        {
             "description": "date format",
-            "compatibility": "=3,7,<=2020",
+            "compatibility": "<=3,7,<=2020",
             "schema": {
                 "format": "date"
             },
@@ -394,10 +396,10 @@
             ]
         },
         {
-            "description": "color format",
-            "compatibility": "=3",
+            "description": "regex format",
+            "compatibility": "<=3,7,<=2020",
             "schema": {
-                "format": "color"
+                "format": "regex"
             },
             "tests": [
                 {
@@ -429,12 +431,17 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
+                },
+                {
+                    "description": "invalid regex string is only an annotation by default",
+                    "data": "^(abc]",
+                    "valid": true
                 }
             ]
         },
         {
             "description": "uri format",
-            "compatibility": "3,<=2020",
+            "compatibility": "<=2020",
             "schema": {
                 "format": "uri"
             },
@@ -912,6 +919,45 @@
                 {
                     "description": "invalid duration string is only an annotation by default",
                     "data": "PT1D",
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "color format",
+            "compatibility": "<=3",
+            "schema": {
+                "format": "color"
+            },
+            "tests": [
+                {
+                    "description": "all string formats ignore integers",
+                    "data": 12,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore floats",
+                    "data": 13.7,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore objects",
+                    "data": {},
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore arrays",
+                    "data": [],
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore booleans",
+                    "data": false,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore nulls",
+                    "data": null,
                     "valid": true
                 }
             ]
