@@ -1,5 +1,5 @@
 {
-    "$schema": "../test-suite.schema.json",
+    "$schema": "../validation-test-schema.json",
     "description": "type validation",
     "tests": [
         {
