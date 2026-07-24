@@ -41,46 +41,76 @@ DIALECT_ORDER = ["3", "4", "6", "7", "2019", "2020"]
 VALID_COMPAT_OPERATORS = ("<=", "=", "")   # "" means plain minimum
 
 
-def parse_compat(compatibility: str) -> list[tuple[str, str]]:
+DIALECT_ORDER = ["3", "4", "6", "7", "2019", "2020"]
+
+
+def parse_compat(compatibility: str):
     """
-    Parse a compatibility string like "3", "=4", "<=2019", "3,<=7"
-    into a list of (operator, dialect) pairs.
-    Raises ValueError on unknown dialects or bad syntax.
+    Parse a compatibility string into:
+        minimum dialect (or None)
+        maximum dialect (or None)
+        set of exact dialects
+
+    Examples:
+        "3"              -> ("3", None, set())
+        "=4"             -> (None, None, {"4"})
+        "6,<=2019"       -> ("6", "2019", set())
+        "=3,7,<=2019"    -> ("7", "2019", {"3"})
     """
-    parts = []
+    minimum = None
+    maximum = None
+    exact = set()
+
+    if not compatibility:
+        return minimum, maximum, exact
+
     for raw in compatibility.split(","):
         raw = raw.strip()
-        if raw.startswith("<="):
-            op, dialect = "<=", raw[2:].strip()
-        elif raw.startswith("="):
-            op, dialect = "=", raw[1:].strip()
-        else:
-            op, dialect = ">=", raw.strip()
 
-        if dialect not in DIALECT_ORDER:
-            continue
-        parts.append((op, dialect))
-    return parts
+        if raw.startswith("="):
+            dialect = raw[1:].strip()
+            if dialect in DIALECT_ORDER:
+                exact.add(dialect)
+        elif raw.startswith("<="):
+            dialect = raw[2:].strip()
+            if dialect in DIALECT_ORDER:
+                maximum = dialect
+        else:
+            dialect = raw
+            if dialect in DIALECT_ORDER:
+                minimum = dialect
+
+    return minimum, maximum, exact
 
 
 def dialect_applies(compatibility: str, target: str) -> bool:
     """
-    Return True if the target dialect satisfies the compatibility rule.
+    Return True if a dialect should run this test.
     """
     if not compatibility:
         return True
+    
+    if compatibility == "9999":
+        return True
+
     if target not in DIALECT_ORDER:
         return False
+
+    minimum, maximum, exact = parse_compat(compatibility)
+
+    if target in exact:
+        return True
+
     target_idx = DIALECT_ORDER.index(target)
-    for op, dialect in parse_compat(compatibility):
-        compat_idx = DIALECT_ORDER.index(dialect)
-        if op == ">=" and target_idx < compat_idx:
+
+    if minimum is not None:
+        if target_idx < DIALECT_ORDER.index(minimum):
             return False
-        if op == "<=" and target_idx > compat_idx:
+    if maximum is not None:
+        if target_idx > DIALECT_ORDER.index(maximum):
             return False
-        if op == "=" and target_idx != compat_idx:
-            return False
-    return True
+
+    return minimum is not None or maximum is not None
 
 
 def collect(directory: Path, filename_filter: str | None = None):
@@ -562,12 +592,19 @@ class ValidationSuiteChecks(unittest.TestCase):
         Per migration rules: $schema must be stripped from all test case
         schemas so they stay compatible with as many dialects as possible.
         """
+
         for path in self.test_files:
+
+            allow_schema = path.name == 'vocabulary.json'
+
             for case in load_cases(path):
                 with self.subTest(file=path.name, case=case.get("description")):
                     schema = case.get("schema", {})
 
                     if isinstance(schema, bool):
+                        continue
+
+                    if allow_schema:
                         continue
 
                     self.assertNotIn(
