@@ -392,6 +392,11 @@
                 "description": "valid: date inside the Julian to Gregorian reform gap",
                 "data": "1582-10-10",
                 "valid": true
+            },
+            {
+                "description": "invalid: year field numerically larger than a 32-bit signed integer",
+                "data": "2147483648-01-01",
+                "valid": false
             }
         ]
     }
