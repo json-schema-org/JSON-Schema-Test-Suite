@@ -412,6 +412,11 @@
                 "description": "invalid: en dash separators instead of hyphen-minus",
                 "data": "2020\u201301\u201301",
                 "valid": false
+            },
+            {
+                "description": "invalid: NUL character after an otherwise valid full-date",
+                "data": "2020-01-01\u0000",
+                "valid": false
             }
         ]
     }
