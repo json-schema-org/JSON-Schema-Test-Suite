@@ -384,6 +384,11 @@
                 "description": "invalid: duplicated second hyphen",
                 "data": "2020-01--01",
                 "valid": false
+            },
+            {
+                "description": "valid: date inside the Julian to Gregorian reform gap",
+                "data": "1582-10-10",
+                "valid": true
             }
         ]
     }
