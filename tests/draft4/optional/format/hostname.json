@@ -142,6 +142,11 @@
                 "description": "IDN label separator",
                 "data": "example\uff0ecom",
                 "valid": false
+            },
+            {
+                "description": "trailing newline is invalid",
+                "data": "example.com\n",
+                "valid": false
             }
         ]
     }
