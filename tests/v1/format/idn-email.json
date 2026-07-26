@@ -93,6 +93,12 @@
                 "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.5.3.1 every implementation must be able to receive a local part of 64 octets",
                 "data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.com",
                 "valid": true
+            },
+            {
+                "description": "a fullwidth commercial at is not a local-part separator",
+                "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Mailbox = Local-part \"@\" ( Domain / address-literal ) splits on U+0040, and any IDN mapping applies only to the domain that split produces, so U+FF20 cannot become the delimiter",
+                "data": "user\uff20example.com",
+                "valid": false
             }
         ]
     }
