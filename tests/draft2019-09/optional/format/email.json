@@ -105,6 +105,31 @@
                 "description": "unquoted space in local part is invalid",
                 "data": "joe bloggs@example.com",
                 "valid": false
+            },
+            {
+                "description": "a domain that looks like an IPv4 address without brackets is valid",
+                "data": "test@255.255.255.255",
+                "valid": true
+            },
+            {
+                "description": "an empty quoted string in the local part is valid",
+                "data": "\"\"@iana.org",
+                "valid": true
+            },
+            {
+                "description": "a quoted string containing only a space in the local part is valid",
+                "data": "\" \"@iana.org",
+                "valid": true
+            },
+            {
+                "description": "consecutive hyphens inside a domain label are valid",
+                "data": "test@c--n.com",
+                "valid": true
+            },
+            {
+                "description": "a domain label starting with a digit is valid",
+                "data": "test@123.com",
+                "valid": true
             }
         ]
     }
