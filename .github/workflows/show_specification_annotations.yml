@@ -18,4 +18,4 @@ jobs:
           python-version: '3.x'
 
       - name: Generate Annotations
-        run: pip install uritemplate && bin/annotate-specification-links
+        run: pip install uritemplate && annotations/annotate-specification-links
