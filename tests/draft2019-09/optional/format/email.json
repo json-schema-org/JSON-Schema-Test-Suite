@@ -105,6 +105,31 @@
                 "description": "unquoted space in local part is invalid",
                 "data": "joe bloggs@example.com",
                 "valid": false
+            },
+            {
+                "description": "a comma in an unquoted local part is not valid",
+                "data": "a,b@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a semicolon in an unquoted local part is not valid",
+                "data": "a;b@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a colon in an unquoted local part is not valid",
+                "data": "a:b@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a parenthesis in an unquoted local part is not valid",
+                "data": "test(comment)@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a parenthesis in the domain is not valid",
+                "data": "a@b(c).org",
+                "valid": false
             }
         ]
     }
