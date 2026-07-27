@@ -185,6 +185,36 @@
                 "description": "a non-ASCII character in a quoted pair is not valid",
                 "data": "\"test\\\u00a9\"@iana.org",
                 "valid": false
+            },
+            {
+                "description": "a trailing line feed is not valid",
+                "data": "test@iana.org\n",
+                "valid": false
+            },
+            {
+                "description": "a trailing carriage return is not valid",
+                "data": "test@iana.org\r",
+                "valid": false
+            },
+            {
+                "description": "a trailing space is not valid",
+                "data": "a@iana.org ",
+                "valid": false
+            },
+            {
+                "description": "a leading space is not valid",
+                "data": " a@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a tab in the local part is not valid",
+                "data": "a\tb@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a delete character in the local part is not valid",
+                "data": "\u007f@iana.org",
+                "valid": false
             }
         ]
     }
