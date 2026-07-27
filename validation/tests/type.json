@@ -4,6 +4,7 @@
     "tests": [
         {
             "description": "integer type matches integers",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": "integer"
             },
@@ -52,6 +53,7 @@
         },
         {
             "description": "integer type matches integers (6)",
+            "specification": [{"validation": "6.1.1"}],
             "compatibility": "6",
             "schema": {
                 "type": "integer"
@@ -66,6 +68,7 @@
         },
         {
             "description": "number type matches numbers",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": "number"
             },
@@ -119,6 +122,7 @@
         },
         {
             "description": "string type matches strings",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": "string"
             },
@@ -172,6 +176,7 @@
         },
         {
             "description": "object type matches objects",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": "object"
             },
@@ -215,6 +220,7 @@
         },
         {
             "description": "array type matches arrays",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": "array"
             },
@@ -258,6 +264,7 @@
         },
         {
             "description": "boolean type matches booleans",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": "boolean"
             },
@@ -316,6 +323,7 @@
         },
         {
             "description": "null type matches only the null object",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": "null"
             },
@@ -374,6 +382,7 @@
         },
         {
             "description": "any type matches any type",
+            "specification": [{"validation": "6.1.1"}],
             "compatibility": "<=3",
             "schema": {
                 "type": "any"
@@ -418,6 +427,7 @@
         },
         {
             "description": "type as array with one item",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": ["string"]
             },
@@ -436,6 +446,7 @@
         },
         {
             "description": "multiple types can be specified in an array",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": ["integer", "string"]
             },
@@ -479,6 +490,7 @@
         },
         {
             "description": "type: array or object",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": ["array", "object"]
             },
@@ -512,6 +524,7 @@
         },
         {
             "description": "type: array, object or null",
+            "specification": [{"validation": "6.1.1"}],
             "schema": {
                 "type": ["array", "object", "null"]
             },
@@ -545,6 +558,7 @@
         },
         {
             "description": "types can include schemas",
+            "specification": [{"validation": "6.1.1"}],
             "compatibility": "<=3",
             "schema": {
                 "type": ["array", { "type": "object" }]
@@ -589,6 +603,7 @@
         },
         {
             "description": "applies a nested schema",
+            "specification": [{"validation": "6.1.1"}],
             "compatibility": "<=3",
             "schema": {
                 "type": [
@@ -620,6 +635,7 @@
         },
         {
             "description": "types from separate schemas are merged",
+            "specification": [{"validation": "6.1.1"}],
             "compatibility": "<=3",
             "schema": {
                 "type": [
