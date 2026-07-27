@@ -217,7 +217,7 @@
         },
         {
             "description": "oneOf with missing optional property",
-            "compatibility": "=4",
+            "compatibility": "4",
             "schema": {
                 "oneOf": [
                     {
@@ -230,49 +230,6 @@
                     {
                         "properties": {
                             "foo": {}
-                        },
-                        "required": ["foo"]
-                    }
-                ]
-            },
-            "tests": [
-                {
-                    "description": "first oneOf valid",
-                    "data": { "bar": 8 },
-                    "valid": true
-                },
-                {
-                    "description": "second oneOf valid",
-                    "data": { "foo": "foo" },
-                    "valid": true
-                },
-                {
-                    "description": "both oneOf valid",
-                    "data": { "foo": "foo", "bar": 8 },
-                    "valid": false
-                },
-                {
-                    "description": "neither oneOf valid",
-                    "data": { "baz": "quux" },
-                    "valid": false
-                }
-            ]
-        },
-        {
-            "description": "oneOf with missing optional property (boolean schemas)",
-            "compatibility": "6",
-            "schema": {
-                "oneOf": [
-                    {
-                        "properties": {
-                            "bar": true,
-                            "baz": true
-                        },
-                        "required": ["bar"]
-                    },
-                    {
-                        "properties": {
-                            "foo": true
                         },
                         "required": ["foo"]
                     }
