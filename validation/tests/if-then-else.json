@@ -244,7 +244,7 @@
         },
         {
             "description": "then: false fails when condition matches",
-            "compatibility": "7,<=2020",
+            "compatibility": "7",
             "schema": {
                 "if": { "const": 1 },
                 "then": false
@@ -264,7 +264,7 @@
         },
         {
             "description": "else: false fails when condition does not match",
-            "compatibility": "7,<=2020",
+            "compatibility": "7",
             "schema": {
                 "if": { "const": 1 },
                 "else": false
