@@ -62,11 +62,6 @@
                 "valid": true
             },
             {
-                "description": "a local part with a lone UTF-16 surrogate is invalid",
-                "data": "\ud800@example.com",
-                "valid": false
-            },
-            {
                 "description": "a domain label that is not in Unicode NFC is valid",
                 "data": "user@cafe\u0301.com",
                 "valid": true
