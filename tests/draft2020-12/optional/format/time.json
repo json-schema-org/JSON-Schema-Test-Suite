@@ -241,6 +241,18 @@
                 "description": "an invalid time string in date-time format",
                 "data": "2020-11-28T23:55:45Z",
                 "valid": false
+            },
+            {
+                "description": "a numeric time-offset requires the colon separator",
+                "comment": "RFC 3339 section 5.6: time-numoffset = (\"+\" / \"-\") time-hour \":\" time-minute",
+                "data": "08:30:06+0130",
+                "valid": false
+            },
+            {
+                "description": "a numeric time-offset requires the minutes component",
+                "comment": "RFC 3339 section 5.6: time-numoffset = (\"+\" / \"-\") time-hour \":\" time-minute",
+                "data": "08:30:06+01",
+                "valid": false
             }
         ]
     }
