@@ -77,6 +77,11 @@
                 "description": "an invalid IRI though valid IRI reference",
                 "data": "âππ",
                 "valid": false
+            },
+            {
+                "description": "a valid IRI with a compressed IPv6 host",
+                "data": "http://[2001:db8::1]",
+                "valid": true
             }
         ]
     }
