@@ -256,6 +256,12 @@
                 "comment": "RFC 3339 section 5.6: no production of full-time emits a line feed",
                 "data": "08:30:06Z\n",
                 "valid": false
+            },
+            {
+                "description": "hour 24 is invalid with a numeric time-offset",
+                "comment": "RFC 3339 section 5.6: time-hour = 2DIGIT ; 00-23, and section 5.7 only allows 00 to 23",
+                "data": "24:59:00+01:00",
+                "valid": false
             }
         ]
     }
