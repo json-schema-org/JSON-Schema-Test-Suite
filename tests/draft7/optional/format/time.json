@@ -250,6 +250,12 @@
                 "comment": "RFC 3339 section 5.6: time-numoffset = (\"+\" / \"-\") time-hour \":\" time-minute",
                 "data": "08:30:06+01",
                 "valid": false
+            },
+            {
+                "description": "a trailing newline after a valid time",
+                "comment": "RFC 3339 section 5.6: no production of full-time emits a line feed",
+                "data": "08:30:06Z\n",
+                "valid": false
             }
         ]
     }
