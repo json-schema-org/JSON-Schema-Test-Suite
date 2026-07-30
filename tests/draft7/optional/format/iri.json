@@ -87,6 +87,11 @@
                 "description": "a valid IRI with a compressed IPv6 host",
                 "data": "http://[2001:db8::1]",
                 "valid": true
+            },
+            {
+                "description": "a trailing newline after a valid IRI is invalid",
+                "data": "http://ƒøø.ßår/\n",
+                "valid": false
             }
         ]
     }
