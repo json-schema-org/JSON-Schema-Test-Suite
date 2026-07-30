@@ -112,6 +112,16 @@
                 "description": "a valid IRI with no authority and an absolute path",
                 "data": "file:/etc/hosts",
                 "valid": true
+            },
+            {
+                "description": "a valid IRI with a supplementary-plane character in the path",
+                "data": "http://ƒøø.ßår/𐌀",
+                "valid": true
+            },
+            {
+                "description": "a valid IRI with a supplementary-plane private-use character in the query",
+                "data": "http://ƒøø.ßår/?q=󰀀",
+                "valid": true
             }
         ]
     }
