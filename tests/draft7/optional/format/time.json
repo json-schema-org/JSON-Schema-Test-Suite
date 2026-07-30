@@ -238,6 +238,12 @@
                 "description": "an invalid time string in date-time format",
                 "data": "2020-11-28T23:55:45Z",
                 "valid": false
+            },
+            {
+                "description": "a trailing newline after a valid time",
+                "comment": "RFC 3339 section 5.6: no production of full-time emits a line feed",
+                "data": "08:30:06Z\n",
+                "valid": false
             }
         ]
     }
