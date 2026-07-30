@@ -18,4 +18,4 @@ jobs:
           deno-version: "2.x"
 
       - name: Validate annotation tests
-        run: deno --node-modules-dir=auto --allow-read --no-prompt bin/annotation-tests.ts
+        run: deno --node-modules-dir=auto --allow-read --no-prompt annotations/annotation-tests.ts
