@@ -85,6 +85,11 @@
                 "description": "an IPv6 host whose embedded IPv4 has a leading zero is invalid",
                 "data": "http://[::ffff:192.168.0.01]",
                 "valid": false
+            },
+            {
+                "description": "a valid IRI with a compressed IPv6 host",
+                "data": "http://[2001:db8::1]",
+                "valid": true
             }
         ]
     }
