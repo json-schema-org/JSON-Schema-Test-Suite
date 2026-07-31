@@ -1,6 +1,6 @@
 {
     "$schema": "../../../validation-test-schema.json",
-    "description": "proposals propertyDependencies validation",
+    "description": "propertyDependencies validation",
     "tests": [
         {
             "description": "propertyDependencies doesn't act on non-objects",
@@ -74,12 +74,16 @@
                 },
                 {
                     "description": "ignores objects wth a key of the expected value",
-                    "data": { "foo": { "bar": "baz" } },
+                    "data": {
+                        "foo": { "bar": "baz" }
+                    },
                     "valid": true
                 },
                 {
                     "description": "ignores objects with the expected value nested in structure",
-                    "data": { "foo": { "baz": "bar" } },
+                    "data": {
+                        "foo": { "baz": "bar" }
+                    },
                     "valid": true
                 },
                 {
@@ -113,12 +117,19 @@
             "tests": [
                 {
                     "description": "bar with exactly 2 properties is valid",
-                    "data": { "foo": "bar", "other-foo": "other-bar" },
+                    "data": {
+                        "foo": "bar",
+                        "other-foo": "other-bar"
+                    },
                     "valid": true
                 },
                 {
                     "description": "bar with more than 2 properties is invalid",
-                    "data": { "foo": "bar", "other-foo": "other-bar", "too": "many" },
+                    "data": {
+                        "foo": "bar",
+                        "other-foo": "other-bar",
+                        "too": "many"
+                    },
                     "valid": false
                 },
                 {
@@ -133,12 +144,19 @@
                 },
                 {
                     "description": "baz with other properties is invalid",
-                    "data": { "foo": "baz", "other-foo": "other-bar" },
+                    "data": {
+                        "foo": "baz",
+                        "other-foo": "other-bar"
+                    },
                     "valid": false
                 },
                 {
                     "description": "anything allowed with qux",
-                    "data": { "foo": "qux", "blah": ["some other property"], "more": "properties" },
+                    "data": {
+                        "foo": "qux",
+                        "blah": ["some other property"],
+                        "more": "properties"
+                    },
                     "valid": true
                 },
                 {

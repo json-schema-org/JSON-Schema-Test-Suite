@@ -1,6 +1,6 @@
 {
     "$schema": "../../../validation-test-schema.json",
-    "description": "proposals dynamicRef validation",
+    "description": "dynamicRef validation with propertyDependencies",
     "tests": [
         {
             "description": "multiple dynamic paths to the $dynamicRef keyword",
@@ -47,22 +47,34 @@
             "tests": [
                 {
                     "description": "number list with number values",
-                    "data": { "kindOfList": "numbers", "list": [1.1] },
+                    "data": {
+                        "kindOfList": "numbers",
+                        "list": [1.1]
+                    },
                     "valid": true
                 },
                 {
                     "description": "number list with string values",
-                    "data": { "kindOfList": "numbers", "list": ["foo"] },
+                    "data": {
+                        "kindOfList": "numbers",
+                        "list": ["foo"]
+                    },
                     "valid": false
                 },
                 {
                     "description": "string list with number values",
-                    "data": { "kindOfList": "strings", "list": [1.1] },
+                    "data": {
+                        "kindOfList": "strings",
+                        "list": [1.1]
+                    },
                     "valid": false
                 },
                 {
                     "description": "string list with string values",
-                    "data": { "kindOfList": "strings", "list": ["foo"] },
+                    "data": {
+                        "kindOfList": "strings",
+                        "list": ["foo"]
+                    },
                     "valid": true
                 }
             ]
@@ -78,7 +90,9 @@
                         "$dynamicAnchor": "foo",
                         "type": "object",
                         "properties": {
-                            "expectedTypes": { "type": "string" }
+                            "expectedTypes": {
+                                "type": "string"
+                            }
                         },
                         "additionalProperties": {
                             "$dynamicRef": "#foo"
@@ -113,22 +127,34 @@
             "tests": [
                 {
                     "description": "expected strings - additional property as string is valid",
-                    "data": { "expectedTypes": "strings", "anotherProperty": "also a string" },
+                    "data": {
+                        "expectedTypes": "strings",
+                        "anotherProperty": "also a string"
+                    },
                     "valid": true
                 },
                 {
                     "description": "expected strings - additional property as not string is invalid",
-                    "data": { "expectedTypes": "strings", "anotherProperty": 42 },
+                    "data": {
+                        "expectedTypes": "strings",
+                        "anotherProperty": 42
+                    },
                     "valid": false
                 },
                 {
                     "description": "expected integers - additional property as integer is valid",
-                    "data": { "expectedTypes": "integers", "anotherProperty": 42 },
+                    "data": {
+                        "expectedTypes": "integers",
+                        "anotherProperty": 42
+                    },
                     "valid": true
                 },
                 {
                     "description": "expected integers - additional property as not integer is invalid",
-                    "data": { "expectedTypes": "integers", "anotherProperty": "a string" },
+                    "data": {
+                        "expectedTypes": "integers",
+                        "anotherProperty": "a string"
+                    },
                     "valid": false
                 }
             ]

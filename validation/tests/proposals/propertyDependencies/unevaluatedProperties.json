@@ -1,13 +1,15 @@
 {
     "$schema": "../../../validation-test-schema.json",
-    "description": "proposals unevaluatedProperties validation",
+    "description": "propertyDependencies validation",
     "tests": [
         {
             "description": "unevaluatedProperties can see inside propertyDependencies",
             "compatibility": "9999",
             "schema": {
                 "properties": {
-                    "foo": { "type": "string" }
+                    "foo": {
+                        "type": "string"
+                    }
                 },
                 "propertyDependencies": {
                     "foo": {
@@ -23,17 +25,25 @@
             "tests": [
                 {
                     "description": "allows bar if foo = foo1",
-                    "data": { "foo": "foo1", "bar": 42 },
+                    "data": {
+                        "foo": "foo1",
+                        "bar": 42
+                    },
                     "valid": true
                 },
                 {
                     "description": "disallows bar if foo != foo1",
-                    "data": { "foo": "foo2", "bar": 42 },
+                    "data": {
+                        "foo": "foo2",
+                        "bar": 42
+                    },
                     "valid": false
                 },
                 {
                     "description": "disallows bar if foo is absent",
-                    "data": { "bar": 42 },
+                    "data": {
+                        "bar": 42
+                    },
                     "valid": false
                 }
             ]
@@ -41,10 +51,10 @@
         {
             "description": "propertyDependencies with unevaluatedProperties",
             "compatibility": "9999",
-            "schema" : {
-                "properties" : { "foo2" : {} },
+            "schema": {
+                "properties": { "foo2": {} },
                 "propertyDependencies": {
-                    "foo" : {},
+                    "foo": {},
                     "foo2": {
                         "bar": {
                             "properties": {
@@ -58,7 +68,7 @@
 
             "tests": [
                 {
-                    "description": "unevaluatedProperties doesn't consider propertyDependencies", 
+                    "description": "unevaluatedProperties doesn't consider propertyDependencies",
                     "data": { "foo": "bar" },
                     "valid": false
                 },
