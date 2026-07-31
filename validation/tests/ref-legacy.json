@@ -74,48 +74,26 @@
         },
         {
             "description": "nested refs",
-            "compatibility": "4,<=7",
+            "compatibility": "3,<=7",
             "schema": {
                 "definitions": {
                     "a": { "type": "integer" },
                     "b": { "$ref": "#/definitions/a" },
                     "c": { "$ref": "#/definitions/b" }
                 },
-                "allOf": [{ "$ref": "#/definitions/c" }]
-            },
-            "tests": [
-                {
-                    "description": "nested ref valid",
-                    "data": 5,
-                    "valid": true
-                },
-                {
-                    "description": "nested ref invalid",
-                    "data": "a",
-                    "valid": false
+                "properties": {
+                    "foo": { "$ref": "#/definitions/c" }
                 }
-            ]
-        },
-        {
-            "description": "nested refs (extends)",
-            "compatibility": "=3",
-            "schema": {
-                "definitions": {
-                    "a": { "type": "integer" },
-                    "b": { "$ref": "#/definitions/a" },
-                    "c": { "$ref": "#/definitions/b" }
-                },
-                "extends": { "$ref": "#/definitions/c" }
             },
             "tests": [
                 {
                     "description": "nested ref valid",
-                    "data": 5,
+                    "data": { "foo": 5 },
                     "valid": true
                 },
                 {
                     "description": "nested ref invalid",
-                    "data": "a",
+                    "data": { "foo": "a" },
                     "valid": false
                 }
             ]
@@ -262,23 +240,25 @@
             "compatibility": "3,<=7",
             "schema": {
                 "definitions": {
-                 "": {
-                     "definitions": {
-                         "": { "type": "number" }
-                     }
-                 }
-             },
-                "allOf": [{ "$ref": "#/definitions//definitions/" }]
+                    "": {
+                        "definitions": {
+                            "": { "type": "number" }
+                        }
+                    }
+                },
+                "properties": {
+                    "foo": { "$ref": "#/definitions//definitions/" }
+                }
             },
             "tests": [
                 {
                     "description": "number is valid",
-                    "data": 1,
+                    "data": { "foo": 1 },
                     "valid": true
                 },
                 {
                     "description": "non-number is invalid",
-                    "data": "a",
+                    "data": { "foo": "a" },
                     "valid": false
                 }
             ]
