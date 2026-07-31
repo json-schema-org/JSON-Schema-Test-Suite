@@ -70,6 +70,11 @@
                 "description": "an invalid IRI fragment",
                 "data": "#ƒräg\\mênt",
                 "valid": false
+            },
+            {
+                "description": "a trailing newline after a valid IRI Reference is invalid",
+                "data": "/âππ\n",
+                "valid": false
             }
         ]
     }
