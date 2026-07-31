@@ -67,6 +67,16 @@
                 "description": "an invalid IRI fragment",
                 "data": "#ƒräg\\mênt",
                 "valid": false
+            },
+            {
+                "description": "a valid relative IRI Reference with a supplementary-plane character",
+                "data": "/âππ/𐌀",
+                "valid": true
+            },
+            {
+                "description": "a query-only IRI Reference with a supplementary private-use char",
+                "data": "?q=󰀀",
+                "valid": true
             }
         ]
     }
