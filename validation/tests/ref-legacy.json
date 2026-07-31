@@ -259,7 +259,7 @@
         },
         {
             "description": "empty tokens in $ref json-pointer",
-            "compatibility": "3,<=7",
+            "compatibility": "4,<=7",
             "schema": {
                 "definitions": {
                  "": {
