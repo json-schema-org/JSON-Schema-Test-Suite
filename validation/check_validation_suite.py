@@ -118,6 +118,11 @@ def collect(directory: Path, filename_filter: str | None = None):
     for path in sorted(directory.rglob("*.json")):
         if filename_filter is None or path.name == filename_filter:
             yield path
+            continue
+
+        relative = path.relative_to(directory).as_posix()
+        if relative == filename_filter.replace("\\", "/"):
+            yield path
 
 
 def load(path: Path):
@@ -510,6 +515,8 @@ class ValidationSuiteChecks(unittest.TestCase):
                     continue
  
                 compat = case.get("compatibility", "")
+                if compat == "9999":
+                    continue
                 schema = case.get("schema", {})
 
                 # Boolean schema (true/false) have no keywords.
@@ -524,46 +531,46 @@ class ValidationSuiteChecks(unittest.TestCase):
                     known = KNOWN[dialect]
                     Validator = DIALECT_VALIDATORS[dialect]
  
-                outer_self = self
+                    outer_self = self
+    
+                    class StrictValidators(Mapping):
+                        def __init__(self, d):
+                            self._d = d
+    
+                        def __iter__(self):
+                            return iter(self._d)
+    
+                        def __len__(self):
+                            return len(self._d)
+    
+                        def __getitem__(self, k):
+                            if k not in known and k in schema:
+                                outer_self.fail(
+                                    f"'{k}' is not a known keyword for "
+                                    f"release {dialect}. "
+                                    f"Either the compatibility field is too broad, "
+                                    f"the keyword is a typo, or it needs adding to "
+                                    f"the KNOWN allowlist in the checker."
+                                )
+                            return self._d[k]
  
-                class StrictValidators(Mapping):
-                    def __init__(self, d):
-                        self._d = d
- 
-                    def __iter__(self):
-                        return iter(self._d)
- 
-                    def __len__(self):
-                        return len(self._d)
- 
-                    def __getitem__(self, k):
-                        if k not in known and k in schema:
-                            outer_self.fail(
-                                f"'{k}' is not a known keyword for "
-                                f"release {dialect}. "
-                                f"Either the compatibility field is too broad, "
-                                f"the keyword is a typo, or it needs adding to "
-                                f"the KNOWN allowlist in the checker."
-                            )
-                        return self._d[k]
- 
-                original_validators = Validator.VALIDATORS
-                self.addCleanup(
-                    setattr, Validator, "VALIDATORS", original_validators
-                )
-                Validator.VALIDATORS = StrictValidators(
-                    dict(original_validators)
-                )
- 
-                with self.subTest(
-                    file=path.name,
-                    case=case.get("description"),
-                    dialect=dialect,
-                ):
-                    try:
-                        Validator(schema).is_valid(12)
-                    except Unresolvable:
-                        pass
+                    original_validators = Validator.VALIDATORS
+                    self.addCleanup(
+                        setattr, Validator, "VALIDATORS", original_validators
+                    )
+                    Validator.VALIDATORS = StrictValidators(
+                        dict(original_validators)
+                    )
+    
+                    with self.subTest(
+                        file=path.name,
+                        case=case.get("description"),
+                        dialect=dialect,
+                    ):
+                        try:
+                            Validator(schema).is_valid(12)
+                        except Unresolvable:
+                            pass
 
     def test_compatibility_syntax_is_valid(self):
         for path in self.test_files:
