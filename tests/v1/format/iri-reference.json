@@ -80,6 +80,16 @@
                 "description": "a valid protocol-relative IRI Reference with a compressed IPv6 host",
                 "data": "//[2001:db8::1]/p",
                 "valid": true
+            },
+            {
+                "description": "a valid relative IRI Reference with a supplementary-plane character",
+                "data": "/âππ/𐌀",
+                "valid": true
+            },
+            {
+                "description": "a query-only IRI Reference with a supplementary private-use char",
+                "data": "?q=󰀀",
+                "valid": true
             }
         ]
     }
