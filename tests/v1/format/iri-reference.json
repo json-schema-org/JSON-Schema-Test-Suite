@@ -70,6 +70,11 @@
                 "description": "an invalid IRI fragment",
                 "data": "#ƒräg\\mênt",
                 "valid": false
+            },
+            {
+                "description": "a valid protocol-relative IRI Reference with a compressed IPv6 host",
+                "data": "//[2001:db8::1]/p",
+                "valid": true
             }
         ]
     }
