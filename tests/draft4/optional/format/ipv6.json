@@ -202,6 +202,11 @@
                 "description": "invalid non-ASCII '৪' (a Bengali 4) in the IPv4 portion",
                 "data": "1:2::192.16৪.0.1",
                 "valid": false
+            },
+            {
+                "description": "one group before '::' and five groups after is valid",
+                "data": "1::2:3:4:5:6",
+                "valid": true
             }
         ]
     }
