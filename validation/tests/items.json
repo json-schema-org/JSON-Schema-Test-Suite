@@ -1,5 +1,5 @@
 {
-    "$schema": "../test-suite.schema.json",
+    "$schema": "../validation-test-schema.json",
     "description": "items/prefixItems validation",
     "tests": [
         {
@@ -91,27 +91,27 @@
             "tests": [
                 {
                     "description": "correct types",
-                    "data": [ 1, "foo" ],
+                    "data": [1, "foo"],
                     "valid": true
                 },
                 {
                     "description": "wrong types",
-                    "data": [ "foo", 1 ],
+                    "data": ["foo", 1],
                     "valid": false
                 },
                 {
                     "description": "incomplete array of items",
-                    "data": [ 1 ],
+                    "data": [1],
                     "valid": true
                 },
                 {
                     "description": "array with additional items",
-                    "data": [ 1, "foo", true ],
+                    "data": [1, "foo", true],
                     "valid": true
                 },
                 {
                     "description": "empty array",
-                    "data": [ ],
+                    "data": [],
                     "valid": true
                 },
                 {
@@ -566,7 +566,7 @@
             "tests": [
                 {
                     "description": "all items match schema",
-                    "data": [ 1, 2, 3, 4, 5 ],
+                    "data": [1, 2, 3, 4, 5],
                     "valid": true
                 }
             ]
@@ -651,12 +651,12 @@
                 {
                     "description":
                     "items defaults to empty schema so everything is valid",
-                    "data": [ 1, 2, 3, 4, 5 ],
+                    "data": [1, 2, 3, 4, 5],
                     "valid": true
                 },
                 {
                     "description": "ignores non-arrays",
-                    "data": {"foo" : "bar"},
+                    "data": { "foo" : "bar" },
                     "valid": true
                 }
             ]
@@ -713,7 +713,7 @@
         },
         {
             "description": "additionalItems does not look in applicators, invalid case",
-            "compatibility": "<=2019",
+            "compatibility": "4,<=2019",
             "schema": {
                 "allOf": [
                     {
@@ -809,7 +809,7 @@
                 },
                 {
                     "description": "valid instance",
-                    "data": [ null ],
+                    "data": [null],
                     "valid": true
                 }
             ]
