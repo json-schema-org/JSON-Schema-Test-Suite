@@ -215,6 +215,31 @@
                 "description": "a leading zero in the last IPv4 octet is invalid",
                 "data": "::ffff:192.168.0.01",
                 "valid": false
+            },
+            {
+                "description": "uppercase hex digits are valid",
+                "data": "2001:DB8::1",
+                "valid": true
+            },
+            {
+                "description": "leading zeros in every group are valid",
+                "data": "2001:0db8:0000:0000:0000:0000:0000:0001",
+                "valid": true
+            },
+            {
+                "description": "two groups before '::' and four groups after is valid",
+                "data": "1:2::3:4:5:6",
+                "valid": true
+            },
+            {
+                "description": "eight groups alongside '::' is invalid",
+                "data": "1:2:3:4:5:6:7:8::",
+                "valid": false
+            },
+            {
+                "description": "trailing newline is invalid",
+                "data": "::1\n",
+                "valid": false
             }
         ]
     }
