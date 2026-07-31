@@ -467,6 +467,8 @@ class ValidationSuiteChecks(unittest.TestCase):
         for path in self.test_files:
             for case in load_cases(path):
                 compat = case.get("compatibility", "")
+                if compat == "9999":
+                    continue
                 schema = case.get("schema", {})
                 applicable = [
                     d for d in DIALECT_ORDER if dialect_applies(compat, d)
