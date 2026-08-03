@@ -217,6 +217,11 @@
                 "description": "minutes and seconds can appear without hour",
                 "data": "PT1M2S",
                 "valid": true
+            },
+            {
+                "description": "a leading sign is not allowed",
+                "data": "-P1D",
+                "valid": false
             }
         ]
     }
