@@ -135,6 +135,11 @@
                 "description": "an underscore in place of a hex digit is invalid",
                 "data": "2eb8aa08-aa98-11ea-b4aa-73b441d1_380",
                 "valid": false
+            },
+            {
+                "description": "a trailing newline after a complete UUID is invalid",
+                "data": "2eb8aa08-aa98-11ea-b4aa-73b441d16380\n",
+                "valid": false
             }
         ]
     }
