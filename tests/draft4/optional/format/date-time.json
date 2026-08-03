@@ -152,6 +152,11 @@
                 "description": "a numeric offset without minutes is invalid",
                 "data": "1985-04-12T23:20:50+01",
                 "valid": false
+            },
+            {
+                "description": "hour 24 is invalid even with a leap second",
+                "data": "2016-12-31T24:59:60+01:00",
+                "valid": false
             }
         ]
     }
