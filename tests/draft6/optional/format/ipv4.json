@@ -145,6 +145,16 @@
                 "valid": true
             },
             {
+                "description": "valid IPv4 with an octet in the 200 to 249 range",
+                "data": "200.0.0.0",
+                "valid": true
+            },
+            {
+                "description": "valid IPv4 with two-digit octets",
+                "data": "10.20.30.40",
+                "valid": true
+            },
+            {
                 "description": "empty string is invalid",
                 "data": "",
                 "valid": false
