@@ -18,7 +18,7 @@
                         "$id": "genericList",
                         "properties": {
                             "list": {
-                                "items": { "$dynamicRef": "#itemType" }
+                                "items": { "$dynamicRef": "itemType" }
                             }
                         }
                     },
@@ -95,7 +95,7 @@
                             }
                         },
                         "additionalProperties": {
-                            "$dynamicRef": "#foo"
+                            "$dynamicRef": "foo"
                         }
                     }
                 },
