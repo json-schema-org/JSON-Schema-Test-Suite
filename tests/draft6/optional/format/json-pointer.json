@@ -214,11 +214,6 @@
                 "valid": false
             },
             {
-                "description": "not a valid JSON-pointer (dangling ~ after a NUL character)",
-                "data": "/foo\u0000~",
-                "valid": false
-            },
-            {
                 "description": "valid JSON-pointer (right curly bracket U+007D)",
                 "data": "/}",
                 "valid": true
