@@ -2,19 +2,43 @@
     "$schema": "../../validation-test-schema.json",
     "description": "v1 ecmascript-regex validation",
     "tests": [
-      {
-        "description": "\\a is not an ECMA 262 control escape",
-        "compatibility": "9999",
-        "schema": {
-          "format": "regex"
+        {
+            "description": "ECMA 262 regex dialect recognition",
+            "compatibility": "<=2020",
+            "schema": {
+                "format": "regex"
+            },
+            "tests": [
+                {
+                    "description": "[^] is a valid regex",
+                    "data": "[^]",
+                    "valid": true
+                },
+                {
+                    "description": "ECMA 262 supports lookbehind since ES2018",
+                    "data": "(?<=foo)bar",
+                    "valid": true
+                },
+                {
+                    "description": "ECMA 262 does not support Python-style named groups",
+                    "data": "(?P<name>x)",
+                    "valid": false
+                }
+            ]
         },
-        "tests": [
-          {
-            "description": "when used as a pattern",
-            "data": "\\a",
-            "valid": false
-          }
-        ]
-      }
+        {
+            "description": "\\a is not an ECMA 262 control escape",
+            "compatibility": "<=2020",
+            "schema": {
+                "format": "regex"
+            },
+            "tests": [
+                {
+                    "description": "when used as a pattern",
+                    "data": "\\a",
+                    "valid": false
+                }
+            ]
+        }
     ]
 }
