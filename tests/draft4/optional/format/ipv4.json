@@ -190,6 +190,11 @@
                 "valid": false
             },
             {
+                "description": "an IPv4-mapped IPv6 address is invalid",
+                "data": "::ffff:192.168.0.1",
+                "valid": false
+            },
+            {
                 "description": "single octet out of range in last position",
                 "data": "192.168.0.256",
                 "valid": false
