@@ -119,7 +119,7 @@
                 "valid": true
             },
             {
-                "description": "a valid IRI with a supplementary-plane private-use character in the query",
+                "description": "a valid IRI with a supplementary-plane private-use char in query",
                 "data": "http://ƒøø.ßår/?q=󰀀",
                 "valid": true
             }
