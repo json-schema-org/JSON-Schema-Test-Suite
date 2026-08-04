@@ -1,0 +1,20 @@
+{
+    "$schema": "../../validation-test-schema.json",
+    "description": "v1 ecmascript-regex validation",
+    "tests": [
+      {
+        "description": "\\a is not an ECMA 262 control escape",
+        "compatibility": "9999",
+        "schema": {
+          "format": "regex"
+        },
+        "tests": [
+          {
+            "description": "when used as a pattern",
+            "data": "\\a",
+            "valid": false
+          }
+        ]
+      }
+    ]
+}
