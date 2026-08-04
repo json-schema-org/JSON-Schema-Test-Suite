@@ -4,6 +4,7 @@
     "tests": [
         {
             "description": "validation of IPv6 addresses",
+            "compatibility": "<=2020",
             "schema": { 
                 "format": "ipv6" 
             },
