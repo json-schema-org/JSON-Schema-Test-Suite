@@ -122,6 +122,11 @@
                 "description": "empty reference tokens in the json-pointer part",
                 "data": "0//",
                 "valid": true
+            },
+            {
+                "description": "trailing newline after the non-negative integer",
+                "data": "1\n",
+                "valid": false
             }
         ]
     }
