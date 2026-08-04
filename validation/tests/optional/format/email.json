@@ -4,6 +4,7 @@
     "tests": [
         {
             "description": "validation of e-mail addresses",
+            "compatibility": "<=2020",
             "schema": {
                 "format": "email"
             },
