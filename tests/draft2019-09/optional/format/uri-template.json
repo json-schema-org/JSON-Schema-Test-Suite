@@ -155,6 +155,16 @@
                 "description": "a variable name may start with a percent-encoded triplet",
                 "data": "{%41}",
                 "valid": true
+            },
+            {
+                "description": "a four-digit prefix max-length is valid",
+                "data": "{v:1000}",
+                "valid": true
+            },
+            {
+                "description": "a leading zero in the prefix max-length is invalid",
+                "data": "{v:01}",
+                "valid": false
             }
         ]
     }
