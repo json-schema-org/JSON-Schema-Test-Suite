@@ -175,6 +175,21 @@
                 "description": "a delete character in a literal is invalid",
                 "data": "a\u007fb",
                 "valid": false
+            },
+            {
+                "description": "a trailing comma in the variable list is invalid",
+                "data": "{a,}",
+                "valid": false
+            },
+            {
+                "description": "a default value in a varspec is invalid",
+                "data": "{var=def}",
+                "valid": false
+            },
+            {
+                "description": "an operator in place of the first varspec is invalid",
+                "data": "{,+var}",
+                "valid": false
             }
         ]
     }
