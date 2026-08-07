@@ -80,6 +80,11 @@
                 "description": "an invalid IRI though valid IRI reference",
                 "data": "âππ",
                 "valid": false
+            },
+            {
+                "description": "an IPvFuture host with an uppercase version letter is valid",
+                "data": "http://[V1.fe]",
+                "valid": true
             }
         ]
     }
