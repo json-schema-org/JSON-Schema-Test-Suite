@@ -165,6 +165,16 @@
                 "description": "a leading zero in the prefix max-length is invalid",
                 "data": "{v:01}",
                 "valid": false
+            },
+            {
+                "description": "a space in a literal is invalid",
+                "data": "a b",
+                "valid": false
+            },
+            {
+                "description": "a delete character in a literal is invalid",
+                "data": "a\u007fb",
+                "valid": false
             }
         ]
     }
