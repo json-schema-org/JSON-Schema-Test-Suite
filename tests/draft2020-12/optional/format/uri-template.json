@@ -95,6 +95,51 @@
                 "description": "a supplementary plane character in a literal is valid",
                 "data": "a\ud83d\ude00b",
                 "valid": true
+            },
+            {
+                "description": "reserved expansion operator",
+                "data": "{+var}",
+                "valid": true
+            },
+            {
+                "description": "fragment expansion operator",
+                "data": "{#var}",
+                "valid": true
+            },
+            {
+                "description": "label expansion operator",
+                "data": "{.var}",
+                "valid": true
+            },
+            {
+                "description": "path segment expansion operator",
+                "data": "{/var}",
+                "valid": true
+            },
+            {
+                "description": "path style parameter expansion operator",
+                "data": "{;var}",
+                "valid": true
+            },
+            {
+                "description": "form style query expansion operator",
+                "data": "{?var}",
+                "valid": true
+            },
+            {
+                "description": "form style query continuation operator",
+                "data": "{&var}",
+                "valid": true
+            },
+            {
+                "description": "the explode modifier is valid",
+                "data": "{var*}",
+                "valid": true
+            },
+            {
+                "description": "a variable list with more than one varspec is valid",
+                "data": "{x,y}",
+                "valid": true
             }
         ]
     }
