@@ -38,17 +38,17 @@
             },
             {
                 "description": "a valid IRI with anchor tag",
-                "data": "http://ƒøø.ßår/?∂éœ=πîx#πîüx",
+                "data": "http://\u0192\u00f8\u00f8.\u00df\u00e5r/?\u2202\u00e9\u0153=\u03c0\u00eex#\u03c0\u00ee\u00fcx",
                 "valid": true
             },
             {
                 "description": "a valid IRI with anchor tag and parentheses",
-                "data": "http://ƒøø.com/blah_(wîkïpédiå)_blah#ßité-1",
+                "data": "http://\u0192\u00f8\u00f8.com/blah_(w\u00eek\u00efp\u00e9di\u00e5)_blah#\u00dfit\u00e9-1",
                 "valid": true
             },
             {
                 "description": "a valid IRI with URL-encoded stuff",
-                "data": "http://ƒøø.ßår/?q=Test%20URL-encoded%20stuff",
+                "data": "http://\u0192\u00f8\u00f8.\u00df\u00e5r/?q=Test%20URL-encoded%20stuff",
                 "valid": true
             },
             {
@@ -73,12 +73,865 @@
             },
             {
                 "description": "an invalid IRI",
-                "data": "\\\\WINDOWS\\filëßåré",
+                "data": "\\\\WINDOWS\\fil\u00eb\u00df\u00e5r\u00e9",
                 "valid": false
             },
             {
                 "description": "an invalid IRI though valid IRI reference",
-                "data": "âππ",
+                "data": "\u00e2\u03c0\u03c0",
+                "valid": false
+            }
+        ]
+    },
+    {
+        "description": "RFC3987 IRI validation tests for iri from rfc3987-syntax2",
+        "schema": {
+            "format": "iri"
+        },
+        "tests": [
+            {
+                "description": "valid iuserinfo (0): Empty iuserinfo is valid (zero or more chars ...",
+                "data": "http://@example.com/",
+                "valid": true
+            },
+            {
+                "description": "valid iuserinfo (1): Simple username",
+                "data": "http://user@example.com/",
+                "valid": true
+            },
+            {
+                "description": "valid iuserinfo (2): Username:password (colon is allowed in iuseri...",
+                "data": "http://user:password@example.com/",
+                "valid": true
+            },
+            {
+                "description": "valid iuserinfo (3): Percent-encoded at-sign in iuserinfo",
+                "data": "http://user%40name@example.com/",
+                "valid": true
+            },
+            {
+                "description": "valid iuserinfo (4): Multiple colons allowed in iuserinfo",
+                "data": "http://user:pass:extra@example.com/",
+                "valid": true
+            },
+            {
+                "description": "valid iuserinfo (5): All sub-delims valid in iuserinfo",
+                "data": "http://!$&'()*+,;=@example.com/",
+                "valid": true
+            },
+            {
+                "description": "valid iuserinfo (6): Chinese characters (ucschar) in iuserinfo",
+                "data": "http://\u7528\u6237@example.com/",
+                "valid": true
+            },
+            {
+                "description": "valid iuserinfo (7): Percent-encoded space in iuserinfo",
+                "data": "http://user%20name@example.com/",
+                "valid": true
+            },
+            {
+                "description": "invalid iuserinfo (0): Contains space",
+                "data": "http://user name@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (1): Contains newline",
+                "data": "http://user\nname@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (2): Contains tab",
+                "data": "http://user\tname@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (3): Multiple '@' symbols",
+                "data": "http://user@name@@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (4): Invalid percent-encoding",
+                "data": "http://user%2G@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (5): Pipe character not allowed",
+                "data": "http://user|name@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (6): Backslash not allowed",
+                "data": "http://user\\name@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (7): Backtick is not valid",
+                "data": "http://user`name@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (8): Left curly brace not allowed",
+                "data": "http://user{@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (9): Right curly brace not allowed",
+                "data": "http://user}@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (10): Fragment indicator is invalid",
+                "data": "http://user#@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (11): Left bracket is a gen-delim",
+                "data": "http://user[@example.com/",
+                "valid": false
+            },
+            {
+                "description": "invalid iuserinfo (12): Right bracket is a gen-delim",
+                "data": "http://user]@example.com/",
+                "valid": false
+            },
+            {
+                "description": "valid ipvfuture (0): Minimal IPvFuture: version v1 with single unr...",
+                "data": "http://[v1.a]:80/",
+                "valid": true
+            },
+            {
+                "description": "valid ipvfuture (1): IPvFuture version 1 with unreserved suffix",
+                "data": "http://[v1.test]:80/",
+                "valid": true
+            },
+            {
+                "description": "valid ipvfuture (2): IPvFuture with multi-hex version number",
+                "data": "http://[vFF.abcd]:80/",
+                "valid": true
+            },
+            {
+                "description": "valid ipvfuture (3): IPvFuture suffix with unreserved chars ~-._",
+                "data": "http://[v1.~-._]:80/",
+                "valid": true
+            },
+            {
+                "description": "valid ipvfuture (4): IPvFuture suffix with all sub-delims",
+                "data": "http://[v1.!$&'()*+,;=]:80/",
+                "valid": true
+            },
+            {
+                "description": "valid ipvfuture (5): IPvFuture suffix with colon (colon allowed pe...",
+                "data": "http://[v1.a:b]:80/",
+                "valid": true
+            },
+            {
+                "description": "valid ipvfuture (6): IPvFuture with multi-digit hex version",
+                "data": "http://[v123.host]:80/",
+                "valid": true
+            },
+            {
+                "description": "invalid ipvfuture (0): Missing '.' separator",
+                "data": "http://[v1]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (1): Missing version number",
+                "data": "http://[v.123]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (2): Invalid character '@'",
+                "data": "http://[v1.@]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (3): Invalid character '#'",
+                "data": "http://[v1.#]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (4): Emoji is not allowed",
+                "data": "http://[v1.\ud83d\udca1]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (5): Brackets are not part of allowed charset",
+                "data": "http://[v1.[]]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (6): No suffix after version",
+                "data": "http://[v1]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (7): Slash is not valid here",
+                "data": "http://[v1/]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (8): Missing version number",
+                "data": "http://[v.abc]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (9): Missing '.' separator",
+                "data": "http://[v123]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (10): Suffix missing",
+                "data": "http://[v123.]:80/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipvfuture (11): X is not a hex digit",
+                "data": "http://[vX.abc]:80/",
+                "valid": false
+            },
+            {
+                "description": "valid ucschar (0): U+00A0 NO-BREAK SPACE: boundary start of ucscha...",
+                "data": "http://example.com/\u00a0",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (1): U+4E2D CJK: within ucschar range %xA0-D7FF",
+                "data": "http://example.com/\u4e2d",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (2): U+D7FF: boundary end of ucschar range %xA0-D7FF",
+                "data": "http://example.com/\ud7ff",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (3): U+F900: boundary start of ucschar range %xF900-...",
+                "data": "http://example.com/\uf900",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (4): U+FDCF: boundary end of ucschar range %xF900-FDCF",
+                "data": "http://example.com/\ufdcf",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (5): U+FDF0: boundary start of ucschar range %xFDF0-...",
+                "data": "http://example.com/\ufdf0",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (6): U+FFEF: boundary end of ucschar range %xFDF0-FFEF",
+                "data": "http://example.com/\uffef",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (7): U+10000: boundary start of supplementary ucscha...",
+                "data": "http://example.com/\ud800\udc00",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (8): U+1FFFD: boundary end of supplementary ucschar ...",
+                "data": "http://example.com/\ud83f\udffd",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (9): U+20000: boundary start of supplementary ucscha...",
+                "data": "http://example.com/\ud840\udc00",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (10): U+2FFFD: boundary end of supplementary ucschar...",
+                "data": "http://example.com/\ud87f\udffd",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (11): U+E1000: boundary start of supplementary ucsch...",
+                "data": "http://example.com/\udb44\udc00",
+                "valid": true
+            },
+            {
+                "description": "valid ucschar (12): U+EFFFD: boundary end of supplementary ucschar...",
+                "data": "http://example.com/\udb7f\udffd",
+                "valid": true
+            },
+            {
+                "description": "invalid ucschar (0): Control character not allowed in UCS range",
+                "data": "http://example.com/\u001f",
+                "valid": false
+            },
+            {
+                "description": "invalid ucschar (1): DEL character is outside UCS allowed range",
+                "data": "http://example.com/\u007f",
+                "valid": false
+            },
+            {
+                "description": "invalid ucschar (2): Control character not part of ucschar",
+                "data": "http://example.com/\u009f",
+                "valid": false
+            },
+            {
+                "description": "invalid ucschar (3): Noncharacter in Unicode",
+                "data": "http://example.com/\ufffe",
+                "valid": false
+            },
+            {
+                "description": "invalid ucschar (4): Noncharacter in Unicode",
+                "data": "http://example.com/\uffff",
+                "valid": false
+            },
+            {
+                "description": "invalid ucschar (5): Null byte is not allowed",
+                "data": "http://example.com/\u0000",
+                "valid": false
+            },
+            {
+                "description": "invalid ucschar (6): C1 control character, disallowed",
+                "data": "http://example.com/\u0080",
+                "valid": false
+            },
+            {
+                "description": "valid iunreserved (0): Lowercase ALPHA is unreserved",
+                "data": "http://example.com/a",
+                "valid": true
+            },
+            {
+                "description": "valid iunreserved (1): Uppercase ALPHA is unreserved",
+                "data": "http://example.com/Z",
+                "valid": true
+            },
+            {
+                "description": "valid iunreserved (2): DIGIT 0 is unreserved",
+                "data": "http://example.com/0",
+                "valid": true
+            },
+            {
+                "description": "valid iunreserved (3): DIGIT 9 is unreserved",
+                "data": "http://example.com/9",
+                "valid": true
+            },
+            {
+                "description": "valid iunreserved (4): Hyphen is unreserved",
+                "data": "http://example.com/-",
+                "valid": true
+            },
+            {
+                "description": "valid iunreserved (5): Period is unreserved",
+                "data": "http://example.com/.",
+                "valid": true
+            },
+            {
+                "description": "valid iunreserved (6): Underscore is unreserved",
+                "data": "http://example.com/_",
+                "valid": true
+            },
+            {
+                "description": "valid iunreserved (7): Tilde is unreserved",
+                "data": "http://example.com/~",
+                "valid": true
+            },
+            {
+                "description": "valid iunreserved (8): ucschar U+00A0 via iunreserved (ucschar ran...",
+                "data": "http://example.com/\u00a0",
+                "valid": true
+            },
+            {
+                "description": "valid iunreserved (9): ucschar CJK U+4E2D via iunreserved",
+                "data": "http://example.com/\u4e2d",
+                "valid": true
+            },
+            {
+                "description": "invalid iunreserved (0): Exclamation mark is not unreserved",
+                "data": "http://example.com/!",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (1): Asterisk is reserved, not unreserved",
+                "data": "http://example.com/*",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (2): Left parenthesis is not unreserved",
+                "data": "http://example.com/(",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (3): Right parenthesis is not unreserved",
+                "data": "http://example.com/)",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (4): Equals sign is reserved",
+                "data": "http://example.com/=",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (5): Plus sign is reserved",
+                "data": "http://example.com/+",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (6): Comma is reserved",
+                "data": "http://example.com/,",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (7): Semicolon is reserved",
+                "data": "http://example.com/;",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (8): Ampersand is reserved",
+                "data": "http://example.com/&",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (9): Single quote is reserved",
+                "data": "http://example.com/'",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (10): Colon is a gen-delim",
+                "data": "http://example.com/:",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (11): At symbol is a gen-delim",
+                "data": "http://example.com/@",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (12): Slash is a gen-delim",
+                "data": "http://example.com//",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (13): Question mark is a gen-delim",
+                "data": "http://example.com/?",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (14): Hash is a gen-delim",
+                "data": "http://example.com/#",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (15): Left bracket is a gen-delim",
+                "data": "http://example.com/[",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (16): Right bracket is a gen-delim",
+                "data": "http://example.com/]",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (17): Space is not allowed",
+                "data": "http://example.com/ ",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (18): Tab is not allowed",
+                "data": "http://example.com/\t",
+                "valid": false
+            },
+            {
+                "description": "invalid iunreserved (19): Newline is not allowed",
+                "data": "http://example.com/\n",
+                "valid": false
+            },
+            {
+                "description": "valid unreserved (0): Lowercase ALPHA is unreserved",
+                "data": "http://example.com/a",
+                "valid": true
+            },
+            {
+                "description": "valid unreserved (1): Uppercase ALPHA is unreserved",
+                "data": "http://example.com/Z",
+                "valid": true
+            },
+            {
+                "description": "valid unreserved (2): DIGIT 0 is unreserved",
+                "data": "http://example.com/0",
+                "valid": true
+            },
+            {
+                "description": "valid unreserved (3): DIGIT 9 is unreserved",
+                "data": "http://example.com/9",
+                "valid": true
+            },
+            {
+                "description": "valid unreserved (4): Hyphen is unreserved",
+                "data": "http://example.com/-",
+                "valid": true
+            },
+            {
+                "description": "valid unreserved (5): Period is unreserved",
+                "data": "http://example.com/.",
+                "valid": true
+            },
+            {
+                "description": "valid unreserved (6): Underscore is unreserved",
+                "data": "http://example.com/_",
+                "valid": true
+            },
+            {
+                "description": "valid unreserved (7): Tilde is unreserved",
+                "data": "http://example.com/~",
+                "valid": true
+            },
+            {
+                "description": "invalid unreserved (0): Exclamation mark is reserved",
+                "data": "http://example.com/!",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (1): At symbol is reserved",
+                "data": "http://example.com/@",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (2): Colon is a gen-delim",
+                "data": "http://example.com/:",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (3): Slash is a gen-delim",
+                "data": "http://example.com//",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (4): Question mark is reserved",
+                "data": "http://example.com/?",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (5): Fragment indicator is reserved",
+                "data": "http://example.com/#",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (6): Left bracket is reserved",
+                "data": "http://example.com/[",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (7): Right bracket is reserved",
+                "data": "http://example.com/]",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (8): Ampersand is a sub-delim",
+                "data": "http://example.com/&",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (9): Equal sign is reserved",
+                "data": "http://example.com/=",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (10): Used for pct-encoding, not unreserved",
+                "data": "http://example.com/%",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (11): Space is not allowed",
+                "data": "http://example.com/ ",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (12): Tab is not allowed",
+                "data": "http://example.com/\t",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (13): Backtick is not allowed",
+                "data": "http://example.com/`",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (14): Backslash is not allowed",
+                "data": "http://example.com/\\",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (15): Caret is not allowed",
+                "data": "http://example.com/^",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (16): Left curly brace is not allowed",
+                "data": "http://example.com/{",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (17): Right curly brace is not allowed",
+                "data": "http://example.com/}",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (18): Pipe character is not allowed",
+                "data": "http://example.com/|",
+                "valid": false
+            },
+            {
+                "description": "invalid unreserved (19): Tilde followed by space",
+                "data": "http://example.com/~ ",
+                "valid": false
+            },
+            {
+                "description": "valid iauthority (0): Host only (no userinfo, no port)",
+                "data": "http://example.com/path",
+                "valid": true
+            },
+            {
+                "description": "valid iauthority (1): Empty authority (empty ireg-name, no port)",
+                "data": "http:///path",
+                "valid": true
+            },
+            {
+                "description": "valid iauthority (2): Userinfo and host",
+                "data": "http://user@example.com/path",
+                "valid": true
+            },
+            {
+                "description": "valid iauthority (3): Host with numeric port",
+                "data": "http://example.com:80/path",
+                "valid": true
+            },
+            {
+                "description": "valid iauthority (4): Full authority: userinfo, host, port",
+                "data": "http://user:pass@example.com:443/path",
+                "valid": true
+            },
+            {
+                "description": "valid iauthority (5): IPv6 literal as host",
+                "data": "http://[::1]/path",
+                "valid": true
+            },
+            {
+                "description": "valid iauthority (6): IPv6 literal host with port",
+                "data": "http://[::1]:8080/path",
+                "valid": true
+            },
+            {
+                "description": "valid iauthority (7): IRI authority with ucschar in userinfo and host",
+                "data": "http://\u7528\u6237@\u4e2d\u6587.com:8080/path",
+                "valid": true
+            },
+            {
+                "description": "invalid iauthority (0): Non-numeric port",
+                "data": "http://user@host:port/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (1): Host cannot start with '/'",
+                "data": "http://user@/path/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (2): Invalid leading colon",
+                "data": "http://:host/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (3): Double colon not valid",
+                "data": "http://host::80/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (4): Double '@'",
+                "data": "http://user@@host/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (5): Port not numeric",
+                "data": "http://user@host:abc/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (6): Too many ':'",
+                "data": "http://host:80:80/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (7): Colon used instead of '@'",
+                "data": "http://user@:host/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (8): Multiple '@'",
+                "data": "http://user@host@80/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (9): Invalid leading slash",
+                "data": "http:///host:80/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (10): Whitespace is invalid",
+                "data": "http:// /path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (11): Letter in port",
+                "data": "http://user@host:65a/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (12): Brackets not allowed",
+                "data": "http://host[80]/path",
+                "valid": false
+            },
+            {
+                "description": "invalid iauthority (13): Pipe is invalid",
+                "data": "http://host|80/path",
+                "valid": false
+            },
+            {
+                "description": "valid ipv4address (0): All-zero IPv4 address (minimum boundary)",
+                "data": "http://0.0.0.0/",
+                "valid": true
+            },
+            {
+                "description": "valid ipv4address (1): All-max IPv4 address (maximum boundary)",
+                "data": "http://255.255.255.255/",
+                "valid": true
+            },
+            {
+                "description": "valid ipv4address (2): Typical private-range IPv4",
+                "data": "http://192.168.1.1/",
+                "valid": true
+            },
+            {
+                "description": "valid ipv4address (3): 10.x private range",
+                "data": "http://10.0.0.1/",
+                "valid": true
+            },
+            {
+                "description": "valid ipv4address (4): Loopback address",
+                "data": "http://127.0.0.1/",
+                "valid": true
+            },
+            {
+                "description": "valid ipv4address (5): Simple ascending IPv4",
+                "data": "http://1.2.3.4/",
+                "valid": true
+            },
+            {
+                "description": "valid ipv4address (6): Tests 2xx and 24x dec-octets",
+                "data": "http://100.200.249.0/",
+                "valid": true
+            },
+            {
+                "description": "valid ipv4address (7): Tests 25x dec-octet range",
+                "data": "http://250.251.252.253/",
+                "valid": true
+            },
+            {
+                "description": "valid ipv4address (8): Covers all five dec-octet grammar alternatives",
+                "data": "http://9.99.199.255/",
+                "valid": true
+            },
+            {
+                "description": "invalid ipv4address (0): Octets exceed 255",
+                "data": "http://256.256.256.256/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (1): Missing one octet",
+                "data": "http://192.168.1/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (2): Too many octets",
+                "data": "http://192.168.1.1.1/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (3): Leading zero in octet",
+                "data": "http://192.168.01.1/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (4): Non-digit character",
+                "data": "http://192.168.1.a/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (5): Empty octet",
+                "data": "http://192.168..1/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (6): Negative number in octet",
+                "data": "http://192.168.1.-1/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (7): Fourth octet out of range",
+                "data": "http://192.168.1.256/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (8): Trailing dot",
+                "data": "http://192.168.1.1./",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (9): Leading dot",
+                "data": "http://.192.168.1.1/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (10): Comma instead of dot",
+                "data": "http://192.168.1,1/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (11): Extra characters after valid IP",
+                "data": "http://192.168.1.1a/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (12): Trailing space",
+                "data": "http://192.168.1.1 /",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (13): Leading space",
+                "data": "http:// 192.168.1.1/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (14): Fourth octet too large",
+                "data": "http://192.168.1.1000/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (15): All octets out of range",
+                "data": "http://999.999.999.999/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (16): Hexadecimal notation not allowed",
+                "data": "http://0xC0.0xA8.0x01.0x01/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (17): Newline character",
+                "data": "http://192.168.1.1\n/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (18): Spelled-out number",
+                "data": "http://192.168.1.one/",
+                "valid": false
+            },
+            {
+                "description": "invalid ipv4address (19): Only three octets",
+                "data": "http://192.168.1/",
                 "valid": false
             }
         ]
