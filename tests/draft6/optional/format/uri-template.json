@@ -97,6 +97,21 @@
                 "description": "a variable list with more than one varspec is valid",
                 "data": "{x,y}",
                 "valid": true
+            },
+            {
+                "description": "a dotted variable name is valid",
+                "data": "{a.b}",
+                "valid": true
+            },
+            {
+                "description": "a double dot in a variable name is invalid",
+                "data": "{a..b}",
+                "valid": false
+            },
+            {
+                "description": "a variable name may start with a percent-encoded triplet",
+                "data": "{%41}",
+                "valid": true
             }
         ]
     }
