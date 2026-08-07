@@ -187,6 +187,11 @@
                 "description": "an operator in place of the first varspec is invalid",
                 "data": "{,+var}",
                 "valid": false
+            },
+            {
+                "description": "an apostrophe in a literal is valid",
+                "data": "a'b",
+                "valid": true
             }
         ]
     }
