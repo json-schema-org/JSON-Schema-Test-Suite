@@ -227,6 +227,46 @@
                 "description": "non-numeric port is invalid",
                 "data": "http://example.com:abc/path",
                 "valid": false
+            },
+            {
+                "description": "trailing newline after valid URI",
+                "data": "http://a.com\n",
+                "valid": false
+            },
+            {
+                "description": "embedded newline",
+                "data": "http://a\n.com",
+                "valid": false
+            },
+            {
+                "description": "query cannot contain space",
+                "data": "http://a.com/?a b",
+                "valid": false
+            },
+            {
+                "description": "fragment cannot contain space",
+                "data": "http://a.com/#a b",
+                "valid": false
+            },
+            {
+                "description": "non-ASCII emoji in path",
+                "data": "http://a.com/💀",
+                "valid": false
+            },
+            {
+                "description": "open brace is invalid in query for same reason as in path",
+                "data": "http://a.com/?a{b",
+                "valid": false
+            },
+            {
+                "description": "open brace is invalid in fragment for same reason as in path",
+                "data": "http://a.com/#a{b",
+                "valid": false
+            },
+            {
+                "description": "two at-signs in authority leave trailing @ and make URI invalid",
+                "data": "http://user@pass@a.com",
+                "valid": false
             }
         ]
     }
