@@ -1,6 +1,6 @@
 {
     "$schema": "../../../validation-test-schema.json",
-    "description": "optional format relative-json-pointer validation",
+    "description": "optional format idn-email validation",
     "tests": [
         {
             "description": "validation of an internationalized e-mail addresses",
