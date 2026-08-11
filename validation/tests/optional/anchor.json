@@ -1,49 +1,114 @@
 {
     "$schema": "../../validation-test-schema.json",
-    "description": "optional id validation",
+    "description": "optional anchor validation",
     "tests": [
         {
-            "description": "$id inside an enum is not a real identifier ($id/$defs)",
+            "description": "anchor inside an enum is not a real identifier ($anchor)",
             "compatibility": "2019",
-            "comment": "the implementation must not be confused by an $id buried in the enum",
+            "comment": "the implementation must not be confused by an $anchor buried in the enum",
             "schema": {
                 "$defs": {
-                    "id_in_enum": {
+                    "anchor_in_enum": {
                         "enum": [
                             {
-                                "$id": "https://localhost:1234/id/my_identifier.json",
+                                "$anchor": "my_anchor",
                                 "type": "null"
                             }
                         ]
                     },
-                    "real_id_in_schema": {
-                        "$id": "https://localhost:1234/id/my_identifier.json",
+                    "real_identifier_in_schema": {
+                        "$anchor": "my_anchor",
                         "type": "string"
                     },
-                    "zzz_id_in_const": {
+                    "zzz_anchor_in_const": {
                         "const": {
-                            "$id": "https://localhost:1234/id/my_identifier.json",
+                            "$anchor": "my_anchor",
                             "type": "null"
                         }
                     }
                 },
                 "anyOf": [
-                    { "$ref": "#/$defs/id_in_enum" },
-                    { "$ref": "https://localhost:1234/id/my_identifier.json" }
+                    { "$ref": "#/$defs/anchor_in_enum" },
+                    { "$ref": "#my_anchor" }
                 ]
             },
             "tests": [
                 {
                     "description": "exact match to enum, and type matches",
                     "data": {
-                        "$id": "https://localhost:1234/id/my_identifier.json",
+                        "$anchor": "my_anchor",
                         "type": "null"
                     },
                     "valid": true
                 },
                 {
+                    "description": "implementations that strip $anchor may match either definition",
+                    "data": {
+                        "type": "null"
+                    },
+                    "valid": false
+                },
+                {
+                    "description": "match $ref to $anchor",
+                    "data": "a string to match #/$defs/anchor_in_enum",
+                    "valid": true
+                },
+                {
+                    "description": "no match on enum or $ref to $anchor",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "anchor inside an enum is not a real identifier ($id)",
+            "compatibility": "6,<=7",
+            "comment": "the implementation must not be confused by an $anchor buried in the enum",
+            "schema": {
+                "definitions": {
+                    "anchor_in_enum": {
+                        "enum": [
+                            {
+                                "$id": "#my_anchor",
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "real_identifier_in_schema": {
+                        "$id": "#my_anchor",
+                        "type": "string"
+                    },
+                    "zzz_anchor_in_const": {
+                        "const": {
+                            "$id": "#my_anchor",
+                            "type": "null"
+                        }
+                    }
+                },
+                "anyOf": [
+                    { "$ref": "#/definitions/anchor_in_enum" },
+                    { "$ref": "#my_anchor" }
+                ]
+            },
+            "tests": [
+                {
+                    "description": "exact match to enum, and type matches",
+                    "data": {
+                        "$id": "#my_anchor",
+                        "type": "null"
+                    },
+                    "valid": true
+                },
+                {
+                    "description": "implementations that strip $id may match either definition",
+                    "data": {
+                        "type": "null"
+                    },
+                    "valid": false
+                },
+                {
                     "description": "match $ref to $id",
-                    "data": "a string to match #/$defs/id_in_enum",
+                    "data": "a string to match #/definitions/anchor_in_enum",
                     "valid": true
                 },
                 {
@@ -54,100 +119,56 @@
             ]
         },
         {
-            "description": "$id inside an enum is not a real identifier ($id/definitions)",
-            "compatibility": "6,<=7",
-            "comment": "the implementation must not be confused by an id buried in the enum",
-            "schema": {
-                "definitions": {
-                    "id_in_enum": {
-                        "enum": [
-                            {
-                                "$id": "https://localhost:1234/id/my_identifier.json",
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "real_id_in_schema": {
-                        "$id": "https://localhost:1234/id/my_identifier.json",
-                        "type": "string"
-                    },
-                    "zzz_id_in_const": {
-                        "const": {
-                            "$id": "https://localhost:1234/id/my_identifier.json",
-                            "type": "null"
-                        }
-                    }
-                },
-                "anyOf": [
-                    { "$ref": "#/definitions/id_in_enum" },
-                    { "$ref": "https://localhost:1234/id/my_identifier.json" }
-                ]
-            },
-            "tests": [
-                {
-                    "description": "exact match to enum, and type matches",
-                    "data": {
-                        "$id": "https://localhost:1234/id/my_identifier.json",
-                        "type": "null"
-                    },
-                    "valid": true
-                },
-                {
-                    "description": "match $ref to id",
-                    "data": "a string to match #/definitions/id_in_enum",
-                    "valid": true
-                },
-                {
-                    "description": "no match on enum or $ref to id",
-                    "data": 1,
-                    "valid": false
-                }
-            ]
-        },
-        {
-            "description": "$id inside an enum is not a real identifier (id/definitions)",
+            "description": "anchor inside an enum is not a real identifier (id)",
             "compatibility": "=4",
-            "comment": "the implementation must not be confused by an id buried in the enum",
+            "comment": "the implementation must not be confused by an $anchor buried in the enum",
             "schema": {
                 "definitions": {
-                    "id_in_enum": {
+                    "anchor_in_enum": {
                         "enum": [
                             {
-                                "id": "https://localhost:1234/my_identifier.json",
+                                "id": "#my_anchor",
                                 "type": "null"
                             }
                         ]
                     },
-                    "real_id_in_schema": {
-                        "id": "https://localhost:1234/my_identifier.json",
+                    "real_identifier_in_schema": {
+                        "id": "#my_anchor",
                         "type": "string"
                     },
-                    "zzz_id_in_const": {
+                    "zzz_anchor_in_const": {
                         "enum": [
                             {
-                                "id": "https://localhost:1234/my_identifier.json",
+                                "id": "#my_anchor",
                                 "type": "null"
                             }
                         ]
                     }
                 },
                 "anyOf": [
-                    { "$ref": "#/definitions/id_in_enum" },
-                    { "$ref": "https://localhost:1234/my_identifier.json" }
+                    { "$ref": "#/definitions/anchor_in_enum" },
+                    { "$ref": "#my_anchor" }
                 ]
             },
             "tests": [
                 {
                     "description": "exact match to enum, and type matches",
                     "data": {
-                        "id": "https://localhost:1234/my_identifier.json",
+                        "id": "#my_anchor",
                         "type": "null"
                     },
                     "valid": true
                 },
                 {
-                    "description": "match $ref to id",
-                    "data": "a string to match #/definitions/id_in_enum",
+                    "description": "implementations that strip id may match either definition",
+                    "data": {
+                        "type": "null"
+                    },
+                    "valid": false
+                },
+                {
+                    "description": "match $ref to $anchor",
+                    "data": "a string to match #/definitions/anchor_in_enum",
                     "valid": true
                 },
                 {
