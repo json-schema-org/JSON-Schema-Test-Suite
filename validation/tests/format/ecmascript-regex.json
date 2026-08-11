@@ -4,7 +4,7 @@
     "tests": [
         {
             "description": "ECMA 262 regex dialect recognition",
-            "compatibility": "<=2020",
+            "compatibility": "9999",
             "schema": {
                 "format": "regex"
             },
@@ -28,7 +28,7 @@
         },
         {
             "description": "\\a is not an ECMA 262 control escape",
-            "compatibility": "<=2020",
+            "compatibility": "9999",
             "schema": {
                 "format": "regex"
             },
