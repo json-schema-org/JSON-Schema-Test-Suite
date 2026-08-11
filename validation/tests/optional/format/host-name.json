@@ -1,12 +1,12 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 hostname validation",
+    "$schema": "../../../validation-test-schema.json",
+    "description": "optional format hostname validation",
     "tests": [
         {
             "description": "validation of host names",
-            "compatibility": "9999",
+            "compatibility": "=3",
             "schema": {
-                "format": "hostname"
+                "format": "host-name"
             },
             "tests": [
                 {
