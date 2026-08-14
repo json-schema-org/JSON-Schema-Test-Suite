@@ -625,7 +625,10 @@ def main(arguments):
         result = unittest.TextTestRunner().run(suite)
         sys.exit(not result.wasSuccessful())
     elif arguments.command == "flatten":
-        selected_cases = [case for case in cases(collect(arguments.version))]
+        version_dir = Path(arguments.version)
+        if not version_dir.exists():
+            version_dir = SUITE_ROOT_DIR / arguments.version
+        selected_cases = [case for case in cases(collect(version_dir))]
 
         if arguments.randomize:
             random.shuffle(selected_cases)
