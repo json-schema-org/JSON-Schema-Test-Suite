@@ -105,6 +105,26 @@
                 "description": "unquoted space in local part is invalid",
                 "data": "joe bloggs@example.com",
                 "valid": false
+            },
+            {
+                "description": "a non-ASCII character in the local part is not valid",
+                "data": "a\u00e9@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a non-ASCII character in the domain is not valid",
+                "data": "a@\u00e9.org",
+                "valid": false
+            },
+            {
+                "description": "a fullwidth commercial at is not a valid separator",
+                "data": "a\uff20iana.org",
+                "valid": false
+            },
+            {
+                "description": "a non-ASCII character in a quoted pair is not valid",
+                "data": "\"test\\\u00a9\"@iana.org",
+                "valid": false
             }
         ]
     }
