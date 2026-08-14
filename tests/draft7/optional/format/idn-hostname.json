@@ -330,6 +330,12 @@
                 "valid": false
             },
             {
+                "description": "a zero width space is ignored by the mapping",
+                "comment": "IdnaMappingTable.txt lists U+200B as ignored, so this label maps to ab",
+                "data": "a\u200bb",
+                "valid": true
+            },
+            {
                 "description": "zero width non-joiner must pass at every occurrence",
                 "comment": "https://www.rfc-editor.org/rfc/rfc5892#appendix-A.1",
                 "data": "\u0915\u094d\u200c\u0937x\u200cy",
