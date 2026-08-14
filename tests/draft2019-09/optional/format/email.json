@@ -105,6 +105,36 @@
                 "description": "unquoted space in local part is invalid",
                 "data": "joe bloggs@example.com",
                 "valid": false
+            },
+            {
+                "description": "a domain label starting with a hyphen is not valid",
+                "data": "test@-iana.org",
+                "valid": false
+            },
+            {
+                "description": "a domain label ending with a hyphen is not valid",
+                "data": "test@iana-.com",
+                "valid": false
+            },
+            {
+                "description": "a domain starting with a dot is not valid",
+                "data": "test@.iana.org",
+                "valid": false
+            },
+            {
+                "description": "a domain ending with a dot is not valid",
+                "data": "test@iana.org.",
+                "valid": false
+            },
+            {
+                "description": "two subsequent dots inside the domain are not valid",
+                "data": "test@iana..com",
+                "valid": false
+            },
+            {
+                "description": "a single-label domain is valid",
+                "data": "test@io",
+                "valid": true
             }
         ]
     }
