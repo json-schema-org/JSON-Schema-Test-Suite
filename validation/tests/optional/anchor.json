@@ -35,17 +35,12 @@
             "tests": [
                 {
                     "description": "exact match to enum, and type matches",
-                    "data": {
-                        "$anchor": "my_anchor",
-                        "type": "null"
-                    },
+                    "data": { "$anchor": "my_anchor", "type": "null" },
                     "valid": true
                 },
                 {
                     "description": "implementations that strip $anchor may match either definition",
-                    "data": {
-                        "type": "null"
-                    },
+                    "data": { "type": "null" },
                     "valid": false
                 },
                 {
@@ -93,17 +88,12 @@
             "tests": [
                 {
                     "description": "exact match to enum, and type matches",
-                    "data": {
-                        "$id": "#my_anchor",
-                        "type": "null"
-                    },
+                    "data": { "$id": "#my_anchor", "type": "null" },
                     "valid": true
                 },
                 {
                     "description": "implementations that strip $id may match either definition",
-                    "data": {
-                        "type": "null"
-                    },
+                    "data": { "type": "null" },
                     "valid": false
                 },
                 {
@@ -153,17 +143,12 @@
             "tests": [
                 {
                     "description": "exact match to enum, and type matches",
-                    "data": {
-                        "id": "#my_anchor",
-                        "type": "null"
-                    },
+                    "data": { "id": "#my_anchor", "type": "null" },
                     "valid": true
                 },
                 {
                     "description": "implementations that strip id may match either definition",
-                    "data": {
-                        "type": "null"
-                    },
+                    "data": { "type": "null" },
                     "valid": false
                 },
                 {
