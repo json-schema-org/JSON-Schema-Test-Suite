@@ -3,7 +3,7 @@
     "description": "optional cross-draft validation",
     "tests": [
         {
-            "description": "refs to future drafts are processed as future drafts(7)",
+            "description": "refs to future drafts are processed as future drafts (2019)",
             "compatibility": "=7",
             "schema": {
                 "type": "object",
@@ -35,8 +35,8 @@
             ]
         },
         {
-            "description": "refs to future drafts are processed as future drafts(2019)",
-            "compatibility": "=7,=2019",
+            "description": "refs to future drafts are processed as future drafts (2020)",
+            "compatibility": "7,<=2019",
             "schema": {
                 "type": "array",
                 "$ref": "http://localhost:1234/draft2020-12/prefixItems.json"
@@ -64,8 +64,8 @@
             ]
         },
         {
-            "description": "refs to historic drafts are processed as historic drafts",
-            "compatibility": "2019,<=2020",
+            "description": "refs to historic drafts are processed as historic drafts (7)",
+            "compatibility": "2019",
             "schema": {
                 "type": "object",
                 "allOf": [
@@ -91,8 +91,8 @@
             ]
         },
         {
-            "description": "refs to historic drafts are processed as historic drafts(2020)",
-            "compatibility": "=2020",
+            "description": "refs to historic drafts are processed as historic drafts (2019)",
+            "compatibility": "2020",
             "schema": {
                 "type": "array",
                 "$ref": "http://localhost:1234/draft2019-09/ignore-prefixItems.json"
