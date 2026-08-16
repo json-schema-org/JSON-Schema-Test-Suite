@@ -4,6 +4,7 @@
     "tests": [
         {
             "description": "multipleOf int",
+            "specification": [{"validation": "6.2.1"}],
             "compatibility": "4",
             "schema": {
                 "multipleOf": 2
@@ -52,6 +53,7 @@
         },
         {
             "description": "multipleOf number",
+            "specification": [{"validation": "6.2.1"}],
             "compatibility": "4",
             "schema": {
                 "multipleOf": 1.5
@@ -110,6 +112,7 @@
         },
         {
             "description": "multipleOf small number",
+            "specification": [{"validation": "6.2.1"}],
             "compatibility": "4",
             "schema": {
                 "multipleOf": 0.0001
@@ -148,6 +151,7 @@
         },
         {
             "description": "multipleOf when float division = inf",
+            "specification": [{"validation": "6.2.1"}],
             "compatibility": "4",
             "schema": {
                 "type": "integer",
@@ -178,6 +182,7 @@
         },
         {
             "description": "small multiple of large integer",
+            "specification": [{"validation": "6.2.1"}],
             "compatibility": "4",
             "schema": {
                 "type": "integer",
