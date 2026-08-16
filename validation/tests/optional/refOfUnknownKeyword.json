@@ -4,7 +4,7 @@
     "tests": [
         {
             "description": "reference of a root arbitrary keyword",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "unknown-keyword": { "type": "integer" },
                 "properties": {
@@ -26,7 +26,7 @@
         },
         {
             "description": "reference of a root arbitrary keyword with encoded ref",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "unknown/keyword": { "type": "integer" },
                 "properties": {
@@ -48,10 +48,12 @@
         },
         {
             "description": "reference of an arbitrary keyword of a sub-schema",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "properties": {
-                    "foo": { "unknown-keyword": { "type": "integer" } },
+                    "foo": {
+                        "unknown-keyword": { "type": "integer" }
+                    },
                     "bar": { "$ref": "#/properties/foo/unknown-keyword" }
                 }
             },
@@ -70,7 +72,7 @@
         },
         {
             "description": "reference internals of known non-applicator",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "examples": [{ "type": "string" }],
                 "$ref": "#/examples/0"
@@ -90,10 +92,12 @@
         },
         {
             "description": "reference of an arbitrary keyword of a sub-schema with encoded ref",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "properties": {
-                    "foo": { "unknown/keyword": { "type": "integer" } },
+                    "foo": {
+                        "unknown/keyword": { "type": "integer" }
+                    },
                     "bar": { "$ref": "#/properties/foo/unknown~1keyword" }
                 }
             },
