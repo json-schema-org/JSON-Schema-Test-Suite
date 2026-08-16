@@ -40,8 +40,14 @@ DIALECT_ORDER = ["3", "4", "6", "7", "2019", "2020"]
 
 VALID_COMPAT_OPERATORS = ("<=", "=", "")   # "" means plain minimum
 
+ALLOWED_SCHEMA_FILES = {
+    'vocabulary.json',
+    'format-assertion.json'
+}
 
-DIALECT_ORDER = ["3", "4", "6", "7", "2019", "2020"]
+UNKNOWN_KEYWORD_TEST_FILES = {
+    "refOfUnknownKeyword.json"
+}
 
 
 def parse_compat(compatibility: str):
@@ -287,7 +293,6 @@ KNOWN = {
                 "then",
                 "title",
                 "type",
-                "type",
                 "uniqueItems",
             },
             "6": {
@@ -496,6 +501,34 @@ class ValidationSuiteChecks(unittest.TestCase):
                                 f"metaschema:\n{e.message}"
                             )
 
+                for uri, external_schema in case.get("externalSchemas", {}).items():
+                    if isinstance(external_schema, bool):
+                        continue
+
+                    if "$schema" in external_schema:
+                        Validator = jsonschema.validators.validator_for(external_schema)
+
+                        try:
+                            Validator.check_schema(external_schema)
+                        except jsonschema.SchemaError as e:
+                            self.fail(
+                                f"External schema {uri!r} is invalid:\n{e.message}"
+                            )
+                    else:
+                        for dialect in applicable:
+                            if dialect not in DIALECT_VALIDATORS:
+                                continue
+
+                            Validator = DIALECT_VALIDATORS[dialect]
+
+                            try:
+                                Validator.check_schema(external_schema)
+                            except jsonschema.SchemaError as e:
+                                self.fail(
+                                    f"External schema {uri!r} is invalid under "
+                                    f"release {dialect}:\n{e.message}"
+                                )
+
     @unittest.skipIf(jsonschema is None, "jsonschema library not installed")
     def test_schemas_do_not_use_unknown_keywords(self):
         """
@@ -512,6 +545,9 @@ class ValidationSuiteChecks(unittest.TestCase):
         from collections.abc import Mapping
  
         for path in self.test_files:
+            if path.name in UNKNOWN_KEYWORD_TEST_FILES:
+                continue
+            
             for case in load_cases(path):
                 if "unknown keyword" in case.get("description", ""):
                     continue
@@ -604,7 +640,7 @@ class ValidationSuiteChecks(unittest.TestCase):
 
         for path in self.test_files:
 
-            allow_schema = path.name == 'vocabulary.json'
+            allow_schema = path.name in ALLOWED_SCHEMA_FILES
 
             for case in load_cases(path):
                 with self.subTest(file=path.name, case=case.get("description")):
