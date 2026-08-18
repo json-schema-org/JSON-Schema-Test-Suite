@@ -1,0 +1,41 @@
+[
+    {
+        "description": "verbose output includes every evaluated keyword, annotations for passing keywords",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "https://json-schema.org/tests/structure/draft2020-12/verbose/0",
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" }
+            }
+        },
+        "tests": [
+            {
+                "description": "valid data produces annotations for type and properties keywords",
+                "data": { "name": "test" },
+                "output": {
+                    "verbose": {
+                        "$id": "https://json-schema.org/tests/structure/draft2020-12/verbose/0/tests/0/verbose",
+                        "$ref": "/draft/2020-12/output/schema",
+                        "properties": {
+                            "valid": { "const": true },
+                            "annotations": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                    "required": ["keywordLocation", "instanceLocation", "valid"],
+                                    "properties": {
+                                        "keywordLocation": { "type": "string" },
+                                        "instanceLocation": { "type": "string" },
+                                        "valid": { "type": "boolean" }
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["valid", "annotations"]
+                    }
+                }
+            }
+        ]
+    }
+]
