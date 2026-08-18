@@ -217,8 +217,18 @@
                 "valid": false
             },
             {
-                "description": "not a valid JSON-pointer (dangling ~ after a NUL character)",
-                "data": "/foo\u0000~",
+                "description": "valid JSON-pointer (right curly bracket U+007D)",
+                "data": "/}",
+                "valid": true
+            },
+            {
+                "description": "valid JSON-pointer (fullwidth tilde is not an escape)",
+                "data": "/\uff5e",
+                "valid": true
+            },
+            {
+                "description": "not a valid JSON-pointer (tilde then fullwidth digit)",
+                "data": "/~\uff10",
                 "valid": false
             },
             {
