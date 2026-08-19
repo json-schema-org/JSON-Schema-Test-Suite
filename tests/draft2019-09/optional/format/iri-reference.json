@@ -70,6 +70,11 @@
                 "description": "an invalid IRI fragment",
                 "data": "#ƒräg\\mênt",
                 "valid": false
+            },
+            {
+                "description": "an IPvFuture host with an uppercase version letter is valid",
+                "data": "//[V1.fe]/p",
+                "valid": true
             }
         ]
     }
