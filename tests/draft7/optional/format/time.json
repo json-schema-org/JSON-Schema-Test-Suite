@@ -238,6 +238,12 @@
                 "description": "an invalid time string in date-time format",
                 "data": "2020-11-28T23:55:45Z",
                 "valid": false
+            },
+            {
+                "description": "a valid time string with a 15 digit second fraction",
+                "comment": "RFC 3339 section 5.6: time-secfrac = \".\" 1*DIGIT, with no upper bound on the number of digits",
+                "data": "00:59:59.999999999999999Z",
+                "valid": true
             }
         ]
     }
