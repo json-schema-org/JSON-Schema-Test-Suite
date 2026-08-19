@@ -170,6 +170,11 @@
                 "description": "a trailing newline is invalid",
                 "data": "1985-04-12T23:20:50Z\n",
                 "valid": false
+            },
+            {
+                "description": "an invalid minute in date-time string, with a numeric offset",
+                "data": "1985-04-12T23:60:00+00:01",
+                "valid": false
             }
         ]
     }
