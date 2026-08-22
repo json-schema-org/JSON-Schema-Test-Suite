@@ -242,6 +242,11 @@
                 "description": "an out-of-range first octet in the embedded IPv4 is invalid",
                 "data": "::ffff:256.1.1.1",
                 "valid": false
+            },
+            {
+                "description": "one group before '::' and five groups after is valid",
+                "data": "1::2:3:4:5:6",
+                "valid": true
             }
         ]
     }
