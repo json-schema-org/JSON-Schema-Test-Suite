@@ -237,6 +237,11 @@
                 "description": "trailing newline is invalid",
                 "data": "::1\n",
                 "valid": false
+            },
+            {
+                "description": "an out-of-range first octet in the embedded IPv4 is invalid",
+                "data": "::ffff:256.1.1.1",
+                "valid": false
             }
         ]
     }
