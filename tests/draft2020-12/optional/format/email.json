@@ -250,6 +250,26 @@
                 "description": "an unclosed double quote in the local part is not valid",
                 "data": "\"test@iana.org",
                 "valid": false
+            },
+            {
+                "description": "two unquoted @ signs are not valid",
+                "data": "a@b@c.org",
+                "valid": false
+            },
+            {
+                "description": "a backslash-escaped @ in an unquoted local part is not valid",
+                "data": "test\\@test@iana.org",
+                "valid": false
+            },
+            {
+                "description": "an address literal in the local part position is not valid",
+                "data": "[1.2.3.4]@iana.org",
+                "valid": false
+            },
+            {
+                "description": "an empty string is not valid",
+                "data": "",
+                "valid": false
             }
         ]
     }
