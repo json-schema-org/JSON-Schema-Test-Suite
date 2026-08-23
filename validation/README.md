@@ -78,7 +78,7 @@ An optional list of references to the specification document(s) that define the 
 Each entry can reference a section of the JSON Schema specification or another relevant specification,
 such as an RFC or ISO standard. It can also include a `quote` describing the part of the specification that motivates the Test Case. 
 
-This help trace a Test Case back to the specification.
+This helps trace a Test Case back to the specification.
 
 ### tests
 
@@ -103,6 +103,51 @@ Whether `data` is expected to be valid or invalid under `schema`.
 Some keywords changed shape across dialects.
 
 A `-legacy` file exists only where a keyword's underlying mechanism changed in a way `compatibility` alone can't express.
+
+## Examples
+
+#### Example: A Test Case with externalSchemas
+
+From `anchor.json`, The schema references a remote document that would previously have lived under `remotes/`
+
+```json
+    {
+            "description": "anchor within remote ref",
+            "compatibility": "2019",
+            "schema": {
+                "$ref": "http://localhost:1234/locationIndependentIdentifier.json#foo"
+            },
+            "externalSchemas": {
+                "http://localhost:1234/locationIndependentIdentifier.json": {
+                    "$defs": {
+                        "refToInteger": {
+                            "$ref": "#foo"
+                        },
+                        "A": {
+                            "$anchor": "foo",
+                            "type": "integer"
+                        }
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "remote anchor valid",
+                    "data": 1,
+                    "valid": true
+                },
+                {
+                    "description": "remote anchor invalid",
+                    "data": "a",
+                    "valid": false
+                }
+            ]
+        },
+```
+
+The key in `externalSchemas`(`http://localhost:1234/...`) is the retrieval URI the `$ref` resolves against.
+
+The same Test Case is expressed for pre-`2019-09` dialects in `anchor-legacy.json`
 
 ## Running the Suite
 
