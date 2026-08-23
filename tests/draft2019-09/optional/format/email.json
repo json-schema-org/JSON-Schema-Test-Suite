@@ -265,6 +265,41 @@
                 "description": "a single-label domain is valid",
                 "data": "test@io",
                 "valid": true
+            },
+            {
+                "description": "an unclosed address literal is not valid",
+                "data": "test@[1.2.3.4",
+                "valid": false
+            },
+            {
+                "description": "empty brackets after the @ are not valid",
+                "data": "a@[]",
+                "valid": false
+            },
+            {
+                "description": "an IPv4-address-literal with three octets is not valid",
+                "data": "a@[1.2.3]",
+                "valid": false
+            },
+            {
+                "description": "an IPv4-address-literal with five octets is not valid",
+                "data": "a@[1.2.3.4.5]",
+                "valid": false
+            },
+            {
+                "description": "bracketed content that is not an address is not valid",
+                "data": "test@[RFC-5322-domain-literal]",
+                "valid": false
+            },
+            {
+                "description": "a domain label before the opening bracket is not valid",
+                "data": "test@a[255.255.255.255]",
+                "valid": false
+            },
+            {
+                "description": "a lowercase IPv6 tag in an address literal is valid",
+                "data": "a@[ipv6:::1]",
+                "valid": true
             }
         ]
     }
