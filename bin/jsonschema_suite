@@ -638,6 +638,13 @@ def main(arguments):
         }
         json.dump(remotes, sys.stdout, indent=4, sort_keys=True)
     elif arguments.command == "dump_remotes":
+        if os.path.abspath(arguments.out_dir) == os.path.abspath(REMOTES_DIR):
+            print(
+                "Refusing to operate on the repository's remotes/ directory. "
+                "Pass a different --out-dir.",
+            )
+            sys.exit(1)
+
         if arguments.update:
             shutil.rmtree(arguments.out_dir, ignore_errors=True)
 
