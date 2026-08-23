@@ -335,6 +335,33 @@
                 "description": "a lowercase IPv6 tag in an address literal is valid",
                 "data": "a@[ipv6:::1]",
                 "valid": true
+            },
+            {
+                "description": "a comma in an unquoted local part is not valid",
+                "data": "a,b@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a semicolon in an unquoted local part is not valid",
+                "data": "a;b@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a colon in an unquoted local part is not valid",
+                "data": "a:b@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a parenthesis in an unquoted local part is not valid",
+                "comment": "a comment is RFC 5322 syntax, which the RFC 5321 Mailbox grammar does not have",
+                "data": "test(comment)@iana.org",
+                "valid": false
+            },
+            {
+                "description": "a parenthesis in the domain is not valid",
+                "comment": "a comment is RFC 5322 syntax, which the RFC 5321 Mailbox grammar does not have",
+                "data": "a@b(c).org",
+                "valid": false
             }
         ]
     }
