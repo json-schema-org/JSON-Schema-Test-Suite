@@ -352,12 +352,14 @@
                 "valid": false
             },
             {
-                "description": "a parenthesis in an unquoted local part is not valid (a comment is RFC 5322 syntax, which the RFC 5321 Mailbox grammar does not have)",
+                "description": "a parenthesis in an unquoted local part is not valid",
+                "comment": "a comment is RFC 5322 syntax, which the RFC 5321 Mailbox grammar does not have",
                 "data": "test(comment)@iana.org",
                 "valid": false
             },
             {
-                "description": "a parenthesis in the domain is not valid (a comment is RFC 5322 syntax, which the RFC 5321 Mailbox grammar does not have)",
+                "description": "a parenthesis in the domain is not valid",
+                "comment": "a comment is RFC 5322 syntax, which the RFC 5321 Mailbox grammar does not have",
                 "data": "a@b(c).org",
                 "valid": false
             }
