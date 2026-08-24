@@ -4,7 +4,7 @@
     "tests": [
         {
             "description": "single dependency",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "dependencies": { "bar": ["foo"] }
             },
@@ -48,7 +48,7 @@
         },
         {
             "description": "empty dependents",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "dependencies": { "bar": [] }
             },
@@ -72,7 +72,7 @@
         },
         {
             "description": "multiple dependents required",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "dependencies": { "quux": ["foo", "bar"] }
             },
@@ -111,7 +111,7 @@
         },
         {
             "description": "dependencies with escaped characters",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "dependencies": {
                     "foo\nbar": ["foo\rbar"],
@@ -143,7 +143,7 @@
         },
         {
             "description": "single schema dependency",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "dependencies": {
                     "bar": {
@@ -199,7 +199,7 @@
         },
         {
             "description": "boolean subschemas",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "dependencies": {
                     "foo": true,
@@ -231,7 +231,7 @@
         },
         {
             "description": "schema dependencies with escaped characters",
-            "compatibility": "2019",
+            "compatibility": "2019,<=2020",
             "schema": {
                 "dependencies": {
                     "foo\tbar": { "minProperties": 4 },
