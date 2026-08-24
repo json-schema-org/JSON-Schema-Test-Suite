@@ -1,0 +1,118 @@
+{
+    "$schema": "../../validation-test-schema.json",
+    "description": "optional refOfUnknownKeyword validation",
+    "tests": [
+        {
+            "description": "reference of a root arbitrary keyword",
+            "compatibility": "2019,<=2020",
+            "schema": {
+                "unknown-keyword": { "type": "integer" },
+                "properties": {
+                    "bar": { "$ref": "#/unknown-keyword" }
+                }
+            },
+            "tests": [
+                {
+                    "description": "match",
+                    "data": { "bar": 3 },
+                    "valid": true
+                },
+                {
+                    "description": "mismatch",
+                    "data": { "bar": true },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "reference of a root arbitrary keyword with encoded ref",
+            "compatibility": "2019,<=2020",
+            "schema": {
+                "unknown/keyword": { "type": "integer" },
+                "properties": {
+                    "bar": { "$ref": "#/unknown~1keyword" }
+                }
+            },
+            "tests": [
+                {
+                    "description": "match",
+                    "data": { "bar": 3 },
+                    "valid": true
+                },
+                {
+                    "description": "mismatch",
+                    "data": { "bar": true },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "reference of an arbitrary keyword of a sub-schema",
+            "compatibility": "2019,<=2020",
+            "schema": {
+                "properties": {
+                    "foo": {
+                        "unknown-keyword": { "type": "integer" }
+                    },
+                    "bar": { "$ref": "#/properties/foo/unknown-keyword" }
+                }
+            },
+            "tests": [
+                {
+                    "description": "match",
+                    "data": { "bar": 3 },
+                    "valid": true
+                },
+                {
+                    "description": "mismatch",
+                    "data": { "bar": true },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "reference internals of known non-applicator",
+            "compatibility": "2019,<=2020",
+            "schema": {
+                "examples": [{ "type": "string" }],
+                "$ref": "#/examples/0"
+            },
+            "tests": [
+                {
+                    "description": "match",
+                    "data": "a string",
+                    "valid": true
+                },
+                {
+                    "description": "mismatch",
+                    "data": 42,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "reference of an arbitrary keyword of a sub-schema with encoded ref",
+            "compatibility": "2019,<=2020",
+            "schema": {
+                "properties": {
+                    "foo": {
+                        "unknown/keyword": { "type": "integer" }
+                    },
+                    "bar": { "$ref": "#/properties/foo/unknown~1keyword" }
+                }
+            },
+            "tests": [
+                {
+                    "description": "match",
+                    "data": { "bar": 3 },
+                    "valid": true
+                },
+                {
+                    "description": "mismatch",
+                    "data": { "bar": true },
+                    "valid": false
+                }
+            ]
+        }
+    ]
+}
