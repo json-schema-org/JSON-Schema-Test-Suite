@@ -90,6 +90,11 @@
                 "description": "a query-only IRI Reference with a supplementary private-use char",
                 "data": "?q=󰀀",
                 "valid": true
+            },
+            {
+                "description": "a trailing newline after a valid IRI Reference is invalid",
+                "data": "/âππ\n",
+                "valid": false
             }
         ]
     }
