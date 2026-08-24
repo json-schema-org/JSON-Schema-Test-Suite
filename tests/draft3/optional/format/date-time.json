@@ -57,6 +57,16 @@
                 "description": "a trailing newline is invalid",
                 "data": "1985-04-12T23:20:50Z\n",
                 "valid": false
+            },
+            {
+                "description": "an invalid date-time string without seconds",
+                "data": "1985-04-12T23:20Z",
+                "valid": false
+            },
+            {
+                "description": "an invalid date-time string with trailing content after the offset",
+                "data": "1985-04-12T23:20:50Ztail",
+                "valid": false
             }
         ]
     }
