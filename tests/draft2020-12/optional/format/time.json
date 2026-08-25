@@ -265,6 +265,12 @@
                 "comment": "RFC 3339 section 5.6: time-hour = 2DIGIT ; 00-23, and section 5.7 only allows 00 to 23",
                 "data": "24:59:00+01:00",
                 "valid": false
+            },
+            {
+                "description": "minute 60 is invalid with a numeric time-offset",
+                "comment": "RFC 3339 section 5.6: time-minute = 2DIGIT ; 00-59",
+                "data": "23:60:00+00:01",
+                "valid": false
             }
         ]
     }
