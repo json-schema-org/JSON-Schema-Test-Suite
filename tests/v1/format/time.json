@@ -57,9 +57,9 @@
                 "valid": false
             },
             {
-                "description": "a valid time string with leap second, Zulu",
+                "description": "a leap second is not a valid time",
                 "data": "23:59:60Z",
-                "valid": true
+                "valid": false
             },
             {
                 "description": "invalid leap second, Zulu (wrong hour)",
@@ -72,9 +72,9 @@
                 "valid": false
             },
             {
-                "description": "valid leap second, zero time-offset",
+                "description": "a leap second with a zero time-offset is not a valid time",
                 "data": "23:59:60+00:00",
-                "valid": true
+                "valid": false
             },
             {
                 "description": "invalid leap second, zero time-offset (wrong hour)",
@@ -87,14 +87,14 @@
                 "valid": false
             },
             {
-                "description": "valid leap second, positive time-offset",
+                "description": "a leap second with a positive time-offset is not a valid time",
                 "data": "01:29:60+01:30",
-                "valid": true
+                "valid": false
             },
             {
-                "description": "valid leap second, large positive time-offset",
+                "description": "a leap second with a large positive time-offset is not a valid time",
                 "data": "23:29:60+23:30",
-                "valid": true
+                "valid": false
             },
             {
                 "description": "invalid leap second, positive time-offset (wrong hour)",
@@ -107,14 +107,14 @@
                 "valid": false
             },
             {
-                "description": "valid leap second, negative time-offset",
+                "description": "a leap second with a negative time-offset is not a valid time",
                 "data": "15:59:60-08:00",
-                "valid": true
+                "valid": false
             },
             {
-                "description": "valid leap second, large negative time-offset",
+                "description": "a leap second with a large negative time-offset is not a valid time",
                 "data": "00:29:60-23:30",
-                "valid": true
+                "valid": false
             },
             {
                 "description": "invalid leap second, negative time-offset (wrong hour)",
