@@ -268,6 +268,12 @@
                 "comment": "RFC 3339 section 5.6: time-minute = 2DIGIT ; 00-59",
                 "data": "23:60:00+00:01",
                 "valid": false
+            },
+            {
+                "description": "a valid time string with a 15 digit second fraction",
+                "comment": "RFC 3339 section 5.6: time-secfrac = \".\" 1*DIGIT, with no upper bound on the number of digits",
+                "data": "00:59:59.999999999999999Z",
+                "valid": true
             }
         ]
     }
