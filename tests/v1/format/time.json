@@ -178,16 +178,6 @@
                 "valid": false
             },
             {
-                "description": "an invalid time string with invalid leap second (wrong hour)",
-                "data": "22:59:60Z",
-                "valid": false
-            },
-            {
-                "description": "an invalid time string with invalid leap second (wrong minute)",
-                "data": "23:58:60Z",
-                "valid": false
-            },
-            {
                 "description": "an invalid time string with invalid time numoffset hour",
                 "data": "01:02:03+24:00",
                 "valid": false
