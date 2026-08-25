@@ -1,169 +1,275 @@
-# Validation Tests Suite
+# Validation Test Suite
 
-This suite unifies what used to be separate, per-draft test collections 
-`(tests/draft3/, tests/draft4/, tests/draft6/, tests/draft7/, tests/draft2019-09/, tests/draft2020-12/)` 
-into a single set of files under `validation/tests/`, organized by keyword instead of by dialect. 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
-Each Test Case declares which dialect(s) it applies to using the `compatibility`field described below.
+[![Build Status](https://github.com/json-schema-org/JSON-Schema-Test-Suite/workflows/Test%20Suite%20Sanity%20Checking/badge.svg)](https://github.com/json-schema-org/JSON-Schema-Test-Suite/actions?query=workflow%3A%22Test+Suite+Sanity+Checking%22)
 
-## Supported Dialects
+This directory contains the validation test suite for JSON Schema. These tests
+verify that implementations correctly validate instances against schemas
+according to the JSON Schema specification.
 
-Some keywords changed between dialects (for example, `id` became `$id` in draft-06, and `definitions` became `$defs` in 2019-09). 
+The test suite exists to verify specified behavior defined by the JSON Schema
+specification and should not be confused with a style guide. It is not intended
+to demonstrate how schemas ought to be written. Tests may appear unusual or
+unintuitive, but they exist solely to exercise behavior prescribed by the
+specification.
 
-To keep a single test file useful across as many dialects as possible, Test Case schemas in this suite avoid `$schema` 
-so they aren't tied to one dialect, and instead use the `compatibility` field to declare which dialect(s) a given case is written for.
+It is meant to be language agnostic and should require only a JSON parser. The
+conversion of the JSON objects into tests within a specific language and test
+framework of choice is left to be done by the validator implementer.
 
-## Test Case Components
+## Coverage
 
-### description
+JSON Schema draft-04 and later releases are well covered by this suite. draft-03
+is reasonably well covered. While the suite can be run against older versions,
+coverage is limited for keywords that didn't exist or were different before
+draft-03.
 
-A short description of what behavior the Test Case is covering.
+Additional coverage is always welcome, particularly for bugs encountered in
+real-world implementations. If you see anything missing or incorrect, please
+feel free to [file an issue](https://github.com/json-schema-org/JSON-Schema-Test-Suite/issues)
+or [submit a PR](https://github.com/json-schema-org/JSON-Schema-Test-Suite).
 
-### compatibility
+## Test Suite Structure
 
-The `compatibility` option allows you to set which dialects the Test Case is
-compatible with.
+The tests in this suite are contained in the `tests` directory within this
+validation directory.
+
+Each `.json` file in the `tests` directory contains a collection of related
+tests. Often the grouping is by keyword under test, but not always. Each `.json`
+file consists of a single JSON object with a `description` and a `tests` array
+of test cases.
+
+Files with a `-legacy` suffix contain tests for older keyword syntaxes and
+behaviors that have been replaced in newer drafts. For example, `id-legacy.json`
+contains tests for the `id` keyword which was renamed to `$id` in draft-06.
+
+In addition to the test files, there are special subdirectories whose purpose is
+[described below](#subdirectories), and which contain additional `.json` files.
+
+### Terminology
+
+For clarity, we first define this document's usage of some testing terminology:
+
+| term            | definition                                                                                                                                                        |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **test suite**  | the entirety of the contents of this directory, containing tests for multiple different releases of the JSON Schema specification                                |
+| **test case**   | a single schema, along with a description and an array of *test*s                                                                                                 |
+| **test**        | within a *test case*, a single test example, containing a description, instance and a boolean indicating whether the instance is valid under the test case schema |
+| **test runner** | a program, external to this repository and authored by a user of this suite, which is executing each of the tests in the suite                                    |
+
+An example illustrating this structure is immediately below, and a JSON Schema
+containing a formal definition of the contents of test cases can be found
+[alongside this README](./validation-test-schema.json).
+
+### Sample Test Case
+
+Here is a single *test case*, containing one or more tests:
+
+```json
+{
+    "description": "The test case description",
+    "schema": {
+        "type": "string"
+    },
+    "tests": [
+        {
+            "description": "a test with a valid instance",
+            "data": "a string",
+            "valid": true
+        },
+        {
+            "description": "a test with an invalid instance",
+            "data": 15,
+            "valid": false
+        }
+    ]
+}
+```
+
+### Test Case Compatibility
+
+Test cases may include a `compatibility` property that specifies which JSON Schema
+dialects the test applies to. This allows a single test file to cover multiple
+specification versions. Schemas in test cases should not include `$schema` so
+that the same test can be run against multiple dialects.
 
 Dialects are indicated by the number corresponding to their release. Date-based
-releases use just the year. If this option isn't present, it means the Test Case
+releases use just the year. If this property isn't present, it means the test case
 is compatible with any dialect.
 
-If this option is present with a number, the number indicates the minimum
-release the Test Case is compatible with. This example indicates that the Test
-Case is compatible with draft-07 and up.
+If this property is present with a number, the number indicates the minimum
+release the test case is compatible with. This example indicates that the test
+case is compatible with draft-07 and up.
 
 **Example**: `"compatibility": "7"`
 
-You can use a `<=` operator to indicate that the Test Case is compatible with
+You can use a `<=` operator to indicate that the test case is compatible with
 releases less than or equal to the given release. This example indicates that
-the Test Case is compatible with 2019-09 and under.
+the test case is compatible with 2019-09 and under.
 
 **Example**: `"compatibility": "<=2019"`
 
 You can use comma-separated values to indicate multiple constraints if needed.
-This example indicates that the Test Case is compatible with releases between
+This example indicates that the test case is compatible with releases between
 draft-06 and 2019-09.
 
 **Example**: `"compatibility": "6,<=2019"`
 
-For convenience, you can use the `=` operator to indicate a Test Case is only
-compatible with a single release. This example indicates that the Test Case is
+For convenience, you can use the `=` operator to indicate a test case is only
+compatible with a single release. This example indicates that the test case is
 compatible only with 2020-12.
 
 **Example**: `"compatibility": "=2020"`
 
-This example indicates that the Test Case is compatible with draft-3 only, plus draft-7 through 2020-12.
+This example indicates that the test case is compatible with draft-03 only, plus
+draft-07 through 2020-12.
 
 **Example**: `"compatibility": "=3,7,<=2020"`
 
-### schema
+Starting with v1, JSON Schema will have yearly releases. These are indicated
+by the full year in the compatibility property (e.g., `2027`, `2028`). Tests for
+features that are in the specification but not yet part of a release use
+`9999` as a placeholder. Implementations are expected to implement and pass
+these tests. It's the last step we require before the feature can be officially
+released.
 
-The schema that will serve as the subject for the tests. Whenever possible, this
-schema shouldn't include `$schema` because Test Cases should be designed to work with as many releases as possible.
+### External Schemas
 
-### externalSchemas
+Test cases may include an `externalSchemas` property that defines additional
+schemas referenced by the test case's schema. This replaces the `remotes`
+directory used in previous versions of the test suite.
 
-This allows you to define additional schemas that `schema` makes references to.
-The value is an object where the keys are retrieval URIs and values are schemas.
-Most external schemas aren't self identifying (using `id`/`$id`) and rely on the
-retrieval URI for identification. This is done to increase the number of
-dialects that the test is compatible with.  Because `id` changed to `$id` in
-draft-06, if you use `$id`, the test becomes incompatible with draft-03/4 and in
-most cases, that's not necessary.
+The `externalSchemas` property is an object where the keys are retrieval URIs
+and the values are schemas. Test runners should load each schema and make it
+available at the corresponding URI before validating the test case. External
+schemas should avoid including `$id` or `id` to keep the tests compatible with
+as many dialects as possible. Test runners can insert `$id` or `id` as necessary
+if they don't have a mechanism for associating a URI with a schema outside the
+schema.
 
-### Specification
+### Subdirectories
 
-An optional list of references to the specification document(s) that define the behaviour under test. 
+The `tests` directory may contain one or more subdirectories.
 
-Each entry can reference a section of the JSON Schema specification or another relevant specification,
-such as an RFC or ISO standard. It can also include a `quote` describing the part of the specification that motivates the Test Case. 
+These are:
 
-This helps trace a Test Case back to the specification.
+1. `optional/`: Contains tests that are considered optional. Note that this
+   subdirectory currently conflates many reasons why a test may be optional --
+   it may be because tests within a particular file are indeed not required by the
+   specification but still potentially useful to an implementer, or it may be
+   because tests within it only apply to programming languages with particular
+   functionality (in which case they are not truly optional in such a language). In
+   the future this directory structure will be made richer to reflect these
+   differences more clearly.
 
-### tests
+   Within `optional/`, there is also a `format/` subdirectory that contains
+   per-format test files (e.g., `email.json`, `uri.json`). Through draft-07,
+   format assertion is optional. In 2019-09 and 2020-12, annotation is required
+   by default and may be enabled with configuration. Implementations may need to
+   configure their test runners to enable format assertion before running these
+   tests.
 
-A collection of Tests to run to verify the Test Case.
+2. `proposals/`: Contains a subfolder for each active proposal to the
+   specification. If the proposal is a keyword (generally the case), then the
+   subfolder will bear the name of that keyword. Inside the proposal subfolder is a
+   series of test files that would contain amendments to the required test suite
+   should the proposal be incorporated into the specification. These tests should
+   be considered volatile while the proposal is in development; however,
+   implementations claiming to support the proposal are expected to pass its tests.
 
-## Test Components
+## Using the Suite to Test a Validator Implementation
 
-### description
+The test suite structure was described [above](#test-suite-structure).
 
-A short description of what behaviour the individual test is covering.
+If you are authoring a new validator implementation, or adding support for an
+additional version of the specification, this section describes:
 
-### data
+1. How to implement a test runner which passes tests to your validator
+2. Invariants the test suite claims to hold for its tests
 
-The instance to validate against `schema`.
+### How to Implement a Test Runner
 
-### valid
+Presented here is a possible implementation of a test runner. The precise steps
+described do not need to be followed exactly, but the results of your own
+procedure should produce the same effects.
 
-Whether `data` is expected to be valid or invalid under `schema`.
+To test a specific dialect:
 
-## Legacy
+* For each `.json` file found in the `tests` directory:
+  * for each test case present in the file:
+    * check the `compatibility` property (if present) to determine if the test case
+      applies to the dialect you are testing. If the test case doesn't apply,
+      continue to the next test case.
+    * if the test case has an `externalSchemas` property, load each schema it
+      contains, using the keys as retrieval URIs. Designate the dialect either
+      by inserting `$schema` or by configuration.
+    * load the schema from the `"schema"` property. Designate the dialect either
+      by inserting `$schema` or by configuration.
+    * log the test case description from the `"description"` property for
+      debugging or outputting
+    * for each test in the `"tests"` property:
+      * load the instance to be tested from the `"data"` property
+      * log the individual test description from the `"description"` property
+        for debugging or outputting
+      * use the schema loaded above to validate whether the instance is
+        considered valid under your implementation
+      * if the result from your implementation matches the value found in the
+        `"valid"` property, your implementation correctly implements the
+        specific example
+      * if the result does not match, or your implementation errors or crashes,
+        your implementation does not correctly implement the specific example
 
-Some keywords changed shape across dialects.
+If your implementation supports multiple versions, run the above procedure for
+each version supported, configuring your implementation as appropriate to call
+each version individually.
 
-A `-legacy` file exists only where a keyword's underlying mechanism changed in a way `compatibility` alone can't express.
+### Invariants & Guarantees
 
-## Examples
+The test suite guarantees a number of things about tests it defines. Any
+deviation from the below is generally considered a bug. If you suspect one,
+please [file an issue](https://github.com/json-schema-org/JSON-Schema-Test-Suite/issues/new):
 
-#### Example: A Test Case with externalSchemas
+1. All files containing test cases are valid JSON.
+2. The contents of the `"schema"` property in a test case are always valid
+   JSON Schemas for all compatible dialects according to the `"compatibility"`
+   property.
+3. The values in the `"externalSchemas"` property (if present) are always valid
+   JSON Schemas for all compatible dialects according to the `"compatibility"`
+   property.
 
-From `anchor.json`, The schema references a remote document that would previously have lived under `remotes/`
+   The rationale behind this is that we are testing instances in a test's
+   `"data"` element, and not the schema itself. The [json-schema-spec](https://github.com/json-schema-org/json-schema-spec)
+   repo includes a test suite for the meta-schema. Any tests that test that
+   something is a syntactically correct schema should go in that suite instead
+   of this one.
 
-```json
-    {
-            "description": "anchor within remote ref",
-            "compatibility": "2019",
-            "schema": {
-                "$ref": "http://localhost:1234/locationIndependentIdentifier.json#foo"
-            },
-            "externalSchemas": {
-                "http://localhost:1234/locationIndependentIdentifier.json": {
-                    "$defs": {
-                        "refToInteger": {
-                            "$ref": "#foo"
-                        },
-                        "A": {
-                            "$anchor": "foo",
-                            "type": "integer"
-                        }
-                    }
-                }
-            },
-            "tests": [
-                {
-                    "description": "remote anchor valid",
-                    "data": 1,
-                    "valid": true
-                },
-                {
-                    "description": "remote anchor invalid",
-                    "data": "a",
-                    "valid": false
-                }
-            ]
-        },
-```
+## Known Limitations
 
-The key in `externalSchemas`(`http://localhost:1234/...`) is the retrieval URI the `$ref` resolves against.
+JSON Schema validation can only assert that an instance is valid (`true`) or
+invalid (`false`). It cannot express indeterminate or error states. This means
+there are behaviors mandated by the specification that cannot be tested by this
+suite.
 
-The same Test Case is expressed for pre-`2019-09` dialects in `anchor-legacy.json`
+For example, a `$ref` that points to a non-existent location should be an error,
+but the test suite doesn't have a way to express that result. Another example of
+an expected error that the test suite can't express is a v1 schema with unknown
+keywords.
 
-## Running the Suite
+## Contributing
 
-To check every file in `validation/tests/`:
+If you see something missing or incorrect, a pull request is most welcome!
 
-```bash
-python validation/check_validation_suite.py
-```
-or, if `tox` is installed:
+When writing tests, design them to apply to as many dialects as possible using
+the `compatibility` property. However, sometimes it's necessary to include a copy
+of a test that is similar but uses older syntax. For example, adding a test that
+uses `$id` might also need a second similar test that uses `id`. In such cases,
+add the older test in the appropriate `-legacy` file.
 
-```bash
-tox -e sanity
-```
+There are some sanity checks in place for testing the test suite. You can run
+them with `python check_validation_suite.py` or `tox`. They will be run automatically
+by [GitHub Actions](https://github.com/json-schema-org/JSON-Schema-Test-Suite/actions?query=workflow%3A%22Test+Suite+Sanity+Checking%22)
+as well.
 
-To check a single file:
-
-```bash
-python validation/check_validation_suite.py anchor.json
-```
+This repository is maintained by the JSON Schema organization, and is
+governed by the JSON Schema Technical Steering Committee (TSC).
