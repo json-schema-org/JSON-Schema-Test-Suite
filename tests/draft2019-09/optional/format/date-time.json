@@ -87,6 +87,26 @@
                 "valid": false
             },
             {
+                "description": "a valid leap day in a leap year",
+                "data": "2024-02-29T12:00:00Z",
+                "valid": true
+            },
+            {
+                "description": "an invalid leap day in a non-leap year",
+                "data": "2023-02-29T12:00:00Z",
+                "valid": false
+            },
+            {
+                "description": "a valid leap day in a century leap year",
+                "data": "2000-02-29T12:00:00Z",
+                "valid": true
+            },
+            {
+                "description": "an invalid leap day in a century non-leap year",
+                "data": "1900-02-29T12:00:00Z",
+                "valid": false
+            },
+            {
                 "description": "an invalid offset in date-time string",
                 "data": "1990-12-31T15:59:59-24:00",
                 "valid": false
