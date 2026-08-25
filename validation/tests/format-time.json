@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 time validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "time validation",
     "tests": [
         {
             "description": "validation of time strings",

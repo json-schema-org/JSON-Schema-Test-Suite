@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 ipv4 validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "ipv4 validation",
     "tests": [
         {
             "description": "validation of IP addresses",

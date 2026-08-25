@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 relative-json-pointer validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "relative-json-pointer validation",
     "tests": [
         {
             "description": "validation of Relative JSON Pointers (RJP)",

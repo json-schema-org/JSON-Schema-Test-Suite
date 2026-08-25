@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 uri validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "uri validation",
     "tests": [
         {
             "description": "validation of URIs",

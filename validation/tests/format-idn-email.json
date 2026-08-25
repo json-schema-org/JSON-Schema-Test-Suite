@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 idn-email validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "idn-email validation",
     "tests": [
         {
             "description": "validation of an internationalized e-mail addresses",

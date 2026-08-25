@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 email validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "email validation",
     "tests": [
         {
             "description": "validation of e-mail addresses",

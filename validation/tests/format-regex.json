@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 regex validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "regex validation",
     "tests": [
         {
             "description": "validation of regular expressions",

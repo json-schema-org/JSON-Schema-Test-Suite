@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 iri-reference validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "iri-reference validation",
     "tests": [
         {
             "description": "validation of IRI References",

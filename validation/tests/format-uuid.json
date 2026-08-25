@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 uuid validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "uuid validation",
     "tests": [
         {
             "description": "uuid format",

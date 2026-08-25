@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 date validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "date validation",
     "tests": [
         {
             "description": "validation of date strings",

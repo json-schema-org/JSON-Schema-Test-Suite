@@ -1,6 +1,6 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 idn-hostname validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "idn-hostname validation",
     "tests": [
         {
             "description": "validation of internationalized host names",
