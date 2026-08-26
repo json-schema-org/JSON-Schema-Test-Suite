@@ -64,45 +64,45 @@
                         "uniqueItems": true,
                         "items": {
                             "properties": {
-                                "core": { 
+                                "core": {
                                     "description": "A section in official JSON Schema core drafts",
                                     "url": "https://json-schema.org/specification-links",
-                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$", 
+                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$",
                                     "type":"string"
                                 },
                                 "validation": {
                                     "description": "A section in official JSON Schema validation drafts",
                                     "url": "https://json-schema.org/specification-links",
-                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$", 
-                                    "type":"string" 
+                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$",
+                                    "type":"string"
                                 },
-                                "ecma262": { 
+                                "ecma262": {
                                     "description": "A section in official ECMA 262 specification for defining regular expressions",
                                     "url": "https://262.ecma-international.org/",
-                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$", 
-                                    "type":"string" 
+                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$",
+                                    "type":"string"
                                 },
-                                "perl5": { 
+                                "perl5": {
                                     "description": "A section name in Perl documentation for defining regular expressions",
                                     "url": "https://perldoc.perl.org/perlre",
-                                    "type":"string" 
+                                    "type":"string"
                                 },
-                                "quote": { 
+                                "quote": {
                                     "description": "Quote describing the test case",
-                                    "type":"string" 
+                                    "type":"string"
                                 }
                             },
                             "patternProperties": {
-                                "^rfc\\d+$": { 
+                                "^rfc\\d+$": {
                                     "description": "A section in official RFC for the given rfc number",
                                     "url": "https://www.rfc-editor.org/",
-                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$", 
-                                    "type":"string" 
+                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$",
+                                    "type":"string"
                                 },
-                                "^iso\\d+$": { 
+                                "^iso\\d+$": {
                                     "description": "A section in official ISO for the given iso number",
-                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$", 
-                                    "type": "string" 
+                                    "pattern": "^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$",
+                                    "type": "string"
                                 }
                             },
                             "additionalProperties": { "type": "string" },

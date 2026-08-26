@@ -250,7 +250,7 @@
             "compatibility": "2020",
             "schema": {
                 "prefixItems": [
-                    { "type": "boolean" }, 
+                    { "type": "boolean" },
                     { "type": "boolean" }
                 ],
                 "uniqueItems": true
@@ -303,7 +303,7 @@
             "compatibility": "<=2019",
             "schema": {
                 "items": [
-                    { "type": "boolean" }, 
+                    { "type": "boolean" },
                     { "type": "boolean" }
                 ],
                 "uniqueItems": true
@@ -356,7 +356,7 @@
             "compatibility": "2020",
             "schema": {
                 "prefixItems": [
-                    { "type": "boolean" }, 
+                    { "type": "boolean" },
                     { "type": "boolean" }
                 ],
                 "uniqueItems": true,
@@ -395,7 +395,7 @@
             "compatibility": "<=2019",
             "schema": {
                 "items": [
-                    { "type": "boolean" }, 
+                    { "type": "boolean" },
                     { "type": "boolean" }
                 ],
                 "uniqueItems": true,
@@ -434,7 +434,7 @@
             "compatibility": "2020",
             "schema": {
                 "prefixItems": [
-                    { "type": "boolean" }, 
+                    { "type": "boolean" },
                     { "type": "boolean" }
                 ],
                 "uniqueItems": false
@@ -487,7 +487,7 @@
             "compatibility": "<=2019",
             "schema": {
                 "items": [
-                    { "type": "boolean" }, 
+                    { "type": "boolean" },
                     { "type": "boolean" }
                 ],
                 "uniqueItems": false
@@ -540,7 +540,7 @@
             "compatibility": "2020",
             "schema": {
                 "prefixItems": [
-                    { "type": "boolean" }, 
+                    { "type": "boolean" },
                     { "type": "boolean" }
                 ],
                 "uniqueItems": false,
@@ -579,7 +579,7 @@
             "compatibility": "<=2019",
             "schema": {
                 "items": [
-                    { "type": "boolean" }, 
+                    { "type": "boolean" },
                     { "type": "boolean" }
                 ],
                 "uniqueItems": false,
