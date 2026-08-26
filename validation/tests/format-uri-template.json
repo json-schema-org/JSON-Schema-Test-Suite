@@ -3,8 +3,8 @@
     "description": "uri-template validation",
     "tests": [
         {
-            "description": "format: uri-template",
-            "compatibility": "9999",
+            "description": "validation of non-string uri-template values",
+            "compatibility": "6",
             "schema": {
                 "format": "uri-template"
             },
@@ -38,7 +38,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "format: uri-template",
+            "compatibility": "9999",
+            "schema": {
+                "format": "uri-template"
+            },
+            "tests": [
                 {
                     "description": "a valid uri-template",
                     "data": "http://example.com/dictionary/{term:1}/{term}",

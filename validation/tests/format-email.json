@@ -3,8 +3,7 @@
     "description": "email validation",
     "tests": [
         {
-            "description": "validation of e-mail addresses",
-            "compatibility": "9999",
+            "description": "validation of non-string email values",
             "schema": {
                 "format": "email"
             },
@@ -38,7 +37,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of e-mail addresses",
+            "compatibility": "9999",
+            "schema": {
+                "format": "email"
+            },
+            "tests": [
                 {
                     "description": "a valid e-mail address",
                     "data": "joe.bloggs@example.com",

@@ -3,8 +3,8 @@
     "description": "time validation",
     "tests": [
         {
-            "description": "validation of time strings",
-            "compatibility": "9999",
+            "description": "validation of non-string time values",
+            "compatibility": "<=3,7",
             "schema": {
                 "format": "time"
             },
@@ -38,7 +38,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of time strings",
+            "compatibility": "9999",
+            "schema": {
+                "format": "time"
+            },
+            "tests": [
                 {
                     "description": "a valid time string",
                     "data": "08:30:06Z",

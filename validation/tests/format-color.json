@@ -1,12 +1,12 @@
 {
     "$schema": "../validation-test-schema.json",
-    "description": "regex validation",
+    "description": "format color validation",
     "tests": [
         {
-            "description": "validation of non-string regex values",
-            "compatibility": "=3,7",
+            "description": "validation of non-string color values",
+            "compatibility": "<=3",
             "schema": {
-                "format": "regex"
+                "format": "color"
             },
             "tests": [
                 {
@@ -38,25 +38,6 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                }
-            ]
-        },
-        {
-            "description": "validation of regular expressions",
-            "compatibility": "9999",
-            "schema": {
-                "format": "regex"
-            },
-            "tests": [
-                {
-                    "description": "a valid regular expression",
-                    "data": "([abc])+\\s+$",
-                    "valid": true
-                },
-                {
-                    "description": "a regular expression with unclosed parens is invalid",
-                    "data": "^(abc]",
-                    "valid": false
                 }
             ]
         }

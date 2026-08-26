@@ -3,8 +3,8 @@
     "description": "iri validation",
     "tests": [
         {
-            "description": "validation of IRIs",
-            "compatibility": "9999",
+            "description": "validation of non-string iri values",
+            "compatibility": "7",
             "schema": {
                 "format": "iri"
             },
@@ -38,7 +38,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of IRIs",
+            "compatibility": "9999",
+            "schema": {
+                "format": "iri"
+            },
+            "tests": [
                 {
                     "description": "a valid IRI with anchor tag",
                     "data": "http://ƒøø.ßår/?∂éœ=πîx#πîüx",

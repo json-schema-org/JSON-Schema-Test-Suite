@@ -3,8 +3,8 @@
     "description": "json-pointer validation",
     "tests": [
         {
-            "description": "validation of JSON-pointers (JSON String Representation)",
-            "compatibility": "9999",
+            "description": "validation of non-string json-pointer values",
+            "compatibility": "6",
             "schema": {
                 "format": "json-pointer"
             },
@@ -38,7 +38,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of JSON-pointers (JSON String Representation)",
+            "compatibility": "9999",
+            "schema": {
+                "format": "json-pointer"
+            },
+            "tests": [
                 {
                     "description": "a valid JSON-pointer",
                     "data": "/foo/bar~0/baz~1/%a",
