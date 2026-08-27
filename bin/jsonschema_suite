@@ -76,6 +76,16 @@ def collect(root_dir):
     return root_dir.rglob("*.json")
 
 
+def version_directory(version):
+    """
+    Return the test directory for a version name or path.
+    """
+    version_dir = Path(version)
+    if not version_dir.exists():
+        version_dir = SUITE_ROOT_DIR / version
+    return version_dir
+
+
 def url_for_path(path):
     """
     Return the assumed remote URL for a file in the remotes/ directory.
@@ -624,19 +634,26 @@ def main(arguments):
         suite = unittest.TestLoader().loadTestsFromTestCase(SanityTests)
         result = unittest.TextTestRunner().run(suite)
         sys.exit(not result.wasSuccessful())
+
     elif arguments.command == "flatten":
-        selected_cases = [case for case in cases(collect(arguments.version))]
+        version_dir = version_directory(arguments.version)
+
+        selected_cases = [
+            case for case in cases(collect(version_dir))
+        ]
 
         if arguments.randomize:
             random.shuffle(selected_cases)
 
         json.dump(selected_cases, sys.stdout, indent=4, sort_keys=True)
+
     elif arguments.command == "remotes":
         remotes = {
             url_for_path(path): json.loads(path.read_text())
             for path in collect(REMOTES_DIR)
         }
         json.dump(remotes, sys.stdout, indent=4, sort_keys=True)
+
     elif arguments.command == "dump_remotes":
         if arguments.update:
             shutil.rmtree(arguments.out_dir, ignore_errors=True)
