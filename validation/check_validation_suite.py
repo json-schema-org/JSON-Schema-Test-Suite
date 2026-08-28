@@ -292,7 +292,6 @@ KNOWN = {
                 "$ref",
                 "$schema",
                 "additionalItems",
-                "additionalItems",
                 "additionalProperties",
                 "allOf",
                 "anyOf",
@@ -515,7 +514,9 @@ class ValidationSuiteChecks(unittest.TestCase):
                 if isinstance(schema, bool):
                     continue
 
-                applicable = [d for d in DIALECT_ORDER if dialect_applies(compat, int(d))]
+                applicable = [
+                    d for d in DIALECT_ORDER if dialect_applies(compat, int(d))
+                ]
 
                 for dialect in applicable:
                     if dialect not in DIALECT_VALIDATORS:
@@ -523,11 +524,13 @@ class ValidationSuiteChecks(unittest.TestCase):
                     known = KNOWN[dialect]
                     Validator = DIALECT_VALIDATORS[dialect]
 
-                    outer_self = self
-
                     class StrictValidators(Mapping):
-                        def __init__(self, d):
+                        def __init__(self, d, tester, known_keywords, case_schema, dialect_name):
                             self._d = d
+                            self._tester = tester
+                            self._known = known_keywords
+                            self._schema = case_schema
+                            self._dialect = dialect_name
 
                         def __iter__(self):
                             return iter(self._d)
@@ -536,10 +539,10 @@ class ValidationSuiteChecks(unittest.TestCase):
                             return len(self._d)
 
                         def __getitem__(self, k):
-                            if k not in known and k in schema:
-                                outer_self.fail(
+                            if k not in self._known and k in self._schema:
+                                self._tester.fail(
                                     f"'{k}' is not a known keyword for "
-                                    f"release {dialect}. "
+                                    f"release {self._dialect}. "
                                     f"Either the compatibility field is too broad, "
                                     f"the keyword is a typo, or it needs adding to "
                                     f"the KNOWN allowlist in the checker."
@@ -551,7 +554,7 @@ class ValidationSuiteChecks(unittest.TestCase):
                         setattr, Validator, "VALIDATORS", original_validators
                     )
                     Validator.VALIDATORS = StrictValidators(
-                        dict(original_validators)
+                        dict(original_validators), self, known, schema, dialect
                     )
 
                     with self.subTest(
@@ -611,8 +614,8 @@ class ValidationSuiteChecks(unittest.TestCase):
                     self.assertNotIn(
                         "$schema",
                         schema,
-                        f"Test case schema must not contain $schema — "
-                        f"remove it so the test stays dialect-agnostic"
+                        "Test case schema must not contain $schema — "
+                        "remove it so the test stays dialect-agnostic",
                     )
 
     def test_case_descriptions_unique_per_file(self):
