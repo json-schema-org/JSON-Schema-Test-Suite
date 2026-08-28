@@ -32,7 +32,7 @@ else:
     }
 
 
-ROOT_DIR = Path(__file__).parent          
+ROOT_DIR = Path(__file__).parent
 VALIDATION_DIR = ROOT_DIR / "tests"
 VALIDATION_SCHEMA_PATH = ROOT_DIR / "validation-test-schema.json"
 
@@ -95,7 +95,7 @@ def dialect_applies(compatibility: str, target: str) -> bool:
     """
     if not compatibility:
         return True
-    
+
     if compatibility == "9999":
         return True
 
@@ -534,24 +534,24 @@ class ValidationSuiteChecks(unittest.TestCase):
         """
         Test case schemas must not use keywords that didn't exist in the
         minimum dialect their compatibility field allows.
- 
+
         For example, a case with compatibility "4" must not use `prefixItems`
         (a draft 2020 keyword). This catches accidental keyword leakage across
         drafts.
- 
+
         Mirrors test_arbitrary_schemas_do_not_use_unknown_keywords in
         bin/jsonschema_suite, adapted for compatibility-based dialect selection.
         """
         from collections.abc import Mapping
- 
+
         for path in self.test_files:
             if path.name in UNKNOWN_KEYWORD_TEST_FILES:
                 continue
-            
+
             for case in load_cases(path):
                 if "unknown keyword" in case.get("description", ""):
                     continue
- 
+
                 compat = case.get("compatibility", "")
                 if compat == "9999":
                     continue
@@ -568,19 +568,19 @@ class ValidationSuiteChecks(unittest.TestCase):
                         continue
                     known = KNOWN[dialect]
                     Validator = DIALECT_VALIDATORS[dialect]
- 
+
                     outer_self = self
-    
+
                     class StrictValidators(Mapping):
                         def __init__(self, d):
                             self._d = d
-    
+
                         def __iter__(self):
                             return iter(self._d)
-    
+
                         def __len__(self):
                             return len(self._d)
-    
+
                         def __getitem__(self, k):
                             if k not in known and k in schema:
                                 outer_self.fail(
@@ -591,7 +591,7 @@ class ValidationSuiteChecks(unittest.TestCase):
                                     f"the KNOWN allowlist in the checker."
                                 )
                             return self._d[k]
- 
+
                     original_validators = Validator.VALIDATORS
                     self.addCleanup(
                         setattr, Validator, "VALIDATORS", original_validators
@@ -599,7 +599,7 @@ class ValidationSuiteChecks(unittest.TestCase):
                     Validator.VALIDATORS = StrictValidators(
                         dict(original_validators)
                     )
-    
+
                     with self.subTest(
                         file=path.name,
                         case=case.get("description"),
