@@ -11,6 +11,7 @@ validation/ directory and understands the compatibility field.
 """
 
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -38,8 +39,6 @@ VALIDATION_SCHEMA_PATH = ROOT_DIR / "validation-test-schema.json"
 
 DIALECT_ORDER = ["3", "4", "6", "7", "2019", "2020"]
 
-VALID_COMPAT_OPERATORS = ("<=", "=", "")   # "" means plain minimum
-
 ALLOWED_SCHEMA_FILES = {
     'vocabulary.json',
     'format-assertion.json'
@@ -50,73 +49,28 @@ UNKNOWN_KEYWORD_TEST_FILES = {
 }
 
 
-def parse_compat(compatibility: str):
-    """
-    Parse a compatibility string into:
-        minimum dialect (or None)
-        maximum dialect (or None)
-        set of exact dialects
+def dialect_applies(compatibility: str | None, target: int) -> bool:
+    is_valid: bool = True
 
-    Examples:
-        "3"              -> ("3", None, set())
-        "=4"             -> (None, None, {"4"})
-        "6,<=2019"       -> ("6", "2019", set())
-        "=3,7,<=2019"    -> ("7", "2019", {"3"})
-    """
-    minimum = None
-    maximum = None
-    exact = set()
+    for constraint in (compatibility.split(",") if compatibility else []):
+        match = re.search(r"(?P<operator><=|>=|=)?(?P<version>\d+)", constraint)
+        if not match:
+            raise ValueError(f"Invalid compatibility string: {compatibility}")
 
-    if not compatibility:
-        return minimum, maximum, exact
+        operator: str = match.group("operator") or ">="
+        version: int = int(match.group("version"))
 
-    for raw in compatibility.split(","):
-        raw = raw.strip()
+        if operator == ">=":
+            is_valid = target >= version
+        elif operator == "<=":
+            is_valid = target <= version
+        elif operator == "=":
+            is_valid = target == version
 
-        if raw.startswith("="):
-            dialect = raw[1:].strip()
-            if dialect in DIALECT_ORDER:
-                exact.add(dialect)
-        elif raw.startswith("<="):
-            dialect = raw[2:].strip()
-            if dialect in DIALECT_ORDER:
-                maximum = dialect
-        else:
-            dialect = raw
-            if dialect in DIALECT_ORDER:
-                minimum = dialect
+        if target <= version:
+            break
 
-    return minimum, maximum, exact
-
-
-def dialect_applies(compatibility: str, target: str) -> bool:
-    """
-    Return True if a dialect should run this test.
-    """
-    if not compatibility:
-        return True
-
-    if compatibility == "9999":
-        return True
-
-    if target not in DIALECT_ORDER:
-        return False
-
-    minimum, maximum, exact = parse_compat(compatibility)
-
-    if target in exact:
-        return True
-
-    target_idx = DIALECT_ORDER.index(target)
-
-    if minimum is not None:
-        if target_idx < DIALECT_ORDER.index(minimum):
-            return False
-    if maximum is not None:
-        if target_idx > DIALECT_ORDER.index(maximum):
-            return False
-
-    return minimum is not None or maximum is not None
+    return is_valid
 
 
 def collect(directory: Path, filename_filter: str | None = None):
@@ -338,7 +292,6 @@ KNOWN = {
                 "$ref",
                 "$schema",
                 "additionalItems",
-                "additionalItems",
                 "additionalProperties",
                 "allOf",
                 "anyOf",
@@ -476,7 +429,7 @@ class ValidationSuiteChecks(unittest.TestCase):
                     continue
                 schema = case.get("schema", {})
                 applicable = [
-                    d for d in DIALECT_ORDER if dialect_applies(compat, d)
+                    d for d in DIALECT_ORDER if dialect_applies(compat, int(d))
                 ]
                 for dialect in applicable:
                     if dialect not in DIALECT_VALIDATORS:
@@ -561,7 +514,9 @@ class ValidationSuiteChecks(unittest.TestCase):
                 if isinstance(schema, bool):
                     continue
 
-                applicable = [d for d in DIALECT_ORDER if dialect_applies(compat, d)]
+                applicable = [
+                    d for d in DIALECT_ORDER if dialect_applies(compat, int(d))
+                ]
 
                 for dialect in applicable:
                     if dialect not in DIALECT_VALIDATORS:
@@ -569,11 +524,13 @@ class ValidationSuiteChecks(unittest.TestCase):
                     known = KNOWN[dialect]
                     Validator = DIALECT_VALIDATORS[dialect]
 
-                    outer_self = self
-
                     class StrictValidators(Mapping):
-                        def __init__(self, d):
+                        def __init__(self, d, tester, known_keywords, case_schema, dialect_name):
                             self._d = d
+                            self._tester = tester
+                            self._known = known_keywords
+                            self._schema = case_schema
+                            self._dialect = dialect_name
 
                         def __iter__(self):
                             return iter(self._d)
@@ -582,10 +539,10 @@ class ValidationSuiteChecks(unittest.TestCase):
                             return len(self._d)
 
                         def __getitem__(self, k):
-                            if k not in known and k in schema:
-                                outer_self.fail(
+                            if k not in self._known and k in self._schema:
+                                self._tester.fail(
                                     f"'{k}' is not a known keyword for "
-                                    f"release {dialect}. "
+                                    f"release {self._dialect}. "
                                     f"Either the compatibility field is too broad, "
                                     f"the keyword is a typo, or it needs adding to "
                                     f"the KNOWN allowlist in the checker."
@@ -597,7 +554,7 @@ class ValidationSuiteChecks(unittest.TestCase):
                         setattr, Validator, "VALIDATORS", original_validators
                     )
                     Validator.VALIDATORS = StrictValidators(
-                        dict(original_validators)
+                        dict(original_validators), self, known, schema, dialect
                     )
 
                     with self.subTest(
@@ -616,7 +573,7 @@ class ValidationSuiteChecks(unittest.TestCase):
                 compat = case.get("compatibility", "")
                 with self.subTest(file=path.name, case=case.get("description", i)):
                     try:
-                        parse_compat(compat)
+                        dialect_applies(compat, 9999)
                     except ValueError as e:
                         self.fail(str(e))
 
@@ -624,8 +581,10 @@ class ValidationSuiteChecks(unittest.TestCase):
         for path in self.test_files:
             for case in load_cases(path):
                 compat = case.get("compatibility", "")
+                if compat == "9999":
+                    continue
                 with self.subTest(file=path.name, case=case.get("description")):
-                    matches = [d for d in DIALECT_ORDER if dialect_applies(compat, d)]
+                    matches = [d for d in DIALECT_ORDER if dialect_applies(compat, int(d))]
                     self.assertTrue(
                         matches,
                         f"compatibility={compat!r} matches no dialect — "
@@ -655,8 +614,8 @@ class ValidationSuiteChecks(unittest.TestCase):
                     self.assertNotIn(
                         "$schema",
                         schema,
-                        f"Test case schema must not contain $schema — "
-                        f"remove it so the test stays dialect-agnostic"
+                        "Test case schema must not contain $schema — "
+                        "remove it so the test stays dialect-agnostic",
                     )
 
     def test_case_descriptions_unique_per_file(self):
@@ -702,7 +661,7 @@ class ValidationSuiteChecks(unittest.TestCase):
             for case in cases:
                 compat = case.get("compatibility", "")
                 for d in DIALECT_ORDER:
-                    if dialect_applies(compat, d):
+                    if dialect_applies(compat, int(d)):
                         coverage[d] += 1
             print(f"\n  {path.name}: {len(cases)} case(s)")
             print(f"    Coverage by dialect: {coverage}")

@@ -110,9 +110,9 @@ the test case is compatible with 2019-09 and under.
 
 **Example**: `"compatibility": "<=2019"`
 
-You can use comma-separated values to indicate multiple constraints if needed.
-This example indicates that the test case is compatible with releases between
-draft-06 and 2019-09.
+You can use comma-separated values to indicate multiple constraints if needed,
+but constraints must be ordered smallest to largest. This example indicates that
+the test case is compatible with releases between draft-06 and 2019-09.
 
 **Example**: `"compatibility": "6,<=2019"`
 
@@ -122,10 +122,15 @@ compatible only with 2020-12.
 
 **Example**: `"compatibility": "=2020"`
 
-This example indicates that the test case is compatible with draft-03 only, plus
-draft-07 through 2020-12.
+There can be more than two constraints. This example indicates that the test
+case is compatible with draft-03 only, plus draft-07 through 2020-12.
 
 **Example**: `"compatibility": "=3,7,<=2020"`
+
+Contraints can be open ended on both ends. This example indicates that the test
+case is compatible up to draft-03 and draft-07 and later.
+
+**Example**: `"compatibility": "<=3,7"`
 
 Starting with v1, JSON Schema will have yearly releases. These are indicated
 by the full year in the compatibility property (e.g., `2027`, `2028`). Tests for
@@ -133,6 +138,40 @@ features that are in the specification but not yet part of a release use
 `9999` as a placeholder. Implementations are expected to implement and pass
 these tests. It's the last step we require before the feature can be officially
 released.
+
+**Example**: `"compatibility": "9999"`
+
+#### Compatibility matching
+
+The following psudocode shows the algorithm for correctly determining if a test
+case is compatible with the version being tested. It's not as straightforward as
+it seems, so take please consider the psudocode when implementing.
+
+```
+FUNCTION isCompatible(compatibility, versionUnderTest):
+    isValid = true
+
+    FOR EACH constraint IN SPLIT(compatibility, ","):
+        (operator, version) = PARSE constraint
+
+        SWITCH operator:
+            CASE "":
+                isValid = (versionUnderTest >= version)
+            CASE "<=":
+                isValid = (versionUnderTest <= version)
+            CASE "=":
+                isValid = (versionUnderTest == version)
+
+        // IMPORTANT!
+        IF versionUnderTest <= version:
+            BREAK
+
+    RETURN isValid
+```
+
+The constraints are combined as a disjunction over releases: each term describes
+a range (or single release) that the test case is compatible with, and the test
+case applies to a dialect if it matches any of them.
 
 ### External Schemas
 
