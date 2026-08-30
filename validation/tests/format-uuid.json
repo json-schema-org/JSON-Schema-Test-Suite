@@ -1,10 +1,10 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 uuid validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "uuid validation",
     "tests": [
         {
-            "description": "uuid format",
-            "compatibility": "9999",
+            "description": "validation of non-string uuid values",
+            "compatibility": "2019",
             "schema": {
                 "format": "uuid"
             },
@@ -38,7 +38,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "uuid format",
+            "compatibility": "9999",
+            "schema": {
+                "format": "uuid"
+            },
+            "tests": [
                 {
                     "description": "all upper-case",
                     "data": "2EB8AA08-AA98-11EA-B4AA-73B441D16380",

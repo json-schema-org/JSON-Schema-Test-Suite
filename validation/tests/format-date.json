@@ -1,10 +1,10 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 date validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "date validation",
     "tests": [
         {
-            "description": "validation of date strings",
-            "compatibility": "9999",
+            "description": "validation of non-string date values",
+            "compatibility": "<=3,7",
             "schema": {
                 "format": "date"
             },
@@ -38,7 +38,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of date strings",
+            "compatibility": "9999",
+            "schema": {
+                "format": "date"
+            },
+            "tests": [
                 {
                     "description": "a valid date string",
                     "data": "1963-06-19",
