@@ -1,10 +1,10 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 idn-hostname validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "idn-hostname validation",
     "tests": [
         {
-            "description": "validation of internationalized host names",
-            "compatibility": "9999",
+            "description": "validation of non-string idn-hostname values",
+            "compatibility": "7",
             "schema": {
                 "format": "idn-hostname"
             },
@@ -38,7 +38,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of internationalized host names",
+            "compatibility": "9999",
+            "schema": {
+                "format": "idn-hostname"
+            },
+            "tests": [
                 {
                     "description": "a valid host name (example.test in Hangul)",
                     "data": "실례.테스트",
