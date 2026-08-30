@@ -1,10 +1,10 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 uri-reference validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "uri-reference validation",
     "tests": [
         {
-            "description": "validation of URI References",
-            "compatibility": "9999",
+            "description": "validation of non-string uri-reference values",
+            "compatibility": "6",
             "schema": {
                 "format": "uri-reference"
             },
@@ -38,7 +38,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of URI References",
+            "compatibility": "9999",
+            "schema": {
+                "format": "uri-reference"
+            },
+            "tests": [
                 {
                     "description": "a valid URI",
                     "data": "http://foo.bar/?baz=qux#quux",

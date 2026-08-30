@@ -1,10 +1,10 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 relative-json-pointer validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "relative-json-pointer validation",
     "tests": [
         {
-            "description": "validation of Relative JSON Pointers (RJP)",
-            "compatibility": "9999",
+            "description": "validation of non-string relative-json-pointer values",
+            "compatibility": "7",
             "schema": {
                 "format": "relative-json-pointer"
             },
@@ -38,7 +38,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of Relative JSON Pointers (RJP)",
+            "compatibility": "9999",
+            "schema": {
+                "format": "relative-json-pointer"
+            },
+            "tests": [
                 {
                     "description": "a valid upwards RJP",
                     "data": "1",

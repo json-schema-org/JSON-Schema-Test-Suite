@@ -1,10 +1,9 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 hostname validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "hostname validation",
     "tests": [
         {
-            "description": "validation of host names",
-            "compatibility": "9999",
+            "description": "validation of non-string hostname values",
             "schema": {
                 "format": "hostname"
             },
@@ -38,7 +37,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of host names",
+            "compatibility": "9999",
+            "schema": {
+                "format": "hostname"
+            },
+            "tests": [
                 {
                     "description": "a valid host name",
                     "data": "www.example.com",
