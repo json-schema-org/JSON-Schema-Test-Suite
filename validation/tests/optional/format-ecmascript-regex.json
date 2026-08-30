@@ -1,6 +1,6 @@
 {
     "$schema": "../../validation-test-schema.json",
-    "description": "v1 ecmascript-regex validation",
+    "description": "ecmascript-regex validation",
     "tests": [
         {
             "description": "\\a is not an ECMA 262 control escape",
