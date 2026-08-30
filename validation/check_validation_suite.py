@@ -45,7 +45,7 @@ ALLOWED_SCHEMA_FILES = {
 }
 
 UNKNOWN_KEYWORD_TEST_FILES = {
-    "refOfUnknownKeyword.json"
+    "non-schemas.json"
 }
 
 
