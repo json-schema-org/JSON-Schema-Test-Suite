@@ -1,10 +1,9 @@
 {
-    "$schema": "../../validation-test-schema.json",
-    "description": "v1 ipv6 validation",
+    "$schema": "../validation-test-schema.json",
+    "description": "ipv6 validation",
     "tests": [
         {
-            "description": "validation of IPv6 addresses",
-            "compatibility": "9999",
+            "description": "validation of non-string ipv6 values",
             "schema": {
                 "format": "ipv6"
             },
@@ -38,7 +37,16 @@
                     "description": "all string formats ignore nulls",
                     "data": null,
                     "valid": true
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of IPv6 addresses",
+            "compatibility": "9999",
+            "schema": {
+                "format": "ipv6"
+            },
+            "tests": [
                 {
                     "description": "a valid IPv6 address",
                     "data": "::1",
