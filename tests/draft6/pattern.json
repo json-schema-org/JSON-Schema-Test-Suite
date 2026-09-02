@@ -50,9 +50,25 @@
         "schema": {"pattern": "a+"},
         "tests": [
             {
+                "description": "doesn't match a substring",
+                "data": "xxyy",
+                "valid": false
+            },
+            {
                 "description": "matches a substring",
                 "data": "xxaayy",
                 "valid": true
+            }
+        ]
+    },
+    {
+        "description": "pattern is malformed",
+        "schema": {"pattern": "hel{1,"},
+        "tests": [
+            {
+                "description": "invalid regex does not match",
+                "data": "hello",
+                "valid": false
             }
         ]
     }
