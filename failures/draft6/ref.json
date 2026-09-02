@@ -1,0 +1,53 @@
+[
+    {
+        "description": "cannot be object",
+        "schema": { "$ref": {} },
+        "instance": {}
+    },
+    {
+        "description": "cannot be array",
+        "schema": { "$ref": [] },
+        "instance": {}
+    },
+    {
+        "description": "cannot be boolean",
+        "schema": { "$ref": false },
+        "instance": {}
+    },
+    {
+        "description": "cannot be number",
+        "schema": { "$ref": 42 },
+        "instance": {}
+    },
+    {
+        "description": "cannot be null",
+        "schema": { "$ref": null },
+        "instance": {}
+    },
+    {
+        "description": "infinite loop $ref",
+        "schema": { "$ref": "#" },
+        "instance": {}
+    },
+    {
+        "description": "infinite two-part loop $ref",
+        "schema": {
+            "$ref": "#/definitions/a",
+            "definitions": {
+                "a": { "$ref": "#/definitions/b" },
+                "b": { "$ref": "#/definitions/a" }
+            }
+        },
+        "instance": {}
+    },
+    {
+        "description": "unresolvable reference - pointer",
+        "schema": { "$ref": "#/definitions/a" },
+        "instance": {}
+    },
+    {
+        "description": "unresolvable reference - anchor",
+        "schema": { "$ref": "#foo" },
+        "instance": {}
+    }
+]
