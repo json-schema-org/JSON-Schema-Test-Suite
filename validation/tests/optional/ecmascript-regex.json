@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional ecmascript-regex validation",
+    "comment": "Optional because regular expression semantics are implementation- and language-dependent; these tests only apply to implementations that use ECMA 262 (JavaScript) regular expressions.",
     "tests": [
         {
             "description": "ECMA 262 regex $ does not match trailing newline",

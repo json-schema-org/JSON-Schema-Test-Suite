@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional non-bmp-regex validation",
+    "comment": "Optional because some languages (e.g. .NET) do not correctly handle 32-bit, non-BMP Unicode characters in regular expressions.",
     "tests": [
         {
             "description": "Proper UTF-16 surrogate pair handling: pattern",

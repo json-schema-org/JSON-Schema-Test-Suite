@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional bignum validation",
+    "comment": "Optional because it requires support for numeric values that typical native representations cannot handle, such as arbitrarily large (bignum) integers, high-precision floats, and floating-point values that overflow typical number representations.",
     "tests": [
         {
             "description": "integer",
