@@ -316,5 +316,23 @@
                 "valid": false
             }
         ]
+    },
+    {
+        "description": "enum with codepoint equality: same visual character, different codepoints",
+        "schema": { "enum": ["ä"] },
+        "tests": [
+            {
+                "description": "character uses the same codepoint",
+                "data": "ä",
+                "comment": "U+00E4",
+                "valid": true
+            },
+            {
+                "description": "character looks the same but uses combining marks",
+                "data": "ä",
+                "comment": "a, U+0308",
+                "valid": false
+            }
+        ]
     }
 ]
