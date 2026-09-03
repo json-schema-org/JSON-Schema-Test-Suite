@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional float-overflow validation",
+    "comment": "Optional because it requires handling of floating-point values that overflow typical number representations.",
     "tests": [
         {
             "description": "all integers are multiples of 0.5, if overflow is handled",

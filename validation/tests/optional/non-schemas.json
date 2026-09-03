@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional non-schemas validation",
+    "comment": "Optional because these cases concern references and identifiers ($id, $anchor) located in unrecognized or non-schema structures. Per the JSON Schema spec (section 9.4.2), such reference targets cannot be reliably processed and the resulting behavior is undefined, so implementations may produce differing, unpredictable results.",
     "tests": [
         {
             "description": "$id inside an enum is not a real identifier ($id/$defs)",

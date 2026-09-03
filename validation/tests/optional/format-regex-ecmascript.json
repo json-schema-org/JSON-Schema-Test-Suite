@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "ecmascript-regex validation",
+    "comment": "Optional because regular expression semantics are implementation- and language-dependent; these tests only apply to implementations that use ECMA 262 (JavaScript) regular expressions.",
     "tests": [
         {
             "description": "\\a is not an ECMA 262 control escape",
