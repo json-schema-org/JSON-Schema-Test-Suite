@@ -1135,30 +1135,30 @@
             "schema": {
                 "$defs": {
                     "one": {
-                        "properties": { 
-                            "a": true 
+                        "properties": {
+                            "a": true
                         }
                     },
                     "two": {
                         "required": ["x"],
-                        "properties": { 
-                            "x": true 
+                        "properties": {
+                            "x": true
                         }
                     }
                 },
                 "allOf": [
                     { "$ref": "#/$defs/one" },
-                    { "properties": { 
-                            "b": true 
-                        } 
+                    { "properties": {
+                            "b": true
+                        }
                     },
                     {
                         "oneOf": [
                             { "$ref": "#/$defs/two" },
                             {
                                 "required": ["y"],
-                                "properties": { 
-                                    "y": true 
+                                "properties": {
+                                    "y": true
                                 }
                             }
                         ]

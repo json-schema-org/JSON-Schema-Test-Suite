@@ -5,8 +5,8 @@
     "tests": [
         {
             "description": "integer",
-            "schema": { 
-                "type": "integer" 
+            "schema": {
+                "type": "integer"
             },
             "tests": [
                 {
@@ -23,8 +23,8 @@
         },
         {
             "description": "number",
-            "schema": { 
-                "type": "number" 
+            "schema": {
+                "type": "number"
             },
             "tests": [
                 {
@@ -41,8 +41,8 @@
         },
         {
             "description": "string",
-            "schema": { 
-                "type": "string" 
+            "schema": {
+                "type": "string"
             },
             "tests": [
                 {
@@ -54,8 +54,8 @@
         },
         {
             "description": "maximum integer comparison",
-            "schema": { 
-                "maximum": 18446744073709551615 
+            "schema": {
+                "maximum": 18446744073709551615
             },
             "tests": [
                 {
@@ -96,8 +96,8 @@
         },
         {
             "description": "minimum integer comparison",
-            "schema": { 
-                "minimum": -18446744073709551615 
+            "schema": {
+                "minimum": -18446744073709551615
             },
             "tests": [
                 {
