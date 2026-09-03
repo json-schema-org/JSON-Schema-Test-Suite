@@ -98,8 +98,8 @@
         {
             "description": "forbid everything with empty schema",
             "compatibility": "4",
-            "schema": { 
-                "not": {} 
+            "schema": {
+                "not": {}
             },
             "tests": [
                 {
@@ -152,8 +152,8 @@
         {
             "description": "forbid everything with boolean schema true",
             "compatibility": "6",
-            "schema": { 
-                "not": true 
+            "schema": {
+                "not": true
             },
             "tests": [
                 {
@@ -206,8 +206,8 @@
         {
             "description": "allow everything with boolean schema false",
             "compatibility": "6",
-            "schema": { 
-                "not": false 
+            "schema": {
+                "not": false
             },
             "tests": [
                 {
@@ -260,8 +260,8 @@
         {
             "description": "double negation",
             "compatibility": "4",
-            "schema": { 
-                "not": { "not": {} } 
+            "schema": {
+                "not": { "not": {} }
             },
             "tests": [
                 {

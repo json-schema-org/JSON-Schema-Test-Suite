@@ -6,8 +6,8 @@
         {
             "description": "Proper UTF-16 surrogate pair handling: pattern",
             "comment": "Optional because .Net doesn't correctly handle 32-bit Unicode characters",
-            "schema": { 
-                "pattern": "^🐲*$" 
+            "schema": {
+                "pattern": "^🐲*$"
             },
             "tests": [
                 {

@@ -295,8 +295,8 @@
         },
         {
             "description": "patterns always use unicode semantics with pattern",
-            "schema": { 
-                "pattern": "\\p{Letter}cole" 
+            "schema": {
+                "pattern": "\\p{Letter}cole"
             },
             "tests": [
                 {
@@ -323,8 +323,8 @@
         },
         {
             "description": "\\w in patterns matches [A-Za-z0-9_], not unicode letters",
-            "schema": { 
-                "pattern": "\\wcole" 
+            "schema": {
+                "pattern": "\\wcole"
             },
             "tests": [
                 {
@@ -351,8 +351,8 @@
         },
         {
             "description": "pattern with ASCII ranges",
-            "schema": { 
-                "pattern": "[a-z]cole" 
+            "schema": {
+                "pattern": "[a-z]cole"
             },
             "tests": [
                 {
@@ -374,8 +374,8 @@
         },
         {
             "description": "\\d in pattern matches [0-9], not unicode digits",
-            "schema": { 
-                "pattern": "^\\d+$" 
+            "schema": {
+                "pattern": "^\\d+$"
             },
             "tests": [
                 {
@@ -397,8 +397,8 @@
         },
         {
             "description": "pattern with non-ASCII digits",
-            "schema": { 
-                "pattern": "^\\p{digit}+$" 
+            "schema": {
+                "pattern": "^\\p{digit}+$"
             },
             "tests": [
                 {
