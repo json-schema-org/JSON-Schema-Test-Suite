@@ -1,11 +1,12 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional bignum validation",
+    "comment": "Optional because it requires support for numeric values that typical native representations cannot handle, such as arbitrarily large (bignum) integers, high-precision floats, and floating-point values that overflow typical number representations.",
     "tests": [
         {
             "description": "integer",
-            "schema": { 
-                "type": "integer" 
+            "schema": {
+                "type": "integer"
             },
             "tests": [
                 {
@@ -22,8 +23,8 @@
         },
         {
             "description": "number",
-            "schema": { 
-                "type": "number" 
+            "schema": {
+                "type": "number"
             },
             "tests": [
                 {
@@ -40,8 +41,8 @@
         },
         {
             "description": "string",
-            "schema": { 
-                "type": "string" 
+            "schema": {
+                "type": "string"
             },
             "tests": [
                 {
@@ -53,8 +54,8 @@
         },
         {
             "description": "maximum integer comparison",
-            "schema": { 
-                "maximum": 18446744073709551615 
+            "schema": {
+                "maximum": 18446744073709551615
             },
             "tests": [
                 {
@@ -95,8 +96,8 @@
         },
         {
             "description": "minimum integer comparison",
-            "schema": { 
-                "minimum": -18446744073709551615 
+            "schema": {
+                "minimum": -18446744073709551615
             },
             "tests": [
                 {
@@ -132,6 +133,21 @@
                     "description": "comparison works for very negative numbers",
                     "data": -972783798187987123879878123.188781371,
                     "valid": false
+                }
+            ]
+        },
+        {
+            "description": "all integers are multiples of 0.5, if overflow is handled",
+            "compatibility": "4",
+            "schema": {
+                "type": "number",
+                "multipleOf": 0.5
+            },
+            "tests": [
+                {
+                    "description": "valid if optional overflow handling is implemented",
+                    "data": 1e308,
+                    "valid": true
                 }
             ]
         }
