@@ -59,6 +59,12 @@ compatible only with 2020-12.
 
 **Example**: `"compatibility": "=2020"`
 
+This test suite can support tests for yet to be released features as well. Use
+`9999` for these tests. When the feature is officially released, the
+compatibility needs to be updated to match the release version.
+
+**Example**: `"compatibility": "9999"`
+
 ### schema
 
 The schema that will serve as the subject for the tests. Whenever possible, this

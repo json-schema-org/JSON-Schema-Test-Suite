@@ -10,7 +10,7 @@
     "compatibility": {
       "markdownDescription": "Set which dialects the Test Case is compatible with. Examples:\n- `\"7\"` -- draft-07 and above\n- `\"<=2019\"` -- 2019-09 and previous\n- `\"6,<=2019\"` -- Between draft-06 and 2019-09\n- `\"=2020\"` -- 2020-12 only",
       "type": "string",
-      "pattern": "^(<=|=)?([123467]|2019|2020)(,(<=|=)?([123467]|2019|2020))*$"
+      "pattern": "^(<=|=)?([123467]|2019|2020|9999)(,(<=|=)?([123467]|2019|2020|9999))*$"
     },
     "schema": {
       "markdownDescription": "This schema shouldn't include `$schema` or `id`/`$id` unless necessary for the test because Test Cases should be designed to work with as many releases as possible.",

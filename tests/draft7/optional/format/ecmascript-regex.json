@@ -1,10 +1,7 @@
 [
     {
         "description": "\\a is not an ECMA 262 control escape",
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "format": "regex"
-        },
+        "schema": { "format": "regex" },
         "tests": [
             {
                 "description": "when used as a pattern",
@@ -15,10 +12,7 @@
     },
     {
         "description": "Python-specific regular expression syntax is not valid ECMA 262",
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "format": "regex"
-        },
+        "schema": { "format": "regex" },
         "tests": [
             {
                 "description": "Python named group (?P<name>...) is not ECMA 262",
@@ -39,10 +33,7 @@
     },
     {
         "description": "global inline flag groups are not valid ECMA 262",
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "format": "regex"
-        },
+        "schema": { "format": "regex" },
         "tests": [
             {
                 "description": "a single global inline flag (?i)",
@@ -58,10 +49,7 @@
     },
     {
         "description": "ECMA 262 named groups and backreferences are valid",
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "format": "regex"
-        },
+        "schema": { "format": "regex" },
         "tests": [
             {
                 "description": "an ECMA 262 named group (?<name>...)",
@@ -77,10 +65,7 @@
     },
     {
         "description": "ECMA 262 lookbehind is valid, including variable width",
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "format": "regex"
-        },
+        "schema": { "format": "regex" },
         "tests": [
             {
                 "description": "a variable-width lookbehind (ES2018)",
@@ -91,10 +76,7 @@
     },
     {
         "description": "ECMA 262 character classes and escapes",
-        "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "format": "regex"
-        },
+        "schema": { "format": "regex" },
         "tests": [
             {
                 "description": "an empty character class is valid ECMA 262",

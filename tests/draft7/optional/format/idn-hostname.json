@@ -320,6 +320,11 @@
                 "valid": true
             },
             {
+                "description": "single label starting with digit",
+                "data": "1host",
+                "valid": true
+            },
+            {
                 "description": "single label ending with digit",
                 "data": "hostnam3",
                 "valid": true
@@ -328,6 +333,54 @@
                 "description": "empty string",
                 "data": "",
                 "valid": false
+            },
+            {
+                "description": "fullwidth digits are mapped to ASCII digits",
+                "comment": "IdnaMappingTable.txt maps U+FF11 to 0031, so this label maps to 123",
+                "data": "\uff11\uff12\uff13",
+                "valid": true
+            },
+            {
+                "description": "a zero width space is ignored by the mapping",
+                "comment": "IdnaMappingTable.txt lists U+200B as ignored, so this label maps to ab",
+                "data": "a\u200bb",
+                "valid": true
+            },
+            {
+                "description": "an A-label with an uppercase Punycode body is valid",
+                "comment": "https://www.rfc-editor.org/rfc/rfc5891#section-5.3 lowercases the A-label before the round-trip test, and RFC 3492 section 5 gives A-Z and a-z the same digit-values",
+                "data": "xn--NXASMQ6B",
+                "valid": true
+            },
+            {
+                "description": "the two Arabic-Indic digit blocks may appear in different labels",
+                "comment": "https://www.rfc-editor.org/rfc/rfc5892#appendix-A.8 scopes the rule to \"this label\", so one block per label is valid",
+                "data": "\u0628\u0660.\u0628\u06f0",
+                "valid": true
+            },
+            {
+                "description": "a label of only Arabic-Indic digits is invalid",
+                "comment": "https://www.rfc-editor.org/rfc/rfc5893#section-2 condition 1 allows only L, R or AL as the first character, and an Arabic-Indic digit is AN",
+                "data": "\u0660\u0661",
+                "valid": false
+            },
+            {
+                "description": "a non-NFC U-label is valid after UTS 46 normalisation",
+                "comment": "UTS 46 section 4 normalises to NFC before validating, so the decomposed form is accepted",
+                "data": "cafe\u0301.com",
+                "valid": true
+            },
+            {
+                "description": "a label of 63 fullwidth characters is valid after mapping",
+                "comment": "UTS 46 maps each U+FF41 to an ASCII letter, so this label is 63 octets in its mapped form",
+                "data": "\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41\uff41",
+                "valid": true
+            },
+            {
+                "description": "an ACE prefix produced by the mapping step is decoded as an A-label",
+                "comment": "UTS 46 maps U+FF58 U+FF4E to \"xn\", so the mapped label is the A-label xn--nxasmq6b",
+                "data": "\uff58\uff4e--nxasmq6b",
+                "valid": true
             },
             {
                 "description": "zero width non-joiner must pass at every occurrence",

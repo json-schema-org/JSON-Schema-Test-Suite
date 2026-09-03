@@ -2,7 +2,7 @@
     {
         "description": "\\a is not an ECMA 262 control escape",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "format": "regex"
         },
         "tests": [
@@ -16,7 +16,7 @@
     {
         "description": "Python-specific regular expression syntax is not valid ECMA 262",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "format": "regex"
         },
         "tests": [
@@ -40,7 +40,7 @@
     {
         "description": "global inline flag groups are not valid ECMA 262",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "format": "regex"
         },
         "tests": [
@@ -59,7 +59,7 @@
     {
         "description": "ECMA 262 named groups and backreferences are valid",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "format": "regex"
         },
         "tests": [
@@ -78,7 +78,7 @@
     {
         "description": "ECMA 262 lookbehind is valid, including variable width",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "format": "regex"
         },
         "tests": [
@@ -92,7 +92,7 @@
     {
         "description": "ECMA 262 character classes and escapes",
         "schema": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
             "format": "regex"
         },
         "tests": [
