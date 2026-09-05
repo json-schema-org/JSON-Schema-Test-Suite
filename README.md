@@ -105,10 +105,27 @@ The precise steps described do not need to be followed exactly, but the results 
 
 To test a specific version:
 
-* For 2019-09 and later published versions, implementations that are able to detect the version of each schema via `$schema` SHOULD be configured to do so
-* For draft-07 and earlier, v1 (not yet released), and implementations unable to detect via `$schema`, implementations MUST be configured to expect the version matching the test directory name
+* For 2019-09 and later published versions, as well as `v1`, implementations that are able to detect the version of each schema via `$schema` SHOULD be configured to do so
+* For draft-07 and earlier, and for `v1` when not detecting via `$schema`, the test runner MUST be configured to expect the version matching the test directory name
 * Load any remote references [described below](#additional-assumptions) and configure your implementation to retrieve them via their URIs
 * Walk the filesystem tree for that version's subdirectory and for each `.json` file found:
+
+### Metaschema URIs
+
+Each specification directory in `tests/` corresponds to a specific version of JSON Schema and uses a standard metaschema URI in test `$schema` declarations (when present):
+
+| Specification Directory | Metaschema URI | Notes |
+|-------------------------|----------------|-------|
+| `v1` | `https://json-schema.org/v1` | Unreleased version (formerly referred to as `draft-next`, which used `https://json-schema.org/draft/next/schema`) |
+| `draft2020-12` | `https://json-schema.org/draft/2020-12/schema` | Published draft |
+| `draft2019-09` | `https://json-schema.org/draft/2019-09/schema` | Published draft |
+| `draft7` | `http://json-schema.org/draft-07/schema#` | Standard draft |
+| `draft6` | `http://json-schema.org/draft-06/schema#` | Standard draft |
+| `draft4` | `http://json-schema.org/draft-04/schema#` | Standard draft (frozen) |
+| `draft3` | `http://json-schema.org/draft-03/schema#` | Standard draft (frozen) |
+
+For `v1`, `draft2020-12`, and `draft2019-09`, test schemas explicitly include the `$schema` keyword referencing these URIs. For `draft7` and earlier versions, `$schema` is generally omitted from individual test schemas, so test runners should configure the validator for the target draft based on the directory name.
+
 
     * if the file is located in the root of the version directory:
 

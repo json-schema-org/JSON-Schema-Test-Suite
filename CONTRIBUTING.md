@@ -73,7 +73,11 @@ Comments can and should be used to explain tests which are unclear or complex.
 The `comment` field is present both for test cases and individual tests for this purpose.
 Links to the relevant specification sections are also encouraged, though they can be tedious to maintain from one version to the next.
 
-When adding test cases, they should be added to all past (and future) versions of the specification which they apply to, potentially with minor modifications (e.g. changing `$id` to `id` or accounting for `$ref` not allowing siblings on older drafts).
+When adding test cases, they should be added to all past (and future) versions of the specification which they apply to, potentially with minor modifications (e.g. changing `$id` to `id` or accounting for `$ref` not allowing siblings on older drafts). Ensure that each test schema uses the correct `$schema` metaschema URI for that version:
+- For `v1` (the unreleased version, formerly referred to as `draft-next`), schemas MUST use `"https://json-schema.org/v1"`.
+- For `draft2020-12`, schemas MUST use `"https://json-schema.org/draft/2020-12/schema"`.
+- For `draft2019-09`, schemas MUST use `"https://json-schema.org/draft/2019-09/schema"`.
+- For `draft-07` and earlier drafts, `$schema` is typically omitted unless the test specifically exercises `$schema` behavior.
 
 Changing the schema used in a particular test case should be done with extra caution, though it is not formally discouraged if the change simplifies the schema.
 Contributors should not generally append *additional* behavior to existing test case schemas, unless doing so has specific justification.
