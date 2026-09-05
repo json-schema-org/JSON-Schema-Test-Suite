@@ -106,7 +106,7 @@ The precise steps described do not need to be followed exactly, but the results 
 To test a specific version:
 
 * For 2019-09 and later published versions, as well as `v1`, implementations that are able to detect the version of each schema via `$schema` SHOULD be configured to do so
-* For draft-07 and earlier, `v1` (if not detecting via `$schema`), and implementations unable to detect via `$schema`, implementations MUST be configured to expect the version matching the test directory name
+* For draft-07 and earlier, and for `v1` when not detecting via `$schema`, the test runner MUST be configured to expect the version matching the test directory name
 * Load any remote references [described below](#additional-assumptions) and configure your implementation to retrieve them via their URIs
 * Walk the filesystem tree for that version's subdirectory and for each `.json` file found:
 
