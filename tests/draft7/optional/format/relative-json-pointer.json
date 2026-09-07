@@ -54,6 +54,31 @@
                 "valid": true
             },
             {
+                "description": "a valid RJP with forward index manipulation",
+                "data": "0+1",
+                "valid": true
+            },
+            {
+                "description": "a valid RJP with forward index manipulation and a JSON Pointer",
+                "data": "0+1/foo",
+                "valid": true
+            },
+            {
+                "description": "a valid RJP with backward index manipulation and a JSON Pointer",
+                "data": "1-2/bar",
+                "valid": true
+            },
+            {
+                "description": "a valid RJP with zero index manipulation",
+                "data": "0-0",
+                "valid": true
+            },
+            {
+                "description": "a valid RJP with index manipulation taking the index name",
+                "data": "0-1#",
+                "valid": true
+            },
+            {
                 "description": "an invalid RJP that is a valid JSON Pointer",
                 "data": "/foo/bar",
                 "valid": false
@@ -66,6 +91,26 @@
             {
                 "description": "explicit positive prefix",
                 "data": "+1/foo/bar",
+                "valid": false
+            },
+            {
+                "description": "index manipulation without an integer",
+                "data": "0+",
+                "valid": false
+            },
+            {
+                "description": "index manipulation integer with a leading zero",
+                "data": "0-01",
+                "valid": false
+            },
+            {
+                "description": "index manipulation with two signs",
+                "data": "0++1",
+                "valid": false
+            },
+            {
+                "description": "index manipulation followed by an invalid JSON Pointer",
+                "data": "0+1not-a-pointer",
                 "valid": false
             },
             {
