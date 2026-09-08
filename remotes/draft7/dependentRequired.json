@@ -1,5 +1,5 @@
 {
-    "$id": "http://localhost:1234/draft2019-09/dependentRequired.json",
+    "$id": "http://localhost:1234/draft7/dependentRequired.json",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "dependentRequired": {
         "foo": ["bar"]
