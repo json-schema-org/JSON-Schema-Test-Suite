@@ -124,12 +124,14 @@
             {
                 "description": "number is valid",
                 "data": {"list": [1]},
-                "valid": true
+                "valid": true,
+                "id": "79fa52a64be1ec8cb81af9bcf777bf34"
             },
             {
                 "description": "string is invalid",
                 "data": {"list": ["a"]},
-                "valid": false
+                "valid": false,
+                "id": "f1d62e8ef0c9769bb84a10c5eeaf96d8"
             }
         ]
     },
