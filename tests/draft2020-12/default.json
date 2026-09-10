@@ -78,5 +78,31 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "the default keyword does not interact with required",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+                "alpha": {
+                    "type": "number",
+                    "default": 5
+                }
+            },
+            "required": ["alpha"]
+        },
+        "tests": [
+            {
+                "description": "An explicit property passes required",
+                "data": { "alpha": 1 },
+                "valid": true
+            },
+            {
+                "description": "missing properties are not filled in with the default by required",
+                "data": {},
+                "valid": false
+            }
+        ]
     }
 ]
