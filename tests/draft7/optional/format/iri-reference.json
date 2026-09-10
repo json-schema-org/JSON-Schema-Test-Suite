@@ -49,6 +49,26 @@
                 "valid": true
             },
             {
+                "description": "a relative IRI Reference with a percent-encoded triplet",
+                "data": "/âππ/%20",
+                "valid": true
+            },
+            {
+                "description": "invalid percent-encoding with non-hex digits",
+                "data": "/âππ/%6G",
+                "valid": false
+            },
+            {
+                "description": "incomplete percent-encoding triplet",
+                "data": "/âππ/%A",
+                "valid": false
+            },
+            {
+                "description": "lone percent sign is invalid",
+                "data": "/âππ/%",
+                "valid": false
+            },
+            {
                 "description": "an invalid IRI Reference",
                 "data": "\\\\WINDOWS\\filëßåré",
                 "valid": false
