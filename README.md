@@ -266,6 +266,7 @@ This suite is being used by:
 
 ### JavaScript
 
+* [@jetio/validator](https://github.com/official-jetio/validator)
 * [json-schema-benchmark](https://github.com/Muscula/json-schema-benchmark)
 * [direct-schema](https://github.com/IreneKnapp/direct-schema)
 * [is-my-json-valid](https://github.com/mafintosh/is-my-json-valid)
