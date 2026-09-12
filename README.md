@@ -279,6 +279,7 @@ This suite is being used by:
 * [tv4](https://github.com/geraintluff/tv4)
 * [z-schema](https://github.com/zaggino/z-schema)
 * [jsen](https://github.com/bugventure/jsen)
+* [@jetio/validator](https://github.com/official-jetio/validator)
 * [ajv](https://github.com/epoberezkin/ajv)
 * [djv](https://github.com/korzio/djv)
 * [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Kotlin, and Scala)
