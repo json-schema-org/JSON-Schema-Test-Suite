@@ -86,7 +86,7 @@ def collect(directory: Path, filename_filter: str | None = None):
 
 
 def load(path: Path):
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def load_cases(path: Path) -> list:
