@@ -127,6 +127,11 @@
                 "description": "trailing newline after the non-negative integer",
                 "data": "1\n",
                 "valid": false
+            },
+            {
+                "description": "a json-pointer part that does not start with a slash is invalid",
+                "data": "1foo",
+                "valid": false
             }
         ]
     }
