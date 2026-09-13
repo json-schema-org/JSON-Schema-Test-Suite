@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional content validation",
+    "comment": "Optional because in draft-07, validating the content of strings (contentMediaType/contentEncoding) was only optional assertion behavior. Beginning with 2019-09, all content* keywords were specified as annotations only, so these tests apply only to draft-07.",
     "tests": [
         {
             "description": "validation of string-encoded content based on media type",

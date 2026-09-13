@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional no-schema validation",
+    "comment": "Runners must configure the dialect directly. Optional because, not all implementations support declaring the dialect through configuration.",
     "tests": [
         {
             "description": "validation without $schema",

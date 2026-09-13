@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional dependencies-compatibility validation",
+    "comment": "The 'dependencies' keyword was removed in 2019-09, but the meta-schema retained a placeholder for it, which some implementations took to mean they should continue to support it.",
     "tests": [
         {
             "description": "single dependency",

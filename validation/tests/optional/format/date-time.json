@@ -5,8 +5,8 @@
             {
             "description": "validation of date-time strings",
             "compatibility": "<=2020",
-            "schema": { 
-                "format": "date-time" 
+            "schema": {
+                "format": "date-time"
             },
             "tests": [
                 {
