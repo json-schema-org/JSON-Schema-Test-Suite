@@ -5,8 +5,8 @@
         {
             "description": "validation of CSS colors",
             "compatibility": "<=3",
-            "schema": { 
-                "format": "color" 
+            "schema": {
+                "format": "color"
             },
             "tests": [
                 {

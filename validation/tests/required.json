@@ -195,7 +195,7 @@
                 },
                 {
                     "description": "all present",
-                    "data": { 
+                    "data": {
                         "__proto__": 12,
                         "toString": { "length": "foo" },
                         "constructor": 37

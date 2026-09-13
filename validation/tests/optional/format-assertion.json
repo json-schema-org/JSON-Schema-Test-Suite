@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional format-assertion validation",
+    "comment": "Optional because it exercises the format-assertion vocabulary, and implementing that vocabulary is not required.",
     "tests": [
         {
             "description": "schema that uses custom metaschema with format-assertion: false",

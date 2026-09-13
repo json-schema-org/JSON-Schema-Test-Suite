@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional zeroTerminatedFloats validation",
+    "comment": "Optional because some languages do not distinguish between different types of numeric value, so they cannot correctly treat a float such as 1.0 as not being an integer.",
     "tests": [
         {
             "description": "some languages do not distinguish between different types of numeric value",
