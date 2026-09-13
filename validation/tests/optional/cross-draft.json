@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional cross-draft validation",
+    "comment": "Optional because it requires implementations to resolve $ref to schemas of other draft versions and process them under the correct dialect, a capability not all validators support.",
     "tests": [
         {
             "description": "refs to future drafts are processed as future drafts (2019)",

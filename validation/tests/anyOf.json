@@ -65,8 +65,8 @@
         {
             "description": "anyOf with boolean schemas, all true",
             "compatibility": "6",
-            "schema": { 
-                "anyOf": [true, true] 
+            "schema": {
+                "anyOf": [true, true]
             },
             "tests": [
                 {
@@ -79,8 +79,8 @@
         {
             "description": "anyOf with boolean schemas, some true",
             "compatibility": "6",
-            "schema": { 
-                "anyOf": [true, false] 
+            "schema": {
+                "anyOf": [true, false]
             },
             "tests": [
                 {
@@ -93,8 +93,8 @@
         {
             "description": "anyOf with boolean schemas, all false",
             "compatibility": "6",
-            "schema": { 
-                "anyOf": [false, false] 
+            "schema": {
+                "anyOf": [false, false]
             },
             "tests": [
                 {
