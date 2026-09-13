@@ -1,6 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "optional dynamicRef validation",
+    "comment": "Optional because the spec does not clearly define how $dynamicRef interacts with the dynamic scope when a reference jumps over (skips) an intermediate schema resource. Implementations differ on whether the intermediate resource is included in the dynamic scope, so the two interpretations in this file produce different results and neither is guaranteed by the spec.",
     "tests": [
         {
             "description": "$dynamicRef skips over intermediate resources - pointer reference across resource boundary",
