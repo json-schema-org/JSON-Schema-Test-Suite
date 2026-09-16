@@ -820,7 +820,6 @@
                     },
                     "baseSchema": {
                         "$id": "./baseSchema",
-                        "$dynamicAnchor": "addons",
                         "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
                         "unevaluatedItems": false,
                         "type": "array",
