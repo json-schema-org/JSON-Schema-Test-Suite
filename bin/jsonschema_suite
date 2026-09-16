@@ -167,10 +167,13 @@ class SanityTests(unittest.TestCase):
         """
         All files (tests, output tests, remotes, etc.) contain valid JSON.
         """
+        def reject_constant(value):
+            raise ValueError(f"{value} is not a valid JSON number")
+
         for path in collect(ROOT_DIR):
             with self.subTest(path=path):
                 try:
-                    json.loads(path.read_text())
+                    json.loads(path.read_text(), parse_constant=reject_constant)
                 except ValueError as error:
                     self.fail(f"{path} contains invalid JSON ({error})")
 
