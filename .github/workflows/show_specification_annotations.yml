@@ -3,7 +3,7 @@ name: Show Specification Annotations
 on:
   pull_request:
     paths:
-      - 'tests/**'
+      - 'validation/tests/**'
 
 jobs:
   annotate:
