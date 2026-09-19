@@ -18,7 +18,9 @@ from uritemplate import URITemplate
 BASE_DIR = Path(__file__).parent
 VALIDATION_DIR = BASE_DIR.parent / "validation"
 TESTS = VALIDATION_DIR / "tests"
-URLS = json.loads(BASE_DIR.joinpath("specification_urls.json").read_text())
+URLS = json.loads(
+    BASE_DIR.joinpath("specification_urls.json").read_text(encoding="utf-8"),
+)
 
 sys.path.insert(0, str(VALIDATION_DIR))
 import check_validation_suite as checker  # type: ignore  # noqa: E402
@@ -62,7 +64,7 @@ def annotation(
     else:
         additional = ""
 
-    relative = path.relative_to(VALIDATION_DIR.parent)
+    relative = path.relative_to(VALIDATION_DIR.parent).as_posix()
     return f"::{level} file={relative},line={line}{additional}::{message}\n"
 
 
@@ -70,7 +72,7 @@ def line_number_of(path: Path, case: dict[str, Any]) -> int:
     """
     Crudely find the line number of a test case.
     """
-    with path.open() as file:
+    with path.open(encoding="utf-8") as file:
         description = case["description"]
         return next(
             (i + 1 for i, line in enumerate(file, 1) if description in line),
@@ -96,7 +98,7 @@ def applicable_dialects(compatibility: str) -> list[str]:
     return [
         dialect
         for dialect in checker.DIALECT_ORDER
-        if checker.dialect_applies(compatibility, dialect)
+        if checker.dialect_applies(compatibility, int(dialect))
     ]
 
 
@@ -106,7 +108,7 @@ def main():
 
     for path in sorted(TESTS.rglob("*.json")):
         try:
-            contents = json.loads(path.read_text())
+            contents = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as error:
             error = annotation(
                 level="error",
@@ -129,16 +131,20 @@ def main():
             dialects = applicable_dialects(test_case.get("compatibility", ""))
 
             for each in specifications:
+                each = dict(each)
                 quote = each.pop("quote", "")
                 (key, section), = each.items()
 
                 (kind, spec) = extract_kind_and_spec(key)
 
-                templates = [
-                    template
-                    for dialect in dialects
-                    if (template := urls(dialect).get(kind)) is not None
-                ]
+                if kind in URLS["external"]:
+                    templates = [URITemplate(URLS["external"][kind])]
+                else:
+                    templates = [
+                        template
+                        for dialect in dialects
+                        if (template := urls(dialect).get(kind)) is not None
+                    ]
 
                 if not templates:
                     error = annotation(
