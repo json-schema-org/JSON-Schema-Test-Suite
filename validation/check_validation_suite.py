@@ -13,6 +13,7 @@ validation/ directory and understands the compatibility field.
 import json
 import re
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -86,7 +87,10 @@ def collect(directory: Path, filename_filter: str | None = None):
 
 
 def load(path: Path):
-    return json.loads(path.read_text(encoding="utf-8"))
+    def reject_constant(token):
+        raise ValueError(f"Invalid JSON numeric constant: {token}")
+
+    return json.loads(path.read_text(encoding="utf-8"), parse_constant=reject_constant)
 
 
 def load_cases(path: Path) -> list:
@@ -369,6 +373,29 @@ KNOWN = {
         }
 
 
+class JSONLoadingChecks(unittest.TestCase):
+    def test_rejects_non_json_constants(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "invalid.json"
+            for token in ("NaN", "Infinity", "-Infinity"):
+                with self.subTest(token=token):
+                    path.write_text('{"data": [' + token + ']}', encoding="utf-8")
+                    with self.assertRaises(ValueError):
+                        load(path)
+
+    def test_accepts_strings_and_large_numbers(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "valid.json"
+            for text in (
+                '["NaN", "Infinity", "-Infinity"]',
+                "[1e400]",
+                "[123456789012345678901234567890]",
+            ):
+                with self.subTest(text=text):
+                    path.write_text(text, encoding="utf-8")
+                    load(path)
+
+
 class ValidationSuiteChecks(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -398,7 +425,7 @@ class ValidationSuiteChecks(unittest.TestCase):
             with self.subTest(path=path.name):
                 try:
                     load_cases(path)
-                except json.JSONDecodeError as e:
+                except ValueError as e:
                     self.fail(f"{path.name} is not valid JSON: {e}")
 
     @unittest.skipIf(jsonschema is None, "jsonschema library not installed")
