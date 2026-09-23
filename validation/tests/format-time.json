@@ -42,8 +42,24 @@
             ]
         },
         {
+            "description": "time format",
+            "compatibility": "<=3,7",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "time"
+            },
+            "tests": [
+                {
+                    "description": "invalid time string is only an annotation by default",
+                    "data": "08:30:06 PST",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of time strings",
-            "compatibility": "9999",
+            "compatibility": "<=3,7",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "time"
             },

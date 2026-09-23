@@ -173,6 +173,21 @@ The constraints are combined as a disjunction over releases: each term describes
 a range (or single release) that the test case is compatible with, and the test
 case applies to a dialect if it matches any of them.
 
+### Test Case Tags
+
+Test cases may include a `tags` property to indicate a particular behavior the
+test applies to. Test runners should only run a test case if their
+implementation provides the behavior associated with each of its tags.
+
+- `format-assertion` and `format-annotation`
+
+    These tags indicate which `format` behavior is expected. Whether these tests
+    are required or optional depends on which dialect being tested. Up to
+    draft-07, format assertion is optional. In 2019-09 and 2020-12, annotation
+    is required by default. In v1, assertion is required by default. Test
+    runners may use these tags to enable or disable configuration flags for
+    supporting format validation.
+
 ### External Schemas
 
 Test cases may include an `externalSchemas` property that defines additional
@@ -196,18 +211,11 @@ These are:
 1. `optional/`: Contains tests that are considered optional. Note that this
    subdirectory currently conflates many reasons why a test may be optional --
    it may be because tests within a particular file are indeed not required by the
-   specification but still potentially useful to an implementer, or it may be
+   specification but are still potentially useful to an implementer, or it may be
    because tests within it only apply to programming languages with particular
    functionality (in which case they are not truly optional in such a language). In
    the future this directory structure will be made richer to reflect these
    differences more clearly.
-
-   Within `optional/`, there is also a `format/` subdirectory that contains
-   per-format test files (e.g., `email.json`, `uri.json`). Through draft-07,
-   format assertion is optional. In 2019-09 and 2020-12, annotation is required
-   by default and may be enabled with configuration. Implementations may need to
-   configure their test runners to enable format assertion before running these
-   tests.
 
 2. `proposals/`: Contains a subfolder for each active proposal to the
    specification. If the proposal is a keyword (generally the case), then the
@@ -240,6 +248,9 @@ To test a specific dialect:
     * check the `compatibility` property (if present) to determine if the test case
       applies to the dialect you are testing. If the test case doesn't apply,
       continue to the next test case.
+    * check the `tags` property (if present) to determine if the test case applies
+      to your implementation. If a tag describes behavior your implementation
+      doesn't provide, continue to the next test case.
     * if the test case has an `externalSchemas` property, load each schema it
       contains, using the keys as retrieval URIs. Designate the dialect either
       by inserting `$schema` or by configuration.

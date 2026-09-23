@@ -41,8 +41,22 @@
             ]
         },
         {
+            "description": "email format annotation",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "email"
+            },
+            "tests": [
+                {
+                    "description": "invalid email string is only an annotation by default",
+                    "data": "2962",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of e-mail addresses",
-            "compatibility": "9999",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "email"
             },

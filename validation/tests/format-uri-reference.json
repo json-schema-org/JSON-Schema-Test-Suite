@@ -42,8 +42,24 @@
             ]
         },
         {
+            "description": "uri-reference format annotation",
+            "compatibility": "6",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "uri-reference"
+            },
+            "tests": [
+                {
+                    "description": "invalid uri-reference string is only an annotation by default",
+                    "data": "\\\\WINDOWS\\fileshare",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of URI References",
-            "compatibility": "9999",
+            "compatibility": "6",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "uri-reference"
             },
