@@ -72,6 +72,11 @@
                 "valid": false
             },
             {
+                "description": "an empty prefix modifier is invalid",
+                "data": "{var:}",
+                "valid": false
+            },
+            {
                 "description": "a five-digit prefix max-length is invalid",
                 "data": "{v:10000}",
                 "valid": false
