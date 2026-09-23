@@ -42,8 +42,24 @@
             ]
         },
         {
+            "description": "json-pointer format",
+            "compatibility": "6",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "json-pointer"
+            },
+            "tests": [
+                {
+                    "description": "invalid json-pointer string is only an annotation by default",
+                    "data": "/foo/bar~",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of JSON-pointers (JSON String Representation)",
-            "compatibility": "9999",
+            "compatibility": "6",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "json-pointer"
             },
