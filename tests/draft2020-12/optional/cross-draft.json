@@ -4,7 +4,7 @@
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "type": "array",
-            "$ref": "http://localhost:1234/draft2019-09/ignore-prefixItems.json"
+            "$ref": "http://localhost:1234/draft2020-12/ignore-prefixItems.json"
         },
         "tests": [
             {
