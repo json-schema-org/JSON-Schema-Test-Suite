@@ -187,6 +187,12 @@ as many dialects as possible. Test runners can insert `$id` or `id` as necessary
 if they don't have a mechanism for associating a URI with a schema outside the
 schema.
 
+External schema URIs are not guaranteed to be unique across test cases, so the
+same URI may refer to different schemas in different test cases. Test runners
+must therefore scope external schemas to each test case, rather than load them
+once and reuse them for the entire suite. For example, runners can clear
+registered schemas after each test case or otherwise isolate them per test case.
+
 ### Subdirectories
 
 The `tests` directory may contain one or more subdirectories.
