@@ -108,7 +108,7 @@ def main():
 
                         (kind, spec) = extract_kind_and_spec(key)
 
-                        url_template = version_urls[kind]
+                        url_template = version_urls.get(kind)
                         if url_template is None:
                             error = annotation(
                                 level="error",
