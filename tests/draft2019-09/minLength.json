@@ -1,6 +1,11 @@
 [
     {
         "description": "minLength validation",
+        "specification": [
+            {
+                "validation": "6.3.2"
+            }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
             "minLength": 2
@@ -35,6 +40,11 @@
     },
     {
         "description": "minLength validation with a decimal",
+        "specification": [
+            {
+                "validation": "6.3.2"
+            }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2019-09/schema",
             "minLength": 2.0

@@ -1,6 +1,11 @@
 [
     {
         "description": "minLength validation",
+        "specification": [
+            {
+                "validation": "6.3.2"
+            }
+        ],
         "schema": {"minLength": 2},
         "tests": [
             {
@@ -32,6 +37,11 @@
     },
     {
         "description": "minLength validation with a decimal",
+        "specification": [
+            {
+                "validation": "6.3.2"
+            }
+        ],
         "schema": {"minLength": 2.0},
         "tests": [
             {
