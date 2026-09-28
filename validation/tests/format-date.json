@@ -42,8 +42,24 @@
             ]
         },
         {
+            "description": "date format annotation",
+            "compatibility": "<=3,7",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "date"
+            },
+            "tests": [
+                {
+                    "description": "invalid date string is only an annotation by default",
+                    "data": "06/19/1963",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of date strings",
-            "compatibility": "9999",
+            "compatibility": "<=3,7",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "date"
             },

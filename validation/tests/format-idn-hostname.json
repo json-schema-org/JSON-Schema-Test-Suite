@@ -42,8 +42,24 @@
             ]
         },
         {
+            "description": "idn-hostname format annotation",
+            "compatibility": "7",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "idn-hostname"
+            },
+            "tests": [
+                {
+                    "description": "invalid idn-hostname string is only an annotation by default",
+                    "data": "〮실례.테스트",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of internationalized host names",
-            "compatibility": "9999",
+            "compatibility": "7",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "idn-hostname"
             },
@@ -472,7 +488,8 @@
         },
         {
             "description": "validation of separators in internationalized host names",
-            "compatibility": "9999",
+            "compatibility": "7",
+            "tags": ["format-assertion"],
             "specification": [{
                 "rfc3490": "3.1",
                 "quote": "Whenever dots are used as label separators, the following characters MUST be recognized as dots: U+002E (full stop), U+3002 (ideographic full stop), U+FF0E (fullwidth full stop), U+FF61(halfwidth ideographic full stop)"

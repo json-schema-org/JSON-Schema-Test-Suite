@@ -42,8 +42,24 @@
             ]
         },
         {
-            "description": "format: uri-template",
-            "compatibility": "9999",
+            "description": "uri-template format annotation",
+            "compatibility": "6",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "uri-template"
+            },
+            "tests": [
+                {
+                    "description": "invalid uri-template string is only an annotation by default",
+                    "data": "http://example.com/dictionary/{term:1}/{term",
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "validation of URI-Templates",
+            "compatibility": "6",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "uri-template"
             },
