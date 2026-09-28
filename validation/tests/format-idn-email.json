@@ -42,8 +42,24 @@
             ]
         },
         {
+            "description": "idn-email format",
+            "compatibility": "7",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "idn-email"
+            },
+            "tests": [
+                {
+                    "description": "invalid idn-email string is only an annotation by default",
+                    "data": "2962",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of an internationalized e-mail addresses",
-            "compatibility": "9999",
+            "compatibility": "7",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "idn-email"
             },
