@@ -42,9 +42,25 @@
             ]
         },
         {
+            "description": "duration format annotation",
+            "compatibility": "2019",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "duration"
+            },
+            "tests": [
+                {
+                    "description": "invalid duration string is only an annotation by default",
+                    "data": "PT1D",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of duration strings",
             "comment": "RFC 3339 Appendix A defines the ABNF grammar for ISO-8601 durations used by JSON Schema format 'duration'. These tests enforce only the syntax defined by that grammar.",
-            "compatibility": "9999",
+            "compatibility": "2019",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "duration"
             },

@@ -6,6 +6,7 @@
         {
             "description": "validation of time strings",
             "compatibility": "<=3,7,<=2020",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "time"
             },

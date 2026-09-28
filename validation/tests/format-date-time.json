@@ -41,8 +41,22 @@
             ]
         },
         {
+            "description": "date-time annotation",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "date-time"
+            },
+            "tests": [
+                {
+                    "description": "invalid date-time string is only an annotation by default",
+                    "data": "1990-02-31T15:59:60.123-08:00",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of date-time strings",
-            "compatibility": "9999",
+            "tags": ["format-assertion"],
             "schema": {
                 "format": "date-time"
             },
@@ -255,7 +269,17 @@
                     "comment": "RFC 3339 section 5.6: no production of date-time emits whitespace",
                     "data": "1985-04-12T23:20:50Z ",
                     "valid": false
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of date-time strings with RFC 9557 suffixes",
+            "compatibility": "9999",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "date-time"
+            },
+            "tests": [
                 {
                     "description": "a valid date-time-ext with an elective time-zone suffix",
                     "comment": "RFC 9557 section 4.1: date-time-ext = date-time suffix, and time-zone = \"[\" critical-flag time-zone-name / time-numoffset \"]\". Syntactic validation only: the suffix is not checked against the IANA time zone database.",

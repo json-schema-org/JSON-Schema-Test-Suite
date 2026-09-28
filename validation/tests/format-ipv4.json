@@ -4,6 +4,7 @@
     "tests": [
         {
             "description": "validation of non-string IP addresses",
+            "compatibility": "4",
             "schema": {
                 "format": "ipv4"
             },
@@ -41,8 +42,24 @@
             ]
         },
         {
+            "description": "ipv4 format annotation",
+            "compatibility": "4",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "ipv4"
+            },
+            "tests": [
+                {
+                    "description": "invalid ipv4 string is only an annotation by default",
+                    "data": "127.0.0.0.1",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of IP addresses",
-            "compatibility": "9999",
+            "compatibility": "4",
+            "tags": ["format-assertion"],
             "comment": "RFC 2673, Section 3.2: dotted-quad = decbyte \".\" decbyte \".\" decbyte \".\" decbyte. A 'decbyte' (1*3DIGIT) restricts semantic values to 0-255, allows leading zeros, and strictly forbids symbols, alpha/hex, whitespace, and non-ASCII characters.",
             "schema": {
                 "format": "ipv4"

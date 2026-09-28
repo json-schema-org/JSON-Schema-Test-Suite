@@ -34,6 +34,13 @@
                         "type": "string",
                         "pattern": "^(<=|=)?([0-9]+)(,(<=|=)?([0-9]+))*$"
                     },
+                    "tags": {
+                        "description": "A set of pre-defined tags that are used by test runners to determine which tests apply.",
+                        "type": "array",
+                        "items": {
+                            "enum": ["format-assertion", "format-annotation"]
+                        }
+                    },
                     "schema": {
                         "description": "A valid JSON Schema, written without a $schema keyword so it stays dialect-agnostic. The applicable dialects are expressed via the compatibility field.",
                         "type": ["object", "boolean"]
