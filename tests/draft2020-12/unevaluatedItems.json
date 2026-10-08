@@ -333,6 +333,43 @@
         ]
     },
     {
+        "description": "unevaluatedItems with oneOf and failed branch annotations",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "prefixItems": [
+                { "const": "foo" }
+            ],
+            "oneOf": [
+                {
+                    "prefixItems": [
+                        true,
+                        { "const": "bar" }
+                    ]
+                },
+                {
+                    "prefixItems": [
+                        true,
+                        true,
+                        { "const": "baz" }
+                    ]
+                }
+            ],
+            "unevaluatedItems": false
+        },
+        "tests": [
+            {
+                "description": "failed branch does not contribute annotations",
+                "data": ["foo", "bar", 42],
+                "valid": false
+            },
+            {
+                "description": "successful branch evaluates all items",
+                "data": ["foo", "quux", "baz"],
+                "valid": true
+            }
+        ]
+    },
+    {
         "description": "unevaluatedItems with not",
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
