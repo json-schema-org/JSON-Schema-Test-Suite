@@ -38,48 +38,18 @@ def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"), parse_constant=reject_constant)
 
 
-def files(paths):
-    """
-    Yield (path, cases) for each file path.
-    """
-    for path in paths:
-        yield path, load(path)
-
-
-def cases(paths):
-    """
-    Yield each test case across the provided file paths.
-    """
-    for _, test_file in files(paths):
-        yield from test_file
-
-
-def tests(paths):
-    """
-    Yield each individual test across the provided file paths without schema mutation.
-    """
-    for case in cases(paths):
-        for test in case.get("tests", []):
-            yield test
-
-
 class OutputSuiteChecks(unittest.TestCase):
     _file_filter = None
 
     @classmethod
     def setUpClass(cls):
-        # Resolve output-tests root relative to this file or environment override
+        # Resolve output-tests root fresh on every setup
         output_dir = Path(
-            os.environ.get(
-                "OUTPUT_TESTS_DIR",
-                getattr(cls, "output_dir", ROOT_DIR),
-            )
+            os.environ.get("OUTPUT_TESTS_DIR", ROOT_DIR)
         ).resolve()
         cls.output_dir = output_dir
 
-        metaschema_path = getattr(
-            cls, "output_metaschema_path", output_dir / OUTPUT_METASCHEMA_NAME
-        )
+        metaschema_path = output_dir / OUTPUT_METASCHEMA_NAME
         cls.output_metaschema_path = metaschema_path
 
         if not metaschema_path.is_file():
@@ -89,8 +59,10 @@ class OutputSuiteChecks(unittest.TestCase):
 
         try:
             cls.output_metaschema = load(metaschema_path)
-        except Exception:
+            cls.metaschema_load_error = None
+        except (ValueError, OSError) as error:
             cls.output_metaschema = None
+            cls.metaschema_load_error = f"{metaschema_path}: {error}"
 
         cls.json_files = sorted(output_dir.rglob("*.json"))
 
@@ -114,6 +86,10 @@ class OutputSuiteChecks(unittest.TestCase):
             )
 
         print(f"\nChecking {len(cls.fixture_files)} output fixture file(s) in {output_dir}")
+
+    @classmethod
+    def tearDownClass(cls):
+        cls._file_filter = None
 
     def assertUnique(self, iterable, message="Elements are not unique."):
         seen, duplicated = set(), set()
@@ -153,8 +129,7 @@ class OutputSuiteChecks(unittest.TestCase):
         """
         if self.output_metaschema is None:
             self.fail(
-                f"Required fixture metaschema {self.output_metaschema_path.name} "
-                "is missing or invalid JSON"
+                f"Required fixture metaschema could not be loaded: {self.metaschema_load_error}"
             )
 
         Validator = jsonschema.validators.validator_for(self.output_metaschema)
