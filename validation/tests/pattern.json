@@ -61,7 +61,7 @@
         },
         {
             "description": "pattern with Unicode property escape requires unicode mode",
-            "compatibility": "=2020",
+            "compatibility": "2020",
             "schema": {
                 "type": "string",
                 "pattern": "^\\p{Letter}+$"
@@ -86,6 +86,7 @@
         },
         {
             "description": "pattern with Unicode property escape",
+            "compatibility": "2020",
             "schema": {
                 "type": "string",
                 "pattern": "^\\p{Letter}+$"
