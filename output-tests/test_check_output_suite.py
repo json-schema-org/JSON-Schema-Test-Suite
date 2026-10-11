@@ -10,6 +10,7 @@ Verifies:
 - Malformed JSON in fixtures, metaschema, and supporting schemas fails and recovers.
 - Structural schema violations (missing output, invalid expectation schema) fail and recover.
 - Missing metaschema or empty fixture directories fail clearly.
+- Missing jsonschema fails rather than silently skipping fixture validation.
 - Description style and length rules have negative boundary tests.
 - Offline checking succeeds with blocked sockets and unreachable $ref targets.
 - Strict JSON loader rejects non-standard constants (NaN/Infinity).
@@ -92,6 +93,28 @@ class CheckOutputSuiteRegressionTests(unittest.TestCase):
             result.returncode,
             0,
             f"Checker failed on clean repo:\nSTDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}",
+        )
+
+    def test_missing_jsonschema_fails_without_false_success(self):
+        """
+        A standalone run without jsonschema must not report successful checks.
+        """
+        env = os.environ.copy()
+        env["OUTPUT_TESTS_DIR"] = str(self.source_dir)
+        env.pop("PYTHONPATH", None)
+
+        # -S disables site packages, including the installed validation library.
+        result = subprocess.run(
+            [sys.executable, "-S", str(CHECKER_SCRIPT)],
+            cwd=str(self.source_dir),
+            env=env,
+            capture_output=True,
+            text=True,
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(
+            "jsonschema is required for output fixture validation",
+            result.stdout + result.stderr,
         )
 
     def test_controlled_suite_discovery_and_filtering(self):

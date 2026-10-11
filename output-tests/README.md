@@ -66,11 +66,14 @@ For the content tests, there is also a _general.json_ file that contains tests t
 
 The output test suite includes a sanity checker to verify the structural integrity of the test fixtures and ensure adherence to style guidelines.
 
-To run the checks directly:
+To run the checks directly, install the same validation dependency used by tox:
 
 ```bash
+python -m pip install jsonschema==4.19.0
 python output-tests/check_output_suite.py
 ```
+
+The checker fails if `jsonschema` is unavailable so that fixture validation cannot be silently skipped.
 
 The sanity checks and their regression tests are also wired into the repository's default tox sanity environment, which runs both the validation suite checks and the output suite checks:
 
@@ -85,4 +88,6 @@ The checker verifies:
 - Every fixture array conforms to the fixture metaschema (`output-tests/output-test-schema.json`), including mandatory test `output` properties and valid output expectation schemas.
 - Case and test descriptions obey length boundaries (< 150 characters for cases, < 70 characters for tests), uniqueness requirements (within each file and case, respectively), and avoid forbidden modal phrasing.
 
-**Note:** The checker validates fixture structure; it does **not** execute or evaluate output conformance against an implementation under test. Furthermore, schemas declaring future or unsupported specification dialects (such as `v1`) cannot be validated against a dialect metaschema if no validator is installed for that dialect; all syntax, structure, and description checks nonetheless apply to future dialects.
+**Note:** The checker validates fixture structure; it does **not** execute or evaluate output conformance against an implementation under test. Fixture `$ref` targets are not fetched.
+
+The fixture metaschema validates output expectation schemas against Draft 2020-12, including expectations in `v1` fixtures. The checker does not validate case `schema` values or supporting `output-schema.json` files against their declared dialect metaschemas. All fixture directories, including future dialects, still receive JSON syntax, fixture structure, and description checks; supporting schemas receive JSON syntax checks.

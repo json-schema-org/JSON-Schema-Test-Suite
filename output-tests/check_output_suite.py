@@ -122,11 +122,16 @@ class OutputSuiteChecks(unittest.TestCase):
                 except ValueError as error:
                     self.fail(f"{relative} contains invalid JSON: {error}")
 
-    @unittest.skipIf(jsonschema is None, "Validation library not present!")
     def test_output_suites_are_valid(self):
         """
         All output fixture files conform to output-test-schema.json.
         """
+        if jsonschema is None:
+            self.fail(
+                "jsonschema is required for output fixture validation. "
+                "Run python -m tox or install jsonschema==4.19.0."
+            )
+
         if self.output_metaschema is None:
             self.fail(
                 f"Required fixture metaschema could not be loaded: {self.metaschema_load_error}"
