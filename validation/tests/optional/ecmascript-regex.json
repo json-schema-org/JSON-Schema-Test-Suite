@@ -295,6 +295,7 @@
         },
         {
             "description": "patterns always use unicode semantics with pattern",
+            "compatibility": "2020",
             "schema": {
                 "pattern": "\\p{Letter}cole"
             },
@@ -397,6 +398,7 @@
         },
         {
             "description": "pattern with non-ASCII digits",
+            "compatibility": "2020",
             "schema": {
                 "pattern": "^\\p{digit}+$"
             },
@@ -420,6 +422,7 @@
         },
         {
             "description": "patterns always use unicode semantics with patternProperties",
+            "compatibility": "2020",
             "schema": {
                 "type": "object",
                 "patternProperties": {
@@ -538,6 +541,7 @@
         },
         {
             "description": "patternProperties with non-ASCII digits",
+            "compatibility": "2020",
             "schema": {
                 "type": "object",
                 "patternProperties": {

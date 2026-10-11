@@ -481,7 +481,7 @@
                 "definitions": {
                     "x": {
                         "id": "http://example.com/b/c.json",
-                        "not": {
+                        "items": {
                             "definitions": {
                                 "y": {
                                     "id": "d.json",

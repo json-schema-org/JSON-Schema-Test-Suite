@@ -392,7 +392,9 @@
                     },
                     "sub-item": {
                         "type": "object",
-                        "required": ["foo"]
+                        "properties": {
+                            "foo": { "type": "null" }
+                        }
                     }
                 },
                 "type": "array",
@@ -444,7 +446,7 @@
                 {
                     "description": "wrong sub-item",
                     "data": [
-                        [{}, { "foo": null }],
+                        [{ "foo": 1 }, { "foo": null }],
                         [{ "foo": null }, { "foo": null }],
                         [{ "foo": null }, { "foo": null }]
                     ],
