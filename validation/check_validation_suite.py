@@ -524,6 +524,38 @@ class ValidationSuiteChecks(unittest.TestCase):
         """
         from collections.abc import Mapping
 
+        class StrictValidators(Mapping):
+            def __init__(self, d, tester, known_keywords, dialect_name):
+                self._d = d
+                self._tester = tester
+                self._known = known_keywords
+                self._dialect = dialect_name
+
+            def __iter__(self):
+                return iter(self._d)
+
+            def __len__(self):
+                return len(self._d)
+
+            def __getitem__(self, k):
+                if k not in self._known:
+                    self._tester.fail(
+                        f"'{k}' is not a known keyword for "
+                        f"release {self._dialect}. "
+                        f"Either the compatibility field is too broad, "
+                        f"the keyword is a typo, or it needs adding to "
+                        f"the KNOWN allowlist in the checker."
+                    )
+                return self._d[k]
+
+        for dialect, Validator in DIALECT_VALIDATORS.items():
+            self.addCleanup(
+                setattr, Validator, "VALIDATORS", Validator.VALIDATORS
+            )
+            Validator.VALIDATORS = StrictValidators(
+                dict(Validator.VALIDATORS), self, KNOWN[dialect], dialect
+            )
+
         for path in self.test_files:
             if path.name in UNKNOWN_KEYWORD_TEST_FILES:
                 continue
@@ -548,41 +580,7 @@ class ValidationSuiteChecks(unittest.TestCase):
                 for dialect in applicable:
                     if dialect not in DIALECT_VALIDATORS:
                         continue
-                    known = KNOWN[dialect]
                     Validator = DIALECT_VALIDATORS[dialect]
-
-                    class StrictValidators(Mapping):
-                        def __init__(self, d, tester, known_keywords, case_schema, dialect_name):
-                            self._d = d
-                            self._tester = tester
-                            self._known = known_keywords
-                            self._schema = case_schema
-                            self._dialect = dialect_name
-
-                        def __iter__(self):
-                            return iter(self._d)
-
-                        def __len__(self):
-                            return len(self._d)
-
-                        def __getitem__(self, k):
-                            if k not in self._known and k in self._schema:
-                                self._tester.fail(
-                                    f"'{k}' is not a known keyword for "
-                                    f"release {self._dialect}. "
-                                    f"Either the compatibility field is too broad, "
-                                    f"the keyword is a typo, or it needs adding to "
-                                    f"the KNOWN allowlist in the checker."
-                                )
-                            return self._d[k]
-
-                    original_validators = Validator.VALIDATORS
-                    self.addCleanup(
-                        setattr, Validator, "VALIDATORS", original_validators
-                    )
-                    Validator.VALIDATORS = StrictValidators(
-                        dict(original_validators), self, known, schema, dialect
-                    )
 
                     with self.subTest(
                         file=path.name,
