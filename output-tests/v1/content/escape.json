@@ -1,0 +1,41 @@
+[
+    {
+        "description": "tilde and forward slash in json-pointer",
+        "schema": {
+            "$schema": "https://json-schema.org/v1",
+            "$id": "https://json-schema.org/tests/content/v1/escape/0",
+            "properties": {
+                "~a/b": {"type": "number"}
+            }
+        },
+        "tests": [
+            {
+                "description": "incorrect type must be reported, but a message is not required",
+                "data": {"~a/b": "foobar"},
+                "output": {
+                    "list": {
+                        "$id": "https://json-schema.org/tests/content/v1/escape/0/tests/0/basic",
+                        "$ref": "/v1/output/schema",
+                        "properties": {
+                            "details": {
+                                "contains": {
+                                    "properties": {
+                                        "evaluationPath": {"const": "/properties/~0a~1b"},
+                                        "schemaLocation": {"const": "https://json-schema.org/tests/content/v1/escape/0#/properties/~0a~1b"},
+                                        "instanceLocation": {"const": "/~0a~1b"},
+                                        "annotations": false,
+                                        "errors": {
+                                            "required": ["type"]
+                                        }
+                                    },
+                                    "required": ["evaluationPath", "schemaLocation", "instanceLocation"]
+                                }
+                            }
+                        },
+                        "required": ["details"]
+                    }
+                }
+            }
+        ]
+    }
+]
