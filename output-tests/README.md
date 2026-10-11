@@ -61,3 +61,28 @@ When writing test cases, try to keep output validation schemas targeted to verif
 
 For the content tests, there is also a _general.json_ file that contains tests that do not necessarily pertain to any single keyword.
 <!-- This general.json file may be added to the structure tests later, but I haven't gotten to them yet, so I don't know. -->
+
+## Sanity Checking
+
+The output test suite includes a sanity checker to verify the structural integrity of the test fixtures and ensure adherence to style guidelines.
+
+To run the checks directly:
+
+```bash
+python output-tests/check_output_suite.py
+```
+
+The sanity checks and their regression tests are also wired into the repository's default tox sanity environment, which runs both the validation suite checks and the output suite checks:
+
+```bash
+python -m tox
+```
+
+### Scope and Limitations
+
+The checker verifies:
+- All JSON files under `output-tests/` (the fixture metaschema, supporting output schemas, and test fixtures) parse as valid JSON.
+- Every fixture array conforms to the fixture metaschema (`output-tests/output-test-schema.json`), including mandatory test `output` properties and valid output expectation schemas.
+- Case and test descriptions obey length boundaries (< 150 characters for cases, < 70 characters for tests), uniqueness requirements (within each file and case, respectively), and avoid forbidden modal phrasing.
+
+**Note:** The checker validates fixture structure; it does **not** execute or evaluate output conformance against an implementation under test. Furthermore, schemas declaring future or unsupported specification dialects (such as `v1`) cannot be validated against a dialect metaschema if no validator is installed for that dialect; all syntax, structure, and description checks nonetheless apply to future dialects.
