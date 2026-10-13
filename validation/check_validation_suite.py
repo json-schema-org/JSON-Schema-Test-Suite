@@ -19,10 +19,11 @@ from pathlib import Path
 
 try:
     import jsonschema.validators
-    from referencing.exceptions import Unresolvable
+    import referencing.jsonschema
 except ImportError:
-    jsonschema = Unresolvable = None
+    jsonschema = None
     DIALECT_VALIDATORS = {}
+    DIALECT_SPECIFICATIONS = {}
 else:
     DIALECT_VALIDATORS = {
         "3":    jsonschema.validators.Draft3Validator,
@@ -31,6 +32,14 @@ else:
         "7":    jsonschema.validators.Draft7Validator,
         "2019": jsonschema.validators.Draft201909Validator,
         "2020": jsonschema.validators.Draft202012Validator,
+    }
+    DIALECT_SPECIFICATIONS = {
+        "3":    referencing.jsonschema.DRAFT3,
+        "4":    referencing.jsonschema.DRAFT4,
+        "6":    referencing.jsonschema.DRAFT6,
+        "7":    referencing.jsonschema.DRAFT7,
+        "2019": referencing.jsonschema.DRAFT201909,
+        "2020": referencing.jsonschema.DRAFT202012,
     }
 
 
@@ -98,6 +107,18 @@ def load_cases(path: Path) -> list:
     return suite["tests"] if isinstance(suite, dict) else suite
 
 
+def schema_keywords(schema, specification):
+    """
+    Yield every keyword in schema and in each of its subschemas, using the
+    dialect's specification to find where subschemas live.
+    """
+    if not isinstance(schema, dict):
+        return
+    yield from schema
+    for subschema in specification.subresources_of(schema):
+        yield from schema_keywords(subschema, specification)
+
+
 KNOWN = {
             "2020": {
                 "$anchor",
@@ -117,6 +138,7 @@ KNOWN = {
                 "contentEncoding",
                 "contentMediaType",
                 "contentSchema",
+                "default",
                 "dependencies",
                 "dependentRequired",
                 "dependentSchemas",
@@ -173,6 +195,7 @@ KNOWN = {
                 "contentEncoding",
                 "contentMediaType",
                 "contentSchema",
+                "default",
                 "dependencies",
                 "dependentRequired",
                 "dependentSchemas",
@@ -222,6 +245,7 @@ KNOWN = {
                 "contains",
                 "contentEncoding",
                 "contentMediaType",
+                "default",
                 "definitions",
                 "dependencies",
                 "description",
@@ -264,6 +288,7 @@ KNOWN = {
                 "anyOf",
                 "const",
                 "contains",
+                "default",
                 "definitions",
                 "dependencies",
                 "description",
@@ -299,6 +324,7 @@ KNOWN = {
                 "additionalProperties",
                 "allOf",
                 "anyOf",
+                "default",
                 "definitions",
                 "dependencies",
                 "description",
@@ -339,6 +365,7 @@ KNOWN = {
                 "$schema",
                 "additionalItems",
                 "additionalProperties",
+                "default",
                 "definitions",
                 "dependencies",
                 "description",
@@ -360,6 +387,7 @@ KNOWN = {
                 "pattern",
                 "patternProperties",
                 "properties",
+                "required",
                 "title",
                 "type",
                 "uniqueItems",
@@ -394,6 +422,29 @@ class JSONLoadingChecks(unittest.TestCase):
                 with self.subTest(text=text):
                     path.write_text(text, encoding="utf-8")
                     load(path)
+
+
+@unittest.skipIf(jsonschema is None, "jsonschema library not installed")
+class SchemaKeywordsChecks(unittest.TestCase):
+    def test_finds_keywords_in_nested_subschemas(self):
+        schema = {
+            "properties": {"foo": {"minimun": 1}},
+            "items": {"prefixItems": [{"maximun": 2}]},
+            "$defs": {"unused": {"typo": True}},
+        }
+        keywords = set(
+            schema_keywords(schema, DIALECT_SPECIFICATIONS["2020"])
+        )
+        self.assertLessEqual(
+            {"minimun", "prefixItems", "maximun", "typo"}, keywords
+        )
+
+    def test_ignores_values_that_are_not_schemas(self):
+        schema = {"enum": [{"typo": 1}], "const": {"typo": 2}}
+        keywords = set(
+            schema_keywords(schema, DIALECT_SPECIFICATIONS["2020"])
+        )
+        self.assertEqual(keywords, {"enum", "const"})
 
 
 class ValidationSuiteChecks(unittest.TestCase):
@@ -519,43 +570,12 @@ class ValidationSuiteChecks(unittest.TestCase):
         (a draft 2020 keyword). This catches accidental keyword leakage across
         drafts.
 
+        Every subschema is checked, not only the ones an implementation would
+        evaluate against a particular instance.
+
         Mirrors test_arbitrary_schemas_do_not_use_unknown_keywords in
         bin/jsonschema_suite, adapted for compatibility-based dialect selection.
         """
-        from collections.abc import Mapping
-
-        class StrictValidators(Mapping):
-            def __init__(self, d, tester, known_keywords, dialect_name):
-                self._d = d
-                self._tester = tester
-                self._known = known_keywords
-                self._dialect = dialect_name
-
-            def __iter__(self):
-                return iter(self._d)
-
-            def __len__(self):
-                return len(self._d)
-
-            def __getitem__(self, k):
-                if k not in self._known:
-                    self._tester.fail(
-                        f"'{k}' is not a known keyword for "
-                        f"release {self._dialect}. "
-                        f"Either the compatibility field is too broad, "
-                        f"the keyword is a typo, or it needs adding to "
-                        f"the KNOWN allowlist in the checker."
-                    )
-                return self._d[k]
-
-        for dialect, Validator in DIALECT_VALIDATORS.items():
-            self.addCleanup(
-                setattr, Validator, "VALIDATORS", Validator.VALIDATORS
-            )
-            Validator.VALIDATORS = StrictValidators(
-                dict(Validator.VALIDATORS), self, KNOWN[dialect], dialect
-            )
-
         for path in self.test_files:
             if path.name in UNKNOWN_KEYWORD_TEST_FILES:
                 continue
@@ -578,19 +598,27 @@ class ValidationSuiteChecks(unittest.TestCase):
                 ]
 
                 for dialect in applicable:
-                    if dialect not in DIALECT_VALIDATORS:
+                    if dialect not in DIALECT_SPECIFICATIONS:
                         continue
-                    Validator = DIALECT_VALIDATORS[dialect]
+                    specification = DIALECT_SPECIFICATIONS[dialect]
 
                     with self.subTest(
                         file=path.name,
                         case=case.get("description"),
                         dialect=dialect,
                     ):
-                        try:
-                            Validator(schema).is_valid(12)
-                        except Unresolvable:
-                            pass
+                        unknown = sorted(
+                            set(schema_keywords(schema, specification))
+                            - KNOWN[dialect]
+                        )
+                        if unknown:
+                            self.fail(
+                                f"{unknown} are not known keywords for "
+                                f"release {dialect}. "
+                                f"Either the compatibility field is too broad, "
+                                f"the keyword is a typo, or it needs adding to "
+                                f"the KNOWN allowlist in the checker."
+                            )
 
     def test_compatibility_syntax_is_valid(self):
         for path in self.test_files:
