@@ -24,6 +24,7 @@ except ImportError:
     jsonschema = None
     DIALECT_VALIDATORS = {}
     DIALECT_SPECIFICATIONS = {}
+    SPECIFICATION_DIALECTS = {}
 else:
     DIALECT_VALIDATORS = {
         "3":    jsonschema.validators.Draft3Validator,
@@ -41,6 +42,10 @@ else:
         "2019": referencing.jsonschema.DRAFT201909,
         "2020": referencing.jsonschema.DRAFT202012,
     }
+    SPECIFICATION_DIALECTS = {
+        specification: dialect
+        for dialect, specification in DIALECT_SPECIFICATIONS.items()
+    }
 
 
 ROOT_DIR = Path(__file__).parent
@@ -56,6 +61,13 @@ ALLOWED_SCHEMA_FILES = {
 
 UNKNOWN_KEYWORD_TEST_FILES = {
     "non-schemas.json"
+}
+
+# These reference an external schema that uses a keyword its declared
+# dialect doesn't have, to check that the keyword is ignored there.
+UNKNOWN_KEYWORD_TEST_CASES = {
+    ("cross-draft.json", "refs to historic drafts are processed as historic drafts (7)"),
+    ("cross-draft.json", "refs to historic drafts are processed as historic drafts (2019)"),
 }
 
 
@@ -109,12 +121,21 @@ def load_cases(path: Path) -> list:
 
 def schema_keywords(schema, specification):
     """
-    Yield every keyword in schema and in each of its subschemas, using the
-    dialect's specification to find where subschemas live.
+    Yield (dialect, keyword) for every keyword in schema and in each of its
+    subschemas, using the dialect's specification to find where subschemas
+    live. A schema that declares a recognized $schema is read with that
+    dialect's rules; any other $schema keeps the enclosing dialect.
     """
     if not isinstance(schema, dict):
         return
-    yield from schema
+    dialect_id = schema.get("$schema")
+    if isinstance(dialect_id, str):
+        specification = referencing.jsonschema.specification_with(
+            dialect_id, default=specification,
+        )
+    dialect = SPECIFICATION_DIALECTS.get(specification)
+    for keyword in schema:
+        yield dialect, keyword
     for subschema in specification.subresources_of(schema):
         yield from schema_keywords(subschema, specification)
 
@@ -432,19 +453,40 @@ class SchemaKeywordsChecks(unittest.TestCase):
             "items": {"prefixItems": [{"maximun": 2}]},
             "$defs": {"unused": {"typo": True}},
         }
-        keywords = set(
+        keywords = {
+            keyword for _, keyword in
             schema_keywords(schema, DIALECT_SPECIFICATIONS["2020"])
-        )
+        }
         self.assertLessEqual(
             {"minimun", "prefixItems", "maximun", "typo"}, keywords
         )
 
     def test_ignores_values_that_are_not_schemas(self):
         schema = {"enum": [{"typo": 1}], "const": {"typo": 2}}
-        keywords = set(
+        keywords = {
+            keyword for _, keyword in
             schema_keywords(schema, DIALECT_SPECIFICATIONS["2020"])
-        )
+        }
         self.assertEqual(keywords, {"enum", "const"})
+
+    def test_reads_an_embedded_schema_with_its_own_dialect(self):
+        schema = {
+            "$defs": {
+                "embedded": {
+                    "$id": "https://example.com/embedded",
+                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                    "prefixItems": [],
+                },
+            },
+        }
+        found = set(schema_keywords(schema, DIALECT_SPECIFICATIONS["2019"]))
+        self.assertIn(("2019", "$defs"), found)
+        self.assertIn(("2020", "prefixItems"), found)
+
+    def test_keeps_the_dialect_for_an_unrecognized_schema(self):
+        schema = {"$schema": "https://example.com/custom", "minimum": 1}
+        found = set(schema_keywords(schema, DIALECT_SPECIFICATIONS["2019"]))
+        self.assertEqual(found, {("2019", "$schema"), ("2019", "minimum")})
 
 
 class ValidationSuiteChecks(unittest.TestCase):
@@ -571,7 +613,9 @@ class ValidationSuiteChecks(unittest.TestCase):
         drafts.
 
         Every subschema is checked, not only the ones an implementation would
-        evaluate against a particular instance.
+        evaluate against a particular instance, and so are external schemas.
+        A schema that declares its own $schema is checked against that
+        dialect.
 
         Mirrors test_arbitrary_schemas_do_not_use_unknown_keywords in
         bin/jsonschema_suite, adapted for compatibility-based dialect selection.
@@ -583,15 +627,16 @@ class ValidationSuiteChecks(unittest.TestCase):
             for case in load_cases(path):
                 if "unknown keyword" in case.get("description", ""):
                     continue
+                if (path.name, case.get("description")) in UNKNOWN_KEYWORD_TEST_CASES:
+                    continue
 
                 compat = case.get("compatibility", "")
                 if compat == "9999":
                     continue
-                schema = case.get("schema", {})
-
-                # Boolean schema (true/false) have no keywords.
-                if isinstance(schema, bool):
-                    continue
+                schemas = [
+                    case.get("schema", {}),
+                    *case.get("externalSchemas", {}).values(),
+                ]
 
                 applicable = [
                     d for d in DIALECT_ORDER if dialect_applies(compat, int(d))
@@ -607,14 +652,18 @@ class ValidationSuiteChecks(unittest.TestCase):
                         case=case.get("description"),
                         dialect=dialect,
                     ):
-                        unknown = sorted(
-                            set(schema_keywords(schema, specification))
-                            - KNOWN[dialect]
-                        )
+                        unknown = sorted({
+                            f"{keyword} (release {release})"
+                            for schema in schemas
+                            for release, keyword in schema_keywords(
+                                schema, specification,
+                            )
+                            if release and keyword not in KNOWN[release]
+                        })
                         if unknown:
                             self.fail(
-                                f"{unknown} are not known keywords for "
-                                f"release {dialect}. "
+                                f"{unknown} are not known keywords when the "
+                                f"case is read as release {dialect}. "
                                 f"Either the compatibility field is too broad, "
                                 f"the keyword is a typo, or it needs adding to "
                                 f"the KNOWN allowlist in the checker."
