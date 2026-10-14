@@ -14,5 +14,32 @@
                 "valid": true
             }
         ]
+    },
+    {
+        "description": "$schema after $defs still sets the dialect for $defs",
+        "comment": "keyword order is insignificant, so the dialect from $schema applies to subschemas in $defs even though $defs appears before $schema; prefixItems is not a keyword in 2019-09 and is therefore ignored",
+        "schema": {
+            "$defs": {
+                "list": {
+                    "prefixItems": [{ "type": "string" }],
+                    "minItems": 2
+                }
+            },
+            "$ref": "#/$defs/list",
+            "$schema": "https://json-schema.org/draft/2019-09/schema"
+        },
+        "tests": [
+            {
+                "description": "non-string first item is valid",
+                "comment": "if $defs is built with the default dialect rather than the one from $schema, prefixItems forces the first item to be a string and this fails",
+                "data": [1, 2, 3],
+                "valid": true
+            },
+            {
+                "description": "too few items is invalid",
+                "data": [1],
+                "valid": false
+            }
+        ]
     }
 ]
