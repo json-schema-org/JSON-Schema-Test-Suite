@@ -268,6 +268,7 @@
     {
         "description": "then: false fails when condition matches",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "if": { "const": 1 },
             "then": false
         },
@@ -287,6 +288,7 @@
     {
         "description": "else: false fails when condition does not match",
         "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
             "if": { "const": 1 },
             "else": false
         },
