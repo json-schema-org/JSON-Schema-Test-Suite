@@ -244,6 +244,42 @@
                 "comment": "RFC 3339 section 5.6: no production of date-time emits whitespace",
                 "data": "1985-04-12T23:20:50Z ",
                 "valid": false
+            },
+            {
+                "description": "a valid date-time-ext with an elective time-zone suffix",
+                "comment": "RFC 9557 section 4.1: date-time-ext = date-time suffix, and time-zone = \"[\" [\"!\"] time-zone-name \"]\". Syntactic validation only: the suffix is not checked against the IANA time zone database.",
+                "data": "2022-07-08T00:14:07Z[Europe/London]",
+                "valid": true
+            },
+            {
+                "description": "a valid date-time-ext with a numeric offset and a time-zone suffix",
+                "comment": "RFC 9557 section 4.1: date-time-ext allows a time-zone suffix after an RFC 3339 date-time, including one with a numeric time-offset. Syntactic validation only: whether the offset agrees with the time zone name is not checked.",
+                "data": "2022-07-08T00:14:07+01:00[Europe/Paris]",
+                "valid": true
+            },
+            {
+                "description": "a valid date-time-ext with a critical time-zone suffix",
+                "comment": "RFC 9557 section 4.1: critical-flag = [\"!\"]. The \"!\" is part of the time-zone syntax. Syntactic validation only: a critical suffix is not rejected here even if an application would later treat it as an error.",
+                "data": "2022-07-08T00:14:07Z[!Europe/London]",
+                "valid": true
+            },
+            {
+                "description": "a valid date-time-ext with a suffix-tag",
+                "comment": "RFC 9557 section 4.1: suffix-tag = \"[\" [\"!\"] suffix-key \"=\" suffix-values \"]\". Syntactic validation only: the key and value are not interpreted.",
+                "data": "2022-07-08T00:14:07Z[u-ca=chinese]",
+                "valid": true
+            },
+            {
+                "description": "an invalid date-time-ext with an empty suffix",
+                "comment": "RFC 9557 section 4.1: time-zone requires a time-zone-name or time-numoffset, and suffix-tag requires suffix-key \"=\" suffix-values. \"[]\" matches neither production. Syntactic validation only.",
+                "data": "2022-07-08T00:14:07Z[]",
+                "valid": false
+            },
+            {
+                "description": "an invalid date-time-ext with an unclosed time-zone suffix",
+                "comment": "RFC 9557 section 4.1: time-zone is delimited by \"[\" and \"]\". A missing closing bracket is not a valid date-time-ext. Syntactic validation only.",
+                "data": "2022-07-08T00:14:07Z[Europe/London",
+                "valid": false
             }
         ]
     }
