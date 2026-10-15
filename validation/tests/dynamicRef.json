@@ -1438,6 +1438,92 @@
             ]
         },
         {
+            "description": "multiple dynamic paths to the $dynamicRef keyword",
+            "compatibility": "=2020",
+            "schema": {
+                "$id": "https://test.json-schema.org/dynamic-ref-with-multiple-paths/main",
+                "if": {
+                    "properties": {
+                        "kindOfList": { "const": "numbers" }
+                    },
+                    "required": ["kindOfList"]
+                },
+                "then": { "$ref": "numberList" },
+                "else": { "$ref": "stringList" },
+
+                "$defs": {
+                    "genericList": {
+                        "$id": "genericList",
+                        "properties": {
+                            "list": {
+                                "items": { "$dynamicRef": "#itemType" }
+                            }
+                        },
+                        "$defs": {
+                            "defaultItemType": {
+                                "$comment": "Only needed to satisfy bookending requirement",
+                                "$dynamicAnchor": "itemType"
+                            }
+                        }
+                    },
+                    "numberList": {
+                        "$id": "numberList",
+                        "$defs": {
+                            "itemType": {
+                                "$dynamicAnchor": "itemType",
+                                "type": "number"
+                            }
+                        },
+                        "$ref": "genericList"
+                    },
+                    "stringList": {
+                        "$id": "stringList",
+                        "$defs": {
+                            "itemType": {
+                                "$dynamicAnchor": "itemType",
+                                "type": "string"
+                            }
+                        },
+                        "$ref": "genericList"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "number list with number values",
+                    "data": {
+                        "kindOfList": "numbers",
+                        "list": [1.1]
+                    },
+                    "valid": true
+                },
+                {
+                    "description": "number list with string values",
+                    "data": {
+                        "kindOfList": "numbers",
+                        "list": ["foo"]
+                    },
+                    "valid": false
+                },
+                {
+                    "description": "string list with number values",
+                    "data": {
+                        "kindOfList": "strings",
+                        "list": [1.1]
+                    },
+                    "valid": false
+                },
+                {
+                    "description": "string list with string values",
+                    "data": {
+                        "kindOfList": "strings",
+                        "list": ["foo"]
+                    },
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "$dynamicRef points to a boolean schema",
             "compatibility": "=2020",
             "schema": {

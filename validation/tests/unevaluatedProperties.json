@@ -72,7 +72,7 @@
         },
         {
             "description": "unevaluatedProperties with adjacent properties",
-            "compatibility": "2020",
+            "compatibility": "2019",
             "schema": {
                 "type": "object",
                 "properties": {
@@ -857,7 +857,7 @@
         },
         {
             "description": "nested unevaluatedProperties, outer true, inner false, properties outside",
-            "compatibility": "2020",
+            "compatibility": "2019",
             "schema": {
                 "type": "object",
                 "properties": {
