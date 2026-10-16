@@ -1,0 +1,21 @@
+[
+    {
+        "description": "validation of URI References",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "format": "uri-reference"
+        },
+        "tests": [
+            {
+                "description": "an invalid URI Reference",
+                "data": "\\\\WINDOWS\\fileshare",
+                "valid": false
+            },
+            {
+                "description": "an invalid URI fragment",
+                "data": "#frag\\ment",
+                "valid": false
+            }
+        ]
+    }
+]
