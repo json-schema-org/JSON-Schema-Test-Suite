@@ -5,7 +5,7 @@
             "type": "object",
             "allOf": [
                 { "properties": { "foo": true } },
-                { "$ref": "http://localhost:1234/draft2019-09/dependentRequired.json" }
+                { "$ref": "http://localhost:1234/draft7/dependentRequired.json" }
             ]
         },
         "tests": [
