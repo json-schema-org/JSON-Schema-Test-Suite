@@ -4,8 +4,8 @@
   "suite": [
     {
       "description": "`unknownKeyword` is an annotation",
+      "compatibility": "2019",
       "schema": {
-        "$schema": "https://json-schema.org/draft/2020-12/schema",
         "x-unknownKeyword": "Foo"
       },
       "tests": [
