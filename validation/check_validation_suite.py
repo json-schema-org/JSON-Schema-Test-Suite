@@ -19,10 +19,12 @@ from pathlib import Path
 
 try:
     import jsonschema.validators
-    from referencing.exceptions import Unresolvable
+    import referencing.jsonschema
 except ImportError:
-    jsonschema = Unresolvable = None
+    jsonschema = None
     DIALECT_VALIDATORS = {}
+    DIALECT_SPECIFICATIONS = {}
+    SPECIFICATION_DIALECTS = {}
 else:
     DIALECT_VALIDATORS = {
         "3":    jsonschema.validators.Draft3Validator,
@@ -31,6 +33,18 @@ else:
         "7":    jsonschema.validators.Draft7Validator,
         "2019": jsonschema.validators.Draft201909Validator,
         "2020": jsonschema.validators.Draft202012Validator,
+    }
+    DIALECT_SPECIFICATIONS = {
+        "3":    referencing.jsonschema.DRAFT3,
+        "4":    referencing.jsonschema.DRAFT4,
+        "6":    referencing.jsonschema.DRAFT6,
+        "7":    referencing.jsonschema.DRAFT7,
+        "2019": referencing.jsonschema.DRAFT201909,
+        "2020": referencing.jsonschema.DRAFT202012,
+    }
+    SPECIFICATION_DIALECTS = {
+        specification: dialect
+        for dialect, specification in DIALECT_SPECIFICATIONS.items()
     }
 
 
@@ -47,6 +61,18 @@ ALLOWED_SCHEMA_FILES = {
 
 UNKNOWN_KEYWORD_TEST_FILES = {
     "non-schemas.json"
+}
+
+# These reference an external schema that uses a keyword its declared
+# dialect doesn't have, to check that the keyword is ignored there. Only the
+# listed keyword in the listed external schema is exempt.
+UNKNOWN_KEYWORD_TEST_CASES = {
+    ("cross-draft.json", "refs to historic drafts are processed as historic drafts (7)"): {
+        ("http://localhost:1234/draft7/ignore-dependentRequired.json", "dependentRequired"),
+    },
+    ("cross-draft.json", "refs to historic drafts are processed as historic drafts (2019)"): {
+        ("http://localhost:1234/draft2019-09/ignore-prefixItems.json", "prefixItems"),
+    },
 }
 
 
@@ -98,6 +124,27 @@ def load_cases(path: Path) -> list:
     return suite["tests"] if isinstance(suite, dict) else suite
 
 
+def schema_keywords(schema, specification):
+    """
+    Yield (dialect, keyword) for every keyword in schema and in each of its
+    subschemas, using the dialect's specification to find where subschemas
+    live. A schema that declares a recognized $schema is read with that
+    dialect's rules; any other $schema keeps the enclosing dialect.
+    """
+    if not isinstance(schema, dict):
+        return
+    dialect_id = schema.get("$schema")
+    if isinstance(dialect_id, str):
+        specification = referencing.jsonschema.specification_with(
+            dialect_id, default=specification,
+        )
+    dialect = SPECIFICATION_DIALECTS.get(specification)
+    for keyword in schema:
+        yield dialect, keyword
+    for subschema in specification.subresources_of(schema):
+        yield from schema_keywords(subschema, specification)
+
+
 KNOWN = {
             "2020": {
                 "$anchor",
@@ -117,6 +164,7 @@ KNOWN = {
                 "contentEncoding",
                 "contentMediaType",
                 "contentSchema",
+                "default",
                 "dependencies",
                 "dependentRequired",
                 "dependentSchemas",
@@ -173,6 +221,7 @@ KNOWN = {
                 "contentEncoding",
                 "contentMediaType",
                 "contentSchema",
+                "default",
                 "dependencies",
                 "dependentRequired",
                 "dependentSchemas",
@@ -222,6 +271,7 @@ KNOWN = {
                 "contains",
                 "contentEncoding",
                 "contentMediaType",
+                "default",
                 "definitions",
                 "dependencies",
                 "description",
@@ -264,6 +314,7 @@ KNOWN = {
                 "anyOf",
                 "const",
                 "contains",
+                "default",
                 "definitions",
                 "dependencies",
                 "description",
@@ -299,6 +350,7 @@ KNOWN = {
                 "additionalProperties",
                 "allOf",
                 "anyOf",
+                "default",
                 "definitions",
                 "dependencies",
                 "description",
@@ -339,6 +391,7 @@ KNOWN = {
                 "$schema",
                 "additionalItems",
                 "additionalProperties",
+                "default",
                 "definitions",
                 "dependencies",
                 "description",
@@ -360,6 +413,7 @@ KNOWN = {
                 "pattern",
                 "patternProperties",
                 "properties",
+                "required",
                 "title",
                 "type",
                 "uniqueItems",
@@ -394,6 +448,50 @@ class JSONLoadingChecks(unittest.TestCase):
                 with self.subTest(text=text):
                     path.write_text(text, encoding="utf-8")
                     load(path)
+
+
+@unittest.skipIf(jsonschema is None, "jsonschema library not installed")
+class SchemaKeywordsChecks(unittest.TestCase):
+    def test_finds_keywords_in_nested_subschemas(self):
+        schema = {
+            "properties": {"foo": {"minimun": 1}},
+            "items": {"prefixItems": [{"maximun": 2}]},
+            "$defs": {"unused": {"typo": True}},
+        }
+        keywords = {
+            keyword for _, keyword in
+            schema_keywords(schema, DIALECT_SPECIFICATIONS["2020"])
+        }
+        self.assertLessEqual(
+            {"minimun", "prefixItems", "maximun", "typo"}, keywords
+        )
+
+    def test_ignores_values_that_are_not_schemas(self):
+        schema = {"enum": [{"typo": 1}], "const": {"typo": 2}}
+        keywords = {
+            keyword for _, keyword in
+            schema_keywords(schema, DIALECT_SPECIFICATIONS["2020"])
+        }
+        self.assertEqual(keywords, {"enum", "const"})
+
+    def test_reads_an_embedded_schema_with_its_own_dialect(self):
+        schema = {
+            "$defs": {
+                "embedded": {
+                    "$id": "https://example.com/embedded",
+                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                    "prefixItems": [],
+                },
+            },
+        }
+        found = set(schema_keywords(schema, DIALECT_SPECIFICATIONS["2019"]))
+        self.assertIn(("2019", "$defs"), found)
+        self.assertIn(("2020", "prefixItems"), found)
+
+    def test_keeps_the_dialect_for_an_unrecognized_schema(self):
+        schema = {"$schema": "https://example.com/custom", "minimum": 1}
+        found = set(schema_keywords(schema, DIALECT_SPECIFICATIONS["2019"]))
+        self.assertEqual(found, {("2019", "$schema"), ("2019", "minimum")})
 
 
 class ValidationSuiteChecks(unittest.TestCase):
@@ -519,43 +617,14 @@ class ValidationSuiteChecks(unittest.TestCase):
         (a draft 2020 keyword). This catches accidental keyword leakage across
         drafts.
 
+        Every subschema is checked, not only the ones an implementation would
+        evaluate against a particular instance, and so are external schemas.
+        A schema that declares its own $schema is checked against that
+        dialect.
+
         Mirrors test_arbitrary_schemas_do_not_use_unknown_keywords in
         bin/jsonschema_suite, adapted for compatibility-based dialect selection.
         """
-        from collections.abc import Mapping
-
-        class StrictValidators(Mapping):
-            def __init__(self, d, tester, known_keywords, dialect_name):
-                self._d = d
-                self._tester = tester
-                self._known = known_keywords
-                self._dialect = dialect_name
-
-            def __iter__(self):
-                return iter(self._d)
-
-            def __len__(self):
-                return len(self._d)
-
-            def __getitem__(self, k):
-                if k not in self._known:
-                    self._tester.fail(
-                        f"'{k}' is not a known keyword for "
-                        f"release {self._dialect}. "
-                        f"Either the compatibility field is too broad, "
-                        f"the keyword is a typo, or it needs adding to "
-                        f"the KNOWN allowlist in the checker."
-                    )
-                return self._d[k]
-
-        for dialect, Validator in DIALECT_VALIDATORS.items():
-            self.addCleanup(
-                setattr, Validator, "VALIDATORS", Validator.VALIDATORS
-            )
-            Validator.VALIDATORS = StrictValidators(
-                dict(Validator.VALIDATORS), self, KNOWN[dialect], dialect
-            )
-
         for path in self.test_files:
             if path.name in UNKNOWN_KEYWORD_TEST_FILES:
                 continue
@@ -563,34 +632,49 @@ class ValidationSuiteChecks(unittest.TestCase):
             for case in load_cases(path):
                 if "unknown keyword" in case.get("description", ""):
                     continue
+                allowed = UNKNOWN_KEYWORD_TEST_CASES.get(
+                    (path.name, case.get("description")), set(),
+                )
 
                 compat = case.get("compatibility", "")
                 if compat == "9999":
                     continue
-                schema = case.get("schema", {})
-
-                # Boolean schema (true/false) have no keywords.
-                if isinstance(schema, bool):
-                    continue
+                schemas = [
+                    (None, case.get("schema", {})),
+                    *case.get("externalSchemas", {}).items(),
+                ]
 
                 applicable = [
                     d for d in DIALECT_ORDER if dialect_applies(compat, int(d))
                 ]
 
                 for dialect in applicable:
-                    if dialect not in DIALECT_VALIDATORS:
+                    if dialect not in DIALECT_SPECIFICATIONS:
                         continue
-                    Validator = DIALECT_VALIDATORS[dialect]
+                    specification = DIALECT_SPECIFICATIONS[dialect]
 
                     with self.subTest(
                         file=path.name,
                         case=case.get("description"),
                         dialect=dialect,
                     ):
-                        try:
-                            Validator(schema).is_valid(12)
-                        except Unresolvable:
-                            pass
+                        unknown = sorted({
+                            f"{keyword} (release {release})"
+                            for uri, schema in schemas
+                            for release, keyword in schema_keywords(
+                                schema, specification,
+                            )
+                            if release and keyword not in KNOWN[release]
+                            and (uri, keyword) not in allowed
+                        })
+                        if unknown:
+                            self.fail(
+                                f"{unknown} are not known keywords when the "
+                                f"case is read as release {dialect}. "
+                                f"Either the compatibility field is too broad, "
+                                f"the keyword is a typo, or it needs adding to "
+                                f"the KNOWN allowlist in the checker."
+                            )
 
     def test_compatibility_syntax_is_valid(self):
         for path in self.test_files:
