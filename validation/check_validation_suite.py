@@ -64,10 +64,15 @@ UNKNOWN_KEYWORD_TEST_FILES = {
 }
 
 # These reference an external schema that uses a keyword its declared
-# dialect doesn't have, to check that the keyword is ignored there.
+# dialect doesn't have, to check that the keyword is ignored there. Only the
+# listed keyword in the listed external schema is exempt.
 UNKNOWN_KEYWORD_TEST_CASES = {
-    ("cross-draft.json", "refs to historic drafts are processed as historic drafts (7)"),
-    ("cross-draft.json", "refs to historic drafts are processed as historic drafts (2019)"),
+    ("cross-draft.json", "refs to historic drafts are processed as historic drafts (7)"): {
+        ("http://localhost:1234/draft7/ignore-dependentRequired.json", "dependentRequired"),
+    },
+    ("cross-draft.json", "refs to historic drafts are processed as historic drafts (2019)"): {
+        ("http://localhost:1234/draft2019-09/ignore-prefixItems.json", "prefixItems"),
+    },
 }
 
 
@@ -627,15 +632,16 @@ class ValidationSuiteChecks(unittest.TestCase):
             for case in load_cases(path):
                 if "unknown keyword" in case.get("description", ""):
                     continue
-                if (path.name, case.get("description")) in UNKNOWN_KEYWORD_TEST_CASES:
-                    continue
+                allowed = UNKNOWN_KEYWORD_TEST_CASES.get(
+                    (path.name, case.get("description")), set(),
+                )
 
                 compat = case.get("compatibility", "")
                 if compat == "9999":
                     continue
                 schemas = [
-                    case.get("schema", {}),
-                    *case.get("externalSchemas", {}).values(),
+                    (None, case.get("schema", {})),
+                    *case.get("externalSchemas", {}).items(),
                 ]
 
                 applicable = [
@@ -654,11 +660,12 @@ class ValidationSuiteChecks(unittest.TestCase):
                     ):
                         unknown = sorted({
                             f"{keyword} (release {release})"
-                            for schema in schemas
+                            for uri, schema in schemas
                             for release, keyword in schema_keywords(
                                 schema, specification,
                             )
                             if release and keyword not in KNOWN[release]
+                            and (uri, keyword) not in allowed
                         })
                         if unknown:
                             self.fail(
