@@ -236,17 +236,17 @@
             "compatibility": "2019",
             "schema": {
                 "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
-                "$id": "https://example.com/draft2019-09/ref-and-id1/base.json",
+                "$id": "https://example.com/ref-and-id1/base.json",
                 "$ref": "int.json",
                 "$defs": {
                     "bigint": {
-                        "$comment": "canonical uri: https://example.com/draft2019-09/ref-and-id1/int.json",
+                        "$comment": "canonical uri: https://example.com/ref-and-id1/int.json",
                         "$id": "int.json",
                         "maximum": 10
                     },
                     "smallint": {
-                        "$comment": "canonical uri: https://example.com/draft2019-09/ref-and-id1-int.json",
-                        "$id": "/draft2019-09/ref-and-id1-int.json",
+                        "$comment": "canonical uri: https://example.com/ref-and-id1-int.json",
+                        "$id": "/ref-and-id1-int.json",
                         "maximum": 2
                     }
                 }
@@ -269,17 +269,17 @@
             "compatibility": "2019",
             "schema": {
                 "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
-                "$id": "https://example.com/draft2019-09/ref-and-id2/base.json",
+                "$id": "https://example.com/ref-and-id2/base.json",
                 "$ref": "#bigint",
                 "$defs": {
                     "bigint": {
-                        "$comment": "canonical uri: https://example.com/draft2019-09/ref-and-id2/base.json#/$defs/bigint; another valid uri for this location: https://example.com/ref-and-id2/base.json#bigint",
+                        "$comment": "canonical uri: https://example.com/ref-and-id2/base.json#/$defs/bigint; another valid uri for this location: https://example.com/ref-and-id2/base.json#bigint",
                         "$anchor": "bigint",
                         "maximum": 10
                     },
                     "smallint": {
-                        "$comment": "canonical uri: https://example.com/draft2019-09/ref-and-id2#/$defs/smallint; another valid uri for this location: https://example.com/ref-and-id2/#bigint",
-                        "$id": "/draft2019-09/ref-and-id2/",
+                        "$comment": "canonical uri: https://example.com/ref-and-id2/#/$defs/smallint; another valid uri for this location: https://example.com/ref-and-id2/#bigint",
+                        "$id": "/ref-and-id2/",
                         "$anchor": "bigint",
                         "maximum": 2
                     }
@@ -304,16 +304,16 @@
             "schema": {
                 "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
 
-                "$id": "https://example.com/draft2019-09/ref-and-id3/base.json",
+                "$id": "https://example.com/ref-and-id3/base.json",
                 "$ref": "nested/foo.json",
                 "$defs": {
                     "foo": {
-                        "$comment": "canonical uri: https://example.com/draft2019-09/ref-and-id3/nested/foo.json",
+                        "$comment": "canonical uri: https://example.com/ref-and-id3/nested/foo.json",
                         "$id": "nested/foo.json",
                         "$ref": "./bar.json"
                     },
                     "bar": {
-                        "$comment": "canonical uri: https://example.com/draft2019-09/ref-and-id3/nested/bar.json",
+                        "$comment": "canonical uri: https://example.com/ref-and-id3/nested/bar.json",
                         "$id": "nested/bar.json",
                         "type": "number"
                     }
@@ -628,7 +628,7 @@
             "schema": { "$ref": "http://localhost:1234/different-id-ref-string.json" },
             "externalSchemas": {
                 "http://localhost:1234/different-id-ref-string.json": {
-                    "$id": "http://localhost:1234/draft2020-12/real-id-ref-string.json",
+                    "$id": "http://localhost:1234/real-id-ref-string.json",
                     "$defs": {
                         "bar": { "type": "string" }
                     },
