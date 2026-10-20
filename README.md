@@ -30,6 +30,8 @@ If you see anything missing or incorrect, please feel free to [file an issue](ht
 The tests in this suite are contained in the `tests` directory at the root of this repository.
 Inside that directory is a subdirectory for each released version of the specification.
 
+For instructions on preparing a new specification release, see the [release checklist](./RELEASING.md).
+
 The structure and contents of each file in these directories is described below.
 
 In addition to the version-specific subdirectories, one additional directory is present:
