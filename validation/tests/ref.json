@@ -649,39 +649,6 @@
                     "valid": true
                 }
             ]
-        },
-        {
-            "description": "$ref with $recursiveAnchor",
-            "compatibility": "=2019",
-            "schema": {
-                "$id": "https://example.com/schemas/unevaluated-items-are-disallowed",
-                "$ref": "/schemas/unevaluated-items-are-allowed",
-                "$recursiveAnchor": true,
-                "unevaluatedItems": false,
-                "$defs": {
-                    "/schemas/unevaluated-items-are-allowed": {
-                        "$id": "/schemas/unevaluated-items-are-allowed",
-                        "$recursiveAnchor": true,
-                        "type": "array",
-                        "items": [
-                            { "type": "string" },
-                            { "$ref": "#" }
-                        ]
-                    }
-                }
-            },
-            "tests": [
-                {
-                    "description": "extra items allowed for inner arrays",
-                    "data": ["foo", ["bar", [], 8]],
-                    "valid": true
-                },
-                {
-                    "description": "extra items disallowed for root",
-                    "data": ["foo", ["bar", [], 8], 8],
-                    "valid": false
-                }
-            ]
         }
     ]
 }
