@@ -247,7 +247,7 @@
             },
             {
                 "description": "a valid date-time-ext with an elective time-zone suffix",
-                "comment": "RFC 9557 section 4.1: date-time-ext = date-time suffix, and time-zone = \"[\" [\"!\"] time-zone-name \"]\". Syntactic validation only: the suffix is not checked against the IANA time zone database.",
+                "comment": "RFC 9557 section 4.1: date-time-ext = date-time suffix, and time-zone = \"[\" critical-flag time-zone-name / time-numoffset \"]\". Syntactic validation only: the suffix is not checked against the IANA time zone database.",
                 "data": "2022-07-08T00:14:07Z[Europe/London]",
                 "valid": true
             },
