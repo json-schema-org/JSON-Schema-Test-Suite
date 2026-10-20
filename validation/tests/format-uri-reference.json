@@ -146,6 +146,12 @@
                     "valid": false
                 },
                 {
+                    "description": "incomplete percent-encoding triplet",
+                    "comment": "RFC 3986, Section 2.1: pct-encoded = \"%\" HEXDIG HEXDIG.",
+                    "data": "/%A",
+                    "valid": false
+                },
+                {
                     "description": "lone percent sign is invalid",
                     "comment": "RFC 3986, Section 2.1: pct-encoded = \"%\" HEXDIG HEXDIG.",
                     "data": "/%",
