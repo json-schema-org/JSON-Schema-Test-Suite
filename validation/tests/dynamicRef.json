@@ -1438,7 +1438,7 @@
             ]
         },
         {
-            "description": "multiple dynamic paths to the $dynamicRef keyword",
+            "description": "multiple dynamic paths to the $dynamicRef keyword (2020)",
             "compatibility": "=2020",
             "schema": {
                 "$id": "https://test.json-schema.org/dynamic-ref-with-multiple-paths/main",
