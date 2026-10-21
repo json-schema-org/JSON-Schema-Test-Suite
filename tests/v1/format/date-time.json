@@ -57,16 +57,6 @@
                 "valid": true
             },
             {
-                "description": "a valid date-time with a leap second, UTC",
-                "data": "1998-12-31T23:59:60Z",
-                "valid": true
-            },
-            {
-                "description": "a valid date-time with a leap second, with minus offset",
-                "data": "1998-12-31T15:59:60.123-08:00",
-                "valid": true
-            },
-            {
                 "description": "an invalid date-time past leap second, UTC",
                 "data": "1998-12-31T23:59:61Z",
                 "valid": false

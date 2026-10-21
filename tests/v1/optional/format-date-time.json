@@ -1,0 +1,22 @@
+[
+    {
+        "description": "date-time leap seconds",
+        "comment": "The specification says date-time SHOULD allow and validate published leap seconds, so accepting them is recommended but not required.",
+        "schema": {
+            "$schema": "https://json-schema.org/v1",
+            "format": "date-time"
+        },
+        "tests": [
+            {
+                "description": "a valid date-time with a leap second, UTC",
+                "data": "1998-12-31T23:59:60Z",
+                "valid": true
+            },
+            {
+                "description": "a valid date-time with a leap second, with minus offset",
+                "data": "1998-12-31T15:59:60.123-08:00",
+                "valid": true
+            }
+        ]
+    }
+]
