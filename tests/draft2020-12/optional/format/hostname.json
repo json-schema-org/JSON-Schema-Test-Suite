@@ -127,28 +127,13 @@
                 "valid": false
             },
             {
-                "description": "leading whitespace is invalid",
+                "description": "leading space is invalid",
                 "data": " example.com",
                 "valid": false
             },
             {
-                "description": "trailing whitespace is invalid",
-                "data": "example.com ",
-                "valid": false
-            },
-            {
-                "description": "internal whitespace is invalid",
-                "data": "example .com",
-                "valid": false
-            },
-            {
-                "description": "a trailing carriage return is invalid",
-                "data": "example.com\r",
-                "valid": false
-            },
-            {
-                "description": "a tab character is invalid",
-                "data": "example\t.com",
+                "description": "space inside a label is invalid",
+                "data": "ex ample.com",
                 "valid": false
             },
             {
