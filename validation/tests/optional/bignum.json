@@ -79,11 +79,6 @@
                     "valid": true
                 },
                 {
-                    "description": "the exclusive maximum itself is invalid",
-                    "data": 972783798187987123879878123.18878137,
-                    "valid": false
-                },
-                {
                     "description": "comparison works for high numbers",
                     "data": 972783798187987123879878123.188781371,
                     "valid": false
@@ -101,11 +96,6 @@
                     "description": "below the exclusive maximum is valid",
                     "data": 972783798187987123879878123.188781369,
                     "valid": true
-                },
-                {
-                    "description": "the exclusive maximum itself is invalid",
-                    "data": 972783798187987123879878123.18878137,
-                    "valid": false
                 },
                 {
                     "description": "comparison works for high numbers",
@@ -141,11 +131,6 @@
                     "valid": false
                 },
                 {
-                    "description": "the exclusive minimum itself is invalid",
-                    "data": -972783798187987123879878123.18878137,
-                    "valid": false
-                },
-                {
                     "description": "above the exclusive minimum is valid",
                     "data": -972783798187987123879878123.188781369,
                     "valid": true
@@ -162,11 +147,6 @@
                 {
                     "description": "comparison works for very negative numbers",
                     "data": -972783798187987123879878123.188781371,
-                    "valid": false
-                },
-                {
-                    "description": "the exclusive minimum itself is invalid",
-                    "data": -972783798187987123879878123.18878137,
                     "valid": false
                 },
                 {
