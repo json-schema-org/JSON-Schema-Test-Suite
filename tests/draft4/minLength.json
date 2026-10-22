@@ -1,6 +1,11 @@
 [
     {
         "description": "minLength validation",
+        "specification": [
+            {
+                "validation": "5.2.2"
+            }
+        ],
         "schema": {"minLength": 2},
         "tests": [
             {
