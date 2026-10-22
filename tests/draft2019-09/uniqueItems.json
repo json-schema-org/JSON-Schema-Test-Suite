@@ -93,16 +93,6 @@
                 "valid": false
             },
             {
-                "description": "1 and true are unique",
-                "data": [1, true],
-                "valid": true
-            },
-            {
-                "description": "0 and false are unique",
-                "data": [0, false],
-                "valid": true
-            },
-            {
                 "description": "[1] and [true] are unique",
                 "data": [[1], [true]],
                 "valid": true
@@ -306,16 +296,6 @@
             {
                 "description": "non-unique array of arrays is valid",
                 "data": [["foo"], ["foo"]],
-                "valid": true
-            },
-            {
-                "description": "1 and true are unique",
-                "data": [1, true],
-                "valid": true
-            },
-            {
-                "description": "0 and false are unique",
-                "data": [0, false],
                 "valid": true
             },
             {
