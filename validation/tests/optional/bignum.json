@@ -126,14 +126,14 @@
             },
             "tests": [
                 {
-                    "description": "comparison works for very negative numbers",
-                    "data": -972783798187987123879878123.188781371,
-                    "valid": false
-                },
-                {
                     "description": "above the exclusive minimum is valid",
                     "data": -972783798187987123879878123.188781369,
                     "valid": true
+                },
+                {
+                    "description": "comparison works for very negative numbers",
+                    "data": -972783798187987123879878123.188781371,
+                    "valid": false
                 }
             ]
         },
@@ -145,14 +145,14 @@
             },
             "tests": [
                 {
-                    "description": "comparison works for very negative numbers",
-                    "data": -972783798187987123879878123.188781371,
-                    "valid": false
-                },
-                {
                     "description": "above the exclusive minimum is valid",
                     "data": -972783798187987123879878123.188781369,
                     "valid": true
+                },
+                {
+                    "description": "comparison works for very negative numbers",
+                    "data": -972783798187987123879878123.188781371,
+                    "valid": false
                 }
             ]
         },
