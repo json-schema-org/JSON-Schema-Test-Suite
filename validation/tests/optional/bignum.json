@@ -62,6 +62,11 @@
                     "description": "comparison works for high numbers",
                     "data": 18446744073709551600,
                     "valid": true
+                },
+                {
+                    "description": "just above the maximum is invalid",
+                    "data": 18446744073709551616,
+                    "valid": false
                 }
             ]
         },
@@ -114,6 +119,11 @@
                     "description": "comparison works for very negative numbers",
                     "data": -18446744073709551600,
                     "valid": true
+                },
+                {
+                    "description": "just below the minimum is invalid",
+                    "data": -18446744073709551616,
+                    "valid": false
                 }
             ]
         },
