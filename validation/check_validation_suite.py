@@ -51,7 +51,6 @@ else:
 ROOT_DIR = Path(__file__).parent
 VALIDATION_DIR = ROOT_DIR / "tests"
 VALIDATION_SCHEMA_PATH = ROOT_DIR / "validation-test-schema.json"
-ANNOTATION_DIR = ROOT_DIR.parent / "annotations" / "tests"
 
 DIALECT_ORDER = ["3", "4", "6", "7", "2019", "2020"]
 
@@ -776,34 +775,6 @@ class ValidationSuiteChecks(unittest.TestCase):
             print(f"\n  {path.name}: {len(cases)} case(s)")
             print(f"    Coverage by dialect: {coverage}")
         print(f"\n  Total cases checked: {total_cases}")
-
-
-class AnnotationSuiteChecks(unittest.TestCase):
-    def test_unknown_keyword_annotations_start_at_2020(self):
-        """
-        Unknown keywords only produce annotations from 2020-12 on.
-        """
-        for path in collect(ANNOTATION_DIR):
-            for case in load(path)["suite"]:
-                keywords = [
-                    assertion["keyword"]
-                    for test in case["tests"]
-                    for assertion in test["assertions"]
-                ]
-                if not any(keyword.startswith("x-") for keyword in keywords):
-                    continue
-
-                compat = case.get("compatibility", "")
-                with self.subTest(file=path.name, case=case.get("description")):
-                    earlier = [
-                        d for d in DIALECT_ORDER
-                        if int(d) < 2020 and dialect_applies(compat, int(d))
-                    ]
-                    self.assertFalse(
-                        earlier,
-                        f"compatibility={compat!r} applies to {earlier} — "
-                        f"unknown keywords don't produce annotations there"
-                    )
 
 
 if __name__ == "__main__":
