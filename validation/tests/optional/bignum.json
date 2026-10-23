@@ -167,6 +167,53 @@
             ]
         },
         {
+            "description": "enum comparison with high precision",
+            "schema": {
+                "enum": [0.123456789123456789]
+            },
+            "tests": [
+                {
+                    "description": "the exact decimal is valid",
+                    "data": 0.123456789123456789,
+                    "valid": true
+                },
+                {
+                    "description": "a slightly smaller decimal is invalid",
+                    "data": 0.123456789123456788,
+                    "valid": false
+                },
+                {
+                    "description": "a slightly larger decimal is invalid",
+                    "data": 0.123456789123456790,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "const comparison with high precision",
+            "compatibility": "6",
+            "schema": {
+                "const": 0.123456789123456789
+            },
+            "tests": [
+                {
+                    "description": "the exact decimal is valid",
+                    "data": 0.123456789123456789,
+                    "valid": true
+                },
+                {
+                    "description": "a slightly smaller decimal is invalid",
+                    "data": 0.123456789123456788,
+                    "valid": false
+                },
+                {
+                    "description": "a slightly larger decimal is invalid",
+                    "data": 0.123456789123456790,
+                    "valid": false
+                }
+            ]
+        },
+        {
             "description": "all integers are multiples of 0.5, if overflow is handled",
             "compatibility": "4",
             "schema": {
