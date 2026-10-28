@@ -1,0 +1,27 @@
+{
+    "$schema": "../../validation-test-schema.json",
+    "description": "format date-time leap second validation",
+    "comment": "The specification says date-time SHOULD allow and validate published leap seconds, so accepting them is recommended but not required.",
+    "tests": [
+        {
+            "description": "validation of date-time strings with leap seconds",
+            "compatibility": "9999",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "date-time"
+            },
+            "tests": [
+                {
+                    "description": "a valid date-time with a leap second, UTC",
+                    "data": "1998-12-31T23:59:60Z",
+                    "valid": true
+                },
+                {
+                    "description": "a valid date-time with a leap second, with minus offset",
+                    "data": "1998-12-31T15:59:60.123-08:00",
+                    "valid": true
+                }
+            ]
+        }
+    ]
+}
