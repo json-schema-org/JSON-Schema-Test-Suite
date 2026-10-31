@@ -294,9 +294,9 @@
         },
         "tests": [
             {
-               "description": "matches if → else ignored → valid",
-               "data": 1,
-               "valid": true
+                "description": "matches if → else ignored → valid",
+                "data": 1,
+                "valid": true
             },
             {
                 "description": "does not match if → else executes → invalid",
