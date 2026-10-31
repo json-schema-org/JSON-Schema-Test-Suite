@@ -10,6 +10,7 @@ import sys
 import textwrap
 import unittest
 import warnings
+from unittest.mock import patch
 
 try:
     import jsonschema.validators
@@ -37,10 +38,13 @@ OUTPUT_ROOT_DIR = ROOT_DIR / "output-tests"
 REMOTES_DIR = ROOT_DIR / "remotes"
 REMOTES_BASE_URL = "http://localhost:1234/"
 
-TEST_SCHEMA = json.loads(ROOT_DIR.joinpath("test-schema.json").read_text())
-OUTPUT_TEST_SCHEMA = json.loads(
-    ROOT_DIR.joinpath("output-test-schema.json").read_text(),
-)
+
+def read_json(path):
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+TEST_SCHEMA = read_json(ROOT_DIR.joinpath("test-schema.json"))
+OUTPUT_TEST_SCHEMA = read_json(ROOT_DIR.joinpath("output-test-schema.json"))
 
 
 def files(paths):
@@ -48,7 +52,7 @@ def files(paths):
     Each test file in the provided paths, as an array of test cases.
     """
     for path in paths:
-        yield path, json.loads(path.read_text())
+        yield path, read_json(path)
 
 
 def cases(paths):
@@ -170,9 +174,22 @@ class SanityTests(unittest.TestCase):
         for path in collect(ROOT_DIR):
             with self.subTest(path=path):
                 try:
-                    json.loads(path.read_text())
+                    read_json(path)
                 except ValueError as error:
                     self.fail(f"{path} contains invalid JSON ({error})")
+
+    def test_json_reader_uses_utf8(self):
+        path = SUITE_ROOT_DIR / "v1/optional/non-bmp-regex.json"
+        original_read_text = Path.read_text
+
+        def read_text_with_ascii_default(path, *args, **kwargs):
+            kwargs.setdefault("encoding", "ascii")
+            return original_read_text(path, *args, **kwargs)
+
+        with patch.object(Path, "read_text", new=read_text_with_ascii_default):
+            serialized = json.dumps(read_json(path), ensure_ascii=False)
+
+        self.assertTrue(any(ord(character) > 127 for character in serialized))
 
     def test_all_case_descriptions_have_reasonable_length(self):
         """
@@ -633,7 +650,7 @@ def main(arguments):
         json.dump(selected_cases, sys.stdout, indent=4, sort_keys=True)
     elif arguments.command == "remotes":
         remotes = {
-            url_for_path(path): json.loads(path.read_text())
+            url_for_path(path): read_json(path)
             for path in collect(REMOTES_DIR)
         }
         json.dump(remotes, sys.stdout, indent=4, sort_keys=True)
