@@ -132,6 +132,56 @@
                 "valid": true
             },
             {
+                "description": "valid escaped slash (~1) in the json-pointer part",
+                "data": "0/a~1b",
+                "valid": true
+            },
+            {
+                "description": "valid escaped tilde (~0) in the json-pointer part",
+                "data": "0/m~0n",
+                "valid": true
+            },
+            {
+                "description": "multiple escaped characters in the json-pointer part",
+                "data": "0/~1~0~0~1~1",
+                "valid": true
+            },
+            {
+                "description": "- used as a member name in the json-pointer part",
+                "data": "1/foo/-",
+                "valid": true
+            },
+            {
+                "description": "trailing empty reference token in the json-pointer part",
+                "data": "0/foo/bar/",
+                "valid": true
+            },
+            {
+                "description": "percent sign in the json-pointer part",
+                "data": "0/c%d",
+                "valid": true
+            },
+            {
+                "description": "space in the json-pointer part",
+                "data": "0/ ",
+                "valid": true
+            },
+            {
+                "description": "some escaped, but not all, in the json-pointer part",
+                "data": "0/~0~",
+                "valid": false
+            },
+            {
+                "description": "wrong escape character in the json-pointer part",
+                "data": "0/~-1",
+                "valid": false
+            },
+            {
+                "description": "multiple unescaped tildes in the json-pointer part",
+                "data": "0/~~",
+                "valid": false
+            },
+            {
                 "description": "trailing newline after the non-negative integer",
                 "data": "1\n",
                 "valid": false
