@@ -20,7 +20,7 @@ A submitter may also choose to request additional feedback if they feel the chan
 If additional reviewers have participated in a pull request, the submitter should not rely on a single reviewer's approval without some form of confirmation that all participating reviewers are satisfied.
 On the other hand, whenever possible, reviewers who have minor comments should explicitly mention that they are OK with the PR being merged after or potentially *without* addressing them.
 
-When submitting a change, explicitly soliciting a specific reviewer explicitly is currently not needed, as the entire review team is generally pinged for pull requests.
+When submitting a change, explicitly soliciting a specific reviewer is currently not needed, as the entire review team is generally pinged for pull requests.
 Nevertheless, submitters may choose to do so if they want specific review from an individual, or if a pull request is sitting without review for a period of time.
 For the latter scenario, leaving a comment on the pull request or in Slack is also reasonable.
 
