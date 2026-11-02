@@ -357,6 +357,55 @@
             ]
         },
         {
+            "description": "simple tag URI base URI with $ref via the tag URI",
+            "compatibility": "6",
+            "schema": {
+                "$comment": "URIs do not have to have HTTP(s) schemes",
+                "$id": "tag:foo.example,2025:bar/baz",
+                "minimum": 30,
+                "properties": {
+                    "foo": { "$ref": "tag:foo.example,2025:bar/baz" }
+                }
+            },
+            "tests": [
+                {
+                    "description": "valid under the tag URI IDed schema",
+                    "data": { "foo": 37 },
+                    "valid": true
+                },
+                {
+                    "description": "invalid under the tag URI IDed schema",
+                    "data": { "foo": 12 },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "simple base URI using an arbitrary URI scheme with $ref to that URI",
+            "compatibility": "6",
+            "comment": "foo is a made up scheme. Any URI scheme is allowed in a base URI, not only well known ones like http, urn or tag, so implementations need to support arbitrary schemes rather than special casing the ones they know.",
+            "schema": {
+                "$comment": "URIs do not have to have HTTP(s) schemes",
+                "$id": "foo:bar/baz",
+                "minimum": 30,
+                "properties": {
+                    "foo": { "$ref": "foo:bar/baz" }
+                }
+            },
+            "tests": [
+                {
+                    "description": "valid under the arbitrary scheme IDed schema",
+                    "data": { "foo": 37 },
+                    "valid": true
+                },
+                {
+                    "description": "invalid under the arbitrary scheme IDed schema",
+                    "data": { "foo": 12 },
+                    "valid": false
+                }
+            ]
+        },
+        {
             "description": "simple URN base URI with JSON pointer",
             "compatibility": "2019",
             "schema": {
