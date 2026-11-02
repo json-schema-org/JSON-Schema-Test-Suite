@@ -57,8 +57,33 @@
             ]
         },
         {
+            "description": "validation of time strings (hh:mm:ss)",
+            "compatibility": "=3",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "time"
+            },
+            "tests": [
+                {
+                    "description": "a valid time string",
+                    "data": "08:30:06",
+                    "valid": true
+                },
+                {
+                    "description": "an invalid time string",
+                    "data": "8:30 AM",
+                    "valid": false
+                },
+                {
+                    "description": "an invalid time string in date-time format",
+                    "data": "2020-11-28T23:55:45Z",
+                    "valid": false
+                }
+            ]
+        },
+        {
             "description": "validation of time strings",
-            "compatibility": "<=3,7",
+            "compatibility": "7",
             "tags": ["format-assertion"],
             "schema": {
                 "format": "time"
