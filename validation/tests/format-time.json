@@ -3,8 +3,87 @@
     "description": "time validation",
     "tests": [
         {
+            "description": "validation of non-string time values (hh:mm:ss)",
+            "compatibility": "=3",
+            "schema": {
+                "format": "time"
+            },
+            "tests": [
+                {
+                    "description": "all string formats ignore integers",
+                    "data": 12,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore floats",
+                    "data": 13.7,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore objects",
+                    "data": {},
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore arrays",
+                    "data": [],
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore booleans",
+                    "data": false,
+                    "valid": true
+                },
+                {
+                    "description": "all string formats ignore nulls",
+                    "data": null,
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "time format (hh:mm:ss)",
+            "compatibility": "=3",
+            "tags": ["format-annotation"],
+            "schema": {
+                "format": "time"
+            },
+            "tests": [
+                {
+                    "description": "invalid time string is only an annotation by default",
+                    "data": "08:30:06 PST",
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "validation of time strings (hh:mm:ss)",
+            "compatibility": "=3",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "time"
+            },
+            "tests": [
+                {
+                    "description": "a valid time string",
+                    "data": "08:30:06",
+                    "valid": true
+                },
+                {
+                    "description": "an invalid time string",
+                    "data": "8:30 AM",
+                    "valid": false
+                },
+                {
+                    "description": "an invalid time string in date-time format",
+                    "data": "2020-11-28T23:55:45Z",
+                    "valid": false
+                }
+            ]
+        },
+        {
             "description": "validation of non-string time values",
-            "compatibility": "<=3,7",
+            "compatibility": "7",
             "schema": {
                 "format": "time"
             },
@@ -43,7 +122,7 @@
         },
         {
             "description": "time format",
-            "compatibility": "<=3,7",
+            "compatibility": "7",
             "tags": ["format-annotation"],
             "schema": {
                 "format": "time"
@@ -53,31 +132,6 @@
                     "description": "invalid time string is only an annotation by default",
                     "data": "08:30:06 PST",
                     "valid": true
-                }
-            ]
-        },
-        {
-            "description": "validation of time strings (hh:mm:ss)",
-            "compatibility": "=3",
-            "tags": ["format-assertion"],
-            "schema": {
-                "format": "time"
-            },
-            "tests": [
-                {
-                    "description": "a valid time string",
-                    "data": "08:30:06",
-                    "valid": true
-                },
-                {
-                    "description": "an invalid time string",
-                    "data": "8:30 AM",
-                    "valid": false
-                },
-                {
-                    "description": "an invalid time string in date-time format",
-                    "data": "2020-11-28T23:55:45Z",
-                    "valid": false
                 }
             ]
         },
