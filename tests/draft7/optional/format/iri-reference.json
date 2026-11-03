@@ -115,11 +115,12 @@
             },
             {
                 "description": "more than one at-sign in the authority is invalid",
-                "data": "//a@b@example.com/",
+                "data": "//â@b@ƒøø.ßår/",
                 "valid": false
             },
             {
                 "description": "a colon in the first segment of a relative-path reference",
+                "comment": "RFC 3987, Section 2.2: the first segment of ipath-noscheme excludes colons, and â cannot start a scheme.",
                 "data": "â:b",
                 "valid": false
             },

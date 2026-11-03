@@ -138,6 +138,7 @@
             },
             {
                 "description": "non-ASCII character in scheme is invalid",
+                "comment": "RFC 3987, Section 2.2: scheme is ASCII-only, unlike the rest of an IRI.",
                 "data": "htτp://example.com",
                 "valid": false
             },
@@ -158,7 +159,7 @@
             },
             {
                 "description": "more than one at-sign in the authority is invalid",
-                "data": "http://a@b@example.com/",
+                "data": "http://â@b@ƒøø.ßår/",
                 "valid": false
             },
             {
