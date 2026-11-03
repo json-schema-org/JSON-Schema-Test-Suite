@@ -1,7 +1,7 @@
 {
     "$schema": "../../validation-test-schema.json",
     "description": "legacy format time leap second validation",
-    "comment": "It is NOT recommended that implementations pass these tests. They are retained as optional tests because the spec was ambiguous prior to v1 and some implementation may still require this behavior.",
+    "comment": "These tests are for implementations that support leap seconds in time. It is NOT recommended that implementations support leap seconds in time. These tests are retained as optional tests because the spec was ambiguous prior to v1 and some implementations may still support them.",
     "tests": [
         {
             "description": "validation of time strings",
