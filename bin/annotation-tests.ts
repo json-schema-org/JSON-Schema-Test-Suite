@@ -8,9 +8,18 @@ console.log("Validating annotation tests ...");
 
 let isValid = true;
 for await (const entry of Deno.readDir("./annotations/tests")) {
-  if (entry.isFile) {
+  if (entry.isFile && entry.name.endsWith(".json")) {
     const json = await Deno.readTextFile(`./annotations/tests/${entry.name}`);
-    const suite = JSON.parse(json);
+
+    let suite;
+    try {
+      suite = JSON.parse(json);
+    } catch (error) {
+      isValid = false;
+      console.log(`\x1b[31m✖\x1b[0m ${entry.name}`);
+      console.log(`  contains invalid JSON (${error.message})`);
+      continue;
+    }
 
     const output = validateTestSuite(suite, BASIC);
 
