@@ -1,6 +1,11 @@
 [
     {
         "description": "maxLength validation",
+        "specification": [
+            {
+                "validation": "6.3.1"
+            }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "maxLength": 2
@@ -35,6 +40,11 @@
     },
     {
         "description": "maxLength validation with a decimal",
+        "specification": [
+            {
+                "validation": "6.3.1"
+            }
+        ],
         "schema": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "maxLength": 2.0
