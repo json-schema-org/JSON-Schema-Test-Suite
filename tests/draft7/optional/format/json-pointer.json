@@ -199,6 +199,36 @@
                 "valid": true
             },
             {
+                "description": "valid JSON-pointer (leading-zero reference token)",
+                "data": "/01",
+                "valid": true
+            },
+            {
+                "description": "valid JSON-pointer (DEL character allowed by RFC 6901)",
+                "data": "/\u007f",
+                "valid": true
+            },
+            {
+                "description": "not a valid JSON-pointer (URI fragment with a pointer tail)",
+                "data": "#/foo",
+                "valid": false
+            },
+            {
+                "description": "valid JSON-pointer (right curly bracket U+007D)",
+                "data": "/}",
+                "valid": true
+            },
+            {
+                "description": "valid JSON-pointer (fullwidth tilde is not an escape)",
+                "data": "/\uff5e",
+                "valid": true
+            },
+            {
+                "description": "not a valid JSON-pointer (tilde then fullwidth digit)",
+                "data": "/~\uff10",
+                "valid": false
+            },
+            {
                 "description": "valid JSON-pointer (control characters allowed after JSON unescaping)",
                 "data": "/foo\u0000bar\n\tbaz",
                 "valid": true
