@@ -27,8 +27,6 @@ aspect of JSON Schema implementations:
   specification.
 - [**Annotations**](./annotations/) - Tests for annotation collection behavior
   across JSON Schema implementations.
-- [**Output**](./output-tests/) - Tests for output format generation in
-  accordance with the specification.
 
 ## Contributing
 
