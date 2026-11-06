@@ -82,16 +82,6 @@
                     "valid": true
                 },
                 {
-                    "description": "a valid date-time with a leap second, UTC",
-                    "data": "1998-12-31T23:59:60Z",
-                    "valid": true
-                },
-                {
-                    "description": "a valid date-time with a leap second, with minus offset",
-                    "data": "1998-12-31T15:59:60.123-08:00",
-                    "valid": true
-                },
-                {
                     "description": "an invalid date-time past leap second, UTC",
                     "data": "1998-12-31T23:59:61Z",
                     "valid": false
@@ -268,6 +258,81 @@
                     "description": "trailing whitespace after a valid date-time",
                     "comment": "RFC 3339 section 5.6: no production of date-time emits whitespace",
                     "data": "1985-04-12T23:20:50Z ",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "validation of date-time leap seconds",
+            "compatibility": "9999",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "date-time"
+            },
+            "tests": [
+                {
+                    "description": "the first published leap second",
+                    "data": "1972-06-30T23:59:60Z",
+                    "valid": true
+                },
+                {
+                    "description": "a published leap second at the end of June",
+                    "data": "2015-06-30T23:59:60Z",
+                    "valid": true
+                },
+                {
+                    "description": "a published leap second at the end of December",
+                    "data": "1998-12-31T23:59:60Z",
+                    "valid": true
+                },
+                {
+                    "description": "the last published leap second",
+                    "data": "2016-12-31T23:59:60Z",
+                    "valid": true
+                },
+                {
+                    "description": "a published leap second with a fraction and a minus offset",
+                    "data": "1998-12-31T15:59:60.123-08:00",
+                    "valid": true
+                },
+                {
+                    "description": "a published leap second with a plus offset across midnight",
+                    "data": "2017-01-01T05:29:60+05:30",
+                    "valid": true
+                },
+                {
+                    "description": "a leap second before the first published leap second",
+                    "data": "1971-12-31T23:59:60Z",
+                    "valid": false
+                },
+                {
+                    "description": "a leap second at the end of a month that never had one",
+                    "data": "1972-03-31T23:59:60Z",
+                    "valid": false
+                },
+                {
+                    "description": "a leap second at the end of a June that did not have one",
+                    "data": "2016-06-30T23:59:60Z",
+                    "valid": false
+                },
+                {
+                    "description": "a leap second at the end of a December that did not have one",
+                    "data": "1999-12-31T23:59:60Z",
+                    "valid": false
+                },
+                {
+                    "description": "a leap second after the last published leap second",
+                    "data": "2026-12-31T23:59:60Z",
+                    "valid": false
+                },
+                {
+                    "description": "a minus offset moves a published date and time off the leap second",
+                    "data": "1998-12-31T23:59:60-08:00",
+                    "valid": false
+                },
+                {
+                    "description": "a plus offset moves a published date and time off the leap second",
+                    "data": "1998-12-31T23:59:60+01:00",
                     "valid": false
                 }
             ]
