@@ -216,7 +216,7 @@ This suite is being used by:
 * [json-schema](https://github.com/tatut/json-schema)
 * [M3](https://github.com/JulesGosnell/m3) (all drafts, pure Clojure — also usable from Java, Kotlin, Scala, and JavaScript)
 
-### Coffeescript
+### CoffeeScript
 
 * [jsck](https://github.com/pandastrike/jsck)
 
