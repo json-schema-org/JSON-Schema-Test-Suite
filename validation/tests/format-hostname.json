@@ -177,6 +177,22 @@
             ]
         },
         {
+            "description": "validation of host names without IDNA rules",
+            "comment": "draft-04 and draft-06 define hostname by RFC 1034 section 3.1 only, which has no IDNA reserved-label rule",
+            "compatibility": "4,<=6",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "hostname"
+            },
+            "tests": [
+                {
+                    "description": "\"--\" in the 3rd and 4th position is valid",
+                    "data": "ab--cd.example",
+                    "valid": true
+                }
+            ]
+        },
+        {
             "description": "validation of A-label (punycode) host names",
             "compatibility": "7,<=2020",
             "tags": ["format-assertion"],
