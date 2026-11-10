@@ -29,7 +29,7 @@
         },
         {
             "description": "Location-independent identifier (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "properties": {
                     "foo": { "$ref": "#foo" }
@@ -87,7 +87,7 @@
         },
         {
             "description": "Location-independent identifier with base URI change in subschema (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "http://localhost:1234/root",
                 "properties": {
@@ -146,7 +146,7 @@
         },
         {
             "description": "Reference an anchor with a non-relative URI (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "https://example.com/schema-with-anchor",
                 "properties": {
@@ -202,7 +202,7 @@
         },
         {
             "description": "URN base URI with URN and anchor ref (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed",
                 "properties": {
@@ -260,7 +260,7 @@
         },
         {
             "description": "anchor within remote ref (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": { "$ref": "http://localhost:1234/locationIndependentIdentifier.json#foo" },
             "externalSchemas": {
                 "http://localhost:1234/locationIndependentIdentifier.json": {
@@ -320,7 +320,7 @@
         },
         {
             "description": "Location-independent identifier in remote ref (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": { "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/definitions/refToInteger" },
             "externalSchemas": {
                 "http://localhost:1234/locationIndependentIdentifier.json": {
@@ -380,7 +380,7 @@
         },
         {
             "description": "$ref to $ref finds detached $anchor (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": { "$ref": "http://localhost:1234/detached-ref.json#/definitions/foo" },
             "externalSchemas": {
                 "http://localhost:1234/detached-ref.json": {
