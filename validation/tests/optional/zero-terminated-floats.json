@@ -5,7 +5,7 @@
     "tests": [
         {
             "description": "some languages do not distinguish between different types of numeric value",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "type": "integer"
             },
