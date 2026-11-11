@@ -132,16 +132,6 @@
                     "valid": false
                 },
                 {
-                    "description": "an invalid domain",
-                    "data": "joe.bloggs@invalid=domain.com",
-                    "valid": false
-                },
-                {
-                    "description": "an invalid IPv4-address-literal",
-                    "data": "joe.bloggs@[127.0.0.300]",
-                    "valid": false
-                },
-                {
                     "description": "two email addresses is not valid",
                     "data": "user1@oceania.org, user2@oceania.org",
                     "valid": false
@@ -222,16 +212,6 @@
                     "valid": false
                 },
                 {
-                    "description": "a trailing space is not valid",
-                    "data": "a@iana.org ",
-                    "valid": false
-                },
-                {
-                    "description": "a leading space is not valid",
-                    "data": " a@iana.org",
-                    "valid": false
-                },
-                {
                     "description": "a tab in the local part is not valid",
                     "data": "a\tb@iana.org",
                     "valid": false
@@ -297,16 +277,6 @@
                     "valid": false
                 },
                 {
-                    "description": "a domain label starting with a hyphen is not valid",
-                    "data": "test@-iana.org",
-                    "valid": false
-                },
-                {
-                    "description": "a domain label ending with a hyphen is not valid",
-                    "data": "test@iana-.com",
-                    "valid": false
-                },
-                {
                     "description": "a domain starting with a dot is not valid",
                     "data": "test@.iana.org",
                     "valid": false
@@ -329,26 +299,6 @@
                 {
                     "description": "an unclosed address literal is not valid",
                     "data": "test@[1.2.3.4",
-                    "valid": false
-                },
-                {
-                    "description": "empty brackets after the @ are not valid",
-                    "data": "a@[]",
-                    "valid": false
-                },
-                {
-                    "description": "an IPv4-address-literal with three octets is not valid",
-                    "data": "a@[1.2.3]",
-                    "valid": false
-                },
-                {
-                    "description": "an IPv4-address-literal with five octets is not valid",
-                    "data": "a@[1.2.3.4.5]",
-                    "valid": false
-                },
-                {
-                    "description": "bracketed content that is not an address is not valid",
-                    "data": "test@[RFC-5322-domain-literal]",
                     "valid": false
                 },
                 {
@@ -375,7 +325,18 @@
                     "description": "a colon in an unquoted local part is not valid",
                     "data": "a:b@iana.org",
                     "valid": false
-                },
+                }
+            ]
+        },
+        {
+            "description": "validation of e-mail addresses against the RFC 5321 Mailbox rule",
+            "comment": "2020-12 and later define email by the RFC 5321 section 4.1.2 Mailbox rule, which rejects these. draft-04 through 2019-09 define email by RFC 5322 section 3.4.1, whose addr-spec accepts them: dot-atom and domain-literal allow surrounding CFWS, domain-literal allows any dtext, and domain = dot-atom allows any atext.",
+            "compatibility": "2020",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "email"
+            },
+            "tests": [
                 {
                     "description": "a parenthesis in an unquoted local part is not valid",
                     "comment": "a comment is RFC 5322 syntax, which the RFC 5321 Mailbox grammar does not have",
@@ -386,6 +347,56 @@
                     "description": "a parenthesis in the domain is not valid",
                     "comment": "a comment is RFC 5322 syntax, which the RFC 5321 Mailbox grammar does not have",
                     "data": "a@b(c).org",
+                    "valid": false
+                },
+                {
+                    "description": "bracketed content that is not an address is not valid",
+                    "data": "test@[RFC-5322-domain-literal]",
+                    "valid": false
+                },
+                {
+                    "description": "empty brackets after the @ are not valid",
+                    "data": "a@[]",
+                    "valid": false
+                },
+                {
+                    "description": "an IPv4-address-literal with three octets is not valid",
+                    "data": "a@[1.2.3]",
+                    "valid": false
+                },
+                {
+                    "description": "an IPv4-address-literal with five octets is not valid",
+                    "data": "a@[1.2.3.4.5]",
+                    "valid": false
+                },
+                {
+                    "description": "an invalid IPv4-address-literal",
+                    "data": "joe.bloggs@[127.0.0.300]",
+                    "valid": false
+                },
+                {
+                    "description": "a domain label starting with a hyphen is not valid",
+                    "data": "test@-iana.org",
+                    "valid": false
+                },
+                {
+                    "description": "a domain label ending with a hyphen is not valid",
+                    "data": "test@iana-.com",
+                    "valid": false
+                },
+                {
+                    "description": "an invalid domain",
+                    "data": "joe.bloggs@invalid=domain.com",
+                    "valid": false
+                },
+                {
+                    "description": "a leading space is not valid",
+                    "data": " a@iana.org",
+                    "valid": false
+                },
+                {
+                    "description": "a trailing space is not valid",
+                    "data": "a@iana.org ",
                     "valid": false
                 }
             ]
