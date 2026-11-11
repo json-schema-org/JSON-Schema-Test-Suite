@@ -20,8 +20,8 @@ framework of choice is left to be done by the validator implementer.
 
 ## Coverage
 
-JSON Schema draft-04 and later releases are well covered by this suite. draft-03
-is reasonably well covered. While the suite can be run against older versions,
+JSON Schema draft-04 and later releases are well-covered by this suite. draft-03
+is reasonably well-covered. While the suite can be run against older versions,
 coverage is limited for keywords that didn't exist or were different before
 draft-03.
 
@@ -36,7 +36,7 @@ The tests in this suite are contained in the `tests` directory within this
 validation directory.
 
 Each `.json` file in the `tests` directory contains a collection of related
-tests. Often the grouping is by keyword under test, but not always. Each `.json`
+tests. Often the grouping is by the keyword being tested, but not always. Each `*.json`
 file consists of a single JSON object with a `description` and a `tests` array
 of test cases.
 
@@ -45,7 +45,7 @@ behaviors that have been replaced in newer drafts. For example, `id-legacy.json`
 contains tests for the `id` keyword which was renamed to `$id` in draft-06.
 
 In addition to the test files, there are special subdirectories whose purpose is
-[described below](#subdirectories), and which contain additional `.json` files.
+[described below](#subdirectories), and which contain additional `*.json` files.
 
 ### Terminology
 
@@ -87,20 +87,21 @@ Here is a single *test case*, containing one or more tests:
 }
 ```
 
-### Test Case Compatibility
+### Defining Test Case Compatibility
 
 Test cases may include a `compatibility` property that specifies which JSON Schema
-dialects the test applies to. This allows a single test file to cover multiple
-specification versions. Schemas in test cases should not include `$schema` so
-that the same test can be run against multiple dialects.
+dialect(s) the test applies to. This allows a single test file to cover multiple
+specification versions. Most chemas in test cases do not include `$schema`, so as to
+allow for the same test to be run against multiple dialects.
+
+If this property isn't present, it means the test case is compatible with all dialects.
 
 Dialects are indicated by the number corresponding to their release. Date-based
-releases use just the year. If this property isn't present, it means the test case
-is compatible with any dialect.
+releases use just the year.
 
-If this property is present with a number, the number indicates the minimum
+If this property is a single number, the number indicates the minimum
 release the test case is compatible with. This example indicates that the test
-case is compatible with draft-07 and up.
+case is compatible with draft-07 and up, through to the most recent release.
 
 **Example**: `"compatibility": "7"`
 
@@ -112,7 +113,7 @@ the test case is compatible with 2019-09 and under.
 
 You can use comma-separated values to indicate multiple constraints if needed,
 but constraints must be ordered smallest to largest. This example indicates that
-the test case is compatible with releases between draft-06 and 2019-09.
+the test case is compatible with releases between draft-06 and 2019-09 inclusive.
 
 **Example**: `"compatibility": "6,<=2019"`
 
@@ -123,7 +124,7 @@ compatible only with 2020-12.
 **Example**: `"compatibility": "=2020"`
 
 There can be more than two constraints. This example indicates that the test
-case is compatible with draft-03 only, plus draft-07 through 2020-12.
+case is compatible with only draft-03, plus draft-07 through 2020-12.
 
 **Example**: `"compatibility": "=3,7,<=2020"`
 
@@ -132,20 +133,17 @@ case is compatible up to draft-03 and draft-07 and later.
 
 **Example**: `"compatibility": "<=3,7"`
 
-Starting with v1, JSON Schema will have yearly releases. These are indicated
-by the full year in the compatibility property (e.g., `2027`, `2028`). Tests for
-features that are in the specification but not yet part of a release use
-`9999` as a placeholder. Implementations are expected to implement and pass
-these tests. It's the last step we require before the feature can be officially
-released.
+Tests for features that are anticipated to be in a future version of specification but
+not yet released use `9999` as a placeholder. Until the release is official, these
+tests are subject to change.
 
 **Example**: `"compatibility": "9999"`
 
 #### Compatibility matching
 
-The following psudocode shows the algorithm for correctly determining if a test
+The following pseudocode shows the algorithm for correctly determining if a test
 case is compatible with the version being tested. It's not as straightforward as
-it seems, so take please consider the psudocode when implementing.
+it seems, so take please consider the pseudocode when implementing.
 
 ```
 FUNCTION isCompatible(compatibility, versionUnderTest):
@@ -199,8 +197,7 @@ and the values are schemas. Test runners should load each schema and make it
 available at the corresponding URI before validating the test case. External
 schemas should avoid including `$id` or `id` to keep the tests compatible with
 as many dialects as possible. Test runners can insert `$id` or `id` as necessary
-if they don't have a mechanism for associating a URI with a schema outside the
-schema.
+if they don't have a mechanism for associating a URI with a schema.
 
 External schema URIs are not guaranteed to be unique across test cases, so the
 same URI may refer to different schemas in different test cases. Test runners

@@ -373,44 +373,44 @@
             ]
         },
         {
-            "description": "any type matches any type",
+            "description": "'any' type matches any type",
             "compatibility": "<=3",
             "schema": {
                 "type": "any"
             },
             "tests": [
                 {
-                    "description": "any type includes integers",
+                    "description": "'any' type includes integers",
                     "data": 1,
                     "valid": true
                 },
                 {
-                    "description": "any type includes float",
+                    "description": "'any' type includes float",
                     "data": 1.1,
                     "valid": true
                 },
                 {
-                    "description": "any type includes string",
+                    "description": "'any' type includes string",
                     "data": "foo",
                     "valid": true
                 },
                 {
-                    "description": "any type includes object",
+                    "description": "'any' type includes object",
                     "data": {},
                     "valid": true
                 },
                 {
-                    "description": "any type includes array",
+                    "description": "'any' type includes array",
                     "data": [],
                     "valid": true
                 },
                 {
-                    "description": "any type includes boolean",
+                    "description": "'any' type includes boolean",
                     "data": true,
                     "valid": true
                 },
                 {
-                    "description": "any type includes null",
+                    "description": "'any' type includes null",
                     "data": null,
                     "valid": true
                 }
