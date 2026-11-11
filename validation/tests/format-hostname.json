@@ -178,8 +178,8 @@
         },
         {
             "description": "validation of host names without IDNA rules",
-            "comment": "draft-04 and draft-06 define hostname by RFC 1034 section 3.1 only, which has no IDNA reserved-label rule",
-            "compatibility": "4,<=6",
+            "comment": "draft-04, draft-06 and v1 define hostname without the IDNA A-label clause that draft-07 through 2020-12 add, so there is no reserved-LDH-label rule",
+            "compatibility": "4,<=6,9999",
             "tags": ["format-assertion"],
             "schema": {
                 "format": "hostname"
