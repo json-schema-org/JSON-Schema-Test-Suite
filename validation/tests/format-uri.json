@@ -274,6 +274,41 @@
                     "valid": false
                 }
             ]
+        },
+        {
+            "description": "URI ports, user information and schemes",
+            "compatibility": "4",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "uri"
+            },
+            "tests": [
+                {
+                    "description": "a URI with a port is valid",
+                    "data": "http://example.com:8080/",
+                    "valid": true
+                },
+                {
+                    "description": "a URI with an IPv6 literal and a port is valid",
+                    "data": "http://[::1]:8080/",
+                    "valid": true
+                },
+                {
+                    "description": "a URI with user information before an IPv6 literal is valid",
+                    "data": "http://user@[::1]/",
+                    "valid": true
+                },
+                {
+                    "description": "a URI with an empty port is valid",
+                    "data": "http://example.com:/",
+                    "valid": true
+                },
+                {
+                    "description": "a line feed before the colon of the scheme is invalid",
+                    "data": "http\n://example.com/",
+                    "valid": false
+                }
+            ]
         }
     ]
 }
