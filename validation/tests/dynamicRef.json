@@ -1552,6 +1552,64 @@
                     "valid": false
                 }
             ]
+        },
+        {
+            "description": "$dynamicRef alongside $ref",
+            "compatibility": "9999",
+            "schema": {
+                "$ref": "#/$defs/integer",
+                "$dynamicRef": "atLeastFive",
+                "$defs": {
+                    "integer": {
+                        "type": "integer"
+                    },
+                    "atLeastFive": {
+                        "$dynamicAnchor": "atLeastFive",
+                        "minimum": 5
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a value valid against both is valid",
+                    "data": 6,
+                    "valid": true
+                },
+                {
+                    "description": "a value valid only against $ref is invalid",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "$dynamicRef alongside $ref (2020)",
+            "compatibility": "=2020",
+            "schema": {
+                "$ref": "#/$defs/integer",
+                "$dynamicRef": "#atLeastFive",
+                "$defs": {
+                    "integer": {
+                        "type": "integer"
+                    },
+                    "atLeastFive": {
+                        "$dynamicAnchor": "atLeastFive",
+                        "minimum": 5
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a value valid against both is valid",
+                    "data": 6,
+                    "valid": true
+                },
+                {
+                    "description": "a value valid only against $ref is invalid",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
         }
     ]
 }
