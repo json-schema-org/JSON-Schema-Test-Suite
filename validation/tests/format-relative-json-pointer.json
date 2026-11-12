@@ -185,6 +185,56 @@
                     "valid": false
                 },
                 {
+                    "description": "caret in the json-pointer part",
+                    "data": "0/e^f",
+                    "valid": true
+                },
+                {
+                    "description": "vertical bar in the json-pointer part",
+                    "data": "0/g|h",
+                    "valid": true
+                },
+                {
+                    "description": "backslash in the json-pointer part",
+                    "data": "0/i\\j",
+                    "valid": true
+                },
+                {
+                    "description": "double quote in the json-pointer part",
+                    "data": "0/k\"l",
+                    "valid": true
+                },
+                {
+                    "description": "escaped slash followed by a fraction in the json-pointer part",
+                    "data": "0/~1.1",
+                    "valid": true
+                },
+                {
+                    "description": "escaped tilde followed by a fraction in the json-pointer part",
+                    "data": "0/~0.1",
+                    "valid": true
+                },
+                {
+                    "description": "- used as an object member name in the middle of the json-pointer part",
+                    "data": "0/foo/-/bar",
+                    "valid": true
+                },
+                {
+                    "description": "Unicode characters in the json-pointer part",
+                    "data": "0/foo/bar/😎",
+                    "valid": true
+                },
+                {
+                    "description": "control characters in the json-pointer part",
+                    "data": "0/foo\u0000bar\n\tbaz",
+                    "valid": true
+                },
+                {
+                    "description": "escaped token followed by an unescaped tilde in the json-pointer part",
+                    "data": "0/~0/~",
+                    "valid": false
+                },
+                {
                     "description": "trailing newline after the non-negative integer",
                     "data": "1\n",
                     "valid": false
