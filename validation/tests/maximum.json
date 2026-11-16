@@ -129,6 +129,26 @@
                     "valid": true
                 }
             ]
+        },
+        {
+            "description": "exclusiveMaximum alongside a larger maximum",
+            "compatibility": "6",
+            "schema": {
+                "maximum": 10,
+                "exclusiveMaximum": 5
+            },
+            "tests": [
+                {
+                    "description": "below both is valid",
+                    "data": 4,
+                    "valid": true
+                },
+                {
+                    "description": "below maximum but not below exclusiveMaximum is invalid",
+                    "data": 7,
+                    "valid": false
+                }
+            ]
         }
     ]
 }

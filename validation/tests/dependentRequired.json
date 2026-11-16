@@ -334,6 +334,107 @@
                     "valid": false
                 }
             ]
+        },
+        {
+            "description": "dependentRequired alongside required",
+            "compatibility": "2019",
+            "schema": {
+                "required": [
+                    "foo"
+                ],
+                "dependentRequired": {
+                    "foo": [
+                        "bar"
+                    ]
+                }
+            },
+            "tests": [
+                {
+                    "description": "both present is valid",
+                    "data": {
+                        "foo": 1,
+                        "bar": 2
+                    },
+                    "valid": true
+                },
+                {
+                    "description": "the dependency missing is invalid",
+                    "data": {
+                        "foo": 1
+                    },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "every member of dependentRequired is checked",
+            "compatibility": "2019",
+            "schema": {
+                "dependentRequired": {
+                    "foo": [
+                        "bar"
+                    ],
+                    "baz": [
+                        "qux"
+                    ]
+                }
+            },
+            "tests": [
+                {
+                    "description": "both dependencies satisfied is valid",
+                    "data": {
+                        "foo": 1,
+                        "bar": 2,
+                        "baz": 3,
+                        "qux": 4
+                    },
+                    "valid": true
+                },
+                {
+                    "description": "only the first dependency satisfied is invalid",
+                    "data": {
+                        "foo": 1,
+                        "bar": 2,
+                        "baz": 3
+                    },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "every member of dependencies is checked",
+            "compatibility": "4,<=7",
+            "schema": {
+                "dependencies": {
+                    "foo": [
+                        "bar"
+                    ],
+                    "baz": [
+                        "qux"
+                    ]
+                }
+            },
+            "tests": [
+                {
+                    "description": "both dependencies satisfied is valid",
+                    "data": {
+                        "foo": 1,
+                        "bar": 2,
+                        "baz": 3,
+                        "qux": 4
+                    },
+                    "valid": true
+                },
+                {
+                    "description": "only the first dependency satisfied is invalid",
+                    "data": {
+                        "foo": 1,
+                        "bar": 2,
+                        "baz": 3
+                    },
+                    "valid": false
+                }
+            ]
         }
     ]
 }
