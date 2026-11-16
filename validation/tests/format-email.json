@@ -330,7 +330,7 @@
         },
         {
             "description": "validation of e-mail addresses against the RFC 5321 Mailbox rule",
-            "comment": "2020-12 and later define email by the RFC 5321 section 4.1.2 Mailbox rule, which rejects these. draft-04 through 2019-09 define email by RFC 5322 section 3.4.1, whose addr-spec accepts them: dot-atom and domain-literal allow surrounding CFWS, domain-literal allows any dtext, and domain = dot-atom allows any atext.",
+            "comment": "2020-12 changed email from RFC 5322 to the RFC 5321 Mailbox rule, which rejects these.",
             "compatibility": "2020",
             "tags": ["format-assertion"],
             "schema": {
