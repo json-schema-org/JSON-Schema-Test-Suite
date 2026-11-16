@@ -649,6 +649,194 @@
                     "valid": true
                 }
             ]
+        },
+        {
+            "description": "$ref with a parent directory segment",
+            "compatibility": "2019",
+            "comment": "RFC 3986 5.2.4: \"..\" removes the last segment of the merged path",
+            "schema": {
+                "$id": "http://example.com/a/b/c.json",
+                "$ref": "../d.json",
+                "$defs": {
+                    "target": {
+                        "$id": "http://example.com/a/d.json",
+                        "type": "string"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a string is valid",
+                    "data": "foo",
+                    "valid": true
+                },
+                {
+                    "description": "a non-string is invalid",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "$ref with two parent directory segments",
+            "compatibility": "2019",
+            "schema": {
+                "$id": "http://example.com/a/b/c.json",
+                "$ref": "../../d.json",
+                "$defs": {
+                    "target": {
+                        "$id": "http://example.com/d.json",
+                        "type": "string"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a string is valid",
+                    "data": "foo",
+                    "valid": true
+                },
+                {
+                    "description": "a non-string is invalid",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "$ref ending in a parent directory segment",
+            "compatibility": "2019",
+            "comment": "RFC 3986 5.2.4: a trailing \"..\" leaves the path ending in \"/\"",
+            "schema": {
+                "$id": "http://example.com/a/b/c.json",
+                "$ref": "x/..",
+                "$defs": {
+                    "target": {
+                        "$id": "http://example.com/a/b/",
+                        "type": "string"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a string is valid",
+                    "data": "foo",
+                    "valid": true
+                },
+                {
+                    "description": "a non-string is invalid",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "$ref ending in a current directory segment",
+            "compatibility": "2019",
+            "comment": "RFC 3986 5.2.4: a trailing \".\" leaves the path ending in \"/\"",
+            "schema": {
+                "$id": "http://example.com/a.json",
+                "$ref": "x/.",
+                "$defs": {
+                    "target": {
+                        "$id": "http://example.com/x/",
+                        "type": "string"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a string is valid",
+                    "data": "foo",
+                    "valid": true
+                },
+                {
+                    "description": "a non-string is invalid",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "$ref with only a query",
+            "compatibility": "2019",
+            "comment": "RFC 3986 5.2.2: a reference with an empty path keeps the base path and replaces the query",
+            "schema": {
+                "$id": "http://example.com/a.json?x",
+                "$ref": "?y",
+                "$defs": {
+                    "target": {
+                        "$id": "http://example.com/a.json?y",
+                        "type": "string"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a string is valid",
+                    "data": "foo",
+                    "valid": true
+                },
+                {
+                    "description": "a non-string is invalid",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "$ref with a network-path reference",
+            "compatibility": "2019",
+            "comment": "RFC 3986 5.2.2: a reference starting with \"//\" keeps only the scheme of the base URI",
+            "schema": {
+                "$id": "http://example.com/a.json",
+                "$ref": "//other.example.com/b.json",
+                "$defs": {
+                    "target": {
+                        "$id": "http://other.example.com/b.json",
+                        "type": "string"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a string is valid",
+                    "data": "foo",
+                    "valid": true
+                },
+                {
+                    "description": "a non-string is invalid",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "$ref against a base URI with an authority and an empty path",
+            "compatibility": "2019",
+            "comment": "RFC 3986 5.2.3: merging with an empty base path that has an authority starts the path with \"/\"; normalizing the base to \"http://example.com/\" first gives the same result",
+            "schema": {
+                "$id": "http://example.com",
+                "$ref": "foo.json",
+                "$defs": {
+                    "target": {
+                        "$id": "http://example.com/foo.json",
+                        "type": "string"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "a string is valid",
+                    "data": "foo",
+                    "valid": true
+                },
+                {
+                    "description": "a non-string is invalid",
+                    "data": 1,
+                    "valid": false
+                }
+            ]
         }
     ]
 }
