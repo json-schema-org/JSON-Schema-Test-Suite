@@ -1241,6 +1241,37 @@
             ]
         },
         {
+            "description": "A $ref to a $dynamicAnchor ignores a $dynamicAnchor of the same name in the dynamic scope",
+            "compatibility": "=2020",
+            "schema": {
+                "$id": "https://test.json-schema.org/ref-to-dynamic-anchor-is-static/root",
+                "$ref": "inner#item",
+                "$defs": {
+                    "outer": {
+                        "$dynamicAnchor": "item",
+                        "type": "null"
+                    },
+                    "inner": {
+                        "$id": "inner",
+                        "$dynamicAnchor": "item",
+                        "type": "string"
+                    }
+                }
+            },
+            "tests": [
+                {
+                    "description": "A string is valid",
+                    "data": "a string",
+                    "valid": true
+                },
+                {
+                    "description": "Null is invalid",
+                    "data": null,
+                    "valid": false
+                }
+            ]
+        },
+        {
             "description": "A $dynamicRef without anchor in fragment behaves identical to $ref",
             "compatibility": "=2020",
             "schema": {
