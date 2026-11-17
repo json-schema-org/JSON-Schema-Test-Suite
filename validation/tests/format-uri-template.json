@@ -250,6 +250,41 @@
                     "valid": false
                 },
                 {
+                    "description": "a double quote in a literal is invalid",
+                    "data": "a\"b",
+                    "valid": false
+                },
+                {
+                    "description": "a less-than sign in a literal is invalid",
+                    "data": "a<b",
+                    "valid": false
+                },
+                {
+                    "description": "a greater-than sign in a literal is invalid",
+                    "data": "a>b",
+                    "valid": false
+                },
+                {
+                    "description": "a backslash in a literal is invalid",
+                    "data": "a\\b",
+                    "valid": false
+                },
+                {
+                    "description": "a caret in a literal is invalid",
+                    "data": "a^b",
+                    "valid": false
+                },
+                {
+                    "description": "a backtick in a literal is invalid",
+                    "data": "a`b",
+                    "valid": false
+                },
+                {
+                    "description": "a vertical bar in a literal is invalid",
+                    "data": "a|b",
+                    "valid": false
+                },
+                {
                     "description": "a delete character in a literal is invalid",
                     "data": "a\u007fb",
                     "valid": false
