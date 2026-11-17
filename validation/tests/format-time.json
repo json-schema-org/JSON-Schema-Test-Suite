@@ -60,6 +60,7 @@
             "description": "validation of time strings (hh:mm:ss)",
             "compatibility": "=3",
             "tags": ["format-assertion"],
+            "comment": "Draft-3 defines time as hh:mm:ss: https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-03#section-5.23",
             "schema": {
                 "format": "time"
             },
@@ -68,6 +69,41 @@
                     "description": "a valid time string",
                     "data": "08:30:06",
                     "valid": true
+                },
+                {
+                    "description": "midnight with padded components",
+                    "data": "00:00:00",
+                    "valid": true
+                },
+                {
+                    "description": "last second of the day with padded components",
+                    "data": "23:59:59",
+                    "valid": true
+                },
+                {
+                    "description": "an hour without leading zero is invalid",
+                    "data": "1:02:03",
+                    "valid": false
+                },
+                {
+                    "description": "a minute without leading zero is invalid",
+                    "data": "01:2:03",
+                    "valid": false
+                },
+                {
+                    "description": "a second without leading zero is invalid",
+                    "data": "01:02:3",
+                    "valid": false
+                },
+                {
+                    "description": "all components without leading zeroes are invalid",
+                    "data": "1:2:3",
+                    "valid": false
+                },
+                {
+                    "description": "a non-ASCII decimal digit is invalid",
+                    "data": "01:0\u0662:03",
+                    "valid": false
                 },
                 {
                     "description": "an invalid time string",
