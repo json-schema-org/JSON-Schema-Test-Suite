@@ -322,8 +322,9 @@ of a test that is similar but uses older syntax. For example, adding a test that
 uses `$id` might also need a second similar test that uses `id`. In such cases,
 add the older test in the appropriate `-legacy` file.
 
-There are some sanity checks in place for testing the test suite. You can run
-them with `python check_validation_suite.py` or `tox`. They will be run automatically
+There are some sanity checks in place for testing the test suite. From the
+repository root, you can run them with `python validation/check_validation_suite.py`
+or `tox`. They will be run automatically
 by [GitHub Actions](https://github.com/json-schema-org/JSON-Schema-Test-Suite/actions?query=workflow%3A%22Test+Suite+Sanity+Checking%22)
 as well.
 

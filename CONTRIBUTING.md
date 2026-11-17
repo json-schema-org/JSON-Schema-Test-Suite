@@ -61,7 +61,7 @@ If another contributor takes issue with a change merged in this fashion, simply 
 
 ## Writing Good Tests
 
-Be familiar with the test structure and assumptions documented in the [README](README.md).
+Be familiar with the test structure and assumptions documented in the [Validation README](validation/README.md).
 
 Test cases should include both valid and invalid instances which exercise the test case schema whenever possible.
 Exceptions include schemas where only one result is ever possible (such as the `false` schema, or ones using keywords which only produce annotations).
@@ -73,7 +73,7 @@ Comments can and should be used to explain tests which are unclear or complex.
 The `comment` field is present both for test cases and individual tests for this purpose.
 Links to the relevant specification sections are also encouraged, though they can be tedious to maintain from one version to the next.
 
-When adding test cases, they should be added to all past (and future) versions of the specification which they apply to, potentially with minor modifications (e.g. changing `$id` to `id` or accounting for `$ref` not allowing siblings on older drafts).
+When adding test cases, use the `compatibility` property to specify which dialects they apply to. When a test needs older syntax, such as `id` instead of `$id`, add a similar test in the appropriate `-legacy` file. See the [Validation README](validation/README.md#contributing) for more details.
 
 Changing the schema used in a particular test case should be done with extra caution, though it is not formally discouraged if the change simplifies the schema.
 Contributors should not generally append *additional* behavior to existing test case schemas, unless doing so has specific justification.
