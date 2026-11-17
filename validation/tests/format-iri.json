@@ -194,6 +194,24 @@
                     "description": "square brackets are not allowed in a path segment",
                     "data": "http://ƒøø.ßår/[::1]",
                     "valid": false
+                },
+                {
+                    "description": "an empty port is valid",
+                    "comment": "RFC 3986, Section 3.2.3: port = *DIGIT, so zero digits is permitted",
+                    "data": "http://example.com:/",
+                    "valid": true
+                },
+                {
+                    "description": "a valid IRI with an IPv6 literal and port",
+                    "comment": "RFC 3987, Section 2.2: iauthority = [ iuserinfo \"@\" ] ihost [ \":\" port ], no restriction on combining IP-literal with port",
+                    "data": "http://[::1]:8080/",
+                    "valid": true
+                },
+                {
+                    "description": "a valid IRI with a non-hierarchical scheme",
+                    "comment": "RFC 3987, Section 2.2: IRI = scheme \":\" ihier-part ...; mailto: is a canonical example of a scheme whose scheme-specific part contains @ before any authority",
+                    "data": "mailto:user@example.com",
+                    "valid": true
                 }
             ]
         }
