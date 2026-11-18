@@ -245,6 +245,66 @@
                     "valid": true
                 }
             ]
+        },
+        {
+            "description": "multipleOf instance much smaller than the divisor",
+            "comment": "A tolerance with a fixed minimum size would accept every instance close to zero",
+            "compatibility": "4",
+            "schema": {
+                "multipleOf": 1
+            },
+            "tests": [
+                {
+                    "description": "1e-20 is not a multiple of 1",
+                    "data": 1e-20,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "divisibleBy instance much smaller than the divisor",
+            "comment": "A tolerance with a fixed minimum size would accept every instance close to zero",
+            "compatibility": "=3",
+            "schema": {
+                "divisibleBy": 1
+            },
+            "tests": [
+                {
+                    "description": "1e-20 is not divisible by 1",
+                    "data": 1e-20,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "multipleOf smallest positive number",
+            "comment": "5e-324 is the smallest positive double. It must not be treated as zero",
+            "compatibility": "4",
+            "schema": {
+                "multipleOf": 0.5
+            },
+            "tests": [
+                {
+                    "description": "5e-324 is not a multiple of 0.5",
+                    "data": 5e-324,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "divisibleBy smallest positive number",
+            "comment": "5e-324 is the smallest positive double. It must not be treated as zero",
+            "compatibility": "=3",
+            "schema": {
+                "divisibleBy": 0.5
+            },
+            "tests": [
+                {
+                    "description": "5e-324 is not divisible by 0.5",
+                    "data": 5e-324,
+                    "valid": false
+                }
+            ]
         }
     ]
 }
