@@ -162,6 +162,16 @@
                     "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Mailbox = Local-part \"@\" ( Domain / address-literal )",
                     "data": "δοκιμή@",
                     "valid": false
+                },
+                {
+                    "description": "a trailing line feed is not valid",
+                    "data": "δοκιμή@example.com\n",
+                    "valid": false
+                },
+                {
+                    "description": "a trailing carriage return is not valid",
+                    "data": "δοκιμή@example.com\r",
+                    "valid": false
                 }
             ]
         }
