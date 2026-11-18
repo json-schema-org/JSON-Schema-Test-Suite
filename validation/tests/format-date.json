@@ -290,6 +290,12 @@
                     "valid": false
                 },
                 {
+                    "description": "invalid: a trailing newline is not permitted",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc3339#section-5.6 — full-date grammar does not include a line feed",
+                    "data": "2024-01-15\n",
+                    "valid": false
+                },
+                {
                     "description": "invalid: month 00 is not valid per date-month range 01-12",
                     "comment": "https://www.rfc-editor.org/rfc/rfc3339#section-5.6 — date-month = 2DIGIT ; 01-12",
                     "data": "2024-00-15",
