@@ -255,6 +255,16 @@
                     "valid": false
                 },
                 {
+                    "description": "a tab in a literal is invalid",
+                    "data": "a\tb",
+                    "valid": false
+                },
+                {
+                    "description": "a trailing line feed is invalid",
+                    "data": "http://example.com/\n",
+                    "valid": false
+                },
+                {
                     "description": "a trailing comma in the variable list is invalid",
                     "data": "{a,}",
                     "valid": false
