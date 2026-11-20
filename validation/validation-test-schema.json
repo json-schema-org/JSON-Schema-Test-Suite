@@ -48,10 +48,8 @@
                     "externalSchemas": {
                         "description": "The keys are retrieval URIs and values are schemas.",
                         "type": "object",
-                        "patternProperties": {
-                            "": {
-                                "type": ["boolean", "object"]
-                            }
+                        "additionalProperties": {
+                            "type": ["boolean", "object"]
                         },
                         "propertyNames": {
                             "format": "uri"

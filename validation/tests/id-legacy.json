@@ -4,7 +4,7 @@
     "tests": [
         {
             "description": "base URI change",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "http://localhost:1234/",
                 "items": {
@@ -67,7 +67,7 @@
         },
         {
             "description": "base URI change - change folder (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "http://localhost:1234/scope_change_defs1.json",
                 "type" : "object",
@@ -141,7 +141,7 @@
         },
         {
             "description": "base URI change - change folder in subschema (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "http://localhost:1234/scope_change_defs2.json",
                 "type" : "object",
@@ -217,7 +217,7 @@
         },
         {
             "description": "$ref prevents a sibling id from changing the base uri",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "http://localhost:1234/sibling_id/base/",
                 "definitions": {
@@ -475,7 +475,7 @@
         },
         {
             "description": "id must be resolved against nearest parent, not just immediate parent",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "http://example.com/a.json",
                 "definitions": {
@@ -510,7 +510,7 @@
         },
         {
             "description": "simple URN base URI with $ref via the URN (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "$comment": "URIs do not have to have HTTP(s) schemes",
                 "id": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed",
@@ -609,7 +609,7 @@
         },
         {
             "description": "simple URN base URI with JSON pointer (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "$comment": "URIs do not have to have HTTP(s) schemes",
                 "id": "urn:uuid:deadbeef-1234-00ff-ff00-4321feebdaed",
@@ -661,7 +661,7 @@
         },
         {
             "description": "URN base URI with NSS (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "$comment": "RFC 8141 §2.2",
                 "id": "urn:example:1/406/47452/2",
@@ -713,7 +713,7 @@
         },
         {
             "description": "URN base URI with r-component (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "$comment": "RFC 8141 §2.3.1",
                 "id": "urn:example:foo-bar-baz-qux?+CCResolve:cc=uk",
@@ -765,7 +765,7 @@
         },
         {
             "description": "URN base URI with q-component (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "$comment": "RFC 8141 §2.3.2",
                 "id": "urn:example:weather?=op=map&lat=39.56&lon=-104.85&datetime=1969-07-21T02:56:15Z",
@@ -816,7 +816,7 @@
         },
         {
             "description": "URN base URI with URN and JSON pointer ref (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed",
                 "properties": {
@@ -871,7 +871,7 @@
         },
         {
             "description": "ref with absolute-path-reference (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "http://example.com/ref/absref.json",
                 "definitions": {
@@ -926,7 +926,7 @@
         },
         {
             "description": "id with file URI still resolves pointers - *nix",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "file:///folder/file.json",
                 "definitions": {
@@ -974,7 +974,7 @@
         },
         {
             "description": "id with file URI still resolves pointers - windows",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "id": "file:///c:/folder/file.json",
                 "definitions": {
@@ -1027,7 +1027,7 @@
         },
         {
             "description": "URN ref with nested pointer ref (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": {
                 "properties": {
                     "foo": { "$ref": "urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed" }
@@ -1085,7 +1085,7 @@
         },
         {
             "description": "remote HTTP ref with different id",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": { "$ref": "http://localhost:1234/different-id-ref-string.json" },
             "externalSchemas": {
                 "http://localhost:1234/different-id-ref-string.json": {
@@ -1139,7 +1139,7 @@
         },
         {
             "description": "remote HTTP ref with different URN id",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": { "$ref": "http://localhost:1234/urn-ref-string.json" },
             "externalSchemas": {
                 "http://localhost:1234/urn-ref-string.json": {
@@ -1195,7 +1195,7 @@
         },
         {
             "description": "remote HTTP ref with nested absolute ref (id)",
-            "compatibility": "3,<=4",
+            "compatibility": "<=4",
             "schema": { "$ref": "http://localhost:1234/nested-absolute-ref-to-string.json" },
             "externalSchemas": {
                 "http://localhost:1234/nested-absolute-ref-to-string.json": {
