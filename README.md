@@ -5,15 +5,17 @@
 [![Financial Contributors on Open Collective](https://opencollective.com/json-schema/all/badge.svg?label=financial+contributors)](https://opencollective.com/json-schema)
 
 [![DOI](https://zenodo.org/badge/5952934.svg)](https://zenodo.org/badge/latestdoi/5952934)
-[![Build Status](https://github.com/json-schema-org/JSON-Schema-Test-Suite/workflows/Test%20Suite%20Sanity%20Checking/badge.svg)](https://github.com/json-schema-org/JSON-Schema-Test-Suite/actions?query=workflow%3A%22Test+Suite+Sanity+Checking%22)
 
-This repository contains a set of JSON objects that implementers of JSON Schema validation libraries can use to test their validators.
-The test suite repository exists to verify specified behavior defined by the JSON Schema specification and should not be confused with a style guide. It is not intended to demonstrate how schemas ought to be written. Tests may appear unusual or unintuitive, but they exist solely to exercise behavior prescribed by the specification.
+This repository contains a set of JSON objects that implementers of JSON Schema
+libraries can use to test their implementations.
 
-It is meant to be language agnostic and should require only a JSON parser.
-The conversion of the JSON objects into tests within a specific language and test framework of choice is left to be done by the validator implementer.
+It is meant to be language agnostic and should require only a JSON parser. The
+conversion of the JSON objects into tests within a specific language and test
+framework of choice is left to be done by the implementation author.
 
-The recommended workflow of this test suite is to clone the `main` branch of this repository as a `git submodule` or `git subtree`. The `main` branch is always stable.
+The recommended workflow of this test suite is to clone the `main` branch of
+this repository as a `git submodule` or `git subtree`. The `main` branch is
+always stable.
 
 ## Table of Contents
 
@@ -397,14 +399,20 @@ Node-specific support is maintained in a [separate repository](https://github.co
 
 If you use it as well, please fork and send a pull request adding yourself to
 the list :).
+## Test Suites
+
+This repository contains multiple test suites, each focusing on a different
+aspect of JSON Schema implementations:
+
+- [**Validation**](./validation/) - Tests for JSON Schema validation behavior.
+  This is the primary test suite covering all released versions of the JSON Schema
+  specification.
+- [**Annotations**](./annotations/) - Tests for annotation collection behavior
+  across JSON Schema implementations.
 
 ## Contributing
 
 If you see something missing or incorrect, a pull request is most welcome!
 
-There are some sanity checks in place for testing the test suite. You can run
-them with `bin/jsonschema_suite check` or `tox`. They will be run automatically
-by [GitHub Actions](https://github.com/json-schema-org/JSON-Schema-Test-Suite/actions?query=workflow%3A%22Test+Suite+Sanity+Checking%22)
-as well.
-
-This repository is maintained by the JSON Schema organization, and will be governed by the JSON Schema steering committee (once it exists).
+This repository is maintained by the JSON Schema organization, and is governed
+by the JSON Schema steering committee.
