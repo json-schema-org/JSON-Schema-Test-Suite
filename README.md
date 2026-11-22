@@ -15,10 +15,33 @@ The conversion of the JSON objects into tests within a specific language and tes
 
 The recommended workflow of this test suite is to clone the `main` branch of this repository as a `git submodule` or `git subtree`. The `main` branch is always stable.
 
+## Table of Contents
+
+- [Coverage](#coverage)
+- [Introduction to the Test Suite Structure](#introduction-to-the-test-suite-structure)
+  - [Terminology](#terminology)
+  - [Sample Test Case](#sample-test-case)
+  - [Subdirectories Within Each Version Directory](#subdirectories-within-each-version-directory)
+- [Using the Suite to Test a Validator Implementation](#using-the-suite-to-test-a-validator-implementation)
+  - [How to Implement a Test Runner](#how-to-implement-a-test-runner)
+  - [Additional Assumptions](#additional-assumptions)
+  - [Invariants & Guarantees](#invariants--guarantees)
+- [Known Limitations](#known-limitations)
+- [Who Uses the Test Suite](#who-uses-the-test-suite)
+- [Contributing](#contributing)
+
 ## Coverage
 
-All JSON Schema specification releases should be well covered by this suite, including versions draft-2020-12, draft-2019-09, draft-07, draft-06, draft-04 and draft-03.
-Versions draft-04 and draft-03 are considered "frozen" in that less effort is put in to backport new tests to these versions.
+All JSON Schema specification releases should be well covered by this suite:
+
+| Specification Version | Test Directory | Status | Notes |
+|:---|:---|:---|:---|
+| **Draft 2020-12** | `tests/draft2020-12/` | Active (Latest) | Detect version via `$schema` |
+| **Draft 2019-09** | `tests/draft2019-09/` | Active | Detect version via `$schema` |
+| **Draft-07** | `tests/draft7/` | Maintenance | Configure runner for Draft-07 |
+| **Draft-06** | `tests/draft6/` | Maintenance | Configure runner for Draft-06 |
+| **Draft-04** | `tests/draft4/` | Frozen | Less effort put in to backport tests |
+| **Draft-03** | `tests/draft3/` | Frozen | Less effort put in to backport tests |
 
 Additional coverage is always welcome, particularly for bugs encountered in real-world implementations.
 If you see anything missing or incorrect, please feel free to [file an issue](https://github.com/json-schema-org/JSON-Schema-Test-Suite/issues) or [submit a PR](https://github.com/json-schema-org/JSON-Schema-Test-Suite).
@@ -29,6 +52,24 @@ If you see anything missing or incorrect, please feel free to [file an issue](ht
 
 The tests in this suite are contained in the `tests` directory at the root of this repository.
 Inside that directory is a subdirectory for each released version of the specification.
+
+```text
+JSON-Schema-Test-Suite/
+├── tests/
+│   ├── draft2020-12/          # Draft 2020-12 test cases
+│   │   ├── type.json          # Test cases grouped by keyword/topic
+│   │   ├── optional/          # Optional / format-specific tests
+│   │   │   └── format/
+│   │   └── proposals/         # Tests for in-progress specification proposals
+│   ├── draft2019-09/
+│   ├── draft7/
+│   ├── draft6/
+│   ├── draft4/
+│   ├── draft3/
+│   └── latest -> draft2020-12 # Symlink to the latest released specification
+├── output-tests/              # Tests for standardized output format (draft 2019-09+)
+└── remotes/                   # Remote schemas used by $ref (http://localhost:1234)
+```
 
 The structure and contents of each file in these directories is described below.
 
