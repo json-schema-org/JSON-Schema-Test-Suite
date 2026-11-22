@@ -187,6 +187,66 @@
             ]
         },
         {
+            "description": "multipleOf instance very close to a multiple",
+            "comment": "Each invalid instance is a different double from 8.75, but a fixed epsilon of 1e-11 or more (e.g. 1e-10), or rounding to 11 decimal places, would accept it",
+            "compatibility": "4",
+            "schema": {
+                "multipleOf": 0.25
+            },
+            "tests": [
+                {
+                    "description": "8.75 is multiple of 0.25",
+                    "data": 8.75,
+                    "valid": true
+                },
+                {
+                    "description": "8.750000000001 is not multiple of 0.25",
+                    "data": 8.750000000001,
+                    "valid": false
+                },
+                {
+                    "description": "8.7500000000001 is not multiple of 0.25",
+                    "data": 8.7500000000001,
+                    "valid": false
+                },
+                {
+                    "description": "8.75000000000001 is not multiple of 0.25",
+                    "data": 8.75000000000001,
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "divisibleBy instance very close to a multiple",
+            "comment": "Each invalid instance is a different double from 8.75, but a fixed epsilon of 1e-11 or more (e.g. 1e-10), or rounding to 11 decimal places, would accept it",
+            "compatibility": "=3",
+            "schema": {
+                "divisibleBy": 0.25
+            },
+            "tests": [
+                {
+                    "description": "8.75 is divisible by 0.25",
+                    "data": 8.75,
+                    "valid": true
+                },
+                {
+                    "description": "8.750000000001 is not divisible by 0.25",
+                    "data": 8.750000000001,
+                    "valid": false
+                },
+                {
+                    "description": "8.7500000000001 is not divisible by 0.25",
+                    "data": 8.7500000000001,
+                    "valid": false
+                },
+                {
+                    "description": "8.75000000000001 is not divisible by 0.25",
+                    "data": 8.75000000000001,
+                    "valid": false
+                }
+            ]
+        },
+        {
             "description": "multipleOf when float division = inf",
             "compatibility": "4",
             "schema": {
