@@ -77,17 +77,21 @@ UNKNOWN_KEYWORD_TEST_CASES = {
 
 
 def dialect_applies(compatibility: str | None, target: int) -> bool:
-    is_valid: bool = True
-
+    constraints = []
     for constraint in (compatibility.split(",") if compatibility else []):
-        match = re.search(r"(?P<operator><=|>=|=)?(?P<version>\d+)", constraint)
+        match = re.fullmatch(r"(<=|=)?([0-9]+)", constraint)
         if not match:
             raise ValueError(f"Invalid compatibility string: {compatibility}")
 
-        operator: str = match.group("operator") or ">="
-        version: int = int(match.group("version"))
+        operator, version_text = match.groups()
+        version = int(version_text)
+        if constraints and version < constraints[-1][1]:
+            raise ValueError(f"Compatibility constraints are out of order: {compatibility}")
+        constraints.append((operator, version))
 
-        if operator == ">=":
+    is_valid = True
+    for operator, version in constraints:
+        if operator is None:
             is_valid = target >= version
         elif operator == "<=":
             is_valid = target <= version
@@ -425,6 +429,36 @@ KNOWN = {
                 "$comment",
             },
         }
+
+
+class CompatibilityChecks(unittest.TestCase):
+    def test_rejects_out_of_order_constraints(self):
+        for expression in ("7,<=4", "<=7,6"):
+            with self.subTest(expression=expression):
+                with self.assertRaisesRegex(ValueError, "out of order"):
+                    dialect_applies(expression, 7)
+
+    def test_rejects_malformed_constraints_even_after_a_match(self):
+        for expression in ("7garbage", "<=7,missing", ">=7"):
+            with self.subTest(expression=expression):
+                with self.assertRaisesRegex(ValueError, "Invalid compatibility string"):
+                    dialect_applies(expression, 7)
+
+    def test_keeps_documented_compatibility_ranges(self):
+        for expression, expected in (
+            (None, [3, 4, 6, 7, 2019, 2020, 2027]),
+            ("6,<=2019", [6, 7, 2019]),
+            ("=3,7,<=2020", [3, 7, 2019, 2020]),
+            ("<=3,7", [3, 7, 2019, 2020, 2027]),
+            ("4,<=6,9999", [4, 6]),
+        ):
+            with self.subTest(expression=expression):
+                versions = [3, 4, 6, 7, 2019, 2020, 2027]
+                self.assertEqual(
+                    [version for version in versions if dialect_applies(expression, version)],
+                    expected,
+                )
+        self.assertTrue(dialect_applies("4,<=6,9999", 9999))
 
 
 class JSONLoadingChecks(unittest.TestCase):
