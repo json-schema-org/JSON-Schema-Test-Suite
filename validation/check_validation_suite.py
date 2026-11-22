@@ -116,7 +116,19 @@ def load(path: Path):
     def reject_constant(token):
         raise ValueError(f"Invalid JSON numeric constant: {token}")
 
-    return json.loads(path.read_text(encoding="utf-8"), parse_constant=reject_constant)
+    def unique_members(pairs):
+        members = {}
+        for name, value in pairs:
+            if name in members:
+                raise ValueError(f"Duplicate JSON object member: {name!r}")
+            members[name] = value
+        return members
+
+    return json.loads(
+        path.read_text(encoding="utf-8"),
+        parse_constant=reject_constant,
+        object_pairs_hook=unique_members,
+    )
 
 
 def load_cases(path: Path) -> list:
@@ -448,6 +460,30 @@ class JSONLoadingChecks(unittest.TestCase):
                 with self.subTest(text=text):
                     path.write_text(text, encoding="utf-8")
                     load(path)
+
+    def test_rejects_duplicate_object_members(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "duplicate.json"
+            for content in (
+                '{"name": "first", "name": "second"}',
+                r'{"data": {"name": "first", "n\u0061me": "second"}}',
+            ):
+                with self.subTest(content=content):
+                    path.write_text(content, encoding="utf-8")
+                    with self.assertRaisesRegex(ValueError, "Duplicate JSON object member: 'name'"):
+                        load(path)
+
+    def test_accepts_same_member_name_in_distinct_objects(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "distinct.json"
+            path.write_text(
+                '{"name": "outer", "data": [{"name": "first"}, {"name": "second"}]}',
+                encoding="utf-8",
+            )
+            self.assertEqual(
+                load(path),
+                {"name": "outer", "data": [{"name": "first"}, {"name": "second"}]},
+            )
 
 
 @unittest.skipIf(jsonschema is None, "jsonschema library not installed")
