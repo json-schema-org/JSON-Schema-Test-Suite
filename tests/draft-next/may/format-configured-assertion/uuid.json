@@ -1,0 +1,46 @@
+[
+    {
+        "description": "uuid format",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "format": "uuid"
+        },
+        "tests": [
+            {
+                "description": "wrong length",
+                "data": "2eb8aa08-aa98-11ea-b4aa-73b441d1638",
+                "valid": false
+            },
+            {
+                "description": "missing section",
+                "data": "2eb8aa08-aa98-11ea-73b441d16380",
+                "valid": false
+            },
+            {
+                "description": "bad characters (not hex)",
+                "data": "2eb8aa08-aa98-11ea-b4ga-73b441d16380",
+                "valid": false
+            },
+            {
+                "description": "no dashes",
+                "data": "2eb8aa08aa9811eab4aa73b441d16380",
+                "valid": false
+            },
+            {
+                "description": "too few dashes",
+                "data": "2eb8aa08aa98-11ea-b4aa73b441d16380",
+                "valid": false
+            },
+            {
+                "description": "too many dashes",
+                "data": "2eb8-aa08-aa98-11ea-b4aa73b44-1d16380",
+                "valid": false
+            },
+            {
+                "description": "dashes in the wrong spot",
+                "data": "2eb8aa08aa9811eab4aa73b441d16380----",
+                "valid": false
+            }
+        ]
+    }
+]

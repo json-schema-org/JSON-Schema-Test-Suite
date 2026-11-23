@@ -1,0 +1,71 @@
+[
+    {
+        "description": "validation of JSON-pointers (JSON String Representation)",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "format": "json-pointer"
+        },
+        "tests": [
+            {
+                "description": "not a valid JSON-pointer (~ not escaped)",
+                "data": "/foo/bar~",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (URI Fragment Identifier) #1",
+                "data": "#",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (URI Fragment Identifier) #2",
+                "data": "#/",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (URI Fragment Identifier) #3",
+                "data": "#a",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (some escaped, but not all) #1",
+                "data": "/~0~",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (some escaped, but not all) #2",
+                "data": "/~0/~",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (wrong escape character) #1",
+                "data": "/~2",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (wrong escape character) #2",
+                "data": "/~-1",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (multiple characters not escaped)",
+                "data": "/~~",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (isn't empty nor starts with /) #1",
+                "data": "a",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (isn't empty nor starts with /) #2",
+                "data": "0",
+                "valid": false
+            },
+            {
+                "description": "not a valid JSON-pointer (isn't empty nor starts with /) #3",
+                "data": "a/a",
+                "valid": false
+            }
+        ]
+    }
+]

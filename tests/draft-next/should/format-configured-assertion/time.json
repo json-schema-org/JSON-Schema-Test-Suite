@@ -1,0 +1,101 @@
+[
+    {
+        "description": "validation of time strings",
+        "schema": {
+            "$schema": "https://json-schema.org/draft/next/schema",
+            "format": "time"
+        },
+        "tests": [
+            {
+                "description": "all string formats ignore integers",
+                "data": 12,
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore floats",
+                "data": 13.7,
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore objects",
+                "data": {},
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore arrays",
+                "data": [],
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore booleans",
+                "data": false,
+                "valid": true
+            },
+            {
+                "description": "all string formats ignore nulls",
+                "data": null,
+                "valid": true
+            },
+            {
+                "description": "a valid time string",
+                "data": "08:30:06Z",
+                "valid": true
+            },
+            {
+                "description": "a valid time string with leap second, Zulu",
+                "data": "23:59:60Z",
+                "valid": true
+            },
+            {
+                "description": "valid leap second, zero time-offset",
+                "data": "23:59:60+00:00",
+                "valid": true
+            },
+            {
+                "description": "valid leap second, positive time-offset",
+                "data": "01:29:60+01:30",
+                "valid": true
+            },
+            {
+                "description": "valid leap second, large positive time-offset",
+                "data": "23:29:60+23:30",
+                "valid": true
+            },
+            {
+                "description": "valid leap second, negative time-offset",
+                "data": "15:59:60-08:00",
+                "valid": true
+            },
+            {
+                "description": "valid leap second, large negative time-offset",
+                "data": "00:29:60-23:30",
+                "valid": true
+            },
+            {
+                "description": "a valid time string with second fraction",
+                "data": "23:20:50.52Z",
+                "valid": true
+            },
+            {
+                "description": "a valid time string with precise second fraction",
+                "data": "08:30:06.283185Z",
+                "valid": true
+            },
+            {
+                "description": "a valid time string with plus offset",
+                "data": "08:30:06+00:20",
+                "valid": true
+            },
+            {
+                "description": "a valid time string with minus offset",
+                "data": "08:30:06-08:00",
+                "valid": true
+            },
+            {
+                "description": "a valid time string with case-insensitive Z",
+                "data": "08:30:06z",
+                "valid": true
+            }
+        ]
+    }
+]
