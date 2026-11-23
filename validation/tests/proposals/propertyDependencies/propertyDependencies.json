@@ -73,7 +73,7 @@
                     "valid": true
                 },
                 {
-                    "description": "ignores objects wth a key of the expected value",
+                    "description": "ignores objects with a key of the expected value",
                     "data": {
                         "foo": { "bar": "baz" }
                     },
