@@ -130,6 +130,101 @@
                     "valid": true
                 },
                 {
+                    "description": "a dot before the local part is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Dot-string = Atom *(\".\" Atom), so a local part cannot start with a dot",
+                    "data": ".δοκιμή@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "a dot after the local part is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Dot-string = Atom *(\".\" Atom), so a local part cannot end with a dot",
+                    "data": "δοκιμή.@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "two subsequent dots inside the local part are not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Atom = 1*atext, so there is no empty atom between two dots",
+                    "data": "δοκ..ιμή@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "two non-ASCII atoms separated by a dot are valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc6531#section-3.3 atext =/ UTF8-non-ascii, and https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Dot-string = Atom *(\".\" Atom)",
+                    "data": "δοκ.ιμή@example.com",
+                    "valid": true
+                },
+                {
+                    "description": "an unquoted space in the local part is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 a space is not atext",
+                    "data": "δοκ ιμή@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "a quoted non-ASCII local part with a space is valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 qtextSMTP includes %d32, and https://www.rfc-editor.org/rfc/rfc6531#section-3.3 adds qtextSMTP =/ UTF8-non-ascii",
+                    "data": "\"δοκ ιμή\"@example.com",
+                    "valid": true
+                },
+                {
+                    "description": "a quoted non-ASCII local part with an @ is valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 qtextSMTP includes %d64, and https://www.rfc-editor.org/rfc/rfc6531#section-3.3 adds qtextSMTP =/ UTF8-non-ascii",
+                    "data": "\"δοκ@ιμή\"@example.com",
+                    "valid": true
+                },
+                {
+                    "description": "two unquoted @ signs are not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 \"@\" is not atext, so an unquoted local part cannot contain one",
+                    "data": "δοκιμή@δοκιμή@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "a comma in an unquoted local part is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 \",\" is not atext",
+                    "data": "δοκ,ιμή@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "a comment in the local part is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Mailbox has no CFWS; comments are RFC 5322 syntax",
+                    "data": "δοκιμή(σχόλιο)@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "an unclosed double quote in the local part is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Quoted-string = DQUOTE *QcontentSMTP DQUOTE",
+                    "data": "\"δοκιμή@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "text after the closing double quote is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Local-part = Dot-string / Quoted-string, so a quoted local part ends at its closing DQUOTE",
+                    "data": "\"δοκ\"ιμή@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "an unescaped double quote in an unquoted local part is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 DQUOTE is not atext",
+                    "data": "δοκ\"ιμή@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "a tab in the local part is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 HTAB is not atext",
+                    "data": "δοκ\tιμή@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "local part is required",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Local-part = Dot-string / Quoted-string, and a Dot-string has at least one atext",
+                    "data": "@example.com",
+                    "valid": false
+                },
+                {
+                    "description": "an empty string is not valid",
+                    "data": "",
+                    "valid": false
+                },
+                {
                     "description": "a domain label starting with a hyphen is not valid",
                     "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 sub-domain = Let-dig [Ldh-str], so a label starts with a letter or digit; RFC 6531 section 3.3 only adds sub-domain =/ U-label",
                     "data": "δοκιμή@-example.com",
@@ -155,6 +250,24 @@
                 {
                     "description": "two subsequent dots inside the domain are not valid",
                     "data": "δοκιμή@example..com",
+                    "valid": false
+                },
+                {
+                    "description": "a single-label non-ASCII domain is valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Domain = sub-domain *(\".\" sub-domain) allows a single sub-domain, and https://www.rfc-editor.org/rfc/rfc6531#section-3.3 adds sub-domain =/ U-label",
+                    "data": "δοκιμή@테스트",
+                    "valid": true
+                },
+                {
+                    "description": "a space in the domain is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 a space is not allowed in a sub-domain, and is not valid in a U-label",
+                    "data": "δοκιμή@exa mple.com",
+                    "valid": false
+                },
+                {
+                    "description": "a domain label with a character IDNA2008 disallows is not valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc5892#section-2.6 U+302E is DISALLOWED, so the label is not a U-label (RFC 6531 section 3.3 sub-domain =/ U-label)",
+                    "data": "δοκιμή@실\u302e례.테스트",
                     "valid": false
                 },
                 {
