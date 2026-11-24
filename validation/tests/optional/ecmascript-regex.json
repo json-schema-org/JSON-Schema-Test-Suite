@@ -12,7 +12,7 @@
             "tests": [
                 {
                     "description": "matches in Python, but not in ECMA 262",
-                    "data": "abc\\n",
+                    "data": "abc\n",
                     "valid": false
                 },
                 {
