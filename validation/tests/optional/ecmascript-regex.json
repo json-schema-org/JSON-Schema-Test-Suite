@@ -5,6 +5,7 @@
     "tests": [
         {
             "description": "ECMA 262 regex $ does not match trailing newline",
+            "compatibility": "<=2020",
             "schema": {
                 "type": "string",
                 "pattern": "^abc$"
@@ -19,6 +20,41 @@
                     "description": "matches",
                     "data": "abc",
                     "valid": true
+                }
+            ]
+        },
+        {
+            "description": "ECMA 262 regex . does not match line terminators",
+            "compatibility": "<=2020",
+            "schema": {
+                "type": "string",
+                "pattern": "^.$"
+            },
+            "tests": [
+                {
+                    "description": "any other character matches",
+                    "data": "a",
+                    "valid": true
+                },
+                {
+                    "description": "line feed does not match",
+                    "data": "\n",
+                    "valid": false
+                },
+                {
+                    "description": "carriage return does not match",
+                    "data": "\r",
+                    "valid": false
+                },
+                {
+                    "description": "line separator does not match",
+                    "data": "\u2028",
+                    "valid": false
+                },
+                {
+                    "description": "paragraph separator does not match",
+                    "data": "\u2029",
+                    "valid": false
                 }
             ]
         },

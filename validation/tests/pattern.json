@@ -108,6 +108,61 @@
                     "valid": false
                 }
             ]
+        },
+        {
+            "description": "pattern $ does not match before a trailing newline",
+            "compatibility": "9999",
+            "schema": {
+                "type": "string",
+                "pattern": "^abc$"
+            },
+            "tests": [
+                {
+                    "description": "matches",
+                    "data": "abc",
+                    "valid": true
+                },
+                {
+                    "description": "a trailing newline does not match",
+                    "data": "abc\n",
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "pattern . does not match line terminators",
+            "compatibility": "9999",
+            "schema": {
+                "type": "string",
+                "pattern": "^.$"
+            },
+            "tests": [
+                {
+                    "description": "any other character matches",
+                    "data": "a",
+                    "valid": true
+                },
+                {
+                    "description": "line feed does not match",
+                    "data": "\n",
+                    "valid": false
+                },
+                {
+                    "description": "carriage return does not match",
+                    "data": "\r",
+                    "valid": false
+                },
+                {
+                    "description": "line separator does not match",
+                    "data": "\u2028",
+                    "valid": false
+                },
+                {
+                    "description": "paragraph separator does not match",
+                    "data": "\u2029",
+                    "valid": false
+                }
+            ]
         }
     ]
 }
