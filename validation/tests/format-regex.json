@@ -127,6 +127,220 @@
                     "valid": true
                 }
             ]
+        },
+        {
+            "description": "regex format rejects Annex B syntax that the u flag disallows",
+            "comment": "v1 requires ECMA-262 with the u flag (https://262.ecma-international.org/17.0/#sec-patterns). The invalid cases are valid without it, under the web compatibility grammar in Annex B (https://262.ecma-international.org/17.0/#sec-regular-expressions-patterns).",
+            "compatibility": "9999",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "regex"
+            },
+            "tests": [
+                {
+                    "description": "an identity escape of a letter is invalid",
+                    "comment": "With the u flag, an IdentityEscape can only be a SyntaxCharacter or /",
+                    "data": "\\a",
+                    "valid": false
+                },
+                {
+                    "description": "an escaped hyphen outside a character class is invalid",
+                    "data": "\\-",
+                    "valid": false
+                },
+                {
+                    "description": "a lone opening brace is invalid",
+                    "data": "a{",
+                    "valid": false
+                },
+                {
+                    "description": "an unterminated quantifier is invalid",
+                    "data": "a{1",
+                    "valid": false
+                },
+                {
+                    "description": "a lone closing brace is invalid",
+                    "data": "}",
+                    "valid": false
+                },
+                {
+                    "description": "a lone closing bracket is invalid",
+                    "data": "]",
+                    "valid": false
+                },
+                {
+                    "description": "\\c without a control letter is invalid",
+                    "data": "\\c1",
+                    "valid": false
+                },
+                {
+                    "description": "a backreference to a group that doesn't exist is invalid",
+                    "data": "\\1",
+                    "valid": false
+                },
+                {
+                    "description": "a legacy octal escape is invalid",
+                    "data": "\\01",
+                    "valid": false
+                },
+                {
+                    "description": "a range with a character class escape as an end is invalid",
+                    "data": "[\\w-a]",
+                    "valid": false
+                },
+                {
+                    "description": "a quantified lookahead is invalid",
+                    "data": "(?=a)*",
+                    "valid": false
+                },
+                {
+                    "description": "\\k without a named group is invalid",
+                    "data": "\\k<name>",
+                    "valid": false
+                },
+                {
+                    "description": "a code point escape above U+10FFFF is invalid",
+                    "data": "\\u{110000}",
+                    "valid": false
+                },
+                {
+                    "description": "\\p without a property name is invalid",
+                    "data": "\\p",
+                    "valid": false
+                },
+                {
+                    "description": "a bounded quantifier is valid",
+                    "data": "a{1,2}",
+                    "valid": true
+                },
+                {
+                    "description": "an escaped hyphen inside a character class is valid",
+                    "data": "[\\-]",
+                    "valid": true
+                },
+                {
+                    "description": "a backreference to an existing group is valid",
+                    "data": "(a)\\1",
+                    "valid": true
+                },
+                {
+                    "description": "a null character escape is valid",
+                    "data": "\\0",
+                    "valid": true
+                },
+                {
+                    "description": "a control escape with a letter is valid",
+                    "data": "\\cJ",
+                    "valid": true
+                },
+                {
+                    "description": "an escaped syntax character is valid",
+                    "data": "\\/",
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "regex format accepts syntax that needs the u flag",
+            "compatibility": "9999",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "regex"
+            },
+            "tests": [
+                {
+                    "description": "a code point escape is valid",
+                    "data": "\\u{1F600}",
+                    "valid": true
+                },
+                {
+                    "description": "a range between code point escapes is valid",
+                    "comment": "Without the u flag this is a range from } to u, which is out of order",
+                    "data": "[\\u{10000}-\\u{10FFFF}]",
+                    "valid": true
+                },
+                {
+                    "description": "a surrogate pair of \\u escapes is valid",
+                    "data": "\ud83d\ude00",
+                    "valid": true
+                },
+                {
+                    "description": "a Unicode property escape is valid",
+                    "data": "\\p{Letter}",
+                    "valid": true
+                },
+                {
+                    "description": "a negated Unicode property escape is valid",
+                    "data": "\\P{Letter}",
+                    "valid": true
+                }
+            ]
+        },
+        {
+            "description": "regex format is ECMA-262, not another regular expression dialect",
+            "comment": "In earlier dialects these tests are optional, in optional/format-regex.json.",
+            "compatibility": "9999",
+            "tags": ["format-assertion"],
+            "schema": {
+                "format": "regex"
+            },
+            "tests": [
+                {
+                    "description": "a Python named group is invalid",
+                    "data": "(?P<name>x)",
+                    "valid": false
+                },
+                {
+                    "description": "a Python named backreference is invalid",
+                    "data": "(?P<n>a)(?P=n)",
+                    "valid": false
+                },
+                {
+                    "description": "an inline comment group is invalid",
+                    "data": "(?#comment)a",
+                    "valid": false
+                },
+                {
+                    "description": "a global inline flag is invalid",
+                    "data": "(?i)abc",
+                    "valid": false
+                },
+                {
+                    "description": "multiple global inline flags are invalid",
+                    "data": "(?ims)abc",
+                    "valid": false
+                },
+                {
+                    "description": "a named group is valid",
+                    "data": "(?<name>x)",
+                    "valid": true
+                },
+                {
+                    "description": "a named backreference is valid",
+                    "data": "(?<n>a)\\k<n>",
+                    "valid": true
+                },
+                {
+                    "description": "a variable-width lookbehind is valid",
+                    "data": "(?<=a+)b",
+                    "valid": true
+                },
+                {
+                    "description": "an empty character class is valid",
+                    "data": "[]",
+                    "valid": true
+                },
+                {
+                    "description": "a negated empty character class is valid",
+                    "data": "[^]",
+                    "valid": true
+                },
+                {
+                    "description": "a control escape is valid",
+                    "data": "\\cA",
+                    "valid": true
+                }
+            ]
         }
     ]
 }

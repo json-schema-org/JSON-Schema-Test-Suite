@@ -5,7 +5,7 @@
     "tests": [
         {
             "description": "\\a is not an ECMA 262 control escape",
-            "compatibility": "<=3,7",
+            "compatibility": "<=3,7,<=2020",
             "tags": ["format-assertion"],
             "schema": {
                 "format": "regex"
@@ -20,7 +20,7 @@
         },
         {
             "description": "Python-specific regular expression syntax is not valid ECMA 262",
-            "compatibility": "<=3,7",
+            "compatibility": "<=3,7,<=2020",
             "tags": ["format-assertion"],
             "schema": {
                 "format": "regex"
@@ -45,7 +45,7 @@
         },
         {
             "description": "global inline flag groups are not valid ECMA 262",
-            "compatibility": "<=3,7",
+            "compatibility": "<=3,7,<=2020",
             "tags": ["format-assertion"],
             "schema": {
                 "format": "regex"
@@ -65,7 +65,7 @@
         },
         {
             "description": "ECMA 262 named groups and backreferences are valid",
-            "compatibility": "<=3,7",
+            "compatibility": "<=3,7,<=2020",
             "tags": ["format-assertion"],
             "schema": {
                 "format": "regex"
@@ -85,7 +85,7 @@
         },
         {
             "description": "ECMA 262 lookbehind is valid, including variable width",
-            "compatibility": "<=3,7",
+            "compatibility": "<=3,7,<=2020",
             "tags": ["format-assertion"],
             "schema": {
                 "format": "regex"
@@ -100,7 +100,7 @@
         },
         {
             "description": "ECMA 262 character classes and escapes",
-            "compatibility": "<=3,7",
+            "compatibility": "<=3,7,<=2020",
             "tags": ["format-assertion"],
             "schema": {
                 "format": "regex"
