@@ -42,15 +42,15 @@
             ]
         },
         {
-            "description": "ipv4 format annotation",
+            "description": "ip-address format annotation",
             "compatibility": "<=3",
             "tags": ["format-annotation"],
             "schema": {
-                "format": "ipv4"
+                "format": "ip-address"
             },
             "tests": [
                 {
-                    "description": "invalid ipv4 string is only an annotation by default",
+                    "description": "invalid ip-address string is only an annotation by default",
                     "data": "127.0.0.0.1",
                     "valid": true
                 }

@@ -46,7 +46,7 @@
             "compatibility": "<=3",
             "tags": ["format-annotation"],
             "schema": {
-                "format": "ipv4"
+                "format": "color"
             },
             "tests": [
                 {
