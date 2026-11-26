@@ -85,6 +85,12 @@
                     "valid": true
                 },
                 {
+                    "description": "the Max UUID (all ones) is valid",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc9562#section-5.10",
+                    "data": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                    "valid": true
+                },
+                {
                     "description": "wrong length",
                     "data": "2eb8aa08-aa98-11ea-b4aa-73b441d1638",
                     "valid": false
@@ -135,8 +141,21 @@
                     "valid": true
                 },
                 {
-                    "description": "hypothetical version 6",
-                    "data": "99c17cbb-656f-664a-940f-1a4568f03487",
+                    "description": "valid version 6",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc9562#appendix-A.5",
+                    "data": "1ec9414c-232a-6b00-b3c8-9f6bdeced846",
+                    "valid": true
+                },
+                {
+                    "description": "valid version 7",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc9562#appendix-A.6",
+                    "data": "017f22e2-79b0-7cc3-98c4-dc0c0c07398f",
+                    "valid": true
+                },
+                {
+                    "description": "valid version 8",
+                    "comment": "https://www.rfc-editor.org/rfc/rfc9562#appendix-A.7",
+                    "data": "2489e9ad-2ee2-8e00-8ec9-32d5f69181c0",
                     "valid": true
                 },
                 {
@@ -175,7 +194,7 @@
                     "valid": false
                 },
                 {
-                    "description": "a variant nibble not defined by RFC 4122 is valid",
+                    "description": "a variant nibble not defined by RFC 9562 is valid",
                     "data": "2eb8aa08-aa98-11ea-f4aa-73b441d16380",
                     "valid": true
                 }
