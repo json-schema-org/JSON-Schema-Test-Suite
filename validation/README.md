@@ -127,7 +127,7 @@ case is compatible with draft-03 only, plus draft-07 through 2020-12.
 
 **Example**: `"compatibility": "=3,7,<=2020"`
 
-Contraints can be open ended on both ends. This example indicates that the test
+Constraints can be open ended on both ends. This example indicates that the test
 case is compatible up to draft-03 and draft-07 and later.
 
 **Example**: `"compatibility": "<=3,7"`
