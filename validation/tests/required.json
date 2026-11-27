@@ -203,6 +203,23 @@
                     "valid": true
                 }
             ]
+        },
+        {
+            "description": "required with an empty string property name",
+            "compatibility": "4",
+            "schema": { "required": [""] },
+            "tests": [
+                {
+                    "description": "property present",
+                    "data": { "": 1 },
+                    "valid": true
+                },
+                {
+                    "description": "property absent",
+                    "data": { "foo": 1 },
+                    "valid": false
+                }
+            ]
         }
     ]
 }

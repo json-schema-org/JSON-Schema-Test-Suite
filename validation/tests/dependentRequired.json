@@ -334,6 +334,70 @@
                     "valid": false
                 }
             ]
+        },
+        {
+            "description": "dependencies with an empty string property name",
+            "compatibility": "2019",
+            "schema": {
+                "dependentRequired": {
+                    "": ["foo"],
+                    "bar": [""]
+                }
+            },
+            "tests": [
+                {
+                    "description": "empty name with its dependent",
+                    "data": { "": 1, "foo": 2 },
+                    "valid": true
+                },
+                {
+                    "description": "empty name missing its dependent",
+                    "data": { "": 1 },
+                    "valid": false
+                },
+                {
+                    "description": "empty name dependent present",
+                    "data": { "bar": 1, "": 2, "foo": 3 },
+                    "valid": true
+                },
+                {
+                    "description": "empty name dependent missing",
+                    "data": { "bar": 1 },
+                    "valid": false
+                }
+            ]
+        },
+        {
+            "description": "dependencies with an empty string property name (dependencies)",
+            "compatibility": "3,<=7",
+            "schema": {
+                "dependencies": {
+                    "": ["foo"],
+                    "bar": [""]
+                }
+            },
+            "tests": [
+                {
+                    "description": "empty name with its dependent",
+                    "data": { "": 1, "foo": 2 },
+                    "valid": true
+                },
+                {
+                    "description": "empty name missing its dependent",
+                    "data": { "": 1 },
+                    "valid": false
+                },
+                {
+                    "description": "empty name dependent present",
+                    "data": { "bar": 1, "": 2, "foo": 3 },
+                    "valid": true
+                },
+                {
+                    "description": "empty name dependent missing",
+                    "data": { "bar": 1 },
+                    "valid": false
+                }
+            ]
         }
     ]
 }
