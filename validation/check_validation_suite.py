@@ -54,6 +54,11 @@ VALIDATION_SCHEMA_PATH = ROOT_DIR / "validation-test-schema.json"
 
 DIALECT_ORDER = ["3", "4", "6", "7", "2019", "2020"]
 
+# Releases a compatibility constraint can name: the dialects above, plus 9999
+# for features that are in the specification but not yet in a release.
+COMPATIBILITY_VERSIONS = [*DIALECT_ORDER, "9999"]
+COMPATIBILITY_CONSTRAINT = re.compile(r"(?P<operator><=|=)?(?P<version>\d+)")
+
 ALLOWED_SCHEMA_FILES = {
     'vocabulary.json',
     'format-assertion.json'
@@ -74,6 +79,30 @@ UNKNOWN_KEYWORD_TEST_CASES = {
         ("http://localhost:1234/draft2019-09/ignore-prefixItems.json", "prefixItems"),
     },
 }
+
+
+def check_compatibility(compatibility: str) -> None:
+    """
+    Raise ValueError unless compatibility is a comma-separated list of
+    constraints on known releases, ordered smallest to largest, as the
+    README describes.
+    """
+    previous = None
+    for constraint in compatibility.split(","):
+        match = COMPATIBILITY_CONSTRAINT.fullmatch(constraint)
+        if not match or match.group("version") not in COMPATIBILITY_VERSIONS:
+            raise ValueError(
+                f"Invalid compatibility string: {compatibility!r} "
+                f"({constraint!r} isn't a constraint on one of "
+                f"{', '.join(COMPATIBILITY_VERSIONS)})"
+            )
+        version = int(match.group("version"))
+        if previous is not None and version <= previous:
+            raise ValueError(
+                f"Invalid compatibility string: {compatibility!r} "
+                f"(constraints must be ordered smallest to largest)"
+            )
+        previous = version
 
 
 def dialect_applies(compatibility: str | None, target: int) -> bool:
@@ -450,6 +479,34 @@ class JSONLoadingChecks(unittest.TestCase):
                     load(path)
 
 
+class CompatibilityChecks(unittest.TestCase):
+    def test_accepts_the_documented_forms(self):
+        for compatibility in (
+            "7", "<=2019", "6,<=2019", "=2020", "=3,7,<=2020", "<=3,7",
+            "9999", "4,<=6,9999",
+        ):
+            with self.subTest(compatibility=compatibility):
+                check_compatibility(compatibility)
+
+    def test_rejects_malformed_constraints(self):
+        for compatibility in ("", "4,", ",4", "4x", "x4", ">=4", "<4", " 4"):
+            with self.subTest(compatibility=compatibility):
+                with self.assertRaises(ValueError):
+                    check_compatibility(compatibility)
+
+    def test_rejects_unknown_releases(self):
+        for compatibility in ("5", "<=2021", "7,<=2018", "=0"):
+            with self.subTest(compatibility=compatibility):
+                with self.assertRaises(ValueError):
+                    check_compatibility(compatibility)
+
+    def test_rejects_constraints_out_of_order(self):
+        for compatibility in ("4,<=6,3", "<=6,4", "4,<=4", "9999,7"):
+            with self.subTest(compatibility=compatibility):
+                with self.assertRaises(ValueError):
+                    check_compatibility(compatibility)
+
+
 @unittest.skipIf(jsonschema is None, "jsonschema library not installed")
 class SchemaKeywordsChecks(unittest.TestCase):
     def test_finds_keywords_in_nested_subschemas(self):
@@ -679,10 +736,11 @@ class ValidationSuiteChecks(unittest.TestCase):
     def test_compatibility_syntax_is_valid(self):
         for path in self.test_files:
             for i, case in enumerate(load_cases(path)):
-                compat = case.get("compatibility", "")
+                if "compatibility" not in case:
+                    continue
                 with self.subTest(file=path.name, case=case.get("description", i)):
                     try:
-                        dialect_applies(compat, 9999)
+                        check_compatibility(case["compatibility"])
                     except ValueError as e:
                         self.fail(str(e))
 
